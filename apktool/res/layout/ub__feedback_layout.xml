@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:text="@string/title" />
+    <com.ubercab.ui.EditText android:id="@id/ub__title_edittext" android:nextFocusDown="@id/ub__description_edittext" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/title_hint" android:singleLine="true" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:text="@string/description" />
+    <com.ubercab.ui.EditText android:id="@id/ub__description_edittext" android:nextFocusDown="@id/ub__subscribers_edittext" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/description_hint" android:maxLines="3" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:text="@string/subscribers" />
+    <com.ubercab.ui.EditText android:id="@id/ub__subscribers_edittext" android:nextFocusDown="@id/ub__team_edittext" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/subscribers_hint" android:singleLine="true" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:text="@string/team" />
+    <com.ubercab.ui.EditText android:id="@id/ub__team_edittext" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/team_hint" android:singleLine="true" android:editable="false" android:inputType="none" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/ub__receipt_octane_no_fare_info_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:paddingBottom="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/ub__receipt_no_fare" />
+    <com.ubercab.ui.TextView android:layout_gravity="center" android:id="@id/ub__receipt_octane_no_fare_info_header" android:paddingBottom="@dimen/ui__spacing_unit_3x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_6x" android:layout_marginRight="@dimen/ui__spacing_unit_6x" android:text="@string/receipt_no_fare_info_text" style="@style/Style.Rider.Octane.ReceiptDialog.NoFare.Title" />
+    <com.ubercab.ui.TextView android:layout_gravity="center" android:id="@id/ub__receipt_octane_no_fare_info_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_5x" android:layout_marginRight="@dimen/ui__spacing_unit_5x" android:text="@string/receipt_no_fare_info_subtext" style="@style/Style.Rider.Octane.ReceiptDialog.NoFare.Label" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="?android:selectableItemBackground" android:padding="@dimen/ub__partner_funnel_padding_list_cell" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:id="@id/ub__partner_funnel_bgc_legal_title_textview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/ub__partner_funnel_row_arrow_imageview" style="@style/Uber.Partner.Funnel.TextAppearance.Legal.Title" />
+    <com.ubercab.ui.TextView android:id="@id/ub__partner_funnel_bgc_legal_description_textview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__partner_funnel_textspacing_h4" android:layout_toLeftOf="@id/ub__partner_funnel_row_arrow_imageview" android:layout_below="@id/ub__partner_funnel_bgc_legal_title_textview" style="@style/Uber.Partner.Funnel.TextAppearance.Legal.Description" />
+    <ImageView android:id="@id/ub__partner_funnel_row_arrow_imageview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__partner_funnel_row_right_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

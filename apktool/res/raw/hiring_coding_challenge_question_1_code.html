@@ -1,0 +1,22 @@
+<font color="#00ffff"><b>function</b></font> <font color="#00ff00"><b>computeRoutes</b></font>(<br>
+&nbsp;&nbsp;riders, route, used, n) {<br>
+&nbsp;&nbsp;<font color="#00ffff"><b>if</b></font> (n <font color="#ff6060"><b>==</b></font> riders.length) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00ff00"><b>saveRoute</b></font>(route);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00ffff"><b>return</b></font>;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<font color="#00ffff"><b>for</b></font> (<font color="#00ffff"><b>var</b></font> i <font color="#ff6060"><b>=</b></font> 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i <font color="#ff6060"><b>&lt;</b></font> riders.length;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i<font color="#ff6060"><b>++</b></font>) {<br>  
+&nbsp;&nbsp;<font color="#00ffff"><b>if</b></font> (used[i]) <font color="#00ffff"><b>continue</b></font>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;route.<font color="#00ff00"><b>push</b></font>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;riders[i].location);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;used[i] <font color="#ff6060"><b>=</b></font> true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00ff00"><b>computeRoutes</b></font>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;riders,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;route,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n <font color="#ff6060"><b>+</b></font> <font><b>1</b></font>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;used[i] <font color="#ff6060"><b>=</b></font> false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;route.<font color="#00ff00"><b>pop</b></font>();<br>
+&nbsp;&nbsp;}<br>
+}

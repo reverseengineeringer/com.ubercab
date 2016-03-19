@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:paddingBottom="@dimen/ub__partner_funnel_step_standard_footer_margin" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.android.partner.funnel.onboarding.view.StepStandardHeaderLayout android:id="@id/ub__partner_funnel_step_standard_header" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__partner_funnel_step_standard_description" />
+        </LinearLayout>
+    </ScrollView>
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0" layout="@layout/ub__partner_funnel_step_standard_footer" />
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/ub__margin_medium" android:paddingRight="@dimen/ub__margin_medium" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Switch android:textAppearance="@style/Style.Rider.TextAppearance.ListItem" android:id="@id/ub__contact_sync_settings_switch" android:layout_width="fill_parent" android:layout_height="@dimen/ub__settings_item_height" android:text="@string/sync_contacts" />
+    <View android:background="@drawable/ub__header_line_secondary_light_grey_bg" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginBottom="12.0dip" />
+    <com.ubercab.ui.TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/sync_contacts_description" style="@style/Uber.TextAppearance.Byline" />
+    <com.ubercab.ui.TextView android:textSize="12.0sp" android:gravity="top" android:id="@id/ub__contact_sync_settings_learn_more" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/learn_more" style="@style/Style.Rider.Button.Link" />
+    <LinearLayout android:gravity="bottom|center" android:orientation="vertical" android:id="@id/ub__contact_sync_settings_remove_footer" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:textSize="@dimen/ub__text_size_micro" android:textColor="@color/ub__uber_black_80" android:id="@id/ub__contact_sync_settings_timestamp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="4.0dip" />
+        <com.ubercab.ui.TextView android:id="@id/ub__contact_sync_settings_remove" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/remove_stored_contacts" style="@style/Style.Rider.TextAppearance.FooterNote.Link" />
+    </LinearLayout>
+</LinearLayout>

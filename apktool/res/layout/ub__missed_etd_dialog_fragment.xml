@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@color/ub__white" android:paddingLeft="@dimen/ub__padding_extra_large" android:paddingTop="@dimen/ub__padding_large" android:paddingRight="@dimen/ub__padding_extra_large" android:paddingBottom="@dimen/ub__padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:textStyle="bold" android:textColor="@color/ub__white" android:id="@id/ub__missed_etd_credit_amount_text" android:background="@drawable/ub__blue_rounded_background" android:padding="@dimen/ub__estimated_time_to_destination_small_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__margin_small" style="@style/Uber.TextAppearance.H2" />
+        <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__margin_medium" android:textAllCaps="true" fontPath="@string/ub__font_narrow_book" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__margin_small">
+                <com.ubercab.ui.TextView android:textSize="@dimen/ub__estimated_time_to_destination_missed_etd_large_text_size" android:textStyle="bold" android:textColor="@color/ub__uber_black_40" android:id="@id/ub__missed_etd_schedued_time_text" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Uber.TextAppearance.H4" />
+                <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_micro" android:textColor="@color/ub__uber_black_40" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAllCaps="true" style="@style/Uber.TextAppearance.Byline" />
+            </LinearLayout>
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__ic_etd_eta_arrow" />
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__margin_small">
+                <com.ubercab.ui.TextView android:textSize="@dimen/ub__estimated_time_to_destination_missed_etd_large_text_size" android:textStyle="bold" android:id="@id/ub__missed_etd_estimated_time_text" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Uber.TextAppearance.H4" />
+                <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_micro" android:textColor="@color/ub__uber_black_40" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAllCaps="true" style="@style/Uber.TextAppearance.Byline" />
+            </LinearLayout>
+        </LinearLayout>
+        <View android:background="@color/ub__uber_white_40" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginBottom="@dimen/ub__margin_medium" />
+        <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_micro" android:textColor="@color/ub__missed_etd_alert_color" android:id="@id/ub__missed_etd_late_time_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawableLeft="@drawable/ub__ic_etd_modal_late_icon" android:drawablePadding="@dimen/ub__discount_padding_small" android:textAllCaps="true" style="@style/Uber.TextAppearance.Byline" />
+    </LinearLayout>
+    <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__missed_etd_bottom_message_text" android:background="@color/ub__uber_white_20" android:padding="@dimen/ub__padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.TextAppearance.Byline" />
+</LinearLayout>

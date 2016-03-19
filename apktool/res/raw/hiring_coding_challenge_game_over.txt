@@ -1,0 +1,11 @@
+GGGGG    A    M   M  EEEEE
+G       A A   MM MM  E
+G  GG  AAAAA  M M M  EEEE
+G   G  A   A  M   M  E
+GGGGG  A   A  M   M  EEEEE
+
+ OOO   V   V  EEEEE  RRRRR
+O   O  V   V  E      R   R
+O   O  V   V  EEEE   RRRRR
+O   O   V V   E      R  R
+ OOO     V    EEEEE  R   R

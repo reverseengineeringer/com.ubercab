@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.core.ui.EtdPinView android:id="@id/ub__pin_view_etd2" style="@style/Style.Rider.Trip.Etd.PinView"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

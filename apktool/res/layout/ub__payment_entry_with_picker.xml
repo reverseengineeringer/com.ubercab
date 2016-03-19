@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ub__payment_paytm_add_minimum_funds_for_next_ride" android:layout_weight="6.0" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textStyle="bold" android:textColor="@color/ub__uber_black_100" android:gravity="right" android:id="@id/ub__paytm_minimum_funds_amount" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="5.0" />
+    </LinearLayout>
+    <RadioGroup android:orientation="horizontal" android:id="@id/ub__paytm_amount_picker_radio_group" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RadioButton android:id="@id/ub__paytm_minimum_amount_button" android:layout_marginRight="@dimen/ui__spacing_unit_1x" style="@style/Style.Paytm.Button.AmountPicker" />
+        <RadioButton android:id="@id/ub__paytm_suggested_amount_button" android:layout_marginRight="@dimen/ui__spacing_unit_1x" style="@style/Style.Paytm.Button.AmountPicker" />
+        <RadioButton android:id="@id/ub__paytm_add_funds_later" android:text="@string/ub__payment_paytm_pay_suggested_amount_later" android:textAllCaps="true" style="@style/Style.Paytm.Button.AmountPicker" />
+    </RadioGroup>
+    <View android:id="@id/ub__paytm_placeholder" android:layout_width="fill_parent" android:layout_height="@dimen/ui__spacing_unit_2x" />
+    <TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__red" android:id="@id/ub__paytm_add_funds_warning" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</merge>

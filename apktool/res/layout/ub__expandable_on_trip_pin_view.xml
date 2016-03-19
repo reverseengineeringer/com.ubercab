@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.core.ui.ExpandablePinView android:orientation="horizontal" android:id="@id/ub__expandable_pin_view" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.client.core.ui.FloatingCallOutView android:id="@id/ub__expandable_pin_view_floating_callout_view_left" android:visibility="gone" android:layout_marginTop="@dimen/ub__estimated_time_to_destination_floating_callout_top_margin_etd_pin" android:layout_marginRight="@dimen/ub__estimated_time_to_destination_floating_callout_margin_to_etd_pin" style="@style/Style.Rider.Etd.FloatingCallOut" />
+    <com.ubercab.client.core.ui.EtdPinView android:id="@id/ub__expandable_pin_view_pin_view_etd2" style="@style/Style.Rider.Trip.Etd.PinView" />
+    <com.ubercab.client.core.ui.FloatingCallOutView android:id="@id/ub__expandable_pin_view_floating_callout_view_right" android:visibility="gone" android:layout_marginLeft="@dimen/ub__estimated_time_to_destination_floating_callout_margin_to_etd_pin" android:layout_marginTop="@dimen/ub__estimated_time_to_destination_floating_callout_top_margin_etd_pin" style="@style/Style.Rider.Etd.FloatingCallOut" />
+</com.ubercab.client.core.ui.ExpandablePinView>

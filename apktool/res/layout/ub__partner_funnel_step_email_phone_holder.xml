@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:id="@id/ub__endorsements_flow_manual_input_root_layout" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.EditText android:id="@id/ub__endorsements_flow_email_holder_reference" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:layout_weight="1.0" android:inputType="textNoSuggestions" />
+    <com.ubercab.ui.TextView android:textSize="@dimen/ub__partner_funnel_endorsement_flow_invalid_text_size" android:textColor="@color/ub__partner_funnel_endorsement_flow_invalid_text_color" android:id="@id/ub__endorsements_flow_invalid_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</merge>

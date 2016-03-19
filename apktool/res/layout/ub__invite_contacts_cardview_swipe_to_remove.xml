@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.card.view.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" card_view:cardBackgroundColor="@color/ub__uber_white_10" card_view:cardUseCompatPadding="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="@dimen/ub__invite_contacts_list_card_height">
+        <ImageView android:background="@drawable/ub__invite_contact_swipe_hand" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.ubercab.ui.TextView android:textColor="@color/ub__uber_white_100" android:gravity="center" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/invite_contacts_swipe_left_to_remove" style="@style/Uber.TextAppearance.Byline" />
+    </LinearLayout>
+</com.ubercab.ui.card.view.CardView>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/ub__trip_view_tray_contact_button_frame" android:layout_height="@dimen/ub__trip_tray_contact_section_height" style="@style/Style.Rider.Trip.Section"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View style="@style/Style.Rider.Trip.Contact.Spacer" />
+    <com.ubercab.ui.Button android:textSize="@dimen/ub__trip_tray_contact_button_text_size" android:textColor="@color/ub__uber_black_60" android:layout_gravity="center|top" android:id="@id/ub__trip_tray_contact_button" android:background="@drawable/ub__trip_container" android:layout_width="0.0dip" android:layout_height="@dimen/ub__trip_tray_contact_height" android:text="@string/contact" android:includeFontPadding="false" android:layout_weight="@integer/ub__trip_tray_contact_button_weight" android:textAllCaps="true" fontPath="@string/ub__font_narrow_medium" />
+    <View style="@style/Style.Rider.Trip.Contact.Spacer" />
+</LinearLayout>

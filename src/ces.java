@@ -1,0 +1,22 @@
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentMethodActivity;
+
+public final class ces
+  implements DialogInterface.OnClickListener
+{
+  public ces(PaymentMethodActivity paramPaymentMethodActivity) {}
+  
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  {
+    PaymentMethodActivity.g(a).t();
+    PaymentMethodActivity.h(a);
+  }
+}
+
+/* Location:
+ * Qualified Name:     ces
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

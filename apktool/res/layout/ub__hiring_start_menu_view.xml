@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.client.feature.hiring.TypeWriterTextView android:textColor="@color/ub__white" android:id="@id/ub__hiring_start_menu_message_textview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:includeFontPadding="false" />
+    <RelativeLayout android:id="@id/ub__hiring_start_menu_choices" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:textColor="@color/ub__hiring_coding_challenge_blue" android:id="@id/ub__hiring_start_menu_no_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hiring_menu_no" android:includeFontPadding="false" android:textAllCaps="true" />
+        <com.ubercab.ui.TextView android:textColor="@color/ub__hiring_coding_challenge_blue" android:id="@id/ub__hiring_start_menu_yes_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hiring_menu_yes" android:includeFontPadding="false" android:layout_centerHorizontal="true" android:textAllCaps="true" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/ub__container_full_normal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_3x" android:layout_marginBottom="@dimen/ui__spacing_unit_3x" android:src="@drawable/ub__digital_discount" />
+    <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_100" android:layout_gravity="center" android:id="@id/ub__digital_upsell_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/digital_upsell_title" style="@style/Uber.TextAppearance.H1" />
+    <com.ubercab.ui.TextView android:gravity="center" android:layout_gravity="center" android:id="@id/ub__digital_upsell_body" android:paddingLeft="@dimen/ui__spacing_unit_6x" android:paddingRight="@dimen/ui__spacing_unit_6x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_3x" android:layout_marginBottom="@dimen/ui__spacing_unit_3x" android:text="@string/digital_upsell_body" />
+    <View android:background="@color/ub__uber_black_40" android:layout_width="fill_parent" android:layout_height="@dimen/ub__capacity_change_divider_width" />
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/ub__button_height">
+        <com.ubercab.ui.Button android:gravity="center" android:id="@id/ub__digital_upsell_cancel_button" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/stay_with_cash" android:layout_weight="1.0" style="@style/Style.Rider.Widget.DialogButton" />
+        <View android:background="@color/ub__uber_black_40" android:layout_width="@dimen/ub__capacity_change_divider_width" android:layout_height="fill_parent" />
+        <com.ubercab.ui.Button android:gravity="center" android:id="@id/ub__digital_upsell_accept_button" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/use_digital" android:layout_weight="1.0" style="@style/Style.Rider.Widget.DialogButton.Positive" />
+    </LinearLayout>
+</LinearLayout>

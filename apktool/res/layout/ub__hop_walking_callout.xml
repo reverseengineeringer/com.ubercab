@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.map.layer.hop.HopWalkingCalloutView android:background="@drawable/ub__hop_pickup_pin" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textSize="@dimen/ub__hop_walking_callout_title_text_size" android:textColor="@color/ub__uber_white_100" android:id="@id/ub__hop_walking_callout_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAllCaps="true" />
+    <com.ubercab.ui.TextView android:textSize="@dimen/ub__hop_walking_callout_eta_text_size" android:textColor="@color/ub__white" android:id="@id/ub__hop_walking_callout_vehicle_eta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/ub__hop_walking_callout_title" android:textAllCaps="true" />
+</com.ubercab.client.feature.trip.map.layer.hop.HopWalkingCalloutView>

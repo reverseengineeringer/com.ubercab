@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.commute.DispatchCommuteView android:orientation="horizontal" android:id="@id/ub__trip_commute_dispatch_view" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:layout_gravity="center_vertical" android:id="@id/ub__trip_commute_dispatch_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/commute_dispatch_toggle_message" android:layout_weight="1.0" />
+    <Switch android:layout_gravity="center_vertical" android:id="@id/ub__trip_commute_dispatch_switch" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</com.ubercab.client.feature.trip.commute.DispatchCommuteView>

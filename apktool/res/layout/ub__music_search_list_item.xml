@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ub__music_search_item_imageview" android:layout_width="@dimen/ub__music_search_image_side" android:layout_height="@dimen/ub__music_search_image_side" android:layout_margin="@dimen/ub__container_margin" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="@dimen/ub__music_search_image_side" android:layout_marginTop="@dimen/ub__container_margin" android:layout_marginBottom="@dimen/ub__container_margin">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.ListItemMain" android:ellipsize="end" android:id="@id/ub__music_search_item_first_line" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:maxLines="1" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.ListItemSecondary" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ub__music_search_item_second_line" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__music_search_item_margin" android:maxLines="1" />
+    </LinearLayout>
+</LinearLayout>

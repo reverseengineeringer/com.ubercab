@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <com.ubercab.ui.deprecated.view.FixedWidthSlidingTabLayout android:textAppearance="@style/Uber.TextAppearance.P" android:id="@id/ub__fapiao_trip_type_sliding_tabs" android:background="@color/ub__uber_white_20" android:layout_width="fill_parent" android:layout_height="wrap_content" android:foreground="@drawable/ub__shadow" uber:slidingTabLayoutTabBackground="@drawable/ub__tab_background_white" />
+    <android.support.v4.view.ViewPager android:id="@id/ub__fapiao_trip_type_viewpager" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:id="@id/ub__fapiao_available_trips" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <FrameLayout android:id="@id/ub__fapiao_requested_trips" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </android.support.v4.view.ViewPager>
+</merge>

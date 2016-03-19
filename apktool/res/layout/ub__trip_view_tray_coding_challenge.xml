@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.tray.TrayCodingChallengeLayout android:id="@id/ub__coding_challenge_tray_content" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Style.Rider.Trip.Section.TopBorder"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/ub__trip_view_tray_coding_challenge" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__hiring_coding_challenge_view_trip_tray" />
+</com.ubercab.client.feature.trip.tray.TrayCodingChallengeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:id="@id/ub__hiring_challenge_margin_textview" android:paddingLeft="@dimen/ui__spacing_unit_1x" android:paddingTop="@dimen/ui__spacing_unit_2x" android:layout_width="@dimen/ui__spacing_unit_5x" android:layout_height="wrap_content" android:includeFontPadding="false" />
+    <ImageView android:id="@id/ub__hiring_coding_challenge_scroll_arrow" android:background="@color/ub__black" android:paddingTop="@dimen/ui__spacing_unit_1x" android:visibility="gone" android:layout_width="@dimen/ui__spacing_unit_5x" android:layout_height="wrap_content" android:src="@drawable/ub__hiring_coding_challenge_scroll_arrow" />
+    <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_5x" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <View android:background="@color/ub__white" android:layout_width="1.0dip" android:layout_height="fill_parent" />
+        <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/ub__hiring_challenge_score_header" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x">
+                <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:id="@id/ub__hiring_challenge_question_timer_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hiring_coding_challenge_time" android:includeFontPadding="false" android:textAllCaps="true" />
+                <com.ubercab.ui.TextView android:textColor="@color/ub__yellow" android:id="@id/ub__hiring_challenge_question_timer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_toRightOf="@id/ub__hiring_challenge_question_timer_label" />
+                <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:id="@id/ub__hiring_challenge_score_counter" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_alignParentRight="true" android:textAllCaps="true" />
+                <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:id="@id/ub__hiring_challenge_header_divider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:layout_below="@id/ub__hiring_challenge_question_timer" />
+                <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:id="@id/ub__hiring_challenge_header_question_number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_below="@id/ub__hiring_challenge_header_divider" />
+            </RelativeLayout>
+            <FrameLayout android:id="@id/ub__hiring_challenge_content_container" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

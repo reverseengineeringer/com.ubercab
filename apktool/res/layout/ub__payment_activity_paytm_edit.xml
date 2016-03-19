@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.payment.internal.ui.ContentLoadingView android:id="@id/ub__payment_content_loading" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="#ffeeeeee" android:padding="@dimen/ui__spacing_unit_2x" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginBottom="@dimen/ui__spacing_unit_3x" android:src="@drawable/ub__payment_logo_paytm" android:scaleType="fitCenter" android:contentDescription="@string/ub__payment_paytm" />
+        <com.ubercab.ui.card.view.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" app:cardUseCompatPadding="true">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/ub__payment_divider_card" android:showDividers="middle">
+                <LinearLayout android:orientation="vertical" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_90" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__payment_add_funds_current_balance" app:fontPath="@string/ub__font_narrow_medium" />
+                    <com.ubercab.ui.TextView android:textSize="@dimen/ub__payment_text_size_huge" android:textColor="@color/ub__green" android:id="@id/ub__payment_textview_balance" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+                <com.ubercab.ui.Button android:textColor="@color/ub__uber_blue_100" android:gravity="start|center" android:id="@id/ub__payment_paytm_edit_button_add_funds" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__payment_add_funds" style="@style/Widget.AppCompat.Button.Borderless" />
+            </LinearLayout>
+        </com.ubercab.ui.card.view.CardView>
+        <com.ubercab.ui.card.view.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" app:cardUseCompatPadding="true">
+            <LinearLayout android:orientation="vertical" android:id="@id/ub__payment_layout_details" android:padding="@dimen/ui__spacing_unit_2x" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_90" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__payment_associated_number" app:fontPath="@string/ub__font_narrow_medium" />
+                <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_60" android:id="@id/ub__payment_textview_number" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" />
+            </LinearLayout>
+        </com.ubercab.ui.card.view.CardView>
+    </LinearLayout>
+</com.ubercab.payment.internal.ui.ContentLoadingView>

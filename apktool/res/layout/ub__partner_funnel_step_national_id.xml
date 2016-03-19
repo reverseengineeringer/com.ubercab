@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__partner_funnel_step_standard_header" />
+            <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__partner_funnel_step_standard_input" />
+            <com.ubercab.ui.TextView android:id="@id/ub__partner_funnel_national_id_legal_disclaimer_textview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__partner_funnel_step_standard_header_margin_small" android:layout_marginRight="@dimen/ub__partner_funnel_step_standard_header_margin_small" style="@style/Uber.Partner.Funnel.TextAppearance.Legal.Description" />
+        </LinearLayout>
+    </ScrollView>
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0" layout="@layout/ub__partner_funnel_step_standard_footer" />
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/ub__trip_route_textview_pickup" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__rds__spacing_unit_small" android:singleLine="true" android:drawableLeft="@drawable/ub__route_pickup_dot" android:drawablePadding="@dimen/ui__spacing_unit_1x" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/ub__trip_route_textview_dropoff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:drawableLeft="@drawable/ub__route_dropoff_dot" android:drawablePadding="@dimen/ui__spacing_unit_1x" />
+</merge>

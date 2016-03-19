@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.addressbook.InviteContactsBannerView android:id="@id/ub__trip_tray_contacts_banner" android:layout_width="fill_parent" android:layout_height="@dimen/ub__trip_tray_collapsed_item_height_small_with_shadow" android:layout_alignParentBottom="true" style="@style/Style.Rider.Trip.Section.Banner"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:id="@id/ub__invite_banner_textview_free_rides" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/trip_tray_free_rides" style="@style/Style.Rider.Trip.BannerText" />
+    <com.ubercab.ui.TextView android:id="@id/ub__invite_banner_textview_invite" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/Style.Rider.Trip.BannerText" />
+</com.ubercab.client.feature.addressbook.InviteContactsBannerView>

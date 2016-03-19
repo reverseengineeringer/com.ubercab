@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/ub__partner_funnel_signup_viewgroup_content" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <FrameLayout android:id="@id/ub__partner_funnel_polymorphism_viewgroup_header" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:id="@id/ub__partner_funnel_polymorphism_image_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@color/ub__uber_black_80" android:adjustViewBounds="true" />
+                <LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/ui__spacing_unit_4x" android:paddingTop="@dimen/ub__partner_funnel_ui_spacing_unit_7x" android:paddingRight="@dimen/ui__spacing_unit_4x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.ubercab.ui.TextView android:id="@id/ub__partner_funnel_polymorphism_header_text_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:text="@string/ub__partner_funnel_drive_with_uber" style="@style/Uber.Partner.Funnel.TextAppearance.Giga.Light" />
+                    <com.ubercab.android.partner.funnel.onboarding.view.ChecklistLayout android:id="@id/ub__partner_funnel_checklist_viewgroup" android:layout_width="fill_parent" android:layout_height="wrap_content" uber:partnerFunnelItemTextViewLayout="@layout/ub__partner_funnel_step_upgrade_checkitem" />
+                </LinearLayout>
+            </FrameLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/ub__partner_funnel_signup_form_viewgroup_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__padding_medium" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ub__padding_medium" />
+            <com.ubercab.ui.Button android:id="@id/ub__partner_funnel_signup_button_continue" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__padding_medium" android:layout_marginTop="@dimen/ub__padding_small" android:layout_marginRight="@dimen/ub__padding_medium" android:layout_marginBottom="@dimen/ub__partner_funnel_spacing_unit_0x" android:text="@string/ub__partner_funnel_continue_str" style="@style/Uber.Partner.Funnel.Widget.Button.Accent" />
+            <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_small" android:id="@id/ub__partner_funnel_signup_textview_legal_disclaimer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__padding_medium" style="@style/Uber.TextAppearance.P" />
+        </LinearLayout>
+    </ScrollView>
+</merge>

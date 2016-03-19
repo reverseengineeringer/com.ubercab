@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/ub__partner_funnel_skip_footer_background" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_1x">
+        <com.ubercab.ui.Button android:id="@id/ub__partner_funnel_step_footer_continue_button" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:layout_weight="1.0" style="@style/Uber.Widget.Button.Accent" />
+        <com.ubercab.ui.TextView android:gravity="center" android:layout_gravity="center" android:id="@id/ub__partner_funnel_step_footer_skip_button" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_margin="@dimen/ub__partner_funnel_padding_action_button" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:layout_weight="1.0" style="@style/Uber.Partner.Funnel.TextAppearance.H6.Blue" />
+    </LinearLayout>
+</LinearLayout>

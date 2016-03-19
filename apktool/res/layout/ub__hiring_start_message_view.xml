@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.hiring.TypeWriterTextView android:textColor="@color/ub__white" android:id="@id/ub__hiring_start_message_textview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:includeFontPadding="false"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

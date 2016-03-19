@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/ub__map_tooltip_background_radius" />
+    <solid android:color="@color/ub__black" />
+    <padding android:left="@dimen/ub__map_tooltip_background_horizontal_padding" android:top="@dimen/ub__map_tooltip_background_vertical_padding" android:right="@dimen/ub__map_tooltip_background_horizontal_padding" android:bottom="@dimen/ub__map_tooltip_background_vertical_padding" />
+</shape>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/ub__onboarding_officehours_bar" android:background="@color/ub__uber_black_80" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Funnel.TextAppearance.OfficeHours.Bar" android:gravity="start|center" android:id="@id/ub__onboarding_officehours_bar_text" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__partner_funnel_need_help_visit_us" android:layout_toRightOf="@id/ub__onboarding_officehours_bar_icon" android:layout_toEndOf="@id/ub__onboarding_officehours_bar_icon" />
+    <ImageView android:id="@id/ub__onboarding_officehours_bar_icon" android:layout_width="@dimen/ui__icon_large" android:layout_height="@dimen/ui__icon_large" android:src="@drawable/ub__partner_funnel_ic_pointer" android:scaleType="fitCenter" android:layout_alignTop="@id/ub__onboarding_officehours_bar_text" android:layout_alignBottom="@id/ub__onboarding_officehours_bar_text" />
+    <View android:background="@color/ub__uber_blue_80" android:layout_width="fill_parent" android:layout_height="@dimen/ub__partner_funnel_officehours_bar_highlight" android:layout_below="@id/ub__onboarding_officehours_bar_icon" />
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="end|bottom|center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/ub__footer_overlay_shadow" android:background="@drawable/ub__shadow_footer" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="3.0dip" />
+    <LinearLayout android:orientation="vertical" android:id="@id/ub__footer_overlay" android:background="@color/ub__white" android:padding="@dimen/ub__margin_medium" android:visibility="invisible" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__margin_medium">
+            <ImageView android:id="@id/ub__footer_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ub__padding_medium" android:src="@drawable/ub__icon_location" android:contentDescription="@null" />
+            <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/ub__dialog_button_side_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.ubercab.ui.TextView android:textAppearance="@style/Style.Rider.TextAppearance.FooterOverlay.Title" android:id="@id/ub__footer_overlay_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/set_pickup_location_faster" />
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:id="@id/ub__footer_overlay_description" android:paddingTop="@dimen/ub__padding_small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/location_permissions_turn_on_message" />
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.Button android:id="@id/ub__footer_overlay_button_negative" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ub__margin_small" android:text="@string/not_now" android:layout_toLeftOf="@id/ub__footer_overlay_button_positive" style="@style/Uber.Widget.DialogButton" />
+            <com.ubercab.ui.Button android:id="@id/ub__footer_overlay_button_positive" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ok" android:layout_alignParentRight="true" style="@style/Uber.Widget.Button.Accent" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

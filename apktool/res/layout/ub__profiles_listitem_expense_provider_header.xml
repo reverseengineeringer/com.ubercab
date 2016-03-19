@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ub__profiles_listitem_expense_provider" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:paddingTop="@dimen/ui__spacing_unit_3x" android:paddingBottom="@dimen/ui__spacing_unit_3x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/expense_provider_activity_header" style="@style/Uber.TextAppearance.Byline" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H4" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="@dimen/ub__profiles_expense_integrations_list_header_height" android:text="@string/select_your_platform" android:textAllCaps="true" />
+</LinearLayout>

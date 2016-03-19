@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/ub__corner_radius_default" />
+    <solid android:color="@color/ub__uber_blue_100" />
+    <stroke android:width="1.0dip" android:color="@color/ub__uber_blue_120" />
+</shape>

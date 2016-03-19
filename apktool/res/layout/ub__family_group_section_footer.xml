@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_60" android:id="@id/ub__profiles_settings_profiles_textview_explanation" android:padding="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" style="@style/Uber.TextStyle.Byline"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

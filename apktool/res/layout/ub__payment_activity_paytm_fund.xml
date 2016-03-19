@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.payment.internal.ui.ContentLoadingView android:id="@id/ub__paytm_content_loading" android:layout_width="fill_parent" android:layout_height="fill_parent" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_4x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_4x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/ub__paytm_viewgroup_balance" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x">
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H4" android:textColor="@color/ub__uber_black_100" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/ub__payment_current_balance" />
+                <com.ubercab.ui.TextView android:textSize="@dimen/ub__payment_text_size_huge" android:textColor="@color/ub__green" android:gravity="center" android:id="@id/ub__paytm_textview_balance" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawablePadding="10.0dip" />
+            </LinearLayout>
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:gravity="center" android:id="@id/ub__paytm_textview_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" />
+            <com.ubercab.ui.Button android:id="@id/ub__paytm_button_suggested" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" style="@style/Uber.Widget.Button.Accent" />
+            <com.ubercab.ui.Button android:id="@id/ub__paytm_button_custom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__payment_change_amount" style="@style/Style.Payment.Button.Link" />
+        </LinearLayout>
+    </ScrollView>
+</com.ubercab.payment.internal.ui.ContentLoadingView>

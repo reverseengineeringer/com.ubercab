@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.tray.TrayContactLayout android:orientation="horizontal" android:id="@id/ub__trip_tray_contact_section" android:clipChildren="false" android:layout_height="@dimen/ub__trip_tray_contact_section_height" style="@style/Style.Rider.Trip.Section"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="@dimen/ub__trip_tray_contact_section_height">
+        <include layout="@layout/ub__trip_view_tray_contact_button_layout" />
+        <include layout="@layout/ub__trip_view_tray_contact_banner_layout" />
+        <include layout="@layout/ub__trip_view_tray_contact_badge_layout" />
+    </FrameLayout>
+</com.ubercab.client.feature.trip.tray.TrayContactLayout>

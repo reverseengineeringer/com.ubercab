@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/ub__family_listitem_add_member" android:background="@drawable/ub__listitem_background_selector" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:minHeight="?android:listPreferredItemHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ub__family_listitem_add_member_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__add_icon" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P.ListItem" android:textColor="@color/ub__uber_blue_120" android:layout_gravity="center_vertical" android:id="@id/ub__family_listitem_add_member_text" android:paddingLeft="@dimen/ui__spacing_unit_3x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/add_family_member" />
+</LinearLayout>

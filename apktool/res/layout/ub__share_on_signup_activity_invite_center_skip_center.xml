@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/ub__share_on_signup_invite_center_skip_center" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.Button android:id="@id/ub__share_on_signup_button_connect" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/connect_contacts" style="@style/Uber.Widget.Button.Primary" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H2" android:textStyle="bold" android:gravity="center" android:id="@id/ub__share_on_signup_textview_skip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/skip_for_now" android:layout_below="@id/ub__share_on_signup_button_connect" style="@style/Style.Rider.Button.Link" />
+    <com.ubercab.ui.TextView android:gravity="center" android:layout_gravity="center" android:id="@id/ub__share_on_signup_textview_legal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/invite_contacts_find_friends_permission" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/Uber.TextStyle.Byline" />
+</RelativeLayout>

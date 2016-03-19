@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="@style/Uber.TextAppearance.P" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ub__payment_paytm_add_minimum_funds_for_next_ride" android:layout_weight="1.0" />
+        <Switch android:id="@id/ub__paytm_custom_amount_switch" android:layout_width="wrap_content" android:layout_height="10.0dip" android:checked="true" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/ub__paytm_add_funds_edittext_container" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.payment.internal.ui.CurrencyEditText android:textAppearance="@style/Uber.TextAppearance.P" android:textStyle="bold" android:textColor="@color/ub__black" android:id="@id/ub__paytm_edittext_amount" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="numberDecimal" android:imeOptions="actionDone" app:currencySymbol="@string/ub__india_rupee_symbol" style="@style/Uber.Widget.EditText" />
+        <TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__red" android:id="@id/ub__paytm_add_funds_minimum_required" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__red" android:id="@id/ub__paytm_add_funds_warning" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</merge>

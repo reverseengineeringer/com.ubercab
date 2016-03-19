@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:paddingBottom="@dimen/ub__partner_funnel_step_standard_footer_margin" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.ubercab.android.partner.funnel.onboarding.view.StepStandardHeaderLayout android:id="@id/ub__endorsements_flow_step_standard_header" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <com.ubercab.ui.TextView android:id="@id/ub__endorsements_flow_more_text" android:paddingLeft="@dimen/ub__partner_funnel_step_standard_header_margin_small" android:paddingRight="@dimen/ub__partner_funnel_step_standard_header_margin_small" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__partner_funnel_endorsement_lines_margin" style="@style/Uber.Partner.Funnel.TextAppearance.Step.EndorsementsDescription" />
+            <com.ubercab.ui.TextView android:id="@id/ub__endorsements_flow_learn_more" android:paddingLeft="@dimen/ub__partner_funnel_step_standard_header_margin_small" android:paddingRight="@dimen/ub__partner_funnel_step_standard_header_margin_small" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.Partner.Funnel.TextAppearance.Step.EndorsementsLink" />
+        </LinearLayout>
+    </ScrollView>
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0" layout="@layout/ub__partner_funnel_step_standard_footer_with_skip" />
+</LinearLayout>

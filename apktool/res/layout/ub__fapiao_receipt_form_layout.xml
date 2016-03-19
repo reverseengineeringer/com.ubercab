@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:padding="@dimen/ui__spacing_unit_2x" android:focusableInTouchMode="true" android:descendantFocusability="beforeDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/ub__fapiao_receipt_form_imageview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/ub__fapiao_illustration" />
+        <TextView android:textAppearance="@style/Uber.TextAppearance.P" android:gravity="center" android:id="@id/ub__fapiao_receipt_form_reminder" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_1x" android:text="@string/ub__rds__fapiao_receipt_form_reminder" />
+        <com.ubercab.ui.FloatingLabelEditText android:id="@id/ub__fapiao_receipt_form_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:imeOptions="actionDone" uber:floatingLabelLabelText="@string/ub__rds__fapiao_receipt_title" />
+        <com.ubercab.ui.FloatingLabelEditText android:id="@id/ub__fapiao_receipt_form_receiver_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:imeOptions="actionDone" uber:floatingLabelLabelText="@string/ub__rds__fapiao_receipt_receiver_address" />
+        <com.ubercab.ui.FloatingLabelEditText android:id="@id/ub__fapiao_receipt_form_receiver" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:imeOptions="actionDone" uber:floatingLabelLabelText="@string/ub__rds__fapiao_receipt_receiver" />
+        <com.ubercab.ui.FloatingLabelEditText android:id="@id/ub__fapiao_receipt_form_receiver_phone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:imeOptions="actionDone" uber:floatingLabelLabelText="@string/ub__rds__fapiao_receipt_receiver_phone" />
+        <com.ubercab.ui.Button android:id="@id/ub__fapiao_receipt_form_next_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:text="@string/ub__rds__fapiao_receipt_form_submit_request" style="@style/Uber.Widget.Button.Accent" />
+    </LinearLayout>
+</ScrollView>

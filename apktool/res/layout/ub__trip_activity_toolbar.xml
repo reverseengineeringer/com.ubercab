@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.Toolbar android:layout_width="fill_parent" android:layout_height="?actionBarSize" android:minHeight="?actionBarSize" style="?attr/toolbarStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textSize="18.0sp" android:textColor="@android:color/black" android:gravity="center" android:id="@id/ub__trip_activity_toolbar_title" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="56.0dip" fontPath="@string/ub__font_news" />
+</com.ubercab.ui.Toolbar>

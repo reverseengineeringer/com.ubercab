@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.TextView android:id="@id/ub__partner_funnel_step_description_textview" android:paddingLeft="@dimen/ub__partner_funnel_step_standard_header_margin_small" android:paddingRight="@dimen/ub__partner_funnel_step_standard_header_margin_small" android:paddingBottom="@dimen/ub__partner_funnel_step_standard_header_margin" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.Partner.Funnel.TextAppearance.Step.Description"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

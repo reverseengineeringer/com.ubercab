@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transition
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ub__partner_funnel_doc_edu_blur" />
+    <item android:drawable="@drawable/ub__partner_funnel_doc_edu_blur_check" />
+</transition>

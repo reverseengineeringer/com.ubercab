@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ub__chat_avatar" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.CircleImageView android:layout_gravity="center" android:id="@id/ub__chat_driver_picture" android:layout_width="@dimen/ui__avatar_small" android:layout_height="@dimen/ui__avatar_small" android:layout_margin="@dimen/ui__spacing_unit_1x" />
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H1" android:id="@id/ub__chat_driver_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H3" android:id="@id/ub__chat_driver_vehicle" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

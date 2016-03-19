@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.rds.feature.view.CheckableTripContextView android:id="@id/ub__fapiao_card_header_trip_view" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.ubercab.rds.feature.view.TripRouteView android:id="@id/ub__fapiao_card_trip_route_view" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

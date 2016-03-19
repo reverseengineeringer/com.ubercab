@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.collection.RecyclerView android:scrollbarStyle="outsideOverlay" android:id="@id/ub__partner_funnel_step_recyclerview" android:background="@color/ub__uber_white_20" android:paddingBottom="@dimen/ub__partner_funnel_option_margin" android:scrollbars="vertical" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" />
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0" layout="@layout/ub__partner_funnel_step_standard_footer" />
+</LinearLayout>

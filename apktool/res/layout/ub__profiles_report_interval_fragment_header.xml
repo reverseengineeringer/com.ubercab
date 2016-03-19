@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_4x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:id="@id/ub__report_interval_header" android:text="@string/profiles_on_boarding_reports_title" style="@style/Style.Rider.Profiles.ProfilesOnboardingHeader" />
+    <com.ubercab.ui.TextView android:id="@id/ub__report_interval_explanation" android:text="@string/travel_reports_onboarding_explanation" style="@style/Style.Rider.Profiles.ProfilesOnboardingByline" />
+</LinearLayout>

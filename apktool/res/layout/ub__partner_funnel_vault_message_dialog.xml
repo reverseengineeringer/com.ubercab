@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/ub__dialog_padding_top" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/ub__vault_image_dialog" android:layout_width="fill_parent" android:layout_height="@dimen/ub__partner_funnel_dialog_vault_icon_size" />
+    <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__vault_textview_dialog_title" android:paddingLeft="@dimen/ub__dialog_padding_sides" android:paddingTop="@dimen/ub__padding_medium" android:paddingRight="@dimen/ub__dialog_padding_sides" android:paddingBottom="@dimen/ub__partner_funnel_dialog_vault_title_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.Partner.Funnel.TextAppearance.H1" />
+    <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__vault_textview_dialog_message" android:paddingLeft="@dimen/ub__dialog_padding_sides" android:paddingRight="@dimen/ub__dialog_padding_sides" android:paddingBottom="@dimen/ub__dialog_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.Partner.Funnel.TextAppearance.Byline" />
+    <include layout="@layout/ub__dialog_button_divider" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="?android:dividerVertical" android:showDividers="middle" style="?android:buttonBarStyle">
+        <com.ubercab.ui.Button android:id="@id/ub__vault_button_dialog_neutral" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ub__partner_funnel_continue_str" android:layout_weight="1.0" style="@style/Uber.Widget.DialogButton.Positive" />
+    </LinearLayout>
+</LinearLayout>

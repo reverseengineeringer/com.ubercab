@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ub__receipt_octane_edittext_comment_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.EditText android:id="@id/ub__receipt_octane_edittext_comment" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.EditText" />
+    <com.ubercab.ui.Button android:layout_gravity="bottom|center" android:id="@id/ub__receipt_octane_comment_support_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/need_help" style="@style/Uber.Widget.Button.Supporting" />
+</LinearLayout>

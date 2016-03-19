@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:id="@id/ub__hiring_challenge_scroll_view" android:background="@color/ub__black" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

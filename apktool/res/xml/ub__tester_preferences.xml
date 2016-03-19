@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="@string/ub__tester_key_preference_screen"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/ub__tester_category_flags">
+        <ListPreference android:persistent="false" android:entries="@array/ub__tester_experiment_manager_type_entries" android:title="@string/ub__tester_title_experiment_manager_type" android:key="@string/ub__tester_key_experiment_manager_type" android:entryValues="@array/ub__tester_experiment_manager_type_values" />
+    </PreferenceCategory>
+</PreferenceScreen>

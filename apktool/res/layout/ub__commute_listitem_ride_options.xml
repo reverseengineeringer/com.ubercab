@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/ub__commute_linear_layout_ride_option" android:background="@drawable/ub__listitem_background_selector" android:paddingLeft="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="@dimen/ub__listitem_height" android:minHeight="@dimen/ub__listitem_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ub__commute_image_view_ride_option" android:layout_width="@dimen/ub__music_provider_icon_size" android:layout_height="@dimen/ub__music_provider_icon_size" android:layout_marginTop="@dimen/ub__list_item_padding" android:layout_marginRight="@dimen/ub__padding_small" android:layout_marginBottom="@dimen/ub__list_item_padding" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Style.Rider.TextAppearance.ListItem" android:gravity="center|left" android:layout_gravity="center|left" android:id="@id/ub__commute_text_view_ride_option" android:paddingTop="@dimen/ub__list_item_padding" android:paddingBottom="@dimen/ub__list_item_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+</LinearLayout>

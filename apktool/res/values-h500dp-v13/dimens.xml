@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ub__add_payment_coachmark_height">150.0dip</dimen>
+    <dimen name="ub__add_payment_coachmark_padding">36.0dip</dimen>
+    <dimen name="ub__add_payment_subtitle_margin">20.0dip</dimen>
+    <dimen name="ub__octane_receipt_comment_bar_height">40.0dip</dimen>
+    <dimen name="ub__octane_receipt_feedback_button_height">28.0dip</dimen>
+    <dimen name="ub__octane_receipt_rate_trip_lable_bottom_padding">24.0dip</dimen>
+    <dimen name="ub__octane_receipt_ratingbar_bottom_margin">32.0dip</dimen>
+    <dimen name="ub__octane_receipt_ratingbar_layout_height">240.0dip</dimen>
+    <dimen name="ub__octane_receipt_skip_button_height">48.0dip</dimen>
+    <dimen name="ub__octane_receipt_submit_button_height">48.0dip</dimen>
+</resources>

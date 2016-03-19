@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:paddingTop="@dimen/ub__dialog_padding_top" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/ub__online_comfirm_offline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x" android:src="@drawable/ub__profiles_on_boarding_dialog_briefcase" />
+    <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__online_textview_dialog_confirm_title" android:paddingLeft="@dimen/ub__dialog_padding_sides" android:paddingRight="@dimen/ub__dialog_padding_sides" android:paddingBottom="@dimen/ub__dialog_padding_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/riding_for_business" style="@style/Uber.TextAppearance.H2" />
+    <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__online_textview_dialog_confirm" android:paddingLeft="@dimen/ub__dialog_padding_sides" android:paddingRight="@dimen/ub__dialog_padding_sides" android:paddingBottom="@dimen/ub__dialog_padding_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/riding_for_business_byline" style="@style/Uber.TextAppearance.Byline" />
+    <include layout="@layout/ub__dialog_button_divider" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/ui__spacing_unit_6x" style="?android:buttonBarStyle">
+        <com.ubercab.ui.Button android:id="@id/ub__profiles_on_boarding_button_dialog_confirm_negative" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="0.0dip" android:layout_height="@dimen/ui__spacing_unit_6x" android:text="@string/no_thanks" android:layout_weight="1.0" android:textAllCaps="true" style="@style/Uber.Widget.DialogButton" />
+        <View android:background="@color/ub__uber_white_80" android:layout_width="1.0px" android:layout_height="fill_parent" android:minHeight="@dimen/ub__dialog_padding_bottom" />
+        <com.ubercab.ui.Button android:id="@id/ub__profiles_on_boarding_button_dialog_confirm_positive" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="0.0dip" android:layout_height="@dimen/ui__spacing_unit_6x" android:text="@string/onboarding_get_started" android:layout_weight="1.0" android:textAllCaps="true" style="@style/Uber.Widget.DialogButton.Positive" />
+    </LinearLayout>
+</LinearLayout>

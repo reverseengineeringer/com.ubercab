@@ -1,0 +1,9 @@
+public abstract interface ckt
+  extends ckp
+{}
+
+/* Location:
+ * Qualified Name:     ckt
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

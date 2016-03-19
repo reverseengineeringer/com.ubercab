@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.hop.HopPickerView android:background="@drawable/ub__container_top_normal" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__container_margin" android:minHeight="@dimen/ub__container_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:gravity="center_horizontal" android:id="@android:id/empty" android:padding="@dimen/ub__margin_medium" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <RelativeLayout android:id="@id/ub__hop_picker_non_empty" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:id="@id/ub__hop_picker_top" android:layout_width="fill_parent" android:layout_height="@dimen/ub__hop_route_picker_button_height">
+            <FrameLayout android:id="@id/ub__hop_picker_left_touch" android:background="?selectableItemBackground" android:paddingLeft="@dimen/ub__hop_route_picker_button_padding" android:paddingRight="@dimen/ub__hop_route_picker_button_padding" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <ImageView android:layout_gravity="center" android:id="@id/ub__hop_picker_left_button" android:background="@drawable/ub__icon_small_arrow_selector" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" android:rotation="180.0" />
+            </FrameLayout>
+            <RelativeLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__hop_picker_route_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true" style="@style/Style.Rider.Hop.Picker.Title" />
+                <com.ubercab.client.feature.hop.HopPageIndicator android:id="@id/ub__hop_picker_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__hop_route_picker_divider_margin" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+            <FrameLayout android:id="@id/ub__hop_picker_right_touch" android:background="?selectableItemBackground" android:paddingLeft="@dimen/ub__hop_route_picker_button_padding" android:paddingRight="@dimen/ub__hop_route_picker_button_padding" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <ImageView android:layout_gravity="center" android:id="@id/ub__hop_picker_right_button" android:background="@drawable/ub__icon_small_arrow_selector" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" />
+            </FrameLayout>
+        </LinearLayout>
+        <View android:id="@id/ub__hop_picker_separator" android:background="@color/ub__uber_black_40" android:layout_width="fill_parent" android:layout_height="@dimen/ub__hop_route_picker_divider_size" android:layout_below="@id/ub__hop_picker_top" />
+        <com.ubercab.ui.TextView android:layout_gravity="center" android:id="@id/ub__hop_picker_route_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__hop_route_picker_divider_margin" android:layout_marginBottom="@dimen/ub__hop_route_picker_divider_margin" android:layout_below="@id/ub__hop_picker_separator" android:layout_centerHorizontal="true" style="@style/Style.Rider.Hop.Picker.Subtitle" />
+    </RelativeLayout>
+</com.ubercab.client.feature.hop.HopPickerView>

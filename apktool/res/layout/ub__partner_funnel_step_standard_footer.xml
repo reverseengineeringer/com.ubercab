@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/ub__uber_white_20" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/ub__uber_white_80" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <CheckBox android:layout_gravity="center" android:id="@id/ub__partner_funnel_step_footer_agree_checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__partner_funnel_padding_action_button" style="@style/Uber.Partner.Funnel.TextAppearance.Step.Checkbox" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__partner_funnel_padding_action_button">
+        <com.ubercab.ui.Button android:id="@id/ub__partner_funnel_step_footer_secondary_action_button" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__partner_funnel_padding_action_button" android:layout_weight="1.0" style="@style/Uber.Widget.Button.Secondary" />
+        <com.ubercab.ui.Button android:id="@id/ub__partner_funnel_step_footer_action_button" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__partner_funnel_padding_action_button" android:layout_weight="1.0" style="@style/Uber.Widget.Button.Accent" />
+    </LinearLayout>
+</LinearLayout>

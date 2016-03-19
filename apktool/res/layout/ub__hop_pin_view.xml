@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.map.layer.hop.HopPinView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/ub__hop_pin_popup" android:background="@drawable/ub__hop_pin_view_popup_container" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:id="@id/ub__hop_pin_popup_content" style="@style/Style.Rider.Hop.Pin.Popup.Content" />
+        <com.ubercab.ui.TextView android:id="@id/ub__hop_pin_popup_footer" style="@style/Style.Rider.Hop.Pin.Popup.Footer" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/ub__hop_pin_container" android:layout_width="@dimen/ub__hop_pin_foot_width" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__hop_pin_foot_margin_top">
+        <ImageView android:id="@id/ub__hop_pin_popup_triangle" android:layout_width="@dimen/ub__hop_pin_foot_width" android:layout_height="@dimen/ub__hop_pin_foot_triangle_height" android:src="@drawable/ub__farequote_triangle_white" android:scaleType="fitXY" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@id/ub__hop_pin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</com.ubercab.client.feature.trip.map.layer.hop.HopPinView>

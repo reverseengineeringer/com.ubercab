@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:id="@id/ub__trip_header_checkbox_select" android:background="@null" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__uber_black_60" android:id="@id/ub__trip_header_textview_trip_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__uber_black_100" android:gravity="end" android:id="@id/ub__trip_header_textview_amount" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+</merge>

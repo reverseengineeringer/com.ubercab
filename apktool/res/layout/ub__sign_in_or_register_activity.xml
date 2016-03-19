@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.launch.refresh.SignInOrRegisterLayout android:id="@id/ub__sign_in_or_register_layout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <com.ubercab.android.svg.view.SvgGridPatternView android:id="@id/ub__svg_grid" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.ubercab.android.svg.view.atom.AtomEmitterView android:id="@id/ub__atom_view" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:background="@color/ub__transparent" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:orientation="vertical" android:id="@id/ub__image_bit_container" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center" android:id="@id/ub__image_bit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:contentDescription="@string/ub__empty" />
+        </FrameLayout>
+        <LinearLayout android:gravity="center_horizontal" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/ub__magic_button_panel" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="@dimen/ub__new_magic_sheet_height" android:layout_weight="0.0">
+            <com.ubercab.ui.Button android:ellipsize="none" android:id="@id/ub__magic_button_signin" android:layout_width="0.0dip" android:layout_height="@dimen/ub__new_magic_button_height" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/sign_in_title" android:layout_weight="1.0" uber:autoShrink="true" style="@style/Style.Rider.Refresh.Button.Secondary" />
+            <com.ubercab.ui.Button android:ellipsize="none" android:id="@id/ub__magic_button_register" android:layout_width="0.0dip" android:layout_height="@dimen/ub__new_magic_button_height" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/register" android:layout_weight="1.0" uber:autoShrink="true" style="@style/Style.Rider.Refresh.Button.Primary" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:layout_gravity="center" android:id="@id/ub__sign_in_or_register_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__splash_screen_icon" />
+    <FrameLayout android:orientation="vertical" android:id="@id/ub__magic_viewgroup_employee" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:layout_gravity="end" android:id="@id/ub__magic_button_employee" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__employee_settings" style="@style/Style.Rider.TextView.Link.White" />
+    </FrameLayout>
+</com.ubercab.client.feature.launch.refresh.SignInOrRegisterLayout>

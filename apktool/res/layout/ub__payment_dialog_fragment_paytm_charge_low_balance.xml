@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/ui__spacing_unit_3x" android:paddingTop="@dimen/ui__spacing_unit_3x" android:paddingRight="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x">
+        <ImageView android:layout_gravity="center_vertical" android:layout_width="72.0dip" android:layout_height="wrap_content" android:src="@drawable/ub__payment_logo_paytm" android:contentDescription="@string/ub__payment_paytm" />
+        <TextView android:textSize="@dimen/ub__text_size_medium" android:textColor="@color/ub__red" android:gravity="right" android:layout_gravity="center_vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ub__payment_low_balance" android:layout_weight="1.0" />
+    </LinearLayout>
+    <TextView android:textColor="@color/ub__button_secondary_text" android:id="@id/ub__paytm_textview_message" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

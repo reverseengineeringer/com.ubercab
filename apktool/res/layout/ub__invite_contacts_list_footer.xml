@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:paddingTop="@dimen/ui__spacing_unit_3x" android:paddingBottom="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <com.ubercab.client.core.ui.LoadingWithTextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:layout_gravity="center" android:id="@id/ub__invite_contacts_textview_loading" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" uber:text="@string/finding_more_friends" />
+    <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__invite_contacts_textview_finished_loading" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/invite_contacts_check_back_for_more_matches" style="@style/Uber.TextAppearance.Byline" />
+</FrameLayout>

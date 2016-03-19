@@ -1,0 +1,52 @@
+.class public abstract Lcom/ubercab/rider/realtime/request/body/AcceptFareSplitBody;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation runtime Lcom/ubercab/shape/Shape;
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 9
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static create()Lcom/ubercab/rider/realtime/request/body/AcceptFareSplitBody;
+    .locals 1
+
+    .prologue
+    .line 13
+    new-instance v0, Lcom/ubercab/rider/realtime/request/body/Shape_AcceptFareSplitBody;
+
+    invoke-direct {v0}, Lcom/ubercab/rider/realtime/request/body/Shape_AcceptFareSplitBody;-><init>()V
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public abstract getExtraPaymentData()Lcom/ubercab/rider/realtime/request/body/ExtraPaymentData;
+.end method
+
+.method public abstract getPaymentProfileId()Ljava/lang/String;
+.end method
+
+.method public abstract getUseCredits()Z
+.end method
+
+.method public abstract setExtraPaymentData(Lcom/ubercab/rider/realtime/request/body/ExtraPaymentData;)Lcom/ubercab/rider/realtime/request/body/AcceptFareSplitBody;
+.end method
+
+.method public abstract setPaymentProfileId(Ljava/lang/String;)Lcom/ubercab/rider/realtime/request/body/AcceptFareSplitBody;
+.end method
+
+.method public abstract setUseCredits(Z)Lcom/ubercab/rider/realtime/request/body/AcceptFareSplitBody;
+.end method

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="pool_capacity_seats">
+        <item quantity="other">@string/pool_capacity_seats_other</item>
+        <item quantity="zero">@string/pool_capacity_seats_zero</item>
+        <item quantity="one">@string/pool_capacity_seats_one</item>
+        <item quantity="two">@string/pool_capacity_seats_two</item>
+        <item quantity="few">@string/pool_capacity_seats_few</item>
+        <item quantity="many">@string/pool_capacity_seats_many</item>
+    </plurals>
+    <plurals name="rating_bar_stars_content_description">
+        <item quantity="other">@string/rating_bar_stars_content_description__other</item>
+        <item quantity="zero">@string/rating_bar_stars_content_description__zero</item>
+        <item quantity="one">@string/rating_bar_stars_content_description__one</item>
+        <item quantity="two">@string/rating_bar_stars_content_description__two</item>
+        <item quantity="few">@string/rating_bar_stars_content_description__few</item>
+        <item quantity="many">@string/rating_bar_stars_content_description__many</item>
+    </plurals>
+    <plurals name="share_your_ride_message_with_eta_to_destination">
+        <item quantity="other">@string/share_your_ride_message_with_eta_to_destination__other</item>
+        <item quantity="zero">@string/share_your_ride_message_with_eta_to_destination__zero</item>
+        <item quantity="one">@string/share_your_ride_message_with_eta_to_destination__one</item>
+        <item quantity="two">@string/share_your_ride_message_with_eta_to_destination__two</item>
+        <item quantity="few">@string/share_your_ride_message_with_eta_to_destination__few</item>
+        <item quantity="many">@string/share_your_ride_message_with_eta_to_destination__many</item>
+    </plurals>
+</resources>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.ContactPicker.P.White" android:gravity="center" android:background="@drawable/ub__contact_picker_token_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

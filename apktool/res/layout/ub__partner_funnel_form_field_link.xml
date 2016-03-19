@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.Button android:gravity="center" android:id="@id/ub__form_field_link_label" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__padding_small" style="@style/Uber.Partner.Funnel.Widget.Button.Secondary"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

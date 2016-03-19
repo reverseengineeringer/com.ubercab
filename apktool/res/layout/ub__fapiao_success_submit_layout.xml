@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/ub__fapiao_success_submit_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_3x" android:src="@drawable/ub__fapiao_success" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__uber_black_100" android:gravity="center" android:id="@id/ub__fapiao_success_submit_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_3x" android:text="@string/ub__rds__fapiao_success_submit_message" />
+    </LinearLayout>
+    <com.ubercab.ui.Button android:layout_gravity="bottom" android:id="@id/ub__fapiao_success_submit_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x" android:text="@string/ub__rds__ok" android:layout_alignParentBottom="true" style="@style/Uber.Widget.Button.Accent" />
+</FrameLayout>

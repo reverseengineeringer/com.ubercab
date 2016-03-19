@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.card.view.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" card_view:cardBackgroundColor="@color/ub__uber_white_10" card_view:cardUseCompatPadding="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="@dimen/ub__invite_contacts_list_card_height">
+        <com.ubercab.ui.CircleImageView android:layout_gravity="center" android:background="@drawable/ub__invite_contact_placeholder_avatar" android:layout_width="@dimen/ui__avatar_xsmall" android:layout_height="@dimen/ui__avatar_xsmall" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <View android:background="@color/ub__uber_white_40" android:layout_width="@dimen/ub__invite_contacts_placeholder_name_width" android:layout_height="@dimen/ub__invite_contacts_placeholder_height" android:layout_marginBottom="@dimen/ub__invite_contacts_placeholder_padding" />
+            <View android:background="@color/ub__uber_white_40" android:layout_width="@dimen/ub__invite_contacts_placeholder_contact_width" android:layout_height="@dimen/ub__invite_contacts_placeholder_height" />
+        </LinearLayout>
+        <View android:layout_gravity="center" android:background="@drawable/ub__invite_contact_button_invite_placeholder" android:layout_width="@dimen/ub__invite_contacts_cta_button_width" android:layout_height="@dimen/ub__button_height_small" android:layout_marginRight="@dimen/ui__spacing_unit_2x" />
+    </LinearLayout>
+</com.ubercab.ui.card.view.CardView>

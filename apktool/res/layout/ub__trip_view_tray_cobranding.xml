@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.tray.TrayCobrandingLayout android:layout_gravity="center_vertical" android:layout_height="@dimen/ub__trip_tray_collapsed_item_height_large" style="@style/Style.Rider.Trip.Section.TopBorder"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:id="@id/ub__cobranding_main_content_view" android:background="@drawable/ub__listitem_background_selector" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ub__cobranding_main_text_linear_layout" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_centerInParent="true">
+            <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_80" android:ellipsize="end" android:layout_gravity="center" android:id="@id/ub__cobranding_title_textview" android:padding="@dimen/ub__trip_tray_cobranding_title_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLength="@integer/ub__trip_tray_cobranding_title_max_characters" style="@style/Uber.TextAppearance.Byline" />
+            <com.ubercab.ui.TextView android:id="@id/ub__cobranding_message_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Style.Rider.Trip.Cobranding.MessageText" />
+        </LinearLayout>
+        <ImageView android:id="@id/ub__cobranding_logo_image_view" android:layout_width="@dimen/ub__trip_tray_cobranding_logo_image_width" android:layout_height="@dimen/ub__trip_tray_cobranding_logo_image_height" android:layout_marginRight="@dimen/ub__trip_tray_cobranding_logo_margin_right" android:scaleType="centerInside" android:layout_toLeftOf="@id/ub__cobranding_main_text_linear_layout" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</com.ubercab.client.feature.trip.tray.TrayCobrandingLayout>

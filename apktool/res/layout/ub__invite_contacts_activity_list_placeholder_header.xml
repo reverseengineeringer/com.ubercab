@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.card.view.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" card_view:cardBackgroundColor="@color/ub__white" card_view:cardUseCompatPadding="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="@dimen/ub__invite_contacts_list_card_height">
+        <com.ubercab.ui.TextView android:gravity="left" android:layout_gravity="center" android:id="@id/ub__invite_contacts_textview_header_card" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/invite_contacts_find_friends" android:layout_weight="1.0" style="@style/Uber.TextStyle.Byline" />
+        <FrameLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.ubercab.ui.Button android:id="@id/ub__invite_contacts_button_list_connect" android:layout_width="@dimen/ub__invite_contacts_cta_button_width" android:layout_height="wrap_content" android:text="@string/connect" style="@style/Uber.Widget.Button.Accent.Small" />
+            <ProgressBar android:layout_gravity="center" android:id="@id/ub__invite_contacts_list_progress_bar_connect" android:visibility="invisible" android:layout_width="@dimen/ub__invite_contacts_cta_button_width" android:layout_height="@dimen/ub__button_height_small" android:indeterminate="true" />
+        </FrameLayout>
+    </LinearLayout>
+</com.ubercab.ui.card.view.CardView>

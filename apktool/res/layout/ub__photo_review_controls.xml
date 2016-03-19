@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ub__photo_review_imageview" android:layout_width="fill_parent" android:layout_height="0.0dip" android:scaleType="centerCrop" android:layout_weight="1.0" />
+    <com.ubercab.ui.TextView android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/ub__photo_review_hint_textview" android:padding="@dimen/ui__spacing_unit_1x" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:maxWidth="@dimen/ub__hint_text_max_width" style="@style/Uber.TextAppearance.P" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.Button android:id="@id/ub__photo_review_dismiss_button" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:text="@string/ub__photo__retake" android:layout_weight="0.5" style="@style/Uber.Widget.Button.Secondary" />
+        <com.ubercab.ui.Button android:enabled="false" android:id="@id/ub__photo_review_accept_button" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:text="@string/ub__photo__save" android:layout_weight="0.5" style="@style/Uber.Widget.Button.Primary" />
+    </LinearLayout>
+</merge>

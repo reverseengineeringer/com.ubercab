@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:padding="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__uber_black_100" android:id="@id/ub__cancellations_title_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_1x" />
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:id="@id/ub__cancellations_body_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_1x" />
+            <com.ubercab.ui.card.view.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_1x">
+                <LinearLayout android:orientation="vertical" android:id="@id/ub__reasons_viewgroup" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            </com.ubercab.ui.card.view.CardView>
+            <com.ubercab.ui.Button android:layout_gravity="center_horizontal" android:id="@id/ub__cancellations_policy_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x" android:text="@string/ub__rds__cancellations_policy" style="@style/Uber.Widget.Button.Supporting" />
+            <com.ubercab.ui.Button android:enabled="false" android:id="@id/ub__cancellations_submit_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_1x" android:text="@string/ub__rds__submit" style="@style/Uber.Widget.Button.Primary" />
+        </LinearLayout>
+    </ScrollView>
+</merge>

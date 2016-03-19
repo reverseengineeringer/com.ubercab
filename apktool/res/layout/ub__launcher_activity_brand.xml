@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.android.svg.view.SvgGridPatternView android:id="@id/ub__svg_grid" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.ubercab.client.feature.launch.refresh.AppIconBackgroundView android:layout_gravity="center" android:id="@id/ub__icon_background" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__splash_screen_icon" />
+</FrameLayout>

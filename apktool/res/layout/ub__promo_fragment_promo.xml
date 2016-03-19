@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/ub__promo_viewgroup_content" android:padding="@dimen/ub__list_item_padding" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.ubercab.ui.EditText android:id="@id/ub__promo_edittext_code" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__list_item_padding" android:hint="@string/enter_promo_code" android:singleLine="true" android:inputType="textNoSuggestions" android:imeOptions="actionGo" />
+        <com.ubercab.ui.Button android:id="@id/ub__promo_button_apply" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/apply" style="@style/Uber.Widget.Button.Primary" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/ub__promo_viewgroup_share_rides" android:background="@drawable/ub__promotions_share_rides_background_selector" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__promo_share_icon" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <com.ubercab.ui.TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/promotions_want_free_rides" style="@style/Style.Rider.TextAppearence.Link.Title" />
+                <com.ubercab.ui.TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/promotions_invite_your_friends" style="@style/Style.Rider.TextAppearence.Link.Subtitle" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <ProgressBar android:layout_gravity="center" android:id="@id/ub__promo_progressbar_loading" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminate="true" />
+</FrameLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:id="@id/ub__hiring_question_content_textview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:includeFontPadding="false" />
+    <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:id="@id/ub__hiring_question_content_divider_textview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:maxLines="1" android:includeFontPadding="false" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/ub__hiring_tap_line_code_container" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <include layout="@layout/ub__hiring_tap_submit_view" />
+    </FrameLayout>
+</LinearLayout>

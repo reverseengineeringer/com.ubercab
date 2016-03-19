@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <shape>
+            <corners android:radius="1.0dip" />
+            <stroke android:width="1.0dip" android:color="@color/ub__uber_blue_120" />
+        </shape>
+    </item>
+    <item android:state_checked="false" android:state_pressed="false">
+        <shape>
+            <corners android:radius="1.0dip" />
+            <stroke android:width="1.0dip" android:color="@color/ub__uber_black_40" />
+        </shape>
+    </item>
+    <item android:state_checked="false" android:state_pressed="true">
+        <shape>
+            <corners android:radius="1.0dip" />
+            <solid android:color="@color/ub__uber_white_20" />
+            <stroke android:width="1.0dip" android:color="@color/ub__uber_black_40" />
+        </shape>
+    </item>
+</selector>

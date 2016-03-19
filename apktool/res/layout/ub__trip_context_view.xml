@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.CircleImageView android:id="@id/ub__trip_context_imageview_avatar" android:layout_width="@dimen/ub__rds__trip_card_driver_image" android:layout_height="@dimen/ub__rds__trip_card_driver_image" android:layout_marginRight="@dimen/ui__spacing_unit_2x" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__rds__spacing_unit_small">
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__uber_black_100" android:ellipsize="end" android:id="@id/ub__trip_context_textview_date" android:layout_width="@dimen/ub__rds__auto_size" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:singleLine="true" android:layout_weight="1.0" />
+            <ImageView android:id="@id/ub__trip_context_imageview_surge" android:visibility="gone" android:layout_width="@dimen/ub__rds__trip_card_surge_image" android:layout_height="@dimen/ub__rds__trip_card_surge_image" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__icon_surge_light" />
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__uber_black_100" android:id="@id/ub__trip_context_textview_fare" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        </LinearLayout>
+        <LinearLayout android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:ellipsize="end" android:id="@id/ub__trip_context_textview_car" android:layout_width="@dimen/ub__rds__auto_size" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:singleLine="true" android:layout_weight="1.0" />
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:textColor="@color/ub__green" android:id="@id/ub__trip_context_textview_cash" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:text="@string/ub__rds__cash" android:singleLine="true" android:textAllCaps="true" />
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:id="@id/ub__trip_context_textview_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>
+</merge>

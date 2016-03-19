@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_3x" android:layout_marginRight="@dimen/ui__spacing_unit_3x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x">
+        <com.ubercab.ui.TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/send_text_invite" style="@style/Uber.TextAppearance.H1" />
+        <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_60" android:id="@id/ub__invite_contacts_textview_confirm_send" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/invite_contacts_confirm_send" style="@style/Uber.TextAppearance.P" />
+        <CheckBox android:textColor="@color/ub__uber_black_60" android:id="@id/ub__invite_contacts_checkbox_remember_confirm_send" android:paddingLeft="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:checked="false" android:button="@drawable/ub__checkbox" android:text="@string/remember_for_next_time" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x">
+        <com.ubercab.ui.Button android:id="@id/ub__invite_contacts_button_confirm_send_cancel" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:text="@string/cancel" android:layout_weight="1.0" style="@style/Uber.Widget.DialogButton" />
+        <com.ubercab.ui.Button android:id="@id/ub__invite_contacts_button_confirm_send_save" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:text="@string/ok" android:layout_weight="1.0" style="@style/Uber.Widget.DialogButton.Positive" />
+    </LinearLayout>
+</LinearLayout>

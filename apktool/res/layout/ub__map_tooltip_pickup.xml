@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.map.layer.pickup.PickupTooltipView android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/ub__hotspot_tooltip_text_container" android:background="@drawable/ub__map_tooltip_background" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ub__pickup_tooltip_eta_container" android:background="@drawable/ub__tooltip_pickup_eta_background" android:layout_width="@dimen/ub__pin_circle_eta_diameter" android:layout_height="@dimen/ub__pin_circle_eta_diameter" android:layout_marginRight="6.0dip">
+            <com.ubercab.ui.TextView android:layout_gravity="center" android:id="@id/ub__pickup_tooltip_eta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-1.0dip" style="@style/Style.Rider.Pickup.Tooltip.Eta" />
+            <com.ubercab.ui.TextView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-1.0dip" android:text="@string/min" style="@style/Style.Rider.Pickup.Tooltip.TimeUnit" />
+        </LinearLayout>
+        <com.ubercab.ui.TextView android:id="@id/ub__hotspot_tooltip_title" android:layout_toRightOf="@id/ub__pickup_tooltip_eta_container" style="@style/Style.Rider.Hotspot.Tooltip.Title" />
+        <com.ubercab.ui.TextView android:id="@id/ub__hotspot_tooltip_subtitle" android:layout_toRightOf="@id/ub__pickup_tooltip_eta_container" android:layout_below="@id/ub__hotspot_tooltip_title" style="@style/Style.Rider.Hotspot.Tooltip.Subtitle" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ub__hotspot_tooltip_pin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/ub__hotspot_tooltip_text_container">
+        <ImageView android:layout_width="@dimen/ub__map_tooltip_pin_width" android:layout_height="@dimen/ub__map_tooltip_triangle_height" android:src="@drawable/ub__map_tooltip_triangle" android:scaleType="fitXY" />
+        <View android:background="@color/ub__black" android:layout_width="@dimen/ub__map_tooltip_pin_foot_width" android:layout_height="@dimen/ub__map_tooltip_pin_foot_length" android:layout_marginTop="@dimen/ub__map_tooltip_pin_foot_margin_top" />
+    </LinearLayout>
+</com.ubercab.client.feature.trip.map.layer.pickup.PickupTooltipView>

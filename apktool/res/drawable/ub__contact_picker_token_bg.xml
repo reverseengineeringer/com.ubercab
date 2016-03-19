@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <padding android:left="@dimen/ui__spacing_unit_1x" android:top="@dimen/ub__contact_picker_token_top_padding" android:right="@dimen/ui__spacing_unit_1x" android:bottom="@dimen/ub__contact_picker_token_bottom_padding" />
+    <stroke android:width="@dimen/ub__contact_picker_token_spacing" android:color="@android:color/transparent" />
+    <corners android:radius="@dimen/ub__contact_picker_token_corner_radius" />
+    <solid android:color="@color/ub__uber_blue_120" />
+</shape>

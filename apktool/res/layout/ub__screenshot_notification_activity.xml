@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="vertical" android:background="@color/ub__black_transparent_overlay_dark" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@color/ub__uber_white_20" android:padding="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H2" android:textSize="@dimen/ub__text_size_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:text="@string/screenshot_taken" android:textAllCaps="false" />
+        <ImageView android:id="@id/ub__screenshot_imageview" android:layout_width="wrap_content" android:layout_height="@dimen/ub__screenshot_thumbnail_height" android:layout_marginTop="@dimen/ui__spacing_unit_2x" />
+        <com.ubercab.ui.Button android:id="@id/ub__report_to_phabricator_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:text="@string/submit_your_feedback" style="@style/Uber.Widget.Button.Secondary" />
+        <com.ubercab.ui.Button android:id="@id/ub__cancel_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:text="@string/cancel" style="@style/Uber.Widget.Button.Primary" />
+    </LinearLayout>
+</LinearLayout>

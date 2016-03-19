@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@drawable/ub__hint_low_light_background" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__photo_low_light_hint_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__photo__low_light" android:drawableLeft="@drawable/ub__ic_lightbulb" android:drawablePadding="@dimen/ub__hint_low_light_drawable_padding" style="@style/Uber.Photo.TextAppearance.Hint.LowLight" />
+</FrameLayout>

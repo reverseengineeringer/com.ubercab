@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.address.MultiAddressView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/ub__trip_view_address_bar_container" android:background="@drawable/ub__fade_top" android:padding="@dimen/ub__container_margin" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include android:id="@id/ub__trip_view_address_pickup" android:layout_width="fill_parent" android:layout_height="@dimen/ub__container_height" layout="@layout/ub__trip_view_address" />
+        <include android:id="@id/ub__trip_view_address_destination" android:layout_width="fill_parent" android:layout_height="@dimen/ub__container_height" layout="@layout/ub__trip_view_address" />
+    </LinearLayout>
+    <com.ubercab.client.core.ui.FloatingCallOutView android:layout_gravity="end" android:id="@id/ub__etd_clock_on_click_when_arriving_state_callout" android:focusable="false" android:focusableInTouchMode="false" android:visibility="invisible" android:clickable="false" android:layout_marginTop="@dimen/ub__estimated_time_to_destination_floating_callout_top_margin_address_view" style="@style/Style.Rider.Etd.FloatingCallOut" />
+</com.ubercab.client.feature.trip.address.MultiAddressView>

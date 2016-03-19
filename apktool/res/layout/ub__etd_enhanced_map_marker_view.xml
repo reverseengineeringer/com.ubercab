@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.core.ui.EtdEnhancedMapMarkerView android:id="@id/ub__etd_enhanced_map_marker_view" style="@style/Style.Rider.Trip.Etd.Map.Marker"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,7 @@
+.class public interface abstract Lcom/ubercab/rider/realtime/mutable/MutableDynamicFare;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/ubercab/rider/realtime/model/DynamicFare;
+.implements Ljta;

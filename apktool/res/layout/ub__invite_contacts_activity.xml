@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@color/ub__uber_white_20" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.widget.RecyclerView android:id="@id/ub__invite_contacts_recyclerview" android:background="@color/ub__uber_white_20" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ProgressBar android:layout_gravity="center" android:id="@id/ub__invite_contacts_progress" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminate="true" />
+    <ViewStub android:id="@id/ub__share_on_signup_layout_stub" android:visibility="gone" android:layout="@layout/ub__share_on_signup_activity" android:inflatedId="@id/ub__share_on_signup_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</FrameLayout>

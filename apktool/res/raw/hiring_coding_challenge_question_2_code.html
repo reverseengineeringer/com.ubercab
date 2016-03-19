@@ -1,0 +1,14 @@
+<font color="#00ffff"><b>def</b></font> <font color="#00ff00"><b>sort_fares</b></font>(a, low, high):<br><br>
+&nbsp;&nbsp;<font color="#00ffff"><b>if</b></font> low <font color="#ff6060"><b>&lt;</b></font> high:<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;p <font color="#ff6060"><b>=</b></font> <font color="#00ff00"><b>partition</b></font>(a, low, high)<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00ff00"><b>sort_fares</b></font>(a, low, p <font color="#ff6060"><b>-</b></font> 1)<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00ff00"><b>sort_fares</b></font>(a, low, high)<br><br><br>
+<font color="#00ffff"><b>def</b></font> <font color="#00ff00"><b>partition</b></font>(a, low, high):<br><br>
+&nbsp;&nbsp;pivot <font color="#ff6060"><b>=</b></font> a<font color="#ff6060"><b>[</b></font>high<font color="#ff6060"><b>]</b></font><br><br>
+&nbsp;&nbsp;p <font color="#ff6060"><b>=</b></font> low<br><br>
+&nbsp;&nbsp;<font color="#00ffff"><b>for</b></font> i <font color="#00ffff"><b>in</b></font> <font color="#00ff00"><b>xrange</b></font>(low, high):<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00ffff"><b>if</b></font> a<font color="#ff6060"><b>[</b></font>i<font color="#ff6060"><b>]</b></font> <font color="#ff6060"><b>&lt;=</b></font> pivot:<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a<font color="#ff6060"><b>[</b></font>p<font color="#ff6060"><b>]</b></font>, a<font color="#ff6060"><b>[</b></font>i<font color="#ff6060"><b>]</b></font> <font color="#ff6060"><b>=</b> </font>a<font color="#ff6060"><b>[</b></font>i<font color="#ff6060"><b>]</b></font>, a<font color="#ff6060"><b>[</b></font>p<font color="#ff6060"><b>]</b></font><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p <font color="#ff6060"><b>+=</b></font> 1<br><br>
+&nbsp;&nbsp;a<font color="#ff6060"><b>[</b></font>p<font color="#ff6060"><b>]</b></font>, a<font color="#ff6060"><b>[</b></font>high<font color="#ff6060"><b>]</b></font> <font color="#ff6060"><b>=</b></font> a<font color="#ff6060"><b>[</b></font>high<font color="#ff6060"><b>]</b></font>, a<font color="#ff6060"><b>[</b></font>p<font color="#ff6060"><b>]</b></font><br><br>
+&nbsp;&nbsp;<font color="#00ffff"><b>return</b></font> p

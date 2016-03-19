@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/ub__partner_funnel_component_standard_header_group" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__partner_funnel_component_standard_header" />
+    <com.ubercab.ui.TextView android:id="@id/ub__partner_funnel_photo_component_textview_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__padding_medium" android:layout_below="@id/ub__partner_funnel_component_standard_header_group" style="@style/Uber.Partner.Funnel.TextAppearance.Byline" />
+    <ScrollView android:paddingTop="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/ub__partner_funnel_photo_component_button_take" android:layout_below="@id/ub__partner_funnel_component_standard_header_group">
+        <LinearLayout android:orientation="vertical" android:id="@id/ub__partner_funnel_photo_component_viewgroup_on_screen_help" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </ScrollView>
+    <com.ubercab.ui.Button android:id="@id/ub__partner_funnel_photo_component_button_link" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__padding_medium" android:text="@string/ub__partner_funnel_download_form" android:layout_above="@id/ub__partner_funnel_photo_component_button_take" style="@style/Uber.Widget.Button.Secondary" />
+    <com.ubercab.ui.Button android:id="@id/ub__partner_funnel_photo_component_button_take" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__partner_funnel_take_photo" android:drawableLeft="@drawable/ub__partner_funnel_icon_camera" android:layout_alignParentBottom="true" style="@style/Uber.Partner.Funnel.Widget.Button.Accent" />
+</RelativeLayout>

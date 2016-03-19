@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:background="@color/ub__white" android:layout_width="@dimen/ub__family_alert_dialog_width" android:layout_height="wrap_content">
+        <include android:layout_width="fill_parent" android:layout_height="@dimen/ub__family_alert_dialog_banner_height" layout="@layout/ub__family_alert_dialog_banner_view" />
+        <TextSwitcher android:layout_gravity="center_horizontal" android:id="@id/ub__family_invite_popup_title_text_switcher" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextSwitcher android:layout_gravity="center_horizontal" android:id="@id/ub__family_invite_popup_text_switcher" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_4x" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <include layout="@layout/ub__listview_divider" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:textAppearance="@style/Style.Rider.TextAppearance.Family.Dialog.Button" android:gravity="center" android:id="@id/ub__family_invite_popup_send_sms_text_view" android:background="@drawable/ub__listitem_background_selector" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/send_sms" android:layout_weight="1.0" />
+            <com.ubercab.ui.TextView android:textAppearance="@style/Style.Rider.TextAppearance.Family.Dialog.Button" android:gravity="center" android:id="@id/ub__family_invite_popup_cancel_text_view" android:background="@drawable/ub__listitem_background_selector" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/send_text_invite" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

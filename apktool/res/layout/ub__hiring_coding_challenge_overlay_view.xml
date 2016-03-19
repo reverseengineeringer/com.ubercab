@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.hiring.CodingChallengeOverlayView android:gravity="center" android:orientation="vertical" android:background="@color/ub__black_transparent_overlay_dark" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <View android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H1" android:textColor="@color/ub__uber_white_20" android:id="@id/ub__hiring_coding_challenge_overlay_heading" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hiring_coding_challenge_overlay_title" android:layout_centerHorizontal="true" android:textAllCaps="true" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H3" android:textColor="@color/ub__uber_white_20" android:gravity="center" android:id="@id/ub__hiring_coding_challenge_overlay_details" android:paddingTop="@dimen/ub__music_details_text_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_4x" android:layout_marginRight="@dimen/ui__spacing_unit_4x" android:layout_below="@id/ub__hiring_coding_challenge_overlay_heading" android:layout_centerHorizontal="true" android:textAllCaps="false" />
+    </RelativeLayout>
+    <com.ubercab.client.feature.trip.overlay.CoachMarkPathView android:layout_gravity="center|top" android:id="@id/ub__hiring_coding_challenge_coach_mark" android:padding="@dimen/ui__spacing_unit_5x" android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_weight="1.0" uber:animation_direction="up" uber:coachmark_icon="@drawable/ub__hiring_coding_challenge_icon_coachmark" />
+    <FrameLayout android:id="@id/ub__hiring_coding_challenge_overlay_tray_container" android:background="@color/ub__white" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__hiring_coding_challenge_view_trip_tray" />
+    </FrameLayout>
+</com.ubercab.client.feature.hiring.CodingChallengeOverlayView>

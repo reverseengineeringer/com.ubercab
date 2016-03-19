@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Style.Rider.TextAppearance.DialogHeader" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__textsize_byline</item>
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">fonts/ClanOT-Medium.otf</item>
+    </style>
+</resources>

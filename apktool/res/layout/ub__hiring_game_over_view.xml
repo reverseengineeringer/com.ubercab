@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.client.feature.hiring.RevealTextView android:textColor="@color/ub__white" android:layout_gravity="center_horizontal" android:id="@id/ub__hiring_game_over_art_textview" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" />
+    <com.ubercab.client.feature.hiring.TypeWriterTextView android:textColor="@color/ub__white" android:id="@id/ub__hiring_game_over_content_textview" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:includeFontPadding="false" />
+    <com.ubercab.ui.TextView android:textColor="@color/ub__hiring_coding_challenge_blue" android:id="@id/ub__hiring_goodbye_textview" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:textAllCaps="true" />
+</LinearLayout>

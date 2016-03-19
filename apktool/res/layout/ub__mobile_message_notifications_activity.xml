@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:id="@id/ub__notifications_linearlayout_messages" android:background="@color/ub__uber_black_100" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.widget.RecyclerView android:id="@id/ub__notifications_mainview_messages" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:overScrollMode="never" />
+    <ProgressBar android:layout_gravity="center" android:id="@id/ub__loading_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</FrameLayout>
