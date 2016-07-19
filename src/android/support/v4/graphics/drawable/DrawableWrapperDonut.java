@@ -1,6 +1,7 @@
 package android.support.v4.graphics.drawable;
 
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff.Mode;
@@ -8,44 +9,61 @@ import android.graphics.Rect;
 import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Drawable.Callback;
+import android.graphics.drawable.Drawable.ConstantState;
 
 class DrawableWrapperDonut
   extends Drawable
-  implements Drawable.Callback, DrawableWrapper
+  implements Drawable.Callback, DrawableWrapper, TintAwareDrawable
 {
-  static final PorterDuff.Mode DEFAULT_MODE = PorterDuff.Mode.SRC_IN;
+  static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
   private boolean mColorFilterSet;
   private int mCurrentColor;
   private PorterDuff.Mode mCurrentMode;
   Drawable mDrawable;
-  private ColorStateList mTintList;
-  private PorterDuff.Mode mTintMode = DEFAULT_MODE;
+  private boolean mMutated;
+  DrawableWrapperDonut.DrawableWrapperState mState;
   
   DrawableWrapperDonut(Drawable paramDrawable)
   {
+    mState = mutateConstantState();
     setWrappedDrawable(paramDrawable);
+  }
+  
+  DrawableWrapperDonut(DrawableWrapperDonut.DrawableWrapperState paramDrawableWrapperState, Resources paramResources)
+  {
+    mState = paramDrawableWrapperState;
+    updateLocalState(paramResources);
+  }
+  
+  private void updateLocalState(Resources paramResources)
+  {
+    if ((mState != null) && (mState.mDrawableState != null)) {
+      setWrappedDrawable(newDrawableFromState(mState.mDrawableState, paramResources));
+    }
   }
   
   private boolean updateTint(int[] paramArrayOfInt)
   {
-    if ((mTintList != null) && (mTintMode != null))
+    if (!isCompatTintEnabled()) {}
+    PorterDuff.Mode localMode;
+    int i;
+    do
     {
-      int i = mTintList.getColorForState(paramArrayOfInt, mTintList.getDefaultColor());
-      paramArrayOfInt = mTintMode;
-      if ((!mColorFilterSet) || (i != mCurrentColor) || (paramArrayOfInt != mCurrentMode))
-      {
-        setColorFilter(i, paramArrayOfInt);
-        mCurrentColor = i;
-        mCurrentMode = paramArrayOfInt;
-        mColorFilterSet = true;
-        return true;
+      return false;
+      ColorStateList localColorStateList = mState.mTint;
+      localMode = mState.mTintMode;
+      if ((localColorStateList == null) || (localMode == null)) {
+        break;
       }
-    }
-    else
-    {
-      mColorFilterSet = false;
-      clearColorFilter();
-    }
+      i = localColorStateList.getColorForState(paramArrayOfInt, localColorStateList.getDefaultColor());
+    } while ((mColorFilterSet) && (i == mCurrentColor) && (localMode == mCurrentMode));
+    setColorFilter(i, localMode);
+    mCurrentColor = i;
+    mCurrentMode = localMode;
+    mColorFilterSet = true;
+    return true;
+    mColorFilterSet = false;
+    clearColorFilter();
     return false;
   }
   
@@ -56,7 +74,21 @@ class DrawableWrapperDonut
   
   public int getChangingConfigurations()
   {
-    return mDrawable.getChangingConfigurations();
+    int j = super.getChangingConfigurations();
+    if (mState != null) {}
+    for (int i = mState.getChangingConfigurations();; i = 0) {
+      return i | j | mDrawable.getChangingConfigurations();
+    }
+  }
+  
+  public Drawable.ConstantState getConstantState()
+  {
+    if ((mState != null) && (mState.canConstantState()))
+    {
+      mState.mChangingConfigurations = getChangingConfigurations();
+      return mState;
+    }
+    return null;
   }
   
   public Drawable getCurrent()
@@ -104,7 +136,7 @@ class DrawableWrapperDonut
     return mDrawable.getTransparentRegion();
   }
   
-  public Drawable getWrappedDrawable()
+  public final Drawable getWrappedDrawable()
   {
     return mDrawable;
   }
@@ -114,24 +146,61 @@ class DrawableWrapperDonut
     invalidateSelf();
   }
   
+  protected boolean isCompatTintEnabled()
+  {
+    return true;
+  }
+  
   public boolean isStateful()
   {
-    return ((mTintList != null) && (mTintList.isStateful())) || (mDrawable.isStateful());
+    if ((isCompatTintEnabled()) && (mState != null)) {}
+    for (ColorStateList localColorStateList = mState.mTint; ((localColorStateList != null) && (localColorStateList.isStateful())) || (mDrawable.isStateful()); localColorStateList = null) {
+      return true;
+    }
+    return false;
   }
   
   public Drawable mutate()
   {
-    Drawable localDrawable1 = mDrawable;
-    Drawable localDrawable2 = localDrawable1.mutate();
-    if (localDrawable2 != localDrawable1) {
-      setWrappedDrawable(localDrawable2);
+    DrawableWrapperDonut.DrawableWrapperState localDrawableWrapperState;
+    if ((!mMutated) && (super.mutate() == this))
+    {
+      mState = mutateConstantState();
+      if (mDrawable != null) {
+        mDrawable.mutate();
+      }
+      if (mState != null)
+      {
+        localDrawableWrapperState = mState;
+        if (mDrawable == null) {
+          break label77;
+        }
+      }
     }
-    return this;
+    label77:
+    for (Drawable.ConstantState localConstantState = mDrawable.getConstantState();; localConstantState = null)
+    {
+      mDrawableState = localConstantState;
+      mMutated = true;
+      return this;
+    }
+  }
+  
+  DrawableWrapperDonut.DrawableWrapperState mutateConstantState()
+  {
+    return new DrawableWrapperDonut.DrawableWrapperStateDonut(mState, null);
+  }
+  
+  protected Drawable newDrawableFromState(Drawable.ConstantState paramConstantState, Resources paramResources)
+  {
+    return paramConstantState.newDrawable();
   }
   
   protected void onBoundsChange(Rect paramRect)
   {
-    mDrawable.setBounds(paramRect);
+    if (mDrawable != null) {
+      mDrawable.setBounds(paramRect);
+    }
   }
   
   protected boolean onLevelChange(int paramInt)
@@ -182,13 +251,13 @@ class DrawableWrapperDonut
   
   public void setTintList(ColorStateList paramColorStateList)
   {
-    mTintList = paramColorStateList;
+    mState.mTint = paramColorStateList;
     updateTint(getState());
   }
   
   public void setTintMode(PorterDuff.Mode paramMode)
   {
-    mTintMode = paramMode;
+    mState.mTintMode = paramMode;
     updateTint(getState());
   }
   
@@ -197,14 +266,22 @@ class DrawableWrapperDonut
     return (super.setVisible(paramBoolean1, paramBoolean2)) || (mDrawable.setVisible(paramBoolean1, paramBoolean2));
   }
   
-  public void setWrappedDrawable(Drawable paramDrawable)
+  public final void setWrappedDrawable(Drawable paramDrawable)
   {
     if (mDrawable != null) {
       mDrawable.setCallback(null);
     }
     mDrawable = paramDrawable;
-    if (paramDrawable != null) {
+    if (paramDrawable != null)
+    {
       paramDrawable.setCallback(this);
+      paramDrawable.setVisible(isVisible(), true);
+      paramDrawable.setState(getState());
+      paramDrawable.setLevel(getLevel());
+      paramDrawable.setBounds(getBounds());
+      if (mState != null) {
+        mState.mDrawableState = paramDrawable.getConstantState();
+      }
     }
     invalidateSelf();
   }

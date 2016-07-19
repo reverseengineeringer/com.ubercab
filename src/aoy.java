@@ -1,6 +1,20 @@
-public abstract interface aoy
+import java.net.URI;
+import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
+
+public final class aoy
+  extends HttpEntityEnclosingRequestBase
 {
-  public abstract void b(aqj paramaqj);
+  public aoy() {}
+  
+  public aoy(String paramString)
+  {
+    setURI(URI.create(paramString));
+  }
+  
+  public final String getMethod()
+  {
+    return "PATCH";
+  }
 }
 
 /* Location:

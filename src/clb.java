@@ -1,12 +1,7 @@
-public abstract interface clb
+ enum clb
+  implements clg
 {
-  public abstract void a(long paramLong);
-  
-  public abstract void a(String paramString);
-  
-  public abstract long c();
-  
-  public abstract String d();
+  private clb() {}
 }
 
 /* Location:

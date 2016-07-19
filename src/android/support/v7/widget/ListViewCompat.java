@@ -13,8 +13,8 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import gu;
 import java.lang.reflect.Field;
+import ln;
 
 public class ListViewCompat
   extends ListView
@@ -27,12 +27,7 @@ public class ListViewCompat
   int e = 0;
   public int f;
   private Field h;
-  private gu i;
-  
-  public ListViewCompat(Context paramContext, AttributeSet paramAttributeSet)
-  {
-    this(paramContext, paramAttributeSet, 0);
-  }
+  private ln i;
   
   public ListViewCompat(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
@@ -274,9 +269,9 @@ public class ListViewCompat
   public void setSelector(Drawable paramDrawable)
   {
     if (paramDrawable != null) {}
-    for (Object localObject = new gu(paramDrawable);; localObject = null)
+    for (Object localObject = new ln(paramDrawable);; localObject = null)
     {
-      i = ((gu)localObject);
+      i = ((ln)localObject);
       super.setSelector(i);
       localObject = new Rect();
       if (paramDrawable != null) {

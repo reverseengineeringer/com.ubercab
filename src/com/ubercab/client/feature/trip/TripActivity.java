@@ -1,6 +1,5 @@
 package com.ubercab.client.feature.trip;
 
-import aa;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
@@ -32,27 +31,27 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import bpc;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
-import butterknife.Optional;
-import chh;
-import cho;
-import ciu;
-import cjg;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import cja;
+import cjm;
+import ckt;
+import clg;
+import cli;
 import com.google.android.gms.wallet.MaskedWallet;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.app.RiderApplication;
-import com.ubercab.client.core.model.Ping;
 import com.ubercab.client.core.model.RiderAccount;
 import com.ubercab.client.core.model.RiderTripExpenseInfo;
 import com.ubercab.client.core.model.Shape_RiderAccount;
 import com.ubercab.client.core.vendor.google.GoogleWalletActivity;
+import com.ubercab.client.feature.bounce.model.BounceContact;
+import com.ubercab.client.feature.bounce.model.BouncePaymentOptions;
 import com.ubercab.client.feature.emergency.EmergencyFragment;
 import com.ubercab.client.feature.emergency.EmergencyHelpChooserFragment;
 import com.ubercab.client.feature.eta.ShareEtaActivity;
@@ -60,262 +59,288 @@ import com.ubercab.client.feature.faresplit.master.FareSplitInviteActivity;
 import com.ubercab.client.feature.faresplit.master.FareSplitSummaryFragment;
 import com.ubercab.client.feature.faresplit.minion.FareSplitInvitationFragment;
 import com.ubercab.client.feature.payment.AddPaymentActivity;
-import com.ubercab.client.feature.payment.PayNowActivity;
 import com.ubercab.client.feature.payment.PaymentActivity;
 import com.ubercab.client.feature.payment.expense.ExpenseInfoActivity;
 import com.ubercab.client.feature.profiles.AccountImageView;
 import com.ubercab.client.feature.profiles.ProfilesAdapter;
 import com.ubercab.client.feature.profiles.expensecode.ExpenseCodeConfigureActivity;
+import com.ubercab.client.feature.profiles.expensecode.ExpenseCodeSearchActivity;
+import com.ubercab.client.feature.promo.v3.DisplayPromoActivity;
+import com.ubercab.client.feature.reservation.TripTabViewActivity;
 import com.ubercab.client.feature.safetynet.SafetyNetShareTripActivity;
+import com.ubercab.client.feature.signup.passwordless.promo.PasswordlessSignupPromoActivityDialog;
 import com.ubercab.client.feature.trip.cash.CashCancelDialogFragment;
 import com.ubercab.client.feature.trip.ridepool.PoolCancelDialogFragment;
 import com.ubercab.client.feature.verification.MobileVerificationActivity;
 import com.ubercab.experiment.model.TreatmentGroup;
-import com.ubercab.payment.model.PaymentError;
 import com.ubercab.rds.feature.conversation.ConversationActivity;
 import com.ubercab.rds.feature.help.HelpActivity;
-import com.ubercab.rds.feature.support.SupportHomeActivity;
 import com.ubercab.rider.realtime.model.City;
+import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.ClientStatus;
 import com.ubercab.rider.realtime.model.FareSplit;
+import com.ubercab.rider.realtime.model.PaymentProfile;
 import com.ubercab.rider.realtime.model.Profile;
 import com.ubercab.rider.realtime.model.Trip;
 import com.ubercab.rider.realtime.model.TripExpenseInfo;
 import com.ubercab.rider.realtime.model.TripVehicle;
-import com.ubercab.rider.realtime.model.UnpaidBill;
 import com.ubercab.rider.realtime.model.VehicleView;
 import com.ubercab.rider.realtime.response.CancellationInfo;
+import com.ubercab.rider.realtime.response.UnpaidBillsResponse;
 import com.ubercab.ui.CircleImageView;
 import com.ubercab.ui.TextView;
 import com.ubercab.ui.Toolbar;
-import drz;
-import dta;
-import dtf;
-import dty;
-import due;
-import duh;
-import dui;
-import dux;
-import dwd;
-import dwq;
-import eav;
-import ebj;
-import egd;
-import egl;
-import ego;
-import ehl;
-import eic;
-import eio;
-import ejd;
-import ekd;
-import eld;
-import enj;
-import epz;
-import eqg;
-import erb;
-import ere;
-import erf;
-import erg;
-import eri;
-import ert;
-import erv;
-import etn;
-import ewh;
-import eyn;
-import ezb;
-import ezq;
-import ezs;
-import ezt;
-import fcj;
-import fjq;
-import fkv;
-import fmz;
-import gcm;
-import gcr;
-import gia;
-import gif;
-import gik;
-import gil;
-import gio;
-import gir;
-import giu;
-import gox;
-import gph;
-import gqf;
-import gsj;
-import han;
-import hbl;
-import hcj;
+import cud;
+import dua;
+import dxe;
+import dyn;
+import dys;
+import dzn;
+import dzv;
+import dzw;
+import eaj;
+import ebw;
+import ecj;
+import ehn;
+import eib;
+import el;
+import enz;
+import eor;
+import eoz;
+import eqp;
+import euy;
+import eya;
+import eyh;
+import eyt;
+import ezj;
+import ezk;
+import ezm;
+import ezx;
+import ezz;
+import faa;
+import fbw;
+import fey;
+import fib;
+import fie;
+import fio;
+import flj;
+import fml;
+import fnd;
+import fnf;
+import fng;
+import fpx;
+import fyp;
+import fza;
+import fzy;
+import gce;
 import hck;
-import hcz;
-import hda;
-import hdb;
-import hdc;
-import hdd;
-import hdf;
-import hdg;
-import hdh;
-import hgm;
-import hgp;
-import hgt;
-import hha;
-import hhd;
-import hlh;
-import hlj;
-import hlk;
-import hlp;
-import hmj;
-import hmk;
-import hml;
-import hmm;
-import hmn;
-import hmo;
-import hmp;
-import hmv;
-import hmw;
-import hmz;
-import hnb;
-import hnc;
-import hnd;
-import hne;
-import hnh;
-import hni;
-import hnj;
-import hnk;
-import hxy;
-import iae;
-import ife;
-import ijv;
-import ijw;
-import ijy;
-import ijz;
-import imp;
-import imr;
-import java.util.ArrayList;
+import hep;
+import hfv;
+import hje;
+import hjm;
+import hju;
+import hjv;
+import hjy;
+import hke;
+import hkk;
+import hkn;
+import hlq;
+import htr;
+import hts;
+import hue;
+import hzo;
+import icb;
+import isb;
+import iti;
+import itj;
+import itr;
+import iue;
+import iuf;
+import iug;
+import iuh;
+import iui;
+import iuj;
+import iuk;
+import iul;
+import iyw;
+import iyz;
+import izd;
+import izk;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Queue;
-import jew;
-import jry;
-import jsc;
-import jse;
-import jsg;
-import jsj;
-import jwc;
-import kax;
-import kld;
-import klo;
-import kls;
-import kul;
-import p;
-import r;
+import java.util.concurrent.TimeUnit;
+import jff;
+import jfh;
+import jfi;
+import jfn;
+import jgt;
+import jgu;
+import jgv;
+import jgw;
+import jgx;
+import jgy;
+import jhe;
+import jhf;
+import jhi;
+import jhk;
+import jhl;
+import jhm;
+import jhn;
+import jhq;
+import jhr;
+import jhs;
+import jht;
+import jhw;
+import jhx;
+import jna;
+import jua;
+import juc;
+import jwk;
+import kcj;
+import kco;
+import kcv;
+import khv;
+import kia;
+import kof;
+import kog;
+import koi;
+import koj;
+import mvt;
+import mvw;
+import mxd;
+import mxi;
+import mxk;
+import mxm;
+import mxp;
+import nct;
+import nho;
+import odr;
+import oed;
+import oeh;
+import opc;
+import x;
+import z;
 
 public class TripActivity
-  extends RiderActivity<hdg>
-  implements ert, gia, hlk
+  extends RiderActivity<iuk>
+  implements ezx, hje, jfi
 {
-  public gox A;
-  public dwd B;
-  public ekd C;
-  public gif D;
-  public jry E;
-  public gqf F;
-  public dty G;
-  public egl H;
-  public hbl I;
-  public hlh J;
-  public hlj K;
-  public ijv L;
-  public hgm M;
-  public hgp N;
-  public gil O;
-  public hlp P;
-  public hgt Q;
-  public jsc R;
-  public hha S;
-  public ewh T;
-  public jse U;
-  private final ijw V = ijw.a();
-  private final Queue<Object> W = new LinkedList();
-  private final erv X = new erv(this);
-  private CircleImageView Y;
-  private TextView Z;
-  private klo aa;
-  private aa ab;
-  private String ac;
-  private Handler ad;
-  private boolean ae;
-  private boolean af = false;
-  private boolean ag = false;
-  private MaskedWallet ah;
-  private String ai = null;
-  private klo aj;
-  private CharSequence ak = null;
-  private hdd al;
-  private RiderAccount am = null;
-  @Deprecated
-  private klo an;
-  private int ao = Integer.MIN_VALUE;
-  @Deprecated
-  public eld g;
-  @Deprecated
-  public ehl h;
-  public jsg i;
-  public jsj j;
-  public bpc k;
-  public ego l;
-  public ckc m;
-  @InjectView(2131625699)
-  View mDrawerContainer;
-  @InjectView(2131625694)
-  DrawerLayout mDrawerLayout;
-  @InjectView(2131625702)
-  View mDrawerProfileFooter;
-  @InjectView(2131625747)
-  ImageView mHeaderExpandIcon;
-  @InjectView(2131625701)
-  ListView mListViewDrawer;
-  @InjectView(2131625703)
-  ListView mListViewDrawerProfilesList;
-  @InjectView(2131625743)
-  @Optional
-  AccountImageView mProfileImageView;
-  @InjectView(2131625698)
-  ViewGroup mSvgPatternContainer;
-  @InjectView(2131625746)
-  @Optional
-  TextView mTextViewDrawerHeaderProfileName;
-  @InjectView(2131625691)
-  Toolbar mToolbar;
-  public fmz n;
-  public chh o;
-  public fkv p;
-  public eyn q;
-  public ezb r;
-  public ezq s;
-  public ife t;
-  public kax<jwc> u;
-  public List<Class<? extends hxy>> v;
-  public dta w;
-  public imr x;
-  public ciu y;
-  public han z;
+  public gce A;
+  public nho<nct> B;
+  public List<Class<? extends jwk>> C;
+  public itr D;
+  public dyn E;
+  public cud F;
+  public cja G;
+  public mvw H;
+  public mvt I;
+  public htr J;
+  public ebw K;
+  public hjm L;
+  public mxd M;
+  public hzo N;
+  public dzn O;
+  public eor P;
+  public isb Q;
+  public jff R;
+  public jfh S;
+  public List<kof> T;
+  public iyw U;
+  public iyz V;
+  public hjv W;
+  public jfn X;
+  public izd Y;
+  public mxi Z;
+  public izk aa;
+  public jua ab;
+  public juc ac;
+  public fey ad;
+  public mxk ae;
+  public jna af;
+  private final kog ag = kog.a();
+  private final Queue<Object> ah = new LinkedList();
+  private final faa ai = new faa(this);
+  private CircleImageView aj;
+  private TextView ak;
+  private oed al;
+  private oed am;
+  private String an;
+  private Handler ao;
+  private boolean ap = false;
+  private boolean aq = false;
+  private MaskedWallet ar;
+  private String as = null;
+  private oed at;
+  private CharSequence au = null;
+  private iuj av;
+  private RiderAccount aw = null;
+  private int ax = Integer.MIN_VALUE;
+  el g;
+  public eoz h;
+  public ckt i;
+  public fib j;
+  public fie k;
+  public chn l;
+  public khv m;
+  @BindView
+  public View mDrawerContainer;
+  @BindView
+  public DrawerLayout mDrawerLayout;
+  @BindView
+  public View mDrawerProfileFooter;
+  @BindView
+  public ImageView mHeaderExpandIcon;
+  @BindView
+  public ListView mListViewDrawer;
+  @BindView
+  public ListView mListViewDrawerProfilesList;
+  @BindView
+  public AccountImageView mProfileImageView;
+  @BindView
+  public ViewGroup mSvgPatternContainer;
+  @BindView
+  public TextView mTextViewDrawerHeaderProfileName;
+  @BindView
+  public Toolbar mToolbar;
+  public fio n;
+  public kcj o;
+  public fzy p;
+  public flj q;
+  public fml r;
+  public mxm s;
+  public mxp t;
+  public hep u;
+  public fnd v;
+  public hke w;
+  public hlq x;
+  public kia y;
+  public fza z;
+  
+  private void G()
+  {
+    S.a(mToolbar);
+    S.a();
+    ViewGroup localViewGroup = (ViewGroup)findViewById(2131626353);
+    p.a(localViewGroup);
+  }
   
   @TargetApi(21)
-  private void E()
+  private void H()
   {
     if (Build.VERSION.SDK_INT >= 21)
     {
-      mDrawerLayout.setStatusBarBackgroundColor(F());
-      getWindow().setStatusBarColor(getResources().getColor(2131558546));
+      mDrawerLayout.setStatusBarBackgroundColor(I());
+      getWindow().setStatusBarColor(getResources().getColor(2131558645));
     }
   }
   
-  private int F()
+  private int I()
   {
     TypedArray localTypedArray = obtainStyledAttributes(new int[] { 16843857 });
     int i1 = localTypedArray.getInt(0, 0);
@@ -323,61 +348,113 @@ public class TripActivity
     return i1;
   }
   
-  private void G()
+  private void J()
   {
-    J();
-    ab = new aa(this, mDrawerLayout);
+    int i1 = 6;
+    N();
+    g = new el(this, mDrawerLayout);
     mDrawerLayout.setDrawerListener(new TripActivity.3(this));
-    dui localdui = new dui(this);
-    localdui.add(new duh(1, getString(2131166177), 2130838051));
-    localdui.add(new duh(6, getString(2131165951), 2130838047));
-    localdui.add(new duh(3, getString(2131166425), 2130838063));
-    localdui.add(new duh(2, getString(2131166271), 2130838057));
-    localdui.add(new duh(7, getString(2131166123), 2130838048));
-    localdui.add(new duh(5, getString(2131165913), 2130838066));
-    if ((t.b(dux.he)) || (t.b(dux.cO))) {
-      localdui.add(new duh(8, getString(2131165721), 2130837982));
-    }
-    localdui.add(new duh(0, getString(2131166399), 2130838060));
-    H();
-    mListViewDrawer.setCacheColorHint(0);
-    if (D.p()) {
-      V();
+    dzw localdzw = new dzw(this);
+    localdzw.add(new dzv(1, getString(2131166335), 2130838223));
+    if (y.c(eaj.lv))
+    {
+      boolean bool1 = y.c(eaj.lu);
+      boolean bool2 = TripTabViewActivity.a((nct)B.a());
+      boolean bool3 = y.c(eaj.lh);
+      String str = getString(2131166059);
+      if ((bool1) || (bool2)) {
+        i1 = 10;
+      }
+      if ((bool1) || (bool3))
+      {
+        str = getString(2131167489);
+        i.a(x.oo);
+      }
+      localdzw.add(new dzv(i1, str, 2130838241));
+      if (y.a(eaj.au, true)) {
+        localdzw.add(new dzv(3, getString(2131166670), 2130838235));
+      }
+      if (m.a(eaj.ep)) {
+        localdzw.add(new dzv(11, getString(2131166669), 2130838215));
+      }
+      localdzw.add(new dzv(2, getString(2131166435), 2130838229));
+      localdzw.add(new dzv(7, getString(2131166255), 2130838220));
+      if (!y.c(eaj.cw)) {
+        break label510;
+      }
+      localdzw.add(new dzv(9, getString(2131167699), 2130838217));
+      label357:
+      localdzw.add(new dzv(5, getString(2131166021), 2130838238));
+      a(localdzw, kcj.b());
+      localdzw.add(new dzv(0, getString(2131166634), 2130838232));
+      K();
+      mListViewDrawer.setCacheColorHint(0);
+      if (L.o()) {
+        X();
+      }
+      if ((!y.c(eaj.mu)) || (O.aY())) {
+        break label552;
+      }
+      i1 = 1;
+      label465:
+      if (i1 == 0) {
+        break label557;
+      }
+      M();
     }
     for (;;)
     {
-      mListViewDrawer.setAdapter(localdui);
+      mListViewDrawer.setAdapter(localdzw);
       return;
-      if (D.r()) {
-        I();
+      localdzw.add(new dzv(6, getString(2131166059), 2130838216));
+      break;
+      label510:
+      if (!y.c(eaj.cv)) {
+        break label357;
+      }
+      localdzw.add(new dzv(9, getString(2131167655), 2130838217));
+      break label357;
+      label552:
+      i1 = 0;
+      break label465;
+      label557:
+      if (L.t()) {
+        L();
       }
     }
   }
   
-  private void H()
+  private void K()
   {
-    View localView = LayoutInflater.from(this).inflate(2130903310, null, false);
+    View localView = LayoutInflater.from(this).inflate(2130903406, null, false);
     mListViewDrawer.addFooterView(localView, null, true);
     localView.setOnClickListener(new TripActivity.4(this));
   }
   
-  private void I()
+  private void L()
   {
-    View localView = LayoutInflater.from(this).inflate(2130903524, null, false);
-    ((LinearLayout)findViewById(2131625700)).addView(localView);
+    View localView = LayoutInflater.from(this).inflate(2130903709, null, false);
+    ((LinearLayout)findViewById(2131626359)).addView(localView, 0);
     localView.setOnClickListener(new TripActivity.5(this));
   }
   
-  private void J()
+  private void M()
   {
-    Y = mProfileImageView.b();
-    Z = ((TextView)findViewById(2131625744));
+    View localView = LayoutInflater.from(this).inflate(2130903721, null, false);
+    ((LinearLayout)findViewById(2131626359)).addView(localView, 0);
   }
   
-  private void K()
+  private void N()
+  {
+    mProfileImageView.a(y.c(eaj.lR));
+    aj = mProfileImageView.b();
+    ak = ((TextView)findViewById(2131626404));
+  }
+  
+  private void O()
   {
     FragmentTransaction localFragmentTransaction = getSupportFragmentManager().beginTransaction();
-    Iterator localIterator = v.iterator();
+    Iterator localIterator = C.iterator();
     while (localIterator.hasNext())
     {
       Class localClass = (Class)localIterator.next();
@@ -388,141 +465,118 @@ public class TripActivity
     localFragmentTransaction.commit();
   }
   
-  private void L()
-  {
-    if (a(TripFragment.class) == null) {
-      a(2131625696, TripFragment.o(), true);
-    }
-  }
-  
-  private void M()
-  {
-    if (ac == null) {
-      return;
-    }
-    ((TripFragment)a(TripFragment.class)).a(ac, true);
-    ac = null;
-  }
-  
-  private void N()
-  {
-    boolean bool = false;
-    if (!getIntent().getBooleanExtra("FROM_SIGNIN_OR_REGISTER", false)) {
-      bool = true;
-    }
-    J.a(mSvgPatternContainer, bool);
-  }
-  
-  private void O()
-  {
-    new FareSplitSummaryFragment().show(getSupportFragmentManager(), FareSplitSummaryFragment.class.getName());
-    m.a(r.bv);
-  }
-  
   private void P()
   {
-    if (isFinishing()) {}
-    for (;;)
-    {
-      return;
-      while (!W.isEmpty()) {
-        o.c(W.remove());
-      }
+    if (a(TripFragment.class) == null) {
+      a(2131626354, TripFragment.u(), true);
     }
   }
   
   private void Q()
   {
-    ((TripFragment)a(TripFragment.class)).U();
+    if (an == null) {
+      return;
+    }
+    ((TripFragment)a(TripFragment.class)).f(an);
+    an = null;
   }
   
   private void R()
+  {
+    boolean bool = false;
+    if (!getIntent().getBooleanExtra("FROM_SIGNIN_OR_REGISTER", false)) {
+      bool = true;
+    }
+    R.a(mSvgPatternContainer, bool);
+  }
+  
+  private void S()
+  {
+    new FareSplitSummaryFragment().show(getSupportFragmentManager(), FareSplitSummaryFragment.class.getName());
+    i.a(z.cU);
+  }
+  
+  private void T()
+  {
+    if (isFinishing()) {}
+    for (;;)
+    {
+      return;
+      while (!ah.isEmpty()) {
+        l.c(ah.remove());
+      }
+    }
+  }
+  
+  private void U()
+  {
+    ((TripFragment)a(TripFragment.class)).ad();
+  }
+  
+  private void V()
   {
     mListViewDrawerProfilesList.setVisibility(8);
     mDrawerProfileFooter.setVisibility(8);
     mHeaderExpandIcon.clearAnimation();
   }
   
-  private void S()
+  private void W()
   {
     startActivityForResult(AddPaymentActivity.a(this, null), 3003);
   }
   
-  @Deprecated
-  private void T()
+  private void X()
   {
-    startActivity(PaymentActivity.a(this));
-  }
-  
-  @Deprecated
-  private void U()
-  {
-    startActivity(PaymentActivity.b(this));
-  }
-  
-  private void V()
-  {
-    ProfilesAdapter localProfilesAdapter = new ProfilesAdapter(this, this, gio.a, D, t, y, i, m);
+    ProfilesAdapter localProfilesAdapter = new ProfilesAdapter(m, this, this, hjy.a, L, y, G, s, i);
     mListViewDrawerProfilesList.setAdapter(localProfilesAdapter);
   }
   
-  private void W()
+  private void Y()
   {
-    if ((af) || (!D.p())) {
+    if ((ap) || (!L.o())) {
       return;
     }
-    m.a(r.lX);
-    if (ag)
+    i.a(z.pF);
+    if (aq)
     {
-      d(false);
+      e(false);
       return;
     }
-    Animation localAnimation = AnimationUtils.loadAnimation(this, 2130968606);
+    Animation localAnimation = AnimationUtils.loadAnimation(this, 2130968623);
     localAnimation.setAnimationListener(new TripActivity.7(this));
     mListViewDrawerProfilesList.setVisibility(0);
     mListViewDrawerProfilesList.startAnimation(localAnimation);
   }
   
-  private void X()
+  private void Z()
   {
-    boolean bool = D.p();
-    View localView = findViewById(2131625745);
+    boolean bool = L.o();
+    View localView = findViewById(2131626405);
     if (localView != null) {
       if (!bool) {
-        break label96;
+        break label97;
       }
     }
-    label96:
+    label97:
     for (int i1 = 0;; i1 = 8)
     {
       localView.setVisibility(i1);
       if (bool)
       {
-        localView = findViewById(2131625303);
+        localView = findViewById(2131625881);
         if (localView != null) {
           localView.setVisibility(8);
         }
         if ((mListViewDrawerProfilesList != null) && (mListViewDrawerProfilesList.getAdapter() == null)) {
-          V();
+          X();
         }
       }
-      if (bool)
-      {
-        r();
+      b(bool);
+      if (bool) {
         ((ProfilesAdapter)mListViewDrawerProfilesList.getAdapter()).notifyDataSetChanged();
       }
       return;
     }
-  }
-  
-  private void Y()
-  {
-    D.v();
-  }
-  
-  private boolean Z()
-  {
-    return (t.b(dux.ak)) && (H.a(TripActivity.class));
   }
   
   public static Intent a(Context paramContext)
@@ -541,69 +595,113 @@ public class TripActivity
     return paramContext;
   }
   
+  private void a(int paramInt, x paramx)
+  {
+    String str2 = getString(2131167520);
+    String str1 = getString(2131167518);
+    float f = ac.i();
+    if (f > 1.0F)
+    {
+      str1 = String.format(getString(2131167519), new Object[] { Float.valueOf(f) });
+      a("impression", paramx, j());
+      paramx = x.al;
+    }
+    for (;;)
+    {
+      eya.a(this, paramx, paramInt, str2, str1, getString(2131166260), getString(2131165344));
+      return;
+    }
+  }
+  
   private void a(Intent paramIntent)
   {
     if (paramIntent != null)
     {
-      TripFragment localTripFragment = (TripFragment)a(TripFragment.class);
-      if (paramIntent.hasExtra("EXTRA_ACTIVITY_STARTED"))
-      {
-        localTripFragment.b(true);
-        if (t.b(dux.gr)) {
-          M.d(true);
-        }
+      if (paramIntent.hasExtra("EXTRA_ACTIVITY_STARTED")) {
+        U.e(true);
       }
       if (paramIntent.hasExtra("com.ubercab.EXPENSE_INFO"))
       {
         paramIntent = (TripExpenseInfo)paramIntent.getParcelableExtra("com.ubercab.EXPENSE_INFO");
-        M.a(paramIntent);
+        U.a(paramIntent);
       }
     }
   }
   
-  private void a(hdg paramhdg)
+  private void a(dzw paramdzw, long paramLong)
   {
-    paramhdg.a(this);
+    boolean bool = true;
+    int i1;
+    if ((m.a(eaj.lB)) || (m.a(eaj.dY)))
+    {
+      i1 = 1;
+      if (i1 != 0)
+      {
+        long l1 = O.bm();
+        if ((!m.a(eaj.iV)) || (!F.f()) || (paramLong - l1 < TimeUnit.DAYS.toMillis(7L))) {
+          break label128;
+        }
+      }
+    }
+    for (;;)
+    {
+      paramdzw.add(new dzv(getString(2131165783), bool));
+      if (bool) {
+        O.e(paramLong);
+      }
+      return;
+      i1 = 0;
+      break;
+      label128:
+      bool = false;
+    }
   }
   
-  private void a(ijy paramijy)
+  private void a(iuk paramiuk)
   {
-    if (Z()) {
-      V.a(ijz.a, paramijy);
+    paramiuk.a(this);
+  }
+  
+  private void a(String paramString, clg paramclg, Object paramObject)
+  {
+    paramString = AnalyticsEvent.create(paramString).setName(paramclg);
+    if (paramObject != null) {
+      paramString.setValue(paramObject);
     }
+    i.a(paramString);
   }
   
   private void a(String paramString, CharSequence paramCharSequence)
   {
-    if ((Y != null) && ((ai == null) || (!ai.equals(paramString))))
+    if ((aj != null) && ((as == null) || (!as.equals(paramString))))
     {
       if (!TextUtils.isEmpty(paramString))
       {
-        GradientDrawable localGradientDrawable = gsj.a(getResources());
-        y.a(paramString).a(localGradientDrawable).b(2130837650).a(Y);
-        ai = paramString;
+        GradientDrawable localGradientDrawable = icb.a(getResources());
+        ezz.a(G, paramString).a(localGradientDrawable).b(2130837697).a(aj);
+        as = paramString;
       }
     }
     else
     {
-      if ((!TextUtils.isEmpty(paramCharSequence)) || (Z.getVisibility() == 8)) {
+      if ((!TextUtils.isEmpty(paramCharSequence)) || (ak.getVisibility() == 8)) {
         break label124;
       }
-      Z.setVisibility(8);
+      ak.setVisibility(8);
     }
     for (;;)
     {
-      ak = paramCharSequence;
+      au = paramCharSequence;
       return;
-      Y.setImageResource(2130837650);
-      ai = "";
+      aj.setImageResource(2130837697);
+      as = "";
       break;
       label124:
-      if ((!TextUtils.isEmpty(paramCharSequence)) && (!paramCharSequence.equals(ak)))
+      if ((!TextUtils.isEmpty(paramCharSequence)) && (!paramCharSequence.equals(au)))
       {
-        Z.setText(paramCharSequence);
-        if (Z.getVisibility() != 0) {
-          Z.setVisibility(0);
+        ak.setText(paramCharSequence);
+        if (ak.getVisibility() != 0) {
+          ak.setVisibility(0);
         }
       }
     }
@@ -611,78 +709,71 @@ public class TripActivity
   
   private void a(String paramString, boolean paramBoolean)
   {
-    com.ubercab.rider.realtime.model.PaymentProfile localPaymentProfile = M.a();
+    PaymentProfile localPaymentProfile = U.a();
     int i1;
     if ((localPaymentProfile != null) && (localPaymentProfile.getUuid() != null) && (localPaymentProfile.getUuid().equals(paramString)))
     {
       i1 = 1;
-      if (D.p())
+      if (L.o())
       {
         if (i1 == 0) {
           break label120;
         }
-        localckc = m;
+        localckt = i;
         if (!paramBoolean) {
           break label113;
         }
       }
     }
     label113:
-    for (paramString = r.nO;; paramString = r.lp)
+    for (paramString = z.rx;; paramString = z.oW)
     {
-      localckc.a(paramString);
+      localckt.a(paramString);
       if (i1 == 0) {
         break label150;
       }
-      m.a(AnalyticsEvent.create("impression").setName(p.nQ).setValue(localPaymentProfile.getTokenType()));
+      i.a(AnalyticsEvent.create("impression").setName(x.rW).setValue(localPaymentProfile.getTokenType()));
       return;
       i1 = 0;
       break;
     }
     label120:
-    ckc localckc = m;
+    ckt localckt = i;
     if (paramBoolean) {}
-    for (paramString = r.nM;; paramString = r.ln)
+    for (paramString = z.rv;; paramString = z.oU)
     {
-      localckc.a(paramString);
+      localckt.a(paramString);
       break;
     }
     label150:
-    m.a(p.nP);
+    i.a(x.rV);
   }
   
-  private boolean a(hnk paramhnk)
+  private void a(koi paramkoi)
   {
-    return (ao == 5) && (paramhnk.b() == 0);
-  }
-  
-  private com.ubercab.rider.realtime.model.PaymentProfile aa()
-  {
-    Object localObject = M.a();
-    if (localObject != null) {
-      return (com.ubercab.rider.realtime.model.PaymentProfile)localObject;
-    }
-    localObject = i.c();
-    if (localObject != null) {
-      return ((com.ubercab.rider.realtime.model.Client)localObject).getLastSelectedPaymentProfile();
-    }
-    return null;
-  }
-  
-  private AlphaAnimation b(boolean paramBoolean)
-  {
-    if (paramBoolean) {}
-    for (AlphaAnimation localAlphaAnimation = new AlphaAnimation(0.0F, 1.0F);; localAlphaAnimation = new AlphaAnimation(1.0F, 0.0F))
-    {
-      localAlphaAnimation.setDuration(getResources().getInteger(2131427341));
-      localAlphaAnimation.setInterpolator(new AccelerateInterpolator());
-      return localAlphaAnimation;
+    if (ab()) {
+      ag.a(koj.a, paramkoi);
     }
   }
   
-  private hdg b(ebj paramebj)
+  private boolean a(jht paramjht)
   {
-    return hcj.a().a(new eav(this)).a(new hdh()).a(paramebj).a();
+    return (ax == 5) && (paramjht.b() == 0);
+  }
+  
+  private void aa()
+  {
+    L.w();
+  }
+  
+  private boolean ab()
+  {
+    return (y.c(eaj.ai)) && (P.a(TripActivity.class));
+  }
+  
+  private iuk b(eib parameib)
+  {
+    return iti.a().a(new ehn(this)).a(new iul()).a(parameib).a();
   }
   
   private void b(Intent paramIntent)
@@ -695,23 +786,103 @@ public class TripActivity
     }
   }
   
-  private void b(CancellationInfo paramCancellationInfo)
+  private void b(koi paramkoi)
   {
-    CashCancelDialogFragment.a(this, m(), p.an, paramCancellationInfo);
-  }
-  
-  private void b(ijy paramijy)
-  {
-    if (Z())
+    if (ab())
     {
-      V.b(paramijy);
-      paramijy = V;
+      ag.b(paramkoi);
+      paramkoi = ag;
       getApplication();
-      paramijy.a(L);
+      paramkoi.a((kof[])T.toArray(new kof[T.size()]));
     }
   }
   
-  private RotateAnimation c(boolean paramBoolean)
+  private void b(boolean paramBoolean)
+  {
+    if (paramBoolean)
+    {
+      localProfile = L.c();
+      if (localProfile != null)
+      {
+        mTextViewDrawerHeaderProfileName.setText(ezj.a(localProfile, this));
+        hju.a(mProfileImageView.a(), localProfile, G);
+        mProfileImageView.a(localProfile);
+      }
+    }
+    while ((!y.c(eaj.lR)) || (!mProfileImageView.c()))
+    {
+      Profile localProfile;
+      return;
+    }
+    mProfileImageView.d();
+  }
+  
+  private AlphaAnimation c(boolean paramBoolean)
+  {
+    if (paramBoolean) {}
+    for (AlphaAnimation localAlphaAnimation = new AlphaAnimation(0.0F, 1.0F);; localAlphaAnimation = new AlphaAnimation(1.0F, 0.0F))
+    {
+      localAlphaAnimation.setDuration(getResources().getInteger(2131427343));
+      localAlphaAnimation.setInterpolator(new AccelerateInterpolator());
+      return localAlphaAnimation;
+    }
+  }
+  
+  private void c(Intent paramIntent)
+  {
+    if ((paramIntent != null) && (paramIntent.getBooleanExtra("com.ubercab.SHOW_CONFIRMATION", false))) {
+      aa.t();
+    }
+  }
+  
+  private void c(CancellationInfo paramCancellationInfo)
+  {
+    int i2 = 1;
+    kco.a(paramCancellationInfo);
+    int i1;
+    if (y.a(eaj.hG, PoolCancelDialogFragment.e))
+    {
+      i1 = 1;
+      localObject = Locale.ENGLISH;
+      if (!paramCancellationInfo.getChargeFee()) {
+        break label136;
+      }
+    }
+    label136:
+    for (String str = "true";; str = "false")
+    {
+      str = ezk.a((Locale)localObject, "%s=%s:%s=%d:%s", new Object[] { "chargeFee", str, "messageIndex", Integer.valueOf(i1), paramCancellationInfo.getAnalyticMetrics() });
+      if (!y.c(eaj.dr)) {
+        break label144;
+      }
+      paramCancellationInfo = AnalyticsEvent.create("impression").setName(x.au).setValue(str);
+      i.a(paramCancellationInfo);
+      return;
+      i1 = 0;
+      break;
+    }
+    label144:
+    Object localObject = AnalyticsEvent.create("impression");
+    if ((n()) && (y.c(eaj.hH)))
+    {
+      i1 = i2;
+      if (i1 == 0) {
+        break label209;
+      }
+      ((AnalyticsEvent)localObject).setName(x.au).setValue(str);
+    }
+    for (;;)
+    {
+      i.a((AnalyticsEvent)localObject);
+      return;
+      i1 = 0;
+      break;
+      label209:
+      ((AnalyticsEvent)localObject).setName(x.rZ).setValue(Boolean.valueOf(paramCancellationInfo.getChargeFee()));
+    }
+  }
+  
+  private RotateAnimation d(boolean paramBoolean)
   {
     float f2 = 180.0F;
     float f1;
@@ -725,7 +896,7 @@ public class TripActivity
     for (;;)
     {
       RotateAnimation localRotateAnimation = new RotateAnimation(f1, f2, 1, 0.5F, 1, 0.5F);
-      localRotateAnimation.setDuration(getResources().getInteger(2131427341));
+      localRotateAnimation.setDuration(getResources().getInteger(2131427343));
       localRotateAnimation.setFillAfter(true);
       return localRotateAnimation;
       f1 = 180.0F;
@@ -735,79 +906,18 @@ public class TripActivity
     }
   }
   
-  private void c(Intent paramIntent)
-  {
-    if ((paramIntent != null) && (paramIntent.getBooleanExtra("com.ubercab.SHOW_CONFIRMATION", false))) {
-      S.s();
-    }
-  }
-  
-  private void c(CancellationInfo paramCancellationInfo)
-  {
-    int i2 = 1;
-    iae.a(paramCancellationInfo);
-    int i1;
-    if (t.a(dux.eV, PoolCancelDialogFragment.e))
-    {
-      i1 = 1;
-      localObject = Locale.ENGLISH;
-      if (!paramCancellationInfo.getChargeFee()) {
-        break label136;
-      }
-    }
-    label136:
-    for (String str = "true";; str = "false")
-    {
-      str = erg.a((Locale)localObject, "%s=%s:%s=%d:%s", new Object[] { "chargeFee", str, "messageIndex", Integer.valueOf(i1), paramCancellationInfo.getAnalyticMetrics() });
-      if (!t.b(dux.cx)) {
-        break label144;
-      }
-      paramCancellationInfo = AnalyticsEvent.create("impression").setName(p.ae).setValue(str);
-      m.a(paramCancellationInfo);
-      return;
-      i1 = 0;
-      break;
-    }
-    label144:
-    Object localObject = AnalyticsEvent.create("impression");
-    if ((m()) && (t.b(dux.eW)))
-    {
-      i1 = i2;
-      if (i1 == 0) {
-        break label209;
-      }
-      ((AnalyticsEvent)localObject).setName(p.ae).setValue(str);
-    }
-    for (;;)
-    {
-      m.a((AnalyticsEvent)localObject);
-      return;
-      i1 = 0;
-      break;
-      label209:
-      ((AnalyticsEvent)localObject).setName(p.nT).setValue(Boolean.valueOf(paramCancellationInfo.getChargeFee()));
-    }
-  }
-  
   private void d(Intent paramIntent)
   {
     if ((paramIntent != null) && (paramIntent.getBooleanExtra("com.ubercab.FROM_NOB_COMPLETION", false)))
     {
       AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap");
-      localAnalyticsEvent.setName(r.he);
+      localAnalyticsEvent.setName(z.kj);
       paramIntent = paramIntent.getStringExtra("com.ubercab.FROM_NOB_STEP");
       if (paramIntent != null) {
         localAnalyticsEvent.setValue(paramIntent);
       }
-      m.a(localAnalyticsEvent);
+      i.a(localAnalyticsEvent);
     }
-  }
-  
-  private void d(boolean paramBoolean)
-  {
-    Animation localAnimation = AnimationUtils.loadAnimation(this, 2130968616);
-    localAnimation.setAnimationListener(new TripActivity.6(this, paramBoolean));
-    mListViewDrawerProfilesList.startAnimation(localAnimation);
   }
   
   private void e(Intent paramIntent)
@@ -853,27 +963,29 @@ public class TripActivity
         break;
       }
     }
-    W.add(new hmj());
+    ah.add(new jgt());
     return;
-    W.add(new hml());
+    ah.add(new jgv());
     return;
-    W.add(new hnd());
+    ah.add(new jhm());
     return;
-    W.add(new hnh());
+    ah.add(new jhq());
     return;
-    W.add(new hne());
+    ah.add(new jhn());
+  }
+  
+  private void e(boolean paramBoolean)
+  {
+    Animation localAnimation = AnimationUtils.loadAnimation(this, 2130968633);
+    localAnimation.setAnimationListener(new TripActivity.6(this, paramBoolean));
+    mListViewDrawerProfilesList.startAnimation(localAnimation);
   }
   
   private void f(Intent paramIntent)
   {
-    if (t.b(dux.gS))
-    {
-      iae.a(paramIntent);
-      paramIntent = paramIntent.getAction();
-      if (paramIntent != null) {}
-    }
-    else
-    {
+    kco.a(paramIntent);
+    paramIntent = paramIntent.getAction();
+    if (paramIntent == null) {
       return;
     }
     int i1 = -1;
@@ -887,7 +999,7 @@ public class TripActivity
       default: 
         return;
       case 0: 
-        S();
+        W();
         return;
         if (paramIntent.equals("add"))
         {
@@ -920,29 +1032,69 @@ public class TripActivity
   
   private void i()
   {
-    startActivityForResult(PaymentActivity.a(this, etn.a(ah), M.d()), 2001);
+    startActivityForResult(PaymentActivity.a(this, fbw.a(ar), U.d()), 1017);
   }
   
-  private boolean j()
+  private Map<String, Float> j()
   {
-    return (t.b(dux.gD)) && (t.b(dux.gK));
+    if ((!m.b(eaj.de)) || (s.f() == null)) {
+      return null;
+    }
+    return kcv.a("multiplier", s.f().getSurgeMultiplier());
   }
   
   private boolean k()
   {
-    return ((l()) && (t.b(dux.dv))) || ((m()) && (t.b(dux.eV)));
+    return y.c(eaj.kS);
   }
   
   private boolean l()
   {
-    return (M.a() != null) && ("cash".equals(M.a().getTokenType()));
+    boolean bool2 = false;
+    boolean bool1;
+    if (y.a(eaj.hI, true)) {
+      if ((!m()) || (!y.c(eaj.fD)))
+      {
+        if ((!n()) && (!A.t()))
+        {
+          bool1 = bool2;
+          if (!A.s()) {}
+        }
+        else
+        {
+          bool1 = bool2;
+          if (!y.c(eaj.hG)) {}
+        }
+      }
+      else {
+        bool1 = true;
+      }
+    }
+    do
+    {
+      do
+      {
+        return bool1;
+        if ((m()) && (y.c(eaj.fD))) {
+          break;
+        }
+        bool1 = bool2;
+      } while (!n());
+      bool1 = bool2;
+    } while (!y.c(eaj.hG));
+    return true;
   }
   
   private boolean m()
   {
+    return (U.a() != null) && ("cash".equals(U.a().getTokenType()));
+  }
+  
+  private boolean n()
+  {
     boolean bool2 = false;
-    Object localObject = i.f();
-    City localCity = i.b();
+    Object localObject = s.f();
+    City localCity = s.b();
     boolean bool1 = bool2;
     if (localObject != null)
     {
@@ -960,7 +1112,7 @@ public class TripActivity
             if (((VehicleView)localObject).getAllowRidepool())
             {
               bool1 = bool2;
-              if (hha.d(S.g())) {
+              if (izk.f(aa.g())) {
                 bool1 = true;
               }
             }
@@ -971,26 +1123,26 @@ public class TripActivity
     return bool1;
   }
   
-  private boolean n()
+  private boolean o()
   {
-    if (D.p())
+    if (L.o())
     {
-      if (i.f() != null) {
-        return i.f().getUseCredits();
+      if (s.f() != null) {
+        return s.f().getUseCredits();
       }
-      return M.d();
+      return U.d();
     }
     return true;
   }
   
-  private boolean o()
+  private boolean p()
   {
     boolean bool = false;
     int i1;
-    if ((m()) && (t.b(dux.eW)))
+    if ((n()) && (y.c(eaj.hH)))
     {
       i1 = 1;
-      if ((!l()) || (!t.a(dux.dv))) {
+      if ((!m()) || (!y.b(eaj.fD))) {
         break label67;
       }
     }
@@ -1006,67 +1158,75 @@ public class TripActivity
     }
   }
   
-  private void p()
+  private void q()
   {
-    if ((ezs.a(t)) && (8 == S.g()))
+    startActivityForResult(new Intent(this, PasswordlessSignupPromoActivityDialog.class), 1022);
+    O.bf();
+  }
+  
+  private void r()
+  {
+    if ((fnf.a(y)) && (9 == aa.g()))
     {
       EmergencyHelpChooserFragment.a(this);
       return;
     }
-    if (t.b(jew.j))
-    {
-      startActivity(HelpActivity.a(this));
-      return;
-    }
-    startActivity(SupportHomeActivity.a(this));
+    startActivity(HelpActivity.a(this));
   }
   
-  private void q()
+  private void s()
   {
-    Object localObject = i.d();
+    Object localObject = s.d();
     if (localObject == null) {}
     for (localObject = null;; localObject = ((ClientStatus)localObject).getLastRequestMsg())
     {
       if (!TextUtils.isEmpty((CharSequence)localObject)) {
-        eqg.a(this, p.nM, 0, (String)localObject);
+        eyh.a(this, x.rS, 0, (String)localObject);
       }
       return;
     }
   }
   
-  private void r()
+  public final void B()
   {
-    Profile localProfile = D.c();
-    if (localProfile != null)
+    if (y.c(eaj.aS))
     {
-      mTextViewDrawerHeaderProfileName.setText(erf.a(localProfile, this));
-      gik.a(mProfileImageView.a(), localProfile, y);
-      mProfileImageView.a(localProfile);
+      TripFragment localTripFragment = (TripFragment)a(TripFragment.class);
+      if (localTripFragment != null) {
+        localTripFragment.ag();
+      }
+      return;
     }
+    super.B();
   }
   
-  private void s()
+  public final void C()
   {
-    K.a(mToolbar);
-    K.a();
-    ViewGroup localViewGroup = (ViewGroup)findViewById(2131625695);
-    p.a(localViewGroup);
+    if (y.c(eaj.aS))
+    {
+      TripFragment localTripFragment = (TripFragment)a(TripFragment.class);
+      if (localTripFragment != null) {
+        localTripFragment.ah();
+      }
+      return;
+    }
+    super.C();
   }
   
   public final View a()
   {
-    return K.b();
+    return S.b();
   }
   
   public final void a(int paramInt1, int paramInt2, Bundle paramBundle)
   {
     super.a(paramInt1, paramInt2, paramBundle);
-    if (paramInt1 == 2009) {
+    if (paramInt1 == 1004) {
       if (paramInt2 == -1)
       {
-        ((TripFragment)a(TripFragment.class)).R();
-        m.a(r.kF);
-        I.a(0);
+        ((TripFragment)a(TripFragment.class)).aa();
+        i.a(z.nU);
+        Q.a(0);
       }
     }
     do
@@ -1080,57 +1240,57 @@ public class TripActivity
             do
             {
               return;
-              m.a(r.kE);
+              i.a(z.nT);
               return;
-              if (paramInt1 == 2019)
+              if (paramInt1 == 1006)
               {
                 if (paramInt2 == -1)
                 {
-                  ((TripFragment)a(TripFragment.class)).R();
-                  m.a(r.v);
-                  I.a(8);
+                  ((TripFragment)a(TripFragment.class)).aa();
+                  i.a(z.I);
+                  Q.a(8);
                   return;
                 }
-                m.a(r.w);
+                i.a(z.J);
                 return;
               }
-              if ((paramInt1 == 2021) && (t.b(dux.dv)))
+              if ((paramInt1 == 1005) && (y.c(eaj.fD)))
               {
                 if (paramInt2 == -1)
                 {
-                  ((TripFragment)a(TripFragment.class)).R();
-                  m.a(r.A);
+                  ((TripFragment)a(TripFragment.class)).aa();
+                  i.a(z.R);
                   if (paramBundle.getBoolean("is_pool", false))
                   {
-                    I.a(8);
+                    Q.a(8);
                     return;
                   }
-                  I.a(0);
+                  Q.a(0);
                   return;
                 }
-                m.a(r.B);
+                i.a(z.S);
                 return;
               }
-              if ((paramInt1 == 2011) && (paramInt2 == -1))
+              if ((paramInt1 == 1009) && (paramInt2 == -1))
               {
                 paramBundle = (TripFragment)a(TripFragment.class);
-                paramBundle.S();
+                paramBundle.ab();
                 paramBundle.a(null, null);
                 return;
               }
-              if (paramInt1 != 2014) {
+              if (paramInt1 != 1028) {
                 break;
               }
               paramBundle = (TripFragment)a(TripFragment.class);
             } while (paramBundle == null);
-            paramBundle.T();
+            paramBundle.ac();
             return;
-            if (paramInt1 != 2015) {
+            if (paramInt1 != 1029) {
               break;
             }
             paramBundle = (TripFragment)a(TripFragment.class);
           } while (paramBundle == null);
-          paramBundle.P();
+          paramBundle.Y();
           return;
           if ((paramInt1 == 11000) && (paramInt2 == -1))
           {
@@ -1139,65 +1299,87 @@ public class TripActivity
             startActivity(paramBundle);
             return;
           }
-          if (paramInt1 != 2020) {
+          if (paramInt1 != 1008) {
             break;
           }
           paramBundle = (TripFragment)a(TripFragment.class);
         } while (paramBundle == null);
-        q.a(paramInt2, G.y(), paramBundle, this);
+        q.a(paramInt2, O.N(), paramBundle, this);
         return;
-      } while ((paramInt1 != 9011) || (!t.b(dux.cB)));
-      if (paramInt2 == -1)
+        if ((paramInt1 != 9011) || (!y.c(eaj.dw))) {
+          break;
+        }
+        if (paramInt2 == -1)
+        {
+          i.a(x.ex);
+          paramBundle = new Intent(this, MobileVerificationActivity.class);
+          paramBundle.putExtra("com.ubercab.MOBILE_VOICE_VERIFICATION", true);
+          startActivity(paramBundle);
+          return;
+        }
+      } while (paramInt2 != 0);
+      i.a(x.ew);
+      return;
+      if (paramInt1 == 1031)
       {
-        m.a(p.cU);
-        paramBundle = new Intent(this, MobileVerificationActivity.class);
-        paramBundle.putExtra("com.ubercab.MOBILE_VOICE_VERIFICATION", true);
-        startActivity(paramBundle);
-        return;
+        if (paramInt2 == -1)
+        {
+          paramBundle = (TripFragment)a(TripFragment.class);
+          paramBundle.ab();
+          paramBundle.a(null, null);
+        }
+        if (paramInt2 == -1) {}
+        for (paramBundle = z.C;; paramBundle = z.B)
+        {
+          a("tap", paramBundle, j());
+          return;
+        }
       }
-    } while (paramInt2 != 0);
-    m.a(p.cT);
-  }
-  
-  @Deprecated
-  public final void a(com.ubercab.rider.realtime.model.Client paramClient, ArrayList<UnpaidBill> paramArrayList)
-  {
-    if ((paramClient == null) || (paramArrayList == null)) {
-      return;
+    } while (paramInt1 != 1030);
+    if (paramInt2 == -1) {
+      ((TripFragment)a(TripFragment.class)).ae();
     }
-    if ((t.b(dux.dt)) && (C.b(B.a(), paramClient)))
+    if (paramInt2 == -1) {}
+    for (paramBundle = z.A;; paramBundle = z.z)
     {
-      startActivity(PayNowActivity.a(this, paramArrayList));
-      return;
-    }
-    if (paramClient.getLastSelectedPaymentProfileIsGoogleWallet()) {}
-    for (paramClient = com.ubercab.client.core.model.PaymentProfile.GOOGLE_WALLET;; paramClient = paramClient.getLastSelectedPaymentProfile())
-    {
-      TripExpenseInfo localTripExpenseInfo = M.b();
-      Object localObject = localTripExpenseInfo;
-      if (localTripExpenseInfo == null) {
-        localObject = RiderTripExpenseInfo.create();
-      }
-      startActivity(PaymentActivity.a(this, (TripExpenseInfo)localObject, etn.a(ah), paramClient, paramArrayList));
+      a("tap", paramBundle, j());
       return;
     }
   }
   
   public final void a(Profile paramProfile, boolean paramBoolean)
   {
+    boolean bool = true;
     if ((paramBoolean) && (paramProfile.getType().equals("ManagedFamily")))
     {
-      m.a(r.aZ);
-      if (j())
+      eyt.a(i, y, L, z.cg, z.cf);
+      Client localClient;
+      kia localkia;
+      dzn localdzn;
+      if (k())
       {
-        fcj.a(this, m);
-        mDrawerLayout.closeDrawers();
+        paramProfile = i;
+        localClient = s.c();
+        localkia = y;
+        localdzn = O;
+        paramBoolean = bool;
+        if (!m.c(eaj.kM)) {
+          if (s.c() != null) {
+            break label126;
+          }
+        }
       }
-      return;
+      label126:
+      for (paramBoolean = bool;; paramBoolean = false)
+      {
+        fpx.a(this, paramProfile, localClient, localkia, localdzn, paramBoolean);
+        mDrawerLayout.closeDrawers();
+        return;
+      }
     }
-    if (O.a(paramProfile, true))
+    if (W.a(paramProfile, true))
     {
-      d(true);
+      e(true);
       return;
     }
     mDrawerLayout.closeDrawers();
@@ -1205,18 +1387,10 @@ public class TripActivity
   
   public final void a(CancellationInfo paramCancellationInfo)
   {
-    if (t.a(dux.eV, PoolCancelDialogFragment.d)) {}
-    for (String str = PoolCancelDialogFragment.d.name();; str = PoolCancelDialogFragment.e.name())
-    {
-      PoolCancelDialogFragment.a(this, p.nR, paramCancellationInfo, str);
-      if (!t.b(dux.eW)) {
-        break;
-      }
-      c(paramCancellationInfo);
+    if ((y.a(eaj.hJ, true)) && (isFinishing())) {
       return;
     }
-    paramCancellationInfo = AnalyticsEvent.create("impression").setName(p.ae).setValue(paramCancellationInfo.getAnalyticMetrics());
-    m.a(paramCancellationInfo);
+    CashCancelDialogFragment.a(this, n(), x.aI, paramCancellationInfo);
   }
   
   public final void a(String paramString1, String paramString2)
@@ -1229,49 +1403,54 @@ public class TripActivity
   
   public final void a(boolean paramBoolean)
   {
-    if ((t.a(dux.eU, true)) && (isFinishing())) {}
+    if (isFinishing()) {}
     Trip localTrip;
     do
     {
       return;
-      epz.a(this, p.nL, 2009, null, getString(2131165322), getString(2131167243), getString(2131166074));
-      if (!paramBoolean)
+      if (y.c(eaj.fr))
       {
-        m.a(p.nT);
-        return;
+        long l1 = y.a(eaj.fr, "wait_time", 2L);
+        eya.a(this, x.rR, 1004, getString(2131165347), getString(2131165345, new Object[] { Long.valueOf(l1) }), getString(2131167629), getString(2131166202));
       }
-      localTrip = i.f();
+      while (!paramBoolean)
+      {
+        i.a(x.rZ);
+        return;
+        eya.a(this, x.rR, 1004, null, getString(2131165347), getString(2131167629), getString(2131166202));
+      }
+      localTrip = s.f();
     } while (localTrip == null);
-    aj = R.a(localTrip.getUuid()).a(kls.a()).b(new hcz(this, (byte)0));
+    at = Z.a(localTrip.getUuid()).a(oeh.a()).b(new iue(this, (byte)0));
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    if (!Z()) {
-      V.a(egd.values());
+    if (!ab()) {
+      ag.a(enz.values());
     }
     for (;;)
     {
-      setContentView(2130903637);
-      ButterKnife.inject(this);
-      N();
-      Y();
-      s();
+      setContentView(2130903853);
+      ButterKnife.a(this);
+      R();
+      aa();
       G();
-      K();
-      L();
-      E();
+      J();
+      O();
+      P();
+      H();
       r.b();
-      K.a(this);
-      N.a(paramBundle);
-      if (t.b(dux.gr)) {
-        Q.b(paramBundle);
-      }
-      S.a(paramBundle);
-      M.b(paramBundle);
-      z.b(paramBundle);
-      ad = new Handler();
+      S.a(this);
+      V.a(paramBundle);
+      Y.b(paramBundle);
+      aa.a(paramBundle);
+      U.b(paramBundle);
+      I.b(paramBundle);
+      H.b(paramBundle);
+      j.a(paramBundle);
+      ao = new Handler();
       if (paramBundle == null)
       {
         paramBundle = getIntent();
@@ -1281,49 +1460,45 @@ public class TripActivity
         e(paramBundle);
         g(paramBundle);
       }
-      b(egd.r);
+      b(enz.r);
       return;
-      V.b(egd.q);
-      ijw localijw = V;
+      ag.b(enz.q);
+      kog localkog = ag;
       getApplication();
-      localijw.a(L);
-      V.a(ijz.a, egd.r);
+      localkog.a((kof[])T.toArray(new kof[T.size()]));
+      ag.a(koj.a, enz.r);
     }
   }
   
-  protected final void e()
+  public final void b(CancellationInfo paramCancellationInfo)
   {
-    super.e();
-    V.b(egd.j);
-    V.a(ijz.a, egd.q);
-    V.a(ijz.a, egd.v);
+    if ((y.a(eaj.hJ, true)) && (isFinishing())) {
+      return;
+    }
+    if (y.a(eaj.hG, PoolCancelDialogFragment.d)) {}
+    for (String str = PoolCancelDialogFragment.d.name();; str = PoolCancelDialogFragment.e.name())
+    {
+      PoolCancelDialogFragment.a(this, x.rX, paramCancellationInfo, str);
+      if (!y.c(eaj.hH)) {
+        break;
+      }
+      c(paramCancellationInfo);
+      return;
+    }
+    paramCancellationInfo = AnalyticsEvent.create("impression").setName(x.au).setValue(paramCancellationInfo.getAnalyticMetrics());
+    i.a(paramCancellationInfo);
   }
   
   public final void f()
   {
-    Object localObject2 = null;
-    if (t.b(dux.gr))
+    Y.b();
+    Object localObject = s.d();
+    if (localObject == null) {}
+    for (localObject = null;; localObject = ((ClientStatus)localObject).getStatus())
     {
-      Q.b();
-      localObject1 = i.d();
-      if (localObject1 != null) {
-        break label139;
-      }
-    }
-    label139:
-    for (Object localObject1 = localObject2;; localObject1 = ((ClientStatus)localObject1).getStatus())
-    {
-      localObject1 = AnalyticsEvent.create("tap").setName(r.ay).setValue((String)localObject1);
-      m.a((AnalyticsEvent)localObject1);
-      o.c(new hmm());
+      localObject = AnalyticsEvent.create("tap").setName(z.aT).setValue((String)localObject);
+      i.a((AnalyticsEvent)localObject);
       return;
-      localObject1 = i.f();
-      if (localObject1 != null) {}
-      for (localObject1 = ((Trip)localObject1).getUuid();; localObject1 = null)
-      {
-        an = R.d((String)localObject1).a(kls.a()).b(new hdf(this, (byte)0));
-        break;
-      }
     }
   }
   
@@ -1334,174 +1509,207 @@ public class TripActivity
   
   final void h()
   {
-    m.a(p.eX);
-    m.a(r.cD);
-    if (D.r())
+    i.a(x.hc);
+    i.a(z.ev);
+    if (L.t())
     {
-      D.e();
-      m.a(p.oM);
+      L.f();
+      i.a(x.tk);
     }
   }
   
-  @cho
-  public void onAcceptFareSplitResponse(eic parameic)
+  @chu
+  public void onAcceptFareSplitResponse(eqp parameqp)
   {
-    if (!parameic.a()) {
-      a(i.c(), parameic.c());
+    if ((!parameqp.a()) && (m.a(eaj.an)) && (parameqp.c() != null))
+    {
+      parameqp = UnpaidBillsResponse.create(parameqp.c());
+      X.a(s.c(), parameqp);
     }
   }
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
-    if ((paramInt1 == 2008) && (paramInt2 == 0)) {
+    if ((paramInt1 == 1024) && (paramInt2 == 0)) {
       onBackPressed();
     }
-    Object localObject;
+    label522:
+    label639:
     do
     {
+      Object localObject;
       do
       {
-        return;
-        if ((paramInt1 == 1050) && (paramInt2 == 0))
+        do
         {
-          finish();
           return;
-        }
-        if ((paramInt1 == 2001) && (paramInt2 == -1) && (paramIntent != null))
-        {
-          ah = ((MaskedWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
-          if (t.b(dux.gr)) {
-            M.a(ah);
-          }
-          X();
-          if (paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID"))
+          if ((paramInt1 == 1011) && (paramInt2 == 0))
           {
-            localObject = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
-            M.a((String)localObject);
+            finish();
+            return;
           }
-          if (paramIntent.hasExtra("com.ubercab.USE_CREDITS"))
+          if ((paramInt1 == 1017) && (paramInt2 == -1) && (paramIntent != null))
           {
-            bool = paramIntent.getBooleanExtra("com.ubercab.USE_CREDITS", true);
-            M.b(bool);
-          }
-          a(paramIntent);
-          return;
-        }
-      } while ((paramInt1 == 2021) && (D.p()) && (O.a(paramInt2, paramIntent)));
-      if ((paramInt1 == 2005) || (paramInt1 == 3003))
-      {
-        E.a().b(eri.a());
-        a(paramIntent);
-        if (paramInt2 == -1)
-        {
-          ah = ((MaskedWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
-          if (t.b(dux.gr)) {
-            M.a(ah);
-          }
-          if (paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID"))
-          {
-            localObject = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
-            if (paramInt1 == 2005) {
-              a((String)localObject, false);
+            ar = ((MaskedWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
+            U.a(ar);
+            Z();
+            if (paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID"))
+            {
+              localObject = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
+              U.a((String)localObject);
             }
-            M.a((String)localObject);
+            if (paramIntent.hasExtra("com.ubercab.USE_CREDITS"))
+            {
+              bool = paramIntent.getBooleanExtra("com.ubercab.USE_CREDITS", true);
+              U.b(bool);
+            }
+            a(paramIntent);
+            return;
           }
-          if (paramIntent.hasExtra("com.ubercab.USE_CREDITS"))
-          {
-            bool = paramIntent.getBooleanExtra("com.ubercab.USE_CREDITS", true);
-            M.b(bool);
-          }
-          if (paramIntent.hasExtra("com.ubercab.USE_POINTS"))
-          {
-            bool = paramIntent.getBooleanExtra("com.ubercab.USE_POINTS", false);
-            M.c(bool);
-          }
-          Q();
-          return;
-        }
-        if ((paramInt2 == 0) && (D.p()))
+        } while (((paramInt1 == 2021) && (L.o()) && (W.b(paramInt2, paramIntent))) || ((paramInt1 == 2027) && (L.j()) && (W.a(paramInt2, paramIntent))));
+        if ((paramInt1 == 1025) || (paramInt1 == 3003))
         {
-          m.a(r.lo);
-          return;
+          M.a().b(ezm.a());
+          a(paramIntent);
+          if (paramInt2 == -1)
+          {
+            ar = ((MaskedWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
+            U.a(ar);
+            if (paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID"))
+            {
+              localObject = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
+              if (paramInt1 == 1025) {
+                a((String)localObject, false);
+              }
+              U.a((String)localObject);
+            }
+            if (paramIntent.hasExtra("com.ubercab.USE_CREDITS"))
+            {
+              bool = paramIntent.getBooleanExtra("com.ubercab.USE_CREDITS", true);
+              U.b(bool);
+            }
+            if (paramIntent.hasExtra("com.ubercab.USE_POINTS"))
+            {
+              bool = paramIntent.getBooleanExtra("com.ubercab.USE_POINTS", false);
+              U.c(bool);
+            }
+            U();
+            return;
+          }
+          if ((paramInt2 == 0) && (L.o()))
+          {
+            i.a(z.oV);
+            return;
+          }
+        }
+        if (paramInt1 != 1007) {
+          break label522;
+        }
+        a(paramIntent);
+        if (paramInt2 != -1) {
+          break;
+        }
+        localObject = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
+        a((String)localObject, true);
+        if ((!L.o()) || (!TextUtils.isEmpty((CharSequence)localObject))) {
+          U.a((String)localObject);
+        }
+      } while ((!L.o()) || (!paramIntent.hasExtra("com.ubercab.USE_CREDITS")));
+      boolean bool = paramIntent.getBooleanExtra("com.ubercab.USE_CREDITS", true);
+      U.b(bool);
+      return;
+      if ((paramInt2 == 0) && (L.o())) {
+        i.a(z.rw);
+      }
+      if (((paramInt1 == 1019) || (paramInt1 == 1020)) && (y.c(eaj.fw)))
+      {
+        localObject = U;
+        if (paramInt2 != 1) {
+          break label639;
         }
       }
-      if (paramInt1 != 2006) {
-        break label523;
-      }
-      a(paramIntent);
-      if (paramInt2 != -1) {
-        break;
-      }
-      localObject = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
-      a((String)localObject, true);
-      if ((!D.p()) || (!TextUtils.isEmpty((CharSequence)localObject))) {
-        M.a((String)localObject);
-      }
-    } while ((!D.p()) || (!paramIntent.hasExtra("com.ubercab.USE_CREDITS")));
-    boolean bool = paramIntent.getBooleanExtra("com.ubercab.USE_CREDITS", true);
-    M.b(bool);
-    return;
-    if ((paramInt2 == 0) && (D.p())) {
-      m.a(r.nN);
-    }
-    label523:
-    if ((paramInt1 == 2007) && (paramInt2 == -1))
-    {
-      ah = ((MaskedWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
-      if (t.b(dux.gr)) {
-        M.a(ah);
-      }
-      ac = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
-      return;
-    }
-    if ((paramInt1 == 2011) && (paramInt2 == -1))
-    {
-      a(paramIntent);
-      if (t.b(dux.gr))
+      for (bool = true;; bool = false)
       {
-        Q.b(true);
+        ((iyw)localObject).d(bool);
+        U();
+        if (paramInt1 == 1020) {
+          J.c();
+        }
+        if ((paramInt1 != 1010) || (paramInt2 != -1)) {
+          break;
+        }
+        ar = ((MaskedWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
+        U.a(ar);
+        an = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
         return;
       }
-      localObject = (TripFragment)a(TripFragment.class);
-      if ((!D.i()) || (M.a() == null)) {
-        break label755;
+      if ((paramInt1 == 1001) && (paramInt2 == -1))
+      {
+        a(paramIntent);
+        Y.a(true);
+        return;
       }
-      ((TripFragment)localObject).a(M.a().getUuid(), false);
-    }
-    for (;;)
-    {
-      if ((paramInt1 == 2010) && (paramInt2 == -1)) {
-        O();
+      if ((paramInt1 == 1013) && (paramInt2 == -1)) {
+        S();
       }
-      if ((paramInt1 == 2017) && (paramInt2 == -1)) {
+      if ((paramInt1 == 1000) && (paramInt2 == -1)) {
         a(paramIntent);
       }
-      if ((paramInt1 != 2018) || (paramInt2 != -1) || (paramIntent == null) || (!paramIntent.hasExtra("com.ubercab.EXPENSE_INFO"))) {
-        break;
+      if ((paramInt1 == 1002) && (paramInt2 == -1) && (paramIntent != null) && (paramIntent.hasExtra("com.ubercab.EXPENSE_INFO"))) {
+        U.a((TripExpenseInfo)paramIntent.getParcelableExtra("com.ubercab.EXPENSE_INFO"));
       }
-      M.a((TripExpenseInfo)paramIntent.getParcelableExtra("com.ubercab.EXPENSE_INFO"));
-      return;
-      label755:
-      ((TripFragment)localObject).a(paramIntent.getStringExtra("EXTRA_PAYMENT_PROFILE_UUID"), false);
-    }
+      if ((paramInt1 == 1018) && (paramInt2 == -1)) {
+        J.c();
+      }
+      if ((y.c(eaj.fL)) && (paramInt1 == 1022) && (paramInt2 == -1)) {
+        startActivity(new Intent(this, DisplayPromoActivity.class));
+      }
+      if ((new hts(this, y).u()) && (paramInt1 == 1023) && (paramInt2 == -1))
+      {
+        localObject = paramIntent.getStringExtra("EXTRA_RATINGS_TRIP_UUID");
+        J.a((String)localObject);
+      }
+    } while (!y.c(eaj.fy));
+    j.a(paramInt1, paramInt2, paramIntent);
   }
   
-  @cho
-  public void onAddExpenseInfoFromTripTrayEvent(gir paramgir)
+  @chu
+  public void onAddExpenseInfoFromTripTrayEvent(hkk paramhkk)
   {
-    if (D.i())
+    int i2 = 0;
+    if ((L.j()) || (y.c(eaj.bX)))
     {
-      startActivityForResult(ExpenseCodeConfigureActivity.a(this, RiderTripExpenseInfo.create(paramgir.a()), true), 2018);
-      return;
+      Profile localProfile = L.c();
+      if (localProfile == null)
+      {
+        dua.a(this, 2131167537);
+        opc.e("onAddExpenseInfoFromTripTrayEvent tries to start expense code activity with null profile.", new Object[0]);
+        return;
+      }
+      paramhkk = RiderTripExpenseInfo.create(paramhkk.a());
+      int i1 = i2;
+      if (TextUtils.isEmpty(paramhkk.getCode()))
+      {
+        i1 = i2;
+        if (x.a(localProfile)) {
+          i1 = 1;
+        }
+      }
+      if (i1 != 0) {}
+      for (paramhkk = ExpenseCodeSearchActivity.a(this, localProfile, paramhkk, true);; paramhkk = ExpenseCodeConfigureActivity.a(this, localProfile, paramhkk, true))
+      {
+        startActivityForResult(paramhkk, 1002);
+        return;
+      }
     }
-    startActivityForResult(ExpenseInfoActivity.a(this, paramgir.a()), 2018);
+    startActivityForResult(ExpenseInfoActivity.a(this, paramhkk.a()), 1002);
   }
   
-  @cho
-  public void onAddPaymentEvent(hmk paramhmk)
+  @chu
+  public void onAddPaymentEvent(jgu paramjgu)
   {
-    S();
+    W();
   }
   
   public void onBackPressed()
@@ -1514,416 +1722,415 @@ public class TripActivity
     {
       return;
       localTripFragment = (TripFragment)a(TripFragment.class);
-    } while ((localTripFragment != null) && (localTripFragment.Q()));
+    } while ((localTripFragment != null) && (localTripFragment.Z()));
     super.onBackPressed();
   }
   
-  @cho
-  public void onCancelTripEvent(hml paramhml)
+  @chu
+  public void onCancelTripEvent(jgv paramjgv)
   {
-    if (!k()) {
-      if (t.b(dux.cx)) {
-        a(t.b(dux.eW));
+    if (!l()) {
+      if (y.c(eaj.dr)) {
+        a(y.c(eaj.hH));
       }
     }
     do
     {
       return;
-      a(o());
+      a(p());
       return;
-      paramhml = i.f();
-    } while (paramhml == null);
-    b(getString(2131166226), null);
-    aj = R.a(paramhml.getUuid()).a(kls.a()).b(new hda(this, (byte)0));
+      paramjgv = s.f();
+    } while (paramjgv == null);
+    b(getString(2131166387), null);
+    at = Z.a(paramjgv.getUuid()).a(oeh.a()).b(new iuf(this, (byte)0));
   }
   
-  @cho
-  public void onCancelingTripEvent(hmm paramhmm)
+  @chu
+  public void onChangeTripPaymentEvent(jgw paramjgw)
   {
-    ae = true;
+    Object localObject2 = null;
+    Object localObject1 = localObject2;
+    if (y.c(eaj.fy))
+    {
+      localObject1 = localObject2;
+      if (j.f())
+      {
+        localObject1 = localObject2;
+        if (j.d() != null) {
+          localObject1 = BouncePaymentOptions.create().setBounceGuestName(j.d().getDisplayName()).setIsPaymentForOtherPerson(true);
+        }
+      }
+    }
+    startActivityForResult(PaymentActivity.a(this, paramjgw.a(), o(), (BouncePaymentOptions)localObject1), 1007);
   }
   
-  @cho
-  public void onChangeTripPaymentEvent(hmn paramhmn)
+  @chu
+  public void onClearDestinationEvent(jgx paramjgx)
   {
-    startActivityForResult(PaymentActivity.a(this, paramhmn.a(), n()), 2006);
-  }
-  
-  @cho
-  public void onClearDestinationEvent(hmo paramhmo)
-  {
-    paramhmo = getString(2131166308);
-    String str1 = getString(2131166307);
-    String str2 = getString(2131166126);
-    String str3 = getString(2131165320);
-    epz.a(this, p.nS, 2011, paramhmo, str1, str2, str3);
+    paramjgx = getString(2131166487);
+    String str1 = getString(2131166486);
+    String str2 = getString(2131166260);
+    String str3 = getString(2131165344);
+    eya.a(this, x.rY, 1009, paramjgx, str1, str2, str3);
   }
   
   public void onConfigurationChanged(Configuration paramConfiguration)
   {
     super.onConfigurationChanged(paramConfiguration);
-    if (ab == null)
+    if (g == null)
     {
-      kul.c(new NullPointerException("Drawer toggle is null onConfigurationChanged:\n" + paramConfiguration.toString()), "Config change in unknown state", new Object[0]);
+      opc.d(new NullPointerException("Drawer toggle is null onConfigurationChanged:\n" + paramConfiguration.toString()), "Config change in unknown state", new Object[0]);
       return;
     }
-    ab.b();
+    g.b();
   }
   
-  @cho
-  public void onCreateGoogleWalletPaymentProfileEvent(hmp paramhmp)
+  @chu
+  public void onCreateGoogleWalletPaymentProfileEvent(jgy paramjgy)
   {
-    paramhmp = new Intent(this, GoogleWalletActivity.class);
-    paramhmp.setAction("com.ubercab.ACTION_CREATE_PAYMENT_PROFILE");
-    paramhmp.putExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET", ah);
-    startActivityForResult(paramhmp, 2007);
+    paramjgy = new Intent(this, GoogleWalletActivity.class);
+    paramjgy.setAction("com.ubercab.ACTION_CREATE_PAYMENT_PROFILE");
+    paramjgy.putExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET", ar);
+    startActivityForResult(paramjgy, 1010);
   }
   
-  @cho
-  public void onCurrentlySelectedProfileSetEvent(giu paramgiu)
+  @chu
+  public void onCurrentlySelectedProfileSetEvent(hkn paramhkn)
   {
-    if (D.p())
+    if (L.o())
     {
-      r();
+      b(true);
       ((BaseAdapter)mListViewDrawerProfilesList.getAdapter()).notifyDataSetChanged();
-      ((TripFragment)a(TripFragment.class)).a(paramgiu.a());
+      ((TripFragment)a(TripFragment.class)).a(paramhkn.a());
     }
   }
   
   protected void onDestroy()
   {
-    K.b(this);
+    S.b(this);
     super.onDestroy();
   }
   
-  @cho
-  public void onEmergencyStateUpdated(ezt paramezt)
+  @chu
+  public void onEmergencyStateUpdated(fng paramfng)
   {
-    K.a(paramezt);
+    S.a(paramfng);
   }
   
-  @cho
-  public void onFareSplitInvitationEvent(fjq paramfjq)
+  @chu
+  public void onFareSplitInvitationEvent(fyp paramfyp)
   {
     FareSplitInvitationFragment localFareSplitInvitationFragment;
-    com.ubercab.rider.realtime.model.Client localClient;
+    Client localClient;
     if (a(FareSplitInvitationFragment.class) == null)
     {
       localFareSplitInvitationFragment = new FareSplitInvitationFragment();
-      localClient = i.c();
+      localClient = s.c();
       if (localClient != null) {
         break label107;
       }
     }
     label107:
-    for (paramfjq = null;; paramfjq = localClient.getLastSelectedPaymentProfileUUID())
+    for (paramfyp = null;; paramfyp = localClient.getLastSelectedPaymentProfileUUID())
     {
-      if ((paramfjq != null) && (localClient.getPaymentProfiles() != null)) {
-        localFareSplitInvitationFragment.a(localClient.findPaymentProfileByUuid(paramfjq));
+      if ((paramfyp != null) && (localClient.getPaymentProfiles() != null)) {
+        localFareSplitInvitationFragment.a(localClient.findPaymentProfileByUuid(paramfyp));
       }
-      if ((t.a(dux.bG, true)) && (D.p())) {
-        localFareSplitInvitationFragment.a(O);
+      if ((y.a(eaj.cj, true)) && (L.o())) {
+        localFareSplitInvitationFragment.a(W);
       }
       localFareSplitInvitationFragment.show(getSupportFragmentManager(), FareSplitInvitationFragment.class.getName());
       return;
     }
   }
   
-  @cho
-  public void onGetAccountResponseEvent(eio parameio)
+  @chu
+  public void onHelpEvent(jhe paramjhe)
   {
-    if (parameio.i())
-    {
-      parameio = (RiderAccount)parameio.g();
-      if (parameio != null)
-      {
-        am = parameio;
-        ((jwc)u.a()).a("com.ubercab.client.RIDER_ACCOUNT", parameio);
-        a(parameio.getPictureUrl(), parameio.getFullName());
-      }
-    }
+    r();
   }
   
-  @cho
-  @Deprecated
-  public void onGotUnpaidBillsEvent(gcm paramgcm)
-  {
-    A.a(paramgcm);
-  }
-  
-  @cho
-  public void onHelpEvent(hmv paramhmv)
-  {
-    p();
-  }
-  
-  @OnItemClick({2131625701})
+  @OnItemClick
   public void onItemClick(long paramLong)
   {
-    ad.postDelayed(new TripActivity.2(this, paramLong), 250L);
+    ao.postDelayed(new TripActivity.2(this, paramLong), 250L);
     mDrawerLayout.closeDrawers();
   }
   
-  @OnClick({2131625702})
-  void onMenuDrawerProfileFooterClicked()
+  @OnClick
+  public void onMenuDrawerProfileFooterClicked()
   {
-    W();
+    Y();
   }
   
-  @OnClick({2131625742})
-  void onMenuDrawerProfileHeaderClicked()
+  @OnClick
+  public void onMenuDrawerProfileHeaderClicked()
   {
-    W();
+    Y();
   }
   
   protected void onNewIntent(Intent paramIntent)
   {
     super.onNewIntent(paramIntent);
+    if (y.a(eaj.Y, true)) {
+      setIntent(paramIntent);
+    }
     e(paramIntent);
     g(paramIntent);
-    O.a(paramIntent);
+    W.a(paramIntent);
+    w.a(paramIntent);
     f(paramIntent);
+    if (y.c(eaj.kg)) {
+      fio.a(this, paramIntent);
+    }
+    TripFragment localTripFragment = (TripFragment)a(TripFragment.class);
+    if (localTripFragment != null)
+    {
+      localTripFragment.b(paramIntent);
+      return;
+    }
+    opc.e("Deeplink packet dropped due to null TripFragment.", new Object[0]);
   }
   
-  @cho
-  public void onNoLocationEvent(dwq paramdwq)
+  @chu
+  public void onNoLocationEvent(ecj paramecj)
   {
-    y();
+    z();
   }
   
-  @cho
-  public void onOpenUriEvent(hmz paramhmz)
+  @chu
+  public void onOpenUriEvent(jhi paramjhi)
   {
-    X.a(paramhmz.a());
+    ai.a(paramjhi.a());
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    return (ab.a(paramMenuItem)) || ((paramMenuItem.getItemId() != 16908332) && (super.onOptionsItemSelected(paramMenuItem)));
+    if ((paramMenuItem.getItemId() == 16908332) && (u.k())) {
+      i.a(AnalyticsEvent.create("tap").setName(z.ip));
+    }
+    while ((g.a(paramMenuItem)) || ((paramMenuItem.getItemId() != 16908332) && (super.onOptionsItemSelected(paramMenuItem)))) {
+      return true;
+    }
+    return false;
   }
   
   public void onPause()
   {
     super.onPause();
-    aa.c();
     if (al != null)
     {
-      unregisterReceiver(al);
+      al.af_();
       al = null;
     }
-    s.b();
-    N.f();
-    O.c();
-    P.d();
-    S.e();
-    I.c();
-    if (an != null) {
-      an.c();
+    p.b();
+    am.af_();
+    if (av != null)
+    {
+      unregisterReceiver(av);
+      av = null;
     }
-    if ((aj != null) && (!aj.d())) {
-      aj.c();
+    v.b();
+    if (y.a(eaj.be, true)) {
+      D.b();
+    }
+    if (m.a(eaj.fA)) {
+      z.b();
+    }
+    V.f();
+    W.d();
+    X.d();
+    aa.e();
+    J.a();
+    ab.a();
+    ac.b();
+    if (y.c(eaj.mL)) {
+      af.b();
+    }
+    Q.c();
+    if ((at != null) && (!at.w_())) {
+      at.af_();
+    }
+    if (m.a(eaj.mb)) {
+      w.a();
     }
   }
-  
-  @cho
-  @Deprecated
-  public void onPickupResponseEvent(ejd paramejd)
-  {
-    Object localObject1 = null;
-    Object localObject2;
-    if (!paramejd.a())
-    {
-      if ((paramejd.c() == null) || (((Ping)paramejd.c()).getClient() == null) || (((Ping)paramejd.c()).getClient().getLastSelectedPaymentProfile() == null) || (((Ping)paramejd.c()).getErrorCode() == null)) {
-        break label136;
-      }
-      localObject2 = ((Ping)paramejd.c()).getClient().getLastSelectedPaymentProfile();
-      imp localimp = x.a(((com.ubercab.rider.realtime.model.PaymentProfile)localObject2).getTokenType());
-      PaymentError localPaymentError = PaymentError.create(((Ping)paramejd.c()).getErrorCode().intValue());
-      if ((localimp == null) || (!localimp.a(localPaymentError))) {
-        break label136;
-      }
-      startActivity(localimp.a(erb.a((com.ubercab.rider.realtime.model.PaymentProfile)localObject2), localPaymentError));
-    }
-    label136:
-    do
-    {
-      return;
-      if (ere.a((Ping)paramejd.c(), 430))
-      {
-        localObject2 = (Ping)paramejd.c();
-        paramejd = (ejd)localObject1;
-        if (ere.a((Ping)localObject2)) {
-          paramejd = ((Ping)localObject2).getClient();
-        }
-        a(paramejd, hhd.a(k, ((Ping)localObject2).getErrorObj()));
-        return;
-      }
-      if (ere.a((Ping)paramejd.c(), 460))
-      {
-        if (D.p()) {
-          gil.a(o, this);
-        }
-        for (;;)
-        {
-          m.a(p.nV);
-          return;
-          paramejd = paramejd.b();
-          epz.a(this, p.nM, 2014, getString(2131166621), paramejd, getString(2131165339), null);
-        }
-      }
-      if (ere.a((Ping)paramejd.c(), 3013))
-      {
-        eqg.a(this, p.nM, 2015, paramejd.b());
-        return;
-      }
-      if (ere.a((Ping)paramejd.c(), 5006))
-      {
-        kul.d("Fare has expired", new Object[0]);
-        S.r();
-        return;
-      }
-      if ((t.b(dux.aX)) && (paramejd.f()))
-      {
-        T();
-        return;
-      }
-    } while ((!t.b(dux.ar)) || (!paramejd.g()));
-    U();
-  }
-  
-  @cho
-  @Deprecated
-  public void onPingEvent(due paramdue) {}
   
   protected void onPostCreate(Bundle paramBundle)
   {
     super.onPostCreate(paramBundle);
-    if (ab != null) {
-      ab.a();
+    if (g != null) {
+      g.a();
     }
   }
   
   protected void onPostResume()
   {
     super.onPostResume();
-    if (t.b(dux.bt)) {
-      I.b();
+    if (y.c(eaj.bR)) {
+      Q.b();
     }
   }
   
-  @cho
-  public void onProductGroupSelected(hnb paramhnb)
+  @chu
+  public void onProductGroupSelected(jhk paramjhk)
   {
-    K.a(paramhnb);
+    S.a(paramjhk);
   }
   
   protected void onRestoreInstanceState(Bundle paramBundle)
   {
     super.onRestoreInstanceState(paramBundle);
-    ah = ((MaskedWallet)paramBundle.getParcelable("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
-    ae = paramBundle.getBoolean("com.ubercab.IS_CANCELING_DISPATCH");
+    ar = ((MaskedWallet)paramBundle.getParcelable("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
   }
   
   public void onResume()
   {
-    a(egd.s);
+    a(enz.s);
     super.onResume();
-    S.d();
-    N.e();
-    P.c();
-    aa = j.i().a(kld.a(j.b(), j.d(), j.f(), new hdc((byte)0)), new TripActivity.1(this)).a(kls.a()).c(new hdb(this, (byte)0));
-    M();
-    if (al == null)
+    p.a();
+    aa.d();
+    V.e();
+    X.c();
+    ab.a(t.b());
+    ac.a();
+    if (y.c(eaj.mL)) {
+      af.a();
+    }
+    am = t.j().a(odr.a(t.b(), t.d(), t.f(), new iui((byte)0)), new TripActivity.1(this)).a(oeh.a()).c(new iuh(this, (byte)0));
+    Q();
+    if (av == null)
     {
-      al = new hdd(this, (byte)0);
+      av = new iuj(this, (byte)0);
       localObject = new IntentFilter();
       ((IntentFilter)localObject).addAction("com.ubercab.client.ACTION_TRIP_ADD_DESTINATION");
       ((IntentFilter)localObject).addAction("com.ubercab.client.ACTION_TRIP_CANCEL");
       ((IntentFilter)localObject).addAction("com.ubercab.client.ACTION_TRIP_SHARE_ETA");
       ((IntentFilter)localObject).addAction("com.ubercab.client.ACTION_TRIP_SPLIT_FARE");
       ((IntentFilter)localObject).setPriority(100000);
-      registerReceiver(al, (IntentFilter)localObject, drz.a(this), null);
+      registerReceiver(av, (IntentFilter)localObject, dxe.a(this), null);
     }
     if (mDrawerLayout.isDrawerOpen(mDrawerContainer)) {
-      m.a(p.eX);
+      i.a(x.hc);
     }
-    X();
-    s.a();
-    O.b();
-    Object localObject = (RiderAccount)((jwc)u.a()).a("com.ubercab.client.RIDER_ACCOUNT", Shape_RiderAccount.class);
+    Z();
+    v.a();
+    if (y.a(eaj.be, true)) {
+      D.a();
+    }
+    if (m.a(eaj.fA)) {
+      z.a();
+    }
+    W.c();
+    Object localObject = (RiderAccount)((nct)B.a()).a("com.ubercab.client.RIDER_ACCOUNT", Shape_RiderAccount.class);
     if (localObject != null)
     {
-      am = ((RiderAccount)localObject);
+      aw = ((RiderAccount)localObject);
       a(((RiderAccount)localObject).getPictureUrl(), ((RiderAccount)localObject).getFullName());
     }
-    l.a(G.y());
-    A.a();
-    if (!t.b(dux.bt)) {
-      I.b();
+    M.a();
+    al = t.d().a(oeh.a()).c(new iug(this, (byte)0));
+    J.b();
+    if (!y.c(eaj.bR)) {
+      Q.b();
     }
-    T.a(this);
-    b(egd.s);
+    ad.a(this);
+    b(enz.s);
   }
   
   public void onResumeFragments()
   {
-    a(egd.t);
+    a(enz.t);
     super.onResumeFragments();
-    z();
-    b(egd.t);
+    A();
+    b(enz.t);
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putParcelable("com.google.android.gms.wallet.EXTRA_MASKED_WALLET", ah);
-    paramBundle.putBoolean("com.ubercab.IS_CANCELING_DISPATCH", ae);
-    N.b(paramBundle);
-    if (t.b(dux.gr)) {
-      Q.a(paramBundle);
-    }
-    S.b(paramBundle);
-    M.a(paramBundle);
-    z.a(paramBundle);
+    paramBundle.putParcelable("com.google.android.gms.wallet.EXTRA_MASKED_WALLET", ar);
+    V.b(paramBundle);
+    Y.a(paramBundle);
+    aa.b(paramBundle);
+    U.a(paramBundle);
+    I.a(paramBundle);
+    H.a(paramBundle);
+    j.b(paramBundle);
+    ac.a(paramBundle);
   }
   
-  @cho
-  public void onSelectExpenseInfoEvent(gcr paramgcr)
+  @chu
+  public void onSelectExpenseInfoEvent(hck paramhck)
   {
-    if (paramgcr.b() == null)
+    if (y.c(eaj.bX))
     {
-      startActivityForResult(ExpenseInfoActivity.a(this, M.b(), paramgcr.a(), paramgcr.c()), 2017);
+      Object localObject;
+      if (paramhck.b() == null)
+      {
+        localObject = U.b();
+        localObject = RiderTripExpenseInfo.create((TripExpenseInfo)localObject);
+        localObject = ExpenseCodeConfigureActivity.a(this, L.c(), (RiderTripExpenseInfo)localObject, false);
+        if (paramhck.b() != null) {
+          break label75;
+        }
+      }
+      label75:
+      for (int i1 = 1000;; i1 = 1001)
+      {
+        startActivityForResult((Intent)localObject, i1);
+        return;
+        localObject = paramhck.b();
+        break;
+      }
+    }
+    if (paramhck.b() == null)
+    {
+      startActivityForResult(ExpenseInfoActivity.a(this, U.b(), paramhck.a(), paramhck.c()), 1000);
       return;
     }
-    startActivityForResult(ExpenseInfoActivity.a(this, paramgcr.b(), paramgcr.a(), paramgcr.c()), 2011);
+    startActivityForResult(ExpenseInfoActivity.a(this, paramhck.b(), paramhck.a(), paramhck.c()), 1001);
   }
   
-  @cho
-  public void onSelectPaymentEvent(hnc paramhnc)
+  @chu
+  public void onSelectPaymentEvent(jhl paramjhl)
   {
-    if (D.p()) {
-      m.a(r.lm);
+    if (L.o()) {
+      i.a(z.oT);
     }
-    com.ubercab.rider.realtime.model.PaymentProfile localPaymentProfile = paramhnc.a();
+    PaymentProfile localPaymentProfile = paramjhl.a();
     if (localPaymentProfile == null)
     {
-      S();
+      W();
       return;
     }
-    startActivityForResult(PaymentActivity.a(this, paramhnc.b(), etn.a(ah), localPaymentProfile, paramhnc.c(), paramhnc.d(), S.a()), 2005);
+    Object localObject2 = null;
+    Object localObject1 = localObject2;
+    if (y.c(eaj.fy))
+    {
+      localObject1 = localObject2;
+      if (j.f())
+      {
+        localObject1 = localObject2;
+        if (j.d() != null) {
+          localObject1 = BouncePaymentOptions.create().setBounceGuestName(j.d().getDisplayName()).setIsPaymentForOtherPerson(true);
+        }
+      }
+    }
+    startActivityForResult(PaymentActivity.a(this, paramjhl.b(), fbw.a(ar), localPaymentProfile, paramjhl.c(), paramjhl.d(), aa.a(), (BouncePaymentOptions)localObject1), 1025);
   }
   
-  @cho
-  public void onShareEtaEvent(hnd paramhnd)
+  @chu
+  public void onShareEtaEvent(jhm paramjhm)
   {
     startActivity(new Intent(this, ShareEtaActivity.class));
-    m.a(r.ik);
+    i.a(z.lt);
   }
   
-  @cho
-  public void onShareTripEvent(hne paramhne)
+  @chu
+  public void onShareTripEvent(jhn paramjhn)
   {
-    if (F.i())
+    if (N.i())
     {
       startActivity(new Intent(this, SafetyNetShareTripActivity.class));
       return;
@@ -1931,33 +2138,33 @@ public class TripActivity
     startActivity(new Intent(this, ShareEtaActivity.class));
   }
   
-  @cho
-  public void onShowReceiptEvent(gph paramgph)
+  @chu
+  public void onShowReceiptEvent(hue paramhue)
   {
-    A.a(paramgph);
+    J.a(paramhue);
   }
   
-  @cho
-  public void onSplitFareEvent(hnh paramhnh)
+  @chu
+  public void onSplitFareEvent(jhq paramjhq)
   {
-    paramhnh = enj.a(i.d(), i.e(), i.f());
-    if ((paramhnh == null) || (paramhnh.getClients().isEmpty()))
+    paramjhq = euy.a(s.d(), s.e(), s.f());
+    if ((paramjhq == null) || (paramjhq.getClients().isEmpty()))
     {
-      startActivityForResult(new Intent(this, FareSplitInviteActivity.class), 2010);
+      startActivityForResult(new Intent(this, FareSplitInviteActivity.class), 1013);
       return;
     }
-    O();
+    S();
   }
   
   protected void onStart()
   {
-    a(egd.u);
+    a(enz.u);
     super.onStart();
-    b(egd.u);
+    b(enz.u);
   }
   
-  @cho
-  public void onStartPaymentActivityEvent(hni paramhni)
+  @chu
+  public void onStartPaymentActivityEvent(jhr paramjhr)
   {
     i();
   }
@@ -1965,72 +2172,101 @@ public class TripActivity
   public void onStop()
   {
     super.onStop();
-    X.a();
+    ai.a();
   }
   
-  @cho
-  public void onToggleCancelTripTimerEvent(hmw paramhmw)
+  @chu
+  public void onToggleCancelTripTimerEvent(jhf paramjhf)
   {
-    if (paramhmw.a())
+    if (paramjhf.a())
     {
-      K.c();
+      S.c();
       return;
     }
-    K.d();
+    S.d();
   }
   
-  @cho
-  public void onTripFragmentReadyEvent(hnj paramhnj)
+  @chu
+  public void onTripFragmentReadyEvent(jhs paramjhs)
   {
-    P();
+    T();
   }
   
-  @cho
-  public void onTripUiStateChangedEvent(hnk paramhnk)
+  @chu
+  public void onTripUiStateChangedEvent(jht paramjht)
   {
-    if (a(paramhnk)) {
-      q();
+    if (a(paramjht)) {
+      s();
     }
     if (b() == null) {}
-    while (ao == paramhnk.b()) {
+    while (ax == paramjht.b()) {
       return;
     }
-    ao = paramhnk.b();
-    K.a(paramhnk.b());
-    if (t.b(dux.dk)) {
-      p.a(paramhnk.b());
+    ax = paramjht.b();
+    S.a(paramjht.b());
+    if (y.c(eaj.eI)) {
+      p.a(paramjht.b());
     }
-    switch (paramhnk.b())
+    if ((hfv.a(y)) && (paramjht.b() != 10)) {
+      g.a();
+    }
+    switch (paramjht.b())
     {
+    case 1: 
     case 3: 
     case 6: 
     case 7: 
+    case 8: 
     default: 
-      ab.a(true);
+      g.a(true);
       mDrawerLayout.setDrawerLockMode(0);
       return;
     case 2: 
     case 4: 
     case 5: 
-      ab.a(false);
+      g.a(false);
       mDrawerLayout.setDrawerLockMode(1);
       return;
+    case 9: 
+      g.a(true);
+      mDrawerLayout.setDrawerLockMode(0);
+      return;
     }
-    ab.a(true);
+    g.a(true);
     mDrawerLayout.setDrawerLockMode(0);
   }
   
-  protected final Collection<dtf> t()
+  @chu
+  public void onUpfrontPricingAddressChangeEvent(jhw paramjhw)
   {
-    return Collections.singleton(w);
+    a(1030, x.aj);
   }
   
-  public final ckr u()
+  @chu
+  public void onUpfrontPricingAddressClearEvent(jhx paramjhx)
+  {
+    a(1031, x.ak);
+  }
+  
+  protected final void t()
+  {
+    super.t();
+    ag.b(enz.j);
+    ag.a(koj.a, enz.q);
+    ag.a(koj.a, enz.v);
+  }
+  
+  protected final Collection<dys> u()
+  {
+    return Collections.singleton(E);
+  }
+  
+  public final cli v()
   {
     return RiderActivity.a;
   }
   
-  protected final boolean v()
+  protected final boolean w()
   {
     return true;
   }

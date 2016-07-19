@@ -1,12 +1,17 @@
 package android.support.v4.media;
 
+import android.os.Bundle;
 import java.util.List;
 
 public abstract class MediaBrowserCompat$SubscriptionCallback
 {
   public void onChildrenLoaded(String paramString, List<MediaBrowserCompat.MediaItem> paramList) {}
   
+  public void onChildrenLoaded(String paramString, List<MediaBrowserCompat.MediaItem> paramList, Bundle paramBundle) {}
+  
   public void onError(String paramString) {}
+  
+  public void onError(String paramString, Bundle paramBundle) {}
 }
 
 /* Location:

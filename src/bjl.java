@@ -1,52 +1,19 @@
-import android.os.Build;
-import android.os.Build.VERSION;
-import java.util.Calendar;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
+import java.io.Serializable;
 
-public final class bjl
-  extends bks
+final class bjl<K, V>
+  implements Serializable
 {
-  private long a;
-  private String b;
+  private static final long serialVersionUID = 0L;
+  final bje<K, V> a;
   
-  bjl(bko parambko)
+  bjl(bje<K, V> parambje)
   {
-    super(parambko);
+    a = parambje;
   }
   
-  protected final void a()
+  final Object readResolve()
   {
-    Object localObject = Calendar.getInstance();
-    TimeUnit localTimeUnit = TimeUnit.MINUTES;
-    int i = ((Calendar)localObject).get(15);
-    a = localTimeUnit.convert(((Calendar)localObject).get(16) + i, TimeUnit.MILLISECONDS);
-    localObject = Locale.getDefault();
-    b = (((Locale)localObject).getLanguage().toLowerCase(Locale.ENGLISH) + "-" + ((Locale)localObject).getCountry().toLowerCase(Locale.ENGLISH));
-  }
-  
-  public final String b()
-  {
-    E();
-    return Build.MODEL;
-  }
-  
-  public final String c()
-  {
-    E();
-    return Build.VERSION.RELEASE;
-  }
-  
-  public final long v()
-  {
-    E();
-    return a;
-  }
-  
-  public final String w()
-  {
-    E();
-    return b;
+    return a.f();
   }
 }
 

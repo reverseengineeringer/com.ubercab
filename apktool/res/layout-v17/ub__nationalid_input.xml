@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@color/ub__uber_white_20" android:paddingLeft="@dimen/ub__form_margin_x" android:paddingRight="@dimen/ub__form_margin_x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:textStyle="bold" android:paddingTop="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/nationalid_entry_message" />
+        <com.ubercab.ui.TextView android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/nationalid_entry_explanation_part1" android:inputType="textMultiLine" />
+        <com.ubercab.ui.TextView android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/nationalid_entry_explanation_part2" android:inputType="textMultiLine" />
+        <com.ubercab.ui.TextView android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/nationalid_entry_explanation_part3" android:inputType="textMultiLine" />
+        <com.ubercab.ui.FloatingLabelEditText android:id="@id/ub__nationalid_input" android:paddingBottom="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/nationalid_entry_message" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="60.0dip">
+            <CheckBox android:gravity="end" android:id="@id/ub__nationalid_confirm_checkbox" android:layout_width="40.0dip" android:layout_height="wrap_content" android:layout_marginRight="2.0dip" android:contentDescription="@string/nationalid_entry_confirmation" android:layout_marginEnd="2.0dip" />
+            <com.ubercab.ui.TextView android:id="@id/ub__nationalid_confirm_checkbox_text" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/nationalid_entry_confirmation" android:singleLine="false" android:layout_toRightOf="@id/ub__nationalid_confirm_checkbox" />
+        </RelativeLayout>
+        <com.ubercab.ui.Button android:id="@id/ub__nationalid_submit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/submit" android:textAllCaps="true" style="@style/Uber.Widget.Button.Primary" />
+    </LinearLayout>
+</ScrollView>

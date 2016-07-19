@@ -1,53 +1,12 @@
-import android.content.MutableContextWrapper;
-import com.google.android.gms.ads.internal.client.AdRequestParcel;
-import java.util.Iterator;
-import java.util.LinkedList;
-
-final class akp
+abstract interface akp
 {
-  tf a;
-  MutableContextWrapper b;
-  akg c;
-  long d;
-  boolean e;
-  boolean f;
+  public abstract Boolean a();
   
-  akp(ako paramako, akf paramakf)
-  {
-    akf localakf = paramakf.a();
-    b = paramakf.b();
-    a = localakf.a(ako.a(paramako));
-    c = new akg();
-    c.a(a);
-  }
+  public abstract Long b();
   
-  private void a()
-  {
-    if ((!e) && (ako.c(g) != null))
-    {
-      f = a.a(ako.c(g));
-      e = true;
-      d = tp.i().a();
-    }
-  }
+  public abstract Integer c();
   
-  final void a(akf paramakf)
-  {
-    paramakf = paramakf.b().getBaseContext();
-    b.setBaseContext(paramakf);
-  }
-  
-  final void a(AdRequestParcel paramAdRequestParcel)
-  {
-    if (paramAdRequestParcel != null) {
-      ako.a(g, paramAdRequestParcel);
-    }
-    a();
-    paramAdRequestParcel = ako.b(g).iterator();
-    while (paramAdRequestParcel.hasNext()) {
-      ((akp)paramAdRequestParcel.next()).a();
-    }
-  }
+  public abstract String d();
 }
 
 /* Location:

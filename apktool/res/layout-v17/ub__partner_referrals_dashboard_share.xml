@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/ub__partner_referrals_dashboard_share_sheet_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.ContactPicker.TextAppearance.Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ub__partner_referrals_share_sheet_title_spacing" android:text="@string/ub__partner_referrals_your_invite_code_with_colon" android:layout_marginEnd="@dimen/ub__partner_referrals_share_sheet_title_spacing" />
+        <LinearLayout android:gravity="center" android:id="@id/ub_referrals_dashboard_share_copy_invite" android:background="@drawable/ub__partner_referrals_share_code_background" android:paddingLeft="@dimen/ui__spacing_unit_1x" android:paddingTop="@dimen/ub__partner_referrals_share_sheet_title_spacing" android:paddingRight="@dimen/ui__spacing_unit_1x" android:paddingBottom="@dimen/ub__partner_referrals_share_sheet_title_spacing" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.ContactPicker.TextAppearance.InviteCode" android:id="@id/ub_referrals_dashboard_share_invite_code" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingEnd="@dimen/ui__spacing_unit_1x" />
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.ContactPicker.TextAppearance.Title.Copy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__partner_referrals_copy" />
+        </LinearLayout>
+    </LinearLayout>
+    <com.ubercab.ui.collection.RecyclerView android:orientation="vertical" android:id="@id/ub_referrals_dashboard_share_grid" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

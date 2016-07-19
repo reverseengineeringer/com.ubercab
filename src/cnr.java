@@ -1,19 +1,35 @@
-public final class cnr
+import java.util.Timer;
+import java.util.TimerTask;
+
+final class cnr
+  implements cmu
 {
-  private cme a;
+  private Timer b;
   
-  public final cnq a()
+  private cnr(cnq paramcnq) {}
+  
+  public final void a()
   {
-    if (a == null) {
-      throw new IllegalStateException("TraceKit: buffer cannot be null.");
+    if (b != null) {
+      return;
     }
-    return new cnq(a, (byte)0);
+    b = new Timer();
+    b.scheduleAtFixedRate(new TimerTask()
+    {
+      public final void run()
+      {
+        cnq.a(a).d();
+      }
+    }, 0L, cnq.b(a));
   }
   
-  public final cnr a(cme paramcme)
+  public final void b()
   {
-    a = paramcme;
-    return this;
+    if (b == null) {
+      return;
+    }
+    b.cancel();
+    b = null;
   }
 }
 

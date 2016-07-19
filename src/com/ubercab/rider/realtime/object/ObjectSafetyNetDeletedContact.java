@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jui;
+import mzq;
 
 @Shape
 public abstract class ObjectSafetyNetDeletedContact
-  implements jui
+  implements mzq
 {
   public static ObjectSafetyNetDeletedContact create(String paramString)
   {

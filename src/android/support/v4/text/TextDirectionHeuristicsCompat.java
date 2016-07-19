@@ -1,6 +1,6 @@
 package android.support.v4.text;
 
-public class TextDirectionHeuristicsCompat
+public final class TextDirectionHeuristicsCompat
 {
   public static final TextDirectionHeuristicCompat ANYRTL_LTR = new TextDirectionHeuristicsCompat.TextDirectionHeuristicInternal(TextDirectionHeuristicsCompat.AnyStrong.INSTANCE_RTL, false, null);
   public static final TextDirectionHeuristicCompat FIRSTSTRONG_LTR;

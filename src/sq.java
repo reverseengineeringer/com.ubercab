@@ -1,67 +1,30 @@
-import android.util.Log;
+import android.content.Context;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.view.ViewParent;
 
-@apl
-public class sq
+@aih
+public final class sq
 {
-  public static void a(String paramString)
-  {
-    if (a(3)) {
-      Log.d("Ads", paramString);
-    }
-  }
+  public final int a;
+  public final ViewGroup.LayoutParams b;
+  public final ViewGroup c;
+  public final Context d;
   
-  public static void a(String paramString, Throwable paramThrowable)
+  public sq(ajm paramajm)
   {
-    if (a(3)) {
-      Log.d("Ads", paramString, paramThrowable);
+    b = paramajm.getLayoutParams();
+    ViewParent localViewParent = paramajm.getParent();
+    d = paramajm.f();
+    if ((localViewParent != null) && ((localViewParent instanceof ViewGroup)))
+    {
+      c = ((ViewGroup)localViewParent);
+      a = c.indexOfChild(paramajm.b());
+      c.removeView(paramajm.b());
+      paramajm.a(true);
+      return;
     }
-  }
-  
-  public static boolean a(int paramInt)
-  {
-    return (paramInt >= 5) || (Log.isLoggable("Ads", paramInt));
-  }
-  
-  public static void b(String paramString)
-  {
-    if (a(6)) {
-      Log.e("Ads", paramString);
-    }
-  }
-  
-  public static void b(String paramString, Throwable paramThrowable)
-  {
-    if (a(6)) {
-      Log.e("Ads", paramString, paramThrowable);
-    }
-  }
-  
-  public static void c(String paramString)
-  {
-    if (a(4)) {
-      Log.i("Ads", paramString);
-    }
-  }
-  
-  public static void c(String paramString, Throwable paramThrowable)
-  {
-    if (a(4)) {
-      Log.i("Ads", paramString, paramThrowable);
-    }
-  }
-  
-  public static void d(String paramString)
-  {
-    if (a(5)) {
-      Log.w("Ads", paramString);
-    }
-  }
-  
-  public static void d(String paramString, Throwable paramThrowable)
-  {
-    if (a(5)) {
-      Log.w("Ads", paramString, paramThrowable);
-    }
+    throw new so("Could not get the parent of the WebView for an overlay.");
   }
 }
 

@@ -1,17 +1,6 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.PaymentConfirmActivity;
-
-final class cec
-  implements DialogInterface.OnClickListener
+public abstract interface cec
 {
-  cec(ceb paramceb) {}
-  
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
-  {
-    a.a.a(paramInt);
-    PaymentConfirmActivity.a(a.c, a.b, paramInt);
-  }
+  public abstract void a();
 }
 
 /* Location:

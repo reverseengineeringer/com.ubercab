@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:id="@id/ub__partner_funnel_inline_legal_text_title_textview" android:paddingTop="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.Partner.Funnel.TextAppearance.Legal.Title" />
+    <com.ubercab.ui.TextView android:id="@id/ub__partner_funnel_inline_legal_text_content_textview" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.Partner.Funnel.TextAppearance.Legal.Description" />
+</merge>

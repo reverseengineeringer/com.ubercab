@@ -1,8 +1,11 @@
-import android.os.Parcelable.Creator;
+import android.os.AsyncTask;
+import com.paypal.android.sdk.payments.PaymentMethodActivity;
 
 public final class cdy
-  implements Parcelable.Creator
-{}
+  extends AsyncTask
+{
+  private cdy(PaymentMethodActivity paramPaymentMethodActivity) {}
+}
 
 /* Location:
  * Qualified Name:     cdy

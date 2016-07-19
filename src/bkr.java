@@ -1,101 +1,77 @@
-import android.content.Context;
+import java.io.IOException;
 
-class bkr
+public abstract class bkr
 {
-  protected final bko n;
+  private static final bkr a = new bku("base64()", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", Character.valueOf('='));
+  private static final bkr b = new bku("base64Url()", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_", Character.valueOf('='));
+  private static final bkr c = new bkw("base32()", "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567", Character.valueOf('='));
+  private static final bkr d = new bkw("base32Hex()", "0123456789ABCDEFGHIJKLMNOPQRSTUV", Character.valueOf('='));
+  private static final bkr e = new bkt("base16()", "0123456789ABCDEF");
   
-  bkr(bko parambko)
+  private String a(byte[] paramArrayOfByte, int paramInt)
   {
-    abs.a(parambko);
-    n = parambko;
+    bhx.a(0, paramInt + 0, paramArrayOfByte.length);
+    StringBuilder localStringBuilder = new StringBuilder(a(paramInt));
+    try
+    {
+      a(localStringBuilder, paramArrayOfByte, paramInt);
+      return localStringBuilder.toString();
+    }
+    catch (IOException paramArrayOfByte)
+    {
+      throw new AssertionError(paramArrayOfByte);
+    }
   }
   
-  public void d() {}
-  
-  public void e()
+  public static bkr b()
   {
-    n.h().e();
+    return a;
   }
   
-  public void f()
+  private byte[] b(CharSequence paramCharSequence)
   {
-    n.h().f();
+    paramCharSequence = a().a(paramCharSequence);
+    byte[] arrayOfByte = new byte[b(paramCharSequence.length())];
+    return b(arrayOfByte, a(arrayOfByte, paramCharSequence));
   }
   
-  public bje g()
+  private static byte[] b(byte[] paramArrayOfByte, int paramInt)
   {
-    return n.v();
+    if (paramInt == paramArrayOfByte.length) {
+      return paramArrayOfByte;
+    }
+    byte[] arrayOfByte = new byte[paramInt];
+    System.arraycopy(paramArrayOfByte, 0, arrayOfByte, 0, paramInt);
+    return arrayOfByte;
   }
   
-  public bis h()
+  abstract int a(int paramInt);
+  
+  abstract int a(byte[] paramArrayOfByte, CharSequence paramCharSequence);
+  
+  abstract bgv a();
+  
+  public final String a(byte[] paramArrayOfByte)
   {
-    return n.l();
+    return a(paramArrayOfByte, paramArrayOfByte.length);
   }
   
-  public bjv i()
+  abstract void a(Appendable paramAppendable, byte[] paramArrayOfByte, int paramInt);
+  
+  public final byte[] a(CharSequence paramCharSequence)
   {
-    return n.u();
+    try
+    {
+      paramCharSequence = b(paramCharSequence);
+      return paramCharSequence;
+    }
+    catch (bkv paramCharSequence)
+    {
+      throw new IllegalArgumentException(paramCharSequence);
+    }
   }
   
-  public bjl j()
-  {
-    return n.t();
-  }
-  
-  public biu k()
-  {
-    return n.s();
-  }
-  
-  public auj l()
-  {
-    return n.r();
-  }
-  
-  public Context m()
-  {
-    return n.q();
-  }
-  
-  public bjg n()
-  {
-    return n.o();
-  }
-  
-  public bjc o()
-  {
-    return n.n();
-  }
-  
-  public bkj p()
-  {
-    return n.j();
-  }
-  
-  public biw q()
-  {
-    return n.i();
-  }
-  
-  public bkk r()
-  {
-    return n.h();
-  }
-  
-  public bjx s()
-  {
-    return n.f();
-  }
-  
-  public bkf t()
-  {
-    return n.e();
-  }
-  
-  public bjf u()
-  {
-    return n.d();
-  }
+  abstract int b(int paramInt);
 }
 
 /* Location:

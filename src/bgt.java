@@ -1,25 +1,53 @@
-import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.wallet.PaymentMethodTokenizationParameters;
 
 public final class bgt
+  implements Parcelable.Creator<PaymentMethodTokenizationParameters>
 {
-  public float a;
-  public float b;
-  
-  public final bgt a(float paramFloat)
+  private static PaymentMethodTokenizationParameters a(Parcel paramParcel)
   {
-    b = paramFloat;
-    return this;
+    int j = 0;
+    int k = zd.b(paramParcel);
+    Bundle localBundle = null;
+    int i = 0;
+    while (paramParcel.dataPosition() < k)
+    {
+      int m = zd.a(paramParcel);
+      switch (zd.a(m))
+      {
+      default: 
+        zd.a(paramParcel, m);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, m);
+        break;
+      case 2: 
+        j = zd.e(paramParcel, m);
+        break;
+      case 3: 
+        localBundle = zd.p(paramParcel, m);
+      }
+    }
+    if (paramParcel.dataPosition() != k) {
+      throw new ze("Overread allowed size end=" + k, paramParcel);
+    }
+    return new PaymentMethodTokenizationParameters(i, j, localBundle);
   }
   
-  public final StreetViewPanoramaOrientation a()
+  public static void a(PaymentMethodTokenizationParameters paramPaymentMethodTokenizationParameters, Parcel paramParcel)
   {
-    return new StreetViewPanoramaOrientation(b, a);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramPaymentMethodTokenizationParameters.b());
+    zf.a(paramParcel, 2, a);
+    zf.a(paramParcel, 3, b);
+    zf.a(paramParcel, i);
   }
   
-  public final bgt b(float paramFloat)
+  private static PaymentMethodTokenizationParameters[] a(int paramInt)
   {
-    a = paramFloat;
-    return this;
+    return new PaymentMethodTokenizationParameters[paramInt];
   }
 }
 

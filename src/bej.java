@@ -1,48 +1,53 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
+import android.content.Intent;
 import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.signin.internal.AuthAccountResult;
 
-public abstract class bej
-  extends Binder
-  implements bei
+public final class bej
+  implements Parcelable.Creator<AuthAccountResult>
 {
-  public bej()
+  private static AuthAccountResult a(Parcel paramParcel)
   {
-    attachInterface(this, "com.google.android.gms.maps.internal.IOnInfoWindowClickListener");
-  }
-  
-  public static bei a(IBinder paramIBinder)
-  {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnInfoWindowClickListener");
-    if ((localIInterface != null) && ((localIInterface instanceof bei))) {
-      return (bei)localIInterface;
-    }
-    return new bek(paramIBinder);
-  }
-  
-  public IBinder asBinder()
-  {
-    return this;
-  }
-  
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
+    int j = 0;
+    int k = zd.b(paramParcel);
+    Intent localIntent = null;
+    int i = 0;
+    while (paramParcel.dataPosition() < k)
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnInfoWindowClickListener");
-      return true;
+      int m = zd.a(paramParcel);
+      switch (zd.a(m))
+      {
+      default: 
+        zd.a(paramParcel, m);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, m);
+        break;
+      case 2: 
+        j = zd.e(paramParcel, m);
+        break;
+      case 3: 
+        localIntent = (Intent)zd.a(paramParcel, m, Intent.CREATOR);
+      }
     }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnInfoWindowClickListener");
-    a(bhl.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    return true;
+    if (paramParcel.dataPosition() != k) {
+      throw new ze("Overread allowed size end=" + k, paramParcel);
+    }
+    return new AuthAccountResult(i, j, localIntent);
+  }
+  
+  public static void a(AuthAccountResult paramAuthAccountResult, Parcel paramParcel, int paramInt)
+  {
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, paramAuthAccountResult.b());
+    zf.a(paramParcel, 3, paramAuthAccountResult.c(), paramInt, false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static AuthAccountResult[] a(int paramInt)
+  {
+    return new AuthAccountResult[paramInt];
   }
 }
 

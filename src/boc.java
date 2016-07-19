@@ -1,52 +1,90 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.wobs.UriData;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
 
-public final class boc
-  implements Parcelable.Creator<UriData>
+public final class boc<T>
+  extends bmq<T>
 {
-  private static UriData a(Parcel paramParcel)
+  private final bnl<T> a;
+  private final Map<String, bod> b;
+  
+  private boc(bnl<T> parambnl, Map<String, bod> paramMap)
   {
-    String str2 = null;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    String str1 = null;
-    while (paramParcel.dataPosition() < j)
+    a = parambnl;
+    b = paramMap;
+  }
+  
+  public final T read(JsonReader paramJsonReader)
+  {
+    if (paramJsonReader.peek() == JsonToken.NULL)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      paramJsonReader.nextNull();
+      return null;
+    }
+    Object localObject1 = a.a();
+    try
+    {
+      paramJsonReader.beginObject();
+      for (;;)
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str1 = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        str2 = zm.n(paramParcel, k);
+        if (!paramJsonReader.hasNext()) {
+          break label103;
+        }
+        localObject2 = paramJsonReader.nextName();
+        localObject2 = (bod)b.get(localObject2);
+        if ((localObject2 != null) && (i)) {
+          break;
+        }
+        paramJsonReader.skipValue();
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    catch (IllegalStateException paramJsonReader)
+    {
+      for (;;)
+      {
+        Object localObject2;
+        throw new bmm(paramJsonReader);
+        ((bod)localObject2).a(paramJsonReader, localObject1);
+      }
     }
-    return new UriData(i, str1, str2);
+    catch (IllegalAccessException paramJsonReader)
+    {
+      throw new AssertionError(paramJsonReader);
+    }
+    label103:
+    paramJsonReader.endObject();
+    return (T)localObject1;
   }
   
-  public static void a(UriData paramUriData, Parcel paramParcel)
+  public final void write(JsonWriter paramJsonWriter, T paramT)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramUriData.a());
-    zo.a(paramParcel, 2, a, false);
-    zo.a(paramParcel, 3, b, false);
-    zo.a(paramParcel, i);
-  }
-  
-  private static UriData[] a(int paramInt)
-  {
-    return new UriData[paramInt];
+    if (paramT == null)
+    {
+      paramJsonWriter.nullValue();
+      return;
+    }
+    paramJsonWriter.beginObject();
+    try
+    {
+      Iterator localIterator = b.values().iterator();
+      while (localIterator.hasNext())
+      {
+        bod localbod = (bod)localIterator.next();
+        if (localbod.a(paramT))
+        {
+          paramJsonWriter.name(g);
+          localbod.a(paramJsonWriter, paramT);
+        }
+      }
+      paramJsonWriter.endObject();
+    }
+    catch (IllegalAccessException paramJsonWriter)
+    {
+      throw new AssertionError();
+    }
   }
 }
 

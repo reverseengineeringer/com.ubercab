@@ -11,9 +11,9 @@ public class GridLayoutManager$LayoutParams
   private int e = -1;
   private int f = 0;
   
-  public GridLayoutManager$LayoutParams()
+  public GridLayoutManager$LayoutParams(int paramInt1, int paramInt2)
   {
-    super(-2);
+    super(paramInt1, paramInt2);
   }
   
   public GridLayoutManager$LayoutParams(Context paramContext, AttributeSet paramAttributeSet)

@@ -47,16 +47,7 @@ public class ListViewAutoScrollHelper
   
   public void scrollTargetBy(int paramInt1, int paramInt2)
   {
-    ListView localListView = mTarget;
-    paramInt1 = localListView.getFirstVisiblePosition();
-    if (paramInt1 == -1) {}
-    View localView;
-    do
-    {
-      return;
-      localView = localListView.getChildAt(0);
-    } while (localView == null);
-    localListView.setSelectionFromTop(paramInt1, localView.getTop() - paramInt2);
+    ListViewCompat.scrollListBy(mTarget, paramInt2);
   }
 }
 

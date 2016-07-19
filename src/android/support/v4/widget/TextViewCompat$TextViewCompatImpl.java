@@ -14,6 +14,8 @@ abstract interface TextViewCompat$TextViewCompatImpl
   public abstract void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView paramTextView, int paramInt1, int paramInt2, int paramInt3, int paramInt4);
   
   public abstract void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView paramTextView, Drawable paramDrawable1, Drawable paramDrawable2, Drawable paramDrawable3, Drawable paramDrawable4);
+  
+  public abstract void setTextAppearance(TextView paramTextView, int paramInt);
 }
 
 /* Location:

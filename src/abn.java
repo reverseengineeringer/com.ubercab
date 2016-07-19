@@ -1,61 +1,54 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.SignInButtonConfig;
+import com.google.android.gms.common.server.response.FieldMappingDictionary;
+import com.google.android.gms.common.server.response.FieldMappingDictionary.Entry;
+import java.util.ArrayList;
 
-public abstract class abn
-  extends Binder
-  implements abm
+public final class abn
+  implements Parcelable.Creator<FieldMappingDictionary>
 {
-  public static abm a(IBinder paramIBinder)
+  private static FieldMappingDictionary a(Parcel paramParcel)
   {
-    if (paramIBinder == null) {
-      return null;
+    String str = null;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    ArrayList localArrayList = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        localArrayList = zd.c(paramParcel, k, FieldMappingDictionary.Entry.CREATOR);
+        break;
+      case 3: 
+        str = zd.n(paramParcel, k);
+      }
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.common.internal.ISignInButtonCreator");
-    if ((localIInterface != null) && ((localIInterface instanceof abm))) {
-      return (abm)localIInterface;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new abo(paramIBinder);
+    return new FieldMappingDictionary(i, localArrayList, str);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static void a(FieldMappingDictionary paramFieldMappingDictionary, Parcel paramParcel)
   {
-    Object localObject = null;
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.common.internal.ISignInButtonCreator");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.common.internal.ISignInButtonCreator");
-      paramParcel1 = a(ade.a(paramParcel1.readStrongBinder()), paramParcel1.readInt(), paramParcel1.readInt());
-      paramParcel2.writeNoException();
-      if (paramParcel1 != null) {}
-      for (paramParcel1 = paramParcel1.asBinder();; paramParcel1 = null)
-      {
-        paramParcel2.writeStrongBinder(paramParcel1);
-        return true;
-      }
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.common.internal.ISignInButtonCreator");
-    add localadd = ade.a(paramParcel1.readStrongBinder());
-    if (paramParcel1.readInt() != 0) {}
-    for (paramParcel1 = (SignInButtonConfig)SignInButtonConfig.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-    {
-      localadd = a(localadd, paramParcel1);
-      paramParcel2.writeNoException();
-      paramParcel1 = (Parcel)localObject;
-      if (localadd != null) {
-        paramParcel1 = localadd.asBinder();
-      }
-      paramParcel2.writeStrongBinder(paramParcel1);
-      return true;
-    }
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramFieldMappingDictionary.a());
+    zf.b(paramParcel, 2, paramFieldMappingDictionary.b(), false);
+    zf.a(paramParcel, 3, paramFieldMappingDictionary.c(), false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static FieldMappingDictionary[] a(int paramInt)
+  {
+    return new FieldMappingDictionary[paramInt];
   }
 }
 

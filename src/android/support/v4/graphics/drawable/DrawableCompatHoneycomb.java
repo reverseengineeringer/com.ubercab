@@ -12,7 +12,7 @@ class DrawableCompatHoneycomb
   public static Drawable wrapForTinting(Drawable paramDrawable)
   {
     Object localObject = paramDrawable;
-    if (!(paramDrawable instanceof DrawableWrapperHoneycomb)) {
+    if (!(paramDrawable instanceof TintAwareDrawable)) {
       localObject = new DrawableWrapperHoneycomb(paramDrawable);
     }
     return (Drawable)localObject;

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/ub__hop_itinerary_line_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true">
+        <LinearLayout android:orientation="horizontal" android:id="@id/ub__hop_itinerary_line" android:layout_width="fill_parent" android:layout_height="@dimen/ub__hop_itinerary_line_width" android:layout_marginLeft="1.0dip" android:layout_marginRight="-1.0dip" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/ub__hop_itinerary_node" android:layout_width="@dimen/ub__hop_itinerary_body_collapse_node_size" android:layout_height="@dimen/ub__hop_itinerary_body_collapse_node_size" android:layout_alignParentLeft="true" />
+    </RelativeLayout>
+    <ImageView android:id="@id/ub__hop_itinerary_type_icon" android:layout_width="fill_parent" android:layout_height="@dimen/ub__hop_itinerary_body_collapse_icon_size" android:layout_marginLeft="@dimen/ub__hop_itinerary_body_collapse_node_size" android:layout_marginBottom="@dimen/ub__hop_itinerary_body_collapse_line_margin_vertical" android:scaleType="centerInside" android:layout_above="@id/ub__hop_itinerary_line_container" />
+    <com.ubercab.ui.TextView android:textSize="@dimen/ub__hop_itinerary_body_collapse_eta_text_size" android:gravity="center_horizontal" android:id="@id/ub__hop_itinerary_eta" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__hop_itinerary_body_collapse_node_size" android:layout_marginTop="@dimen/ub__hop_itinerary_body_collapse_line_margin_vertical" android:layout_below="@id/ub__hop_itinerary_line_container" />
+</merge>

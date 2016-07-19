@@ -3,17 +3,16 @@ package android.support.v4.media.session;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.Bitmap;
 import android.media.AudioManager;
 import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
-import android.os.ResultReceiver;
 import android.os.SystemClock;
 import android.support.v4.media.MediaMetadataCompat;
+import android.support.v4.media.MediaMetadataCompat.Builder;
 import android.support.v4.media.RatingCompat;
 import android.support.v4.media.VolumeProviderCompat;
 import android.support.v4.media.VolumeProviderCompat.Callback;
@@ -23,14 +22,14 @@ class MediaSessionCompat$MediaSessionImplBase
   implements MediaSessionCompat.MediaSessionImpl
 {
   private final AudioManager mAudioManager;
-  private MediaSessionCompat.Callback mCallback;
+  private volatile MediaSessionCompat.Callback mCallback;
   private final ComponentName mComponentName;
   private final Context mContext;
   private final RemoteCallbackList<IMediaControllerCallback> mControllerCallbacks = new RemoteCallbackList();
   private boolean mDestroyed = false;
   private Bundle mExtras;
   private int mFlags;
-  private final MediaSessionCompat.MediaSessionImplBase.MessageHandler mHandler;
+  private MediaSessionCompat.MediaSessionImplBase.MessageHandler mHandler;
   private boolean mIsActive = false;
   private boolean mIsMbrRegistered = false;
   private boolean mIsRccRegistered = false;
@@ -75,7 +74,6 @@ class MediaSessionCompat$MediaSessionImplBase
     mMediaButtonEventReceiver = paramPendingIntent;
     mStub = new MediaSessionCompat.MediaSessionImplBase.MediaSessionStub(this);
     mToken = new MediaSessionCompat.Token(mStub);
-    mHandler = new MediaSessionCompat.MediaSessionImplBase.MessageHandler(this, Looper.myLooper());
     mRatingType = 0;
     mVolumeType = 1;
     mLocalStream = 3;
@@ -99,6 +97,31 @@ class MediaSessionCompat$MediaSessionImplBase
     mAudioManager.adjustStreamVolume(mLocalStream, paramInt1, paramInt2);
   }
   
+  private MediaMetadataCompat cloneMetadataIfNeeded(MediaMetadataCompat paramMediaMetadataCompat)
+  {
+    if (paramMediaMetadataCompat == null) {
+      localObject = null;
+    }
+    do
+    {
+      return (MediaMetadataCompat)localObject;
+      if (paramMediaMetadataCompat.containsKey("android.media.metadata.ART")) {
+        break;
+      }
+      localObject = paramMediaMetadataCompat;
+    } while (!paramMediaMetadataCompat.containsKey("android.media.metadata.ALBUM_ART"));
+    Object localObject = new MediaMetadataCompat.Builder(paramMediaMetadataCompat);
+    Bitmap localBitmap = paramMediaMetadataCompat.getBitmap("android.media.metadata.ART");
+    if (localBitmap != null) {
+      ((MediaMetadataCompat.Builder)localObject).putBitmap("android.media.metadata.ART", localBitmap.copy(localBitmap.getConfig(), false));
+    }
+    paramMediaMetadataCompat = paramMediaMetadataCompat.getBitmap("android.media.metadata.ALBUM_ART");
+    if (paramMediaMetadataCompat != null) {
+      ((MediaMetadataCompat.Builder)localObject).putBitmap("android.media.metadata.ALBUM_ART", paramMediaMetadataCompat.copy(paramMediaMetadataCompat.getConfig(), false));
+    }
+    return ((MediaMetadataCompat.Builder)localObject).build();
+  }
+  
   private PlaybackStateCompat getStateWithUpdatedPosition()
   {
     long l2 = -1L;
@@ -117,12 +140,12 @@ class MediaSessionCompat$MediaSessionImplBase
           }
         }
         if ((localPlaybackStateCompat == null) || ((localPlaybackStateCompat.getState() != 3) && (localPlaybackStateCompat.getState() != 4) && (localPlaybackStateCompat.getState() != 5))) {
-          break label212;
+          break label214;
         }
         l2 = localPlaybackStateCompat.getLastPositionUpdateTime();
         long l3 = SystemClock.elapsedRealtime();
         if (l2 <= 0L) {
-          break label212;
+          break label214;
         }
         l2 = (localPlaybackStateCompat.getPlaybackSpeed() * (float)(l3 - l2)) + localPlaybackStateCompat.getPosition();
         if ((l1 >= 0L) && (l2 > l1))
@@ -145,9 +168,30 @@ class MediaSessionCompat$MediaSessionImplBase
       {
         l1 = l2;
         continue;
-        label212:
+        label214:
         ??? = null;
       }
+    }
+  }
+  
+  private void postToHandler(int paramInt)
+  {
+    postToHandler(paramInt, null);
+  }
+  
+  private void postToHandler(int paramInt, Object paramObject)
+  {
+    postToHandler(paramInt, paramObject, null);
+  }
+  
+  private void postToHandler(int paramInt, Object paramObject, Bundle paramBundle)
+  {
+    synchronized (mLock)
+    {
+      if (mHandler != null) {
+        mHandler.post(paramInt, paramObject, paramBundle);
+      }
+      return;
     }
   }
   
@@ -449,12 +493,10 @@ class MediaSessionCompat$MediaSessionImplBase
     setPlaybackState(mState);
   }
   
-  public void setCallback(final MediaSessionCompat.Callback paramCallback, Handler paramHandler)
+  public void setCallback(MediaSessionCompat.Callback paramCallback, Handler arg2)
   {
-    if (paramCallback == mCallback) {
-      return;
-    }
-    if ((paramCallback == null) || (Build.VERSION.SDK_INT < 18))
+    mCallback = paramCallback;
+    if (paramCallback == null)
     {
       if (Build.VERSION.SDK_INT >= 18) {
         MediaSessionCompatApi18.setOnPlaybackPositionUpdateListener(mRccObj, null);
@@ -465,77 +507,37 @@ class MediaSessionCompat$MediaSessionImplBase
     }
     for (;;)
     {
-      mCallback = paramCallback;
       return;
-      if (paramHandler == null) {
-        new Handler();
+      paramCallback = ???;
+      if (??? == null) {
+        paramCallback = new Handler();
       }
-      paramHandler = new MediaSessionCompatApi14.Callback()
+      synchronized (mLock)
       {
-        public void onCommand(String paramAnonymousString, Bundle paramAnonymousBundle, ResultReceiver paramAnonymousResultReceiver)
+        mHandler = new MediaSessionCompat.MediaSessionImplBase.MessageHandler(this, paramCallback.getLooper());
+        paramCallback = new MediaSessionCompatApi19.Callback()
         {
-          paramCallback.onCommand(paramAnonymousString, paramAnonymousBundle, paramAnonymousResultReceiver);
-        }
-        
-        public void onFastForward()
+          public void onSeekTo(long paramAnonymousLong)
+          {
+            MediaSessionCompat.MediaSessionImplBase.this.postToHandler(11, Long.valueOf(paramAnonymousLong));
+          }
+          
+          public void onSetRating(Object paramAnonymousObject)
+          {
+            MediaSessionCompat.MediaSessionImplBase.this.postToHandler(12, RatingCompat.fromRating(paramAnonymousObject));
+          }
+        };
+        if (Build.VERSION.SDK_INT >= 18)
         {
-          paramCallback.onFastForward();
+          ??? = MediaSessionCompatApi18.createPlaybackPositionUpdateListener(paramCallback);
+          MediaSessionCompatApi18.setOnPlaybackPositionUpdateListener(mRccObj, ???);
         }
-        
-        public boolean onMediaButtonEvent(Intent paramAnonymousIntent)
-        {
-          return paramCallback.onMediaButtonEvent(paramAnonymousIntent);
+        if (Build.VERSION.SDK_INT < 19) {
+          continue;
         }
-        
-        public void onPause()
-        {
-          paramCallback.onPause();
-        }
-        
-        public void onPlay()
-        {
-          paramCallback.onPlay();
-        }
-        
-        public void onRewind()
-        {
-          paramCallback.onRewind();
-        }
-        
-        public void onSeekTo(long paramAnonymousLong)
-        {
-          paramCallback.onSeekTo(paramAnonymousLong);
-        }
-        
-        public void onSetRating(Object paramAnonymousObject)
-        {
-          paramCallback.onSetRating(RatingCompat.fromRating(paramAnonymousObject));
-        }
-        
-        public void onSkipToNext()
-        {
-          paramCallback.onSkipToNext();
-        }
-        
-        public void onSkipToPrevious()
-        {
-          paramCallback.onSkipToPrevious();
-        }
-        
-        public void onStop()
-        {
-          paramCallback.onStop();
-        }
-      };
-      if (Build.VERSION.SDK_INT >= 18)
-      {
-        Object localObject = MediaSessionCompatApi18.createPlaybackPositionUpdateListener(paramHandler);
-        MediaSessionCompatApi18.setOnPlaybackPositionUpdateListener(mRccObj, localObject);
-      }
-      if (Build.VERSION.SDK_INT >= 19)
-      {
-        paramHandler = MediaSessionCompatApi19.createMetadataUpdateListener(paramHandler);
-        MediaSessionCompatApi19.setOnMetadataUpdateListener(mRccObj, paramHandler);
+        paramCallback = MediaSessionCompatApi19.createMetadataUpdateListener(paramCallback);
+        MediaSessionCompatApi19.setOnMetadataUpdateListener(mRccObj, paramCallback);
+        return;
       }
     }
   }
@@ -557,45 +559,53 @@ class MediaSessionCompat$MediaSessionImplBase
   
   public void setMediaButtonReceiver(PendingIntent paramPendingIntent) {}
   
-  public void setMetadata(MediaMetadataCompat paramMediaMetadataCompat)
+  public void setMetadata(MediaMetadataCompat arg1)
   {
+    Object localObject3 = null;
     Object localObject2 = null;
-    Object localObject1 = null;
-    label88:
+    MediaMetadataCompat localMediaMetadataCompat = ???;
+    if (Build.VERSION.SDK_INT >= 14)
+    {
+      localMediaMetadataCompat = ???;
+      if (??? != null) {
+        localMediaMetadataCompat = cloneMetadataIfNeeded(???);
+      }
+    }
+    label115:
     do
     {
       synchronized (mLock)
       {
-        mMetadata = paramMediaMetadataCompat;
-        sendMetadata(paramMediaMetadataCompat);
+        mMetadata = localMediaMetadataCompat;
+        sendMetadata(localMediaMetadataCompat);
         if (!mIsActive) {
           return;
         }
       }
       if (Build.VERSION.SDK_INT >= 19)
       {
-        localObject2 = mRccObj;
-        if (paramMediaMetadataCompat == null)
+        localObject3 = mRccObj;
+        if (localObject1 == null)
         {
-          paramMediaMetadataCompat = (MediaMetadataCompat)localObject1;
+          ??? = (MediaMetadataCompat)localObject2;
           if (mState != null) {
-            break label88;
+            break label115;
           }
         }
         for (long l = 0L;; l = mState.getActions())
         {
-          MediaSessionCompatApi19.setMetadata(localObject2, paramMediaMetadataCompat, l);
+          MediaSessionCompatApi19.setMetadata(localObject3, ???, l);
           return;
-          paramMediaMetadataCompat = paramMediaMetadataCompat.getBundle();
+          ??? = ((MediaMetadataCompat)localObject1).getBundle();
           break;
         }
       }
     } while (Build.VERSION.SDK_INT < 14);
-    localObject1 = mRccObj;
-    if (paramMediaMetadataCompat == null) {}
-    for (paramMediaMetadataCompat = (MediaMetadataCompat)localObject2;; paramMediaMetadataCompat = paramMediaMetadataCompat.getBundle())
+    localObject2 = mRccObj;
+    if (localObject1 == null) {}
+    for (??? = (MediaMetadataCompat)localObject3;; ??? = ((MediaMetadataCompat)localObject1).getBundle())
     {
-      MediaSessionCompatApi14.setMetadata(localObject1, paramMediaMetadataCompat);
+      MediaSessionCompatApi14.setMetadata(localObject2, ???);
       return;
     }
   }

@@ -1,18 +1,12 @@
-public final class clr
+public abstract interface clr
 {
-  private final int a;
-  private final int b;
+  public abstract void a(long paramLong);
   
-  public clr(int paramInt1, int paramInt2)
-  {
-    a = paramInt1;
-    b = paramInt2;
-  }
+  public abstract void a(String paramString);
   
-  public final int a()
-  {
-    return b;
-  }
+  public abstract long c();
+  
+  public abstract String d();
 }
 
 /* Location:

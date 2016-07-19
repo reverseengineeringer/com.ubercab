@@ -1,4 +1,21 @@
-public abstract interface apr {}
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.internal.FusedLocationProviderResult;
+
+final class apr
+  extends apv
+{
+  private final wx<Status> a;
+  
+  public apr(wx<Status> paramwx)
+  {
+    a = paramwx;
+  }
+  
+  public final void a(FusedLocationProviderResult paramFusedLocationProviderResult)
+  {
+    a.a(paramFusedLocationProviderResult.a());
+  }
+}
 
 /* Location:
  * Qualified Name:     apr

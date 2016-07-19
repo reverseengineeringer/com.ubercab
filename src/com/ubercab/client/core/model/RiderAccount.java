@@ -4,13 +4,14 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.shape.Shape;
-import erc;
-import ije;
+import ezh;
 import java.util.Locale;
-import jdh;
+import knd;
+import lzo;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@Deprecated
+@lzo(a=RiderValidatorFactory.class)
 public abstract class RiderAccount
   implements Parcelable
 {
@@ -49,7 +50,7 @@ public abstract class RiderAccount
     if (!TextUtils.isEmpty(getMobile())) {
       return getMobile();
     }
-    return erc.d(getClaimedMobileLocal(), getMobileCountryIso2());
+    return ezh.d(getClaimedMobileLocal(), getMobileCountryIso2());
   }
   
   public abstract String getEmail();
@@ -58,8 +59,10 @@ public abstract class RiderAccount
   
   public String getFullName()
   {
-    return ije.a(getFirstName(), getLastName(), Locale.getDefault());
+    return knd.a(getFirstName(), getLastName(), Locale.getDefault());
   }
+  
+  public abstract boolean getHasPassword();
   
   public abstract String getLastName();
   
@@ -85,6 +88,8 @@ public abstract class RiderAccount
   public abstract RiderAccount setEmail(String paramString);
   
   public abstract RiderAccount setFirstName(String paramString);
+  
+  public abstract RiderAccount setHasPassword(boolean paramBoolean);
   
   public abstract RiderAccount setLastName(String paramString);
   

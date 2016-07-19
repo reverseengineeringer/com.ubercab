@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/ub__uber_white_60" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <LinearLayout android:orientation="horizontal" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="@dimen/ub__container_height">
+        <View android:layout_gravity="center|left" android:background="@drawable/ub__pickup_dot_line_green" android:layout_width="@dimen/ub__view_address_icon_width" android:layout_height="fill_parent" />
+        <com.ubercab.ui.TextView android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ub__reservation_scheduler_pickup_location" android:background="?selectableItemBackground" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:hint="@string/reservation_scheduler_pickup_location_hint" android:singleLine="true" />
+    </LinearLayout>
+    <View android:background="@color/ub__uber_white_60" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <LinearLayout android:orientation="horizontal" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="@dimen/ub__container_height">
+        <View android:layout_gravity="center|left" android:background="@drawable/ub__dropoff_dot_line_red" android:layout_width="@dimen/ub__view_address_icon_width" android:layout_height="fill_parent" />
+        <com.ubercab.ui.TextView android:ellipsize="end" android:gravity="center_vertical" android:id="@id/ub__reservation_scheduler_destination_location" android:background="?selectableItemBackground" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:hint="@string/reservation_scheduler_destination_location_hint" android:singleLine="true" />
+    </LinearLayout>
+</LinearLayout>

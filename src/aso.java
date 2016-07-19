@@ -1,54 +1,60 @@
-import android.view.View;
-import android.view.ViewTreeObserver;
-import java.lang.ref.WeakReference;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.location.places.personalized.PlaceAlias;
+import com.google.android.gms.location.places.personalized.PlaceUserData;
+import java.util.ArrayList;
 
-abstract class aso
+public final class aso
+  implements Parcelable.Creator<PlaceUserData>
 {
-  private final WeakReference<View> a;
-  
-  public aso(View paramView)
+  private static PlaceUserData a(Parcel paramParcel)
   {
-    a = new WeakReference(paramView);
-  }
-  
-  private ViewTreeObserver c()
-  {
-    Object localObject = (View)a.get();
-    if (localObject == null) {
-      localObject = null;
-    }
-    ViewTreeObserver localViewTreeObserver;
-    do
+    ArrayList localArrayList = null;
+    int j = zd.b(paramParcel);
+    String str1 = null;
+    int i = 0;
+    String str2 = null;
+    while (paramParcel.dataPosition() < j)
     {
-      return (ViewTreeObserver)localObject;
-      localViewTreeObserver = ((View)localObject).getViewTreeObserver();
-      if (localViewTreeObserver == null) {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
         break;
+      case 1: 
+        str1 = zd.n(paramParcel, k);
+        break;
+      case 1000: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        str2 = zd.n(paramParcel, k);
+        break;
+      case 6: 
+        localArrayList = zd.c(paramParcel, k, PlaceAlias.CREATOR);
       }
-      localObject = localViewTreeObserver;
-    } while (localViewTreeObserver.isAlive());
-    return null;
-  }
-  
-  public final void a()
-  {
-    ViewTreeObserver localViewTreeObserver = c();
-    if (localViewTreeObserver != null) {
-      a(localViewTreeObserver);
     }
-  }
-  
-  protected abstract void a(ViewTreeObserver paramViewTreeObserver);
-  
-  public final void b()
-  {
-    ViewTreeObserver localViewTreeObserver = c();
-    if (localViewTreeObserver != null) {
-      b(localViewTreeObserver);
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
+    return new PlaceUserData(i, str1, str2, localArrayList);
   }
   
-  protected abstract void b(ViewTreeObserver paramViewTreeObserver);
+  public static void a(PlaceUserData paramPlaceUserData, Parcel paramParcel)
+  {
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramPlaceUserData.a(), false);
+    zf.a(paramParcel, 1000, a);
+    zf.a(paramParcel, 2, paramPlaceUserData.b(), false);
+    zf.b(paramParcel, 6, paramPlaceUserData.c(), false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static PlaceUserData[] a(int paramInt)
+  {
+    return new PlaceUserData[paramInt];
+  }
 }
 
 /* Location:

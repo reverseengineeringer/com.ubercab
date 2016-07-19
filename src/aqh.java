@@ -1,12 +1,35 @@
-import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import com.google.android.gms.location.LocationAvailability;
+import com.google.android.gms.location.LocationResult;
 
-@apl
-public final class aqh
-  implements aqi
+final class aqh
+  extends atk
 {
-  public final String a(AdRequestInfoParcel paramAdRequestInfoParcel)
+  private Handler a;
+  
+  private void a(int paramInt, Object paramObject)
   {
-    return h;
+    if (a == null)
+    {
+      Log.e("LocationClientHelper", "Received a data in client after calling removeLocationUpdates.");
+      return;
+    }
+    Message localMessage = Message.obtain();
+    what = paramInt;
+    obj = paramObject;
+    a.sendMessage(localMessage);
+  }
+  
+  public final void a(LocationAvailability paramLocationAvailability)
+  {
+    a(1, paramLocationAvailability);
+  }
+  
+  public final void a(LocationResult paramLocationResult)
+  {
+    a(0, paramLocationResult);
   }
 }
 

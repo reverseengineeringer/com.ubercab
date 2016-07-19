@@ -1,80 +1,38 @@
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpHead;
-import org.apache.http.client.methods.HttpOptions;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.client.methods.HttpTrace;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.params.HttpConnectionParams;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
 
-public final class ayf
-  implements ayi
+public abstract class ayf
+  extends Binder
+  implements aye
 {
-  protected final HttpClient a;
-  
-  public ayf(HttpClient paramHttpClient)
+  public static aye a(IBinder paramIBinder)
   {
-    a = paramHttpClient;
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnPolylineClickListener");
+    if ((localIInterface != null) && ((localIInterface instanceof aye))) {
+      return (aye)localIInterface;
+    }
+    return new ayg(paramIBinder);
   }
   
-  private static HttpUriRequest a(atg<?> paramatg)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    switch (paramatg.b())
+    switch (paramInt1)
     {
     default: 
-      throw new IllegalStateException("Unknown request method.");
-    case -1: 
-      return new HttpGet(paramatg.d());
-    case 0: 
-      return new HttpGet(paramatg.d());
-    case 3: 
-      return new HttpDelete(paramatg.d());
-    case 1: 
-      paramatg = new HttpPost(paramatg.d());
-      paramatg.addHeader("Content-Type", atg.h());
-      return paramatg;
-    case 2: 
-      paramatg = new HttpPut(paramatg.d());
-      paramatg.addHeader("Content-Type", atg.h());
-      return paramatg;
-    case 4: 
-      return new HttpHead(paramatg.d());
-    case 5: 
-      return new HttpOptions(paramatg.d());
-    case 6: 
-      return new HttpTrace(paramatg.d());
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnPolylineClickListener");
+      return true;
     }
-    paramatg = new ayg(paramatg.d());
-    paramatg.addHeader("Content-Type", atg.h());
-    return paramatg;
-  }
-  
-  private static void a(HttpUriRequest paramHttpUriRequest, Map<String, String> paramMap)
-  {
-    Iterator localIterator = paramMap.keySet().iterator();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      paramHttpUriRequest.setHeader(str, (String)paramMap.get(str));
-    }
-  }
-  
-  public final HttpResponse a(atg<?> paramatg, Map<String, String> paramMap)
-  {
-    HttpUriRequest localHttpUriRequest = a(paramatg);
-    a(localHttpUriRequest, paramMap);
-    a(localHttpUriRequest, paramatg.a());
-    paramMap = localHttpUriRequest.getParams();
-    int i = paramatg.j();
-    HttpConnectionParams.setConnectionTimeout(paramMap, 5000);
-    HttpConnectionParams.setSoTimeout(paramMap, i);
-    return a.execute(localHttpUriRequest);
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnPolylineClickListener");
+    a(azd.a(paramParcel1.readStrongBinder()));
+    paramParcel2.writeNoException();
+    return true;
   }
 }
 

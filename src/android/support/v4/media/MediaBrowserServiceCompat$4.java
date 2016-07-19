@@ -8,10 +8,10 @@ class MediaBrowserServiceCompat$4
 {
   MediaBrowserServiceCompat$4(MediaBrowserServiceCompat paramMediaBrowserServiceCompat, Object paramObject, ResultReceiver paramResultReceiver)
   {
-    super(paramMediaBrowserServiceCompat, paramObject);
+    super(paramObject);
   }
   
-  void onResultSent(MediaBrowserCompat.MediaItem paramMediaItem)
+  void onResultSent(MediaBrowserCompat.MediaItem paramMediaItem, int paramInt)
   {
     Bundle localBundle = new Bundle();
     localBundle.putParcelable("media_item", paramMediaItem);

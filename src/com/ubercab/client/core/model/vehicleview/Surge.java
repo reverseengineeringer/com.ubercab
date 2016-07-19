@@ -4,14 +4,14 @@ import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.DropNotification;
 import com.ubercab.rider.realtime.model.DynamicFare;
 import com.ubercab.shape.Shape;
-import jdh;
-import jvq;
-import jvr;
+import lzo;
+import nba;
+import nbb;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class Surge
-  extends jvq<Surge>
+  extends nba<Surge>
   implements DynamicFare
 {
   static Surge create()
@@ -60,9 +60,9 @@ public abstract class Surge
     return getForceFareEstimate();
   }
   
-  protected Object onGet(jvr<Surge> paramjvr, Object paramObject)
+  protected Object onGet(nbb<Surge> paramnbb, Object paramObject)
   {
-    switch (Surge.1.$SwitchMap$com$ubercab$client$core$model$vehicleview$Shape_Surge$Property[((Shape_Surge.Property)paramjvr).ordinal()])
+    switch (Surge.1.$SwitchMap$com$ubercab$client$core$model$vehicleview$Shape_Surge$Property[((Shape_Surge.Property)paramnbb).ordinal()])
     {
     }
     do

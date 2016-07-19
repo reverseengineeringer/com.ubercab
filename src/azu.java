@@ -1,76 +1,53 @@
-import android.app.PendingIntent;
-import android.os.IBinder;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.location.internal.LocationRequestInternal;
-import com.google.android.gms.location.internal.LocationRequestUpdateData;
+import android.os.IInterface;
+import com.google.android.gms.maps.model.LatLng;
+import java.util.List;
 
-public final class azu
-  implements Parcelable.Creator<LocationRequestUpdateData>
+public abstract interface azu
+  extends IInterface
 {
-  public static LocationRequestUpdateData a(Parcel paramParcel)
-  {
-    IBinder localIBinder1 = null;
-    int k = zm.b(paramParcel);
-    int j = 0;
-    int i = 1;
-    IBinder localIBinder2 = null;
-    PendingIntent localPendingIntent = null;
-    IBinder localIBinder3 = null;
-    LocationRequestInternal localLocationRequestInternal = null;
-    while (paramParcel.dataPosition() < k)
-    {
-      int m = zm.a(paramParcel);
-      switch (zm.a(m))
-      {
-      default: 
-        zm.a(paramParcel, m);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, m);
-        break;
-      case 1000: 
-        j = zm.e(paramParcel, m);
-        break;
-      case 2: 
-        localLocationRequestInternal = (LocationRequestInternal)zm.a(paramParcel, m, LocationRequestInternal.CREATOR);
-        break;
-      case 3: 
-        localIBinder3 = zm.o(paramParcel, m);
-        break;
-      case 4: 
-        localPendingIntent = (PendingIntent)zm.a(paramParcel, m, PendingIntent.CREATOR);
-        break;
-      case 5: 
-        localIBinder2 = zm.o(paramParcel, m);
-        break;
-      case 6: 
-        localIBinder1 = zm.o(paramParcel, m);
-      }
-    }
-    if (paramParcel.dataPosition() != k) {
-      throw new zn("Overread allowed size end=" + k, paramParcel);
-    }
-    return new LocationRequestUpdateData(j, i, localLocationRequestInternal, localIBinder3, localPendingIntent, localIBinder2, localIBinder1);
-  }
+  public abstract void a();
   
-  public static void a(LocationRequestUpdateData paramLocationRequestUpdateData, Parcel paramParcel, int paramInt)
-  {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 1000, paramLocationRequestUpdateData.a());
-    zo.a(paramParcel, 2, b, paramInt, false);
-    zo.a(paramParcel, 3, paramLocationRequestUpdateData.b());
-    zo.a(paramParcel, 4, d, paramInt, false);
-    zo.a(paramParcel, 5, paramLocationRequestUpdateData.c());
-    zo.a(paramParcel, 6, paramLocationRequestUpdateData.d());
-    zo.a(paramParcel, i);
-  }
+  public abstract void a(float paramFloat);
   
-  private static LocationRequestUpdateData[] a(int paramInt)
-  {
-    return new LocationRequestUpdateData[paramInt];
-  }
+  public abstract void a(int paramInt);
+  
+  public abstract void a(List<LatLng> paramList);
+  
+  public abstract void a(boolean paramBoolean);
+  
+  public abstract boolean a(azu paramazu);
+  
+  public abstract String b();
+  
+  public abstract void b(float paramFloat);
+  
+  public abstract void b(int paramInt);
+  
+  public abstract void b(List paramList);
+  
+  public abstract void b(boolean paramBoolean);
+  
+  public abstract List<LatLng> c();
+  
+  public abstract void c(boolean paramBoolean);
+  
+  public abstract List d();
+  
+  public abstract float e();
+  
+  public abstract int f();
+  
+  public abstract int g();
+  
+  public abstract float h();
+  
+  public abstract boolean i();
+  
+  public abstract boolean j();
+  
+  public abstract int k();
+  
+  public abstract boolean l();
 }
 
 /* Location:

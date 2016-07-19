@@ -1,16 +1,16 @@
 package com.google.android.gms.ads.internal.overlay;
 
+import aih;
 import android.content.Intent;
 import android.os.Parcel;
-import apl;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import pk;
+import sm;
 
-@apl
+@aih
 public final class AdLauncherIntentInfoParcel
   implements SafeParcelable
 {
-  public static final pk CREATOR = new pk();
+  public static final sm CREATOR = new sm();
   public final int a;
   public final String b;
   public final String c;
@@ -51,7 +51,7 @@ public final class AdLauncherIntentInfoParcel
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    pk.a(this, paramParcel, paramInt);
+    sm.a(this, paramParcel, paramInt);
   }
 }
 

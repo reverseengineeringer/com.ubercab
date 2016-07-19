@@ -2,4 +2,4 @@ DISPLAYNAME: Uber
 
 PKGNAME: com.ubercab
 
-VERSIONINFO: versionCode=31205 versionName=3.94.3
+VERSIONINFO: versionCode=31363 versionName=3.111.2

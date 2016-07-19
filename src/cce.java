@@ -1,13 +1,26 @@
-import java.util.ArrayList;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentConfirmActivity;
 
-final class cce
-  extends ArrayList
+public final class cce
+  implements ServiceConnection
 {
-  cce()
+  public cce(PaymentConfirmActivity paramPaymentConfirmActivity) {}
+  
+  public final void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
   {
-    add("live");
-    add("sandbox");
-    add("mock");
+    new StringBuilder().append(PaymentConfirmActivity.a()).append(".onServiceConnected");
+    PaymentConfirmActivity.a(a, a);
+    if (PaymentConfirmActivity.c(a).a(new cdd(this))) {
+      PaymentConfirmActivity.b(a);
+    }
+  }
+  
+  public final void onServiceDisconnected(ComponentName paramComponentName)
+  {
+    PaymentConfirmActivity.a(a, null);
   }
 }
 

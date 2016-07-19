@@ -1,44 +1,73 @@
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Application.ActivityLifecycleCallbacks;
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.net.http.AndroidHttpClient;
-import android.os.Build.VERSION;
-import java.io.File;
+import android.os.Bundle;
 
+@aih
+@TargetApi(14)
 public final class aei
+  implements Application.ActivityLifecycleCallbacks
 {
-  public static atj a(Context paramContext)
+  private Activity a;
+  private Context b;
+  private final Object c;
+  
+  private void a(Activity paramActivity)
   {
-    return b(paramContext);
+    synchronized (c)
+    {
+      if (!paramActivity.getClass().getName().startsWith("com.google.android.gms.ads")) {
+        a = paramActivity;
+      }
+      return;
+    }
   }
   
-  private static atj b(Context paramContext)
+  public final Activity a()
   {
-    File localFile = new File(paramContext.getCacheDir(), "volley");
-    String str1 = "volley/0";
-    try
+    return a;
+  }
+  
+  public final Context b()
+  {
+    return b;
+  }
+  
+  public final void onActivityCreated(Activity paramActivity, Bundle paramBundle) {}
+  
+  public final void onActivityDestroyed(Activity paramActivity)
+  {
+    synchronized (c)
     {
-      String str2 = paramContext.getPackageName();
-      paramContext = paramContext.getPackageManager().getPackageInfo(str2, 0);
-      paramContext = str2 + "/" + versionCode;
-      if (Build.VERSION.SDK_INT >= 9) {}
-      for (paramContext = new ayj();; paramContext = new ayf(AndroidHttpClient.newInstance(paramContext)))
-      {
-        paramContext = new aya(paramContext);
-        paramContext = new atj(new ayc(localFile, (byte)0), paramContext, (byte)0);
-        paramContext.a();
-        return paramContext;
+      if (a == null) {
+        return;
       }
-    }
-    catch (PackageManager.NameNotFoundException paramContext)
-    {
-      for (;;)
-      {
-        paramContext = str1;
+      if (a.equals(paramActivity)) {
+        a = null;
       }
+      return;
     }
   }
+  
+  public final void onActivityPaused(Activity paramActivity)
+  {
+    a(paramActivity);
+  }
+  
+  public final void onActivityResumed(Activity paramActivity)
+  {
+    a(paramActivity);
+  }
+  
+  public final void onActivitySaveInstanceState(Activity paramActivity, Bundle paramBundle) {}
+  
+  public final void onActivityStarted(Activity paramActivity)
+  {
+    a(paramActivity);
+  }
+  
+  public final void onActivityStopped(Activity paramActivity) {}
 }
 
 /* Location:

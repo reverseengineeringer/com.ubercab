@@ -1,18 +1,16 @@
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.os.Bundle;
-import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
-import java.util.concurrent.Callable;
-
 final class apn$1
-  implements Callable<Void>
+  implements aqo<aqa>
 {
-  apn$1(apm paramapm, Context paramContext, AdRequestInfoParcel paramAdRequestInfoParcel, Bundle paramBundle) {}
+  apn$1(apn paramapn) {}
   
-  private Void a()
+  private aqa c()
   {
-    String str = c.g.packageName;
-    return null;
+    return (aqa)a.o();
+  }
+  
+  public final void a()
+  {
+    apn.a(a);
   }
 }
 

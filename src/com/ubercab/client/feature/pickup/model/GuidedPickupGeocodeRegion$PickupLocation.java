@@ -4,7 +4,7 @@ import com.ubercab.android.location.UberLatLng;
 import com.ubercab.client.feature.geojson.model.Feature;
 import com.ubercab.client.feature.geojson.model.Point;
 import com.ubercab.shape.Shape;
-import fka;
+import fzb;
 import java.util.List;
 
 @Shape
@@ -18,7 +18,7 @@ public abstract class GuidedPickupGeocodeRegion$PickupLocation
   
   public int getChirality()
   {
-    return fka.a(getGeometry());
+    return fzb.a(getGeometry());
   }
   
   public abstract Point getGeometry();

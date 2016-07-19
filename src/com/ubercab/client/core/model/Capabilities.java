@@ -2,14 +2,17 @@ package com.ubercab.client.core.model;
 
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.TripDriverCapabilities;
-import jdh;
+import com.ubercab.rider.realtime.request.body.InAppMessage;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class Capabilities
   implements TripDriverCapabilities
 {
   Boolean edge;
+  InAppMessage inAppMessage;
   Boolean inAppMessaging;
+  Boolean inAppMessagingText;
   Boolean music;
   
   public boolean getEdge()
@@ -20,9 +23,25 @@ public class Capabilities
     return edge.booleanValue();
   }
   
+  public InAppMessage getInAppMessage()
+  {
+    return inAppMessage;
+  }
+  
   public boolean getInAppMessaging()
   {
+    if (inAppMessaging == null) {
+      return false;
+    }
     return inAppMessaging.booleanValue();
+  }
+  
+  public boolean getInAppMessagingText()
+  {
+    if (inAppMessagingText == null) {
+      return false;
+    }
+    return inAppMessagingText.booleanValue();
   }
   
   public boolean getMusic()

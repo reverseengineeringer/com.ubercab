@@ -1,75 +1,113 @@
+import android.os.Binder;
 import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.signin.internal.AuthAccountResult;
+import com.google.android.gms.signin.internal.SignInResponse;
 
-final class ben
-  implements bel
+public abstract class ben
+  extends Binder
+  implements bem
 {
-  private IBinder a;
-  
-  ben(IBinder paramIBinder)
+  public ben()
   {
-    a = paramIBinder;
+    attachInterface(this, "com.google.android.gms.signin.internal.ISignInCallbacks");
   }
   
-  /* Error */
-  public final void a(bhk parambhk)
+  public static bem a(IBinder paramIBinder)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +42 -> 57
-    //   18: aload_1
-    //   19: invokeinterface 35 1 0
-    //   24: astore_1
-    //   25: aload_2
-    //   26: aload_1
-    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   30: aload_0
-    //   31: getfield 15	ben:a	Landroid/os/IBinder;
-    //   34: iconst_1
-    //   35: aload_2
-    //   36: aload_3
-    //   37: iconst_0
-    //   38: invokeinterface 44 5 0
-    //   43: pop
-    //   44: aload_3
-    //   45: invokevirtual 47	android/os/Parcel:readException	()V
-    //   48: aload_3
-    //   49: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   52: aload_2
-    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   56: return
-    //   57: aconst_null
-    //   58: astore_1
-    //   59: goto -34 -> 25
-    //   62: astore_1
-    //   63: aload_3
-    //   64: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   67: aload_2
-    //   68: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   71: aload_1
-    //   72: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	73	0	this	ben
-    //   0	73	1	parambhk	bhk
-    //   3	65	2	localParcel1	android.os.Parcel
-    //   7	57	3	localParcel2	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	62	finally
-    //   18	25	62	finally
-    //   25	48	62	finally
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
+    if ((localIInterface != null) && ((localIInterface instanceof bem))) {
+      return (bem)localIInterface;
+    }
+    return new beo(paramIBinder);
   }
   
-  public final IBinder asBinder()
+  public IBinder asBinder()
   {
-    return a;
+    return this;
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    Object localObject;
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.signin.internal.ISignInCallbacks");
+      return true;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
+      if (paramParcel1.readInt() != 0)
+      {
+        localObject = (ConnectionResult)ConnectionResult.CREATOR.createFromParcel(paramParcel1);
+        if (paramParcel1.readInt() == 0) {
+          break label144;
+        }
+      }
+      for (paramParcel1 = (AuthAccountResult)AuthAccountResult.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+      {
+        a((ConnectionResult)localObject, paramParcel1);
+        paramParcel2.writeNoException();
+        return true;
+        localObject = null;
+        break;
+      }
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
+      if (paramParcel1.readInt() != 0) {}
+      for (paramParcel1 = (Status)Status.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+      {
+        a(paramParcel1);
+        paramParcel2.writeNoException();
+        return true;
+      }
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
+      if (paramParcel1.readInt() != 0) {}
+      for (paramParcel1 = (Status)Status.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+      {
+        b(paramParcel1);
+        paramParcel2.writeNoException();
+        return true;
+      }
+    case 7: 
+      label144:
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
+      if (paramParcel1.readInt() != 0)
+      {
+        localObject = (Status)Status.CREATOR.createFromParcel(paramParcel1);
+        if (paramParcel1.readInt() == 0) {
+          break label299;
+        }
+      }
+      label299:
+      for (paramParcel1 = (GoogleSignInAccount)GoogleSignInAccount.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+      {
+        a((Status)localObject, paramParcel1);
+        paramParcel2.writeNoException();
+        return true;
+        localObject = null;
+        break;
+      }
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
+    if (paramParcel1.readInt() != 0) {}
+    for (paramParcel1 = (SignInResponse)SignInResponse.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+    {
+      a(paramParcel1);
+      paramParcel2.writeNoException();
+      return true;
+    }
   }
 }
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center" android:paddingTop="@dimen/ub__padding_medium" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:paddingLeft="5.0dip" android:paddingTop="15.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__phone" android:adjustViewBounds="true" android:contentDescription="@string/ub__empty" />
+        <ImageView android:layout_gravity="start|center|top" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__sms_bubble" android:adjustViewBounds="true" android:contentDescription="@string/ub__empty" />
+    </FrameLayout>
+    <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_medium" android:textColor="@color/ub__uber_black_60" android:gravity="center" android:layout_gravity="center" android:id="@id/ub__mobile_verify_details" android:paddingLeft="@dimen/ub__padding_extra_large" android:paddingTop="@dimen/ub__padding_medium" android:paddingRight="@dimen/ub__padding_extra_large" android:paddingBottom="@dimen/ub__padding_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineSpacingMultiplier="1.25" style="@style/Uber.TextAppearance.P" />
+    <com.ubercab.client.feature.signup.passwordless.page.MobileVerifyEditText android:id="@id/ub__mobile_verify_token" android:layout_width="fill_parent" android:layout_height="wrap_content" token_length="6" />
+    <com.ubercab.ui.TextView android:textColor="@color/ub__uber_blue_120" android:layout_gravity="center" android:id="@id/ub__mobile_verify_resend_code" android:paddingTop="@dimen/ub__padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/resend_code" style="@style/Uber.TextAppearance.P" />
+</LinearLayout>

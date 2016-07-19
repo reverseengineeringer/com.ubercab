@@ -1,16 +1,16 @@
 package com.google.android.gms.ads.internal.request;
 
+import aih;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import apl;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import rw;
+import tu;
 
-@apl
+@aih
 public class StringParcel
   implements SafeParcelable
 {
-  public static final Parcelable.Creator<StringParcel> CREATOR = new rw();
+  public static final Parcelable.Creator<StringParcel> CREATOR = new tu();
   public final int a;
   public String b;
   
@@ -38,7 +38,7 @@ public class StringParcel
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    rw.a(this, paramParcel);
+    tu.a(this, paramParcel);
   }
 }
 

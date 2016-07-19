@@ -1,87 +1,223 @@
-import android.location.Location;
-import com.google.android.gms.ads.internal.formats.NativeAdOptionsParcel;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-
-@apl
 public final class ams
-  implements ue
+  extends aoi
 {
-  private final Date a;
-  private final int b;
-  private final Set<String> c;
-  private final boolean d;
-  private final Location e;
-  private final int f;
-  private final NativeAdOptionsParcel g;
-  private final List<String> h;
-  private final boolean i;
+  private static volatile ams[] f;
+  public Long a;
+  public String b;
+  public String c;
+  public Long d;
+  public Float e;
   
-  public ams(Date paramDate, int paramInt1, Set<String> paramSet, Location paramLocation, boolean paramBoolean1, int paramInt2, NativeAdOptionsParcel paramNativeAdOptionsParcel, List<String> paramList, boolean paramBoolean2)
+  public ams()
   {
-    a = paramDate;
-    b = paramInt1;
-    c = paramSet;
-    e = paramLocation;
-    d = paramBoolean1;
-    f = paramInt2;
-    g = paramNativeAdOptionsParcel;
-    h = paramList;
-    i = paramBoolean2;
+    e();
   }
   
-  public final Date a()
+  private ams b(anz paramanz)
   {
-    return a;
+    for (;;)
+    {
+      int i = paramanz.a();
+      switch (i)
+      {
+      default: 
+        if (aol.a(paramanz, i)) {}
+        break;
+      case 0: 
+        return this;
+      case 8: 
+        a = Long.valueOf(paramanz.d());
+        break;
+      case 18: 
+        b = paramanz.g();
+        break;
+      case 26: 
+        c = paramanz.g();
+        break;
+      case 32: 
+        d = Long.valueOf(paramanz.d());
+        break;
+      case 45: 
+        e = Float.valueOf(paramanz.b());
+      }
+    }
   }
   
-  public final int b()
+  private ams e()
   {
-    return b;
+    a = null;
+    b = null;
+    c = null;
+    d = null;
+    e = null;
+    B = -1;
+    return this;
   }
   
-  public final Set<String> c()
+  public static ams[] k_()
   {
-    return c;
+    if (f == null) {}
+    synchronized (aog.a)
+    {
+      if (f == null) {
+        f = new ams[0];
+      }
+      return f;
+    }
   }
   
-  public final Location d()
+  public final void a(aoa paramaoa)
   {
-    return e;
+    if (a != null) {
+      paramaoa.b(1, a.longValue());
+    }
+    if (b != null) {
+      paramaoa.a(2, b);
+    }
+    if (c != null) {
+      paramaoa.a(3, c);
+    }
+    if (d != null) {
+      paramaoa.b(4, d.longValue());
+    }
+    if (e != null) {
+      paramaoa.a(5, e.floatValue());
+    }
+    super.a(paramaoa);
   }
   
-  public final int e()
+  protected final int b()
   {
-    return f;
-  }
-  
-  public final boolean f()
-  {
-    return d;
-  }
-  
-  public final boolean g()
-  {
+    int j = super.b();
+    int i = j;
+    if (a != null) {
+      i = j + aoa.c(1, a.longValue());
+    }
+    j = i;
+    if (b != null) {
+      j = i + aoa.b(2, b);
+    }
+    i = j;
+    if (c != null) {
+      i = j + aoa.b(3, c);
+    }
+    j = i;
+    if (d != null) {
+      j = i + aoa.c(4, d.longValue());
+    }
+    i = j;
+    if (e != null)
+    {
+      e.floatValue();
+      i = j + aoa.a(5);
+    }
     return i;
   }
   
-  public final ml h()
+  public final boolean equals(Object paramObject)
   {
-    if (g == null) {
-      return null;
+    if (paramObject == this) {}
+    do
+    {
+      do
+      {
+        return true;
+        if (!(paramObject instanceof ams)) {
+          return false;
+        }
+        paramObject = (ams)paramObject;
+        if (a == null)
+        {
+          if (a != null) {
+            return false;
+          }
+        }
+        else if (!a.equals(a)) {
+          return false;
+        }
+        if (b == null)
+        {
+          if (b != null) {
+            return false;
+          }
+        }
+        else if (!b.equals(b)) {
+          return false;
+        }
+        if (c == null)
+        {
+          if (c != null) {
+            return false;
+          }
+        }
+        else if (!c.equals(c)) {
+          return false;
+        }
+        if (d == null)
+        {
+          if (d != null) {
+            return false;
+          }
+        }
+        else if (!d.equals(d)) {
+          return false;
+        }
+        if (e != null) {
+          break;
+        }
+      } while (e == null);
+      return false;
+    } while (e.equals(e));
+    return false;
+  }
+  
+  public final int hashCode()
+  {
+    int n = 0;
+    int i1 = getClass().getName().hashCode();
+    int i;
+    int j;
+    label33:
+    int k;
+    label42:
+    int m;
+    if (a == null)
+    {
+      i = 0;
+      if (b != null) {
+        break label104;
+      }
+      j = 0;
+      if (c != null) {
+        break label115;
+      }
+      k = 0;
+      if (d != null) {
+        break label126;
+      }
+      m = 0;
+      label52:
+      if (e != null) {
+        break label138;
+      }
     }
-    return new mm().a(g.b).a(g.c).b(g.d).a();
-  }
-  
-  public final boolean i()
-  {
-    return (h != null) && (h.contains("2"));
-  }
-  
-  public final boolean j()
-  {
-    return (h != null) && (h.contains("1"));
+    for (;;)
+    {
+      return (m + (k + (j + (i + (i1 + 527) * 31) * 31) * 31) * 31) * 31 + n;
+      i = a.hashCode();
+      break;
+      label104:
+      j = b.hashCode();
+      break label33;
+      label115:
+      k = c.hashCode();
+      break label42;
+      label126:
+      m = d.hashCode();
+      break label52;
+      label138:
+      n = e.hashCode();
+    }
   }
 }
 

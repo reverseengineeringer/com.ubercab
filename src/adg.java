@@ -1,54 +1,16 @@
-import java.lang.reflect.Field;
-
-public final class adg<T>
-  extends ade
+public final class adg
 {
-  private final T a;
+  public static final adg a = new adg(0);
+  public static final adg b = new adg(1);
+  private final int c;
+  private final int d;
+  private final int e;
   
-  private adg(T paramT)
+  private adg(int paramInt)
   {
-    a = paramT;
-  }
-  
-  public static <T> add a(T paramT)
-  {
-    return new adg(paramT);
-  }
-  
-  public static <T> T a(add paramadd)
-  {
-    if ((paramadd instanceof adg)) {
-      return (T)a;
-    }
-    paramadd = paramadd.asBinder();
-    Object localObject = paramadd.getClass().getDeclaredFields();
-    if (localObject.length == 1)
-    {
-      localObject = localObject[0];
-      if (!((Field)localObject).isAccessible())
-      {
-        ((Field)localObject).setAccessible(true);
-        try
-        {
-          paramadd = ((Field)localObject).get(paramadd);
-          return paramadd;
-        }
-        catch (NullPointerException paramadd)
-        {
-          throw new IllegalArgumentException("Binder object is null.", paramadd);
-        }
-        catch (IllegalArgumentException paramadd)
-        {
-          throw new IllegalArgumentException("remoteBinder is the wrong class.", paramadd);
-        }
-        catch (IllegalAccessException paramadd)
-        {
-          throw new IllegalArgumentException("Could not access the field in remoteBinder.", paramadd);
-        }
-      }
-      throw new IllegalArgumentException("The concrete class implementing IObjectWrapper must have exactly one declared *private* field for the wrapped object. Preferably, this is an instance of the ObjectWrapper<T> class.");
-    }
-    throw new IllegalArgumentException("The concrete class implementing IObjectWrapper must have exactly *one* declared private field for the wrapped object.  Preferably, this is an instance of the ObjectWrapper<T> class.");
+    c = paramInt;
+    d = 30;
+    e = 3600;
   }
 }
 

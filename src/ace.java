@@ -1,52 +1,105 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.server.FavaDiagnosticsEntity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.text.TextUtils;
 
-public final class ace
-  implements Parcelable.Creator<FavaDiagnosticsEntity>
+public class ace
 {
-  public static FavaDiagnosticsEntity a(Parcel paramParcel)
+  private static final ace a = new ace();
+  public static final int b = ack.b;
+  
+  public static boolean a(Context paramContext, String paramString)
   {
-    int j = 0;
-    int k = zm.b(paramParcel);
-    String str = null;
-    int i = 0;
-    while (paramParcel.dataPosition() < k)
+    return ack.a(paramContext, paramString);
+  }
+  
+  public static ace b()
+  {
+    return a;
+  }
+  
+  private static String b(Context paramContext, String paramString)
+  {
+    StringBuilder localStringBuilder = new StringBuilder();
+    localStringBuilder.append("gcore_");
+    localStringBuilder.append(b);
+    localStringBuilder.append("-");
+    if (!TextUtils.isEmpty(paramString)) {
+      localStringBuilder.append(paramString);
+    }
+    localStringBuilder.append("-");
+    if (paramContext != null) {
+      localStringBuilder.append(paramContext.getPackageName());
+    }
+    localStringBuilder.append("-");
+    if (paramContext != null) {}
+    try
     {
-      int m = zm.a(paramParcel);
-      switch (zm.a(m))
-      {
-      default: 
-        zm.a(paramParcel, m);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, m);
-        break;
-      case 2: 
-        str = zm.n(paramParcel, m);
-        break;
-      case 3: 
-        j = zm.e(paramParcel, m);
-      }
+      localStringBuilder.append(getPackageManagergetPackageInfogetPackageName0versionCode);
+      return localStringBuilder.toString();
     }
-    if (paramParcel.dataPosition() != k) {
-      throw new zn("Overread allowed size end=" + k, paramParcel);
+    catch (PackageManager.NameNotFoundException paramContext)
+    {
+      for (;;) {}
     }
-    return new FavaDiagnosticsEntity(i, str, j);
   }
   
-  public static void a(FavaDiagnosticsEntity paramFavaDiagnosticsEntity, Parcel paramParcel)
+  public static void c(Context paramContext)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, b, false);
-    zo.a(paramParcel, 3, c);
-    zo.a(paramParcel, i);
+    ack.d(paramContext);
   }
   
-  private static FavaDiagnosticsEntity[] a(int paramInt)
+  public static void d(Context paramContext)
   {
-    return new FavaDiagnosticsEntity[paramInt];
+    ack.e(paramContext);
+  }
+  
+  public int a(Context paramContext)
+  {
+    int j = ack.c(paramContext);
+    int i = j;
+    if (ack.b(paramContext, j)) {
+      i = 18;
+    }
+    return i;
+  }
+  
+  public Intent a(Context paramContext, int paramInt, String paramString)
+  {
+    switch (paramInt)
+    {
+    default: 
+      return null;
+    case 1: 
+    case 2: 
+      return aal.a("com.google.android.gms", b(paramContext, paramString));
+    case 42: 
+      return aal.a();
+    }
+    return aal.a("com.google.android.gms");
+  }
+  
+  public boolean a(int paramInt)
+  {
+    return ack.d(paramInt);
+  }
+  
+  public boolean a(Context paramContext, int paramInt)
+  {
+    return ack.b(paramContext, paramInt);
+  }
+  
+  @Deprecated
+  public Intent b(int paramInt)
+  {
+    return a(null, paramInt, null);
+  }
+  
+  public String b(Context paramContext)
+  {
+    return ack.f(paramContext);
   }
 }
 

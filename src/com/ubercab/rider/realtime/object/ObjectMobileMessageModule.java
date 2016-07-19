@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jtx;
+import mzf;
 
 @Shape
 abstract class ObjectMobileMessageModule
-  implements jtx
+  implements mzf
 {}
 
 /* Location:

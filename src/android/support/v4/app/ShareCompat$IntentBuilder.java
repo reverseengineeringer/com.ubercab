@@ -112,7 +112,7 @@ public class ShareCompat$IntentBuilder
   public IntentBuilder addStream(Uri paramUri)
   {
     Uri localUri = (Uri)mIntent.getParcelableExtra("android.intent.extra.STREAM");
-    if (localUri == null) {
+    if ((mStreams == null) && (localUri == null)) {
       return setStream(paramUri);
     }
     if (mStreams == null) {

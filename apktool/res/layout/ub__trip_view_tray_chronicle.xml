@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.tray.TrayChronicleLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="@dimen/ui__spacing_unit_8x" style="@style/Style.Rider.Trip.Section.TopBorder"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_gravity="center" android:id="@id/ub__trip_view_tray_chronicle" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/ub__chronicle_view_trip_tray" />
+</com.ubercab.client.feature.trip.tray.TrayChronicleLayout>

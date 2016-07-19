@@ -1,26 +1,10 @@
-import android.os.SystemClock;
-
-public final class cns
+public abstract interface cns
 {
-  public static cns a()
-  {
-    return new cns();
-  }
+  public abstract void a();
   
-  public static long b()
-  {
-    return System.currentTimeMillis() * 1000L;
-  }
+  public abstract void a(long paramLong);
   
-  public static long c()
-  {
-    return System.currentTimeMillis();
-  }
-  
-  public static long d()
-  {
-    return SystemClock.elapsedRealtime();
-  }
+  public abstract long b();
 }
 
 /* Location:

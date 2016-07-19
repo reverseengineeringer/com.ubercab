@@ -4,17 +4,17 @@ import com.ubercab.reporting.realtime.request.body.TaskCreateBody;
 import com.ubercab.reporting.realtime.request.body.TaskTeamsBody;
 import com.ubercab.reporting.realtime.response.TaskCreateResponse;
 import com.ubercab.reporting.realtime.response.TaskTeamsResponse;
-import kld;
+import odr;
 import retrofit.http.Body;
 import retrofit.http.POST;
 
 public abstract interface SnaptaskApi
 {
   @POST("/rt/mobile/task/create")
-  public abstract kld<TaskCreateResponse> postCreate(@Body TaskCreateBody paramTaskCreateBody);
+  public abstract odr<TaskCreateResponse> postCreate(@Body TaskCreateBody paramTaskCreateBody);
   
   @POST("/rt/mobile/task/teams")
-  public abstract kld<TaskTeamsResponse> postTeams(@Body TaskTeamsBody paramTaskTeamsBody);
+  public abstract odr<TaskTeamsResponse> postTeams(@Body TaskTeamsBody paramTaskTeamsBody);
 }
 
 /* Location:

@@ -4,7 +4,7 @@ import com.ubercab.reporting.realtime.request.body.ManiphestBody;
 import com.ubercab.reporting.realtime.request.body.TeamsBody;
 import com.ubercab.reporting.realtime.response.ManiphestResponse;
 import com.ubercab.reporting.realtime.response.TeamsResponse;
-import kld;
+import odr;
 import retrofit.http.Body;
 import retrofit.http.POST;
 
@@ -12,10 +12,10 @@ import retrofit.http.POST;
 public abstract interface PhabricatorApi
 {
   @POST("/phabricator/maniphest")
-  public abstract kld<ManiphestResponse> postManiphest(@Body ManiphestBody paramManiphestBody);
+  public abstract odr<ManiphestResponse> postManiphest(@Body ManiphestBody paramManiphestBody);
   
   @POST("/phabricator/teams")
-  public abstract kld<TeamsResponse> postTeams(@Body TeamsBody paramTeamsBody);
+  public abstract odr<TeamsResponse> postTeams(@Body TeamsBody paramTeamsBody);
 }
 
 /* Location:

@@ -1,12 +1,8 @@
-abstract interface aty
+import com.google.android.gms.maps.model.CameraPosition;
+
+public abstract interface aty
 {
-  public abstract Boolean a();
-  
-  public abstract Long b();
-  
-  public abstract Integer c();
-  
-  public abstract String d();
+  public abstract void a(CameraPosition paramCameraPosition);
 }
 
 /* Location:

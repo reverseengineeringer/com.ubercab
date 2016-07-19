@@ -4,11 +4,11 @@ import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.UnpaidBill;
 import com.ubercab.shape.Shape;
 import java.util.List;
-import jdh;
+import lzo;
 
 @Shape
 @Deprecated
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class RtUnpaidBillsResponse
 {
   public static RtUnpaidBillsResponse create(List<UnpaidBill> paramList)

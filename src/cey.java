@@ -1,8 +1,13 @@
-import android.os.Parcelable.Creator;
-
-public final class cey
-  implements Parcelable.Creator
-{}
+final class cey
+  implements cbp
+{
+  cey(cex paramcex) {}
+  
+  public final void a()
+  {
+    cep.d(a.a);
+  }
+}
 
 /* Location:
  * Qualified Name:     cey

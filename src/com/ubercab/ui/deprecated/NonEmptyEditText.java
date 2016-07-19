@@ -3,12 +3,12 @@ package com.ubercab.ui.deprecated;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.ubercab.ui.EditText;
-import jzm;
+import ngd;
 
 @Deprecated
 public class NonEmptyEditText
   extends EditText
-  implements jzm
+  implements ngd
 {
   public NonEmptyEditText(Context paramContext)
   {
@@ -25,7 +25,7 @@ public class NonEmptyEditText
     super(paramContext, paramAttributeSet, paramInt);
   }
   
-  public final boolean V_()
+  public final boolean Z_()
   {
     return length() > 0;
   }

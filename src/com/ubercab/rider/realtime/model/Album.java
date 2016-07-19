@@ -5,14 +5,14 @@ import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.Collections;
 import java.util.List;
-import jdh;
-import jvq;
-import jvr;
+import lzo;
+import nba;
+import nbb;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class Album
-  extends jvq<Album>
+  extends nba<Album>
   implements Parcelable
 {
   public static Album create(String paramString)
@@ -26,12 +26,12 @@ public abstract class Album
   
   public abstract String getName();
   
-  protected Object onGet(jvr<Album> paramjvr, Object paramObject)
+  protected Object onGet(nbb<Album> paramnbb, Object paramObject)
   {
     if (paramObject != null) {
       return paramObject;
     }
-    switch (Album.1.$SwitchMap$com$ubercab$rider$realtime$model$Shape_Album$Property[((Shape_Album.Property)paramjvr).ordinal()])
+    switch (Album.1.$SwitchMap$com$ubercab$rider$realtime$model$Shape_Album$Property[((Shape_Album.Property)paramnbb).ordinal()])
     {
     default: 
       return null;

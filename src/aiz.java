@@ -1,58 +1,166 @@
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.widget.FrameLayout;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.net.Uri;
+import android.net.Uri.Builder;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.MotionEvent;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-@apl
+@aih
 public final class aiz
-  extends adi<ahz>
 {
-  public aiz()
+  private final Context a;
+  private String b;
+  private final float c;
+  private float d;
+  private float e;
+  private float f;
+  private int g = 0;
+  
+  private aiz(Context paramContext)
   {
-    super("com.google.android.gms.ads.NativeAdViewDelegateCreatorImpl");
+    a = paramContext;
+    c = getResourcesgetDisplayMetricsdensity;
   }
   
-  private ahw b(Context paramContext, FrameLayout paramFrameLayout1, FrameLayout paramFrameLayout2)
+  public aiz(Context paramContext, String paramString)
   {
-    try
-    {
-      add localadd = adg.a(paramContext);
-      paramFrameLayout1 = adg.a(paramFrameLayout1);
-      paramFrameLayout2 = adg.a(paramFrameLayout2);
-      paramContext = ahx.a(((ahz)a(paramContext)).a(localadd, paramFrameLayout1, paramFrameLayout2, 8487000));
-      return paramContext;
-    }
-    catch (RemoteException paramContext)
-    {
-      sq.d("Could not create remote NativeAdViewDelegate.", paramContext);
-      return null;
-    }
-    catch (adj paramContext)
-    {
-      for (;;) {}
-    }
+    this(paramContext);
+    b = paramString;
   }
   
-  private static ahz b(IBinder paramIBinder)
+  private static String a(String paramString)
   {
-    return aia.a(paramIBinder);
+    if (TextUtils.isEmpty(paramString)) {
+      paramString = "No debug information";
+    }
+    Object localObject;
+    do
+    {
+      return paramString;
+      paramString = paramString.replaceAll("\\+", "%20");
+      localObject = new Uri.Builder().encodedQuery(paramString).build();
+      paramString = new StringBuilder();
+      ul.c();
+      localObject = aiq.a((Uri)localObject);
+      Iterator localIterator = ((Map)localObject).keySet().iterator();
+      while (localIterator.hasNext())
+      {
+        String str = (String)localIterator.next();
+        paramString.append(str).append(" = ").append((String)((Map)localObject).get(str)).append("\n\n");
+      }
+      localObject = paramString.toString().trim();
+      paramString = (String)localObject;
+    } while (!TextUtils.isEmpty((CharSequence)localObject));
+    return "No debug information";
   }
   
-  public final ahw a(Context paramContext, FrameLayout paramFrameLayout1, FrameLayout paramFrameLayout2)
+  private void a()
   {
-    np.a();
-    if (sp.b(paramContext))
+    if (!(a instanceof Activity))
     {
-      ahw localahw = b(paramContext, paramFrameLayout1, paramFrameLayout2);
-      paramContext = localahw;
-      if (localahw != null) {}
+      ain.c("Can not create dialog without Activity Context");
+      return;
     }
-    else
+    final String str = a(b);
+    AlertDialog.Builder localBuilder = new AlertDialog.Builder(a);
+    localBuilder.setMessage(str);
+    localBuilder.setTitle("Ad Information");
+    localBuilder.setPositiveButton("Share", new DialogInterface.OnClickListener()
     {
-      sq.a("Using NativeAdViewDelegate from the client jar.");
-      paramContext = np.c().a(paramFrameLayout1, paramFrameLayout2);
+      public final void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+      {
+        ul.c();
+        aiq.a(aiz.a(aiz.this), Intent.createChooser(new Intent("android.intent.action.SEND").setType("text/plain").putExtra("android.intent.extra.TEXT", str), "Share via"));
+      }
+    });
+    localBuilder.setNegativeButton("Close", new DialogInterface.OnClickListener()
+    {
+      public final void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt) {}
+    });
+    localBuilder.create().show();
+  }
+  
+  private void a(int paramInt, float paramFloat1, float paramFloat2)
+  {
+    if (paramInt == 0)
+    {
+      g = 0;
+      d = paramFloat1;
+      e = paramFloat2;
+      f = paramFloat2;
     }
-    return paramContext;
+    label24:
+    label224:
+    do
+    {
+      do
+      {
+        break label24;
+        do
+        {
+          return;
+        } while (g == -1);
+        if (paramInt != 2) {
+          break;
+        }
+        if (paramFloat2 > e) {
+          e = paramFloat2;
+        }
+        while (e - f > 30.0F * c)
+        {
+          g = -1;
+          return;
+          if (paramFloat2 < f) {
+            f = paramFloat2;
+          }
+        }
+        if ((g == 0) || (g == 2)) {
+          if (paramFloat1 - d >= 50.0F * c) {
+            d = paramFloat1;
+          }
+        }
+        for (g += 1;; g += 1)
+        {
+          do
+          {
+            if ((g != 1) && (g != 3)) {
+              break label224;
+            }
+            if (paramFloat1 <= d) {
+              break;
+            }
+            d = paramFloat1;
+            return;
+          } while (((g != 1) && (g != 3)) || (paramFloat1 - d > -50.0F * c));
+          d = paramFloat1;
+        }
+      } while ((g != 2) || (paramFloat1 >= d));
+      d = paramFloat1;
+      return;
+    } while ((paramInt != 1) || (g != 4));
+    a();
+  }
+  
+  public final void a(MotionEvent paramMotionEvent)
+  {
+    int j = paramMotionEvent.getHistorySize();
+    int i = 0;
+    while (i < j)
+    {
+      a(paramMotionEvent.getActionMasked(), paramMotionEvent.getHistoricalX(0, i), paramMotionEvent.getHistoricalY(0, i));
+      i += 1;
+    }
+    a(paramMotionEvent.getActionMasked(), paramMotionEvent.getX(), paramMotionEvent.getY());
   }
 }
 

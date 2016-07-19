@@ -1,25 +1,43 @@
-import java.util.Map;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.location.LocationSettingsResult;
 
-public final class aqe
+public abstract class aqe
+  extends Binder
+  implements aqd
 {
-  public final int a;
-  public final byte[] b;
-  public final Map<String, String> c;
-  public final boolean d;
-  public final long e;
-  
-  public aqe(int paramInt, byte[] paramArrayOfByte, Map<String, String> paramMap, boolean paramBoolean, long paramLong)
+  public static aqd a(IBinder paramIBinder)
   {
-    a = paramInt;
-    b = paramArrayOfByte;
-    c = paramMap;
-    d = paramBoolean;
-    e = paramLong;
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.location.internal.ISettingsCallbacks");
+    if ((localIInterface != null) && ((localIInterface instanceof aqd))) {
+      return (aqd)localIInterface;
+    }
+    return new aqf(paramIBinder);
   }
   
-  public aqe(byte[] paramArrayOfByte, Map<String, String> paramMap)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    this(200, paramArrayOfByte, paramMap, false, 0L);
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.location.internal.ISettingsCallbacks");
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.location.internal.ISettingsCallbacks");
+    if (paramParcel1.readInt() != 0) {}
+    for (paramParcel1 = (LocationSettingsResult)LocationSettingsResult.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+    {
+      a(paramParcel1);
+      return true;
+    }
   }
 }
 

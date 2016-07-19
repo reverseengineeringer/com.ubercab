@@ -1,8 +1,15 @@
-import android.os.Parcelable.Creator;
+import com.paypal.android.sdk.payments.PaymentMethodActivity;
 
-public final class cdx
-  implements Parcelable.Creator
-{}
+final class cdx
+  implements cbp
+{
+  cdx(cdw paramcdw) {}
+  
+  public final void a()
+  {
+    PaymentMethodActivity.i(a.a);
+  }
+}
 
 /* Location:
  * Qualified Name:     cdx

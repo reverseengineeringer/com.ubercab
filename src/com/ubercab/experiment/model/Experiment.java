@@ -1,18 +1,18 @@
 package com.ubercab.experiment.model;
 
 import android.os.Parcelable;
-import android.text.TextUtils;
 import com.ubercab.shape.Shape;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class Experiment
-  extends jvq<Experiment>
+  extends nba<Experiment>
   implements Parcelable
 {
+  public static final String BUCKET_BY_USER = "$user";
   public static final String TREATMENT_GROUP_CONTROL = "control";
   
   public static Experiment create()
@@ -28,6 +28,7 @@ public abstract class Experiment
     localShape_Experiment.setTreatmentGroupName(paramTreatmentGroupDefinition.getName());
     localShape_Experiment.setParameters(paramTreatmentGroupDefinition.getParameters());
     localShape_Experiment.setSegmentUuid(paramTreatmentGroupDefinition.getSegmentUuid());
+    localShape_Experiment.setBucketBy(paramTreatmentGroupDefinition.getBucketBy());
     return localShape_Experiment;
   }
   
@@ -36,9 +37,9 @@ public abstract class Experiment
     return create(paramString1, TreatmentGroupDefinition.create(paramString2, null));
   }
   
-  protected Object beforeSet(jvr<Experiment> paramjvr, Object paramObject1, Object paramObject2)
+  protected Object beforeSet(nbb<Experiment> paramnbb, Object paramObject1, Object paramObject2)
   {
-    switch (Experiment.1.$SwitchMap$com$ubercab$experiment$model$Shape_Experiment$Property[((Shape_Experiment.Property)paramjvr).ordinal()])
+    switch (Experiment.1.$SwitchMap$com$ubercab$experiment$model$Shape_Experiment$Property[((Shape_Experiment.Property)paramnbb).ordinal()])
     {
     }
     do
@@ -48,13 +49,17 @@ public abstract class Experiment
     return Float.valueOf(0.0F);
   }
   
+  public abstract String getBucketBy();
+  
   public abstract String getId();
   
   public abstract float getLogTreatments();
   
   public abstract String getName();
   
-  public abstract Map<String, Object> getParameters();
+  public abstract Map<String, String> getParameters();
+  
+  public abstract String getRequestUuid();
   
   public abstract String getSegmentUuid();
   
@@ -62,24 +67,31 @@ public abstract class Experiment
   
   public abstract String getTreatmentGroupName();
   
-  protected Object onGet(jvr<Experiment> paramjvr, Object paramObject)
+  protected Object onGet(nbb<Experiment> paramnbb, Object paramObject)
   {
-    switch (Experiment.1.$SwitchMap$com$ubercab$experiment$model$Shape_Experiment$Property[((Shape_Experiment.Property)paramjvr).ordinal()])
+    switch (Experiment.1.$SwitchMap$com$ubercab$experiment$model$Shape_Experiment$Property[((Shape_Experiment.Property)paramnbb).ordinal()])
     {
     }
     do
     {
       do
       {
-        return super.onGet(paramjvr, paramObject);
-      } while (!TextUtils.isEmpty((CharSequence)paramObject));
+        do
+        {
+          return super.onGet(paramnbb, paramObject);
+        } while (paramObject != null);
+        setName("");
+        return "";
+      } while ((paramObject != null) && (((CharSequence)paramObject).length() != 0));
       setTreatmentGroupName("control");
       return "control";
     } while (paramObject != null);
-    paramjvr = new HashMap();
-    setParameters(paramjvr);
-    return paramjvr;
+    paramnbb = Collections.emptyMap();
+    setParameters(paramnbb);
+    return paramnbb;
   }
+  
+  public abstract Experiment setBucketBy(String paramString);
   
   public abstract Experiment setId(String paramString);
   
@@ -87,7 +99,9 @@ public abstract class Experiment
   
   public abstract Experiment setName(String paramString);
   
-  public abstract Experiment setParameters(Map<String, Object> paramMap);
+  public abstract Experiment setParameters(Map<String, String> paramMap);
+  
+  public abstract Experiment setRequestUuid(String paramString);
   
   public abstract Experiment setSegmentUuid(String paramString);
   

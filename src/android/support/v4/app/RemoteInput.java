@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Build.VERSION;
 import android.os.Bundle;
 
-public class RemoteInput
+public final class RemoteInput
   extends RemoteInputCompatBase.RemoteInput
 {
   public static final String EXTRA_RESULTS_DATA = "android.remoteinput.resultsData";
@@ -29,7 +29,7 @@ public class RemoteInput
       {
         public final RemoteInput build(String paramAnonymousString, CharSequence paramAnonymousCharSequence, CharSequence[] paramAnonymousArrayOfCharSequence, boolean paramAnonymousBoolean, Bundle paramAnonymousBundle)
         {
-          return new RemoteInput(paramAnonymousString, paramAnonymousCharSequence, paramAnonymousArrayOfCharSequence, paramAnonymousBoolean, paramAnonymousBundle);
+          return new RemoteInput(paramAnonymousString, paramAnonymousCharSequence, paramAnonymousArrayOfCharSequence, paramAnonymousBoolean, paramAnonymousBundle, null);
         }
         
         public final RemoteInput[] newArray(int paramAnonymousInt)
@@ -46,7 +46,7 @@ public class RemoteInput
     }
   }
   
-  RemoteInput(String paramString, CharSequence paramCharSequence, CharSequence[] paramArrayOfCharSequence, boolean paramBoolean, Bundle paramBundle)
+  private RemoteInput(String paramString, CharSequence paramCharSequence, CharSequence[] paramArrayOfCharSequence, boolean paramBoolean, Bundle paramBundle)
   {
     mResultKey = paramString;
     mLabel = paramCharSequence;
@@ -65,27 +65,27 @@ public class RemoteInput
     return IMPL.getResultsFromIntent(paramIntent);
   }
   
-  public boolean getAllowFreeFormInput()
+  public final boolean getAllowFreeFormInput()
   {
     return mAllowFreeFormInput;
   }
   
-  public CharSequence[] getChoices()
+  public final CharSequence[] getChoices()
   {
     return mChoices;
   }
   
-  public Bundle getExtras()
+  public final Bundle getExtras()
   {
     return mExtras;
   }
   
-  public CharSequence getLabel()
+  public final CharSequence getLabel()
   {
     return mLabel;
   }
   
-  public String getResultKey()
+  public final String getResultKey()
   {
     return mResultKey;
   }

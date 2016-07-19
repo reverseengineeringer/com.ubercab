@@ -1,6 +1,7 @@
 package android.support.v4.view;
 
 import android.os.Bundle;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
 import android.view.View;
@@ -20,7 +21,7 @@ class ViewPager$MyAccessibilityDelegate
   {
     super.onInitializeAccessibilityEvent(paramView, paramAccessibilityEvent);
     paramAccessibilityEvent.setClassName(ViewPager.class.getName());
-    paramView = AccessibilityRecordCompat.obtain();
+    paramView = AccessibilityEventCompat.asRecord(paramAccessibilityEvent);
     paramView.setScrollable(canScroll());
     if ((paramAccessibilityEvent.getEventType() == 4096) && (ViewPager.access$200(this$0) != null))
     {

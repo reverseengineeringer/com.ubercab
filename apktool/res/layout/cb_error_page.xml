@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/cb_background" android:paddingTop="40.0dip" android:paddingBottom="40.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="@android:color/black" android:layout_gravity="center_horizontal" android:id="@id/error_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cb_error_title" />
+    <LinearLayout android:layout_gravity="center_horizontal" android:paddingTop="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <View android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <Button android:textSize="12.0sp" android:textStyle="bold" android:id="@id/cancel" android:background="@drawable/cb_approve_otp_button" android:paddingLeft="@dimen/cb_eight" android:paddingRight="@dimen/cb_eight" android:layout_width="150.0dip" android:layout_height="36.0dip" android:text="@string/cb_b_cancel" style="@style/cb_approve_otp" />
+        <View android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

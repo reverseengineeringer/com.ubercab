@@ -1,60 +1,14 @@
-import android.text.TextUtils;
-import com.google.android.gms.ads.internal.reward.mediation.client.RewardItemParcel;
-import java.util.Map;
+import android.annotation.TargetApi;
 
+@aih
+@TargetApi(17)
 public final class ajw
-  implements aji
 {
-  private final ajx a;
+  private final ajm a;
   
-  private ajw(ajx paramajx)
+  public ajw(ajm paramajm)
   {
-    a = paramajx;
-  }
-  
-  private void a()
-  {
-    a.D();
-  }
-  
-  public static void a(asq paramasq, ajx paramajx)
-  {
-    paramasq.l().a("/reward", new ajw(paramajx));
-  }
-  
-  private void a(Map<String, String> paramMap)
-  {
-    try
-    {
-      int i = Integer.parseInt((String)paramMap.get("amount"));
-      paramMap = (String)paramMap.get("type");
-      if (!TextUtils.isEmpty(paramMap))
-      {
-        paramMap = new RewardItemParcel(paramMap, i);
-        a.b(paramMap);
-        return;
-      }
-    }
-    catch (NumberFormatException paramMap)
-    {
-      for (;;)
-      {
-        aqt.d("Unable to parse reward amount.", paramMap);
-        paramMap = null;
-      }
-    }
-  }
-  
-  public final void a(asq paramasq, Map<String, String> paramMap)
-  {
-    paramasq = (String)paramMap.get("action");
-    if ("grant".equals(paramasq)) {
-      a(paramMap);
-    }
-    while (!"video_start".equals(paramasq)) {
-      return;
-    }
-    a();
+    a = paramajm;
   }
 }
 

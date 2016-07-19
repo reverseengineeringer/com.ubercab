@@ -1,37 +1,27 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.security.SecureRandom;
 
 public final class bzg
-  implements bzw
 {
-  private static Map a = new HashMap();
-  private static Map b = new HashMap();
+  private static final SecureRandom a = new SecureRandom();
   
-  public bzg()
-  {
-    a.put(bzv.a, "Cancelar");
-    a.put(bzv.b, "American Express");
-    a.put(bzv.c, "Discover");
-    a.put(bzv.d, "JCB");
-    a.put(bzv.e, "MasterCard");
-    a.put(bzv.f, "Visa");
-    a.put(bzv.g, "Concluído");
-    a.put(bzv.h, "CVV");
-    a.put(bzv.i, "CEP");
-    a.put(bzv.j, "Vencimento");
-    a.put(bzv.k, "MM/AA");
-    a.put(bzv.l, "Posicionar cartão aqui.\nEle será digitalizado automaticamente.");
-    a.put(bzv.m, "Teclado…");
-    a.put(bzv.n, "Número do Cartão");
-    a.put(bzv.o, "Dados do cartão");
-    a.put(bzv.p, "Este dispositivo não pode usar a câmera para ler números de cartão.");
-    a.put(bzv.q, "A câmera do dispositivo não está disponível.");
-    a.put(bzv.r, "O dispositivo sofreu um erro inesperado ao abrir a câmera.");
-  }
+  static {}
   
-  public final String a()
+  static boolean a(byte[] paramArrayOfByte1, byte[] paramArrayOfByte2)
   {
-    return "pt_BR";
+    if (paramArrayOfByte1.length != 32) {}
+    int j;
+    do
+    {
+      return false;
+      int i = 0;
+      j = 0;
+      while (i < paramArrayOfByte1.length)
+      {
+        j |= paramArrayOfByte1[i] ^ paramArrayOfByte2[i];
+        i += 1;
+      }
+    } while (j != 0);
+    return true;
   }
 }
 

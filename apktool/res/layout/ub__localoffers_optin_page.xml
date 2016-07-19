@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@color/ub__uber_black_100" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_width="fill_parent" android:layout_height="@dimen/ub__local_offers_program_image_height" android:scaleType="fitXY" />
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginBottom="@dimen/ui__spacing_unit_3x">
+                    <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_40" android:gravity="center" android:background="@drawable/ub__localoffers_step_circle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:text="@string/local_offers_step_one_circle_text" style="@style/Uber.TextAppearance.P" />
+                    <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_40" android:id="@id/ub__local_offers_step_one_description" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Uber.TextAppearance.P" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_3x">
+                    <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_40" android:gravity="center" android:background="@drawable/ub__localoffers_step_circle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:text="@string/local_offers_step_two_circle_text" style="@style/Uber.TextAppearance.P" />
+                    <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_40" android:id="@id/ub__local_offers_step_two_description" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Uber.TextAppearance.P" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_3x">
+                    <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_40" android:gravity="center" android:background="@drawable/ub__localoffers_step_circle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:text="@string/local_offers_step_three_circle_text" style="@style/Uber.TextAppearance.P" />
+                    <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_40" android:id="@id/ub__local_offers_step_three_description" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Uber.TextAppearance.P" />
+                </LinearLayout>
+                <com.ubercab.ui.Button android:id="@id/ub__local_offers_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" style="@style/Uber.Widget.Button.Accent" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/ub__local_offers_cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" app:srcCompat="@drawable/ub__localoffers_x" />
+            <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__local_offers_header_one" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAllCaps="true" style="@style/Uber.TextAppearance.H1.White.Solid" />
+            <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__local_offers_header_two" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAllCaps="true" style="@style/Uber.TextAppearance.H1.White.Solid" />
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>

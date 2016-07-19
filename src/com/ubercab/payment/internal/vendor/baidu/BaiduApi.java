@@ -5,7 +5,7 @@ import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
-abstract interface BaiduApi
+public abstract interface BaiduApi
 {
   @GET("/rt/riders/baidu-wallet/connect")
   public abstract void getAuthorizationDetails(@Query("pageUrl") String paramString, Callback<AuthorizationDetails> paramCallback);

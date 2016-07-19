@@ -1,54 +1,61 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.signin.internal.CheckServerAuthResult;
-import java.util.ArrayList;
-
-public final class bmp
-  implements Parcelable.Creator<CheckServerAuthResult>
+final class bmp
+  implements bmr
 {
-  private static CheckServerAuthResult a(Parcel paramParcel)
+  private final boj<?> a;
+  private final boolean b;
+  private final Class<?> c;
+  private final bml<?> d;
+  private final bmc<?> e;
+  
+  private bmp(Object paramObject, boj<?> paramboj, boolean paramBoolean)
   {
-    boolean bool = false;
-    int j = zm.b(paramParcel);
-    ArrayList localArrayList = null;
-    int i = 0;
-    while (paramParcel.dataPosition() < j)
+    bml localbml;
+    if ((paramObject instanceof bml))
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        bool = zm.b(paramParcel, k);
-        break;
-      case 3: 
-        localArrayList = zm.c(paramParcel, k, Scope.CREATOR);
+      localbml = (bml)paramObject;
+      d = localbml;
+      if (!(paramObject instanceof bmc)) {
+        break label84;
+      }
+      paramObject = (bmc)paramObject;
+      label35:
+      e = ((bmc)paramObject);
+      if ((d == null) && (e == null)) {
+        break label89;
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    label84:
+    label89:
+    for (boolean bool = true;; bool = false)
+    {
+      bmx.a(bool);
+      a = paramboj;
+      b = paramBoolean;
+      c = null;
+      return;
+      localbml = null;
+      break;
+      paramObject = null;
+      break label35;
     }
-    return new CheckServerAuthResult(i, bool, localArrayList);
   }
   
-  public static void a(CheckServerAuthResult paramCheckServerAuthResult, Parcel paramParcel)
+  public final <T> bmq<T> create(blw paramblw, boj<T> paramboj)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, b);
-    zo.b(paramParcel, 3, c, false);
-    zo.a(paramParcel, i);
-  }
-  
-  private static CheckServerAuthResult[] a(int paramInt)
-  {
-    return new CheckServerAuthResult[paramInt];
+    boolean bool;
+    if (a != null) {
+      if ((a.equals(paramboj)) || ((b) && (a.getType() == paramboj.getRawType()))) {
+        bool = true;
+      }
+    }
+    while (bool)
+    {
+      return new bmo(d, e, paramblw, paramboj, this, (byte)0);
+      bool = false;
+      continue;
+      bool = c.isAssignableFrom(paramboj.getRawType());
+    }
+    return null;
   }
 }
 

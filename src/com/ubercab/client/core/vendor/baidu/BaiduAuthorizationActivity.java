@@ -2,29 +2,29 @@ package com.ubercab.client.core.vendor.baidu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.feature.signup.ThirdPartyToken;
-import dpf;
-import eav;
-import ebj;
-import esk;
-import eso;
-import esp;
-import ess;
-import p;
+import dua;
+import ehn;
+import eib;
+import fap;
+import fau;
+import fav;
+import fay;
+import x;
 
 public class BaiduAuthorizationActivity
-  extends RiderActivity<esk>
+  extends RiderActivity<fap>
 {
-  public ckc g;
+  public ckt g;
   
   private void a(ThirdPartyToken paramThirdPartyToken)
   {
-    Object localObject = AnalyticsEvent.create("impression").setName(p.eN).setValue("baidu:success");
+    Object localObject = AnalyticsEvent.create("impression").setName(x.gR).setValue("baidu:success");
     g.a((AnalyticsEvent)localObject);
     localObject = new Intent();
     ((Intent)localObject).putExtra("com.ubercab.ACCESS_TOKEN", paramThirdPartyToken);
@@ -32,35 +32,35 @@ public class BaiduAuthorizationActivity
     finish();
   }
   
-  private void a(esk paramesk)
+  private void a(fap paramfap)
   {
-    paramesk.a(this);
+    paramfap.a(this);
   }
   
-  private esk b(ebj paramebj)
+  private fap b(eib parameib)
   {
-    return eso.a().a(paramebj).a(new eav(this)).a();
+    return fau.a().a(parameib).a(new ehn(this)).a();
   }
   
   private void f()
   {
-    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression").setName(p.eN).setValue("baidu:failure");
+    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression").setName(x.gR).setValue("baidu:failure");
     g.a(localAnalyticsEvent);
-    dpf.a(this, 2131165308);
+    dua.a(this, 2131165312);
     finish();
   }
   
   private void g()
   {
     if (a(BaiduAuthorizationFragment.class) == null) {
-      a(2131624130, BaiduAuthorizationFragment.a(getString(2131167328)), true);
+      a(2131624207, BaiduAuthorizationFragment.a(getString(2131167838)), true);
     }
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903098);
+    setContentView(2130903126);
     g();
   }
   
@@ -77,26 +77,26 @@ public class BaiduAuthorizationActivity
     }
   }
   
-  @cho
-  public void onBaiduTokenEvent(ess paramess)
+  @chu
+  public void onBaiduTokenEvent(fay paramfay)
   {
-    if (!paramess.a())
+    if (!paramfay.a())
     {
       f();
       return;
     }
-    paramess = ThirdPartyToken.a("baidu", null, 60000L, getString(2131167328), paramess.b());
-    if (paramess.f())
+    paramfay = ThirdPartyToken.a("baidu", null, 60000L, getString(2131167838), paramfay.b());
+    if (paramfay.f())
     {
-      a(paramess);
+      a(paramfay);
       return;
     }
     f();
   }
   
-  public final ckr u()
+  public final cli v()
   {
-    return p.Y;
+    return x.ab;
   }
 }
 

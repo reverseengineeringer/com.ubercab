@@ -1,328 +1,257 @@
-import java.lang.reflect.InvocationTargetException;
+import java.net.URI;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.ExecutorService;
+import javax.net.ssl.SSLException;
 
 public class chh
+  implements chf, chj
 {
-  private final ConcurrentMap<Class<?>, Set<chk>> a = new ConcurrentHashMap();
-  private final ConcurrentMap<Class<?>, chl> b = new ConcurrentHashMap();
-  private final String c;
-  private final chp d;
-  private final chm e;
-  private final ThreadLocal<ConcurrentLinkedQueue<chi>> f = new ThreadLocal()
+  private static final odg a = odh.a(chh.class);
+  private final chk b;
+  private final chi c;
+  private final Map<chd, Set<chc>> d = new HashMap();
+  private final URI e;
+  private volatile chd f = chd.d;
+  private nxj g;
+  private String h;
+  
+  public chh(String paramString, long paramLong1, long paramLong2, chk paramchk)
   {
-    private static ConcurrentLinkedQueue<chi> a()
+    e = new URI(paramString);
+    c = new chi(this, paramLong1, paramLong2);
+    b = paramchk;
+    paramString = chd.values();
+    int j = paramString.length;
+    int i = 0;
+    while (i < j)
     {
-      return new ConcurrentLinkedQueue();
+      paramchk = paramString[i];
+      d.put(paramchk, new HashSet());
+      i += 1;
     }
-  };
-  private final ThreadLocal<Boolean> g = new ThreadLocal()
+  }
+  
+  private void a(chd paramchd)
   {
-    private static Boolean a()
+    a.a("State transition requested, current [" + f + "], new [" + paramchd + "]");
+    final che localche = new che(f, paramchd);
+    f = paramchd;
+    final Object localObject = new HashSet();
+    ((Set)localObject).addAll((Collection)d.get(chd.e));
+    ((Set)localObject).addAll((Collection)d.get(paramchd));
+    paramchd = ((Set)localObject).iterator();
+    while (paramchd.hasNext())
     {
-      return Boolean.valueOf(false);
+      localObject = (chc)paramchd.next();
+      b.a().execute(new Runnable()
+      {
+        public final void run()
+        {
+          localObject.a(localche);
+        }
+      });
     }
-  };
-  private final Map<Class<?>, Set<Class<?>>> h = new HashMap();
-  
-  public chh()
-  {
-    this("default");
   }
   
-  private chh(chp paramchp, String paramString)
+  private void a(String paramString1, String paramString2)
   {
-    this(paramchp, paramString, chm.a);
-  }
-  
-  private chh(chp paramchp, String paramString, chm paramchm)
-  {
-    d = paramchp;
-    c = paramString;
-    e = paramchm;
-  }
-  
-  private chh(String paramString)
-  {
-    this(chp.b, paramString);
-  }
-  
-  private chl a(Class<?> paramClass)
-  {
-    return (chl)b.get(paramClass);
-  }
-  
-  private void a()
-  {
-    if (((Boolean)g.get()).booleanValue()) {
+    if (paramString1.startsWith("pusher:"))
+    {
+      b(paramString1, paramString2);
       return;
     }
-    g.set(Boolean.valueOf(true));
-    try
-    {
-      for (;;)
-      {
-        chi localchi = (chi)((ConcurrentLinkedQueue)f.get()).poll();
-        if (localchi == null) {
-          break;
-        }
-        if (b.a()) {
-          b(a, b);
-        }
-      }
+    b.c().a(paramString1, paramString2);
+  }
+  
+  private void a(final String paramString1, final String paramString2, final Exception paramException)
+  {
+    Object localObject1 = new HashSet();
+    final Object localObject2 = d.values().iterator();
+    while (((Iterator)localObject2).hasNext()) {
+      ((Set)localObject1).addAll((Set)((Iterator)localObject2).next());
     }
-    finally
+    localObject1 = ((Set)localObject1).iterator();
+    while (((Iterator)localObject1).hasNext())
     {
-      g.set(Boolean.valueOf(false));
+      localObject2 = (chc)((Iterator)localObject1).next();
+      b.a().execute(new Runnable()
+      {
+        public final void run() {}
+      });
     }
   }
   
-  private static void a(chk paramchk, chl paramchl)
+  private void b(String paramString1, String paramString2)
   {
-    Object localObject1 = null;
-    try
-    {
-      Object localObject2 = paramchl.c();
-      paramchl = (chl)localObject2;
+    if (paramString1.equals("pusher:connection_established")) {
+      c(paramString2);
     }
-    catch (InvocationTargetException localInvocationTargetException)
-    {
-      for (;;)
-      {
-        a("Producer " + paramchl + " threw an exception.", localInvocationTargetException);
-        paramchl = (chl)localObject1;
-      }
-      b(paramchl, paramchk);
-    }
-    if (paramchl == null) {
+    while (!paramString1.equals("pusher:error")) {
       return;
     }
+    d(paramString2);
   }
   
-  private void a(Object paramObject, chk paramchk)
+  private void c(String paramString)
   {
-    ((ConcurrentLinkedQueue)f.get()).offer(new chi(paramObject, paramchk));
+    paramString = (String)((Map)new blw().a(paramString, Map.class)).get("data");
+    h = ((String)((Map)new blw().a(paramString, Map.class)).get("socket_id"));
+    a(chd.b);
   }
   
-  private static void a(String paramString, InvocationTargetException paramInvocationTargetException)
+  private void d(String paramString)
   {
-    Throwable localThrowable = paramInvocationTargetException.getCause();
-    if (localThrowable != null) {
-      throw new RuntimeException(paramString + ": " + localThrowable.getMessage(), localThrowable);
-    }
-    throw new RuntimeException(paramString + ": " + paramInvocationTargetException.getMessage(), paramInvocationTargetException);
-  }
-  
-  private Set<chk> b(Class<?> paramClass)
-  {
-    return (Set)a.get(paramClass);
-  }
-  
-  private static void b(Object paramObject, chk paramchk)
-  {
-    try
+    paramString = ((Map)new blw().a(paramString, Map.class)).get("data");
+    String str;
+    if ((paramString instanceof String))
     {
-      paramchk.a(paramObject);
+      paramString = (Map)new blw().a((String)paramString, Map.class);
+      str = (String)paramString.get("message");
+      paramString = paramString.get("code");
+      if (paramString == null) {
+        break label106;
+      }
+    }
+    label106:
+    for (paramString = String.valueOf(Math.round(((Double)paramString).doubleValue()));; paramString = null)
+    {
+      a(str, paramString, null);
       return;
-    }
-    catch (InvocationTargetException localInvocationTargetException)
-    {
-      a("Could not dispatch event: " + paramObject.getClass() + " to handler " + paramchk, localInvocationTargetException);
+      paramString = (Map)paramString;
+      break;
     }
   }
   
-  private Set<Class<?>> c(Class<?> paramClass)
+  public final void a()
   {
-    Set localSet2 = (Set)h.get(paramClass);
-    Set localSet1 = localSet2;
-    if (localSet2 == null)
+    b.a().execute(new Runnable()
     {
-      localSet1 = d(paramClass);
-      h.put(paramClass, localSet1);
-    }
-    return localSet1;
-  }
-  
-  private static Set<Class<?>> d(Class<?> paramClass)
-  {
-    LinkedList localLinkedList = new LinkedList();
-    HashSet localHashSet = new HashSet();
-    localLinkedList.add(paramClass);
-    while (!localLinkedList.isEmpty())
-    {
-      paramClass = (Class)localLinkedList.remove(0);
-      localHashSet.add(paramClass);
-      paramClass = paramClass.getSuperclass();
-      if (paramClass != null) {
-        localLinkedList.add(paramClass);
-      }
-    }
-    return localHashSet;
-  }
-  
-  public final void a(Object paramObject)
-  {
-    if (paramObject == null) {
-      throw new NullPointerException("Object to register must not be null.");
-    }
-    d.a(this);
-    Object localObject1 = e.a(paramObject);
-    Object localObject2 = ((Map)localObject1).keySet().iterator();
-    Object localObject5;
-    while (((Iterator)localObject2).hasNext())
-    {
-      localObject4 = (Class)((Iterator)localObject2).next();
-      localObject3 = (chl)((Map)localObject1).get(localObject4);
-      localObject5 = (chl)b.putIfAbsent(localObject4, localObject3);
-      if (localObject5 != null) {
-        throw new IllegalArgumentException("Producer method for type " + localObject4 + " found on type " + a.getClass() + ", but already registered by type " + a.getClass() + ".");
-      }
-      localObject4 = (Set)a.get(localObject4);
-      if ((localObject4 != null) && (!((Set)localObject4).isEmpty()))
+      public final void run()
       {
-        localObject4 = ((Set)localObject4).iterator();
-        while (((Iterator)localObject4).hasNext()) {
-          a((chk)((Iterator)localObject4).next(), (chl)localObject3);
+        if (chh.a(chh.this) == chd.d) {}
+        try
+        {
+          chh localchh = chh.this;
+          chh.c(chh.this);
+          chh.a(localchh, chk.a(chh.b(chh.this), chh.this));
+          chh.a(chh.this, chd.a);
+          chh.d(chh.this).e();
+          return;
+        }
+        catch (SSLException localSSLException)
+        {
+          chh.a(chh.this, "Error connecting over SSL", localSSLException);
         }
       }
-    }
-    Object localObject3 = e.b(paramObject);
-    Object localObject4 = ((Map)localObject3).keySet().iterator();
-    while (((Iterator)localObject4).hasNext())
+    });
+  }
+  
+  public final void a(final int paramInt, final String paramString, final boolean paramBoolean)
+  {
+    c.b();
+    b.a().execute(new Runnable()
     {
-      localObject5 = (Class)((Iterator)localObject4).next();
-      localObject1 = (Set)a.get(localObject5);
-      paramObject = localObject1;
-      if (localObject1 == null)
+      public final void run()
       {
-        localObject1 = new CopyOnWriteArraySet();
-        localObject2 = (Set)a.putIfAbsent(localObject5, localObject1);
-        paramObject = localObject2;
-        if (localObject2 == null) {
-          paramObject = localObject1;
+        if (chh.a(chh.this) != chd.d) {
+          chh.a(chh.this, chd.d);
         }
-      }
-      ((Set)paramObject).addAll((Set)((Map)localObject3).get(localObject5));
-    }
-    paramObject = ((Map)localObject3).entrySet().iterator();
-    label484:
-    while (((Iterator)paramObject).hasNext())
-    {
-      localObject2 = (Map.Entry)((Iterator)paramObject).next();
-      localObject1 = (Class)((Map.Entry)localObject2).getKey();
-      localObject1 = (chl)b.get(localObject1);
-      if ((localObject1 != null) && (((chl)localObject1).a()))
-      {
-        localObject2 = ((Set)((Map.Entry)localObject2).getValue()).iterator();
         for (;;)
         {
-          if (!((Iterator)localObject2).hasNext()) {
-            break label484;
-          }
-          localObject3 = (chk)((Iterator)localObject2).next();
-          if (!((chl)localObject1).a()) {
-            break;
-          }
-          if (((chk)localObject3).a()) {
-            a((chk)localObject3, (chl)localObject1);
-          }
+          chh.c(chh.this).d();
+          return;
+          chh.e().b("Received close from underlying socket when already disconnected. Close code [" + paramInt + "], Reason [" + paramString + "], Remote [" + paramBoolean + "]");
         }
       }
-    }
+    });
   }
   
-  public final void b(Object paramObject)
+  public final void a(chd paramchd, chc paramchc)
   {
-    if (paramObject == null) {
-      throw new NullPointerException("Object to unregister must not be null.");
-    }
-    d.a(this);
-    Iterator localIterator = e.a(paramObject).entrySet().iterator();
-    Object localObject3;
-    Object localObject1;
-    Object localObject2;
-    while (localIterator.hasNext())
-    {
-      localObject3 = (Map.Entry)localIterator.next();
-      localObject1 = (Class)((Map.Entry)localObject3).getKey();
-      localObject2 = a((Class)localObject1);
-      localObject3 = (chl)((Map.Entry)localObject3).getValue();
-      if ((localObject3 == null) || (!((chl)localObject3).equals(localObject2))) {
-        throw new IllegalArgumentException("Missing event producer for an annotated method. Is " + paramObject.getClass() + " registered?");
-      }
-      ((chl)b.remove(localObject1)).b();
-    }
-    localIterator = e.b(paramObject).entrySet().iterator();
-    while (localIterator.hasNext())
-    {
-      localObject2 = (Map.Entry)localIterator.next();
-      localObject1 = b((Class)((Map.Entry)localObject2).getKey());
-      localObject2 = (Collection)((Map.Entry)localObject2).getValue();
-      if ((localObject1 == null) || (!((Set)localObject1).containsAll((Collection)localObject2))) {
-        throw new IllegalArgumentException("Missing event handler for an annotated method. Is " + paramObject.getClass() + " registered?");
-      }
-      localObject3 = ((Set)localObject1).iterator();
-      while (((Iterator)localObject3).hasNext())
-      {
-        chk localchk = (chk)((Iterator)localObject3).next();
-        if (((Collection)localObject2).contains(localchk)) {
-          localchk.b();
-        }
-      }
-      ((Set)localObject1).removeAll((Collection)localObject2);
-    }
+    ((Set)d.get(paramchd)).add(paramchc);
   }
   
-  public void c(Object paramObject)
+  public final void a(final Exception paramException)
   {
-    if (paramObject == null) {
-      throw new NullPointerException("Event to post must not be null.");
-    }
-    d.a(this);
-    Iterator localIterator = c(paramObject.getClass()).iterator();
-    int i;
-    for (int j = 0; localIterator.hasNext(); j = i)
+    b.a().execute(new Runnable()
     {
-      Object localObject = b((Class)localIterator.next());
-      i = j;
-      if (localObject != null)
+      public final void run()
       {
-        i = j;
-        if (!((Set)localObject).isEmpty())
+        chh.a(chh.this, "An exception was thrown by the websocket", paramException);
+      }
+    });
+  }
+  
+  public final void a(final String paramString)
+  {
+    b.a().execute(new Runnable()
+    {
+      public final void run()
+      {
+        try
         {
-          j = 1;
-          localObject = ((Set)localObject).iterator();
-          for (;;)
+          if (chh.a(chh.this) == chd.b)
           {
-            i = j;
-            if (!((Iterator)localObject).hasNext()) {
-              break;
-            }
-            a(paramObject, (chk)((Iterator)localObject).next());
+            chh.d(chh.this).c(paramString);
+            return;
           }
+          chh.a(chh.this, "Cannot send a message while in " + chh.a(chh.this) + " state", null);
+          return;
+        }
+        catch (Exception localException)
+        {
+          chh.a(chh.this, "An exception occurred while sending message [" + paramString + "]", localException);
         }
       }
-    }
-    if ((j == 0) && (!(paramObject instanceof chj))) {
-      c(new chj(this, paramObject));
-    }
-    a();
+    });
   }
   
-  public String toString()
+  public final chd b()
   {
-    return "[Bus \"" + c + "\"]";
+    return f;
+  }
+  
+  public final void b(final String paramString)
+  {
+    c.a();
+    b.a().execute(new Runnable()
+    {
+      public final void run()
+      {
+        String str = (String)((Map)new blw().a(paramString, Map.class)).get("event");
+        chh.a(chh.this, str, paramString);
+      }
+    });
+  }
+  
+  public final boolean b(chd paramchd, chc paramchc)
+  {
+    return ((Set)d.get(paramchd)).remove(paramchc);
+  }
+  
+  public final String c()
+  {
+    return h;
+  }
+  
+  public final void d()
+  {
+    b.a().execute(new Runnable()
+    {
+      public final void run()
+      {
+        if (chh.a(chh.this) == chd.b)
+        {
+          chh.a(chh.this, chd.c);
+          chh.d(chh.this).f();
+        }
+      }
+    });
   }
 }
 

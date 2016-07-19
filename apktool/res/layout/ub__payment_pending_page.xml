@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.payment.arrears.PendingPaymentLoaderLayout android:id="@id/ub__payment_pending_loader" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/ub__pending_payment_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true" />
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/ub__pending_payment_error" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x">
+        <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__payment_pending_textview_error" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" />
+        <com.ubercab.ui.Button android:textColor="@color/ub__textcolor_link" android:layout_gravity="center" android:id="@id/ub__payment_pending_button_retry" android:background="@android:color/transparent" android:padding="0.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="0.0dip" android:text="@string/retry" android:textAllCaps="true" />
+    </LinearLayout>
+</com.ubercab.client.feature.payment.arrears.PendingPaymentLoaderLayout>

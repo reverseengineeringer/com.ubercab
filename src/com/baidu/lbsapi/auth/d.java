@@ -7,7 +7,9 @@ class d
   
   public void run()
   {
-    c.a(a, c.a(a), c.b(a));
+    a.a("postWithHttps start Thread id = " + String.valueOf(Thread.currentThread().getId()));
+    String str = new g(c.a(a)).a(c.b(a));
+    c.a(a, str);
   }
 }
 

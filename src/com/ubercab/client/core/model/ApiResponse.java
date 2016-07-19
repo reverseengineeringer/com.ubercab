@@ -2,11 +2,11 @@ package com.ubercab.client.core.model;
 
 import android.text.TextUtils;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import iab;
 import java.util.Map;
-import jdh;
+import kcl;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class ApiResponse
 {
   public static final String KEY_AUTHNET_PAYMENT_PROFILE_ID = "authnet_payment_profile";
@@ -111,7 +111,7 @@ public class ApiResponse
                 str1 = (String)data.get("title");
                 str2 = (String)data.get("subhead");
                 if ((!TextUtils.isEmpty(str1)) && (!TextUtils.isEmpty(str2))) {
-                  return iab.a("\n\n").a(str1, str2, new Object[0]).trim();
+                  return kcl.a("\n\n").a(str1, str2, new Object[0]).trim();
                 }
                 localObject = str1;
               } while (!TextUtils.isEmpty(str1));
@@ -139,7 +139,7 @@ public class ApiResponse
       } while (data == null);
       localObject = str1;
     } while (data.isEmpty());
-    return iab.a("\n").a(data.values());
+    return kcl.a("\n").a(data.values());
     return null;
   }
   

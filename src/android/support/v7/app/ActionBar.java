@@ -5,12 +5,12 @@ import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.view.KeyEvent;
 import android.view.View;
-import co;
-import cp;
+import hb;
+import hc;
 
 public abstract class ActionBar
 {
-  public co a(cp paramcp)
+  public hb a(hc paramhc)
   {
     return null;
   }
@@ -30,7 +30,7 @@ public abstract class ActionBar
   
   public void a(Configuration paramConfiguration) {}
   
-  public void a(Drawable paramDrawable) {}
+  public abstract void a(Drawable paramDrawable);
   
   public abstract void a(View paramView, ActionBar.LayoutParams paramLayoutParams);
   
@@ -47,7 +47,9 @@ public abstract class ActionBar
   
   public void b(int paramInt) {}
   
-  public abstract void b(CharSequence paramCharSequence);
+  public void b(Drawable paramDrawable) {}
+  
+  public void b(CharSequence paramCharSequence) {}
   
   public abstract void b(boolean paramBoolean);
   
@@ -55,41 +57,57 @@ public abstract class ActionBar
   
   public void c(int paramInt) {}
   
-  public void c(CharSequence paramCharSequence) {}
-  
   public abstract void c(boolean paramBoolean);
   
-  public abstract int d();
+  public abstract CharSequence d();
   
   public abstract void d(boolean paramBoolean);
   
-  public abstract void e();
+  public abstract int e();
   
   public void e(boolean paramBoolean) {}
   
-  public Context f()
+  public abstract void f();
+  
+  public void f(boolean paramBoolean) {}
+  
+  public abstract void g();
+  
+  public void g(boolean paramBoolean) {}
+  
+  public abstract boolean h();
+  
+  public Context i()
   {
     return null;
   }
   
-  public void f(boolean paramBoolean) {}
-  
-  public void g()
+  public void j()
   {
     throw new UnsupportedOperationException("Hide on content scroll is not supported in this action bar configuration.");
   }
   
-  public void g(boolean paramBoolean) {}
+  public int k()
+  {
+    return 0;
+  }
   
-  public boolean h()
+  public boolean l()
   {
     return false;
   }
   
-  public boolean i()
+  public boolean m()
   {
     return false;
   }
+  
+  public boolean n()
+  {
+    return false;
+  }
+  
+  public void o() {}
 }
 
 /* Location:

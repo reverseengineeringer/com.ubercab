@@ -1,22 +1,13 @@
-import android.os.Looper;
-
-public abstract interface chp
+public final class chp
 {
-  public static final chp a = new chp()
-  {
-    public final void a(chh paramAnonymouschh) {}
-  };
-  public static final chp b = new chp()
-  {
-    public final void a(chh paramAnonymouschh)
-    {
-      if (Looper.myLooper() != Looper.getMainLooper()) {
-        throw new IllegalStateException("Event bus " + paramAnonymouschh + " accessed from non-main thread " + Looper.myLooper());
-      }
-    }
-  };
+  public final Object a;
+  public final Object b;
   
-  public abstract void a(chh paramchh);
+  public chp(Object paramObject1, Object paramObject2)
+  {
+    a = paramObject1;
+    b = paramObject2;
+  }
 }
 
 /* Location:

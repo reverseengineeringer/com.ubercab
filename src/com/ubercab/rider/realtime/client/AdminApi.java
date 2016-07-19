@@ -2,14 +2,14 @@ package com.ubercab.rider.realtime.client;
 
 import com.ubercab.rider.realtime.response.TestAccount;
 import java.util.List;
-import kld;
+import odr;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
 public abstract interface AdminApi
 {
   @GET("/rt/admin/users/me/test_accounts")
-  public abstract kld<List<TestAccount>> getTestAccounts(@Query("role") String paramString);
+  public abstract odr<List<TestAccount>> getTestAccounts(@Query("role") String paramString);
 }
 
 /* Location:

@@ -23,14 +23,14 @@ class MediaSessionCompat$MediaSessionImplBase$MediaSessionStub
   
   public void fastForward()
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(9);
+    MediaSessionCompat.MediaSessionImplBase.access$1900(this$0, 9);
   }
   
   public Bundle getExtras()
   {
     synchronized (MediaSessionCompat.MediaSessionImplBase.access$1400(this$0))
     {
-      Bundle localBundle = MediaSessionCompat.MediaSessionImplBase.access$2300(this$0);
+      Bundle localBundle = MediaSessionCompat.MediaSessionImplBase.access$2500(this$0);
       return localBundle;
     }
   }
@@ -55,7 +55,7 @@ class MediaSessionCompat$MediaSessionImplBase$MediaSessionStub
   
   public MediaMetadataCompat getMetadata()
   {
-    return MediaSessionCompat.MediaSessionImplBase.access$1900(this$0);
+    return MediaSessionCompat.MediaSessionImplBase.access$2100(this$0);
   }
   
   public String getPackageName()
@@ -65,26 +65,26 @@ class MediaSessionCompat$MediaSessionImplBase$MediaSessionStub
   
   public PlaybackStateCompat getPlaybackState()
   {
-    return MediaSessionCompat.MediaSessionImplBase.access$2000(this$0);
+    return MediaSessionCompat.MediaSessionImplBase.access$2200(this$0);
   }
   
   public List<MediaSessionCompat.QueueItem> getQueue()
   {
     synchronized (MediaSessionCompat.MediaSessionImplBase.access$1400(this$0))
     {
-      List localList = MediaSessionCompat.MediaSessionImplBase.access$2100(this$0);
+      List localList = MediaSessionCompat.MediaSessionImplBase.access$2300(this$0);
       return localList;
     }
   }
   
   public CharSequence getQueueTitle()
   {
-    return MediaSessionCompat.MediaSessionImplBase.access$2200(this$0);
+    return MediaSessionCompat.MediaSessionImplBase.access$2400(this$0);
   }
   
   public int getRatingType()
   {
-    return MediaSessionCompat.MediaSessionImplBase.access$2400(this$0);
+    return MediaSessionCompat.MediaSessionImplBase.access$2600(this$0);
   }
   
   public String getTag()
@@ -119,42 +119,42 @@ class MediaSessionCompat$MediaSessionImplBase$MediaSessionStub
   
   public void next()
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(7);
+    MediaSessionCompat.MediaSessionImplBase.access$1900(this$0, 7);
   }
   
   public void pause()
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(5);
+    MediaSessionCompat.MediaSessionImplBase.access$1900(this$0, 5);
   }
   
   public void play()
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(1);
+    MediaSessionCompat.MediaSessionImplBase.access$1900(this$0, 1);
   }
   
   public void playFromMediaId(String paramString, Bundle paramBundle)
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(2, paramString, paramBundle);
+    MediaSessionCompat.MediaSessionImplBase.access$2000(this$0, 2, paramString, paramBundle);
   }
   
   public void playFromSearch(String paramString, Bundle paramBundle)
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(3, paramString, paramBundle);
+    MediaSessionCompat.MediaSessionImplBase.access$2000(this$0, 3, paramString, paramBundle);
   }
   
   public void playFromUri(Uri paramUri, Bundle paramBundle)
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(18, paramUri, paramBundle);
+    MediaSessionCompat.MediaSessionImplBase.access$2000(this$0, 18, paramUri, paramBundle);
   }
   
   public void previous()
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(8);
+    MediaSessionCompat.MediaSessionImplBase.access$1900(this$0, 8);
   }
   
   public void rate(RatingCompat paramRatingCompat)
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(12, paramRatingCompat);
+    MediaSessionCompat.MediaSessionImplBase.access$700(this$0, 12, paramRatingCompat);
   }
   
   public void registerCallbackListener(IMediaControllerCallback paramIMediaControllerCallback)
@@ -172,22 +172,22 @@ class MediaSessionCompat$MediaSessionImplBase$MediaSessionStub
   
   public void rewind()
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(10);
+    MediaSessionCompat.MediaSessionImplBase.access$1900(this$0, 10);
   }
   
   public void seekTo(long paramLong)
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(11, Long.valueOf(paramLong));
+    MediaSessionCompat.MediaSessionImplBase.access$700(this$0, 11, Long.valueOf(paramLong));
   }
   
   public void sendCommand(String paramString, Bundle paramBundle, MediaSessionCompat.ResultReceiverWrapper paramResultReceiverWrapper)
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(15, new MediaSessionCompat.MediaSessionImplBase.Command(paramString, paramBundle, MediaSessionCompat.ResultReceiverWrapper.access$700(paramResultReceiverWrapper)));
+    MediaSessionCompat.MediaSessionImplBase.access$700(this$0, 15, new MediaSessionCompat.MediaSessionImplBase.Command(paramString, paramBundle, MediaSessionCompat.ResultReceiverWrapper.access$800(paramResultReceiverWrapper)));
   }
   
   public void sendCustomAction(String paramString, Bundle paramBundle)
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(13, paramString, paramBundle);
+    MediaSessionCompat.MediaSessionImplBase.access$2000(this$0, 13, paramString, paramBundle);
   }
   
   public boolean sendMediaButton(KeyEvent paramKeyEvent)
@@ -196,7 +196,7 @@ class MediaSessionCompat$MediaSessionImplBase$MediaSessionStub
     for (boolean bool = true;; bool = false)
     {
       if (bool) {
-        MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(14, paramKeyEvent);
+        MediaSessionCompat.MediaSessionImplBase.access$700(this$0, 14, paramKeyEvent);
       }
       return bool;
     }
@@ -209,12 +209,12 @@ class MediaSessionCompat$MediaSessionImplBase$MediaSessionStub
   
   public void skipToQueueItem(long paramLong)
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(4, Long.valueOf(paramLong));
+    MediaSessionCompat.MediaSessionImplBase.access$700(this$0, 4, Long.valueOf(paramLong));
   }
   
   public void stop()
   {
-    MediaSessionCompat.MediaSessionImplBase.access$800(this$0).post(6);
+    MediaSessionCompat.MediaSessionImplBase.access$1900(this$0, 6);
   }
   
   public void unregisterCallbackListener(IMediaControllerCallback paramIMediaControllerCallback)

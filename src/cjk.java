@@ -1,102 +1,138 @@
-import android.graphics.Bitmap;
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.graphics.Bitmap.Config;
+import android.net.Uri;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-final class cjk
+public final class cjk
 {
-  final HandlerThread a;
-  final chu b;
-  final Handler c;
-  long d;
-  long e;
-  long f;
-  long g;
-  long h;
-  long i;
-  long j;
-  long k;
-  int l;
-  int m;
-  int n;
+  private static final long s = TimeUnit.SECONDS.toNanos(5L);
+  int a;
+  long b;
+  int c;
+  public final Uri d;
+  public final int e;
+  public final String f;
+  public final List<cjx> g;
+  public final int h;
+  public final int i;
+  public final boolean j;
+  public final boolean k;
+  public final boolean l;
+  public final float m;
+  public final float n;
+  public final float o;
+  public final boolean p;
+  public final Bitmap.Config q;
+  public final int r;
   
-  cjk(chu paramchu)
+  private cjk(Uri paramUri, int paramInt1, String paramString, List<cjx> paramList, int paramInt2, int paramInt3, boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3, float paramFloat1, float paramFloat2, float paramFloat3, boolean paramBoolean4, Bitmap.Config paramConfig, int paramInt4)
   {
-    b = paramchu;
-    a = new HandlerThread("Picasso-Stats", 10);
-    a.start();
-    c = new cjl(a.getLooper(), this);
+    d = paramUri;
+    e = paramInt1;
+    f = paramString;
+    if (paramList == null) {}
+    for (g = null;; g = Collections.unmodifiableList(paramList))
+    {
+      h = paramInt2;
+      i = paramInt3;
+      j = paramBoolean1;
+      k = paramBoolean2;
+      l = paramBoolean3;
+      m = paramFloat1;
+      n = paramFloat2;
+      o = paramFloat3;
+      p = paramBoolean4;
+      q = paramConfig;
+      r = paramInt4;
+      return;
+    }
   }
   
-  private static long a(int paramInt, long paramLong)
+  final String a()
   {
-    return paramLong / paramInt;
+    long l1 = System.nanoTime() - b;
+    if (l1 > s) {
+      return b() + '+' + TimeUnit.NANOSECONDS.toSeconds(l1) + 's';
+    }
+    return b() + '+' + TimeUnit.NANOSECONDS.toMillis(l1) + "ms";
   }
   
-  private void a(Bitmap paramBitmap, int paramInt)
+  final String b()
   {
-    int i1 = cjs.a(paramBitmap);
-    c.sendMessage(c.obtainMessage(paramInt, i1, 0));
+    return "[R" + a + ']';
   }
   
-  final void a()
+  final String c()
   {
-    c.sendEmptyMessage(0);
+    if (d != null) {
+      return String.valueOf(d.getPath());
+    }
+    return Integer.toHexString(e);
   }
   
-  final void a(long paramLong)
+  public final boolean d()
   {
-    c.sendMessage(c.obtainMessage(4, Long.valueOf(paramLong)));
+    return (h != 0) || (i != 0);
   }
   
-  final void a(Bitmap paramBitmap)
+  final boolean e()
   {
-    a(paramBitmap, 2);
+    return (f()) || (g());
   }
   
-  final void a(Long paramLong)
+  final boolean f()
   {
-    l += 1;
-    f += paramLong.longValue();
-    i = a(l, f);
+    return (d()) || (m != 0.0F);
   }
   
-  final void b()
+  final boolean g()
   {
-    c.sendEmptyMessage(1);
+    return g != null;
   }
   
-  final void b(long paramLong)
+  public final String toString()
   {
-    m += 1;
-    g += paramLong;
-    j = a(m, g);
-  }
-  
-  final void b(Bitmap paramBitmap)
-  {
-    a(paramBitmap, 3);
-  }
-  
-  final void c()
-  {
-    d += 1L;
-  }
-  
-  final void c(long paramLong)
-  {
-    n += 1;
-    h += paramLong;
-    k = a(m, h);
-  }
-  
-  final void d()
-  {
-    e += 1L;
-  }
-  
-  final cjm e()
-  {
-    return new cjm(b.b(), b.a(), d, e, f, g, h, i, j, k, l, m, n, System.currentTimeMillis());
+    StringBuilder localStringBuilder = new StringBuilder("Request{");
+    if (e > 0) {
+      localStringBuilder.append(e);
+    }
+    while ((g != null) && (!g.isEmpty()))
+    {
+      Iterator localIterator = g.iterator();
+      while (localIterator.hasNext())
+      {
+        cjx localcjx = (cjx)localIterator.next();
+        localStringBuilder.append(' ').append(localcjx.a());
+      }
+      localStringBuilder.append(d);
+    }
+    if (f != null) {
+      localStringBuilder.append(" stableKey(").append(f).append(')');
+    }
+    if (h > 0) {
+      localStringBuilder.append(" resize(").append(h).append(',').append(i).append(')');
+    }
+    if (j) {
+      localStringBuilder.append(" centerCrop");
+    }
+    if (k) {
+      localStringBuilder.append(" centerInside");
+    }
+    if (m != 0.0F)
+    {
+      localStringBuilder.append(" rotation(").append(m);
+      if (p) {
+        localStringBuilder.append(" @ ").append(n).append(',').append(o);
+      }
+      localStringBuilder.append(')');
+    }
+    if (q != null) {
+      localStringBuilder.append(' ').append(q);
+    }
+    localStringBuilder.append('}');
+    return localStringBuilder.toString();
   }
 }
 

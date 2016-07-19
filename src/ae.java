@@ -1,6 +1,7 @@
-abstract interface ae
+public enum ae
+  implements cll
 {
-  public abstract void a(float paramFloat);
+  private ae() {}
 }
 
 /* Location:

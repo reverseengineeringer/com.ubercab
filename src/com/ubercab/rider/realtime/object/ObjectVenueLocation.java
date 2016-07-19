@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jvj;
+import nat;
 
 @Shape
 abstract class ObjectVenueLocation
-  implements jvj
+  implements nat
 {
   public int getChirality()
   {

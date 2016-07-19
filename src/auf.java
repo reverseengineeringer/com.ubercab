@@ -1,81 +1,53 @@
-import android.support.v4.util.ArrayMap;
-import java.util.AbstractSet;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
+import android.content.Context;
+import android.os.RemoteException;
 
-public final class auf<E>
-  extends AbstractSet<E>
+public final class auf
 {
-  private final ArrayMap<E, E> a;
+  private static boolean a = false;
   
-  public auf()
+  public static int a(Context paramContext)
   {
-    a = new ArrayMap();
-  }
-  
-  public auf(int paramInt)
-  {
-    a = new ArrayMap(paramInt);
-  }
-  
-  public auf(Collection<E> paramCollection)
-  {
-    this(paramCollection.size());
-    addAll(paramCollection);
-  }
-  
-  private boolean a(auf<? extends E> paramauf)
-  {
-    int i = size();
-    a.putAll(a);
-    return size() > i;
-  }
-  
-  public final boolean add(E paramE)
-  {
-    if (a.containsKey(paramE)) {
-      return false;
+    int i = 0;
+    for (;;)
+    {
+      try
+      {
+        abe.a(paramContext, "Context is null");
+        boolean bool = a;
+        if (!bool) {
+          continue;
+        }
+      }
+      finally
+      {
+        try
+        {
+          paramContext = avv.a(paramContext);
+          a(paramContext);
+          a = true;
+        }
+        catch (vr paramContext)
+        {
+          i = a;
+        }
+        paramContext = finally;
+      }
+      return i;
     }
-    a.put(paramE, paramE);
-    return true;
   }
   
-  public final boolean addAll(Collection<? extends E> paramCollection)
+  private static void a(avz paramavz)
   {
-    if ((paramCollection instanceof auf)) {
-      return a((auf)paramCollection);
+    try
+    {
+      atu.a(paramavz.a());
+      ayu.a(paramavz.b());
+      return;
     }
-    return super.addAll(paramCollection);
-  }
-  
-  public final void clear()
-  {
-    a.clear();
-  }
-  
-  public final boolean contains(Object paramObject)
-  {
-    return a.containsKey(paramObject);
-  }
-  
-  public final Iterator<E> iterator()
-  {
-    return a.keySet().iterator();
-  }
-  
-  public final boolean remove(Object paramObject)
-  {
-    if (!a.containsKey(paramObject)) {
-      return false;
+    catch (RemoteException paramavz)
+    {
+      throw new ayz(paramavz);
     }
-    a.remove(paramObject);
-    return true;
-  }
-  
-  public final int size()
-  {
-    return a.size();
   }
 }
 

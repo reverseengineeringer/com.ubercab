@@ -1,66 +1,54 @@
-import android.os.Binder;
-import android.os.IBinder;
+import android.net.Uri;
+import android.os.Bundle;
 import android.os.IInterface;
-import android.os.Parcel;
+import com.google.android.gms.common.server.FavaDiagnosticsEntity;
+import com.google.android.gms.common.server.response.SafeParcelResponse;
+import java.util.List;
 
-public abstract class bdx
-  extends Binder
-  implements bdw
+public abstract interface bdx
+  extends IInterface
 {
-  public bdx()
-  {
-    attachInterface(this, "com.google.android.gms.maps.internal.IInfoWindowAdapter");
-  }
+  public abstract aap a(bdu parambdu, int paramInt1, int paramInt2, int paramInt3, String paramString);
   
-  public static bdw a(IBinder paramIBinder)
-  {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IInfoWindowAdapter");
-    if ((localIInterface != null) && ((localIInterface instanceof bdw))) {
-      return (bdw)localIInterface;
-    }
-    return new bdy(paramIBinder);
-  }
+  public abstract String a();
   
-  public IBinder asBinder()
-  {
-    return this;
-  }
+  public abstract void a(bdu parambdu);
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    add localadd2 = null;
-    add localadd1 = null;
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IInfoWindowAdapter");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IInfoWindowAdapter");
-      localadd2 = a(bhl.a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      paramParcel1 = localadd1;
-      if (localadd2 != null) {
-        paramParcel1 = localadd2.asBinder();
-      }
-      paramParcel2.writeStrongBinder(paramParcel1);
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IInfoWindowAdapter");
-    localadd1 = b(bhl.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    paramParcel1 = localadd2;
-    if (localadd1 != null) {
-      paramParcel1 = localadd1.asBinder();
-    }
-    paramParcel2.writeStrongBinder(paramParcel1);
-    return true;
-  }
+  public abstract void a(bdu parambdu, int paramInt, String paramString1, Uri paramUri, String paramString2, String paramString3);
+  
+  public abstract void a(bdu parambdu, Uri paramUri, Bundle paramBundle);
+  
+  public abstract void a(bdu parambdu, SafeParcelResponse paramSafeParcelResponse);
+  
+  public abstract void a(bdu parambdu, String paramString);
+  
+  public abstract void a(bdu parambdu, String paramString1, String paramString2);
+  
+  public abstract void a(bdu parambdu, List<String> paramList);
+  
+  public abstract void a(SafeParcelResponse paramSafeParcelResponse);
+  
+  public abstract void a(String paramString);
+  
+  public abstract void a(String paramString, FavaDiagnosticsEntity paramFavaDiagnosticsEntity1, FavaDiagnosticsEntity paramFavaDiagnosticsEntity2);
+  
+  public abstract void b();
+  
+  public abstract void b(bdu parambdu);
+  
+  public abstract void b(bdu parambdu, String paramString);
+  
+  public abstract String c();
+  
+  public abstract void c(bdu parambdu, String paramString);
+  
+  public abstract void d(bdu parambdu, String paramString);
+  
+  public abstract boolean d();
+  
+  public abstract String e();
+  
+  public abstract void e(bdu parambdu, String paramString);
 }
 
 /* Location:

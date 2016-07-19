@@ -1,11 +1,11 @@
 package com.ubercab.reporting.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jqx;
+import mpg;
 
 @Shape
 public abstract class ObjectTeam
-  implements jqx
+  implements mpg
 {
   static ObjectTeam create()
   {

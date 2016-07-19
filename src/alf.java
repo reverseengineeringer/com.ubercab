@@ -1,58 +1,12 @@
-import java.util.AbstractMap.SimpleEntry;
-import java.util.HashSet;
-import java.util.Iterator;
-import org.json.JSONObject;
+import java.util.regex.Pattern;
 
-@apl
 public final class alf
-  implements ale
 {
-  private final ald a;
-  private final HashSet<AbstractMap.SimpleEntry<String, aji>> b;
+  private static Pattern a = null;
   
-  public alf(ald paramald)
+  public static int a(int paramInt)
   {
-    a = paramald;
-    b = new HashSet();
-  }
-  
-  public final void a()
-  {
-    Iterator localIterator = b.iterator();
-    while (localIterator.hasNext())
-    {
-      AbstractMap.SimpleEntry localSimpleEntry = (AbstractMap.SimpleEntry)localIterator.next();
-      aqt.e("Unregistering eventhandler: " + ((aji)localSimpleEntry.getValue()).toString());
-      a.b((String)localSimpleEntry.getKey(), (aji)localSimpleEntry.getValue());
-    }
-    b.clear();
-  }
-  
-  public final void a(String paramString, aji paramaji)
-  {
-    a.a(paramString, paramaji);
-    b.add(new AbstractMap.SimpleEntry(paramString, paramaji));
-  }
-  
-  public final void a(String paramString1, String paramString2)
-  {
-    a.a(paramString1, paramString2);
-  }
-  
-  public final void a(String paramString, JSONObject paramJSONObject)
-  {
-    a.a(paramString, paramJSONObject);
-  }
-  
-  public final void b(String paramString, aji paramaji)
-  {
-    a.b(paramString, paramaji);
-    b.remove(new AbstractMap.SimpleEntry(paramString, paramaji));
-  }
-  
-  public final void b(String paramString, JSONObject paramJSONObject)
-  {
-    a.b(paramString, paramJSONObject);
+    return paramInt / 1000;
   }
 }
 

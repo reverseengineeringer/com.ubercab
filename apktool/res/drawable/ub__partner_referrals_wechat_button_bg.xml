@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/ub__partner_referrals_share_button_corner_radius" />
+            <solid android:color="@color/ub__partner_referrals_wechat_button_pressed_bg_color" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/ub__partner_referrals_share_button_corner_radius" />
+            <solid android:color="@color/ub__partner_referrals_wechat_button_default_bg_color" />
+        </shape>
+    </item>
+</selector>

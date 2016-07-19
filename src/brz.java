@@ -1,9 +1,14 @@
-public final class brz
-  extends Enum<brz>
+import android.os.Handler;
+import android.os.Message;
+
+final class brz
+  extends Handler
 {
-  public static int[] a()
+  brz(bry parambry) {}
+  
+  public final void handleMessage(Message paramMessage)
   {
-    return (int[])m.clone();
+    a.a(paramMessage);
   }
 }
 

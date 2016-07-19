@@ -1,17 +1,11 @@
-import com.paypal.android.sdk.payments.PayPalService;
-import com.paypal.android.sdk.payments.PaymentConfirmActivity;
-import com.paypal.android.sdk.payments.PaymentMethodActivity;
-import java.util.TimerTask;
-
-public final class ceq
-  extends TimerTask
+final class ceq
+  implements cec
 {
-  public ceq(PaymentMethodActivity paramPaymentMethodActivity) {}
+  ceq(cep paramcep) {}
   
-  public final void run()
+  public final void a()
   {
-    a.removeDialog(3);
-    PaymentConfirmActivity.a(a, cek.a, PaymentMethodActivity.g(a).d());
+    cep.a(a, bve.w);
   }
 }
 

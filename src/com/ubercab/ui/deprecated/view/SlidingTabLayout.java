@@ -14,20 +14,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import jzf;
-import jzg;
-import jzh;
-import jzq;
-import jzr;
-import jzt;
+import nfy;
+import nfz;
+import nga;
+import ngh;
+import ngi;
+import ngk;
 
 @Deprecated
 public abstract class SlidingTabLayout
   extends FrameLayout
 {
-  private static final int b = jzf.ub__tab_background_grey;
-  private static final int c = jzg.Uber_TextAppearance_H3_Tab;
-  public final jzt a;
+  private static final int b = nfy.ub__tab_background_grey;
+  private static final int c = nfz.Uber_TextAppearance_H3_Tab;
+  public final ngk a;
   private final int d;
   private final int e;
   private ViewPager f;
@@ -47,11 +47,11 @@ public abstract class SlidingTabLayout
   public SlidingTabLayout(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    a = new jzt(paramContext);
-    a.setPadding(b(), getPaddingTop(), getPaddingRight(), getPaddingBottom());
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, jzh.SlidingTabLayout);
-    d = paramContext.getResourceId(jzh.SlidingTabLayout_slidingTabLayoutTabBackground, b);
-    e = paramContext.getResourceId(jzh.SlidingTabLayout_slidingTabLayoutTextAppearance, c);
+    a = new ngk(paramContext);
+    a.setPadding(0, getPaddingTop(), getPaddingRight(), getPaddingBottom());
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, nga.SlidingTabLayout);
+    d = paramContext.getResourceId(nga.SlidingTabLayout_slidingTabLayoutTabBackground, b);
+    e = paramContext.getResourceId(nga.SlidingTabLayout_slidingTabLayoutTextAppearance, c);
     paramContext.recycle();
   }
   
@@ -69,34 +69,33 @@ public abstract class SlidingTabLayout
     return localTextView;
   }
   
-  private void a(int paramInt1, int paramInt2)
+  private void a(int paramInt)
   {
     int i = a.getChildCount();
-    if ((i == 0) || (paramInt1 < 0) || (paramInt1 >= i)) {}
+    if ((i == 0) || (paramInt < 0) || (paramInt >= i)) {}
     View localView;
     do
     {
       return;
-      localView = a.getChildAt(paramInt1);
+      localView = a.getChildAt(paramInt);
     } while (localView == null);
     if (h != null) {
       h.setSelected(false);
     }
     h = localView;
     h.setSelected(true);
-    a(localView, paramInt1, paramInt2);
   }
   
   private void b(ViewPager paramViewPager)
   {
     int i = 0;
     paramViewPager = paramViewPager.getAdapter();
-    jzr localjzr = new jzr(this, (byte)0);
+    ngi localngi = new ngi(this, (byte)0);
     while (i < paramViewPager.getCount())
     {
       TextView localTextView = a(getContext());
       localTextView.setText(paramViewPager.getPageTitle(i));
-      localTextView.setOnClickListener(localjzr);
+      localTextView.setOnClickListener(localngi);
       a.addView(localTextView);
       i += 1;
     }
@@ -120,30 +119,18 @@ public abstract class SlidingTabLayout
     f = paramViewPager;
     if (paramViewPager != null)
     {
-      paramViewPager.setOnPageChangeListener(new jzq(this, (byte)0));
+      paramViewPager.setOnPageChangeListener(new ngh(this, (byte)0));
       b(paramViewPager);
     }
   }
   
-  protected void a(View paramView, int paramInt1, int paramInt2) {}
-  
   protected void a(TextView paramTextView) {}
-  
-  protected int b()
-  {
-    return 0;
-  }
-  
-  protected final int c()
-  {
-    return (int)(24.0F * getResourcesgetDisplayMetricsdensity);
-  }
   
   protected void onAttachedToWindow()
   {
     super.onAttachedToWindow();
     if (f != null) {
-      a(f.getCurrentItem(), 0);
+      a(f.getCurrentItem());
     }
   }
 }

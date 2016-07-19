@@ -6,14 +6,14 @@ import com.ubercab.shape.Shape;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import jdh;
-import jvq;
-import jvr;
+import lzo;
+import nba;
+import nbb;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class Track
-  extends jvq<Track>
+  extends nba<Track>
   implements Parcelable
 {
   public static Track create(String paramString, Album paramAlbum, int paramInt, Artist... paramVarArgs)
@@ -37,12 +37,12 @@ public abstract class Track
   
   public abstract String getPlaybackUri();
   
-  protected Object onGet(jvr<Track> paramjvr, Object paramObject)
+  protected Object onGet(nbb<Track> paramnbb, Object paramObject)
   {
     if (paramObject != null) {
       return paramObject;
     }
-    switch (Track.1.$SwitchMap$com$ubercab$rider$realtime$model$Shape_Track$Property[((Shape_Track.Property)paramjvr).ordinal()])
+    switch (Track.1.$SwitchMap$com$ubercab$rider$realtime$model$Shape_Track$Property[((Shape_Track.Property)paramnbb).ordinal()])
     {
     default: 
       return null;

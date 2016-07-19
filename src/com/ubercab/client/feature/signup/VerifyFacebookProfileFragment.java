@@ -6,70 +6,69 @@ import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.locale.phone.PhoneNumberView;
 import com.ubercab.ui.AutoCompleteFloatingLabelEditText;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.FloatingLabelEditText;
-import dps;
-import dsh;
-import dux;
-import dvk;
-import ebj;
-import efr;
-import ehq;
-import ejy;
-import eqg;
-import gxs;
-import gxt;
-import gyl;
-import gzl;
-import gzu;
-import ife;
+import duq;
+import dxm;
+import eaj;
+import ebe;
+import eib;
+import enk;
+import eqc;
+import err;
+import eyh;
 import ija;
 import ijb;
+import ijx;
+import ilf;
+import ilo;
 import java.util.List;
 import java.util.Map;
-import jzz;
-import kae;
-import kah;
-import kaq;
-import p;
-import r;
+import kia;
+import kmz;
+import kna;
+import ngq;
+import ngv;
+import ngy;
+import nhh;
+import x;
+import z;
 
 public class VerifyFacebookProfileFragment
-  extends dsh<gzl>
-  implements gyl, ija
+  extends dxm<ilf>
+  implements ijx, kmz
 {
-  private static final ijb<jzz> g = new ijb(new jzz(2131166315));
-  private static final kah<FloatingLabelEditText, jzz> h = new kah(new jzz(2131166315));
-  public ckc c;
-  public chh d;
-  public ife e;
-  public ehq f;
+  private static final kna<ngq> g = new kna(new ngq(2131166495));
+  private static final ngy<FloatingLabelEditText, ngq> h = new ngy(new ngq(2131166495));
+  public ckt c;
+  public chn d;
+  public kia e;
+  public eqc f;
   private SignupData i;
-  @InjectView(2131625592)
-  Button mButtonLegal;
-  @InjectView(2131625575)
-  Button mButtonNext;
-  @InjectView(2131625604)
-  AutoCompleteFloatingLabelEditText mEditTextEmail;
-  @InjectView(2131625572)
-  FloatingLabelEditText mEditTextFirstName;
-  @InjectView(2131625573)
-  FloatingLabelEditText mEditTextLastName;
-  @InjectView(2131625574)
-  PhoneNumberView mPhoneNumberView;
-  @InjectView(2131625614)
-  ViewGroup mViewGroupTos;
+  @BindView
+  public Button mButtonLegal;
+  @BindView
+  public Button mButtonNext;
+  @BindView
+  public AutoCompleteFloatingLabelEditText mEditTextEmail;
+  @BindView
+  public FloatingLabelEditText mEditTextFirstName;
+  @BindView
+  public FloatingLabelEditText mEditTextLastName;
+  @BindView
+  public PhoneNumberView mPhoneNumberView;
+  @BindView
+  public ViewGroup mViewGroupTos;
   
   public static VerifyFacebookProfileFragment a(SignupData paramSignupData)
   {
@@ -80,34 +79,34 @@ public class VerifyFacebookProfileFragment
     return paramSignupData;
   }
   
-  private void a(gzl paramgzl)
+  private void a(ilf paramilf)
   {
-    paramgzl.a(this);
+    paramilf.a(this);
   }
   
-  private gzl b(ebj paramebj)
+  private ilf b(eib parameib)
   {
-    return gxs.a().a(new efr(this)).a(paramebj).a();
+    return ija.a().a(new enk(this)).a(parameib).a();
   }
   
-  private void b()
+  private void f()
   {
-    if (!new kaq().a(mEditTextEmail, new kae(new jzz(2131166315), new jzz(2131165983))).a(mEditTextFirstName, h).a(mEditTextLastName, h).a(mPhoneNumberView, g).a().isEmpty()) {
+    if (!new nhh().a(mEditTextEmail, new ngv(new ngq(2131166495), new ngq(2131166093))).a(mEditTextFirstName, h).a(mEditTextLastName, h).a(mPhoneNumberView, g).a().isEmpty()) {
       return;
     }
-    dps.b(getActivity(), mEditTextEmail);
+    duq.b(getActivity(), mEditTextEmail);
     String str1 = mEditTextEmail.i().toString();
     String str2 = mPhoneNumberView.g();
     String str3 = mPhoneNumberView.d();
-    b(getString(2131167227));
+    a_(getString(2131167606));
     f.a(str1, str2, str3, "thisisnotarealpassword1234567$");
   }
   
-  public final void G_() {}
+  public final void D_() {}
   
   public final void a()
   {
-    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap").setName(r.ja).setValue(i.p());
+    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap").setName(z.mp).setValue(i.r());
     c.a(localAnalyticsEvent);
   }
   
@@ -119,18 +118,19 @@ public class VerifyFacebookProfileFragment
   {
     if (paramInt == 6)
     {
-      b();
+      c.a(z.ni);
+      f();
       return true;
     }
     return false;
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return p.mM;
+    return x.qQ;
   }
   
-  @OnClick({2131625592})
+  @OnClick
   public void onClickLegal()
   {
     startActivity(new Intent(getActivity(), LegalActivity.class));
@@ -144,71 +144,66 @@ public class VerifyFacebookProfileFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903593, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903806, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
   }
   
-  public void onDestroy()
-  {
-    super.onDestroy();
-    ButterKnife.reset(this);
-  }
-  
-  @OnClick({2131625575})
+  @OnClick
   public void onNextClicked()
   {
-    b();
+    c.a(z.ni);
+    f();
   }
   
   public void onResume()
   {
     super.onResume();
-    d().b().a(getString(2131167226));
+    b().b().a(getString(2131167605));
   }
   
-  @cho
-  public void onValidateAccountResponseEvent(ejy paramejy)
+  @chu
+  public void onValidateAccountResponseEvent(err paramerr)
   {
-    e();
-    if (paramejy.i())
+    M_();
+    if (paramerr.i())
     {
       i.e(mEditTextFirstName.i().toString());
       i.f(mEditTextLastName.i().toString());
       i.a(mEditTextEmail.i().toString());
       i.b(mPhoneNumberView.g());
       i.c(mPhoneNumberView.d());
-      d.c(new gzu(i));
+      d.c(new ilo(i));
     }
     do
     {
       do
       {
         return;
-        paramejy = paramejy.a();
-      } while (paramejy == null);
-      if (paramejy.containsKey("mobile")) {
-        mPhoneNumberView.a(new jzz((CharSequence)paramejy.get("mobile")));
+        paramerr = paramerr.a();
+      } while (paramerr == null);
+      if (paramerr.containsKey("mobile")) {
+        mPhoneNumberView.a(new ngq((CharSequence)paramerr.get("mobile")));
       }
-      if ((paramejy.containsKey("username")) && (paramejy.containsKey("email")))
+      if ((paramerr.containsKey("username")) && (paramerr.containsKey("email")))
       {
-        eqg.a(d(), p.mN, 0, getString(2131165242));
+        eyh.a(b(), x.qR, 0, getString(2131165245));
         return;
       }
-    } while (!paramejy.containsKey("error"));
-    eqg.a(d(), p.mO, 0, (String)paramejy.get("error"));
+    } while (!paramerr.containsKey("error"));
+    eyh.a(b(), x.qS, 0, (String)paramerr.get("error"));
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
-    if (e.a(dux.aH, dvk.b)) {
-      mButtonNext.setText(2131165718);
+    if (e.a(eaj.aN, ebe.b)) {
+      mButtonNext.setText(2131165779);
     }
     for (;;)
     {
       mButtonLegal.setPaintFlags(mButtonLegal.getPaintFlags() | 0x8);
-      if (e.a(dux.aH)) {
+      if (e.b(eaj.aN)) {
         mViewGroupTos.setVisibility(8);
       }
       mPhoneNumberView.a(this);
@@ -220,7 +215,7 @@ public class VerifyFacebookProfileFragment
         mPhoneNumberView.a(i.b(), i.c());
       }
       return;
-      mButtonNext.setText(2131166073);
+      mButtonNext.setText(2131166201);
     }
   }
 }

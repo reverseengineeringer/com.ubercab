@@ -1,37 +1,69 @@
-import java.util.HashMap;
-import java.util.Map;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.paypal.android.sdk.onetouch.core.Request;
+import com.paypal.android.sdk.onetouch.core.Result;
+import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public final class caa
-  implements bzw
 {
-  private static Map a = new HashMap();
-  private static Map b = new HashMap();
-  
-  public caa()
+  public static Intent a(String paramString1, String paramString2)
   {
-    a.put(bzv.a, "Cancel");
-    a.put(bzv.b, "American Express");
-    a.put(bzv.c, "Discover");
-    a.put(bzv.d, "JCB");
-    a.put(bzv.e, "MasterCard");
-    a.put(bzv.f, "Visa");
-    a.put(bzv.g, "Done");
-    a.put(bzv.h, "CVV");
-    a.put(bzv.i, "Postal Code");
-    a.put(bzv.j, "Expires");
-    a.put(bzv.k, "MM/YY");
-    a.put(bzv.l, "Hold card here.\nIt will scan automatically.");
-    a.put(bzv.m, "Keyboard…");
-    a.put(bzv.n, "Card Number");
-    a.put(bzv.o, "Card Details");
-    a.put(bzv.p, "This device cannot use the camera to read card numbers.");
-    a.put(bzv.q, "Device camera is unavailable.");
-    a.put(bzv.r, "The device had an unexpected error opening the camera.");
+    return new Intent(paramString1).setPackage(paramString2);
   }
   
-  public final String a()
+  private static Result a(Bundle paramBundle)
   {
-    return "en";
+    Object localObject = paramBundle.getString("error");
+    if (!TextUtils.isEmpty((CharSequence)localObject)) {
+      return new Result(new bzs((String)localObject));
+    }
+    String str1 = paramBundle.getString("environment");
+    if ("code".equals(paramBundle.getString("response_type").toLowerCase(Locale.US))) {}
+    for (localObject = bzn.b;; localObject = bzn.a) {
+      try
+      {
+        if (bzn.a != localObject) {
+          break;
+        }
+        paramBundle = paramBundle.getString("webURL");
+        paramBundle = new Result(str1, (bzn)localObject, new JSONObject().put("webURL", paramBundle), null);
+        return paramBundle;
+      }
+      catch (JSONException paramBundle)
+      {
+        return new Result(new bzr(paramBundle));
+      }
+    }
+    String str2 = paramBundle.getString("authorization_code");
+    paramBundle = paramBundle.getString("email");
+    paramBundle = new Result(str1, (bzn)localObject, new JSONObject().put("code", str2), paramBundle);
+    return paramBundle;
+  }
+  
+  public static Result a(byv parambyv, Request paramRequest, Intent paramIntent)
+  {
+    paramIntent = paramIntent.getExtras();
+    if (paramRequest.a(paramIntent))
+    {
+      paramRequest.a(parambyv.b(), bzv.i);
+      return a(paramIntent);
+    }
+    if (paramIntent.containsKey("error"))
+    {
+      paramRequest.a(parambyv.b(), bzv.j);
+      return new Result(new bzs(paramIntent.getString("error")));
+    }
+    paramRequest.a(parambyv.b(), bzv.j);
+    return new Result(new bzr("invalid wallet response"));
+  }
+  
+  public static boolean a(Context paramContext, String paramString)
+  {
+    return qd.a(paramContext, paramString, "O=Paypal", "O=Paypal", 34172764);
   }
 }
 

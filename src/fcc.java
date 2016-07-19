@@ -1,24 +1,18 @@
-import com.ubercab.shape.Shape;
+import android.content.Context;
 
-@Shape
-public abstract class fcc
+public abstract interface fcc
 {
-  public static fcc a()
-  {
-    return new fcq();
-  }
+  public abstract int a();
   
-  public abstract fcc a(String paramString);
+  public abstract int a(String paramString);
   
-  public abstract fcc b(String paramString);
+  public abstract String a(Context paramContext);
   
-  public abstract String b();
+  public abstract void a(Context paramContext, boolean paramBoolean);
   
-  public abstract fcc c(String paramString);
+  public abstract int b(String paramString);
   
-  public abstract String c();
-  
-  public abstract String d();
+  public abstract boolean b(Context paramContext);
 }
 
 /* Location:

@@ -2,29 +2,29 @@ package com.ubercab.rider.realtime.response.referrals;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import iaj;
-import iak;
-import ias;
 import java.util.Iterator;
 import java.util.List;
-import jdh;
+import kct;
+import kcu;
+import kdc;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class ReferralData
 {
-  public iaj<Invite> getCompletedInvites()
+  public kct<Invite> getCompletedInvites()
   {
-    iak localiak = new iak();
+    kcu localkcu = new kcu();
     Iterator localIterator = getInvites().iterator();
     while (localIterator.hasNext())
     {
       Invite localInvite = (Invite)localIterator.next();
       if (localInvite.isStatusCompleted()) {
-        localiak.a(localInvite);
+        localkcu.a(localInvite);
       }
     }
-    return localiak.a();
+    return localkcu.a();
   }
   
   public abstract String getCurrencyCode();
@@ -33,18 +33,18 @@ public abstract class ReferralData
   
   public abstract ReferralMessaging getMessaging();
   
-  public iaj<Invite> getPendingInvites()
+  public kct<Invite> getPendingInvites()
   {
-    iak localiak = new iak();
+    kcu localkcu = new kcu();
     Iterator localIterator = getInvites().iterator();
     while (localIterator.hasNext())
     {
       Invite localInvite = (Invite)localIterator.next();
       if (localInvite.isStatusPending()) {
-        localiak.a(localInvite);
+        localkcu.a(localInvite);
       }
     }
-    return localiak.a();
+    return localkcu.a();
   }
   
   public abstract Integer getPendingTotalReferralAmount();
@@ -59,27 +59,27 @@ public abstract class ReferralData
   
   public abstract String getReferralUrl();
   
-  public iaj<Invite> getRejectedInvites()
+  public kct<Invite> getRejectedInvites()
   {
-    iak localiak = new iak();
+    kcu localkcu = new kcu();
     Iterator localIterator = getInvites().iterator();
     while (localIterator.hasNext())
     {
       Invite localInvite = (Invite)localIterator.next();
       if (localInvite.isStatusRejected()) {
-        localiak.a(localInvite);
+        localkcu.a(localInvite);
       }
     }
-    return localiak.a();
+    return localkcu.a();
   }
   
   public int getTotalCompletedBonusAmount()
   {
-    ias localias = getCompletedInvites().a();
+    kdc localkdc = getCompletedInvites().a();
     int i = 0;
-    if (localias.hasNext())
+    if (localkdc.hasNext())
     {
-      Invite localInvite = (Invite)localias.next();
+      Invite localInvite = (Invite)localkdc.next();
       if (localInvite.getInviterBonusAmount() == null) {
         break label51;
       }
@@ -95,11 +95,11 @@ public abstract class ReferralData
   
   public int getTotalPendingBonusAmount()
   {
-    ias localias = getPendingInvites().a();
+    kdc localkdc = getPendingInvites().a();
     int i = 0;
-    if (localias.hasNext())
+    if (localkdc.hasNext())
     {
-      Invite localInvite = (Invite)localias.next();
+      Invite localInvite = (Invite)localkdc.next();
       if (localInvite.getInviterBonusAmountPostSignup() == null) {
         break label51;
       }

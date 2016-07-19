@@ -1,40 +1,88 @@
-import android.graphics.Bitmap;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 
 public final class cnu
+  implements cnw
 {
-  private Bitmap a;
-  private String b;
-  private String c;
-  private int d;
+  private final ConnectivityManager a;
+  private final WifiManager b;
   
-  public final Bitmap a()
+  public cnu(Context paramContext)
   {
-    return a;
+    a = ((ConnectivityManager)paramContext.getSystemService("connectivity"));
+    b = ((WifiManager)paramContext.getSystemService("wifi"));
   }
   
-  final void a(int paramInt)
+  private static long a(int paramInt)
   {
-    d = paramInt;
+    long l = 600L;
+    switch (paramInt)
+    {
+    default: 
+      l = 25L;
+    case 6: 
+    case 10: 
+    case 14: 
+      return l;
+    case 7: 
+      return 50L;
+    case 4: 
+      return 37L;
+    case 2: 
+      return 118L;
+    case 5: 
+      return 400L;
+    case 12: 
+      return 2142L;
+    case 1: 
+      return 35L;
+    case 8: 
+      return 1000L;
+    case 15: 
+      return 5800L;
+    case 9: 
+      return 730L;
+    case 11: 
+      return 25L;
+    case 13: 
+      return 3000L;
+    }
+    return 350L;
   }
   
-  final void a(Bitmap paramBitmap)
+  private static long a(long paramLong)
   {
-    a = paramBitmap;
+    return (coh.a(paramLong) * 0.1D);
   }
   
-  public final int b()
+  private long d()
   {
-    return d;
+    WifiInfo localWifiInfo = b.getConnectionInfo();
+    if (localWifiInfo != null) {
+      return (coh.b(localWifiInfo.getLinkSpeed()) * 0.24D);
+    }
+    return 0L;
   }
   
-  public final String c()
-  {
-    return b;
-  }
+  public final void a() {}
   
-  public final String d()
+  public final void b() {}
+  
+  public final long c()
   {
-    return c;
+    NetworkInfo localNetworkInfo = a.getActiveNetworkInfo();
+    if ((localNetworkInfo != null) && (localNetworkInfo.isConnected())) {}
+    switch (localNetworkInfo.getType())
+    {
+    default: 
+      return 0L;
+    case 0: 
+      return a(a(localNetworkInfo.getSubtype()));
+    }
+    return a(d());
   }
 }
 

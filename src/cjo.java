@@ -1,46 +1,69 @@
-import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
+import java.io.InputStream;
 
-final class cjo
-  extends chq<cjn>
+public final class cjo
 {
-  cjo(ciu paramciu, cjn paramcjn, cje paramcje, int paramInt1, int paramInt2, Drawable paramDrawable, String paramString, Object paramObject, int paramInt3)
+  private final cje a;
+  private final Bitmap b;
+  private final InputStream c;
+  private final int d;
+  
+  public cjo(Bitmap paramBitmap, cje paramcje)
   {
-    super(paramciu, paramcjn, paramcje, paramInt1, paramInt2, paramInt3, paramDrawable, paramString, paramObject, false);
+    this((Bitmap)cka.a(paramBitmap, "bitmap == null"), null, paramcje, 0);
   }
   
-  final void a()
+  cjo(Bitmap paramBitmap, InputStream paramInputStream, cje paramcje, int paramInt)
   {
-    cjn localcjn = (cjn)d();
-    if (localcjn != null)
+    int i;
+    if (paramBitmap != null)
     {
-      if (g != 0)
-      {
-        a.c.getResources().getDrawable(g);
-        localcjn.a();
+      i = 1;
+      if (paramInputStream == null) {
+        break label40;
       }
     }
-    else {
-      return;
+    for (;;)
+    {
+      if ((j ^ i) != 0) {
+        break label46;
+      }
+      throw new AssertionError();
+      i = 0;
+      break;
+      label40:
+      j = 0;
     }
-    localcjn.a();
+    label46:
+    b = paramBitmap;
+    c = paramInputStream;
+    a = ((cje)cka.a(paramcje, "loadedFrom == null"));
+    d = paramInt;
   }
   
-  final void a(Bitmap paramBitmap, ciy paramciy)
+  public cjo(InputStream paramInputStream, cje paramcje)
   {
-    if (paramBitmap == null) {
-      throw new AssertionError(String.format("Attempted to complete action with no result!\n%s", new Object[] { this }));
-    }
-    paramciy = (cjn)d();
-    if (paramciy != null)
-    {
-      paramciy.a(paramBitmap);
-      if (paramBitmap.isRecycled()) {
-        throw new IllegalStateException("Target callback must not recycle bitmap!");
-      }
-    }
+    this(null, (InputStream)cka.a(paramInputStream, "stream == null"), paramcje, 0);
+  }
+  
+  public final Bitmap a()
+  {
+    return b;
+  }
+  
+  public final InputStream b()
+  {
+    return c;
+  }
+  
+  public final cje c()
+  {
+    return a;
+  }
+  
+  final int d()
+  {
+    return d;
   }
 }
 

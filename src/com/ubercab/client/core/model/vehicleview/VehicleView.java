@@ -9,14 +9,14 @@ import com.ubercab.rider.realtime.model.Tagline;
 import com.ubercab.shape.Shape;
 import java.util.List;
 import java.util.Map;
-import jdh;
-import jvq;
-import jvr;
+import lzo;
+import nba;
+import nbb;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class VehicleView
-  extends jvq<VehicleView>
+  extends nba<VehicleView>
   implements com.ubercab.rider.realtime.model.VehicleView
 {
   public static final String CONFIRMATION_TYPE_FARE_ESTIMATE_TAGLINE = "FareEstimateTagline";
@@ -51,9 +51,13 @@ public abstract class VehicleView
   
   public abstract String getConfirmationType();
   
+  public abstract boolean getDefaultToCommuterPaymentProfile();
+  
   public abstract String getDescription();
   
   public abstract String getDestinationEntry();
+  
+  public abstract boolean getDestinationOnLooking();
   
   public abstract String getDisplayName();
   
@@ -69,13 +73,11 @@ public abstract class VehicleView
   
   public abstract String getGroupId();
   
-  public abstract String getHijackSavingTagline();
+  public abstract String getHopSetPickupArea();
   
-  public abstract String getHijackSharingTagline();
+  public abstract String getHopSetPickupAreaNotAvailable();
   
-  public abstract String getHijackTipTagline();
-  
-  public abstract String getHijackVehicleViewId();
+  public abstract Integer getHopVersion();
   
   public abstract String getId();
   
@@ -86,6 +88,8 @@ public abstract class VehicleView
   public abstract boolean getIsDestinationRequired();
   
   public abstract boolean getIsInspecting();
+  
+  public abstract boolean getIsSchedulable();
   
   public abstract String getLinkedVehicleViewId();
   
@@ -101,6 +105,8 @@ public abstract class VehicleView
   
   public abstract String getNoneAvailableString();
   
+  public abstract String getOverCapacityTagline();
+  
   public abstract String getParentId();
   
   public abstract String getPermittedPaymentMethodsError();
@@ -111,15 +117,21 @@ public abstract class VehicleView
   
   public abstract String getPoolDispatchingTipMessage();
   
+  public abstract Integer getPredictedEta();
+  
   public abstract String getProductGroupUuid();
   
   public abstract String getRequestPickupButtonString();
   
   public abstract String getRidePoolOption();
   
+  public abstract Integer getScheduleTimeWindowMS();
+  
   public abstract String getSetPickupLocationString();
   
   public abstract String getSharingTagline();
+  
+  public abstract boolean getShouldFetchUpfrontFare();
   
   @Deprecated
   abstract boolean getSuppressSurgeUI();
@@ -164,21 +176,21 @@ public abstract class VehicleView
     return getEnableVehicleInventoryView();
   }
   
-  protected Object onGet(jvr<VehicleView> paramjvr, Object paramObject)
+  protected Object onGet(nbb<VehicleView> paramnbb, Object paramObject)
   {
     if ((paramObject != null) && (!(paramObject instanceof String))) {}
     do
     {
       return paramObject;
-      switch (VehicleView.1.$SwitchMap$com$ubercab$client$core$model$vehicleview$Shape_VehicleView$Property[((Shape_VehicleView.Property)paramjvr).ordinal()])
+      switch (VehicleView.1.$SwitchMap$com$ubercab$client$core$model$vehicleview$Shape_VehicleView$Property[((Shape_VehicleView.Property)paramnbb).ordinal()])
       {
       default: 
         return paramObject;
       case 1: 
-        paramjvr = (String)paramObject;
-        paramObject = paramjvr;
+        paramnbb = (String)paramObject;
+        paramObject = paramnbb;
       }
-    } while (!TextUtils.isEmpty(paramjvr));
+    } while (!TextUtils.isEmpty(paramnbb));
     if (getIsDestinationRequired()) {
       return "requiredNotEditable";
     }
@@ -210,9 +222,13 @@ public abstract class VehicleView
   
   public abstract VehicleView setConfirmationType(String paramString);
   
+  public abstract VehicleView setDefaultToCommuterPaymentProfile(boolean paramBoolean);
+  
   public abstract VehicleView setDescription(String paramString);
   
   public abstract VehicleView setDestinationEntry(String paramString);
+  
+  public abstract VehicleView setDestinationOnLooking(boolean paramBoolean);
   
   abstract VehicleView setDisplayName(String paramString);
   
@@ -228,13 +244,11 @@ public abstract class VehicleView
   
   public abstract VehicleView setGroupId(String paramString);
   
-  public abstract VehicleView setHijackSavingTagline(String paramString);
+  public abstract VehicleView setHopSetPickupArea(String paramString);
   
-  public abstract VehicleView setHijackSharingTagline(String paramString);
+  public abstract VehicleView setHopSetPickupAreaNotAvailable(String paramString);
   
-  public abstract VehicleView setHijackTipTagline(String paramString);
-  
-  public abstract VehicleView setHijackVehicleViewId(String paramString);
+  public abstract VehicleView setHopVersion(Integer paramInteger);
   
   public abstract VehicleView setId(String paramString);
   
@@ -245,6 +259,8 @@ public abstract class VehicleView
   public abstract VehicleView setIsDestinationRequired(boolean paramBoolean);
   
   abstract VehicleView setIsInspecting(boolean paramBoolean);
+  
+  public abstract VehicleView setIsSchedulable(boolean paramBoolean);
   
   public abstract VehicleView setLinkedVehicleViewId(String paramString);
   
@@ -260,6 +276,8 @@ public abstract class VehicleView
   
   public abstract VehicleView setNoneAvailableString(String paramString);
   
+  public abstract VehicleView setOverCapacityTagline(String paramString);
+  
   public abstract VehicleView setParentId(String paramString);
   
   abstract VehicleView setPermittedPaymentMethodsError(String paramString);
@@ -270,15 +288,25 @@ public abstract class VehicleView
   
   public abstract VehicleView setPoolDispatchingTipMessage(String paramString);
   
+  public abstract VehicleView setPoolDispatchingTipTitle(String paramString);
+  
+  public abstract VehicleView setPredictedEta(Integer paramInteger);
+  
   public abstract VehicleView setProductGroupUuid(String paramString);
+  
+  public abstract VehicleView setPromoTagline(String paramString);
   
   public abstract VehicleView setRequestPickupButtonString(String paramString);
   
   abstract VehicleView setRidePoolOption(String paramString);
   
+  public abstract VehicleView setScheduleTimeWindowMS(Integer paramInteger);
+  
   public abstract VehicleView setSetPickupLocationString(String paramString);
   
   public abstract VehicleView setSharingTagline(String paramString);
+  
+  public abstract VehicleView setShouldFetchUpfrontFare(boolean paramBoolean);
   
   public abstract VehicleView setSuppressSurgeUI(boolean paramBoolean);
   

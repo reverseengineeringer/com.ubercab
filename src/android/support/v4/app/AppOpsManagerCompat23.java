@@ -3,7 +3,7 @@ package android.support.v4.app;
 import android.app.AppOpsManager;
 import android.content.Context;
 
-public class AppOpsManagerCompat23
+class AppOpsManagerCompat23
 {
   public static int noteOp(Context paramContext, String paramString1, int paramInt, String paramString2)
   {

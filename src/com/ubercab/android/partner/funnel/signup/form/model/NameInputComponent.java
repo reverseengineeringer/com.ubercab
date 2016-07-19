@@ -1,7 +1,7 @@
 package com.ubercab.android.partner.funnel.signup.form.model;
 
 import android.os.Parcelable;
-import bpj;
+import bmd;
 import com.ubercab.form.model.FieldComponent;
 import com.ubercab.shape.Shape;
 import java.util.List;
@@ -29,10 +29,10 @@ public abstract class NameInputComponent
     {
       if (getOptions() != null)
       {
-        bpj localbpj = (bpj)getOptions().get("use_cjk_name_input");
-        if (localbpj != null)
+        bmd localbmd = (bmd)getOptions().get("use_cjk_name_input");
+        if (localbmd != null)
         {
-          mUseCjkNameInput = Boolean.valueOf(localbpj.f());
+          mUseCjkNameInput = Boolean.valueOf(localbmd.f());
           return mUseCjkNameInput;
         }
       }

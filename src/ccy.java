@@ -1,25 +1,8 @@
-import com.paypal.android.sdk.payments.PaymentConfirmActivity;
+import android.os.Parcelable.Creator;
 
 public final class ccy
-  implements ccj
-{
-  public ccy(PaymentConfirmActivity paramPaymentConfirmActivity) {}
-  
-  public final void a()
-  {
-    PaymentConfirmActivity.a();
-    PaymentConfirmActivity.l(a);
-  }
-  
-  public final void a(cck paramcck)
-  {
-    PaymentConfirmActivity.f(a);
-    cfa.a(a, bxl.a(b), 1);
-    if (PaymentConfirmActivity.g(a) != cek.a) {
-      PaymentConfirmActivity.i(a).b(true);
-    }
-  }
-}
+  implements Parcelable.Creator
+{}
 
 /* Location:
  * Qualified Name:     ccy

@@ -1,63 +1,66 @@
 package com.ubercab.client.feature.verification;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
-import com.ubercab.client.core.model.RiderAccount;
+import com.ubercab.client.feature.signup.PhoneNumber;
 import com.ubercab.locale.phone.PhoneNumberView;
 import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.ui.TextView;
-import dpf;
-import dps;
-import dsh;
-import dty;
-import dux;
-import ebj;
-import efr;
-import ego;
-import eju;
-import ens;
-import eqg;
-import hyg;
-import hyh;
-import hyv;
-import hzf;
-import hzt;
-import ife;
-import ijb;
+import dua;
+import duq;
+import dxm;
+import dzn;
+import eaj;
+import eib;
+import enk;
+import eoz;
+import erp;
+import evr;
+import eyh;
+import ezh;
 import java.util.List;
-import jsg;
-import jzz;
-import kaq;
-import p;
-import r;
+import kah;
+import kai;
+import kax;
+import kbd;
+import kbj;
+import kia;
+import kna;
+import mxm;
+import ngq;
+import nhh;
+import x;
+import z;
 
 public class MobileVerificationChangeNumberFragment
-  extends dsh<hyv>
+  extends dxm<kax>
 {
-  private static final ijb<jzz> j = new ijb(new jzz(2131166315));
-  public ego c;
-  public ckc d;
-  public chh e;
-  public jsg f;
-  public ife g;
-  public dty h;
-  public ens i;
-  @InjectView(2131626088)
-  PhoneNumberView mPhoneNumberView;
-  @InjectView(2131626089)
-  TextView mTextViewNotice;
+  private static final kna<ngq> k = new kna(new ngq(2131166495));
+  public eoz c;
+  public ckt d;
+  public chn e;
+  public mxm f;
+  public kia g;
+  public dzn h;
+  public evr i;
+  public kbd j;
+  private final Handler l = new Handler();
+  @BindView
+  public PhoneNumberView mPhoneNumberView;
+  @BindView
+  public TextView mTextViewNotice;
   
   public static MobileVerificationChangeNumberFragment a(String paramString1, String paramString2)
   {
@@ -71,97 +74,112 @@ public class MobileVerificationChangeNumberFragment
   
   private void a()
   {
-    dpf.a(getActivity(), 2131167164);
+    dua.a(getActivity(), 2131167537);
   }
   
-  private void a(hyv paramhyv)
+  private void a(kax paramkax)
   {
-    paramhyv.a(this);
+    paramkax.a(this);
   }
   
-  private hyv b(ebj paramebj)
+  private boolean a(String paramString)
   {
-    return hyg.a().a(new efr(this)).a(paramebj).a();
+    if (!g.c(eaj.aH)) {}
+    Object localObject;
+    do
+    {
+      do
+      {
+        return false;
+        localObject = j.l();
+      } while (localObject == null);
+      localObject = ezh.c(((PhoneNumber)localObject).a(), ((PhoneNumber)localObject).b());
+    } while ((localObject == null) || (!((String)localObject).equals(paramString)));
+    return true;
   }
   
-  public final ckr f()
+  private kax b(eib parameib)
   {
-    return p.po;
+    return kah.a().a(new enk(this)).a(parameib).a();
   }
   
-  @OnClick({2131626090})
+  public final cli e()
+  {
+    return x.tT;
+  }
+  
+  @OnClick
   public void onClickButtonContinue()
   {
-    Object localObject1 = new kaq();
-    ((kaq)localObject1).a(mPhoneNumberView, j);
-    if (!((kaq)localObject1).a().isEmpty()) {
+    d.a(z.rO);
+    Object localObject1 = new nhh();
+    ((nhh)localObject1).a(mPhoneNumberView, k);
+    if (!((nhh)localObject1).a().isEmpty()) {
       return;
     }
-    b(getString(2131166015));
-    if (g.b(dux.aP)) {
-      i.a("com.uber.SMS_RECEIVER", hzf.a);
+    a_(getString(2131167550));
+    if (g.c(eaj.bb)) {
+      i.a("com.uber.SMS_RECEIVER", kbj.a);
+    }
+    Object localObject2 = f.c();
+    if (localObject2 == null)
+    {
+      M_();
+      a();
+      return;
     }
     localObject1 = mPhoneNumberView.h();
     String str1 = mPhoneNumberView.d();
-    Object localObject2 = f.c();
-    if (localObject2 != null)
+    if (a(ezh.c((String)localObject1, str1)))
     {
-      String str2 = h.y();
-      String str3 = ((Client)localObject2).getFirstName();
-      String str4 = ((Client)localObject2).getLastName();
-      localObject2 = ((Client)localObject2).getEmail();
-      c.a(str2, str3, str4, (String)localObject2, str1, (String)localObject1);
-    }
-    for (;;)
-    {
-      d.a(r.ob);
+      M_();
+      mPhoneNumberView.a(new ngq(2131167586));
       return;
-      e();
-      a();
     }
+    String str2 = h.N();
+    String str3 = ((Client)localObject2).getFirstName();
+    String str4 = ((Client)localObject2).getLastName();
+    localObject2 = ((Client)localObject2).getEmail();
+    c.a(str2, str3, str4, (String)localObject2, str1, (String)localObject1);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903735, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903973, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public void onPause()
   {
     super.onPause();
-    dps.b(getActivity(), mPhoneNumberView);
+    duq.b(getActivity(), mPhoneNumberView);
   }
   
   public void onResume()
   {
     super.onResume();
-    d().b().a(getString(2131167211));
-    dps.a(getActivity(), mPhoneNumberView);
+    M_();
+    b().b().a(getString(2131167590));
+    duq.a(getActivity(), mPhoneNumberView);
   }
   
-  @cho
-  public void onUpdateAccountResponseEvent(eju parameju)
+  @chu
+  public void onUpdateAccountResponseEvent(erp paramerp)
   {
-    e();
-    if (parameju.i())
+    M_();
+    if (paramerp.i())
     {
-      e.c(new hzt(((RiderAccount)parameju.g()).getCurrentMobile(), ((RiderAccount)parameju.g()).getMobileCountryIso2()));
+      a_(getString(2131166857));
+      l.postDelayed(new MobileVerificationChangeNumberFragment.1(this, paramerp), 1000L);
       return;
     }
-    if (parameju.k())
+    if (paramerp.k())
     {
-      if (parameju.n() >= 500) {}
-      for (parameju = getString(2131167164);; parameju = getString(2131165794))
+      if (paramerp.n() >= 500) {}
+      for (paramerp = getString(2131167537);; paramerp = getString(2131165864))
       {
-        eqg.a(d(), p.fr, 0, null, parameju, getString(2131166126));
+        eyh.a(b(), x.hA, 0, null, paramerp, getString(2131166260));
         return;
       }
     }
@@ -178,7 +196,7 @@ public class MobileVerificationChangeNumberFragment
       paramBundle = paramBundle.getString("arg_mobile_country");
       mPhoneNumberView.a(paramView, paramBundle, true);
       if (TextUtils.isEmpty(paramView)) {
-        mTextViewNotice.setText(2131167209);
+        mTextViewNotice.setText(2131167588);
       }
     }
   }

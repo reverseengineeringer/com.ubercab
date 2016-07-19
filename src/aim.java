@@ -1,136 +1,27 @@
-import android.os.IBinder;
-import android.os.Parcel;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.Future;
 
-final class aim
-  implements aik
+@aih
+public abstract class aim
 {
-  private IBinder a;
-  
-  aim(IBinder paramIBinder)
+  private final Runnable a = new Runnable()
   {
-    a = paramIBinder;
-  }
+    public final void run()
+    {
+      aim.a(aim.this, Thread.currentThread());
+      a();
+    }
+  };
+  private volatile Thread b;
+  private boolean c = false;
   
-  public final String a(String paramString)
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
-      localParcel1.writeString(paramString);
-      a.transact(1, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      paramString = localParcel2.readString();
-      return paramString;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
+  public abstract void a();
   
-  public final List<String> a()
+  public final Future b()
   {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
-      a.transact(3, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      ArrayList localArrayList = localParcel2.createStringArrayList();
-      return localArrayList;
+    if (c) {
+      return aip.a(1, a);
     }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final IBinder asBinder()
-  {
-    return a;
-  }
-  
-  public final ahs b(String paramString)
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
-      localParcel1.writeString(paramString);
-      a.transact(2, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      paramString = aht.a(localParcel2.readStrongBinder());
-      return paramString;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final void b()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
-      a.transact(6, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final void c(String paramString)
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
-      localParcel1.writeString(paramString);
-      a.transact(5, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final String k()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
-      a.transact(4, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      String str = localParcel2.readString();
-      return str;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
+    return aip.a(a);
   }
 }
 

@@ -1,199 +1,135 @@
-public final class avu
-  extends axq
+import android.os.IBinder;
+
+final class avu
+  implements avs
 {
-  private static volatile avu[] e;
-  public Integer a;
-  public avz b;
-  public avz c;
-  public Boolean d;
+  private IBinder a;
   
-  public avu()
+  avu(IBinder paramIBinder)
   {
-    e();
+    a = paramIBinder;
   }
   
-  private avu b(axh paramaxh)
+  /* Error */
+  public final void a(acp paramacp)
   {
-    for (;;)
-    {
-      int i = paramaxh.a();
-      switch (i)
-      {
-      default: 
-        if (axt.a(paramaxh, i)) {}
-        break;
-      case 0: 
-        return this;
-      case 8: 
-        a = Integer.valueOf(paramaxh.e());
-        break;
-      case 18: 
-        if (b == null) {
-          b = new avz();
-        }
-        paramaxh.a(b);
-        break;
-      case 26: 
-        if (c == null) {
-          c = new avz();
-        }
-        paramaxh.a(c);
-        break;
-      case 32: 
-        d = Boolean.valueOf(paramaxh.f());
-      }
-    }
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +42 -> 57
+    //   18: aload_1
+    //   19: invokeinterface 35 1 0
+    //   24: astore_1
+    //   25: aload_2
+    //   26: aload_1
+    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
+    //   30: aload_0
+    //   31: getfield 15	avu:a	Landroid/os/IBinder;
+    //   34: iconst_2
+    //   35: aload_2
+    //   36: aload_3
+    //   37: iconst_0
+    //   38: invokeinterface 44 5 0
+    //   43: pop
+    //   44: aload_3
+    //   45: invokevirtual 47	android/os/Parcel:readException	()V
+    //   48: aload_3
+    //   49: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   52: aload_2
+    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   56: return
+    //   57: aconst_null
+    //   58: astore_1
+    //   59: goto -34 -> 25
+    //   62: astore_1
+    //   63: aload_3
+    //   64: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   67: aload_2
+    //   68: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   71: aload_1
+    //   72: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	73	0	this	avu
+    //   0	73	1	paramacp	acp
+    //   3	65	2	localParcel1	android.os.Parcel
+    //   7	57	3	localParcel2	android.os.Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	62	finally
+    //   18	25	62	finally
+    //   25	48	62	finally
   }
   
-  private avu e()
+  /* Error */
+  public final void a(android.graphics.Bitmap paramBitmap)
   {
-    a = null;
-    b = null;
-    c = null;
-    d = null;
-    S = -1;
-    return this;
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +41 -> 56
+    //   18: aload_2
+    //   19: iconst_1
+    //   20: invokevirtual 55	android/os/Parcel:writeInt	(I)V
+    //   23: aload_1
+    //   24: aload_2
+    //   25: iconst_0
+    //   26: invokevirtual 61	android/graphics/Bitmap:writeToParcel	(Landroid/os/Parcel;I)V
+    //   29: aload_0
+    //   30: getfield 15	avu:a	Landroid/os/IBinder;
+    //   33: iconst_1
+    //   34: aload_2
+    //   35: aload_3
+    //   36: iconst_0
+    //   37: invokeinterface 44 5 0
+    //   42: pop
+    //   43: aload_3
+    //   44: invokevirtual 47	android/os/Parcel:readException	()V
+    //   47: aload_3
+    //   48: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   51: aload_2
+    //   52: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   55: return
+    //   56: aload_2
+    //   57: iconst_0
+    //   58: invokevirtual 55	android/os/Parcel:writeInt	(I)V
+    //   61: goto -32 -> 29
+    //   64: astore_1
+    //   65: aload_3
+    //   66: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   69: aload_2
+    //   70: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   73: aload_1
+    //   74: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	75	0	this	avu
+    //   0	75	1	paramBitmap	android.graphics.Bitmap
+    //   3	67	2	localParcel1	android.os.Parcel
+    //   7	59	3	localParcel2	android.os.Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	64	finally
+    //   18	29	64	finally
+    //   29	47	64	finally
+    //   56	61	64	finally
   }
   
-  public static avu[] m_()
+  public final IBinder asBinder()
   {
-    if (e == null) {}
-    synchronized (axo.a)
-    {
-      if (e == null) {
-        e = new avu[0];
-      }
-      return e;
-    }
-  }
-  
-  protected final int a()
-  {
-    int j = super.a();
-    int i = j;
-    if (a != null) {
-      i = j + axi.b(1, a.intValue());
-    }
-    j = i;
-    if (b != null) {
-      j = i + axi.c(2, b);
-    }
-    i = j;
-    if (c != null) {
-      i = j + axi.c(3, c);
-    }
-    j = i;
-    if (d != null)
-    {
-      d.booleanValue();
-      j = i + axi.b(4);
-    }
-    return j;
-  }
-  
-  public final void a(axi paramaxi)
-  {
-    if (a != null) {
-      paramaxi.a(1, a.intValue());
-    }
-    if (b != null) {
-      paramaxi.a(2, b);
-    }
-    if (c != null) {
-      paramaxi.a(3, c);
-    }
-    if (d != null) {
-      paramaxi.a(4, d.booleanValue());
-    }
-    super.a(paramaxi);
-  }
-  
-  public final boolean equals(Object paramObject)
-  {
-    if (paramObject == this) {}
-    do
-    {
-      do
-      {
-        return true;
-        if (!(paramObject instanceof avu)) {
-          return false;
-        }
-        paramObject = (avu)paramObject;
-        if (a == null)
-        {
-          if (a != null) {
-            return false;
-          }
-        }
-        else if (!a.equals(a)) {
-          return false;
-        }
-        if (b == null)
-        {
-          if (b != null) {
-            return false;
-          }
-        }
-        else if (!b.equals(b)) {
-          return false;
-        }
-        if (c == null)
-        {
-          if (c != null) {
-            return false;
-          }
-        }
-        else if (!c.equals(c)) {
-          return false;
-        }
-        if (d != null) {
-          break;
-        }
-      } while (d == null);
-      return false;
-    } while (d.equals(d));
-    return false;
-  }
-  
-  public final int hashCode()
-  {
-    int m = 0;
-    int n = getClass().getName().hashCode();
-    int i;
-    int j;
-    label33:
-    int k;
-    if (a == null)
-    {
-      i = 0;
-      if (b != null) {
-        break label88;
-      }
-      j = 0;
-      if (c != null) {
-        break label99;
-      }
-      k = 0;
-      label42:
-      if (d != null) {
-        break label110;
-      }
-    }
-    for (;;)
-    {
-      return (k + (j + (i + (n + 527) * 31) * 31) * 31) * 31 + m;
-      i = a.hashCode();
-      break;
-      label88:
-      j = b.hashCode();
-      break label33;
-      label99:
-      k = c.hashCode();
-      break label42;
-      label110:
-      m = d.hashCode();
-    }
+    return a;
   }
 }
 

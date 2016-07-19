@@ -4,6 +4,8 @@ import android.view.LayoutInflater;
 
 abstract interface LayoutInflaterCompat$LayoutInflaterCompatImpl
 {
+  public abstract LayoutInflaterFactory getFactory(LayoutInflater paramLayoutInflater);
+  
   public abstract void setFactory(LayoutInflater paramLayoutInflater, LayoutInflaterFactory paramLayoutInflaterFactory);
 }
 

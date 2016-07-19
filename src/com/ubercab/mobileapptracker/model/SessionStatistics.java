@@ -1,6 +1,8 @@
 package com.ubercab.mobileapptracker.model;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -9,6 +11,7 @@ import android.content.res.Resources;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.text.TextUtils;
@@ -16,47 +19,49 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import com.ubercab.shape.Shape;
-import dpy;
-import iji;
-import ijj;
-import ijs;
+import duw;
 import java.io.File;
 import java.util.Date;
 import java.util.Locale;
+import kco;
+import knp;
+import knq;
+import koa;
 
 @Shape
 public abstract class SessionStatistics
 {
-  public static SessionStatistics create(Context paramContext, ijj paramijj, PlatformAdvertisingId paramPlatformAdvertisingId, ijs paramijs, String paramString1, iji paramiji, String paramString2)
+  public static SessionStatistics create(Activity paramActivity, knq paramknq, PlatformAdvertisingId paramPlatformAdvertisingId, koa paramkoa, String paramString1, knp paramknp, String paramString2)
   {
-    paramijs = paramContext.getPackageManager();
-    String str = paramContext.getPackageName();
+    paramkoa = paramActivity.getPackageManager();
+    String str = paramActivity.getPackageName();
     if (TextUtils.isEmpty(str)) {
       throw new NullPointerException("Package name is missing");
     }
     Shape_SessionStatistics localShape_SessionStatistics = new Shape_SessionStatistics();
     localShape_SessionStatistics.setDeviceBrand(Build.MANUFACTURER);
     localShape_SessionStatistics.setDeviceModel(Build.MODEL);
-    localShape_SessionStatistics.setInstallDate(getInstallDateSeconds(paramijs, str));
+    localShape_SessionStatistics.setInstallDate(getInstallDateSeconds(paramkoa, str));
     localShape_SessionStatistics.setOsVersion(Build.VERSION.RELEASE);
     localShape_SessionStatistics.setDeviceCpuType(System.getProperty("os.arch"));
-    setAppName(paramijs, str, localShape_SessionStatistics);
-    setTelephonyStatistics(paramContext, localShape_SessionStatistics);
-    setScreenLayout(localShape_SessionStatistics, paramContext);
-    setConnectivityType(localShape_SessionStatistics, paramContext);
+    setAppName(paramkoa, str, localShape_SessionStatistics);
+    setReferral(paramActivity, localShape_SessionStatistics);
+    setTelephonyStatistics(paramActivity, localShape_SessionStatistics);
+    setScreenLayout(localShape_SessionStatistics, paramActivity);
+    setConnectivityType(localShape_SessionStatistics, paramActivity);
     setLanguage(localShape_SessionStatistics);
-    setAppVersionName(localShape_SessionStatistics, paramijs, str);
-    setInstallerPackageName(paramijs, str, localShape_SessionStatistics);
-    paramijs = paramString2;
+    setAppVersionName(localShape_SessionStatistics, paramkoa, str);
+    setInstallerPackageName(paramkoa, str, localShape_SessionStatistics);
+    paramkoa = paramString2;
     if (TextUtils.isEmpty(paramString2)) {
-      paramijs = str;
+      paramkoa = str;
     }
-    localShape_SessionStatistics.setPackageName(paramijs);
-    localShape_SessionStatistics.setInstallationId(paramijj.d());
+    localShape_SessionStatistics.setPackageName(paramkoa);
+    localShape_SessionStatistics.setInstallationId(paramknq.d());
     localShape_SessionStatistics.setInstallReferrer(paramString1);
     localShape_SessionStatistics.setPlatformAdvertisingId(paramPlatformAdvertisingId);
-    localShape_SessionStatistics.setUserAgent(ijs.a(paramContext, paramiji));
-    localShape_SessionStatistics.updateLogIds(paramijj);
+    localShape_SessionStatistics.setUserAgent(koa.a(paramActivity, paramknp));
+    localShape_SessionStatistics.updateLogIds(paramknq);
     return localShape_SessionStatistics;
   }
   
@@ -67,7 +72,7 @@ public abstract class SessionStatistics
       long l = new Date(new File(getApplicationInfo0sourceDir).lastModified()).getTime() / 1000L;
       return String.valueOf(l);
     }
-    catch (Exception paramPackageManager) {}
+    catch (Throwable paramPackageManager) {}
     return null;
   }
   
@@ -103,10 +108,13 @@ public abstract class SessionStatistics
   {
     try
     {
-      paramSessionStatistics.setIsWifiConnection(Boolean.valueOf(((ConnectivityManager)paramContext.getSystemService("connectivity")).getNetworkInfo(1).isConnected()));
+      paramContext = ((ConnectivityManager)kco.a((ConnectivityManager)paramContext.getSystemService("connectivity"))).getNetworkInfo(1);
+      if (paramContext != null) {
+        paramSessionStatistics.setIsWifiConnection(Boolean.valueOf(paramContext.isConnected()));
+      }
       return;
     }
-    catch (Exception paramSessionStatistics) {}
+    catch (Throwable paramSessionStatistics) {}
   }
   
   private static void setInstallerPackageName(PackageManager paramPackageManager, String paramString, SessionStatistics paramSessionStatistics)
@@ -116,7 +124,7 @@ public abstract class SessionStatistics
       paramSessionStatistics.setInstallerPackageName(paramPackageManager.getInstallerPackageName(paramString));
       return;
     }
-    catch (Exception paramPackageManager) {}
+    catch (Throwable paramPackageManager) {}
   }
   
   private static void setLanguage(SessionStatistics paramSessionStatistics)
@@ -126,41 +134,48 @@ public abstract class SessionStatistics
     }
   }
   
+  static void setReferral(Activity paramActivity, SessionStatistics paramSessionStatistics)
+  {
+    if (paramActivity.getCallingPackage() != null) {
+      paramSessionStatistics.setReferralSource(paramActivity.getCallingPackage());
+    }
+    if (paramActivity.getIntent() != null)
+    {
+      paramActivity = paramActivity.getIntent().getData();
+      if (paramActivity != null) {
+        paramSessionStatistics.setReferralUrl(paramActivity.toString());
+      }
+    }
+  }
+  
   private static void setScreenLayout(SessionStatistics paramSessionStatistics, Context paramContext)
   {
     try
     {
       paramSessionStatistics.setScreenDensity(Float.toString(getResourcesgetDisplayMetricsdensity));
-      paramContext = ((WindowManager)paramContext.getSystemService("window")).getDefaultDisplay();
+      paramContext = ((WindowManager)kco.a((WindowManager)paramContext.getSystemService("window"))).getDefaultDisplay();
       Point localPoint = new Point();
-      int i;
-      int j;
       if (Build.VERSION.SDK_INT >= 17)
       {
         paramContext.getRealSize(localPoint);
         i = x;
-        j = y;
-      }
-      for (;;)
-      {
-        paramSessionStatistics.setScreenWidth(Integer.toString(i));
-        paramSessionStatistics.setScreenHeight(Integer.toString(j));
+        i = y;
         return;
-        if (Build.VERSION.SDK_INT >= 13)
-        {
-          paramContext.getSize(localPoint);
-          i = x;
-          j = y;
-        }
-        else
-        {
-          i = paramContext.getWidth();
-          j = paramContext.getHeight();
-        }
       }
+      if (Build.VERSION.SDK_INT >= 13)
+      {
+        paramContext.getSize(localPoint);
+        i = x;
+        i = y;
+        return;
+      }
+      int i = paramContext.getWidth();
+      int j = paramContext.getHeight();
+      paramSessionStatistics.setScreenWidth(Integer.toString(i));
+      paramSessionStatistics.setScreenHeight(Integer.toString(j));
       return;
     }
-    catch (Exception paramSessionStatistics) {}
+    catch (Throwable paramSessionStatistics) {}
   }
   
   private static void setTelephonyStatistics(Context paramContext, SessionStatistics paramSessionStatistics)
@@ -168,7 +183,7 @@ public abstract class SessionStatistics
     try
     {
       paramSessionStatistics.setCountryCode(Locale.getDefault().getCountry());
-      paramContext = dpy.a(paramContext);
+      paramContext = duw.a(paramContext);
       if (paramContext.d() != null) {
         paramSessionStatistics.setCountryCode(paramContext.d());
       }
@@ -183,7 +198,7 @@ public abstract class SessionStatistics
       }
       return;
     }
-    catch (Exception paramContext) {}
+    catch (Throwable paramContext) {}
   }
   
   public abstract String getAppName();
@@ -227,6 +242,10 @@ public abstract class SessionStatistics
   public abstract String getPackageName();
   
   public abstract PlatformAdvertisingId getPlatformAdvertisingId();
+  
+  public abstract String getReferralSource();
+  
+  public abstract String getReferralUrl();
   
   public abstract String getScreenDensity();
   
@@ -278,6 +297,10 @@ public abstract class SessionStatistics
   
   abstract void setPlatformAdvertisingId(PlatformAdvertisingId paramPlatformAdvertisingId);
   
+  abstract void setReferralSource(String paramString);
+  
+  abstract void setReferralUrl(String paramString);
+  
   abstract void setScreenDensity(String paramString);
   
   abstract void setScreenHeight(String paramString);
@@ -286,10 +309,10 @@ public abstract class SessionStatistics
   
   abstract void setUserAgent(String paramString);
   
-  public void updateLogIds(ijj paramijj)
+  public void updateLogIds(knq paramknq)
   {
-    setFirstOpenLogId(paramijj.c());
-    setLastOpenLogId(paramijj.b());
+    setFirstOpenLogId(paramknq.c());
+    setLastOpenLogId(paramknq.b());
   }
 }
 

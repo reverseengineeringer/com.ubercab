@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Bounce.H2" android:layout_gravity="center_horizontal" android:id="@id/ub__bounce_action_header" android:paddingTop="@dimen/ub__bounce_action_sheet_spacing_2x" android:paddingBottom="@dimen/ub__bounce_action_sheet_spacing_4x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bounce_action_title" />
+    <com.ubercab.ui.collection.RecyclerView android:layout_gravity="center_horizontal" android:id="@id/ub__bounce_action_contacts_list" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Bounce.Footer" android:layout_gravity="center_horizontal" android:id="@id/ub__bounce_action_footer" android:paddingTop="@dimen/ub__bounce_action_sheet_spacing_3x" android:paddingBottom="@dimen/ub__bounce_action_sheet_spacing_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bounce_action_footer" />
+</merge>

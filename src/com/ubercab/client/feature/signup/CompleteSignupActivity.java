@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.android.location.UberLatLng;
 import com.ubercab.client.core.app.RiderActivity;
@@ -16,53 +16,55 @@ import com.ubercab.client.core.model.ClientSignupResponse;
 import com.ubercab.client.feature.signup.event.SignupPendingEvent;
 import com.ubercab.payment.model.CollectedData;
 import com.ubercab.rider.realtime.request.param.Location;
-import dtx;
-import dty;
-import dux;
-import eav;
-import ebj;
-import ehq;
-import eih;
-import ekx;
-import ela;
-import end;
-import eqg;
-import gwr;
-import gws;
-import gwu;
-import gwv;
-import hza;
-import iae;
-import ife;
-import ipj;
+import dzm;
+import dzn;
+import eaj;
+import ehn;
+import eib;
+import eqc;
+import eqt;
+import esp;
+import est;
+import eut;
+import eyh;
+import ifd;
+import ihz;
+import iia;
+import iic;
+import iid;
 import java.util.ArrayList;
 import java.util.Scanner;
-import joi;
-import kld;
-import klo;
-import kls;
-import p;
+import kbd;
+import kco;
+import kia;
+import lgo;
+import mmg;
+import odr;
+import oed;
+import oeh;
 import retrofit.client.Response;
 import retrofit.mime.TypedInput;
+import x;
 
 public class CompleteSignupActivity
-  extends RiderActivity<gws>
+  extends RiderActivity<iia>
 {
-  public ckc g;
-  public ekx h;
-  public chh i;
-  public ife j;
-  public joi<Location> k;
-  public hza l;
-  public ela m;
-  public end n;
-  public dtx o;
-  public dty p;
-  public ehq q;
-  private ArrayList<Integer> r;
-  private CollectedData s;
-  private SignupData t;
-  private klo u;
+  public ckt g;
+  public esp h;
+  public chn i;
+  public kia j;
+  public mmg<Location> k;
+  public kbd l;
+  public est m;
+  public eut n;
+  public dzm o;
+  public dzn p;
+  public ifd q;
+  public eqc r;
+  private ArrayList<Integer> s;
+  private CollectedData t;
+  private SignupData u;
+  private oed v;
   
   public static Intent a(Context paramContext, SignupData paramSignupData)
   {
@@ -71,59 +73,59 @@ public class CompleteSignupActivity
     return paramContext;
   }
   
-  private void a(eih parameih)
+  private void a(eqt parameqt)
   {
     Intent localIntent = new Intent();
-    localIntent.putExtra("http_status", parameih.n());
-    localIntent.putExtra("http_body", b(parameih));
+    localIntent.putExtra("http_status", parameqt.n());
+    localIntent.putExtra("http_body", b(parameqt));
     setResult(5002, localIntent);
     finish();
   }
   
-  private void a(gws paramgws)
+  private void a(iia paramiia)
   {
-    paramgws.a(this);
+    paramiia.a(this);
   }
   
-  private gws b(ebj paramebj)
+  private iia b(eib parameib)
   {
-    return gwu.a().a(new eav(this)).a(paramebj).a();
+    return iic.a().a(new ehn(this)).a(parameib).a();
   }
   
-  private static String b(eih parameih)
+  private static String b(eqt parameqt)
   {
-    Response localResponse = parameih.h();
+    Response localResponse = parameqt.h();
     if (localResponse != null) {}
     try
     {
-      parameih = new Scanner(localResponse.getBody().in()).next();
-      return parameih;
+      parameqt = new Scanner(localResponse.getBody().in()).next();
+      return parameqt;
     }
-    catch (Exception parameih) {}
-    return parameih.c();
+    catch (Exception parameqt) {}
+    return parameqt.c();
     return null;
   }
   
-  private void c(eih parameih)
+  private void c(eqt parameqt)
   {
-    if (parameih.c() != null) {}
-    for (String str = parameih.c();; str = getString(2131166493))
+    if (parameqt.c() != null) {}
+    for (String str = parameqt.c();; str = getString(2131166746))
     {
       Bundle localBundle = new Bundle();
-      localBundle.putInt("http_status", parameih.n());
-      localBundle.putString("http_body", b(parameih));
-      eqg.a(this, p.aR, 1, null, str, getString(17039370), localBundle);
-      parameih = AnalyticsEvent.create("impression").setName(p.ml).setValue(parameih.d());
-      g.a(parameih);
+      localBundle.putInt("http_status", parameqt.n());
+      localBundle.putString("http_body", b(parameqt));
+      eyh.a(this, x.bs, 1, null, str, getString(17039370), localBundle);
+      parameqt = AnalyticsEvent.create("impression").setName(x.qm).setValue(parameqt.d());
+      g.a(parameqt);
       return;
     }
   }
   
-  private void d(eih parameih)
+  private void d(eqt parameqt)
   {
-    g.a(AnalyticsEvent.create("impression").setName(p.mI).setValue(parameih.f()));
-    if (TextUtils.isEmpty(parameih.b())) {
-      g.a(p.mU);
+    g.a(AnalyticsEvent.create("impression").setName(x.qL).setValue(parameqt.f()));
+    if (TextUtils.isEmpty(parameqt.b())) {
+      g.a(x.qY);
     }
   }
   
@@ -135,8 +137,8 @@ public class CompleteSignupActivity
     }
     for (localObject = Location.create(((UberLatLng)localObject).a(), ((UberLatLng)localObject).b());; localObject = null)
     {
-      h.a(null, (Location)localObject, k).m();
-      u = m.a().a(kls.a()).c(new gwr(this, (byte)0));
+      h.a(null, (Location)localObject, k).t();
+      v = m.a().a(oeh.a()).c(new ihz(this, (byte)0));
       return;
     }
   }
@@ -144,7 +146,7 @@ public class CompleteSignupActivity
   private void g()
   {
     l.i();
-    p.y(t.q());
+    p.B(u.s());
     f();
   }
   
@@ -160,83 +162,86 @@ public class CompleteSignupActivity
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    s = ipj.j(getIntent());
-    iae.a(s);
-    r = ipj.l(getIntent());
-    if (r == null) {
-      r = new ArrayList();
+    t = lgo.j(getIntent());
+    kco.a(t);
+    s = lgo.l(getIntent());
+    if (s == null) {
+      s = new ArrayList();
     }
-    t = ((SignupData)getIntent().getParcelableExtra("extra_signup_data"));
-    iae.a(t);
+    u = ((SignupData)getIntent().getParcelableExtra("extra_signup_data"));
+    kco.a(u);
   }
   
-  @cho
-  public void onClientSignupResponseEvent(eih parameih)
+  @chu
+  public void onClientSignupResponseEvent(eqt parameqt)
   {
-    if (r.contains(Integer.valueOf(parameih.n())))
+    if (s.contains(Integer.valueOf(parameqt.n())))
     {
-      w();
-      a(parameih);
+      x();
+      a(parameqt);
     }
     do
     {
       return;
-      if (parameih.i()) {
+      if (parameqt.i()) {
         break;
       }
-      w();
-      c(parameih);
-      g.a(AnalyticsEvent.create("impression").setName(p.me).setValue(parameih.f()));
-    } while (!TextUtils.isEmpty(parameih.b()));
-    g.a(p.mT);
+      x();
+      c(parameqt);
+      g.a(AnalyticsEvent.create("impression").setName(x.qf).setValue(parameqt.f()));
+    } while (!TextUtils.isEmpty(parameqt.b()));
+    g.a(x.qX);
     return;
-    if (parameih.a())
+    if (parameqt.a())
     {
-      w();
-      i.c(SignupPendingEvent.b(parameih.b()));
+      x();
+      i.c(SignupPendingEvent.b(parameqt.b()));
       return;
     }
-    Object localObject = (ClientSignupResponse)parameih.g();
-    String str1 = ((ClientSignupResponse)localObject).getUuid();
-    String str2 = ((ClientSignupResponse)localObject).getToken();
-    localObject = ((ClientSignupResponse)localObject).getEmail();
-    if ((str1 == null) || (str2 == null) || (localObject == null))
+    ClientSignupResponse localClientSignupResponse = (ClientSignupResponse)parameqt.g();
+    String str1 = localClientSignupResponse.getUuid();
+    String str2 = localClientSignupResponse.getToken();
+    String str3 = localClientSignupResponse.getEmail();
+    if ((j.c(eaj.iT)) && (j.a(eaj.iU, true))) {
+      q.a(localClientSignupResponse.getGiveGetDescription());
+    }
+    if ((str1 == null) || (str2 == null) || (str3 == null))
     {
-      w();
-      c(parameih);
-      g.a(AnalyticsEvent.create("impression").setName(p.me).setValue(parameih.f()));
+      x();
+      c(parameqt);
+      g.a(AnalyticsEvent.create("impression").setName(x.qf).setValue(parameqt.f()));
       return;
     }
-    if (j.b(dux.aJ)) {
-      p.k(true);
+    if (j.c(eaj.aR)) {
+      p.r(true);
     }
-    d(parameih);
+    d(parameqt);
     g();
   }
   
   protected void onDestroy()
   {
     super.onDestroy();
-    if (u != null) {
-      u.c();
+    if (v != null) {
+      v.af_();
     }
   }
   
   public void onPause()
   {
     super.onPause();
-    w();
+    x();
   }
   
   public void onResume()
   {
     super.onResume();
-    if (!q.a()) {
-      w();
+    if (!r.a()) {
+      x();
     }
-    if (p.u())
+    if (p.J())
     {
-      b(getString(2131166490), null);
+      b(getString(2131166742), null);
       g();
       return;
     }
@@ -245,10 +250,10 @@ public class CompleteSignupActivity
     String str2;
     label87:
     String str3;
-    if (t.h() != null)
+    if (u.h() != null)
     {
-      str1 = t.h().a();
-      localThirdPartyToken = t.m();
+      str1 = u.h().a();
+      localThirdPartyToken = u.o();
       if (localThirdPartyToken == null) {
         break label197;
       }
@@ -267,8 +272,8 @@ public class CompleteSignupActivity
     label209:
     for (long l1 = localThirdPartyToken.b();; l1 = 0L)
     {
-      q.a(t.a(), t.b(), t.c(), t.e(), t.f(), t.d(), str1, t.j(), str2, str3, l1, s.getData());
-      b(getString(2131166492), null);
+      r.a(u.a(), u.b(), u.c(), u.e(), u.f(), u.d(), str1, u.j(), str2, str3, l1, t.getData());
+      b(getString(2131166744), null);
       return;
       str1 = null;
       break;
@@ -279,7 +284,7 @@ public class CompleteSignupActivity
     }
   }
   
-  @cho
+  @chu
   public void onSignupPendingEvent(SignupPendingEvent paramSignupPendingEvent)
   {
     Intent localIntent = new Intent();
@@ -288,9 +293,9 @@ public class CompleteSignupActivity
     finish();
   }
   
-  public final ckr u()
+  public final cli v()
   {
-    return p.aQ;
+    return x.br;
   }
 }
 

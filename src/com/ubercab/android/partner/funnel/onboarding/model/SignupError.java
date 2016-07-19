@@ -2,12 +2,11 @@ package com.ubercab.android.partner.funnel.onboarding.model;
 
 import android.os.Parcelable;
 import com.ubercab.shape.Shape;
-import jvq;
-import jvr;
+import nba;
 
 @Shape
 public abstract class SignupError
-  extends jvq<SignupError>
+  extends nba<SignupError>
   implements Parcelable
 {
   public static SignupError create()
@@ -18,18 +17,6 @@ public abstract class SignupError
   public abstract SignupErrorPayload getData();
   
   public abstract String getMessage();
-  
-  protected Object onGet(jvr<SignupError> paramjvr, Object paramObject)
-  {
-    switch (SignupError.1.$SwitchMap$com$ubercab$android$partner$funnel$onboarding$model$Shape_SignupError$Property[((Shape_SignupError.Property)paramjvr).ordinal()])
-    {
-    }
-    do
-    {
-      return paramObject;
-    } while (paramObject != null);
-    return OnboardingErrorPayload.create();
-  }
   
   abstract void setData(SignupErrorPayload paramSignupErrorPayload);
   

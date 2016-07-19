@@ -1,238 +1,69 @@
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-import android.util.Base64;
-import com.google.android.gms.ads.internal.client.AdRequestParcel;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import android.os.IBinder;
 
-@apl
-public final class akk
+final class akk
+  implements aki
 {
-  private final Map<akl, ako> a = new HashMap();
-  private final LinkedList<akl> b = new LinkedList();
-  private akf c;
+  private IBinder a;
   
-  private static void a(String paramString, akl paramakl)
+  akk(IBinder paramIBinder)
   {
-    if (aqt.a(2)) {
-      aqt.e(String.format(paramString, new Object[] { paramakl }));
-    }
+    a = paramIBinder;
   }
   
-  private static String[] a(String paramString)
+  /* Error */
+  public final void a(com.google.android.gms.common.api.Status paramStatus)
   {
-    try
-    {
-      String[] arrayOfString = paramString.split("\000");
-      int i = 0;
-      for (;;)
-      {
-        paramString = arrayOfString;
-        if (i >= arrayOfString.length) {
-          break;
-        }
-        arrayOfString[i] = new String(Base64.decode(arrayOfString[i], 0), "UTF-8");
-        i += 1;
-      }
-      return paramString;
-    }
-    catch (UnsupportedEncodingException paramString)
-    {
-      paramString = new String[0];
-    }
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: aload_2
+    //   5: ldc 25
+    //   7: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   10: aload_1
+    //   11: ifnull +33 -> 44
+    //   14: aload_2
+    //   15: iconst_1
+    //   16: invokevirtual 33	android/os/Parcel:writeInt	(I)V
+    //   19: aload_1
+    //   20: aload_2
+    //   21: iconst_0
+    //   22: invokevirtual 39	com/google/android/gms/common/api/Status:writeToParcel	(Landroid/os/Parcel;I)V
+    //   25: aload_0
+    //   26: getfield 15	akk:a	Landroid/os/IBinder;
+    //   29: iconst_1
+    //   30: aload_2
+    //   31: aconst_null
+    //   32: iconst_1
+    //   33: invokeinterface 45 5 0
+    //   38: pop
+    //   39: aload_2
+    //   40: invokevirtual 48	android/os/Parcel:recycle	()V
+    //   43: return
+    //   44: aload_2
+    //   45: iconst_0
+    //   46: invokevirtual 33	android/os/Parcel:writeInt	(I)V
+    //   49: goto -24 -> 25
+    //   52: astore_1
+    //   53: aload_2
+    //   54: invokevirtual 48	android/os/Parcel:recycle	()V
+    //   57: aload_1
+    //   58: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	59	0	this	akk
+    //   0	59	1	paramStatus	com.google.android.gms.common.api.Status
+    //   3	51	2	localParcel	android.os.Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   4	10	52	finally
+    //   14	25	52	finally
+    //   25	39	52	finally
+    //   44	49	52	finally
   }
   
-  private void b()
+  public final IBinder asBinder()
   {
-    if (c == null) {
-      return;
-    }
-    SharedPreferences.Editor localEditor = c.b().getSharedPreferences("com.google.android.gms.ads.internal.interstitial.InterstitialAdPool", 0).edit();
-    localEditor.clear();
-    Iterator localIterator = a.entrySet().iterator();
-    while (localIterator.hasNext())
-    {
-      Object localObject = (Map.Entry)localIterator.next();
-      akl localakl = (akl)((Map.Entry)localObject).getKey();
-      if (localakl.b())
-      {
-        localObject = new akr((ako)((Map.Entry)localObject).getValue()).a();
-        localEditor.putString(localakl.toString(), (String)localObject);
-        a("Saved interstitial queue for %s.", localakl);
-      }
-    }
-    localEditor.putString("PoolKeys", e());
-    localEditor.commit();
-  }
-  
-  private void c()
-  {
-    if (c == null) {}
-    for (;;)
-    {
-      return;
-      Object localObject2 = c.b().getSharedPreferences("com.google.android.gms.ads.internal.interstitial.InterstitialAdPool", 0);
-      d();
-      HashMap localHashMap = new HashMap();
-      Iterator localIterator = ((SharedPreferences)localObject2).getAll().entrySet().iterator();
-      label55:
-      Object localObject1;
-      if (localIterator.hasNext()) {
-        localObject1 = (Map.Entry)localIterator.next();
-      }
-      try
-      {
-        if (((String)((Map.Entry)localObject1).getKey()).equals("PoolKeys")) {
-          break label55;
-        }
-        Object localObject3 = new akr((String)((Map.Entry)localObject1).getValue());
-        localObject1 = new akl(a, b, c);
-        if (a.containsKey(localObject1)) {
-          break label55;
-        }
-        localObject3 = new ako(a, b, c);
-        a.put(localObject1, localObject3);
-        localHashMap.put(((akl)localObject1).toString(), localObject1);
-        a("Restored interstitial queue for %s.", (akl)localObject1);
-      }
-      catch (IOException localIOException)
-      {
-        aqt.d("Malformed preferences value for InterstitialAdPool.", localIOException);
-        break label55;
-        String[] arrayOfString = a(((SharedPreferences)localObject2).getString("PoolKeys", ""));
-        int j = arrayOfString.length;
-        int i = 0;
-        while (i < j)
-        {
-          localObject2 = (akl)localHashMap.get(arrayOfString[i]);
-          if (a.containsKey(localObject2)) {
-            b.add(localObject2);
-          }
-          i += 1;
-        }
-      }
-      catch (ClassCastException localClassCastException)
-      {
-        for (;;) {}
-      }
-    }
-  }
-  
-  private void d()
-  {
-    while (b.size() > 0)
-    {
-      akl localakl = (akl)b.remove();
-      ako localako = (ako)a.get(localakl);
-      a("Flushing interstitial queue for %s.", localakl);
-      while (localako.e() > 0) {
-        da.C();
-      }
-      a.remove(localakl);
-    }
-  }
-  
-  private String e()
-  {
-    try
-    {
-      StringBuilder localStringBuilder = new StringBuilder();
-      Iterator localIterator = b.iterator();
-      while (localIterator.hasNext())
-      {
-        localStringBuilder.append(Base64.encodeToString(((akl)localIterator.next()).toString().getBytes("UTF-8"), 0));
-        if (localIterator.hasNext()) {
-          localStringBuilder.append("\000");
-        }
-      }
-      str = localUnsupportedEncodingException.toString();
-    }
-    catch (UnsupportedEncodingException localUnsupportedEncodingException)
-    {
-      return "";
-    }
-    String str;
-    return str;
-  }
-  
-  final akp a(AdRequestParcel paramAdRequestParcel, String paramString)
-  {
-    int i = apuc.b()).a().m;
-    akl localakl = new akl(paramAdRequestParcel, paramString, i);
-    ako localako = (ako)a.get(localakl);
-    if (localako == null)
-    {
-      a("Interstitial pool created at %s.", localakl);
-      paramAdRequestParcel = new ako(paramAdRequestParcel, paramString, i);
-      a.put(localakl, paramAdRequestParcel);
-    }
-    for (;;)
-    {
-      b.remove(localakl);
-      b.add(localakl);
-      localakl.a();
-      while (b.size() > ((Integer)agz.ag.c()).intValue())
-      {
-        paramString = (akl)b.remove();
-        localako = (ako)a.get(paramString);
-        a("Evicting interstitial queue for %s.", paramString);
-        while (localako.e() > 0) {
-          da.C();
-        }
-        a.remove(paramString);
-      }
-      while (paramAdRequestParcel.e() > 0)
-      {
-        paramString = paramAdRequestParcel.d();
-        if ((e) && (tp.i().a() - d > 1000L * ((Integer)agz.ai.c()).intValue()))
-        {
-          a("Expired interstitial at %s.", localakl);
-        }
-        else
-        {
-          a("Pooled interstitial returned at %s.", localakl);
-          return paramString;
-        }
-      }
-      return null;
-      paramAdRequestParcel = localako;
-    }
-  }
-  
-  final void a()
-  {
-    if (c == null) {
-      return;
-    }
-    Iterator localIterator = a.entrySet().iterator();
-    while (localIterator.hasNext())
-    {
-      Object localObject = (Map.Entry)localIterator.next();
-      akl localakl = (akl)((Map.Entry)localObject).getKey();
-      localObject = (ako)((Map.Entry)localObject).getValue();
-      while (((ako)localObject).e() < ((Integer)agz.ah.c()).intValue())
-      {
-        a("Pooling one interstitial for %s.", localakl);
-        ((ako)localObject).a(c);
-      }
-    }
-    b();
-  }
-  
-  final void a(akf paramakf)
-  {
-    if (c == null)
-    {
-      c = paramakf;
-      c();
-    }
+    return a;
   }
 }
 

@@ -1,8 +1,10 @@
-import android.location.Location;
+import android.os.IInterface;
+import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
 public abstract interface ayq
+  extends IInterface
 {
-  public abstract void a(Location paramLocation);
+  public abstract void a(StreetViewPanoramaOrientation paramStreetViewPanoramaOrientation);
 }
 
 /* Location:

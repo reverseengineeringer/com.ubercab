@@ -3,7 +3,7 @@ package com.ubercab.ui.collection.model;
 import android.graphics.drawable.Drawable;
 import android.view.View.OnClickListener;
 import com.ubercab.shape.Shape;
-import jyf;
+import new;
 
 @Shape
 public abstract class ImagePartViewModel
@@ -34,10 +34,7 @@ public abstract class ImagePartViewModel
   
   public abstract float getHeightRatio();
   
-  @Deprecated
-  public abstract int getImageDrawable();
-  
-  public abstract jyf getImageLoader();
+  public abstract new getImageLoader();
   
   public abstract int getImageResource();
   
@@ -68,18 +65,15 @@ public abstract class ImagePartViewModel
   
   abstract ImagePartViewModel setHeightRatio(float paramFloat);
   
-  @Deprecated
-  public abstract ImagePartViewModel setImageDrawable(int paramInt);
-  
-  abstract ImagePartViewModel setImageLoader(jyf paramjyf);
+  abstract ImagePartViewModel setImageLoader(new paramnew);
   
   public abstract ImagePartViewModel setImageResource(int paramInt);
   
   abstract ImagePartViewModel setImageUrl(String paramString);
   
-  public ImagePartViewModel setImageUrl(String paramString, jyf paramjyf)
+  public ImagePartViewModel setImageUrl(String paramString, new paramnew)
   {
-    setImageLoader(paramjyf);
+    setImageLoader(paramnew);
     return setImageUrl(paramString);
   }
   

@@ -4,5 +4,8 @@
     <com.ubercab.client.feature.map.MapViewExtension android:id="@id/ub__trip_view_map_extension" android:layout_width="fill_parent" android:layout_height="fill_parent">
         <com.ubercab.android.map.MapView android:id="@id/ub__trip_mapview_map" android:layout_width="fill_parent" android:layout_height="fill_parent" uber:zoomControls="false" />
     </com.ubercab.client.feature.map.MapViewExtension>
-    <ImageButton android:layout_gravity="bottom|center|right" android:id="@id/ub__trip_button_mylocation" android:background="@drawable/ub__button_mylocation" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__container_margin" android:contentDescription="@string/my_location" />
+    <LinearLayout android:layout_gravity="bottom|center|right" android:orientation="vertical" android:id="@id/ub__trip_mapview_map_tools" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__container_margin">
+        <ImageButton android:id="@id/ub__trip_button_mylocation" android:background="@drawable/ub__button_mylocation" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/my_location" />
+        <ImageButton android:id="@id/ub__trip_button_traffic" android:background="@drawable/ub__button_traffic" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__map_tools_margin" android:contentDescription="@string/realtime_traffic" />
+    </LinearLayout>
 </FrameLayout>

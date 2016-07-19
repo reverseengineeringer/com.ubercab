@@ -1,15 +1,8 @@
-import com.paypal.android.sdk.payments.PaymentConfirmActivity;
+import android.os.Parcelable.Creator;
 
-final class cea
-  implements ccm
-{
-  cea(cdb paramcdb) {}
-  
-  public final void a()
-  {
-    PaymentConfirmActivity.b(a.a);
-  }
-}
+public final class cea
+  implements Parcelable.Creator
+{}
 
 /* Location:
  * Qualified Name:     cea

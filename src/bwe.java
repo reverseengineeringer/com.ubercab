@@ -1,13 +1,8 @@
+import android.os.Parcelable.Creator;
+
 public final class bwe
-  extends Exception
-{
-  private static final long serialVersionUID = 1L;
-  
-  public bwe(String paramString)
-  {
-    super(paramString);
-  }
-}
+  implements Parcelable.Creator
+{}
 
 /* Location:
  * Qualified Name:     bwe

@@ -7,11 +7,6 @@ import com.ubercab.shape.Shape;
 public abstract class Display
   implements Parcelable
 {
-  public static Display create()
-  {
-    return new Shape_Display();
-  }
-  
   public abstract String getCameraInstruction();
   
   public abstract String getCameraTitle();

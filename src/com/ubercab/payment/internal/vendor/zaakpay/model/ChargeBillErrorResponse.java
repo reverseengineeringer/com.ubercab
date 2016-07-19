@@ -10,6 +10,7 @@ public abstract class ChargeBillErrorResponse
 {
   public static final String ERROR_CVV_ENTRY_REQUIRED = "cvv_entry_required";
   public static final String ERROR_WEB_AUTH_REQUIRED = "web_auth_required";
+  public static final String ERROR_WEB_AUTH_REQUIRED_RTAPI_PREFIX = "rtapi.riders.payment_profiles.zaakpay.web_auth_required";
   
   public static ChargeBillErrorResponse create()
   {

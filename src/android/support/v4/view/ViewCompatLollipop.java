@@ -2,12 +2,18 @@ package android.support.v4.view;
 
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff.Mode;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.os.Build.VERSION;
 import android.view.View;
 import android.view.View.OnApplyWindowInsetsListener;
+import android.view.ViewParent;
 import android.view.WindowInsets;
 
 class ViewCompatLollipop
 {
+  private static ThreadLocal<Rect> sThreadLocalRect;
+  
   public static WindowInsetsCompat dispatchApplyWindowInsets(View paramView, WindowInsetsCompat paramWindowInsetsCompat)
   {
     Object localObject = paramWindowInsetsCompat;
@@ -58,6 +64,22 @@ class ViewCompatLollipop
     return paramView.getElevation();
   }
   
+  private static Rect getEmptyTempRect()
+  {
+    if (sThreadLocalRect == null) {
+      sThreadLocalRect = new ThreadLocal();
+    }
+    Rect localRect2 = (Rect)sThreadLocalRect.get();
+    Rect localRect1 = localRect2;
+    if (localRect2 == null)
+    {
+      localRect1 = new Rect();
+      sThreadLocalRect.set(localRect1);
+    }
+    localRect1.setEmpty();
+    return localRect1;
+  }
+  
   public static String getTransitionName(View paramView)
   {
     return paramView.getTransitionName();
@@ -88,6 +110,58 @@ class ViewCompatLollipop
     return paramView.isNestedScrollingEnabled();
   }
   
+  static void offsetLeftAndRight(View paramView, int paramInt)
+  {
+    Rect localRect = getEmptyTempRect();
+    ViewParent localViewParent = paramView.getParent();
+    int i;
+    if ((localViewParent instanceof View))
+    {
+      View localView = (View)localViewParent;
+      localRect.set(localView.getLeft(), localView.getTop(), localView.getRight(), localView.getBottom());
+      if (!localRect.intersects(paramView.getLeft(), paramView.getTop(), paramView.getRight(), paramView.getBottom())) {
+        i = 1;
+      }
+    }
+    for (;;)
+    {
+      ViewCompatHC.offsetLeftAndRight(paramView, paramInt);
+      if ((i != 0) && (localRect.intersect(paramView.getLeft(), paramView.getTop(), paramView.getRight(), paramView.getBottom()))) {
+        ((View)localViewParent).invalidate(localRect);
+      }
+      return;
+      i = 0;
+      continue;
+      i = 0;
+    }
+  }
+  
+  static void offsetTopAndBottom(View paramView, int paramInt)
+  {
+    Rect localRect = getEmptyTempRect();
+    ViewParent localViewParent = paramView.getParent();
+    int i;
+    if ((localViewParent instanceof View))
+    {
+      View localView = (View)localViewParent;
+      localRect.set(localView.getLeft(), localView.getTop(), localView.getRight(), localView.getBottom());
+      if (!localRect.intersects(paramView.getLeft(), paramView.getTop(), paramView.getRight(), paramView.getBottom())) {
+        i = 1;
+      }
+    }
+    for (;;)
+    {
+      ViewCompatHC.offsetTopAndBottom(paramView, paramInt);
+      if ((i != 0) && (localRect.intersect(paramView.getLeft(), paramView.getTop(), paramView.getRight(), paramView.getBottom()))) {
+        ((View)localViewParent).invalidate(localRect);
+      }
+      return;
+      i = 0;
+      continue;
+      i = 0;
+    }
+  }
+  
   public static WindowInsetsCompat onApplyWindowInsets(View paramView, WindowInsetsCompat paramWindowInsetsCompat)
   {
     Object localObject = paramWindowInsetsCompat;
@@ -111,11 +185,49 @@ class ViewCompatLollipop
   static void setBackgroundTintList(View paramView, ColorStateList paramColorStateList)
   {
     paramView.setBackgroundTintList(paramColorStateList);
+    if (Build.VERSION.SDK_INT == 21)
+    {
+      paramColorStateList = paramView.getBackground();
+      if ((paramView.getBackgroundTintList() == null) || (paramView.getBackgroundTintMode() == null)) {
+        break label64;
+      }
+    }
+    label64:
+    for (int i = 1;; i = 0)
+    {
+      if ((paramColorStateList != null) && (i != 0))
+      {
+        if (paramColorStateList.isStateful()) {
+          paramColorStateList.setState(paramView.getDrawableState());
+        }
+        paramView.setBackground(paramColorStateList);
+      }
+      return;
+    }
   }
   
   static void setBackgroundTintMode(View paramView, PorterDuff.Mode paramMode)
   {
     paramView.setBackgroundTintMode(paramMode);
+    if (Build.VERSION.SDK_INT == 21)
+    {
+      paramMode = paramView.getBackground();
+      if ((paramView.getBackgroundTintList() == null) || (paramView.getBackgroundTintMode() == null)) {
+        break label64;
+      }
+    }
+    label64:
+    for (int i = 1;; i = 0)
+    {
+      if ((paramMode != null) && (i != 0))
+      {
+        if (paramMode.isStateful()) {
+          paramMode.setState(paramView.getDrawableState());
+        }
+        paramView.setBackground(paramMode);
+      }
+      return;
+    }
   }
   
   public static void setElevation(View paramView, float paramFloat)
@@ -130,6 +242,11 @@ class ViewCompatLollipop
   
   public static void setOnApplyWindowInsetsListener(View paramView, OnApplyWindowInsetsListener paramOnApplyWindowInsetsListener)
   {
+    if (paramOnApplyWindowInsetsListener == null)
+    {
+      paramView.setOnApplyWindowInsetsListener(null);
+      return;
+    }
     paramView.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener()
     {
       public final WindowInsets onApplyWindowInsets(View paramAnonymousView, WindowInsets paramAnonymousWindowInsets)

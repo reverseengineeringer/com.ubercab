@@ -1,58 +1,80 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
 public class bvd
 {
-  public static final bvd a = new bvd();
-  private static final String b = bvd.class.getSimpleName();
-  private byte[] c = null;
+  private static final String a = bvd.class.getSimpleName();
+  private static final Map b;
+  private static final Set c;
   
-  private bvd()
+  static
   {
-    c = null;
+    Object localObject = new HashMap();
+    b = (Map)localObject;
+    ((Map)localObject).put("c14", "erpg");
+    b.put("c25", "page");
+    b.put("c26", "link");
+    b.put("c27", "pgln");
+    b.put("c29", "eccd");
+    b.put("c35", "lgin");
+    b.put("vers", "vers");
+    b.put("c50", "rsta");
+    b.put("gn", "pgrp");
+    b.put("v49", "mapv");
+    b.put("v51", "mcar");
+    b.put("v52", "mosv");
+    b.put("v53", "mdvs");
+    b.put("clid", "clid");
+    b.put("apid", "apid");
+    b.put("calc", "calc");
+    b.put("e", "e");
+    b.put("t", "t");
+    b.put("g", "g");
+    b.put("srce", "srce");
+    b.put("vid", "vid");
+    b.put("bchn", "bchn");
+    b.put("adte", "adte");
+    b.put("sv", "sv");
+    b.put("dsid", "dsid");
+    b.put("bzsr", "bzsr");
+    b.put("prid", "prid");
+    localObject = new HashSet();
+    c = (Set)localObject;
+    ((Set)localObject).add("v25");
+    c.add("v31");
+    c.add("c37");
   }
   
-  public bvd(String paramString)
+  public static brh a(brh parambrh)
   {
-    for (;;)
+    Map localMap = b;
+    HashMap localHashMap = new HashMap();
+    Iterator localIterator = localMap.keySet().iterator();
+    while (localIterator.hasNext())
     {
-      int j;
-      try
-      {
-        c = new byte[(paramString.length() + 1) / 2];
-        j = paramString.length();
-        i = 0;
-        j -= 1;
-      }
-      catch (Exception paramString)
-      {
-        int i;
-        bvf.a();
-        c = null;
-      }
-      c[i] = ((byte)Integer.parseInt(paramString.substring(k, j + 1), 16));
-      j -= 2;
-      i += 1;
-      while (j < 0) {
-        return;
-      }
-      int m = j - 1;
-      int k = m;
-      if (m < 0) {
-        k = 0;
+      String str1 = (String)localIterator.next();
+      if (!bwy.c(str1)) {
+        if (c.contains(str1))
+        {
+          new StringBuilder("SC key ").append(str1).append(" not used in FPTI, skipping");
+        }
+        else if (!b.containsKey(str1))
+        {
+          new StringBuilder("No mapping for SC key ").append(str1).append(", skipping");
+        }
+        else
+        {
+          String str2 = (String)b.get(str1);
+          if (str2 != null) {
+            localHashMap.put(str2, localMap.get(str1));
+          }
+        }
       }
     }
-  }
-  
-  public final boolean a(bve parambve)
-  {
-    int i = parambve.a() / 8;
-    if ((c == null) || (i > c.length)) {}
-    int j;
-    do
-    {
-      return true;
-      i = c[i];
-      j = (byte)(1 << parambve.a() % 8);
-    } while ((i & j) == j);
-    return false;
+    return new brh(a, localHashMap, c, d, false);
   }
 }
 

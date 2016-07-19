@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.reservation.view.ReservedRideRequestLinearLayout android:gravity="bottom|center" android:orientation="vertical" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ub__reservation_schedule_ride_baller_button" android:background="@drawable/scheduling_baller_bg" android:clickable="true" android:layout_width="@dimen/ub__reservation_baller_width" android:layout_height="@dimen/ub__reservation_baller_height" android:layout_marginBottom="@dimen/ub__container_margin">
+        <ImageView android:paddingRight="@dimen/ub__reservation_baller_icon_padding" android:layout_width="@dimen/ub__reservation_baller_icon_size" android:layout_height="@dimen/ub__reservation_baller_icon_size" android:src="@drawable/ub__scheduling_baller_icon" />
+        <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_90" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/reservation_baller_button_schedule_a_rider" android:textAllCaps="true" />
+    </LinearLayout>
+</com.ubercab.client.feature.reservation.view.ReservedRideRequestLinearLayout>

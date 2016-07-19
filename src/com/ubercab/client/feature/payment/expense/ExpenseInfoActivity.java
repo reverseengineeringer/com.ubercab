@@ -3,40 +3,40 @@ package com.ubercab.client.feature.payment.expense;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.model.RiderTripExpenseInfo;
 import com.ubercab.rider.realtime.model.PaymentProfile;
 import com.ubercab.rider.realtime.model.TripExpenseInfo;
-import dta;
-import dtf;
-import eav;
-import ebj;
-import gch;
-import gcp;
-import gcy;
-import gcz;
-import gdc;
-import gdd;
-import ife;
+import dyn;
+import dys;
+import ehn;
+import eib;
+import hca;
+import hci;
+import hcr;
+import hcs;
+import hcv;
+import hcw;
 import java.util.Collection;
 import java.util.Collections;
-import jry;
-import kld;
-import klo;
-import kls;
-import r;
+import kia;
+import mxd;
+import odr;
+import oed;
+import oeh;
+import z;
 
 public class ExpenseInfoActivity
-  extends RiderActivity<gdd>
+  extends RiderActivity<hcw>
 {
-  public ckc g;
-  public jry h;
-  public dta i;
-  public ife j;
-  private klo k;
+  public ckt g;
+  public mxd h;
+  public dyn i;
+  public kia j;
+  private oed k;
   
   public static Intent a(Context paramContext, TripExpenseInfo paramTripExpenseInfo)
   {
@@ -64,18 +64,18 @@ public class ExpenseInfoActivity
   
   private void a(RiderTripExpenseInfo paramRiderTripExpenseInfo)
   {
-    b(getString(2131167175), new ExpenseInfoActivity.1(this));
-    k = h.a(paramRiderTripExpenseInfo.isExpenseTrip(), paramRiderTripExpenseInfo.getCode(), paramRiderTripExpenseInfo.getMemo()).a(kls.a()).b(new gdc(this, (byte)0));
+    b(getString(2131167548), new ExpenseInfoActivity.1(this));
+    k = h.a(paramRiderTripExpenseInfo.isExpenseTrip(), paramRiderTripExpenseInfo.getCode(), paramRiderTripExpenseInfo.getMemo()).a(oeh.a()).b(new hcv(this, (byte)0));
   }
   
-  private void a(gdd paramgdd)
+  private void a(hcw paramhcw)
   {
-    paramgdd.a(this);
+    paramhcw.a(this);
   }
   
-  private gdd b(ebj paramebj)
+  private hcw b(eib parameib)
   {
-    return gcy.a().a(new eav(this)).a(paramebj).a();
+    return hcr.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void f()
@@ -83,47 +83,47 @@ public class ExpenseInfoActivity
     if (a(ExpenseInfoFragment.class) == null)
     {
       TripExpenseInfo localTripExpenseInfo = (TripExpenseInfo)getIntent().getParcelableExtra("com.ubercab.EXPENSE_INFO");
-      a(2131624332, ExpenseInfoFragment.a(getIntent().getBooleanExtra("EXTRA_SHOW_SKIP_BUTTON", false), localTripExpenseInfo), true);
+      a(2131624518, ExpenseInfoFragment.a(getIntent().getBooleanExtra("EXTRA_SHOW_SKIP_BUTTON", false), localTripExpenseInfo), true);
     }
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903172);
+    setContentView(2130903235);
     f();
   }
   
   public void onBackPressed()
   {
-    g.a(r.aU);
+    g.a(z.bB);
     super.onBackPressed();
   }
   
-  @cho
-  public void onCancelExpenseInfoEvent(gch paramgch)
+  @chu
+  public void onCancelExpenseInfoEvent(hca paramhca)
   {
     setResult(0, getIntent());
-    g.a(r.aU);
+    g.a(z.bB);
     finish();
   }
   
   public void onPause()
   {
     super.onPause();
-    if ((k != null) && (!k.d())) {
-      k.c();
+    if ((k != null) && (!k.w_())) {
+      k.af_();
     }
   }
   
-  @cho
-  public void onSaveExpenseInfoEvent(gcp paramgcp)
+  @chu
+  public void onSaveExpenseInfoEvent(hci paramhci)
   {
     Intent localIntent = getIntent();
     RiderTripExpenseInfo localRiderTripExpenseInfo = (RiderTripExpenseInfo)localIntent.getParcelableExtra("com.ubercab.EXPENSE_INFO");
-    localRiderTripExpenseInfo.setCode(paramgcp.a());
-    localRiderTripExpenseInfo.setMemo(paramgcp.b());
-    g.a(r.aV);
+    localRiderTripExpenseInfo.setCode(paramhci.a());
+    localRiderTripExpenseInfo.setMemo(paramhci.b());
+    g.a(z.bQ);
     setResult(-1, localIntent);
     if ((getIntent() != null) && ("ACTION_CHANGE_EXPENSE_INFO".equals(getIntent().getAction())))
     {
@@ -133,12 +133,12 @@ public class ExpenseInfoActivity
     finish();
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
     return Collections.singleton(i);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

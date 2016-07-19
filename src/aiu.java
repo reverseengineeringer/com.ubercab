@@ -1,38 +1,19 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import android.annotation.TargetApi;
+import android.net.http.SslError;
+import android.webkit.WebChromeClient;
 
-public abstract class aiu
-  extends Binder
-  implements ait
+@TargetApi(14)
+public class aiu
+  extends ait
 {
-  public static ait a(IBinder paramIBinder)
+  public final String a(SslError paramSslError)
   {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.formats.client.IOnCustomClickListener");
-    if ((localIInterface != null) && ((localIInterface instanceof ait))) {
-      return (ait)localIInterface;
-    }
-    return new aiv(paramIBinder);
+    return paramSslError.getUrl();
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public final WebChromeClient c(ajm paramajm)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.ads.internal.formats.client.IOnCustomClickListener");
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.IOnCustomClickListener");
-    a(ail.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
-    paramParcel2.writeNoException();
-    return true;
+    return new ajz(paramajm);
   }
 }
 

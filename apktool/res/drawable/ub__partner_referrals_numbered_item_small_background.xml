@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ub__partner_referrals_numbered_item_background" android:left="@dimen/ub__partner_referrals_numbered_item_small_padding" android:top="@dimen/ub__partner_referrals_numbered_item_small_padding" android:right="@dimen/ub__partner_referrals_numbered_item_small_padding" android:bottom="@dimen/ub__partner_referrals_numbered_item_small_padding" />
+</layer-list>

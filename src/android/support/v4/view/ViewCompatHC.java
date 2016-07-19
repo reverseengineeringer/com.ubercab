@@ -101,6 +101,26 @@ class ViewCompatHC
     paramView.jumpDrawablesToCurrentState();
   }
   
+  static void offsetLeftAndRight(View paramView, int paramInt)
+  {
+    paramView.offsetLeftAndRight(paramInt);
+    tickleInvalidationFlag(paramView);
+    paramView = paramView.getParent();
+    if ((paramView instanceof View)) {
+      tickleInvalidationFlag((View)paramView);
+    }
+  }
+  
+  static void offsetTopAndBottom(View paramView, int paramInt)
+  {
+    paramView.offsetTopAndBottom(paramInt);
+    tickleInvalidationFlag(paramView);
+    paramView = paramView.getParent();
+    if ((paramView instanceof View)) {
+      tickleInvalidationFlag((View)paramView);
+    }
+  }
+  
   public static int resolveSizeAndState(int paramInt1, int paramInt2, int paramInt3)
   {
     return View.resolveSizeAndState(paramInt1, paramInt2, paramInt3);
@@ -179,6 +199,13 @@ class ViewCompatHC
   public static void setY(View paramView, float paramFloat)
   {
     paramView.setY(paramFloat);
+  }
+  
+  private static void tickleInvalidationFlag(View paramView)
+  {
+    float f = paramView.getTranslationY();
+    paramView.setTranslationY(1.0F + f);
+    paramView.setTranslationY(f);
   }
 }
 

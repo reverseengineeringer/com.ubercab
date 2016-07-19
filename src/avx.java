@@ -1,123 +1,53 @@
-public final class avx
-  extends axq
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+
+public abstract class avx
+  extends Binder
+  implements avw
 {
-  public avy[] a;
-  
   public avx()
   {
-    e();
+    attachInterface(this, "com.google.android.gms.maps.internal.ICancelableCallback");
   }
   
-  private avx b(axh paramaxh)
+  public static avw a(IBinder paramIBinder)
   {
-    for (;;)
-    {
-      int i = paramaxh.a();
-      switch (i)
-      {
-      default: 
-        if (axt.a(paramaxh, i)) {}
-        break;
-      case 0: 
-        return this;
-      case 10: 
-        int j = axt.b(paramaxh, 10);
-        if (a == null) {}
-        avy[] arrayOfavy;
-        for (i = 0;; i = a.length)
-        {
-          arrayOfavy = new avy[j + i];
-          j = i;
-          if (i != 0)
-          {
-            System.arraycopy(a, 0, arrayOfavy, 0, i);
-            j = i;
-          }
-          while (j < arrayOfavy.length - 1)
-          {
-            arrayOfavy[j] = new avy();
-            paramaxh.a(arrayOfavy[j]);
-            paramaxh.a();
-            j += 1;
-          }
-        }
-        arrayOfavy[j] = new avy();
-        paramaxh.a(arrayOfavy[j]);
-        a = arrayOfavy;
-      }
+    if (paramIBinder == null) {
+      return null;
     }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.ICancelableCallback");
+    if ((localIInterface != null) && ((localIInterface instanceof avw))) {
+      return (avw)localIInterface;
+    }
+    return new avy(paramIBinder);
   }
   
-  private avx e()
+  public IBinder asBinder()
   {
-    a = avy.p_();
-    S = -1;
     return this;
   }
   
-  protected final int a()
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    int i = super.a();
-    int k = i;
-    if (a != null)
+    switch (paramInt1)
     {
-      k = i;
-      if (a.length > 0)
-      {
-        int j = 0;
-        for (;;)
-        {
-          k = i;
-          if (j >= a.length) {
-            break;
-          }
-          avy localavy = a[j];
-          k = i;
-          if (localavy != null) {
-            k = i + axi.c(1, localavy);
-          }
-          j += 1;
-          i = k;
-        }
-      }
-    }
-    return k;
-  }
-  
-  public final void a(axi paramaxi)
-  {
-    if ((a != null) && (a.length > 0))
-    {
-      int i = 0;
-      while (i < a.length)
-      {
-        avy localavy = a[i];
-        if (localavy != null) {
-          paramaxi.a(1, localavy);
-        }
-        i += 1;
-      }
-    }
-    super.a(paramaxi);
-  }
-  
-  public final boolean equals(Object paramObject)
-  {
-    if (paramObject == this) {}
-    do
-    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.ICancelableCallback");
       return true;
-      if (!(paramObject instanceof avx)) {
-        return false;
-      }
-      paramObject = (avx)paramObject;
-    } while (axo.a(a, a));
-    return false;
-  }
-  
-  public final int hashCode()
-  {
-    return (getClass().getName().hashCode() + 527) * 31 + axo.a(a);
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICancelableCallback");
+      a();
+      paramParcel2.writeNoException();
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICancelableCallback");
+    b();
+    paramParcel2.writeNoException();
+    return true;
   }
 }
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.card.view.CardView android:id="@id/ub__reservation_viewgroup_list" android:background="@color/ub__white" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" app:cardCornerRadius="@dimen/cardview_default_radius"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="?android:selectableItemBackground" android:paddingTop="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight">
+        <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ub__reservation_item_datetime" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P.ListItem" android:id="@id/ub__reservation_item_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+                <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_60" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:text="@string/reservation_date_time_at" style="@style/Uber.TextStyle.Byline" />
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P.ListItem" android:id="@id/ub__reservation_item_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+            </LinearLayout>
+            <ImageView android:id="@id/ub__reservation_item_edit_button" android:layout_width="@dimen/ub__reservation_rate_card_info_icon_size" android:layout_height="@dimen/ub__reservation_rate_card_info_icon_size" android:src="@drawable/ub__ic_edit" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ub__reservation_profile_badge_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.ubercab.client.feature.profiles.BadgeView android:textColor="@color/ub__uber_black_60" android:id="@id/ub__reservation_profile_badge_view_image" android:layout_width="@dimen/ub__reservation_rate_card_info_icon_size" android:layout_height="@dimen/ub__reservation_rate_card_info_icon_size" android:layout_marginRight="@dimen/ui__spacing_unit_1x" style="@style/Uber.TextStyle.Byline" />
+                <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_60" android:id="@id/ub__reservation_profile_badge_view_text" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Uber.TextStyle.Byline" />
+                <FrameLayout android:background="@drawable/ub__line_divider" android:layout_width="@dimen/ub__reservation_listitem_vertical_divider_width" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" />
+            </LinearLayout>
+            <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_60" android:id="@id/ub__reservation_item_flow_type" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Uber.TextStyle.Byline" />
+            <FrameLayout android:id="@id/ub__reservation_item_vertical_divider" android:background="@drawable/ub__line_divider" android:layout_width="@dimen/ub__reservation_listitem_vertical_divider_width" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" />
+            <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_60" android:id="@id/ub__reservation_item_fare_estimate" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/Uber.TextStyle.Byline" />
+        </LinearLayout>
+        <FrameLayout android:background="@drawable/ub__line_divider" android:layout_width="fill_parent" android:layout_height="@dimen/ub__reservation_listitem_horizontal_divider_height" android:layout_marginTop="@dimen/ui__spacing_unit_1x" />
+        <LinearLayout android:gravity="center|left" android:orientation="vertical" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center|left" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/ub__reservation_listitem_address_container_height">
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__pickup_dot_green" />
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__uber_black_80" android:ellipsize="end" android:id="@id/ub__reservation_item_pickup_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center|left" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/ub__reservation_listitem_address_container_height">
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__dropoff_dot_red" />
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__uber_black_80" android:ellipsize="end" android:id="@id/ub__reservation_item_dropoff_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/ub__reservation_listitem_cancel_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <FrameLayout android:background="@drawable/ub__line_divider" android:layout_width="fill_parent" android:layout_height="@dimen/ub__reservation_listitem_horizontal_divider_height" />
+            <com.ubercab.ui.Button android:textColor="@color/ub__uber_blue_100" android:id="@id/ub__reservation_cancel_button" android:background="@color/ub__transparent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/reservation_scheduler_cancel_cancel_trip" />
+        </LinearLayout>
+    </LinearLayout>
+</com.ubercab.ui.card.view.CardView>

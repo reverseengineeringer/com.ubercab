@@ -1,11 +1,16 @@
 package android.support.v4.graphics.drawable;
 
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.content.res.Resources.Theme;
+import android.graphics.ColorFilter;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
+import android.util.AttributeSet;
+import org.xmlpull.v1.XmlPullParser;
 
-public class DrawableCompat
+public final class DrawableCompat
 {
   static final DrawableCompat.DrawableImpl IMPL = new DrawableCompat.BaseDrawableImpl();
   
@@ -15,11 +20,6 @@ public class DrawableCompat
     if (i >= 23)
     {
       IMPL = new DrawableCompat.MDrawableImpl();
-      return;
-    }
-    if (i >= 22)
-    {
-      IMPL = new DrawableCompat.LollipopMr1DrawableImpl();
       return;
     }
     if (i >= 21)
@@ -42,11 +42,41 @@ public class DrawableCompat
       IMPL = new DrawableCompat.HoneycombDrawableImpl();
       return;
     }
+    if (i >= 5)
+    {
+      IMPL = new DrawableCompat.EclairDrawableImpl();
+      return;
+    }
+  }
+  
+  public static void applyTheme(Drawable paramDrawable, Resources.Theme paramTheme)
+  {
+    IMPL.applyTheme(paramDrawable, paramTheme);
+  }
+  
+  public static boolean canApplyTheme(Drawable paramDrawable)
+  {
+    return IMPL.canApplyTheme(paramDrawable);
+  }
+  
+  public static int getAlpha(Drawable paramDrawable)
+  {
+    return IMPL.getAlpha(paramDrawable);
+  }
+  
+  public static ColorFilter getColorFilter(Drawable paramDrawable)
+  {
+    return IMPL.getColorFilter(paramDrawable);
   }
   
   public static int getLayoutDirection(Drawable paramDrawable)
   {
     return IMPL.getLayoutDirection(paramDrawable);
+  }
+  
+  public static void inflate(Drawable paramDrawable, Resources paramResources, XmlPullParser paramXmlPullParser, AttributeSet paramAttributeSet, Resources.Theme paramTheme)
+  {
+    IMPL.inflate(paramDrawable, paramResources, paramXmlPullParser, paramAttributeSet, paramTheme);
   }
   
   public static boolean isAutoMirrored(Drawable paramDrawable)

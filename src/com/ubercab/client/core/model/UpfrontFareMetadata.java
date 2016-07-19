@@ -4,10 +4,10 @@ import android.os.Parcelable;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.Metadata;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class UpfrontFareMetadata
   implements Parcelable, Metadata
 {
@@ -16,7 +16,11 @@ public abstract class UpfrontFareMetadata
     return new Shape_UpfrontFareMetadata();
   }
   
+  public abstract String getDiscountFareDifferenceString();
+  
   public abstract double getDiscountPercentage();
+  
+  public abstract String getDiscountString();
   
   public abstract String getFareType();
   
@@ -28,7 +32,11 @@ public abstract class UpfrontFareMetadata
   
   public abstract String getTagline();
   
+  public abstract UpfrontFareMetadata setDiscountFareDifferenceString(String paramString);
+  
   public abstract UpfrontFareMetadata setDiscountPercentage(double paramDouble);
+  
+  public abstract UpfrontFareMetadata setDiscountString(String paramString);
   
   public abstract UpfrontFareMetadata setFareType(String paramString);
   

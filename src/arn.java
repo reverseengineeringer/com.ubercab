@@ -1,34 +1,62 @@
-import java.util.ArrayList;
+import android.app.PendingIntent;
+import android.os.IInterface;
+import com.google.android.gms.location.places.AddPlaceRequest;
+import com.google.android.gms.location.places.AutocompleteFilter;
+import com.google.android.gms.location.places.NearbyAlertRequest;
+import com.google.android.gms.location.places.PlaceFilter;
+import com.google.android.gms.location.places.PlaceReport;
+import com.google.android.gms.location.places.PlaceRequest;
+import com.google.android.gms.location.places.UserDataType;
+import com.google.android.gms.location.places.internal.PlacesParams;
+import com.google.android.gms.location.places.personalized.PlaceAlias;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import java.util.List;
 
-public final class arn
+public abstract interface arn
+  extends IInterface
 {
-  private final List<String> a = new ArrayList();
-  private final List<Double> b = new ArrayList();
-  private final List<Double> c = new ArrayList();
+  public abstract void a(AddPlaceRequest paramAddPlaceRequest, PlacesParams paramPlacesParams, art paramart);
   
-  public final arl a()
-  {
-    return new arl(this, (byte)0);
-  }
+  public abstract void a(NearbyAlertRequest paramNearbyAlertRequest, PlacesParams paramPlacesParams, PendingIntent paramPendingIntent);
   
-  public final arn a(String paramString, double paramDouble1, double paramDouble2)
-  {
-    int i = 0;
-    while (i < a.size())
-    {
-      double d1 = ((Double)c.get(i)).doubleValue();
-      double d2 = ((Double)b.get(i)).doubleValue();
-      if ((paramDouble1 < d1) || ((d1 == paramDouble1) && (paramDouble2 < d2))) {
-        break;
-      }
-      i += 1;
-    }
-    a.add(i, paramString);
-    c.add(i, Double.valueOf(paramDouble1));
-    b.add(i, Double.valueOf(paramDouble2));
-    return this;
-  }
+  public abstract void a(PlaceFilter paramPlaceFilter, PlacesParams paramPlacesParams, art paramart);
+  
+  public abstract void a(PlaceReport paramPlaceReport, PlacesParams paramPlacesParams);
+  
+  public abstract void a(PlaceRequest paramPlaceRequest, PlacesParams paramPlacesParams, PendingIntent paramPendingIntent);
+  
+  public abstract void a(UserDataType paramUserDataType, LatLngBounds paramLatLngBounds, List<String> paramList, PlacesParams paramPlacesParams, art paramart);
+  
+  public abstract void a(PlacesParams paramPlacesParams, PendingIntent paramPendingIntent);
+  
+  public abstract void a(PlaceAlias paramPlaceAlias, PlacesParams paramPlacesParams, asi paramasi);
+  
+  public abstract void a(PlaceAlias paramPlaceAlias, String paramString1, String paramString2, PlacesParams paramPlacesParams, asi paramasi);
+  
+  public abstract void a(LatLng paramLatLng, PlaceFilter paramPlaceFilter, PlacesParams paramPlacesParams, art paramart);
+  
+  public abstract void a(LatLng paramLatLng, PlacesParams paramPlacesParams, art paramart);
+  
+  public abstract void a(LatLngBounds paramLatLngBounds, int paramInt, String paramString, PlaceFilter paramPlaceFilter, PlacesParams paramPlacesParams, art paramart);
+  
+  public abstract void a(String paramString, int paramInt1, int paramInt2, int paramInt3, PlacesParams paramPlacesParams, arq paramarq);
+  
+  public abstract void a(String paramString, int paramInt, PlacesParams paramPlacesParams, art paramart);
+  
+  public abstract void a(String paramString, PlacesParams paramPlacesParams, arq paramarq);
+  
+  public abstract void a(String paramString, PlacesParams paramPlacesParams, art paramart);
+  
+  public abstract void a(String paramString, LatLngBounds paramLatLngBounds, AutocompleteFilter paramAutocompleteFilter, PlacesParams paramPlacesParams, art paramart);
+  
+  public abstract void a(List<String> paramList, PlacesParams paramPlacesParams, art paramart);
+  
+  public abstract void b(PlacesParams paramPlacesParams, PendingIntent paramPendingIntent);
+  
+  public abstract void b(String paramString, PlacesParams paramPlacesParams, art paramart);
+  
+  public abstract void b(List<String> paramList, PlacesParams paramPlacesParams, art paramart);
 }
 
 /* Location:

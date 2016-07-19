@@ -4,7 +4,7 @@ import android.os.IInterface;
 public abstract interface ahz
   extends IInterface
 {
-  public abstract IBinder a(add paramadd1, add paramadd2, add paramadd3, int paramInt);
+  public abstract IBinder a(acp paramacp);
 }
 
 /* Location:

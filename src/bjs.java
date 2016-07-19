@@ -1,23 +1,28 @@
-import android.os.IInterface;
-import com.google.android.gms.measurement.internal.AppMetadata;
-import com.google.android.gms.measurement.internal.EventParcel;
-import com.google.android.gms.measurement.internal.UserAttributeParcel;
-import java.util.List;
-
-public abstract interface bjs
-  extends IInterface
+abstract class bjs<E>
+  extends bjr<E>
 {
-  public abstract List<UserAttributeParcel> a(AppMetadata paramAppMetadata, boolean paramBoolean);
+  abstract E a(int paramInt);
   
-  public abstract void a(AppMetadata paramAppMetadata);
+  public bkp<E> b()
+  {
+    return c().b();
+  }
   
-  public abstract void a(EventParcel paramEventParcel, AppMetadata paramAppMetadata);
-  
-  public abstract void a(EventParcel paramEventParcel, String paramString1, String paramString2);
-  
-  public abstract void a(UserAttributeParcel paramUserAttributeParcel, AppMetadata paramAppMetadata);
-  
-  public abstract void b(AppMetadata paramAppMetadata);
+  final bjb<E> d()
+  {
+    new bit()
+    {
+      private bjs<E> g()
+      {
+        return bjs.this;
+      }
+      
+      public final E get(int paramAnonymousInt)
+      {
+        return (E)a(paramAnonymousInt);
+      }
+    };
+  }
 }
 
 /* Location:

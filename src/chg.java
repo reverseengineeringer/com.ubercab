@@ -1,131 +1,55 @@
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.io.IOException;
+import java.net.URI;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLException;
+import javax.net.ssl.SSLSocketFactory;
 
-final class chg
+public final class chg
+  extends nxj
 {
-  private static final Map<Class<?>, Map<Class<?>, Method>> a = new HashMap();
-  private static final Map<Class<?>, Map<Class<?>, Set<Method>>> b = new HashMap();
+  private final chj c;
   
-  static Map<Class<?>, chl> a(Object paramObject)
+  public chg(URI paramURI, chj paramchj)
   {
-    Object localObject = paramObject.getClass();
-    HashMap localHashMap = new HashMap();
-    if (!a.containsKey(localObject)) {
-      a((Class)localObject);
-    }
-    localObject = (Map)a.get(localObject);
-    if (!((Map)localObject).isEmpty())
+    super(paramURI);
+    if (paramURI.getScheme().equals("wss")) {}
+    try
     {
-      localObject = ((Map)localObject).entrySet().iterator();
-      while (((Iterator)localObject).hasNext())
-      {
-        Map.Entry localEntry = (Map.Entry)((Iterator)localObject).next();
-        chl localchl = new chl(paramObject, (Method)localEntry.getValue());
-        localHashMap.put(localEntry.getKey(), localchl);
-      }
+      paramURI = SSLContext.getInstance("TLS");
+      paramURI.init(null, null, null);
+      a(paramURI.getSocketFactory().createSocket());
+      c = paramchj;
+      return;
     }
-    return localHashMap;
+    catch (IOException paramURI)
+    {
+      throw new SSLException(paramURI);
+    }
+    catch (NoSuchAlgorithmException paramURI)
+    {
+      throw new SSLException(paramURI);
+    }
+    catch (KeyManagementException paramURI)
+    {
+      throw new SSLException(paramURI);
+    }
   }
   
-  private static void a(Class<?> paramClass)
+  public final void a(int paramInt, String paramString, boolean paramBoolean)
   {
-    HashMap localHashMap1 = new HashMap();
-    HashMap localHashMap2 = new HashMap();
-    Method[] arrayOfMethod = paramClass.getDeclaredMethods();
-    int j = arrayOfMethod.length;
-    int i = 0;
-    if (i < j)
-    {
-      Method localMethod = arrayOfMethod[i];
-      Object localObject1;
-      if (!localMethod.isBridge())
-      {
-        if (!localMethod.isAnnotationPresent(cho.class)) {
-          break label271;
-        }
-        localObject1 = localMethod.getParameterTypes();
-        if (localObject1.length != 1) {
-          throw new IllegalArgumentException("Method " + localMethod + " has @Subscribe annotation but requires " + localObject1.length + " arguments.  Methods must require a single argument.");
-        }
-        Object localObject2 = localObject1[0];
-        if (((Class)localObject2).isInterface()) {
-          throw new IllegalArgumentException("Method " + localMethod + " has @Subscribe annotation on " + localObject2 + " which is an interface.  Subscription must be on a concrete class type.");
-        }
-        if ((localMethod.getModifiers() & 0x1) == 0) {
-          throw new IllegalArgumentException("Method " + localMethod + " has @Subscribe annotation on " + localObject2 + " but is not 'public'.");
-        }
-        Set localSet = (Set)localHashMap1.get(localObject2);
-        localObject1 = localSet;
-        if (localSet == null)
-        {
-          localObject1 = new HashSet();
-          localHashMap1.put(localObject2, localObject1);
-        }
-        ((Set)localObject1).add(localMethod);
-      }
-      for (;;)
-      {
-        i += 1;
-        break;
-        label271:
-        if (localMethod.isAnnotationPresent(chn.class))
-        {
-          localObject1 = localMethod.getParameterTypes();
-          if (localObject1.length != 0) {
-            throw new IllegalArgumentException("Method " + localMethod + "has @Produce annotation but requires " + localObject1.length + " arguments.  Methods must require zero arguments.");
-          }
-          if (localMethod.getReturnType() == Void.class) {
-            throw new IllegalArgumentException("Method " + localMethod + " has a return type of void.  Must declare a non-void type.");
-          }
-          localObject1 = localMethod.getReturnType();
-          if (((Class)localObject1).isInterface()) {
-            throw new IllegalArgumentException("Method " + localMethod + " has @Produce annotation on " + localObject1 + " which is an interface.  Producers must return a concrete class type.");
-          }
-          if (localObject1.equals(Void.TYPE)) {
-            throw new IllegalArgumentException("Method " + localMethod + " has @Produce annotation but has no return type.");
-          }
-          if ((localMethod.getModifiers() & 0x1) == 0) {
-            throw new IllegalArgumentException("Method " + localMethod + " has @Produce annotation on " + localObject1 + " but is not 'public'.");
-          }
-          if (localHashMap2.containsKey(localObject1)) {
-            throw new IllegalArgumentException("Producer for type " + localObject1 + " has already been registered.");
-          }
-          localHashMap2.put(localObject1, localMethod);
-        }
-      }
-    }
-    a.put(paramClass, localHashMap2);
-    b.put(paramClass, localHashMap1);
+    c.a(paramInt, paramString, paramBoolean);
   }
   
-  static Map<Class<?>, Set<chk>> b(Object paramObject)
+  public final void a(Exception paramException)
   {
-    Object localObject = paramObject.getClass();
-    HashMap localHashMap = new HashMap();
-    if (!b.containsKey(localObject)) {
-      a((Class)localObject);
-    }
-    localObject = (Map)b.get(localObject);
-    if (!((Map)localObject).isEmpty())
-    {
-      localObject = ((Map)localObject).entrySet().iterator();
-      while (((Iterator)localObject).hasNext())
-      {
-        Map.Entry localEntry = (Map.Entry)((Iterator)localObject).next();
-        HashSet localHashSet = new HashSet();
-        Iterator localIterator = ((Set)localEntry.getValue()).iterator();
-        while (localIterator.hasNext()) {
-          localHashSet.add(new chk(paramObject, (Method)localIterator.next()));
-        }
-        localHashMap.put(localEntry.getKey(), localHashSet);
-      }
-    }
-    return localHashMap;
+    c.a(paramException);
+  }
+  
+  public final void a(String paramString)
+  {
+    c.b(paramString);
   }
 }
 

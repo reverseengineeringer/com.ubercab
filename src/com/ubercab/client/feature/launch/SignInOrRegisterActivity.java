@@ -1,105 +1,88 @@
 package com.ubercab.client.feature.launch;
 
 import android.content.Intent;
-import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.content.res.ResourcesCompat;
 import android.text.TextUtils;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
-import ap;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
-import butterknife.Optional;
-import cho;
-import ckc;
-import ckr;
-import com.ubercab.android.location.UberLocation;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
-import com.ubercab.client.core.location.RiderLocation;
 import com.ubercab.client.feature.employee.EmployeeSettingsActivity;
 import com.ubercab.client.feature.launch.refresh.SignInOrRegisterLayout;
 import com.ubercab.client.feature.payment.amex.AmexRewardInfoActivity;
 import com.ubercab.client.feature.signin.SignInActivity;
 import com.ubercab.client.feature.signup.SignupActivity;
+import com.ubercab.client.feature.signup.passwordless.PasswordlessSignupActivity;
 import com.ubercab.client.feature.trip.TripActivity;
 import com.ubercab.network.uspout.UspoutClient;
 import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.PaymentProfile;
 import com.ubercab.rider.realtime.model.RewardInfo;
-import com.ubercab.ui.TextView;
-import dtx;
-import dty;
-import dub;
-import dux;
-import dwq;
-import eav;
-import ebj;
-import ekm;
-import erh;
-import fme;
-import fmf;
-import fmt;
-import fmz;
-import hzz;
-import idk;
-import ife;
+import dzm;
+import dzn;
+import dzq;
+import ead;
+import eaj;
+import ecj;
+import ehn;
+import eib;
+import ese;
+import fa;
+import gcq;
+import gcr;
+import gdj;
 import java.util.List;
 import java.util.UUID;
-import jsg;
-import jwc;
-import kld;
-import klo;
-import kul;
-import p;
-import r;
+import kcj;
+import kgc;
+import kia;
+import mxm;
+import nby;
+import ncj;
+import nct;
+import odr;
+import oed;
+import x;
+import y;
+import z;
 
 public class SignInOrRegisterActivity
-  extends RiderActivity<fmt>
+  extends RiderActivity<gdj>
 {
-  public ckc g;
-  public fmz h;
-  public hzz i;
-  public jsg j;
-  public ife k;
-  public kld<ekm> l;
-  public idk m;
-  @InjectView(2131624552)
-  @Optional
-  ImageView mImageViewSplash;
-  @InjectView(2131624553)
-  @Optional
-  TextView mTextViewSlogan;
-  @InjectView(2131624547)
-  @Optional
-  ViewGroup mViewGroupEmployee;
-  public dtx n;
-  public dty o;
-  public dub p;
-  public jwc q;
+  public ckt g;
+  public ead h;
+  public kcj i;
+  public mxm j;
+  public kia k;
+  public odr<ese> l;
+  public kgc m;
+  @BindView
+  public SignInOrRegisterLayout mSignInOrRegisterLayout;
+  @BindView
+  public ViewGroup mViewGroupEmployee;
+  public dzm n;
+  public dzn o;
+  public dzq p;
+  public nct q;
   public UspoutClient r;
-  private klo s;
+  public ncj s;
+  private oed t;
   
   private void a(Intent paramIntent, int paramInt)
   {
     startActivityForResult(paramIntent, paramInt);
-    if (h.d())
-    {
-      paramIntent = (SignInOrRegisterLayout)findViewById(2131625547);
-      if (paramIntent != null)
-      {
-        paramIntent.b();
-        overridePendingTransition(2130968619, 2130968592);
-      }
-    }
+    mSignInOrRegisterLayout.b();
+    overridePendingTransition(2130968636, 2130968605);
   }
   
-  private void a(fmt paramfmt)
+  private void a(gdj paramgdj)
   {
-    paramfmt.a(this);
+    paramgdj.a(this);
   }
   
   private void a(List<PaymentProfile> paramList)
@@ -115,7 +98,7 @@ public class SignInOrRegisterActivity
   
   private void a(boolean paramBoolean)
   {
-    new ap(this).a(2131166208).a(2131166126, new SignInOrRegisterActivity.3(this, paramBoolean)).b(2131165320, null).c();
+    new fa(this).a(2131166368).a(2131166260, new SignInOrRegisterActivity.3(this, paramBoolean)).b(2131165344, null).d();
   }
   
   private static boolean a(long paramLong1, long paramLong2)
@@ -134,48 +117,31 @@ public class SignInOrRegisterActivity
     return true;
   }
   
-  private fmt b(ebj paramebj)
+  private gdj b(eib parameib)
   {
-    return fme.a().a(new eav(this)).a(paramebj).a();
+    return gcq.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void f()
   {
-    if (k.b(dux.gP)) {
-      g.a(p.ft);
+    if (k.c(eaj.le)) {
+      g.a(x.hC);
     }
   }
   
   private void g()
   {
-    if (h.d())
-    {
-      g.a(p.pW);
-      setContentView(2130903580);
-      SignInOrRegisterLayout localSignInOrRegisterLayout = (SignInOrRegisterLayout)findViewById(2131625547);
-      if (localSignInOrRegisterLayout != null) {
-        localSignInOrRegisterLayout.a();
-      }
-      return;
-    }
-    if (k.a(dux.aE))
-    {
-      setContentView(2130903244);
-      return;
-    }
-    g.a(p.pX);
-    setContentView(2130903245);
-    getWindow().getDecorView().setBackgroundColor(getResources().getColor(2131558488));
+    a(new Intent(this, SignupActivity.class), 2005);
   }
   
   private void h()
   {
-    a(new Intent(this, SignupActivity.class), 2005);
+    a(new Intent(this, SignInActivity.class), 2000);
   }
   
   private void i()
   {
-    a(new Intent(this, SignInActivity.class), 2000);
+    a(new Intent(this, PasswordlessSignupActivity.class), 2006);
   }
   
   private void j()
@@ -190,41 +156,21 @@ public class SignInOrRegisterActivity
   
   private void k()
   {
-    if (n.c() != null) {}
-    for (UberLocation localUberLocation = n.c().getLocation();; localUberLocation = null)
-    {
-      if (mTextViewSlogan != null) {
-        mTextViewSlogan.setText(erh.a(this, localUberLocation));
-      }
-      return;
-    }
-  }
-  
-  private void l()
-  {
     String str = getIntent().getStringExtra("EXTRA_DEEPLINK_CLIENT_ID");
     if (!TextUtils.isEmpty(str))
     {
       p.d(str);
-      if (k.b(dux.hf)) {
-        p.b(hzz.a());
-      }
+      p.b(kcj.b());
     }
-    do
-    {
+    while (a(p.r(), kcj.b())) {
       return;
-      if (!k.b(dux.hf)) {
-        break;
-      }
-    } while (a(p.q(), hzz.a()));
-    p.m();
-    return;
-    p.m();
+    }
+    p.n();
   }
   
-  private void m()
+  private void l()
   {
-    if (!idk.a(this, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+    if (!kgc.a(this, "android.permission.WRITE_EXTERNAL_STORAGE")) {
       m.a(this, 100, new SignInOrRegisterActivity.2(this), new String[] { "android.permission.WRITE_EXTERNAL_STORAGE" });
     }
   }
@@ -233,112 +179,127 @@ public class SignInOrRegisterActivity
   {
     super.b(paramBundle);
     f();
-    g();
-    ButterKnife.inject(this);
-    l();
+    setContentView(2130903792);
+    ButterKnife.a(this);
+    mSignInOrRegisterLayout.a();
+    k();
     if (paramBundle == null) {
       j();
     }
-    try
-    {
-      if ((k.a(dux.aE)) && (mImageViewSplash != null)) {
-        mImageViewSplash.setImageDrawable(ResourcesCompat.getDrawable(getResources(), 2130837677, getTheme()));
-      }
-      s = l.n().c(new SignInOrRegisterActivity.1(this));
-      return;
-    }
-    catch (OutOfMemoryError paramBundle)
-    {
-      for (;;)
-      {
-        System.gc();
-        kul.c(paramBundle, "OOM loading background in SignInOrRegisterActivity", new Object[0]);
-      }
-    }
+    t = l.u().c(new SignInOrRegisterActivity.1(this));
   }
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
-    paramIntent = new Intent(this, TripActivity.class);
-    paramIntent.putExtra("FROM_SIGNIN_OR_REGISTER", true);
-    if ((paramInt1 == 2000) && (paramInt2 == -1))
+    if (k.c(eaj.mC))
     {
-      startActivity(paramIntent);
-      paramIntent = j.c();
-      if (paramIntent != null)
+      paramIntent = getIntent();
+      if ((paramIntent.getData() == null) || (!"connect".equals(paramIntent.getData().getHost()))) {}
+    }
+    do
+    {
+      try
       {
-        paramIntent = AmexRewardInfoActivity.a(paramIntent.getPaymentProfiles());
-        if (paramIntent != null) {
-          startActivity(AmexRewardInfoActivity.a(this, paramIntent));
+        startActivity(s.a(paramIntent.getData(), o.I(), paramIntent.getStringExtra("CALLING_PACKAGE_NAME"), o.N()));
+        finish();
+        return;
+      }
+      catch (nby paramIntent)
+      {
+        for (;;)
+        {
+          setResult(0, s.b(paramIntent.a()));
         }
       }
-      finish();
-    }
-    while ((paramInt1 != 2005) || (paramInt2 != -1)) {
-      return;
-    }
+      paramIntent = new Intent(this, TripActivity.class);
+      paramIntent.putExtra("FROM_SIGNIN_OR_REGISTER", true);
+      if ((paramInt1 == 2000) && (paramInt2 == -1))
+      {
+        startActivity(paramIntent);
+        paramIntent = j.c();
+        if (paramIntent != null)
+        {
+          paramIntent = AmexRewardInfoActivity.a(paramIntent.getPaymentProfiles());
+          if (paramIntent != null) {
+            startActivity(AmexRewardInfoActivity.a(this, paramIntent));
+          }
+        }
+        finish();
+        return;
+      }
+      if ((paramInt1 == 2005) && (paramInt2 == -1))
+      {
+        startActivity(paramIntent);
+        paramIntent = j.c();
+        if (paramIntent != null) {
+          a(paramIntent.getPaymentProfiles());
+        }
+        finish();
+        return;
+      }
+    } while ((paramInt1 != 2006) || (paramInt2 != -1));
     startActivity(paramIntent);
-    paramIntent = j.c();
-    if (paramIntent != null) {
-      a(paramIntent.getPaymentProfiles());
-    }
     finish();
   }
   
-  @OnClick({2131624548})
+  @OnClick
   public void onClickButtonEmployee()
   {
     startActivity(new Intent(this, EmployeeSettingsActivity.class));
   }
   
-  @OnClick({2131624546})
+  @OnClick
   public void onClickButtonRegister()
   {
-    g.a(r.iV);
-    o.l(UUID.randomUUID().toString());
-    h();
+    g.a(z.mk);
+    h.a(y.h);
+    o.o(UUID.randomUUID().toString());
+    if (k.c(eaj.fL))
+    {
+      i();
+      return;
+    }
+    g();
   }
   
-  @OnClick({2131624545})
+  @OnClick
   public void onClickButtonSignIn()
   {
-    g.a(r.ov);
-    i();
+    g.a(z.sp);
+    h.a(y.i);
+    if (k.c(eaj.fL))
+    {
+      i();
+      return;
+    }
+    h();
   }
   
   protected void onDestroy()
   {
     super.onDestroy();
-    if (s != null) {
-      s.c();
+    if (t != null) {
+      t.af_();
     }
   }
   
-  @cho
-  public void onNoLocationEvent(dwq paramdwq)
+  @chu
+  public void onNoLocationEvent(ecj paramecj)
   {
-    y();
+    z();
   }
   
   public void onResume()
   {
     super.onResume();
-    if (k.a(dux.aE)) {
-      k();
-    }
-    if (h.d())
-    {
-      SignInOrRegisterLayout localSignInOrRegisterLayout = (SignInOrRegisterLayout)findViewById(2131625547);
-      if (localSignInOrRegisterLayout != null) {
-        localSignInOrRegisterLayout.c();
-      }
-    }
+    h.a(y.g);
+    mSignInOrRegisterLayout.c();
   }
   
-  public final ckr u()
+  public final cli v()
   {
-    return p.pV;
+    return x.uI;
   }
 }
 

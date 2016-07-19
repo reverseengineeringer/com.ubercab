@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jvo;
+import nay;
 
 @Shape
 abstract class ObjectVenueZoneProperties
-  implements jvo
+  implements nay
 {}
 
 /* Location:

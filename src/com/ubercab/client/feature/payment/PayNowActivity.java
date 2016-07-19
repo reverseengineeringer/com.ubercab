@@ -6,123 +6,98 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
-import cho;
-import ckc;
-import ckr;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
-import com.ubercab.client.core.model.PaymentCheckBalanceResponse;
 import com.ubercab.client.core.ui.DividerWithText;
 import com.ubercab.client.core.ui.PaymentTextView;
 import com.ubercab.payment.model.PaymentChargeOptions;
 import com.ubercab.rider.realtime.model.Client;
+import com.ubercab.rider.realtime.model.PaymentProfile;
 import com.ubercab.rider.realtime.model.UnpaidBill;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.TextView;
-import dod;
-import dta;
-import dtf;
-import dux;
-import eav;
-import ebj;
-import ehg;
-import ehl;
-import eja;
-import ejb;
-import eld;
-import eqy;
-import erb;
-import fzk;
-import fzl;
-import gak;
-import gal;
-import gam;
-import gan;
-import gdl;
-import iak;
-import ife;
-import ijd;
-import imp;
-import imr;
+import dsv;
+import dyn;
+import dys;
+import ehn;
+import eib;
+import ezd;
+import ezg;
+import gub;
+import guc;
+import gvh;
+import gvi;
+import gvj;
+import gvk;
+import hdg;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import jax;
-import jru;
-import jsg;
-import kld;
-import kls;
-import kuc;
-import p;
-import r;
+import kcu;
+import kia;
+import ldk;
+import ldm;
+import mxm;
+import odr;
+import oeh;
+import oot;
+import x;
+import z;
 
+@Deprecated
 public class PayNowActivity
-  extends RiderActivity<gam>
+  extends RiderActivity<gvj>
 {
-  static final List<String> g = new iak().a("airtel_money").a("paytm").a();
-  public ckc h;
-  public jsg i;
-  public ife j;
-  public dta k;
-  @Deprecated
-  public jru l;
-  public dod m;
-  @InjectView(2131625012)
-  Button mButtonPayNow;
-  @InjectView(2131625003)
-  DividerWithText mDividerTripDate;
-  @InjectView(2131625007)
-  PaymentTextView mPaymentTextView;
-  @InjectView(2131625010)
+  static final List<String> g = new kcu().a("airtel_money").a("paytm").a();
+  public ckt h;
+  public mxm i;
+  public kia j;
+  public dyn k;
+  public dsv l;
+  public ldm m;
+  @BindView
+  public Button mButtonPayNow;
+  @BindView
+  public DividerWithText mDividerTripDate;
+  @BindView
+  public PaymentTextView mPaymentTextView;
+  @BindView
   public ProgressBar mProgressBarBalance;
-  @InjectView(2131625009)
+  @BindView
   public TextView mTextViewBalance;
-  @InjectView(2131625011)
+  @BindView
   public TextView mTextViewDescription;
-  @InjectView(2131625004)
-  TextView mTextViewFare;
-  @InjectView(2131625008)
-  ViewGroup mViewGroupBalance;
-  public imr n;
-  @Deprecated
-  public ehg o;
-  public eld p;
-  @Deprecated
-  public ehl q;
-  private int r;
-  private Intent s;
-  private List<UnpaidBill> t;
-  private com.ubercab.rider.realtime.model.PaymentProfile u;
-  private kuc v = new kuc();
+  @BindView
+  public TextView mTextViewFare;
+  @BindView
+  public ViewGroup mViewGroupBalance;
+  private int n;
+  private Intent o;
+  private List<UnpaidBill> p;
+  private PaymentProfile q;
+  private oot r = new oot();
   
-  public static Intent a(Context paramContext, ArrayList<UnpaidBill> paramArrayList)
+  public static Intent a(Context paramContext, List<UnpaidBill> paramList)
   {
     paramContext = new Intent(paramContext, PayNowActivity.class);
-    paramContext.putParcelableArrayListExtra("unpaid_bills", paramArrayList);
+    paramContext.putParcelableArrayListExtra("unpaid_bills", new ArrayList(paramList));
     return paramContext;
   }
   
-  public static Intent a(Context paramContext, ArrayList<UnpaidBill> paramArrayList, Intent paramIntent)
-  {
-    paramContext = new Intent(paramContext, PayNowActivity.class);
-    paramContext.putParcelableArrayListExtra("unpaid_bills", paramArrayList);
-    paramContext.putExtra("next_intent", paramIntent);
-    paramContext.putExtra("next_intent_request_code", 2008);
-    return paramContext;
-  }
-  
-  private void a(com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile)
+  private void a(PaymentProfile paramPaymentProfile)
   {
     mButtonPayNow.setEnabled(true);
-    u = paramPaymentProfile;
-    Object localObject = gdl.a(this, paramPaymentProfile.getCardType());
+    q = paramPaymentProfile;
+    Object localObject = hdg.a(this, paramPaymentProfile.getCardType());
     mPaymentTextView.a((Drawable)localObject);
     localObject = i.c();
     if (localObject != null) {
-      mPaymentTextView.setText(erb.a(this, paramPaymentProfile, ((Client)localObject).getPaymentProfiles(), true));
+      mPaymentTextView.setText(ezg.a(this, paramPaymentProfile, ((Client)localObject).getPaymentProfiles(), true));
     }
     if (h())
     {
@@ -130,41 +105,29 @@ public class PayNowActivity
       mViewGroupBalance.setVisibility(0);
       mProgressBarBalance.setVisibility(0);
       mTextViewBalance.setVisibility(4);
-      if (u != null)
-      {
-        if (j.a(dux.dA, true)) {
-          v.a(m.a(u.getUuid()).a(kls.a()).b(new gak(this, u.getUuid())));
-        }
+      if (q != null) {
+        r.a(l.a(q.getUuid()).a(oeh.a()).b(new gvh(this, q.getUuid())));
       }
-      else {
-        return;
-      }
-      o.a(u.getUuid());
       return;
     }
     mTextViewDescription.setVisibility(8);
     mViewGroupBalance.setVisibility(8);
   }
   
-  private void a(gam paramgam)
+  private void a(gvj paramgvj)
   {
-    paramgam.a(this);
+    paramgvj.a(this);
   }
   
   private void a(String paramString1, String paramString2)
   {
-    b(getString(2131165291), null);
-    if (j.a(dux.dB, true))
-    {
-      v.a(m.a(paramString2, paramString1).a(kls.a()).b(new gal(this, (byte)0)));
-      return;
-    }
-    v.a(l.c(paramString2, paramString1).a(kls.a()).b(new gal(this, (byte)0)));
+    b(getString(2131165295), null);
+    r.a(l.a(paramString2, paramString1).a(oeh.a()).b(new gvi(this, (byte)0)));
   }
   
-  private gam b(ebj paramebj)
+  private gvj b(eib parameib)
   {
-    return fzk.a().a(new gan()).a(new eav(this)).a(paramebj).a();
+    return gub.a().a(new gvk()).a(new ehn(this)).a(parameib).a();
   }
   
   private void g()
@@ -174,7 +137,7 @@ public class PayNowActivity
     for (localObject = ((Client)localObject).getLastSelectedPaymentProfile();; localObject = null)
     {
       if (localObject != null) {
-        a((com.ubercab.rider.realtime.model.PaymentProfile)localObject);
+        a((PaymentProfile)localObject);
       }
       return;
     }
@@ -182,21 +145,21 @@ public class PayNowActivity
   
   private boolean h()
   {
-    return (u.getTokenType() != null) && (g.contains(u.getTokenType()));
+    return (q != null) && (q.getTokenType() != null) && (g.contains(q.getTokenType()));
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903427);
-    ButterKnife.inject(this);
-    r = getIntent().getIntExtra("next_intent_request_code", 0);
-    s = ((Intent)getIntent().getParcelableExtra("next_intent"));
-    t = getIntent().getParcelableArrayListExtra("unpaid_bills");
-    if (t.size() == 0) {
+    setContentView(2130903588);
+    ButterKnife.a(this);
+    n = getIntent().getIntExtra("next_intent_request_code", 0);
+    o = ((Intent)getIntent().getParcelableExtra("next_intent"));
+    p = getIntent().getParcelableArrayListExtra("unpaid_bills");
+    if (p.size() == 0) {
       f();
     }
-    Object localObject = (UnpaidBill)t.get(0);
+    Object localObject = (UnpaidBill)p.get(0);
     mTextViewFare.setText(((UnpaidBill)localObject).getAmountString());
     localObject = i.c();
     if (localObject == null) {}
@@ -210,14 +173,14 @@ public class PayNowActivity
           a(paramBundle);
         }
       }
-    } while ((u != null) || (((Client)localObject).getLastSelectedPaymentProfile() == null));
+    } while ((q != null) || (((Client)localObject).getLastSelectedPaymentProfile() == null));
     g();
   }
   
   public final void f()
   {
-    if (s != null) {
-      startActivityForResult(s, r);
+    if (o != null) {
+      startActivityForResult(o, n);
     }
     finish();
   }
@@ -237,7 +200,7 @@ public class PayNowActivity
         }
       }
     }
-    while ((paramInt1 != 1002) || (paramInt2 != -1)) {
+    while (paramInt1 != 1002) {
       for (;;)
       {
         Client localClient;
@@ -245,39 +208,38 @@ public class PayNowActivity
         paramIntent = null;
       }
     }
-    f();
+    if (paramInt2 == -1)
+    {
+      h.a(x.jI);
+      f();
+      return;
+    }
+    h.a(x.jH);
   }
   
-  @OnClick({2131625012})
+  @OnClick
   public void onClickPayNow()
   {
-    if (u == null) {}
-    while ((t == null) || (t.isEmpty())) {
+    if (q == null) {}
+    while ((p == null) || (p.isEmpty())) {
       return;
     }
-    h.a(r.kH);
-    Object localObject = (UnpaidBill)t.get(0);
-    String str = ((UnpaidBill)localObject).getClientBillUuid();
-    imp localimp = n.a(u.getTokenType());
-    com.ubercab.android.payment.realtime.model.PaymentProfile localPaymentProfile = erb.a(u);
-    localObject = PaymentChargeOptions.create(Math.abs(eqy.a(((UnpaidBill)localObject).getAmount())));
-    if ((u.getTokenType() != null) && (u.getTokenType().equals("zaakpay")))
+    h.a(z.nY);
+    UnpaidBill localUnpaidBill = (UnpaidBill)p.get(0);
+    String str = localUnpaidBill.getClientBillUuid();
+    ldk localldk = m.a(q.getTokenType());
+    if ((localldk != null) && (localldk.w()))
     {
-      startActivityForResult(new jax(this).a(localPaymentProfile, str, (PaymentChargeOptions)localObject), 1002);
+      startActivityForResult(localldk.a(ezg.a(q), str, PaymentChargeOptions.create(Math.abs(ezd.a(localUnpaidBill.getAmount())))), 1002);
       return;
     }
-    if ((u.getTokenType() != null) && (localimp != null) && (localimp.t()))
-    {
-      startActivityForResult(localimp.a(localPaymentProfile, str, (PaymentChargeOptions)localObject), 1002);
-      return;
-    }
-    a(u.getUuid(), str);
+    a(q.getUuid(), str);
   }
   
-  @OnClick({2131625007})
+  @OnClick
   public void onClickSelectPayment()
   {
-    h.a(r.kI);
+    h.a(z.nZ);
     Intent localIntent = new Intent(this, PaymentActivity.class);
     localIntent.setAction("com.ubercab.SELECT_PAYMENT");
     startActivityForResult(localIntent, 1001);
@@ -286,83 +248,25 @@ public class PayNowActivity
   public void onPause()
   {
     super.onPause();
-    v.a();
-  }
-  
-  @cho
-  @Deprecated
-  public void onPayBillResponseEvent(eja parameja)
-  {
-    w();
-    if (!parameja.a())
-    {
-      h.a(p.gW);
-      a_(parameja.a(this));
-      return;
-    }
-    h.a(p.gX);
-    f();
-  }
-  
-  @cho
-  @Deprecated
-  public void onPaymentCheckBalanceResponseEvent(ejb paramejb)
-  {
-    mProgressBarBalance.setVisibility(8);
-    if ((u == null) || (u.getUuid() == null)) {}
-    label28:
-    Object localObject1;
-    Object localObject2;
-    do
-    {
-      do
-      {
-        do
-        {
-          do
-          {
-            break label28;
-            break label28;
-            do
-            {
-              return;
-            } while (!u.getUuid().equals(paramejb.a()));
-            if (!paramejb.i())
-            {
-              a_(getString(2131165256));
-              return;
-            }
-            paramejb = (PaymentCheckBalanceResponse)paramejb.g();
-            localObject1 = paramejb.getDisplayAmount();
-            mTextViewBalance.setText((CharSequence)localObject1);
-            mTextViewBalance.setVisibility(0);
-          } while ((t == null) || (t.isEmpty()));
-          paramejb = paramejb.getAmount();
-        } while (paramejb == null);
-        localObject1 = Double.valueOf(Math.abs(eqy.a(((UnpaidBill)t.get(0)).getAmount())));
-        localObject2 = i.c();
-      } while ((localObject2 == null) || (((Client)localObject2).getPaymentProfiles() == null));
-      localObject2 = erb.a(this, u, ((Client)localObject2).getPaymentProfiles(), true);
-    } while ((paramejb.doubleValue() < 0.0D) || (paramejb.doubleValue() >= ((Double)localObject1).doubleValue()));
-    mTextViewDescription.setText(String.format(getString(2131166201), new Object[] { ijd.a(this, paramejb.doubleValue()), ijd.a(this, ((Double)localObject1).doubleValue() - paramejb.doubleValue()), localObject2 }));
+    r.c();
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    if (u != null) {
-      paramBundle.putString("payment_profile_uuid", u.getUuid());
+    if (q != null) {
+      paramBundle.putString("payment_profile_uuid", q.getUuid());
     }
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
     return Collections.singleton(k);
   }
   
-  public final ckr u()
+  public final cli v()
   {
-    return p.nY;
+    return x.sh;
   }
 }
 

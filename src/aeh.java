@@ -1,39 +1,53 @@
-import java.io.UnsupportedEncodingException;
+import java.util.Iterator;
+import java.util.List;
 
-public class aeh
-  extends atg<String>
+@aih
+public final class aeh
 {
-  private final aub<String> a;
+  private final Object a;
+  private int b;
+  private List<aeg> c;
   
-  private aeh(String paramString, aub<String> paramaub, aua paramaua)
+  public final boolean a(aeg paramaeg)
   {
-    super(paramString, paramaua);
-    a = paramaub;
-  }
-  
-  public aeh(String paramString, aub<String> paramaub, aua paramaua, byte paramByte)
-  {
-    this(paramString, paramaub, paramaua);
-  }
-  
-  private void c(String paramString)
-  {
-    a.a(paramString);
-  }
-  
-  protected final atz<String> a(aqe paramaqe)
-  {
-    try
+    synchronized (a)
     {
-      String str1 = new String(b, ayh.a(c));
-      return atz.a(str1, ayh.a(paramaqe));
+      return c.contains(paramaeg);
     }
-    catch (UnsupportedEncodingException localUnsupportedEncodingException)
+  }
+  
+  public final boolean b(aeg paramaeg)
+  {
+    synchronized (a)
     {
-      for (;;)
+      Iterator localIterator = c.iterator();
+      while (localIterator.hasNext())
       {
-        String str2 = new String(b);
+        aeg localaeg = (aeg)localIterator.next();
+        if ((paramaeg != localaeg) && (localaeg.b().equals(paramaeg.b())))
+        {
+          localIterator.remove();
+          return true;
+        }
       }
+      return false;
+    }
+  }
+  
+  public final void c(aeg paramaeg)
+  {
+    synchronized (a)
+    {
+      if (c.size() >= 10)
+      {
+        ain.a("Queue is full, current size = " + c.size());
+        c.remove(0);
+      }
+      int i = b;
+      b = (i + 1);
+      paramaeg.a(i);
+      c.add(paramaeg);
+      return;
     }
   }
 }

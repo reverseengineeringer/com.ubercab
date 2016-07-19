@@ -1,21 +1,54 @@
-import android.content.Context;
-import com.google.android.gms.ads.internal.client.AdSizeParcel;
-import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.data.BitmapTeleporter;
+import com.google.android.gms.location.places.PlacePhotoResult;
 
-@apl
 public final class asw
+  implements Parcelable.Creator<PlacePhotoResult>
 {
-  public static asq a(Context paramContext, AdSizeParcel paramAdSizeParcel, aff paramaff, VersionInfoParcel paramVersionInfoParcel)
+  private static PlacePhotoResult a(Parcel paramParcel)
   {
-    return a(paramContext, paramAdSizeParcel, false, false, paramaff, paramVersionInfoParcel, null, null);
+    int j = zd.b(paramParcel);
+    Status localStatus = null;
+    int i = 0;
+    BitmapTeleporter localBitmapTeleporter = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        localStatus = (Status)zd.a(paramParcel, k, Status.CREATOR);
+        break;
+      case 1000: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        localBitmapTeleporter = (BitmapTeleporter)zd.a(paramParcel, k, BitmapTeleporter.CREATOR);
+      }
+    }
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new PlacePhotoResult(i, localStatus, localBitmapTeleporter);
   }
   
-  public static asq a(Context paramContext, AdSizeParcel paramAdSizeParcel, boolean paramBoolean1, boolean paramBoolean2, aff paramaff, VersionInfoParcel paramVersionInfoParcel, ahi paramahi, sv paramsv)
+  public static void a(PlacePhotoResult paramPlacePhotoResult, Parcel paramParcel, int paramInt)
   {
-    paramContext = new asx(asy.a(paramContext, paramAdSizeParcel, paramBoolean1, paramaff, paramVersionInfoParcel, paramahi, paramsv));
-    paramContext.setWebViewClient(tp.g().a(paramContext, paramBoolean2));
-    paramContext.setWebChromeClient(tp.g().c(paramContext));
-    return paramContext;
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramPlacePhotoResult.a(), paramInt, false);
+    zf.a(paramParcel, 1000, a);
+    zf.a(paramParcel, 2, b, paramInt, false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static PlacePhotoResult[] a(int paramInt)
+  {
+    return new PlacePhotoResult[paramInt];
   }
 }
 

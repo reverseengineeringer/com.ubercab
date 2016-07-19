@@ -12,6 +12,8 @@ public abstract class LiveChat
     return new Shape_LiveChat().setEmail(paramString1).setFirstName(paramString2).setLastName(paramString3);
   }
   
+  public abstract String getChatUrl();
+  
   public abstract String getEmail();
   
   public abstract String getFirstName();
@@ -19,6 +21,8 @@ public abstract class LiveChat
   public abstract String getLastName();
   
   public abstract String getPhoneNumber();
+  
+  abstract LiveChat setChatUrl(String paramString);
   
   abstract LiveChat setEmail(String paramString);
   

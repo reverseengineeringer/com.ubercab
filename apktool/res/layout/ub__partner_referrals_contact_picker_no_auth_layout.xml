@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="top" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/ub__partner_referrals_contact_picker_no_auth_cover" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="centerCrop" android:adjustViewBounds="true" android:minHeight="@dimen/ub__partner_referrals_contact_picker_preauth_progress_bar_height" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P" android:gravity="center" android:id="@id/ub__partner_referrals_contact_picker_no_auth_title" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_4x" android:layout_marginBottom="@dimen/ui__spacing_unit_4x" />
+        <com.ubercab.ui.Button android:id="@id/ub__partner_referrals_contact_picker_no_auth_action_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_6x" android:layout_marginRight="@dimen/ui__spacing_unit_6x" style="@style/Uber.Widget.Button.Supporting" />
+    </LinearLayout>
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.Byline" android:gravity="center" android:layout_gravity="bottom" android:id="@id/ub__partner_referrals_contact_picker_no_auth_detail_text" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_3x" />
+</FrameLayout>

@@ -1,75 +1,40 @@
-import com.google.android.gms.ads.internal.client.AdRequestParcel;
-import java.lang.ref.WeakReference;
+import android.content.Intent;
 
-@apl
+@aih
 public final class tn
 {
-  private final to a;
-  private final Runnable b;
-  private AdRequestParcel c;
-  private boolean d = false;
-  private boolean e = false;
-  private long f = 0L;
+  private final String a;
   
-  public tn(ss paramss)
+  public static String a()
   {
-    this(paramss, new to(aqz.a));
+    ul.c();
+    return aiq.a();
   }
   
-  private tn(ss paramss, to paramto)
+  public final boolean a(String paramString, Intent paramIntent)
   {
-    a = paramto;
-    b = new tn.1(this, new WeakReference(paramss));
-  }
-  
-  public final void a()
-  {
-    d = false;
-    a.a(b);
-  }
-  
-  public final void a(AdRequestParcel paramAdRequestParcel)
-  {
-    a(paramAdRequestParcel, 60000L);
-  }
-  
-  public final void a(AdRequestParcel paramAdRequestParcel, long paramLong)
-  {
-    if (d) {
-      aqt.d("An ad refresh is already scheduled.");
-    }
+    if ((paramString == null) || (paramIntent == null)) {}
+    String str;
     do
     {
-      return;
-      c = paramAdRequestParcel;
-      d = true;
-      f = paramLong;
-    } while (e);
-    aqt.c("Scheduling ad refresh " + paramLong + " milliseconds from now.");
-    a.a(b, paramLong);
-  }
-  
-  public final void b()
-  {
-    e = true;
-    if (d) {
-      a.a(b);
-    }
-  }
-  
-  public final void c()
-  {
-    e = false;
-    if (d)
+      return false;
+      ul.j();
+      str = tl.b(paramIntent);
+      ul.j();
+      paramIntent = tl.c(paramIntent);
+    } while ((str == null) || (paramIntent == null));
+    ul.j();
+    if (!paramString.equals(tl.a(str)))
     {
-      d = false;
-      a(c, f);
+      ain.d("Developer payload not match.");
+      return false;
     }
-  }
-  
-  public final boolean d()
-  {
-    return d;
+    if ((a != null) && (!to.a(a, str, paramIntent)))
+    {
+      ain.d("Fail to verify signature.");
+      return false;
+    }
+    return true;
   }
 }
 

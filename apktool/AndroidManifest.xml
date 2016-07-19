@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ubercab" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.ubercab" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
     <uses-feature android:glEsVersion="0x20000" android:required="true"/>
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
@@ -18,7 +18,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS" android:protectionLevel="signature"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
@@ -28,6 +28,7 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <uses-permission android:name="com.ubercab.permission.C2D_MESSAGE"/>
+    <uses-permission-sdk-23 android:name="android.permission.RECORD_AUDIO"/>
     <permission android:name="com.ubercab.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
     <permission android:name="com.ubercab.permission.RECEIVE_BROADCAST" android:protectionLevel="signature"/>
     <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -42,11 +43,19 @@
         <meta-data android:name="com.alipay.API_KEY" android:value="@string/ub__config_alipay_appid"/>
         <meta-data android:name="com.alipay.PRODUCT_ID" android:value="@string/ub__config_alipay_product_id"/>
         <meta-data android:name="com.alipay.TARGET_ID" android:value="@string/ub__config_alipay_target_id"/>
+        <meta-data android:name="com.facebook.API_KEY" android:value="@string/ub__facebook_app_id"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.core.vendor.google.GoogleWalletActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.about.AboutActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.chat.ChatThreadActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:launchMode="singleTop" android:name="com.ubercab.client.feature.playcheck.UpdateGooglePlayServicesActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.cardoffers.CardOfferDetailsActivity" android:parentActivityName="com.ubercab.client.feature.cardoffers.CardOffersActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.cardoffers.CardOffersActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.cardoffers.CardOffersActivity" android:parentActivityName="com.ubercab.client.feature.payment.PaymentActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.payment.PaymentActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.chat.ChatThreadActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/commute" android:name="com.ubercab.client.feature.commute.CommuteToggleActivity" android:parentActivityName="com.ubercab.client.feature.settings.SettingsActivity" android:screenOrientation="portrait">
@@ -55,10 +64,19 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/update" android:name="com.ubercab.client.feature.forceupgrade.ForceUpgradeActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
         </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/local_offers" android:name="com.ubercab.client.feature.localoffers.LocalOffersActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/local_offer_details" android:name="com.ubercab.client.feature.localoffers.LocalOfferDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/local_offers" android:name="com.ubercab.client.feature.localoffers.LocalOffersOptInActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
+        </activity>
         <activity android:configChanges="keyboard|orientation|screenSize" android:label="@string/empty" android:name="com.ubercab.client.feature.music.MusicProviderChooserActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.onboarding.PreloadOnBoardingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.onboarding.PreloadOnboardingActivityV2" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.onboarding.PreloadOnboardingDriverActivity" android:parentActivityName="com.ubercab.client.feature.onboarding.PreloadOnboardingActivityV2" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.onboarding.PreloadOnboardingActivityV2"/>
+        </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.signup.LegalActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.search.LocationSearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.LocationSearch" android:windowSoftInputMode="adjustNothing|stateVisible"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.employee.EmployeeSettingsActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
@@ -70,30 +88,34 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.estimate.FareEstimateActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.MapOverlay">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.estimate.FareEstimateActivityV2" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.MapOverlay">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
-        </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.eta.ShareEtaActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/family_profile" android:name="com.ubercab.client.feature.family.FamilyEditMemberActivity" android:parentActivityName="com.ubercab.client.feature.family.FamilyProfileSettingsActivity" android:screenOrientation="portrait">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.family.FamilyProfileSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/family_profile" android:name="com.ubercab.client.feature.family.FamilyEditMemberActivity" android:parentActivityName="com.ubercab.client.feature.family.FamilyGroupSettingsActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.family.FamilyGroupSettingsActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.family.FamilyProfileUpdateFieldActivity" android:parentActivityName="com.ubercab.client.feature.family.FamilyGroupSettingsActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.family.FamilyGroupSettingsActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.family.FamilyInvitationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent.ActivityDialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.family.FamilyGroupAddMemberActivity" android:parentActivityName="com.ubercab.client.feature.family.FamilyGroupSettingsActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.family.FamilyGroupSettingsActivity"/>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/profile" android:name="com.ubercab.client.feature.family.FamilyGroupSettingsActivity" android:parentActivityName="com.ubercab.client.feature.settings.SettingsActivity" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.settings.SettingsActivity"/>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/family_profile" android:name="com.ubercab.client.feature.family.FamilyOnBoardingSmsInviteActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent.ActivityDialog"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.family.FamilyProfileAddMembersActivity" android:parentActivityName="com.ubercab.client.feature.family.FamilyProfileSettingsActivity" android:screenOrientation="portrait">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.family.FamilyProfileSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.family.FamilyProfileAddMembersActivity" android:parentActivityName="com.ubercab.client.feature.family.FamilyGroupSettingsActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.family.FamilyGroupSettingsActivity"/>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/profile" android:name="com.ubercab.client.feature.family.FamilyProfileSettingsActivity" android:parentActivityName="com.ubercab.client.feature.settings.SettingsActivity" android:screenOrientation="portrait">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.settings.SettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.family.FamilyProfileUpdateEmailActivity" android:parentActivityName="com.ubercab.client.feature.family.FamilyGroupSettingsActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.family.FamilyGroupSettingsActivity"/>
         </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.family.FamilyProfileUpdateEmailActivity" android:parentActivityName="com.ubercab.client.feature.family.FamilyProfileSettingsActivity" android:screenOrientation="portrait">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.family.FamilyProfileSettingsActivity"/>
-        </activity>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/payment" android:name="com.ubercab.client.feature.family.FamilyProfileUpdatePaymentActivity" android:parentActivityName="com.ubercab.client.feature.family.FamilyProfileSettingsActivity" android:screenOrientation="portrait">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.family.FamilyProfileSettingsActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/payment" android:name="com.ubercab.client.feature.family.FamilyProfileUpdatePaymentActivity" android:parentActivityName="com.ubercab.client.feature.family.FamilyGroupSettingsActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.family.FamilyGroupSettingsActivity"/>
         </activity>
         <activity android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.faresplit.master.FareSplitInviteActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:windowSoftInputMode="adjustNothing|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
+        </activity>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:label="@string/empty" android:name="com.ubercab.client.feature.endorsements.PartnerInvitesActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:launchMode="singleTop" android:name="com.ubercab.client.feature.launch.SignInOrRegisterActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.SignInOrRegister"/>
@@ -121,6 +143,26 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <data android:host="m.uber.com" android:pathPrefix="/ul/" android:scheme="http"/>
                 <data android:host="m.uber.com" android:pathPrefix="/ul/" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="p.uber.com"/>
+                <data android:host="partners.uber.com"/>
+                <data android:path="/open-mobile-app/any/none"/>
+                <data android:path="/open-mobile-app/rider/none"/>
+                <data android:path="/open-mobile-app/any/partner_onboarding"/>
+                <data android:path="/open-mobile-app/rider/partner_onboarding"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="uberm.bttn.io" android:pathPattern=".*" android:scheme="http"/>
+                <data android:host="uberm.bttn.io" android:pathPattern=".*" android:scheme="https"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -188,22 +230,37 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.signup.SignupActivity" android:parentActivityName="com.ubercab.client.feature.launch.SignInOrRegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".client.feature.launch.SignInOrRegisterActivity"/>
         </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/register" android:name="com.ubercab.client.feature.signup.stepbystep.SignupPaperActivity" android:parentActivityName="com.ubercab.client.feature.launch.SignInOrRegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".client.feature.launch.SignInOrRegisterActivity"/>
+        </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.signin.SignInWithAlipayActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.signin.SignInWithBaiduActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.signin.SignInWithIdentityActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.signup.CompleteSignupActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber.Toolbar.Transparent" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.share.wechat.ShareMomentsImageActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent" android:windowSoftInputMode="stateHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.signup.SignupGoogleActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/login" android:name="com.ubercab.client.feature.signin.SignInActivity" android:parentActivityName="com.ubercab.client.feature.launch.SignInOrRegisterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".client.feature.launch.SignInOrRegisterActivity"/>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/passwordreset_activity_label" android:name="com.ubercab.client.feature.passwordreset.PasswordResetActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.ubercab.client.feature.signup.passwordless.PasswordlessSignupActivity" android:parentActivityName="com.ubercab.client.feature.launch.SignInOrRegisterActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".client.feature.launch.SignInOrRegisterActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.ubercab.client.feature.signup.passwordless.AddPasswordActivity" android:parentActivityName="com.ubercab.client.feature.payment.AddPaymentActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".client.feature.payment.AddPaymentActivity"/>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.ubercab.client.feature.signup.passwordless.promo.PasswordlessSignupPromoActivityDialog" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent.ActivityDialog"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.tester.TesterSettingsActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
         </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/two_factor_authentication_title" android:name="com.ubercab.client.feature.twofactor.TwoFactorAuthenticationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent" android:windowSoftInputMode="stateHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.core.vendor.alipay.AlipayAuthorizationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent" android:windowSoftInputMode="stateHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.core.vendor.baidu.BaiduAuthorizationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent" android:windowSoftInputMode="stateHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.core.vendor.facebook.FacebookAuthorizationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent" android:windowSoftInputMode="stateHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/share_free_rides" android:launchMode="singleTask" android:name="com.ubercab.client.feature.share.ShareActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/share_free_food" android:launchMode="singleTask" android:name="com.ubercab.client.feature.share.EatsShareActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.share.ShareOnSignupActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
@@ -213,21 +270,22 @@
         <activity android:icon="@drawable/ub__icon_mail_closed" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.share.SendToContactsActivity" android:parentActivityName="com.ubercab.client.feature.share.ShareActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing|stateHidden">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.share.ShareActivity"/>
         </activity>
-        <activity android:excludeFromRecents="true" android:icon="@drawable/ub__icon_copy_to_clip" android:label="@string/share_copy_to_clipboard" android:name="com.ubercab.client.feature.share.ClipboardShareActivity" android:noHistory="true" android:theme="@style/Theme.Rider.Transparent">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="copy" android:scheme="uber_share"/>
-                <data android:host="cancel" android:scheme="uber_share"/>
-            </intent-filter>
-        </activity>
+        <activity android:excludeFromRecents="true" android:icon="@drawable/ub__icon_copy_to_clip" android:label="@string/share_copy_to_clipboard" android:name="com.ubercab.client.feature.share.ClipboardShareActivity" android:noHistory="true" android:theme="@style/Theme.Rider.Transparent"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.receipt.MealReceiptActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.NoActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.receipt.ReceiptActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/surge_pricing" android:name="com.ubercab.client.feature.surge.SurgeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent.ActivityDialog"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/surge_pricing" android:name="com.ubercab.client.feature.surge.SurgeConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent.ActivityDialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:launchMode="singleTop" android:name="com.ubercab.client.feature.ratings.RatingsActivityDialog" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent.ActivityDialog" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/surge_pricing" android:name="com.ubercab.client.feature.surge.ui.SurgeConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent.ActivityDialog"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:launchMode="singleTop" android:name="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.NavDrawerToolbar" android:windowSoftInputMode="adjustNothing"/>
         <activity android:configChanges="keyboard|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.trip.pickupnote.PickupNoteComposeActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysVisible|adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.triphistory.TripHistoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="com.ubercab.ACTION_HISTORY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/call_driver" android:name="com.ubercab.client.feature.triptracker.ContactTrackedDriverActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent.ActivityDialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.triptracker.TripTrackerActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__app_label" android:name="com.ubercab.client.feature.payment.promo.TripBalancesActivity" android:screenOrientation="portrait"/>
@@ -244,6 +302,9 @@
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.profiles.expenseprovider.ConfigureExpenseProviderActivity" android:parentActivityName="com.ubercab.client.feature.profiles.expenseprovider.ExpenseProviderActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".client.feature.profiles.expenseprovider.ExpenseProviderActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:name="com.ubercab.client.feature.profiles.expenseprovider.ExpenseProviderModalActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent.ActivityDialog" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".client.feature.trip.TripActivity"/>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/expense_code" android:name="com.ubercab.client.feature.profiles.expensecode.ExpenseCodeConfigureActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
 &gt;
@@ -271,6 +332,9 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/profile_setup" android:name="com.ubercab.client.feature.family.FamilyOnBoardingActivity" android:parentActivityName="com.ubercab.client.feature.settings.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Family.OnBoarding.Activity">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.settings.SettingsActivity"/>
         </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/reservation_trip_view_trip_title" android:name="com.ubercab.client.feature.reservation.TripTabViewActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
+        </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/hiring_coding_challenge_activity_title" android:name="com.ubercab.client.feature.hiring.CodingChallengeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
         </activity>
@@ -286,7 +350,28 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/contacts_sync" android:name="com.ubercab.client.feature.addressbook.ContactsSyncSettingsActivity" android:parentActivityName="com.ubercab.client.feature.settings.SettingsActivity" android:screenOrientation="portrait">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.settings.SettingsActivity"/>
         </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/free_rides" android:name="com.ubercab.client.feature.addressbook.share.ShareContactsActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/share_contacts_denied_header" android:name="com.ubercab.client.feature.addressbook.share.ShareContactsDeniedActivity" android:parentActivityName="com.ubercab.client.feature.addressbook.share.ShareContactsActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/nationalid_welcome_to" android:name="com.ubercab.client.feature.nationalid.NationalIdCaptureActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".client.feature.trip.TripActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/pending_payment" android:launchMode="singleTop" android:name="com.ubercab.client.feature.payment.arrears.PendingPaymentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Dialog" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="arrears" android:scheme="uber-arrears"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/select_payment" android:launchMode="singleTop" android:name="com.ubercab.client.feature.payment.arrears.other.choose.ChoosePaymentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/add_payment_overlay_title" android:launchMode="singleTop" android:name="com.ubercab.client.feature.payment.arrears.other.add.AddPaymentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__empty" android:launchMode="singleTop" android:name="com.ubercab.client.feature.promo.ApplyPromotionCodeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Rider.Transparent"/>
         <service android:label="@string/ub__empty" android:name="com.ubercab.client.feature.notification.NotificationBackgroundConnectionService"/>
+        <service android:exported="false" android:label="@string/ub__empty" android:name="com.ubercab.client.core.motion.MotionStashService"/>
         <service android:label="@string/ub__empty" android:name="com.ubercab.client.feature.music.MusicControlChannelService"/>
         <service android:label="@string/ub__empty" android:name="com.ubercab.client.feature.verification.MobileVerificationIntentService"/>
         <service android:label="@string/ub__empty" android:name="com.ubercab.client.feature.addressbook.UploadContactsIntentService"/>
@@ -299,6 +384,12 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.client.feature.reservation.TripSchedulerActivity" android:parentActivityName="com.ubercab.client.feature.reservation.TripTabViewActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".client.feature.reservation.TripTabViewActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/pick_contact" android:name="com.ubercab.client.feature.bounce.BounceContactPickerActivity" android:parentActivityName="com.ubercab.client.feature.trip.TripActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.client.feature.trip.TripActivity"/>
+        </activity>
         <activity android:configChanges="keyboardHidden|orientation" android:name="io.card.payment.CardIOActivity"/>
         <activity android:name="io.card.payment.DataEntryActivity"/>
         <receiver android:enabled="false" android:exported="true" android:name="com.ubercab.client.core.sms.SmsReceiver" android:permission="android.permission.BROADCAST_SMS">
@@ -316,7 +407,7 @@
                 <action android:name="com.android.vending.INSTALL_REFERRER"/>
             </intent-filter>
         </receiver>
-        <activity android:excludeFromRecents="true" android:exported="true" android:name="com.ubercab.client.feature.notification.NotificationActionActivity" android:noHistory="true" android:theme="@style/Theme.Rider.Launcher"/>
+        <activity android:excludeFromRecents="true" android:name="com.ubercab.client.feature.notification.NotificationActionActivity" android:noHistory="true" android:theme="@style/Theme.Rider.Launcher"/>
         <receiver android:exported="false" android:name="com.ubercab.client.feature.notification.NotificationActionReceiver">
             <intent-filter>
                 <action android:name="com.ubercab.client.ACTION_CLICK"/>
@@ -338,31 +429,48 @@
             </intent-filter>
         </receiver>
         <service android:exported="false" android:name="com.ubercab.client.core.push.ProcessPushService"/>
+        <service android:exported="true" android:name="com.ubercab.client.core.app.RiderLoginService"/>
         <service android:enabled="false" android:name="com.baidu.location.f" android:process=":remote"/>
         <service android:enabled="false" android:exported="false" android:name="com.ubercab.client.core.vendor.google.now.NowAuthIntentService"/>
+        <service android:exported="false" android:name="com.ubercab.client.feature.ratings.RatingsSubmitService"/>
         <receiver android:enabled="false" android:exported="false" android:name="com.ubercab.client.core.vendor.google.now.NowBroadcastReceiver">
             <intent-filter>
                 <action android:name="com.ubercab.client.core.vendor.google.now.BROADCAST"/>
             </intent-filter>
         </receiver>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.bgc.BgcStepLegalActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.bgc.BgcStepSsnActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.contextualhelp.ContextualHelpActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.document.DocumentStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.documentslist.DocumentsListStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.documentslist.DocumentsListStepDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.invalid.InvalidStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.document.metadata.MetadataActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.optionselect.OptionSelectStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.upgrade.UpgradeStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.vehicleinspection.VehicleInspectionStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.vehicle.VehicleStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.vehiclewithsolutions.VehicleWithSolutionsStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.contextualhelp.ContextualHelpActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.signup.SignUpActivity" android:screenOrientation="portrait"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.SimpleTextActivity" android:parentActivityName="com.ubercab.android.partner.funnel.onboarding.OnboardingActivity" android:screenOrientation="portrait">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.android.partner.funnel.onboarding.OnboardingActivity"/>
+        <activity android:label="@string/title_experiments" android:name="com.ubercab.experiment.ui.ExperimentsActivity" android:theme="@android:style/Theme.DeviceDefault.Light"/>
+        <activity android:label="@string/ub__analytics_events" android:name="com.ubercab.analytics.app.AnalyticsEventListActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.activation.ActivationStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.bgc.BgcStepLegalActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.bgc.BgcStepSsnActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.signuplite.citypicker.CityPickerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.contextualhelp.ContextualHelpActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.document.DocumentStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.documentslist.DocumentsListStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.documentslist.DocumentsListStepDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.invalid.InvalidStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.legalagreement.LegalAgreementStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.legalagreement.LegalAgreementStepDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.document.metadata.MetadataActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.optionselect.OptionSelectStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.territoryselect.TerritorySelectStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.upgrade.UpgradeStepCityPickerActivity" android:parentActivityName="com.ubercab.android.partner.funnel.ipo.onboarding.steps.upgrade.UpgradeStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".ipo.onboarding.steps.upgrade.UpgradeStepActivity"/>
         </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.upgrade.UpgradeStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.vehicleinspection.VehicleInspectionStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.vehicle.VehicleStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.vehiclewithsolutions.VehicleWithSolutionsStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.vehiclewithsolutions.LoginPartnersWithTokenActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.contextualhelp.ContextualHelpActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.signup.SignUpMvcActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.signup.SignUpActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.signuplite.PhoneNumberCollectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.signuplite.PhoneNumberVerificationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.signuplite.SignUpLiteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.SimpleTextActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.vehicleinspection.OfficeHoursSelectionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.chat.ZendeskChatActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.OnboardingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
@@ -376,9 +484,10 @@
         </activity>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.android.partner.funnel.onboarding.steps.documentslist.DocumentsListStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.steps.legalagreement.LegalAgreementStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.legalagreement.LegalAgreementStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.steps.legalagreement.LegalAgreementStepDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.legalagreement.LegalAgreementStepDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.errorstate.ErrorStateStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.nationalidchina.NationalIdChinaStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.ipo.onboarding.steps.nationalidwaiting.NationalIdWaitingStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.steps.nationalid.NationalIdStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.steps.vehicle.VehicleStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.steps.endorsements.EndorsementsStepActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
@@ -391,11 +500,17 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.OnboardingPhotoActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.android.partner.funnel.onboarding.DocumentMetadataActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.android.partner.funnel.vault.VaultActivity" android:screenOrientation="portrait"/>
+        <receiver android:enabled="false" android:exported="false" android:name="com.ubercab.android.partner.funnel.signuplite.autoreadsms.SignupLiteVerificationCodeReceiver">
+            <intent-filter>
+                <action android:name="com.ubercab.sms.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
         <service android:label="@string/ub__partner_funnel_empty" android:name="com.ubercab.android.partner.funnel.onboarding.documents.DocumentsUploadService"/>
-        <activity android:label="@string/ub__analytics_events" android:name="com.ubercab.analytics.app.AnalyticsEventListActivity"/>
-        <activity android:label="@string/title_experiments" android:name="com.ubercab.experiment.ExperimentsActivity" android:theme="@android:style/Theme.DeviceDefault.Light"/>
-        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
-        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <receiver android:enabled="false" android:name="com.ubercab.sms.InternalSmsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
         <activity android:label="@string/app_name" android:name="com.ubercab.reporting.activity.ScreenshotNotificationActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
         <activity android:label="@string/app_name" android:name="com.ubercab.reporting.activity.FeedbackActivity" android:parentActivityName="com.ubercab.reporting.activity.ScreenshotNotificationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppFeedbackReporter">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.ubercab.reporting.activity.ScreenshotNotificationActivity"/>
@@ -404,25 +519,8 @@
         <activity android:name="com.ubercab.identity.internal.vendor.alipay.AlipayAuthorizationActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:name="com.ubercab.identity.internal.vendor.baidu.BaiduAuthorizationActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:name="com.ubercab.identity.internal.vendor.facebook.FacebookAuthorizationActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
+        <activity android:name="com.ubercab.identity.internal.vendor.facebook.FacebookWebActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:name="com.ubercab.identity.internal.vendor.google.GoogleAuthorizationActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
-        <receiver android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-                <category android:name="com.ubercab"/>
-            </intent-filter>
-        </receiver>
-        <service android:exported="false" android:name="com.ubercab.push.GoogleListenerService">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-            </intent-filter>
-        </service>
-        <provider android:authorities="com.ubercab.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
-        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
-            <intent-filter>
-                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
-            </intent-filter>
-        </receiver>
-        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
         <receiver android:enabled="false" android:name="com.ubercab.push.BaiduPushMessageReceiver">
             <intent-filter>
                 <action android:name="com.baidu.android.pushservice.action.MESSAGE"/>
@@ -459,8 +557,27 @@
             </intent-filter>
         </service>
         <service android:enabled="false" android:exported="true" android:name="com.baidu.android.pushservice.CommandService"/>
+        <receiver android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.ubercab"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.ubercab.push.GoogleListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.ubercab.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.badroutes.BadRoutesActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.cancellations.CancellationsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.rds.feature.chronicle.ChronicleSurveyActivity" android:screenOrientation="portrait" android:theme="@style/Theme.RDS.Transparent.ActivityDialog"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.conversation.ConversationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.fapiao.FapiaoActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.fapiao.FapiaoFormActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
@@ -472,13 +589,24 @@
         <activity android:configChanges="orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.password.ForgotPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
         <activity android:configChanges="orientation|screenSize" android:name="com.ubercab.rds.feature.password.ResetPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.support.SupportFormActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.support.SupportHomeActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.support.SupportPhotoActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.trip.TripDetailsActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.trip.TripHistoryActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.trip.TripProblemActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__rds__empty" android:name="com.ubercab.rds.feature.trip.TripReceiptActivity" android:screenOrientation="portrait"/>
-        <receiver android:enabled="false" android:name="com.ubercab.sms.InternalSmsReceiver">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.rewards.feature.life.detail.LifeDetailActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber.Life"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.rewards.feature.life.detail.confirm.LifeDetailConfirmActivity" android:screenOrientation="portrait" android:theme="@style/Uber.Life.Drawer"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.rewards.feature.life.home.LifeHomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber.Life"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.rewards.feature.life.uip.profile.UIPProfileActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber.Life"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.rewards.feature.life.uip.pointhistory.UIPPointHistoryActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber.Life"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.rewards.feature.life.uip.help.UIPHelpActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.rewards.feature.rewarddetail.RewardDetailActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.ubercab.rewards.feature.rewards.RewardsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.sso.feature.SsoActivity" android:screenOrientation="portrait" android:theme="@style/Base.Theme.Uber.Toolbar"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.shared.SharedDeletePaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.shared.SharedEditPaymentActivity"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.shared.SharedVerifyPaymentActivity"/>
+        <receiver android:enabled="false" android:name="com.ubercab.payment.internal.sms.PaymentSmsReceiver">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
@@ -495,24 +623,32 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__payment_airtel" android:name="com.ubercab.payment.internal.vendor.airtel.AirtelLinkPaymentActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__payment_airtel" android:name="com.ubercab.payment.internal.vendor.airtel.AirtelSetupActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__payment_airtel" android:name="com.ubercab.payment.internal.vendor.airtel.AirtelValidateCodeActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.ubercab.payment.internal.vendor.shared.SharedDeletePaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
-        <activity android:name="com.ubercab.payment.internal.vendor.shared.SharedEditPaymentActivity"/>
-        <activity android:name="com.ubercab.payment.internal.vendor.shared.SharedVerifyPaymentActivity"/>
-        <receiver android:enabled="false" android:name="com.ubercab.payment.internal.sms.PaymentSmsReceiver">
-            <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
-            </intent-filter>
-        </receiver>
         <activity android:name="com.ubercab.payment.internal.vendor.alipay.AlipayAddPaymentActivity"/>
         <activity android:name="com.ubercab.payment.internal.vendor.alipay.AlipayDeletePaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:name="com.ubercab.payment.internal.vendor.alipay.AlipayEditPaymentActivity"/>
         <activity android:name="com.ubercab.payment.internal.vendor.alipay.AlipayVerifyPaymentActivity"/>
-        <activity android:name="com.ubercab.payment.internal.vendor.baidu.BaiduAddPaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.androidpay.AndroidPayAddPaymentActivity" android:theme="@style/Theme.Payment.Transparent.ActivityDialog"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.androidpay.AndroidPayAuthorizePaymentActivity" android:theme="@style/Theme.Payment.Transparent.ActivityDialog"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.androidpay.AndroidPayEditPaymentActivity" android:theme="@style/Theme.Payment.Transparent.ActivityDialog"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.androidpay.AndroidPayManageActivity" android:theme="@style/Theme.Payment.Transparent.ActivityDialog"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.androidpay.AndroidPaySelectPaymentActivity" android:theme="@style/Theme.Payment.Transparent.ActivityDialog"/>
+        <activity android:name="com.braintreepayments.api.threedsecure.ThreeDSecureWebViewActivity"/>
+        <service android:name="com.braintreepayments.api.internal.AnalyticsIntentService"/>
+        <activity android:label="@string/ub__payment_baidu_wallet" android:name="com.ubercab.payment.internal.vendor.baidu.BaiduAddPaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
+        <activity android:label="@string/ub__payment_baidu_wallet" android:name="com.ubercab.payment.internal.vendor.baidu.BaiduDeletePaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
+        <activity android:label="@string/ub__payment_baidu_wallet" android:name="com.ubercab.payment.internal.vendor.baidu.BaiduEditPaymentActivity"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.campuscard.CampusCardAddPaymentSelectInstitutionActivity"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.campuscard.CampusCardAddPaymentSelectAssociationActivity"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.campuscard.CampusCardAddPaymentCollectUserInfoActivity"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.campuscard.CampusCardEditPaymentActivity"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.campuscard.CampusCardDeletePaymentActivity"/>
         <activity android:name="com.ubercab.payment.internal.vendor.candidate.CandidateAddPaymentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Payment.Transparent.ActivityDialog"/>
         <activity android:name="com.ubercab.payment.internal.vendor.cash.CashAddPaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:name="com.ubercab.payment.internal.vendor.cash.CashSelectPaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:name="com.ubercab.payment.internal.vendor.creditcard.CreditCardAddPaymentActivity"/>
         <activity android:name="com.ubercab.payment.internal.vendor.creditcard.CreditCardEditPaymentActivity"/>
+        <activity android:name="com.ubercab.payment.internal.vendor.creditcard.CreditCardDeletePaymentActivity"/>
         <activity android:name="com.ubercab.payment.internal.vendor.bankcard.BankCardAddPaymentActivity"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.payment.internal.vendor.paypal.PayPalAddPaymentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:name="com.ubercab.payment.internal.vendor.paypal.PayPalDeletePaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
@@ -521,15 +657,20 @@
         <activity android:label="@string/ub__payment_paytm_short" android:name="com.ubercab.payment.internal.vendor.paytm.delete.PaytmDeletePaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:label="@string/ub__payment_paytm_short" android:name="com.ubercab.payment.internal.vendor.paytm.edit.PaytmEditPaymentActivity"/>
         <activity android:label="@string/ub__payment_add_funds" android:name="com.ubercab.payment.internal.vendor.paytm.fund.PaytmAddFundsActivity"/>
+        <activity android:label="@string/ub__payment_add_money" android:name="com.ubercab.payment.internal.vendor.paytm.fund.PaytmLinkPaymentActivity"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__payment_paytm_short" android:name="com.ubercab.payment.internal.vendor.paytm.error.PaytmHandlePaymentErrorActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.ubercab.payment.internal.vendor.paytm.charge.PaytmChargePaymentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:label="@string/ub__payment_verify_mobile" android:name="com.ubercab.payment.internal.vendor.paytm.verify.PaytmVerifyPaymentActivity"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__payment_authorise" android:name="com.ubercab.payment.internal.vendor.paytm.web.PaytmWebViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/ub__payment_authorise" android:name="com.ubercab.payment.internal.vendor.paytm.web.v2.PaytmWebViewActivity"/>
+        <activity android:name="com.payu.magicretry.MainActivity"/>
         <activity android:name="com.ubercab.payment.internal.vendor.unionpay.UnionPayAddPaymentActivity"/>
         <activity android:name="com.ubercab.payment.internal.vendor.unionpay.UnionPayDeletePaymentActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
         <activity android:name="com.ubercab.payment.internal.vendor.unionpay.UnionPayEditPaymentActivity"/>
         <activity android:name="com.ubercab.payment.internal.vendor.unionpay.UnionPayVerifyPaymentActivity" android:windowSoftInputMode="stateVisible"/>
         <activity android:name="com.ubercab.payment.internal.vendor.zaakpay.ZaakpayChargeActivity" android:theme="@style/Theme.Uber.Toolbar.Transparent"/>
-        <activity android:label="@string/ub__payment_payment" android:name="com.ubercab.payment.internal.vendor.zaakpay.ZaakpayWebViewActivity"/>
+        <activity android:label="@string/ub__payment_payment" android:name="com.ubercab.payment.internal.vendor.zaakpay.web.ZaakpayWebViewActivity"/>
+        <activity android:label="@string/ub__payment_payment" android:name="com.ubercab.payment.internal.vendor.zaakpay.web.v2.ZaakpayWebViewActivity"/>
+        <activity android:label="@string/ub__payment_verify" android:name="com.ubercab.payment.internal.vendor.zaakpay.ZaakpayVerifyPaymentActivity" android:windowSoftInputMode="stateVisible"/>
     </application>
 </manifest>

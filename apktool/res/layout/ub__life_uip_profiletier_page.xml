@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@color/ub__uber_white_40" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ub__life_uip_tier_info" android:paddingLeft="@dimen/ui__spacing_unit_3x" android:paddingTop="@dimen/ui__spacing_unit_3x" android:paddingRight="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <FrameLayout android:id="@id/ub__life_uip_tier_card_container" android:layout_width="@dimen/ub__life_uip_tier_card_container_width" android:layout_height="@dimen/ub__life_uip_tier_card_container_height" android:layout_marginBottom="@dimen/ui__spacing_unit_4x">
+                <ImageView android:id="@id/ub__life_uip_tier_card" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" android:adjustViewBounds="true" />
+                <com.ubercab.ui.TextView android:layout_gravity="bottom|center" android:id="@id/ub__life_uip_tier_expiration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="" style="@style/Uber.TextAppearance.Life.UIP.TierContent" />
+            </FrameLayout>
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.ubercab.ui.TextView android:id="@id/ub__life_uip_tier_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" style="@style/Uber.TextAppearance.H1" />
+                <com.ubercab.ui.TextView android:id="@id/ub__life_uip_tier_status" android:layout_marginLeft="@dimen/ub__action_button_padding" android:text="@string/ub__life_home_item_status_text" style="@style/Uber.TextAppearance.Life.ProfileCurrentTag" />
+            </LinearLayout>
+            <com.ubercab.ui.TextView android:id="@id/ub__life_uip_tier_titlemsg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__action_button_padding" android:text="" style="@style/Uber.TextAppearance.P" fontPath="@string/ub__font_book" />
+            <ProgressBar android:id="@id/ub__life_uip_tier_progress" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_4x" android:layout_marginTop="@dimen/ui__spacing_unit_3x" android:layout_marginRight="@dimen/ui__spacing_unit_4x" android:max="0" android:progress="0" android:indeterminate="false" android:progressDrawable="@drawable/ub__life_profile_statusbar" android:minWidth="@dimen/ui__life_uip_profile_progress_minwidth" android:minHeight="@dimen/ui__life_uip_profile_progress_height" style="@android:style/Widget.ProgressBar.Horizontal" />
+            <com.ubercab.ui.TextView android:id="@id/ub__life_uip_tier_progressmsg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__action_button_padding" android:text="" style="@style/Uber.TextAppearance.Life.UIP.TierContent" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/ui__spacing_unit_6x" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/ub__life_uip_tier_info">
+            <com.ubercab.ui.TextView android:id="@id/ub__life_uip_tier_benefit_title" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__action_button_padding" android:text="" style="@style/Uber.TextAppearance.H2" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ub__life_uip_tier_benefit_list" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

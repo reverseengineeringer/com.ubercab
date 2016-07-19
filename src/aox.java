@@ -1,44 +1,80 @@
-import android.content.Context;
-import com.google.android.gms.ads.internal.client.AdSizeParcel;
-import com.google.android.gms.ads.internal.request.AdResponseParcel;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpHead;
+import org.apache.http.client.methods.HttpOptions;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpTrace;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.params.HttpConnectionParams;
 
-@apl
 public final class aox
+  implements apa
 {
-  public static arj a(Context paramContext, ss paramss, aqk paramaqk, aff paramaff, asq paramasq, alu paramalu, aoy paramaoy, ahi paramahi)
+  protected final HttpClient a;
+  
+  public aox(HttpClient paramHttpClient)
   {
-    AdResponseParcel localAdResponseParcel = b;
-    if (h) {
-      paramContext = new apb(paramContext, paramaqk, paramalu, paramaoy, paramahi, paramasq);
-    }
-    for (;;)
+    a = paramHttpClient;
+  }
+  
+  private static HttpUriRequest a(aka<?> paramaka)
+  {
+    switch (paramaka.b())
     {
-      aqt.a("AdRenderer: " + paramContext.getClass().getName());
-      paramContext.e();
-      return paramContext;
-      if (t)
-      {
-        if ((paramss instanceof tm))
-        {
-          paramContext = new apc(paramContext, (tm)paramss, new aku(), paramaqk, paramaff, paramaoy);
-        }
-        else
-        {
-          paramaqk = new StringBuilder("Invalid NativeAdManager type. Found: ");
-          if (paramss != null) {}
-          for (paramContext = paramss.getClass().getName();; paramContext = "null") {
-            throw new IllegalArgumentException(paramContext + "; Required: NativeAdManager.");
-          }
-        }
-      }
-      else if (p) {
-        paramContext = new aou(paramContext, paramaqk, paramasq, paramaoy);
-      } else if ((((Boolean)agz.U.c()).booleanValue()) && (auu.f()) && (!auu.h()) && (ke)) {
-        paramContext = new apa(paramContext, paramaqk, paramasq, paramaoy);
-      } else {
-        paramContext = new aoz(paramContext, paramaqk, paramasq, paramaoy);
-      }
+    default: 
+      throw new IllegalStateException("Unknown request method.");
+    case -1: 
+      return new HttpGet(paramaka.d());
+    case 0: 
+      return new HttpGet(paramaka.d());
+    case 3: 
+      return new HttpDelete(paramaka.d());
+    case 1: 
+      paramaka = new HttpPost(paramaka.d());
+      paramaka.addHeader("Content-Type", aka.h());
+      return paramaka;
+    case 2: 
+      paramaka = new HttpPut(paramaka.d());
+      paramaka.addHeader("Content-Type", aka.h());
+      return paramaka;
+    case 4: 
+      return new HttpHead(paramaka.d());
+    case 5: 
+      return new HttpOptions(paramaka.d());
+    case 6: 
+      return new HttpTrace(paramaka.d());
     }
+    paramaka = new aoy(paramaka.d());
+    paramaka.addHeader("Content-Type", aka.h());
+    return paramaka;
+  }
+  
+  private static void a(HttpUriRequest paramHttpUriRequest, Map<String, String> paramMap)
+  {
+    Iterator localIterator = paramMap.keySet().iterator();
+    while (localIterator.hasNext())
+    {
+      String str = (String)localIterator.next();
+      paramHttpUriRequest.setHeader(str, (String)paramMap.get(str));
+    }
+  }
+  
+  public final HttpResponse a(aka<?> paramaka, Map<String, String> paramMap)
+  {
+    HttpUriRequest localHttpUriRequest = a(paramaka);
+    a(localHttpUriRequest, paramMap);
+    a(localHttpUriRequest, paramaka.a());
+    paramMap = localHttpUriRequest.getParams();
+    int i = paramaka.j();
+    HttpConnectionParams.setConnectionTimeout(paramMap, 5000);
+    HttpConnectionParams.setSoTimeout(paramMap, i);
+    return a.execute(localHttpUriRequest);
   }
 }
 

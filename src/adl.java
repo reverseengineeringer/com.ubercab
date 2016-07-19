@@ -1,18 +1,22 @@
-import android.content.SharedPreferences;
-import java.util.concurrent.Callable;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
 
 public final class adl
-  extends adk<Boolean>
 {
-  public static Boolean a(SharedPreferences paramSharedPreferences, final String paramString, final Boolean paramBoolean)
+  public static KeyPair a()
   {
-    (Boolean)avg.a(new Callable()
+    try
     {
-      private Boolean a()
-      {
-        return Boolean.valueOf(getBoolean(paramString, paramBoolean.booleanValue()));
-      }
-    });
+      Object localObject = KeyPairGenerator.getInstance("RSA");
+      ((KeyPairGenerator)localObject).initialize(2048);
+      localObject = ((KeyPairGenerator)localObject).generateKeyPair();
+      return (KeyPair)localObject;
+    }
+    catch (NoSuchAlgorithmException localNoSuchAlgorithmException)
+    {
+      throw new AssertionError(localNoSuchAlgorithmException);
+    }
   }
 }
 

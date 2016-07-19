@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/ub__uber_white_60" />
+    <size android:height="@dimen/ub__card_offers_earned_rides_diameter" android:width="@dimen/ub__card_offers_earned_rides_diameter" />
+</shape>

@@ -1,8 +1,14 @@
-final class apf
+import android.location.Location;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.LocationRequest;
+
+public abstract interface apf
 {
-  public aji a;
+  public abstract Location a(wj paramwj);
   
-  apf(apd paramapd) {}
+  public abstract wo<Status> a(wj paramwj, api paramapi);
+  
+  public abstract wo<Status> a(wj paramwj, LocationRequest paramLocationRequest, api paramapi);
 }
 
 /* Location:

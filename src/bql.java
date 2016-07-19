@@ -1,63 +1,371 @@
-import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class bql
-  extends Number
+  implements byp
 {
-  private final String a;
+  private static final Map a = new HashMap();
+  private static final Map b = new HashMap();
+  private static final Map c = new HashMap();
   
-  public bql(String paramString)
+  public bql()
   {
-    a = paramString;
+    a.put(bvh.a, "Godkänn och betala");
+    a.put(bvh.b, "och annan");
+    a.put(bvh.c, "Autentisering utförs");
+    a.put(bvh.d, "Tillbaka");
+    a.put(bvh.e, "Reservmetod");
+    a.put(bvh.f, "Avbryt");
+    a.put(bvh.g, "American Express");
+    a.put(bvh.h, "Carta Aura");
+    a.put(bvh.i, "Carte Aurore");
+    a.put(bvh.j, "Carta Prepagata PayPal");
+    a.put(bvh.k, "Carte Bancaire");
+    a.put(bvh.l, "Cofinoga");
+    a.put(bvh.m, "Delta");
+    a.put(bvh.n, "Discover");
+    a.put(bvh.o, "Electron");
+    a.put(bvh.p, "JCB");
+    a.put(bvh.q, "Maestro");
+    a.put(bvh.r, "MasterCard");
+    a.put(bvh.s, "Postepay");
+    a.put(bvh.t, "4 étoiles");
+    a.put(bvh.u, "Tarjeta Aurora");
+    a.put(bvh.v, "Visa");
+    a.put(bvh.w, "Ändra betalningsmetod");
+    a.put(bvh.x, "Lönekonto");
+    a.put(bvh.y, "Enheten kontrolleras …");
+    a.put(bvh.z, "Ta bort kortuppgifter");
+    a.put(bvh.A, "Bekräfta");
+    a.put(bvh.B, "Vill du ta bort kortuppgifterna?");
+    a.put(bvh.C, "Debitera kort");
+    a.put(bvh.D, "Vill du logga ut från PayPal?");
+    a.put(bvh.E, "Betala");
+    a.put(bvh.F, "Godkänn");
+    a.put(bvh.G, "Datum då kontot skapades");
+    a.put(bvh.H, "Kontostatus");
+    a.put(bvh.I, "Kontotyp");
+    a.put(bvh.J, "Adress");
+    a.put(bvh.K, "Åldersintervall");
+    a.put(bvh.L, "Födelsedatum");
+    a.put(bvh.M, "E-postadress");
+    a.put(bvh.N, "Fullständigt namn");
+    a.put(bvh.O, "Kön");
+    a.put(bvh.P, "Språk");
+    a.put(bvh.Q, "Språkinställning");
+    a.put(bvh.R, "Telefon");
+    a.put(bvh.S, "Tidszon");
+    a.put(bvh.T, "Dela det här: %s.");
+    a.put(bvh.U, "Betala smidigt.");
+    a.put(bvh.V, "%s ber dig att:");
+    a.put(bvh.W, "Dela <a href='%1$s'>betalningsmetoderna</a> som är kopplade till ditt PayPal-konto.");
+    a.put(bvh.X, "Aktivera visning av dina betalningsalternativ så att du kan välja mellan dem.");
+    a.put(bvh.Y, "<a href='%1$s'>Godkänna avgifter</a> för framtida köp hos %2$s som betalas med PayPal. Du ger PayPal i uppdrag att betala alla belopp som begärs av %3$s.");
+    a.put(bvh.Z, "Tillåt att de lägger till och hanterar sina lojalitetskort i din PayPal-e-plånbok.");
+    a.put(bvh.aa, "godkänna <a href='%2$s'>sekretesspolicyn</a> och <a href='%3$s'>användaravtalet</a> för %1$s.");
+    a.put(bvh.ab, "Tillåt dem att <a href='%1$s'>be om betalning</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    a.put(bvh.ac, "Tillåt dem att <a href='%1$s'>överföra pengar</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    a.put(bvh.ad, "Medgivande");
+    a.put(bvh.ae, "E-post");
+    a.put(bvh.af, "Exempeldata");
+    a.put(bvh.ag, "Sandbox");
+    a.put(bvh.ah, "Går ut");
+    a.put(bvh.ai, "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilken av dina betalningsmetoder som ska användas.</p>");
+    a.put(bvh.aj, "Har du glömt lösenordet?");
+    a.put(bvh.ak, "Från");
+    a.put(bvh.al, "På vilket sätt vill du göra framtida betalningar till %1$s?");
+    a.put(bvh.am, "<h1><strong>Avtal för framtida betalningar</strong></h1><p>Dina framtida PayPal-betalningar betalas med det betalningsalternativ du angett för den här handlaren.</p><p>Om du vill upphäva avtalet loggar du in på PayPal-kontot och går till <strong>Min profil</strong> &gt; <strong>Mina inställningar</strong> &gt; <strong>Logga in med PayPal</strong> och tar bort handlaren från listan.</p><p>Avsnittet Återkommande betalningar i <a href='%s'>PayPals användaravtal</a> gäller.</p><p>Appen simulerar eventuellt en liten testtransaktion för att se till att du kan göra betalningar från ditt PayPal-konto, men inga pengar överförs.</p>");
+    a.put(bvh.an, "Internt fel");
+    a.put(bvh.ao, "<p>Genom att klicka på knappen godtar jag villkoren i <a href='%1$s'>PayPals användaravtal</a> och intygar att jag följer japanska lagar och regleringar, inklusive sanktionerna mot betalningar till Nordkorea och Iran enligt <a href='%2$s'>Foreign Exchange and Foreign Trade Act</a> för att slutföra transaktionen.</p>");
+    a.put(bvh.ap, "Logga in");
+    a.put(bvh.aq, "Logga in med PayPal");
+    a.put(bvh.ar, "Logga ut");
+    a.put(bvh.as, "Logga ut");
+    a.put(bvh.at, "OK");
+    a.put(bvh.au, "Lösenord");
+    a.put(bvh.av, "Betala efter leverans");
+    a.put(bvh.aw, "Betala med");
+    a.put(bvh.ax, "Betala med kort");
+    a.put(bvh.ay, "PayPal-saldo");
+    a.put(bvh.az, "PayPal Credit");
+    a.put(bvh.aA, "Telefon");
+    a.put(bvh.aB, "Pinkod");
+    a.put(bvh.aC, "Favoritbetalningsmetod");
+    a.put(bvh.aD, "PayPal skyddar dina <a href='%s'>personliga uppgifter</a> och dina betalningsuppgifter.");
+    a.put(bvh.aE, "Behandling");
+    a.put(bvh.aF, "Kom ihåg kort");
+    a.put(bvh.aG, "Be om betalning");
+    a.put(bvh.aH, "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till avsnittet <strong>Logga in med PayPal</strong> under inställningarna för <strong>Min profil</strong> och tar bort handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från partnerns sida.</p>");
+    a.put(bvh.aI, "Sparkonto");
+    a.put(bvh.aJ, "Överföra pengar");
+    a.put(bvh.aK, "Det gick inte att kommunicera med PayPal-servrarna. Försök igen.");
+    a.put(bvh.aL, "Logga in på PayPal igen.");
+    a.put(bvh.aM, "Sessionen har upphört att gälla");
+    a.put(bvh.aN, "Leveransadress");
+    a.put(bvh.aO, "Har du inte använt PayPal förut? Skapa konto");
+    a.put(bvh.aP, "Fortsätt att vara inloggad");
+    a.put(bvh.aQ, "Systemfel (%s). Försök igen senare.");
+    a.put(bvh.aR, "Försök igen");
+    a.put(bvh.aS, "Det gick inte att logga in eftersom tvåfaktorautentisering har aktiverats för ditt konto.");
+    a.put(bvh.aT, "Säkerhetskod");
+    a.put(bvh.aU, "Skicka ett sms till din mobiltelefon. Den sexsiffriga koden du får är giltig i 5 minuter.");
+    a.put(bvh.aV, "Skicka sms");
+    a.put(bvh.aW, "Ange den sexsiffriga säkerhetskoden");
+    a.put(bvh.aX, "Ditt mobilnummer");
+    a.put(bvh.aY, "Skicka sms");
+    a.put(bvh.aZ, "Skicka sms igen");
+    a.put(bvh.ba, "Det gick inte att logga in eftersom tvåfaktorautentisering har aktiverats för ditt konto. Gå till PayPals webbplats för att aktivera säkerhetsnyckeln.");
+    a.put(bvh.bb, "Betalningar från den här enheten är inte tillåtna.");
+    a.put(bvh.bc, "Obehörig enhet");
+    a.put(bvh.bd, "Betalningar till den här handlaren medges inte (ogiltigt klient-id).");
+    a.put(bvh.be, "Ogiltig handlare");
+    a.put(bvh.bf, "Det gick inte att behandla din betalning. Försök igen.");
+    a.put(bvh.bg, "Okänd betalningsmetod");
+    a.put(bvh.bh, "Tyvärr");
+    a.put(bvh.bi, "Din order");
+    a.put(bvh.bj, "Vill du ta bort kortet?");
+    a.put(bvh.bk, "Samtycke misslyckades");
+    a.put(bvh.bl, "Anslutningen misslyckades");
+    a.put(bvh.bm, "Inloggningen misslyckades");
+    a.put(bvh.bn, "Logga in med ditt lösenord");
+    a.put(bvh.bo, "Logga in med din pinkod");
+    a.put(bvh.bp, "Ett ögonblick …");
+    a.put(bvh.bq, "Betalningen misslyckades");
+    a.put(bvh.br, "Skanna");
+    a.put(bvh.bs, "Felaktig säkerhetskod. Försök igen.");
+    a.put(bvh.bt, "Via");
+    a.put(bvh.bu, "Systemfel. Försök igen senare.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|AT", "Dela information om de <a href='%1$s'>betalningsalternativ</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|BE", "Dela informationen om de <a href='%1$s'>betalningsalternativ</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|BG", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CH", "Dela information om de <a href='%1$s'>betalningsalternativ</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CY", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CZ", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|DE", "Dela information om de <a href='%1$s'>betalningsalternativ</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|DK", "Dela information om de <a href='%1$s'>betalningsmetoder</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|EE", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|ES", "Dela information med dem om de <a href='%1$s'>betalningsalternativ</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|FI", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|GB", "Dela <a href='%1$s'>betalningsalternativen</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|GR", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|HU", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|IE", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|IT", "Dela <a href='%1$s'>betalningsalternativen</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LI", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LT", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LU", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LV", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|MT", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|NL", "Dela informationen om de <a href='%1$s'>betalningsalternativ</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|NO", "Dela information om de <a href='%1$s'>betalningsmetoder</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|PL", "Dela informationen om de <a href='%1$s'>betalningsalternativ</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|PT", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SE", "Dela information om de <a href='%1$s'>betalningsmetoder</a> som är kopplade till ditt PayPal-konto.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SI", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SK", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SM", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|VA", "Dela <a href='%1$s'>betalningsalternativen</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|AU", "<p><a href='%1$s'>Godkänna avgifter</a> för framtida köp hos %2$s som betalas med PayPal. Du ger PayPal i uppdrag att betala alla belopp som begärs av %3$s.</p><p>Mer information finns i <a href='https://www.paypal.com/webapps/mpp/ua/recurringpymts-full'>PayPals avtal om återkommande betalningar och fakturering</a>.</p>");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|CN", "<p><a href='%1$s'>Godkänna avgifter</a> för framtida köp hos %2$s som betalas med PayPal. Du ger PayPal i uppdrag att betala alla belopp som begärs av %3$s.</p><p>Mer information finns i <a href='https://cms.paypal.com/c2/cgi-bin/?cmd=_render-content&content_ID=ua/UserAgreement_full'>PayPals avtal om återkommande betalningar och fakturering</a>.</p>");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|MY", "<a href='%1$s'>Godkänn att pengar dras</a> för framtida köp som betalas med PayPal. Du ber PayPal betala alla belopp och godkänner detta.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|NZ", "<a href='%1$s'>Godkänn att pengar dras</a> för framtida köp som betalas med PayPal. Du ber PayPal betala alla belopp och godkänner detta.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|SG", "<a href='%1$s'>Godkänn att pengar dras</a> för framtida köp som betalas med PayPal. Du ber PayPal betala alla belopp och godkänner detta.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|US", "Godkänn på förhand framtida betalningar från ditt PayPal-konto utan att logga in på PayPal varje gång. <a href='%1$s'>Se fler villkor</a>, inklusive betalningsmetoder och information om hur du avbryter framtida betalningar.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|AT", "Tillåt %2$s att <a href='%1$s'>be om betalning</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|BE", "Tillåt %2$s att <a href='%1$s'>be om betalning</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|CH", "Tillåt %2$s att <a href='%1$s'>be om betalning</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|DE", "Tillåt %2$s att <a href='%1$s'>be om betalning</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|GB", "Tillåt %2$s att <a href='%1$s'>be om betalning</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|NL", "Tillåt %2$s att <a href='%1$s'>be om betalning</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|PL", "Tillåt %2$s att <a href='%1$s'>be om betalning</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|AT", "Tillåt %2$s att <a href='%1$s'>överföra pengar</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|BE", "Tillåt %2$s att <a href='%1$s'>överföra pengar</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|CH", "Tillåt %2$s att <a href='%1$s'>överföra pengar</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|DE", "Tillåt %2$s att <a href='%1$s'>överföra pengar</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|GB", "Tillåt %2$s att <a href='%1$s'>överföra pengar</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|NL", "Tillåt %2$s att <a href='%1$s'>överföra pengar</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|PL", "Tillåt %2$s att <a href='%1$s'>överföra pengar</a> för din räkning tills du drar tillbaka ditt medgivande.");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|AT", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|BE", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|BG", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CH", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CY", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CZ", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|DE", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|EE", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|ES", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|FI", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|GR", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|HU", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|IE", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|IT", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LI", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LT", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LU", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LV", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|MT", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|NL", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|PL", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|PT", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SI", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SK", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SM", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|VA", "<h1><strong>Betalningsmetoder</strong></h1><p>PayPal delar bara information om vilka av dina betalningsalternativ som kan användas.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|AU", "<h1><strong>Avtal för framtida betalningar</strong></h1><p>Med appen simuleras eventuellt en liten testtransaktion för att se till att ditt PayPal-konto kan debiteras senare, men inga pengar överförs.</p><p>PayPal-köpen betalas med den betalningsmetod du har angett som standard (PayPal-saldo, kopplat bankkonto eller betalkort, i den ordningen). Tänk på att banken eller kortutfärdaren kan ta ut en avgift om det inte finns tillräckligt med pengar för att täcka köpet.</p><p>Om du vill upphäva avtalet loggar du in på ditt PayPal-konto och går till <strong>Min profil</strong>. Klicka sedan på <strong>Mina inställningar</strong> och <strong>Ändra</strong> bredvid ”Logga in med PayPal”.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|BR", "<h1><strong>Avtal för framtida betalningar</strong></h1><p>En liten testtransaktion simuleras eventuellt med appen för att se till att ditt PayPal-konto kan debiteras senare, men inga pengar överförs.</p><p>PayPal-köpen betalas med ditt PayPal-saldo eller ditt primära betalkort.</p><p>Om du vill upphäva avtalet loggar du in på PayPal-kontot och går till <strong>Min profil</strong> &gt; <strong>Mina inställningar</strong> &gt; <strong>Logga in med PayPal</strong> och tar bort handlaren från listan.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|CN", "<h1><strong>Avtal för framtida betalningar</strong></h1><p>En liten testtransaktion simuleras eventuellt med appen för att se till att ditt PayPal-konto kan debiteras senare, men inga pengar överförs.</p><p>PayPal-köpen betalas med den betalningsmetod du har angett som standard.</p><p>Om du vill upphäva avtalet loggar du in på ditt PayPal-konto och går till <strong>Min profil</strong> &gt; <strong>Inställningar</strong> &gt; <strong>Logga in med PayPal</strong> och tar bort handlaren från listan.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|GB", "<h1><strong>Avtal för framtida betalningar</strong></h1><p>Dina framtida PayPal-betalningar betalas med det betalningsalternativ du angett för den här handlaren.</p><p>Om du vill upphäva avtalet loggar du in på PayPal-kontot och går till <strong>Min profil</strong> &gt; <strong>Mina inställningar</strong> &gt; <strong>Logga in med PayPal</strong> och tar bort handlaren från listan.</p><p>Avsnittet Återkommande betalningar i <a href='%s'>PayPals användaravtal</a> gäller.</p><p>Appen simulerar eventuellt en liten testtransaktion för att se till att du kan göra betalningar från ditt PayPal-konto, men inga pengar överförs.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|HK", "<h1><strong>Godkännande för framtida betalningar</strong></h1><p>En liten testtransaktion simuleras eventuellt med appen för att se till att ditt PayPal-konto kan debiteras senare, men inga pengar överförs.</p><p>PayPal-köpen betalas med den betalningsmetod du har angett som standard.</p><p>Om du vill avbryta godkännandet loggar du in på PayPal-kontot och går till <strong>Min profil</strong> &gt; <strong>Mina kontoinställningar</strong> &gt; <strong>Logga in med PayPal</strong> och tar bort handlaren från listan.</p><p>Mer information finns i avsnittet ”Förgodkända betalningar” i <a href='%s'>PayPals användaravtal</a>.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|JP", "<h1><strong>Godkännande för framtida betalningar</strong></h1><p>En liten testtransaktion simuleras eventuellt med appen för att se till att ditt PayPal-konto kan debiteras senare, men inga pengar överförs.</p><p>PayPal-köpen betalas med den betalningsmetod du har angett som standard.</p><p>Om du vill avbryta godkännandet loggar du in på PayPal-kontot och går till <strong>Min profil</strong> &gt; <strong>Mina kontoinställningar</strong> &gt; <strong>Logga in med PayPal</strong> och tar bort handlaren från listan.</p><p>Mer information finns i avsnittet ”Förgodkända betalningar” i <a href='%s'>PayPals användaravtal</a>.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|MX", "<h1><strong>Avtal för framtida betalningar</strong></h1><p>En liten testtransaktion simuleras eventuellt med appen för att se till att ditt PayPal-konto kan debiteras senare, men inga pengar överförs.</p><p>PayPal-köpen betalas med ditt PayPal-saldo eller ditt primära betalkort.</p><p>Om du vill upphäva avtalet loggar du in på PayPal-kontot och går till <strong>Min profil</strong> &gt; <strong>Mina inställningar</strong> &gt; <strong>Logga in med PayPal</strong> och tar bort handlaren från listan.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|MY", "<h1><strong>Godkännande för framtida betalningar</strong></h1><p>En liten testtransaktion simuleras eventuellt med appen för att se till att ditt PayPal-konto kan debiteras senare, men inga pengar överförs.</p><p>PayPal-köpen betalas med den betalningsmetod du har angett som standard.</p><p>Om du vill avbryta godkännandet loggar du in på PayPal-kontot och går till <strong>Min profil</strong> &gt; <strong>Mina kontoinställningar</strong> &gt; <strong>Logga in med PayPal</strong> och tar bort handlaren från listan.</p><p>Mer information finns i avsnittet ”Förgodkända betalningar” i <a href='%s'>PayPals användaravtal</a>.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|NZ", "<h1><strong>Godkännande för framtida betalningar</strong></h1><p>En liten testtransaktion simuleras eventuellt med appen för att se till att ditt PayPal-konto kan debiteras senare, men inga pengar överförs.</p><p>PayPal-köpen betalas med den betalningsmetod du har angett som standard.</p><p>Om du vill avbryta godkännandet loggar du in på PayPal-kontot och går till <strong>Min profil</strong> &gt; <strong>Mina kontoinställningar</strong> &gt; <strong>Logga in med PayPal</strong> och tar bort handlaren från listan.</p><p>Mer information finns i avsnittet ”Förgodkända betalningar” i <a href='%s'>PayPals användaravtal</a>.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|SG", "<h1><strong>Godkännande för framtida betalningar</strong></h1><p>En liten testtransaktion simuleras eventuellt med appen för att se till att ditt PayPal-konto kan debiteras senare, men inga pengar överförs.</p><p>PayPal-köpen betalas med den betalningsmetod du har angett som standard.</p><p>Om du vill avbryta godkännandet loggar du in på PayPal-kontot och går till <strong>Min profil</strong> &gt; <strong>Mina kontoinställningar</strong> &gt; <strong>Logga in med PayPal</strong> och tar bort handlaren från listan.</p><p>Mer information finns i avsnittet ”Förgodkända betalningar” i <a href='%s'>PayPals användaravtal</a>.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|US", "<h1><strong>Avtal för framtida betalningar</strong></h1><p>Vid köp dras pengar först från ditt PayPal-saldo. Om det inte täcker summan dras resterande summa från ditt bankkonto, PayPal Credit, betalkort, och/eller eCheck, i den ordningen.</p><p>Gå till www.paypal.com <strong>Min profil</strong> &gt; <strong>Mina inställningar</strong> &gt; <strong>Logga in med PayPal</strong> och ta bort handlaren från listan om du vill upphäva avtalet.</p><p>Det kan hända att en mindre betalning måste godkännas för att ditt PayPal-konto ska kunna debiteras i framtiden. Godkännandet annulleras sedan och du debiteras inte.</p>");
+    b.put("LOG_IN_TO_PAYPAL|AU", "Logga in med PayPal");
+    b.put("LOG_IN_TO_PAYPAL|GB", "Logga in med PayPal");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AD", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AL", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AT", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med partnern.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och klickar på kugghjulssymbolen. Gå till <strong>Säkerhet</strong>, välj <strong>Logga in med PayPal</strong> och ta bort den här partnern.</p><p>PayPal ansvarar inte för åtgärder eller fel från partnerns sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AU", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till avsnittet <strong>Logga in med PayPal</strong> under inställningarna för <strong>Min profil</strong> och tar bort handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från partnerns sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BA", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BE", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och går till avsnittet <strong>Logga in med PayPal</strong> under inställningarna för <strong>Min profil</strong> och tar bort handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BG", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CH", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med partnern.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och klickar på kugghjulssymbolen. Gå till <strong>Säkerhet</strong>, välj <strong>Logga in med PayPal</strong> och ta bort den här partnern.</p><p>PayPal ansvarar inte för åtgärder eller fel från partnerns sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CY", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CZ", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|DE", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med partnern.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och klickar på kugghjulssymbolen. Gå till <strong>Säkerhet</strong>, välj <strong>Logga in med PayPal</strong> och ta bort den här partnern.</p><p>PayPal ansvarar inte för åtgärder eller fel från partnerns sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|DK", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och går till avsnittet <strong>Logga in med PayPal</strong> under inställningarna för <strong>Min profil</strong> och tar bort handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|EE", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|ES", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och klickar på kugghjulssymbolen längst upp till höger. Välj sedan <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och tar bort handlaren. Om du fortfarande använder den gamla vyn ska du gå till <strong>Min profil</strong>, välja <strong>Mina kontoinställningar</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|FI", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|GB", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med partnern.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och går till <strong>Min profil</strong> och tar sedan bort partnern under <strong>Logga in med PayPal</strong>.</p><p>PayPal ansvarar inte för åtgärder eller fel från partnerns sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|GR", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|HR", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|HU", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IE", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IS", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IT", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.it och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LI", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LT", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LU", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LV", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|MT", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|NL", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och går till avsnittet <strong>Logga in med PayPal</strong> under inställningarna för <strong>Min profil</strong> och tar bort handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|NO", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och går till avsnittet <strong>Logga in med PayPal</strong> under inställningarna för <strong>Min profil</strong> och tar bort handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|PL", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och går till avsnittet <strong>Logga in med PayPal</strong> under inställningarna för <strong>Min profil</strong> och tar bort handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|PT", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|RO", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|RU", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med partnern.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.ru och klickar på kugghjulssymbolen längst upp till höger. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här partnern.</p><p>PayPal ansvarar inte för åtgärder eller fel från partnerns sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SE", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på ditt PayPal-konto och går till avsnittet <strong>Logga in med PayPal</strong> under inställningarna för <strong>Min profil</strong> och tar bort handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SI", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SK", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SM", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|TR", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com.tr och klickar på kugghjulssymbolen längst upp till höger. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här partnern.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|UA", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|US", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till avsnittet <strong>Logga in med PayPal</strong> under inställningarna för <strong>Min profil</strong> och tar bort handlaren.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|VA", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|ZA", "<h1><strong>%s</strong></h1><p>Alla relevanta transaktionsuppgifter delas med handlaren.</p><p>Om du vill dra tillbaka ditt medgivande loggar du in på paypal.com och går till <strong>Min profil</strong>. Välj sedan fliken <strong>Säkerhet</strong>, gå till avsnittet <strong>Logga in med PayPal</strong> och ta bort den här handlaren.</p><p>PayPal ansvarar inte för åtgärder eller fel från handlarens sida.</p>");
+    c.put("AMOUNT_MISMATCH", "Totalbeloppet för objekten i kundvagnen matchar inte försäljningsbeloppet.");
+    c.put("AUTHORIZATION_ALREADY_COMPLETED", "Godkännandet har redan slutförts.");
+    c.put("AUTHORIZATION_CANNOT_BE_VOIDED", "Godkännandets nuvarande status gör att det inte kan annulleras.");
+    c.put("AUTHORIZATION_EXPIRED", "Godkännandet har gått ut.");
+    c.put("AUTHORIZATION_ID_DOES_NOT_EXIST", "Det id för godkännande som har begärts finns inte.");
+    c.put("AUTHORIZATION_VOIDED", "Ditt godkännande har annullerats.");
+    c.put("CANNOT_REAUTH_CHILD_AUTHORIZATION", "Det går endast att omgodkänna det ursprungliga godkännandet, inte ett omgodkännande.");
+    c.put("CANNOT_REAUTH_INSIDE_HONOR_PERIOD", "Det är inte tillåtet att omgodkänna inom garantiperioden.");
+    c.put("CAPTURE_AMOUNT_LIMIT_EXCEEDED", "Beloppet överskrider den tillåtna gränsen.");
+    c.put("CARD_TOKEN_PAYER_MISMATCH", "Det gick inte att komma åt de sparade kortuppgifterna.");
+    c.put("CREDIT_CARD_CVV_CHECK_FAILED", "Kortuppgifterna är ogiltiga. Korrigera och skicka igen.");
+    c.put("CREDIT_CARD_REFUSED", "Kortet nekades.");
+    c.put("CURRENCY_MISMATCH", "Inkasseringsvalutan måste vara samma som valutan för godkännandet.");
+    c.put("CURRENCY_NOT_ALLOWED", "Den här valutan stöds inte för närvarande av PayPal.");
+    c.put("DATA_RETRIEVAL", "Systemfel. Försök igen senare.");
+    c.put("DUPLICATE_REQUEST_ID", "Systemfel. Försök igen senare.");
+    c.put("EXPIRED_CREDIT_CARD", "Kortet har upphört att gälla");
+    c.put("EXPIRED_CREDIT_CARD_TOKEN", "Informationen för det här kortet finns inte längre sparad.\nSkicka igen.");
+    c.put("FEATURE_UNSUPPORTED_FOR_PAYEE", "Funktionen stöds inte för betalningsmottagaren.");
+    c.put("FULL_REFUND_NOT_ALLOWED_AFTER_PARTIAL_REFUND", "Transaktionen har delvis återbetalats.");
+    c.put("IMMEDIATE_PAY_NOT_SUPPORTED", "Direktbetalning stöds inte för det här.");
+    c.put("INSTRUMENT_DECLINED", "Den betalningsmetod du valde godkändes inte. Välj en annan betalningsmetod.");
+    c.put("INSUFFICIENT_FUNDS", "Köparen kan inte betala – pengar saknas.");
+    c.put("INTERNAL_SERVICE_ERROR", "Systemfel. Försök igen senare.");
+    c.put("INVALID_ACCOUNT_NUMBER", "Kontonumret finns inte.");
+    c.put("INVALID_ARGUMENT", "Transaktionen nekades på grund av ett ogiltigt argument");
+    c.put("INVALID_CITY_STATE_ZIP", "Ogiltig kombination av ort/delstat/postnummer.");
+    c.put("INVALID_FACILITATOR_CONFIGURATION", "Den här transaktionen kan inte behandlas på grund av ogiltig konfiguration hos partnern.");
+    c.put("INVALID_PAYER_ID", "Systemfel (betalarens id är ogiltigt). Försök igen senare.");
+    c.put("INVALID_RESOURCE_ID", "Systemfel. Försök igen senare.");
+    c.put("PAYEE_ACCOUNT_INVALID", "Det finns ingen bekräftad e-postadress för betalningsmottagarens konto.");
+    c.put("PAYEE_ACCOUNT_LOCKED_OR_CLOSED", "Den här säljaren kan inte ta emot betalningar just nu.");
+    c.put("PAYEE_ACCOUNT_NO_CONFIRMED_EMAIL", "Det finns ingen bekräftad e-postadress för betalningsmottagarens konto.");
+    c.put("PAYEE_ACCOUNT_RESTRICTED", "Den här säljaren kan inte ta emot betalningar just nu.");
+    c.put("PAYER_ACCOUNT_LOCKED_OR_CLOSED", "Ditt konto är spärrat eller stängt.");
+    c.put("PAYER_ACCOUNT_RESTRICTED", "Ditt konto är begränsat.");
+    c.put("PAYER_CANNOT_PAY", "Du kan inte betala den här transaktionen med PayPal.");
+    c.put("PAYER_EMPTY_BILLING_ADDRESS", "Faktureringsadress krävs för korttransaktioner som inte görs med PayPal.");
+    c.put("PAYER_ID_MISSING_FOR_CARD_TOKEN", "Det gick inte att komma åt de sparade kortuppgifterna.");
+    c.put("PAYMENT_APPROVAL_EXPIRED", "Godkännandet av betalningen har upphört att gälla.");
+    c.put("PAYMENT_EXPIRED", "Betalningen har upphört att gälla.");
+    c.put("PAYMENT_NOT_APPROVED_FOR_EXECUTION", "Betalaren inte har godkänt betalningen.");
+    c.put("PAYMENT_REQUEST_ID_INVALID", "PayPals id för begäran är ogiltigt. Försök igen senare.");
+    c.put("PAYMENT_STATE_INVALID", "Denna begäran är ogiltig på grund av betalningens nuvarande status.");
+    c.put("PERMISSION_DENIED", "Det finns inget tillstånd för den begärda åtgärden.");
+    c.put("REFUND_EXCEEDED_TRANSACTION_AMOUNT", "Den begärda återbetalningen överskrider beloppet för den ursprungliga transaktionen.");
+    c.put("REFUND_TIME_LIMIT_EXCEEDED", "Transaktionen är för gammal för att återbetalas.");
+    c.put("REQUIRED_SCOPE_MISSING", "Systemfel. Försök igen senare.");
+    c.put("TOO_MANY_REAUTHORIZATIONS", "Inga fler omgodkännanden är tillåtna för det här godkännandet.");
+    c.put("TRANSACTION_ALREADY_REFUNDED", "Transaktionen har redan återbetalats.");
+    c.put("TRANSACTION_LIMIT_EXCEEDED", "Beloppet överskrider den tillåtna gränsen.");
+    c.put("TRANSACTION_REFUSED", "Transaktionen nekades.");
+    c.put("TRANSACTION_REFUSED_BY_PAYPAL_RISK", "Transaktionen nekades.");
+    c.put("TRANSACTION_REFUSED_PAYEE_PREFERENCE", "Handlarens profil är inställd på att automatiskt neka vissa transaktioner.");
+    c.put("UNKNOWN_ERROR", "Systemfel. Försök igen senare.");
+    c.put("UNSUPPORTED_PAYEE_COUNTRY", "Landet stöds inte.");
+    c.put("VALIDATION_ERROR", "Betalningsuppgifterna är ogiltiga. Korrigera och skicka igen.");
+    c.put("ORDER_ALREADY_COMPLETED", "Beställningen har redan annullerats, gått ut eller slutförts.");
+    c.put("MAXIMUM_ALLOWED_AUTHORIZATION_REACHED_FOR_ORDER", "Högsta antal tillåtna tillstånd för beställningen har uppnåtts.");
+    c.put("ORDER_VOIDED", "Din order har annullerats.");
+    c.put("ORDER_CANNOT_BE_VOIDED", "Beställningen är i ett skede som inte medger annullering.");
+    c.put("INVALID_EXPERIENCE_PROFILE_ID", "Systemfel. Försök igen senare.");
+    c.put("UNAUTHORIZED_PAYMENT", "Handlaren tar inte emot den här betalningstypen.");
+    c.put("DCC_UNSUPPORTED_CURRENCY_CC_TYPE", "Valutan stöds inte för korttypen.");
+    c.put("DCC_CC_TYPE_NOT_SUPPORTED", "Korttypen stöds inte.");
+    c.put("ADDRESS_ADDITION_ERROR", "Fel påträffades när en leveransadress skulle läggas till PayPal-kontot.");
+    c.put("DUPLICATE_TRANSACTION", "Dubblettransaktion.");
+    c.put("INVALID_SHIPPING_ADDRESS", "Den angivna leveransadressen är ogiltig.");
+    c.put("PAYMENT_CREATION_ERROR", "Det uppstod ett problem när betalningen skulle registreras. Kontrollera ditt konto på PayPals webbplats.");
+    c.put("PAYMENT_CREATION_ERROR_EXPIRED_PAYMENT_CARD", "Det uppstod ett problem när betalningen skulle registreras – kortet har upphört att gälla. Kontrollera ditt konto på PayPals webbplats.");
+    c.put("PAYMENT_CREATION_ERROR_INSTANT_PAYMENT_REQUIRED", "Det uppstod ett problem när betalningen skulle registreras – direktbetalning krävs, t.ex. med ett betalkort. Kontrollera ditt konto på PayPals webbplats.");
+    c.put("PAYMENT_CREATION_ERROR_NEED_CONFIRMED_CARD", "Det uppstod ett problem när betalningen skulle registreras – kortet måste bekräftas. Kontrollera ditt konto på PayPals webbplats.");
+    c.put("PAYMENT_CREATION_ERROR_NEED_PHONE_NUMBER", "Det uppstod ett problem när betalningen skulle registreras – kontot måste innehålla ett telefonnummer enligt villkoren för appen. Kontrollera ditt konto på PayPals webbplats.");
+    c.put("PAYMENT_CREATION_ERROR_NEED_VALID_FUNDING_INSTRUMENT", "Det uppstod ett problem när betalningen skulle registreras – kontot behöver en giltig betalningsmetod, t.ex. ett bankkonto eller betalkort. Kontrollera ditt konto på PayPals webbplats.");
+    c.put("PAYMENT_CREATION_ERROR_NEGATIVE_BALANCE", "Det uppstod ett problem när betalningen skulle registreras – saldot är övertrasserat. Kontrollera ditt konto på PayPals webbplats.");
+    c.put("PAYMENT_CREATION_ERROR_SENDING_LIMIT_REACHED", "Det uppstod ett problem när betalningen skulle registreras – du har kommit upp till överföringsgränsen. Kontrollera ditt konto på PayPals webbplats.");
+    c.put("AUTH_RC_RISK_FAILURE", "Nekad på grund av risk.");
+    c.put("AUTH_RC_OFAC_BLOCKED_IP", "Obehörig klient.");
+    c.put("AUTH_RC_IP_COMPLIANCE_FAILURE", "Obehörig klient.");
+    c.put("invalid_user", "Fel användarnamn/lösenord. Försök igen.");
+    c.put("locked_user", "Ditt PayPal-konto har tillfälligt låsts. Försök igen senare eller gå till www.paypal.com för att låsa upp ditt PayPal-konto direkt.");
+    c.put("max_attempts_exceeded", "För många misslyckade inloggningsförsök. Försök igen senare.");
+    c.put("invalid_request", "Ett fel har inträffat.");
+    c.put("unauthorized_client", "Begäran medges ej.");
+    c.put("access_denied", "Begäran medges ej.");
+    c.put("unsupported_response_type", "Ett fel har inträffat.");
+    c.put("invalid_scope", "Begäran medges ej.");
+    c.put("server_error", "Systemfel. Försök igen senare.");
+    c.put("temporarily_unavailable", "Systemfel. Försök igen senare.");
+    c.put("stepup_required", "Det går inte att slutföra din inloggning just nu. Försök igen senare eller gå till www.paypal.com om du har några säkerhetsfrågor om ditt PayPal-konto.");
   }
   
-  private Object writeReplace()
+  public final String a()
   {
-    return new BigDecimal(a);
+    return "sv";
   }
   
-  public final double doubleValue()
+  public final String a(String paramString)
   {
-    return Double.parseDouble(a);
-  }
-  
-  public final float floatValue()
-  {
-    return Float.parseFloat(a);
-  }
-  
-  public final int intValue()
-  {
-    try
-    {
-      int i = Integer.parseInt(a);
-      return i;
-    }
-    catch (NumberFormatException localNumberFormatException1)
-    {
-      try
-      {
-        long l = Long.parseLong(a);
-        return (int)l;
-      }
-      catch (NumberFormatException localNumberFormatException2) {}
-    }
-    return new BigDecimal(a).intValue();
-  }
-  
-  public final long longValue()
-  {
-    try
-    {
-      long l = Long.parseLong(a);
-      return l;
-    }
-    catch (NumberFormatException localNumberFormatException) {}
-    return new BigDecimal(a).longValue();
-  }
-  
-  public final String toString()
-  {
-    return a;
+    return (String)c.get(paramString);
   }
 }
 

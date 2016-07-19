@@ -1,10 +1,10 @@
 package com.ubercab.client.core.model;
 
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import jdh;
+import lzo;
 
 @Deprecated
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class Balance
   implements com.ubercab.rider.realtime.model.Balance
 {

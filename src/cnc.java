@@ -1,23 +1,8 @@
-final class cnc
+import com.ubercab.android.m4.pipeline.model.Metric;
+
+public abstract interface cnc
 {
-  private final byte[] b;
-  private final cnf c;
-  
-  cnc(cnb paramcnb, byte[] paramArrayOfByte, cnf paramcnf)
-  {
-    b = paramArrayOfByte;
-    c = paramcnf;
-  }
-  
-  final byte[] a()
-  {
-    return b;
-  }
-  
-  final cnf b()
-  {
-    return c;
-  }
+  public abstract boolean a(Metric paramMetric);
 }
 
 /* Location:

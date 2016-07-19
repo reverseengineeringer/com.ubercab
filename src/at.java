@@ -1,48 +1,14 @@
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.ActionBar;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 
-final class at
-  implements ab
+class at
+  implements Animation.AnimationListener
 {
-  private at(as paramas) {}
+  public void onAnimationEnd(Animation paramAnimation) {}
   
-  public final Drawable a()
-  {
-    iv localiv = iv.a(b(), null, new int[] { bp.homeAsUpIndicator });
-    Drawable localDrawable = localiv.a(0);
-    localiv.a();
-    return localDrawable;
-  }
+  public void onAnimationRepeat(Animation paramAnimation) {}
   
-  public final void a(int paramInt)
-  {
-    ActionBar localActionBar = a.a();
-    if (localActionBar != null) {
-      localActionBar.c(paramInt);
-    }
-  }
-  
-  public final void a(Drawable paramDrawable, int paramInt)
-  {
-    ActionBar localActionBar = a.a();
-    if (localActionBar != null)
-    {
-      localActionBar.a(paramDrawable);
-      localActionBar.c(paramInt);
-    }
-  }
-  
-  public final Context b()
-  {
-    return a.m();
-  }
-  
-  public final boolean c()
-  {
-    ActionBar localActionBar = a.a();
-    return (localActionBar != null) && ((localActionBar.d() & 0x4) != 0);
-  }
+  public void onAnimationStart(Animation paramAnimation) {}
 }
 
 /* Location:

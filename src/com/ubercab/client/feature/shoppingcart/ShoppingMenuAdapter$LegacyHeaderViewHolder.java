@@ -10,31 +10,31 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import com.ubercab.client.core.ui.DividerWithText;
-import dux;
-import guw;
-import hu;
-import ife;
+import eaj;
+import igb;
+import kia;
+import mo;
 
 @Deprecated
-class ShoppingMenuAdapter$LegacyHeaderViewHolder
-  extends hu
+public class ShoppingMenuAdapter$LegacyHeaderViewHolder
+  extends mo
 {
   String l;
   String m;
-  @InjectView(2131625545)
-  View mClosedBanner;
-  @InjectView(2131625546)
-  TextView mClosedBannerText;
-  @InjectView(2131625537)
-  ViewGroup mShoppingHeader;
-  @InjectView(2131625544)
-  DividerWithText mShoppingHeaderText;
-  @InjectView(2131625536)
-  FrameLayout mTransparentHeader;
+  @BindView
+  public View mClosedBanner;
+  @BindView
+  public TextView mClosedBannerText;
+  @BindView
+  public ViewGroup mShoppingHeader;
+  @BindView
+  public DividerWithText mShoppingHeaderText;
+  @BindView
+  public FrameLayout mTransparentHeader;
   String n;
   
   ShoppingMenuAdapter$LegacyHeaderViewHolder(ShoppingMenuAdapter paramShoppingMenuAdapter, View paramView)
@@ -43,11 +43,11 @@ class ShoppingMenuAdapter$LegacyHeaderViewHolder
     if (paramView.isInEditMode()) {
       return;
     }
-    ButterKnife.inject(this, paramView);
+    ButterKnife.a(this, paramView);
     z();
     paramShoppingMenuAdapter = ShoppingMenuAdapter.a(paramShoppingMenuAdapter).getResources();
-    l = paramShoppingMenuAdapter.getString(2131165738);
-    m = paramShoppingMenuAdapter.getString(2131165739);
+    l = paramShoppingMenuAdapter.getString(2131165802);
+    m = paramShoppingMenuAdapter.getString(2131165804);
   }
   
   private void z()
@@ -57,7 +57,7 @@ class ShoppingMenuAdapter$LegacyHeaderViewHolder
   
   final void a(String paramString)
   {
-    if (ShoppingMenuAdapter.d(o).b(dux.cV)) {
+    if (ShoppingMenuAdapter.d(o).c(eaj.er)) {
       n = paramString;
     }
   }
@@ -66,7 +66,7 @@ class ShoppingMenuAdapter$LegacyHeaderViewHolder
   {
     mClosedBannerText.setText(paramString);
     mClosedBanner.setVisibility(0);
-    if ((ShoppingMenuAdapter.d(o).b(dux.cV)) && (!TextUtils.isEmpty(n)))
+    if ((ShoppingMenuAdapter.d(o).c(eaj.er)) && (!TextUtils.isEmpty(n)))
     {
       mShoppingHeaderText.a(n);
       return;
@@ -74,7 +74,7 @@ class ShoppingMenuAdapter$LegacyHeaderViewHolder
     mShoppingHeaderText.a(m);
   }
   
-  @OnClick({2131625537})
+  @OnClick
   public void onEatsHeaderClicked()
   {
     if (ShoppingMenuAdapter.b(o) != null) {
@@ -89,14 +89,14 @@ class ShoppingMenuAdapter$LegacyHeaderViewHolder
     ((Display)localObject).getSize(localPoint);
     int i = y;
     localObject = ShoppingMenuAdapter.a(o).getResources();
-    ShoppingMenuAdapter.a(o, i - ((Resources)localObject).getDimensionPixelSize(2131296976) - ((Resources)localObject).getDimensionPixelSize(2131296360) - ((Resources)localObject).getDimensionPixelSize(2131297193) - ((Resources)localObject).getDimensionPixelSize(2131296978));
+    ShoppingMenuAdapter.a(o, i - ((Resources)localObject).getDimensionPixelSize(2131297288) - ((Resources)localObject).getDimensionPixelSize(2131296435) - ((Resources)localObject).getDimensionPixelSize(2131297541) - ((Resources)localObject).getDimensionPixelSize(2131297290));
     mTransparentHeader.getLayoutParams().height = ShoppingMenuAdapter.c(o);
   }
   
   final void y()
   {
     mClosedBanner.setVisibility(8);
-    if ((ShoppingMenuAdapter.d(o).b(dux.cV)) && (!TextUtils.isEmpty(n)))
+    if ((ShoppingMenuAdapter.d(o).c(eaj.er)) && (!TextUtils.isEmpty(n)))
     {
       mShoppingHeaderText.a(n);
       return;

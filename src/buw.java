@@ -1,52 +1,43 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class buw
+public final class buw
+  implements bup
 {
-  private List a = Collections.synchronizedList(new ArrayList());
-  private List b = Collections.synchronizedList(new ArrayList());
+  private bux a;
   
-  static
+  public buw(bux parambux)
   {
-    buw.class.getSimpleName();
+    a = parambux;
   }
   
-  public static buw a()
+  public static List d()
   {
-    return bux.a();
-  }
-  
-  private void b()
-  {
-    if (!b.isEmpty()) {
-      try
-      {
-        if (!b.isEmpty())
-        {
-          buv localbuv = (buv)b.get(0);
-          b.remove(0);
-          a.add(localbuv);
-          new Thread(localbuv).start();
-        }
-        return;
-      }
-      finally {}
+    ArrayList localArrayList = new ArrayList();
+    bux[] arrayOfbux = bux.values();
+    int j = arrayOfbux.length;
+    int i = 0;
+    while (i < j)
+    {
+      localArrayList.add(new buw(arrayOfbux[i]));
+      i += 1;
     }
+    return localArrayList;
   }
   
-  public final void a(buv parambuv)
+  public final String a()
   {
-    b.add(parambuv);
-    if (a.size() < 3) {
-      b();
-    }
+    return a.name();
   }
   
-  public final void b(buv parambuv)
+  public final brq b()
   {
-    a.remove(parambuv);
-    b();
+    return a.a();
+  }
+  
+  public final String c()
+  {
+    return a.b();
   }
 }
 

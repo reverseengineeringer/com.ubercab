@@ -5,14 +5,14 @@ import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.Collections;
 import java.util.List;
-import jdh;
-import jvq;
-import jvr;
+import lzo;
+import nba;
+import nbb;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class Artist
-  extends jvq<Artist>
+  extends nba<Artist>
   implements Parcelable
 {
   public static Artist create(String paramString)
@@ -26,12 +26,12 @@ public abstract class Artist
   
   public abstract String getName();
   
-  protected Object onGet(jvr<Artist> paramjvr, Object paramObject)
+  protected Object onGet(nbb<Artist> paramnbb, Object paramObject)
   {
     if (paramObject != null) {
       return paramObject;
     }
-    switch (Artist.1.$SwitchMap$com$ubercab$rider$realtime$model$Shape_Artist$Property[((Shape_Artist.Property)paramjvr).ordinal()])
+    switch (Artist.1.$SwitchMap$com$ubercab$rider$realtime$model$Shape_Artist$Property[((Shape_Artist.Property)paramnbb).ordinal()])
     {
     default: 
       return null;

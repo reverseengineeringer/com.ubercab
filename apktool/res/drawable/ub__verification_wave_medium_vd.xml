@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="42.0dip" android:width="126.0dip" android:viewportWidth="126.0" android:viewportHeight="42.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@color/ub__uber_black_60" android:pathData="M41.15,41.5L39.55,40.4C44.8,32.82 53.43,28.3 62.62,28.3C71.72,28.3 80.29,32.74 85.55,40.19L83.96,41.32C79.07,34.38 71.09,30.24 62.62,30.24C54.06,30.24 46.04,34.45 41.15,41.5" android:strokeColor="@color/ub__transparent" />
+</vector>

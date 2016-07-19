@@ -1,9 +1,11 @@
-import java.lang.annotation.Annotation;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-
-@Retention(RetentionPolicy.RUNTIME)
-public @interface apl {}
+public abstract class apl<R extends wq>
+  extends ww<R, aqk>
+{
+  public apl(wj paramwj)
+  {
+    super(apk.a(), paramwj);
+  }
+}
 
 /* Location:
  * Qualified Name:     apl

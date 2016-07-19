@@ -1,18 +1,29 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.PayPalService;
-import com.paypal.android.sdk.payments.PaymentMethodActivity;
+import java.util.HashMap;
 
-public final class cer
-  implements DialogInterface.OnClickListener
+final class cer
+  extends HashMap
 {
-  public cer(PaymentMethodActivity paramPaymentMethodActivity) {}
-  
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  cer()
   {
-    PaymentMethodActivity.g(a).h();
-    PaymentMethodActivity.g(a).c().a();
-    PaymentMethodActivity.h(a);
+    put(caf.a, bqs.d);
+    put(caf.b, bqs.b);
+    put(caf.c, bqs.b);
+    put(caf.d, bqs.b);
+    put(caf.e, bqs.b);
+    put(caf.f, bqs.b);
+    put(caf.g, bqs.b);
+    put(caf.h, bqs.c);
+    put(caf.i, bqs.c);
+    put(caf.j, bqs.c);
+    put(caf.k, bqs.c);
+    put(caf.l, bqs.e);
+    put(caf.m, bqs.f);
+    put(caf.n, bqs.f);
+    put(caf.o, bqs.f);
+    put(caf.p, bqs.f);
+    put(caf.q, bqs.f);
+    put(caf.r, bqs.f);
+    put(caf.s, bqs.g);
   }
 }
 

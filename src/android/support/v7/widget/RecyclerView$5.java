@@ -2,11 +2,11 @@ package android.support.v7.widget;
 
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import fu;
-import hu;
+import km;
+import mo;
 
 final class RecyclerView$5
-  implements fu
+  implements km
 {
   RecyclerView$5(RecyclerView paramRecyclerView) {}
   
@@ -37,13 +37,13 @@ final class RecyclerView$5
   
   public final void a(View paramView, int paramInt, ViewGroup.LayoutParams paramLayoutParams)
   {
-    hu localhu = RecyclerView.b(paramView);
-    if (localhu != null)
+    mo localmo = RecyclerView.c(paramView);
+    if (localmo != null)
     {
-      if ((!localhu.r()) && (!localhu.c())) {
-        throw new IllegalArgumentException("Called attach on a child which is not detached: " + localhu);
+      if ((!localmo.r()) && (!localmo.c())) {
+        throw new IllegalArgumentException("Called attach on a child which is not detached: " + localmo);
       }
-      localhu.m();
+      localmo.m();
     }
     RecyclerView.a(a, paramView, paramInt, paramLayoutParams);
   }
@@ -53,9 +53,9 @@ final class RecyclerView$5
     return a.getChildAt(paramInt);
   }
   
-  public final hu b(View paramView)
+  public final mo b(View paramView)
   {
-    return RecyclerView.b(paramView);
+    return RecyclerView.c(paramView);
   }
   
   public final void b()
@@ -75,13 +75,13 @@ final class RecyclerView$5
     Object localObject = b(paramInt);
     if (localObject != null)
     {
-      localObject = RecyclerView.b((View)localObject);
+      localObject = RecyclerView.c((View)localObject);
       if (localObject != null)
       {
-        if ((((hu)localObject).r()) && (!((hu)localObject).c())) {
+        if ((((mo)localObject).r()) && (!((mo)localObject).c())) {
           throw new IllegalArgumentException("called detach on an already detached child " + localObject);
         }
-        ((hu)localObject).b(256);
+        ((mo)localObject).b(256);
       }
     }
     RecyclerView.a(a, paramInt);
@@ -89,17 +89,17 @@ final class RecyclerView$5
   
   public final void c(View paramView)
   {
-    paramView = RecyclerView.b(paramView);
+    paramView = RecyclerView.c(paramView);
     if (paramView != null) {
-      hu.a(paramView);
+      mo.a(paramView);
     }
   }
   
   public final void d(View paramView)
   {
-    paramView = RecyclerView.b(paramView);
+    paramView = RecyclerView.c(paramView);
     if (paramView != null) {
-      hu.b(paramView);
+      mo.b(paramView);
     }
   }
 }

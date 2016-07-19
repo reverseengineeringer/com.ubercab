@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.FloatingLabelEditText android:id="@id/ub__partner_funnel_invite_code" android:layout_width="fill_parent" android:layout_height="wrap_content" uber:floatingLabelLabelText="@string/ub__partner_funnel_invite_code_optional"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto" />

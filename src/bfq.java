@@ -1,38 +1,63 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.wallet.fragment.WalletFragmentOptions;
+import com.google.android.gms.wallet.fragment.WalletFragmentStyle;
 
-public abstract class bfq
-  extends Binder
-  implements bfp
+public final class bfq
+  implements Parcelable.Creator<WalletFragmentOptions>
 {
-  public static bfp a(IBinder paramIBinder)
+  private static WalletFragmentOptions a(Parcel paramParcel)
   {
-    if (paramIBinder == null) {
-      return null;
+    int i = 1;
+    int j = 0;
+    int n = zd.b(paramParcel);
+    WalletFragmentStyle localWalletFragmentStyle = null;
+    int k = 1;
+    int m = 0;
+    while (paramParcel.dataPosition() < n)
+    {
+      int i1 = zd.a(paramParcel);
+      switch (zd.a(i1))
+      {
+      default: 
+        zd.a(paramParcel, i1);
+        break;
+      case 1: 
+        m = zd.e(paramParcel, i1);
+        break;
+      case 2: 
+        k = zd.e(paramParcel, i1);
+        break;
+      case 3: 
+        j = zd.e(paramParcel, i1);
+        break;
+      case 4: 
+        localWalletFragmentStyle = (WalletFragmentStyle)zd.a(paramParcel, i1, WalletFragmentStyle.CREATOR);
+        break;
+      case 5: 
+        i = zd.e(paramParcel, i1);
+      }
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnMyLocationChangeListener");
-    if ((localIInterface != null) && ((localIInterface instanceof bfp))) {
-      return (bfp)localIInterface;
+    if (paramParcel.dataPosition() != n) {
+      throw new ze("Overread allowed size end=" + n, paramParcel);
     }
-    return new bfr(paramIBinder);
+    return new WalletFragmentOptions(m, k, j, localWalletFragmentStyle, i);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static void a(WalletFragmentOptions paramWalletFragmentOptions, Parcel paramParcel, int paramInt)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnMyLocationChangeListener");
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMyLocationChangeListener");
-    a(ade.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    return true;
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, paramWalletFragmentOptions.a());
+    zf.a(paramParcel, 3, paramWalletFragmentOptions.b());
+    zf.a(paramParcel, 4, paramWalletFragmentOptions.c(), paramInt, false);
+    zf.a(paramParcel, 5, paramWalletFragmentOptions.d());
+    zf.a(paramParcel, i);
+  }
+  
+  private static WalletFragmentOptions[] a(int paramInt)
+  {
+    return new WalletFragmentOptions[paramInt];
   }
 }
 

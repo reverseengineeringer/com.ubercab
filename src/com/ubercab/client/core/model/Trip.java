@@ -2,25 +2,27 @@ package com.ubercab.client.core.model;
 
 import android.text.TextUtils;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
+import com.ubercab.rider.realtime.model.DynamicDropoff;
 import com.ubercab.rider.realtime.model.DynamicPickup;
 import com.ubercab.rider.realtime.model.EtdInfo;
 import com.ubercab.rider.realtime.model.FareSplit;
 import com.ubercab.rider.realtime.model.FeedbackType;
 import com.ubercab.rider.realtime.model.Location;
 import com.ubercab.rider.realtime.model.Meta;
+import com.ubercab.rider.realtime.model.TripContactInfo;
 import com.ubercab.rider.realtime.model.TripExtraPaymentData;
 import com.ubercab.rider.realtime.model.TripLegAction;
-import iac;
-import iaj;
-import ian;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import jdh;
+import kcm;
+import kct;
+import kcx;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class Trip
   implements com.ubercab.rider.realtime.model.Trip
 {
@@ -35,6 +37,7 @@ public class Trip
   Integer currentLegIndex;
   String currentLegStatus;
   String currentRoute;
+  Long departureTimestampSecond;
   CnLocation destination;
   CnLocation destinationLocation;
   float dispatchPercent;
@@ -43,6 +46,7 @@ public class Trip
   String displayedRouteNextManeuver;
   String displayedRouteToPickup;
   TripDriver driver = new TripDriver();
+  DynamicDropoff dynamicDropoff;
   DynamicPickup dynamicPickup;
   Map<String, TripEntity> entities;
   int eta;
@@ -54,15 +58,19 @@ public class Trip
   Map<String, Map<String, String>> extraStates;
   TripFareChange fareChange;
   String fareSplitCode = "";
+  boolean isDispatching;
   boolean isZeroTolerance;
   List<TripLeg> legs;
   Map<String, CnLocation> locations;
   String paymentProfileUUID = "";
   CnLocation pickupLocation = new CnLocation();
+  String profileUUID;
   String promoString;
   float requestedTime;
   String routeToDestination;
   String shareUrl = "";
+  Float surgeMultiplier;
+  TripContactInfo tripContactInfo;
   boolean useCredits;
   String uuid;
   TripVehicle vehicle = new TripVehicle();
@@ -90,10 +98,11 @@ public class Trip
   @Deprecated
   private boolean legHasActionAndUser(com.ubercab.rider.realtime.model.TripLeg paramTripLeg, String paramString1, String paramString2)
   {
-    if ((entities == null) || (paramTripLeg.getActions() == null)) {
+    Map localMap = entities;
+    if ((localMap == null) || (paramTripLeg.getActions() == null)) {
       return false;
     }
-    return ian.b(paramTripLeg.getActions(), new Trip.1(this, paramString1, paramString2));
+    return kcx.b(paramTripLeg.getActions(), new Trip.1(this, localMap, paramString1, paramString2));
   }
   
   public boolean equals(Object paramObject)
@@ -110,6 +119,9 @@ public class Trip
         return false;
       }
       if (eta != eta) {
+        return false;
+      }
+      if (isDispatching != isDispatching) {
         return false;
       }
       if (isZeroTolerance != isZeroTolerance) {
@@ -289,6 +301,15 @@ public class Trip
           return false;
         }
       }
+      if (profileUUID != null)
+      {
+        if (profileUUID.equals(profileUUID)) {}
+      }
+      else {
+        while (profileUUID != null) {
+          return false;
+        }
+      }
       if (pickupLocation != null)
       {
         if (pickupLocation.equals(pickupLocation)) {}
@@ -400,8 +421,29 @@ public class Trip
           return false;
         }
       }
-    } while (displayedRouteExtensionDistance == displayedRouteExtensionDistance);
-    return false;
+      if (displayedRouteExtensionDistance != displayedRouteExtensionDistance) {
+        return false;
+      }
+      if (departureTimestampSecond != null)
+      {
+        if (departureTimestampSecond.equals(departureTimestampSecond)) {}
+      }
+      else {
+        while (departureTimestampSecond != null) {
+          return false;
+        }
+      }
+      if (tripContactInfo == null) {
+        break;
+      }
+    } while (tripContactInfo.equals(tripContactInfo));
+    for (;;)
+    {
+      return false;
+      if (tripContactInfo == null) {
+        break;
+      }
+    }
   }
   
   public boolean getCanShareETA()
@@ -425,10 +467,18 @@ public class Trip
     return cancelDialog;
   }
   
+  public TripContactInfo getContact()
+  {
+    return tripContactInfo;
+  }
+  
   @Deprecated
   public Integer getCurrentLeg()
   {
-    return currentLegIndex;
+    if (currentLegIndex == null) {}
+    for (int i = 0;; i = currentLegIndex.intValue()) {
+      return Integer.valueOf(i);
+    }
   }
   
   public int getCurrentLegIndex()
@@ -444,6 +494,11 @@ public class Trip
   public String getCurrentRoute()
   {
     return currentRoute;
+  }
+  
+  public Long getDepartureTimestampSecond()
+  {
+    return departureTimestampSecond;
   }
   
   public Location getDestination()
@@ -484,6 +539,11 @@ public class Trip
   public com.ubercab.rider.realtime.model.TripDriver getDriver()
   {
     return driver;
+  }
+  
+  public DynamicDropoff getDynamicDropoff()
+  {
+    return dynamicDropoff;
   }
   
   public DynamicPickup getDynamicPickup()
@@ -575,6 +635,11 @@ public class Trip
     return null;
   }
   
+  public boolean getIsDispatching()
+  {
+    return isDispatching;
+  }
+  
   public boolean getIsZeroTolerance()
   {
     return isZeroTolerance;
@@ -640,12 +705,17 @@ public class Trip
     return pickupLocation;
   }
   
+  public String getProfileUUID()
+  {
+    return profileUUID;
+  }
+  
   public List<com.ubercab.rider.realtime.model.TripLeg> getRemainingLegs()
   {
     if ((legs != null) && (currentLegIndex != null) && (currentLegIndex.intValue() < legs.size())) {
       return new ArrayList(legs.subList(currentLegIndex.intValue(), legs.size()));
     }
-    return iaj.b();
+    return kct.b();
   }
   
   public float getRequestedTime()
@@ -661,6 +731,11 @@ public class Trip
   public String getShareUrl()
   {
     return shareUrl;
+  }
+  
+  public Float getSurgeMultiplier()
+  {
+    return surgeMultiplier;
   }
   
   public boolean getUseCredits()
@@ -685,9 +760,9 @@ public class Trip
   
   public int hashCode()
   {
-    int i1 = 1;
-    int i30 = 0;
-    int i31 = eta;
+    int i2 = 1;
+    int i34 = 0;
+    int i35 = eta;
     int i;
     int j;
     label44:
@@ -697,234 +772,264 @@ public class Trip
     label75:
     int n;
     label85:
-    label92:
-    int i2;
-    label108:
+    int i1;
+    label95:
+    label102:
     int i3;
-    label124:
+    label118:
     int i4;
-    label140:
+    label134:
     int i5;
-    label156:
+    label150:
     int i6;
-    label172:
+    label166:
     int i7;
-    label188:
+    label182:
     int i8;
-    label204:
+    label198:
     int i9;
-    label220:
+    label214:
     int i10;
-    label236:
+    label230:
     int i11;
-    label252:
+    label246:
     int i12;
-    label268:
+    label262:
     int i13;
-    label284:
+    label278:
     int i14;
-    label302:
+    label294:
     int i15;
-    label318:
+    label310:
     int i16;
-    label334:
+    label328:
     int i17;
-    label350:
+    label344:
     int i18;
-    label368:
+    label360:
     int i19;
-    label386:
+    label376:
     int i20;
-    label404:
+    label394:
     int i21;
-    label420:
+    label412:
     int i22;
-    label436:
+    label430:
     int i23;
-    label452:
+    label446:
     int i24;
-    label468:
+    label462:
     int i25;
-    label484:
+    label478:
     int i26;
-    label502:
+    label494:
     int i27;
-    label518:
+    label510:
     int i28;
+    label528:
+    int i29;
+    label544:
+    int i30;
+    label560:
+    int i31;
+    label576:
+    int i32;
+    label592:
+    int i36;
     if (etaToDestination != null)
     {
       i = etaToDestination.hashCode();
       if (dispatchPercent == 0.0F) {
-        break label789;
+        break label875;
       }
       j = Float.floatToIntBits(dispatchPercent);
       if (canSplitFare == null) {
-        break label794;
+        break label880;
       }
       k = canSplitFare.hashCode();
       if (canShareETA == null) {
-        break label799;
+        break label885;
       }
       m = canShareETA.hashCode();
       if (!useCredits) {
-        break label805;
+        break label891;
       }
       n = 1;
+      if (!isDispatching) {
+        break label897;
+      }
+      i1 = 1;
       if (!isZeroTolerance) {
-        break label811;
+        break label903;
       }
       if (uuid == null) {
-        break label817;
+        break label909;
       }
-      i2 = uuid.hashCode();
+      i3 = uuid.hashCode();
       if (paymentProfileUUID == null) {
-        break label823;
+        break label915;
       }
-      i3 = paymentProfileUUID.hashCode();
+      i4 = paymentProfileUUID.hashCode();
+      if (profileUUID == null) {
+        break label921;
+      }
+      i5 = profileUUID.hashCode();
       if (promoString == null) {
-        break label829;
+        break label927;
       }
-      i4 = promoString.hashCode();
+      i6 = promoString.hashCode();
       if (cancelDialog == null) {
-        break label835;
+        break label933;
       }
-      i5 = cancelDialog.hashCode();
+      i7 = cancelDialog.hashCode();
       if (currentLegStatus == null) {
-        break label841;
+        break label939;
       }
-      i6 = currentLegStatus.hashCode();
+      i8 = currentLegStatus.hashCode();
       if (etaString == null) {
-        break label847;
+        break label945;
       }
-      i7 = etaString.hashCode();
+      i9 = etaString.hashCode();
       if (etaStringShort == null) {
-        break label853;
+        break label951;
       }
-      i8 = etaStringShort.hashCode();
+      i10 = etaStringShort.hashCode();
       if (fareSplitCode == null) {
-        break label859;
+        break label957;
       }
-      i9 = fareSplitCode.hashCode();
+      i11 = fareSplitCode.hashCode();
       if (routeToDestination == null) {
-        break label865;
+        break label963;
       }
-      i10 = routeToDestination.hashCode();
+      i12 = routeToDestination.hashCode();
       if (currentRoute == null) {
-        break label871;
+        break label969;
       }
-      i11 = currentRoute.hashCode();
+      i13 = currentRoute.hashCode();
       if (shareUrl == null) {
-        break label877;
+        break label975;
       }
-      i12 = shareUrl.hashCode();
+      i14 = shareUrl.hashCode();
       if (destination == null) {
-        break label883;
+        break label981;
       }
-      i13 = destination.hashCode();
+      i15 = destination.hashCode();
       if (extraStates == null) {
-        break label889;
+        break label987;
       }
-      i14 = extraStates.hashCode();
+      i16 = extraStates.hashCode();
       if (dynamicPickup == null) {
-        break label895;
+        break label993;
       }
-      i15 = dynamicPickup.hashCode();
+      i17 = dynamicPickup.hashCode();
       if (pickupLocation == null) {
-        break label901;
+        break label999;
       }
-      i16 = pickupLocation.hashCode();
+      i18 = pickupLocation.hashCode();
       if (currentLegIndex == null) {
-        break label907;
+        break label1005;
       }
-      i17 = currentLegIndex.hashCode();
+      i19 = currentLegIndex.hashCode();
       if (legs == null) {
-        break label913;
+        break label1011;
       }
-      i18 = legs.hashCode();
+      i20 = legs.hashCode();
       if (locations == null) {
-        break label919;
+        break label1017;
       }
-      i19 = locations.hashCode();
+      i21 = locations.hashCode();
       if (entities == null) {
-        break label925;
+        break label1023;
       }
-      i20 = entities.hashCode();
+      i22 = entities.hashCode();
       if (driver == null) {
-        break label931;
+        break label1029;
       }
-      i21 = driver.hashCode();
+      i23 = driver.hashCode();
       if (expenseInfo == null) {
-        break label937;
+        break label1035;
       }
-      i22 = expenseInfo.hashCode();
+      i24 = expenseInfo.hashCode();
       if (vehicle == null) {
-        break label943;
+        break label1041;
       }
-      i23 = vehicle.hashCode();
+      i25 = vehicle.hashCode();
       if (fareChange == null) {
-        break label949;
+        break label1047;
       }
-      i24 = fareChange.hashCode();
+      i26 = fareChange.hashCode();
       if (etdInfo == null) {
-        break label955;
+        break label1053;
       }
-      i25 = etdInfo.hashCode();
+      i27 = etdInfo.hashCode();
       if (requestedTime == 0.0F) {
-        break label961;
+        break label1059;
       }
-      i26 = Float.floatToIntBits(requestedTime);
+      i28 = Float.floatToIntBits(requestedTime);
       if (destinationLocation == null) {
-        break label967;
+        break label1065;
       }
-      i27 = destinationLocation.hashCode();
+      i29 = destinationLocation.hashCode();
       if (displayedRoute == null) {
-        break label973;
+        break label1071;
       }
-      i28 = displayedRoute.hashCode();
-      label534:
+      i30 = displayedRoute.hashCode();
       if (displayedRouteToPickup == null) {
-        break label979;
+        break label1077;
+      }
+      i31 = displayedRouteToPickup.hashCode();
+      if (displayedRouteNextManeuver == null) {
+        break label1083;
+      }
+      i32 = displayedRouteNextManeuver.hashCode();
+      i36 = displayedRouteExtensionDistance;
+      if (departureTimestampSecond == null) {
+        break label1089;
       }
     }
-    label789:
-    label794:
-    label799:
-    label805:
-    label811:
-    label817:
-    label823:
-    label829:
-    label835:
-    label841:
-    label847:
-    label853:
-    label859:
-    label865:
-    label871:
-    label877:
-    label883:
-    label889:
-    label895:
-    label901:
-    label907:
-    label913:
-    label919:
-    label925:
-    label931:
-    label937:
-    label943:
-    label949:
-    label955:
-    label961:
-    label967:
-    label973:
-    label979:
-    for (int i29 = displayedRouteToPickup.hashCode();; i29 = 0)
+    label875:
+    label880:
+    label885:
+    label891:
+    label897:
+    label903:
+    label909:
+    label915:
+    label921:
+    label927:
+    label933:
+    label939:
+    label945:
+    label951:
+    label957:
+    label963:
+    label969:
+    label975:
+    label981:
+    label987:
+    label993:
+    label999:
+    label1005:
+    label1011:
+    label1017:
+    label1023:
+    label1029:
+    label1035:
+    label1041:
+    label1047:
+    label1053:
+    label1059:
+    label1065:
+    label1071:
+    label1077:
+    label1083:
+    label1089:
+    for (int i33 = departureTimestampSecond.hashCode();; i33 = 0)
     {
-      if (displayedRouteNextManeuver != null) {
-        i30 = displayedRouteNextManeuver.hashCode();
+      if (tripContactInfo != null) {
+        i34 = tripContactInfo.hashCode();
       }
-      return ((i29 + (i28 + (i27 + (i26 + (i25 + (i24 + (i23 + (i22 + (i21 + (i20 + (i19 + (i18 + (i17 + (i16 + (i15 + (i14 + (i13 + (i12 + (i11 + (i10 + (i9 + (i8 + (i7 + (i6 + (i5 + (i4 + (i3 + (i2 + ((n + (m + (k + (j + (i + i31 * 31) * 31) * 31) * 31) * 31) * 31 + i1) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i30) * 31 + displayedRouteExtensionDistance;
+      return (i33 + ((i32 + (i31 + (i30 + (i29 + (i28 + (i27 + (i26 + (i25 + (i24 + (i23 + (i22 + (i21 + (i20 + (i19 + (i18 + (i17 + (i16 + (i15 + (i14 + (i13 + (i12 + (i11 + (i10 + (i9 + (i8 + (i7 + (i6 + (i5 + (i4 + (i3 + ((i1 + (n + (m + (k + (j + (i + i35 * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i2) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i36) * 31) * 31 + i34;
       i = 0;
       break;
       j = 0;
@@ -936,61 +1041,69 @@ public class Trip
       n = 0;
       break label85;
       i1 = 0;
-      break label92;
+      break label95;
       i2 = 0;
-      break label108;
+      break label102;
       i3 = 0;
-      break label124;
+      break label118;
       i4 = 0;
-      break label140;
+      break label134;
       i5 = 0;
-      break label156;
+      break label150;
       i6 = 0;
-      break label172;
+      break label166;
       i7 = 0;
-      break label188;
+      break label182;
       i8 = 0;
-      break label204;
+      break label198;
       i9 = 0;
-      break label220;
+      break label214;
       i10 = 0;
-      break label236;
+      break label230;
       i11 = 0;
-      break label252;
+      break label246;
       i12 = 0;
-      break label268;
+      break label262;
       i13 = 0;
-      break label284;
+      break label278;
       i14 = 0;
-      break label302;
+      break label294;
       i15 = 0;
-      break label318;
+      break label310;
       i16 = 0;
-      break label334;
+      break label328;
       i17 = 0;
-      break label350;
+      break label344;
       i18 = 0;
-      break label368;
+      break label360;
       i19 = 0;
-      break label386;
+      break label376;
       i20 = 0;
-      break label404;
+      break label394;
       i21 = 0;
-      break label420;
+      break label412;
       i22 = 0;
-      break label436;
+      break label430;
       i23 = 0;
-      break label452;
+      break label446;
       i24 = 0;
-      break label468;
+      break label462;
       i25 = 0;
-      break label484;
+      break label478;
       i26 = 0;
-      break label502;
+      break label494;
       i27 = 0;
-      break label518;
+      break label510;
       i28 = 0;
-      break label534;
+      break label528;
+      i29 = 0;
+      break label544;
+      i30 = 0;
+      break label560;
+      i31 = 0;
+      break label576;
+      i32 = 0;
+      break label592;
     }
   }
   
@@ -1016,7 +1129,7 @@ public class Trip
     {
       Object localObject = (TripLegAction)paramTripLeg.next();
       localObject = (com.ubercab.rider.realtime.model.TripEntity)entities.get(((TripLegAction)localObject).getEntityRef());
-      if ((localObject != null) && (iac.a(((com.ubercab.rider.realtime.model.TripEntity)localObject).getUuid(), paramString))) {
+      if ((localObject != null) && (kcm.a(((com.ubercab.rider.realtime.model.TripEntity)localObject).getUuid(), paramString))) {
         return true;
       }
     }

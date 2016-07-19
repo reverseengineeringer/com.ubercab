@@ -1,15 +1,15 @@
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.LoginActivity;
+import com.paypal.android.sdk.payments.PaymentConfirmActivity;
 
 public final class cbz
   implements DialogInterface.OnClickListener
 {
-  public cbz(LoginActivity paramLoginActivity) {}
+  public cbz(PaymentConfirmActivity paramPaymentConfirmActivity) {}
   
   public final void onClick(DialogInterface paramDialogInterface, int paramInt)
   {
-    LoginActivity.n(a);
+    PaymentConfirmActivity.k(a);
   }
 }
 

@@ -1,7 +1,9 @@
 package android.support.v4.media;
 
 import android.graphics.Bitmap;
+import android.os.Build.VERSION;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.util.ArrayMap;
 
 public final class MediaMetadataCompat$Builder
@@ -45,6 +47,11 @@ public final class MediaMetadataCompat$Builder
   {
     if ((MediaMetadataCompat.access$200().containsKey(paramString)) && (((Integer)MediaMetadataCompat.access$200().get(paramString)).intValue() != 3)) {
       throw new IllegalArgumentException("The " + paramString + " key cannot be used to put a Rating");
+    }
+    if (Build.VERSION.SDK_INT >= 21)
+    {
+      mBundle.putParcelable(paramString, (Parcelable)paramRatingCompat.getRating());
+      return this;
     }
     mBundle.putParcelable(paramString, paramRatingCompat);
     return this;

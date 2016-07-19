@@ -1,85 +1,21 @@
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.util.concurrent.ThreadFactory;
 
 final class chl
+  implements ThreadFactory
 {
-  final Object a;
-  private final Method b;
-  private final int c;
-  private boolean d = true;
+  private final String a;
   
-  chl(Object paramObject, Method paramMethod)
+  public chl(String paramString)
   {
-    if (paramObject == null) {
-      throw new NullPointerException("EventProducer target cannot be null.");
-    }
-    if (paramMethod == null) {
-      throw new NullPointerException("EventProducer method cannot be null.");
-    }
-    a = paramObject;
-    b = paramMethod;
-    paramMethod.setAccessible(true);
-    c = ((paramMethod.hashCode() + 31) * 31 + paramObject.hashCode());
+    a = paramString;
   }
   
-  public final boolean a()
+  public final Thread newThread(Runnable paramRunnable)
   {
-    return d;
-  }
-  
-  public final void b()
-  {
-    d = false;
-  }
-  
-  public final Object c()
-  {
-    if (!d) {
-      throw new IllegalStateException(toString() + " has been invalidated and can no longer produce events.");
-    }
-    try
-    {
-      Object localObject = b.invoke(a, new Object[0]);
-      return localObject;
-    }
-    catch (IllegalAccessException localIllegalAccessException)
-    {
-      throw new AssertionError(localIllegalAccessException);
-    }
-    catch (InvocationTargetException localInvocationTargetException)
-    {
-      if ((localInvocationTargetException.getCause() instanceof Error)) {
-        throw ((Error)localInvocationTargetException.getCause());
-      }
-      throw localInvocationTargetException;
-    }
-  }
-  
-  public final boolean equals(Object paramObject)
-  {
-    if (this == paramObject) {}
-    do
-    {
-      return true;
-      if (paramObject == null) {
-        return false;
-      }
-      if (getClass() != paramObject.getClass()) {
-        return false;
-      }
-      paramObject = (chl)paramObject;
-    } while ((b.equals(b)) && (a == a));
-    return false;
-  }
-  
-  public final int hashCode()
-  {
-    return c;
-  }
-  
-  public final String toString()
-  {
-    return "[EventProducer " + b + "]";
+    paramRunnable = new Thread(paramRunnable);
+    paramRunnable.setDaemon(true);
+    paramRunnable.setName("pusher-java-client " + a);
+    return paramRunnable;
   }
 }
 

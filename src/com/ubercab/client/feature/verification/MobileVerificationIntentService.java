@@ -8,47 +8,40 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v4.app.NotificationCompat.Builder;
 import android.text.TextUtils;
-import chh;
-import cho;
+import chn;
+import chu;
 import com.ubercab.client.core.app.RiderApplication;
-import dty;
-import dux;
-import ebj;
-import ego;
-import ehl;
-import eld;
-import ens;
-import eri;
-import fux;
-import hza;
-import hzr;
-import hzs;
-import hzw;
-import ife;
+import dzn;
+import eib;
+import eoz;
+import evr;
+import ezm;
+import goc;
 import java.util.concurrent.TimeUnit;
-import jry;
-import jse;
-import kld;
-import ksp;
+import kbd;
+import kcb;
+import kcc;
+import kcg;
+import kia;
+import mxd;
+import mxk;
+import odr;
+import onp;
 
 public class MobileVerificationIntentService
   extends IntentService
 {
-  private static final int l = MobileVerificationIntentService.class.hashCode();
+  private static final int j = MobileVerificationIntentService.class.hashCode();
   long a = TimeUnit.MINUTES.toMillis(1L);
-  public ego b;
-  public chh c;
-  public hza d;
-  @Deprecated
-  public eld e;
-  @Deprecated
-  public ehl f;
-  public jry g;
-  public dty h;
-  public ens i;
-  public ife j;
-  public jse k;
-  private boolean m;
+  public eoz b;
+  public chn c;
+  public kbd d;
+  public mxd e;
+  public dzn f;
+  public evr g;
+  public kia h;
+  public mxk i;
+  private boolean k;
   
   public MobileVerificationIntentService()
   {
@@ -57,9 +50,9 @@ public class MobileVerificationIntentService
   
   private void a()
   {
-    Object localObject = fux.a(this, null, "com.ubercab.client.ACTION_TRIP_SHOW_MAP", true);
-    localObject = new NotificationCompat.Builder(this).setSmallIcon(2130837997).setColor(getResources().getColor(2131558514)).setAutoCancel(true).setContentTitle(getString(2131167217)).setContentText(getString(2131167215)).setTicker(getString(2131167216)).setContentIntent((PendingIntent)localObject);
-    ((NotificationManager)getSystemService("notification")).notify(l, ((NotificationCompat.Builder)localObject).build());
+    Object localObject = goc.a(this, null, "com.ubercab.client.ACTION_TRIP_SHOW_MAP", true);
+    localObject = new NotificationCompat.Builder(this).setSmallIcon(2130838159).setColor(getResources().getColor(2131558565)).setAutoCancel(true).setContentTitle(getString(2131167596)).setContentText(getString(2131167594)).setTicker(getString(2131167595)).setContentIntent((PendingIntent)localObject);
+    ((NotificationManager)getSystemService("notification")).notify(j, ((NotificationCompat.Builder)localObject).build());
     d.j();
   }
   
@@ -74,7 +67,7 @@ public class MobileVerificationIntentService
   {
     try
     {
-      k.b(paramString, "default_verification").o().b();
+      i.b(paramString, "default_verification").v().b();
       return true;
     }
     catch (RuntimeException paramString) {}
@@ -83,11 +76,11 @@ public class MobileVerificationIntentService
   
   private void b()
   {
-    g.a().b(eri.a());
-    if (!m) {
+    e.a().b(ezm.a());
+    if (!k) {
       a();
     }
-    i.a("com.uber.SMS_RECEIVER");
+    g.a("com.uber.SMS_RECEIVER");
   }
   
   public void onCreate()
@@ -105,35 +98,27 @@ public class MobileVerificationIntentService
   
   protected void onHandleIntent(Intent paramIntent)
   {
-    paramIntent = paramIntent.getStringExtra("code");
-    if ((TextUtils.isEmpty(paramIntent)) || (!h.u())) {
+    if (paramIntent != null) {}
+    for (paramIntent = paramIntent.getStringExtra("code"); (TextUtils.isEmpty(paramIntent)) || (!f.J()); paramIntent = null) {
       return;
     }
-    c.c(new hzw());
-    if (j.a(dux.aL))
-    {
-      if (b.a(h.y(), paramIntent)) {
-        b();
-      }
-      d.m();
-      return;
-    }
+    c.c(new kcg());
     if (a(paramIntent)) {
       b();
     }
     d.m();
   }
   
-  @cho
-  public void onVerificationFragmentBackgrounded(hzr paramhzr)
+  @chu
+  public void onVerificationFragmentBackgrounded(kcb paramkcb)
   {
-    m = false;
+    k = false;
   }
   
-  @cho
-  public void onVerificationFragmentForegrounded(hzs paramhzs)
+  @chu
+  public void onVerificationFragmentForegrounded(kcc paramkcc)
   {
-    m = true;
+    k = true;
   }
 }
 

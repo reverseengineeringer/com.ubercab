@@ -10,8 +10,11 @@
                 <include layout="@layout/ub__trip_view_tray_secondary_actions" />
                 <include layout="@layout/ub__trip_view_tray_safetynet" />
                 <include layout="@layout/ub__trip_view_tray_cobranding" />
+                <include layout="@layout/ub__trip_view_tray_eats" />
+                <include layout="@layout/ub__trip_view_tray_rider_driver_promo" />
                 <include layout="@layout/ub__trip_view_tray_ridepool_savings" />
                 <include layout="@layout/ub__trip_view_tray_music" />
+                <include layout="@layout/ub__trip_view_tray_chronicle" />
                 <include layout="@layout/ub__trip_view_tray_coding_challenge" />
                 <include layout="@layout/ub__trip_view_tray_profiles" />
                 <include layout="@layout/ub__trip_view_tray_actions" />

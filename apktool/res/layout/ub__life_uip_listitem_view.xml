@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <RelativeLayout android:orientation="horizontal" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="@dimen/ui__life_uip_listitem_height">
+        <ImageView android:id="@id/ub__life_home_item_img" android:layout_width="@dimen/ub__life_home_item_img_width" android:layout_height="@dimen/ub__life_home_item_img_height" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:scaleType="fitXY" android:adjustViewBounds="true" />
+        <com.ubercab.ui.TextView android:id="@id/ub__life_home_item_status" android:text="tag" android:layout_toRightOf="@id/ub__life_home_item_img" style="@style/Uber.TextAppearance.Life.StatusTag" />
+        <com.ubercab.ui.TextView android:ellipsize="end" android:id="@id/ub__life_home_item_title" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lorem ipsum dolor" android:maxLines="1" android:layout_toRightOf="@id/ub__life_home_item_img" android:layout_below="@id/ub__life_home_item_status" android:textIsSelectable="false" style="@style/Uber.TextAppearance.H1" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/ub__life_home_item_img" android:layout_alignParentBottom="true">
+            <ImageView android:id="@id/ub__life_uip_req_tier" android:layout_width="@dimen/ui__spacing_unit_2x" android:layout_height="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__life_uip_coin" android:scaleType="fitXY" android:adjustViewBounds="true" />
+            <com.ubercab.ui.TextView android:ellipsize="end" android:id="@id/ub__life_home_item_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:text="consectetur adipiscing elit. Integer nec odio." android:maxLines="2" style="@style/Uber.TextAppearance.H3" />
+        </LinearLayout>
+    </RelativeLayout>
+</merge>

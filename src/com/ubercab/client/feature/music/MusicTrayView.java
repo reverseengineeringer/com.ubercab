@@ -14,74 +14,74 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import cku;
+import chn;
+import chu;
+import ckt;
+import cll;
 import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.client.core.model.TunesProvider;
 import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.Track;
-import dsl;
-import dux;
-import ebj;
-import eht;
-import ejs;
-import ejt;
-import emx;
-import fss;
-import fsz;
-import ftc;
-import ftr;
-import ftt;
-import ftu;
-import ftv;
-import fty;
-import ftz;
-import fub;
-import fue;
-import fuh;
-import ful;
-import hha;
-import hnk;
-import ife;
+import dxw;
+import eaj;
+import eib;
+import eqf;
+import ern;
+import ero;
+import eun;
+import gla;
+import glj;
+import glp;
+import gmk;
+import gmm;
+import gmn;
+import gmo;
+import gmr;
+import gms;
+import gmu;
+import gmx;
+import gna;
+import gnf;
+import izk;
 import java.util.List;
 import java.util.Map;
-import jsg;
-import p;
-import r;
+import jht;
+import kia;
+import mxm;
+import x;
+import z;
 
 public class MusicTrayView
   extends LinearLayout
 {
-  public ckc a;
-  public emx b;
-  public chh c;
-  public jsg d;
-  public ife e;
-  public dsl f;
-  public hha g;
-  public eht h;
+  public ckt a;
+  public eun b;
+  public chn c;
+  public mxm d;
+  public kia e;
+  public dxw f;
+  public izk g;
+  public eqf h;
   private final Drawable i;
   private final Drawable j;
   private final Drawable k;
   private Integer l;
   private boolean m;
-  @InjectView(2131624717)
-  ImageView mImageViewPlayback;
-  @InjectView(2131624719)
-  ImageView mImageViewPlaybackSpinner;
-  @InjectView(2131624718)
-  ViewGroup mImageViewPlaybackSpinnerContainer;
-  @InjectView(2131624721)
-  ImageView mImageViewRight;
-  @InjectView(2131624662)
-  TextView mTextViewAttribution;
-  @InjectView(2131624720)
-  TextView mTextViewTray;
+  @BindView
+  public ImageView mImageViewPlayback;
+  @BindView
+  public ImageView mImageViewPlaybackSpinner;
+  @BindView
+  public ViewGroup mImageViewPlaybackSpinnerContainer;
+  @BindView
+  public ImageView mImageViewRight;
+  @BindView
+  public TextView mTextViewAttribution;
+  @BindView
+  public TextView mTextViewTray;
   private boolean n;
   private boolean o;
   private boolean p;
@@ -105,17 +105,17 @@ public class MusicTrayView
       ((RiderApplication)paramContext.getApplicationContext()).b().a(this);
     }
     paramContext = getResources();
-    i = paramContext.getDrawable(2130838174);
-    j = paramContext.getDrawable(2130838175);
-    k = paramContext.getDrawable(2130838176);
+    i = paramContext.getDrawable(2130838362);
+    j = paramContext.getDrawable(2130838363);
+    k = paramContext.getDrawable(2130838364);
   }
   
   private void a()
   {
-    Animation localAnimation = AnimationUtils.loadAnimation(mImageViewPlaybackSpinner.getContext(), 2130968595);
+    Animation localAnimation = AnimationUtils.loadAnimation(mImageViewPlaybackSpinner.getContext(), 2130968608);
     mImageViewPlaybackSpinnerContainer.setVisibility(0);
     mImageViewPlaybackSpinner.setLayerType(2, null);
-    if (!((RiderApplication)getContext().getApplicationContext()).k()) {
+    if (!((RiderApplication)getContext().getApplicationContext()).n()) {
       mImageViewPlaybackSpinner.startAnimation(localAnimation);
     }
   }
@@ -130,7 +130,7 @@ public class MusicTrayView
   private void a(String paramString, int paramInt)
   {
     l = Integer.valueOf(paramInt);
-    if (!e.b(dux.ev))
+    if (!e.c(eaj.hc))
     {
       r = true;
       mTextViewTray.setLines(2);
@@ -142,7 +142,7 @@ public class MusicTrayView
     }
     if (l.intValue() == 403)
     {
-      a.a(p.fx);
+      a.a(x.hL);
       return;
     }
     b();
@@ -153,7 +153,7 @@ public class MusicTrayView
     if (TextUtils.isEmpty(paramString)) {
       return;
     }
-    if ((paramBoolean2) && (e.b(dux.m))) {
+    if ((paramBoolean2) && (e.c(eaj.l))) {
       a();
     }
     for (;;)
@@ -163,13 +163,13 @@ public class MusicTrayView
       mImageViewPlayback.setEnabled(true);
       mImageViewPlayback.setVisibility(0);
       a(q, p);
-      if (!e.b(dux.ev)) {
+      if (!e.c(eaj.hc)) {
         mTextViewAttribution.setVisibility(0);
       }
       a(paramString);
       mImageViewRight.setVisibility(8);
       return;
-      if (e.b(dux.m)) {
+      if (e.c(eaj.l)) {
         b();
       }
     }
@@ -195,7 +195,7 @@ public class MusicTrayView
     }
   }
   
-  private static boolean a(Client paramClient, TunesProvider paramTunesProvider, ife paramife)
+  private static boolean a(Client paramClient, TunesProvider paramTunesProvider, kia paramkia)
   {
     if ((paramClient == null) || (TextUtils.isEmpty(paramClient.getUuid()))) {}
     do
@@ -203,7 +203,7 @@ public class MusicTrayView
       return false;
       paramClient = paramClient.getThirdPartyIdentities();
     } while (paramClient == null);
-    if ((paramTunesProvider != null) && (paramife != null) && (paramife.b(dux.ev))) {
+    if ((paramTunesProvider != null) && (paramkia != null) && (paramkia.c(eaj.hc))) {
       return paramClient.containsKey(paramTunesProvider.getId());
     }
     return paramClient.containsKey("spotify");
@@ -221,14 +221,14 @@ public class MusicTrayView
   public final void a(Client paramClient, int paramInt)
   {
     boolean bool;
-    if ((paramInt == 8) && (l == null))
+    if ((paramInt == 9) && (l == null))
     {
       bool = true;
       q = bool;
-      if (!e.b(dux.ev)) {
+      if (!e.c(eaj.hc)) {
         break label190;
       }
-      bool = a(paramClient, ful.a(), e);
+      bool = a(paramClient, gnf.a(), e);
       label47:
       if (!n)
       {
@@ -236,7 +236,7 @@ public class MusicTrayView
         if (bool) {
           break label200;
         }
-        a.a(p.fu);
+        a.a(x.hI);
       }
       label73:
       m = bool;
@@ -250,12 +250,12 @@ public class MusicTrayView
       if (!m) {
         break label213;
       }
-      if (!e.b(dux.ev)) {
+      if (!e.c(eaj.hc)) {
         mTextViewAttribution.setVisibility(0);
       }
       mImageViewPlayback.setVisibility(0);
       mImageViewRight.setVisibility(8);
-      a(paramClient.getString(2131165355));
+      a(paramClient.getString(2131165403));
       b();
     }
     label190:
@@ -270,14 +270,14 @@ public class MusicTrayView
         break;
         bool = a(paramClient, null, null);
         break label47;
-        a.a(p.fv);
+        a.a(x.hJ);
         break label73;
         mTextViewAttribution.setVisibility(8);
         mImageViewRight.setVisibility(8);
-        if (e.b(dux.ev)) {
-          a(paramClient.getString(2131165382));
+        if (e.c(eaj.hc)) {
+          a(paramClient.getString(2131165438));
         } else {
-          a(paramClient.getString(2131165383, new Object[] { "Spotify" }));
+          a(paramClient.getString(2131165439, new Object[] { "Spotify" }));
         }
       }
     }
@@ -292,59 +292,59 @@ public class MusicTrayView
     c.a(this);
   }
   
-  @OnClick({2131624716})
-  void onClickMusicTray()
+  @OnClick
+  public void onClickMusicTray()
   {
     int i1;
-    ckc localckc;
-    if (g.g() < 8)
+    ckt localckt;
+    if (g.g() < 9)
     {
       i1 = 1;
-      localckc = a;
+      localckt = a;
       if (i1 == 0) {
         break label83;
       }
     }
     label83:
-    for (Object localObject = r.dc;; localObject = r.cZ)
+    for (Object localObject = z.eX;; localObject = z.eU)
     {
-      localckc.a((cku)localObject);
-      if ((l == null) || (e.b(dux.ev))) {
+      localckt.a((cll)localObject);
+      if ((l == null) || (e.c(eaj.hc))) {
         break label90;
       }
       if (l.intValue() == 403) {
-        a.a(r.cX);
+        a.a(z.eS);
       }
       return;
       i1 = 0;
       break;
     }
     label90:
-    f.m(true);
-    if (e.b(dux.ev))
+    f.l(true);
+    if (e.c(eaj.hc))
     {
-      localObject = fsz.a(d.c(), e);
-      c.c(new ftc((List)localObject));
+      localObject = glj.a(d.c(), e);
+      c.c(new glp((List)localObject));
       return;
     }
     if (!m)
     {
-      a.a(r.cV);
+      a.a(z.eQ);
       localObject = TunesProvider.create("spotify", "Spotify");
-      c.c(new ftr((TunesProvider)localObject));
+      c.c(new gmk((TunesProvider)localObject));
       return;
     }
     if (!TextUtils.isEmpty(h.a()))
     {
-      c.c(new ftt("spotify", h.a()));
+      c.c(new gmm("spotify", h.a()));
       return;
     }
-    a.a(r.cW);
-    c.c(new fub(TunesProvider.create("spotify", "Spotify")));
+    a.a(z.eR);
+    c.c(new gmu(TunesProvider.create("spotify", "Spotify")));
   }
   
-  @OnClick({2131624717})
-  void onClickPlayback()
+  @OnClick
+  public void onClickPlayback()
   {
     if (!o) {
       return;
@@ -352,7 +352,7 @@ public class MusicTrayView
     boolean bool;
     int i1;
     label50:
-    ckc localckc;
+    ckt localckt;
     if (!p)
     {
       bool = true;
@@ -362,22 +362,22 @@ public class MusicTrayView
       if (!p) {
         break label91;
       }
-      i1 = ftv.c;
-      ((chh)localObject).c(new ftu(i1));
-      localckc = a;
+      i1 = gmo.c;
+      ((chn)localObject).c(new gmn(i1));
+      localckt = a;
       if (!p) {
         break label98;
       }
     }
     label91:
     label98:
-    for (Object localObject = r.db;; localObject = r.da)
+    for (Object localObject = z.eW;; localObject = z.eV)
     {
-      localckc.a((cku)localObject);
+      localckt.a((cll)localObject);
       return;
       bool = false;
       break;
-      i1 = ftv.b;
+      i1 = gmo.b;
       break label50;
     }
   }
@@ -391,77 +391,77 @@ public class MusicTrayView
   public void onFinishInflate()
   {
     super.onFinishInflate();
-    ButterKnife.inject(this);
+    ButterKnife.a(this);
     if (!isInEditMode()) {
       g.d();
     }
-    if (e.b(dux.ev))
+    if (e.c(eaj.hc))
     {
       mTextViewAttribution.setVisibility(8);
       return;
     }
-    SpannableString localSpannableString = fss.a(getResources());
+    SpannableString localSpannableString = gla.a(getResources());
     mTextViewAttribution.setText(localSpannableString, TextView.BufferType.SPANNABLE);
   }
   
-  @cho
-  public void onMusicStateUpdateEvent(fty paramfty)
+  @chu
+  public void onMusicStateUpdateEvent(gmr paramgmr)
   {
-    a(paramfty.b(), paramfty.f(), paramfty.c());
+    a(paramgmr.b(), paramgmr.f(), paramgmr.c());
   }
   
-  @cho
-  public void onNoMusicAccountConnectedEvent(ftz paramftz)
+  @chu
+  public void onNoMusicAccountConnectedEvent(gms paramgms)
   {
     o = true;
   }
   
-  @cho
-  public void onPlaylistsEvent(fue paramfue)
+  @chu
+  public void onPlaylistsEvent(gmx paramgmx)
   {
-    if (!paramfue.a().isEmpty()) {
+    if (!paramgmx.a().isEmpty()) {
       o = true;
     }
   }
   
-  @cho
-  public void onTrackClickEvent(fuh paramfuh)
+  @chu
+  public void onTrackClickEvent(gna paramgna)
   {
-    paramfuh = paramfuh.b();
-    if (paramfuh != null) {
-      a(paramfuh.getName(), p, false);
+    paramgna = paramgna.b();
+    if (paramgna != null) {
+      a(paramgna.getName(), p, false);
     }
   }
   
-  @cho
-  public void onTripUiStateChangedEvent(hnk paramhnk)
+  @chu
+  public void onTripUiStateChangedEvent(jht paramjht)
   {
-    if (paramhnk.b() == 0) {
+    if (paramjht.b() == 0) {
       o = false;
     }
   }
   
-  @cho
-  public void onTunesHandshakeResponseEvent(ejs paramejs)
+  @chu
+  public void onTunesHandshakeResponseEvent(ern paramern)
   {
-    if (!paramejs.i()) {
-      a(paramejs.a(), paramejs.n());
+    if (!paramern.i()) {
+      a(paramern.a(), paramern.n());
     }
   }
   
-  @cho
-  public void onTunesProviderResponseEvent(ejt paramejt)
+  @chu
+  public void onTunesProviderResponseEvent(ero paramero)
   {
     o = true;
-    if (paramejt.i())
+    if (paramero.i())
     {
       l = null;
-      if (!TextUtils.isEmpty(((TunesProvider)paramejt.g()).getEligibleTrial())) {
-        a.a(p.fw);
+      if (!TextUtils.isEmpty(((TunesProvider)paramero.g()).getEligibleTrial())) {
+        a.a(x.hK);
       }
       return;
     }
-    a(paramejt.a(), paramejt.n());
+    a(paramero.a(), paramero.n());
   }
 }
 

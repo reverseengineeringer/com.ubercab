@@ -1,17 +1,29 @@
-public final class bqd
+final class bqd<T>
 {
-  public static <T> T a(T paramT)
-  {
-    if (paramT == null) {
-      throw new NullPointerException();
-    }
-    return paramT;
-  }
+  T[] a;
+  int b;
   
-  public static void a(boolean paramBoolean)
+  final void a(T paramT)
   {
-    if (!paramBoolean) {
-      throw new IllegalArgumentException();
+    int i = b;
+    Object localObject = a;
+    if (localObject == null)
+    {
+      localObject = (Object[])new Object[16];
+      a = ((Object[])localObject);
+    }
+    for (;;)
+    {
+      localObject[i] = paramT;
+      b = (i + 1);
+      return;
+      if (i == localObject.length)
+      {
+        Object[] arrayOfObject = (Object[])new Object[(i >> 2) + i];
+        System.arraycopy(localObject, 0, arrayOfObject, 0, i);
+        a = arrayOfObject;
+        localObject = arrayOfObject;
+      }
     }
   }
 }

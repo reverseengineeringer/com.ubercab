@@ -1,24 +1,31 @@
-import android.content.Intent;
-import com.paypal.android.sdk.payments.PayPalPayment;
-import com.paypal.android.sdk.payments.bA;
+import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Timer;
 
 public final class ccu
+  implements cbm
 {
-  private Intent a;
+  public ccu(PayPalFuturePaymentActivity paramPayPalFuturePaymentActivity) {}
   
-  public ccu(Intent paramIntent)
+  public final void a()
   {
-    a = paramIntent;
+    Date localDate = Calendar.getInstance().getTime();
+    if (PayPalFuturePaymentActivity.d(a).compareTo(localDate) > 0)
+    {
+      long l = PayPalFuturePaymentActivity.d(a).getTime() - localDate.getTime();
+      PayPalFuturePaymentActivity.a();
+      new StringBuilder("Delaying ").append(l).append(" milliseconds so user doesn't see flicker.");
+      PayPalFuturePaymentActivity.a(a, new Timer());
+      PayPalFuturePaymentActivity.f(a).schedule(new ccv(this), l);
+      return;
+    }
+    PayPalFuturePaymentActivity.e(a);
   }
   
-  public final PayPalPayment a()
+  public final void a(cbn paramcbn)
   {
-    return (PayPalPayment)a.getParcelableExtra("com.paypal.android.sdk.payment");
-  }
-  
-  public final bA b()
-  {
-    return (bA)a.getParcelableExtra("com.paypal.android.sdk.payments.PaymentConfirmActivity.EXTRA_PAYMENT_INFO");
+    ced.a(a, paramcbn);
   }
 }
 

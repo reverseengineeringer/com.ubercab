@@ -3,18 +3,15 @@ package com.baidu.android.bbalbs.common.a;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class c
+public final class c
 {
   public static String a(byte[] paramArrayOfByte, String paramString, boolean paramBoolean)
   {
     StringBuilder localStringBuilder = new StringBuilder();
     int j = paramArrayOfByte.length;
     int i = 0;
-    for (;;)
+    while (i < j)
     {
-      if (i >= j) {
-        return localStringBuilder.toString();
-      }
       String str2 = Integer.toHexString(paramArrayOfByte[i] & 0xFF);
       String str1 = str2;
       if (paramBoolean) {
@@ -26,6 +23,7 @@ public class c
       localStringBuilder.append(str1).append(paramString);
       i += 1;
     }
+    return localStringBuilder.toString();
   }
   
   public static String a(byte[] paramArrayOfByte, boolean paramBoolean)

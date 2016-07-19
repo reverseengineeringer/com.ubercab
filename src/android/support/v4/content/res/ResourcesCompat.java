@@ -6,8 +6,24 @@ import android.content.res.Resources.Theme;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
 
-public class ResourcesCompat
+public final class ResourcesCompat
 {
+  public static int getColor(Resources paramResources, int paramInt, Resources.Theme paramTheme)
+  {
+    if (Build.VERSION.SDK_INT >= 23) {
+      return ResourcesCompatApi23.getColor(paramResources, paramInt, paramTheme);
+    }
+    return paramResources.getColor(paramInt);
+  }
+  
+  public static ColorStateList getColorStateList(Resources paramResources, int paramInt, Resources.Theme paramTheme)
+  {
+    if (Build.VERSION.SDK_INT >= 23) {
+      return ResourcesCompatApi23.getColorStateList(paramResources, paramInt, paramTheme);
+    }
+    return paramResources.getColorStateList(paramInt);
+  }
+  
   public static Drawable getDrawable(Resources paramResources, int paramInt, Resources.Theme paramTheme)
   {
     if (Build.VERSION.SDK_INT >= 21) {
@@ -25,22 +41,6 @@ public class ResourcesCompat
       return ResourcesCompatIcsMr1.getDrawableForDensity(paramResources, paramInt1, paramInt2);
     }
     return paramResources.getDrawable(paramInt1);
-  }
-  
-  public int getColor(Resources paramResources, int paramInt, Resources.Theme paramTheme)
-  {
-    if (Build.VERSION.SDK_INT >= 23) {
-      return ResourcesCompatApi23.getColor(paramResources, paramInt, paramTheme);
-    }
-    return paramResources.getColor(paramInt);
-  }
-  
-  public ColorStateList getColorStateList(Resources paramResources, int paramInt, Resources.Theme paramTheme)
-  {
-    if (Build.VERSION.SDK_INT >= 23) {
-      return ResourcesCompatApi23.getColorStateList(paramResources, paramInt, paramTheme);
-    }
-    return paramResources.getColorStateList(paramInt);
   }
 }
 

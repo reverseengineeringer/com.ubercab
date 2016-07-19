@@ -1,23 +1,26 @@
-import android.os.Build;
-import android.os.Build.VERSION;
-import java.util.Locale;
+import android.os.Parcel;
 
-public class bto
+public abstract class bto
 {
-  private static final String a = bto.class.getSimpleName();
-  private static String b = null;
+  public String a;
+  public long b;
   
-  public static String a(bxg parambxg)
+  public bto() {}
+  
+  public bto(Parcel paramParcel)
   {
-    if (b == null)
-    {
-      String str = Locale.getDefault().toString().replace("_", "-");
-      StringBuilder localStringBuilder = new StringBuilder("Mozilla/5.0 (Linux; U; ");
-      new bze();
-      b = new StringBuilder("Android ").append(Build.VERSION.RELEASE).toString() + "; " + str + "; " + Build.MODEL + " " + Build.DISPLAY + ") mpl/" + parambxg.a();
-      new StringBuilder("UserAgent: ").append(b);
-    }
-    return b;
+    a = paramParcel.readString();
+    b = paramParcel.readLong();
+  }
+  
+  public final String b()
+  {
+    return a;
+  }
+  
+  public final boolean c()
+  {
+    return b > System.currentTimeMillis();
   }
 }
 

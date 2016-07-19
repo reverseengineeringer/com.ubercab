@@ -1,53 +1,24 @@
-import java.lang.reflect.Field;
+import java.util.regex.Pattern;
 
-public enum bpa
-  implements bpb
+public final class bpa
 {
-  private bpa() {}
+  private bpb<String, Pattern> a;
   
-  private static String a(char paramChar, String paramString, int paramInt)
+  public bpa(int paramInt)
   {
-    if (paramInt < paramString.length()) {
-      return paramChar + paramString.substring(paramInt);
-    }
-    return String.valueOf(paramChar);
+    a = new bpb(paramInt);
   }
   
-  private static String b(String paramString)
+  public final Pattern a(String paramString)
   {
-    int i = 0;
-    StringBuilder localStringBuilder = new StringBuilder();
-    for (char c1 = paramString.charAt(0); (i < paramString.length() - 1) && (!Character.isLetter(c1)); c1 = paramString.charAt(i))
+    Pattern localPattern2 = (Pattern)a.a(paramString);
+    Pattern localPattern1 = localPattern2;
+    if (localPattern2 == null)
     {
-      localStringBuilder.append(c1);
-      i += 1;
+      localPattern1 = Pattern.compile(paramString);
+      a.a(paramString, localPattern1);
     }
-    String str;
-    if (i == paramString.length()) {
-      str = localStringBuilder.toString();
-    }
-    do
-    {
-      return str;
-      str = paramString;
-    } while (Character.isUpperCase(c1));
-    return a(Character.toUpperCase(c1), paramString, i + 1);
-  }
-  
-  private static String b(String paramString1, String paramString2)
-  {
-    StringBuilder localStringBuilder = new StringBuilder();
-    int i = 0;
-    while (i < paramString1.length())
-    {
-      char c1 = paramString1.charAt(i);
-      if ((Character.isUpperCase(c1)) && (localStringBuilder.length() != 0)) {
-        localStringBuilder.append(paramString2);
-      }
-      localStringBuilder.append(c1);
-      i += 1;
-    }
-    return localStringBuilder.toString();
+    return localPattern1;
   }
 }
 

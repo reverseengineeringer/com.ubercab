@@ -1,15 +1,16 @@
 package android.support.v4.media;
 
 import android.os.Bundle;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.List;
 
 class MediaBrowserServiceCompat$ConnectionRecord
 {
-  IMediaBrowserServiceCompatCallbacks callbacks;
+  MediaBrowserServiceCompat.ServiceCallbacks callbacks;
   String pkg;
   MediaBrowserServiceCompat.BrowserRoot root;
   Bundle rootHints;
-  HashSet<String> subscriptions = new HashSet();
+  HashMap<String, List<Bundle>> subscriptions = new HashMap();
   
   private MediaBrowserServiceCompat$ConnectionRecord(MediaBrowserServiceCompat paramMediaBrowserServiceCompat) {}
 }

@@ -2,16 +2,16 @@ package com.ubercab.rider.realtime.client;
 
 import com.ubercab.rider.realtime.response.OnboardingPitchData;
 import com.ubercab.rider.realtime.response.OnboardingTutorials;
-import kld;
+import odr;
 import retrofit.http.GET;
 
 public abstract interface OnboardingApi
 {
   @GET("/rt/onboarding/partner-onboarding-app/pitch-info")
-  public abstract kld<OnboardingPitchData> getPitchInfo();
+  public abstract odr<OnboardingPitchData> getPitchInfo();
   
   @GET("/rt/onboarding/partner-onboarding-app/tutorial-info")
-  public abstract kld<OnboardingTutorials> getTutorialInfo();
+  public abstract odr<OnboardingTutorials> getTutorialInfo();
 }
 
 /* Location:

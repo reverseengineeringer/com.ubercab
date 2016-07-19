@@ -1,36 +1,52 @@
-import java.util.Timer;
-import java.util.TimerTask;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.PackageManager;
 
-final class cms
-  implements clv
+public abstract class cms
 {
-  private Timer b;
+  final Context a;
   
-  private cms(cmr paramcmr) {}
-  
-  public final void a()
+  cms(Context paramContext)
   {
-    if (b != null) {
-      return;
+    a = paramContext;
+    if (a()) {
+      a(paramContext, false);
     }
-    b = new Timer();
-    b.scheduleAtFixedRate(new TimerTask()
+  }
+  
+  static void a(Context paramContext, boolean paramBoolean)
+  {
+    int i = 1;
+    if (paramBoolean) {}
+    for (;;)
     {
-      public final void run()
+      PackageManager localPackageManager = paramContext.getPackageManager();
+      paramContext = new ComponentName(paramContext.getPackageName(), "com.baidu.location.f");
+      try
       {
-        cmr.a(a).d();
+        localPackageManager.setComponentEnabledSetting(paramContext, i, 1);
+        return;
       }
-    }, 0L, cmr.b(a));
+      catch (IllegalArgumentException paramContext) {}
+      i = 2;
+    }
   }
   
-  public final void b()
+  private static boolean a()
   {
-    if (b == null) {
-      return;
+    try
+    {
+      Class.forName("com.baidu.location.f");
+      return true;
     }
-    b.cancel();
-    b = null;
+    catch (ClassNotFoundException localClassNotFoundException) {}
+    return false;
   }
+  
+  @Deprecated
+  abstract cmf a(cmg paramcmg);
+  
+  abstract cmf a(cmj paramcmj);
 }
 
 /* Location:

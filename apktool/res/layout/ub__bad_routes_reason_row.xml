@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:background="@drawable/ub__rds__selectable_item_background" android:padding="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:id="@id/ub__bad_routes_row_textview" android:paddingLeft="@dimen/ui__spacing_unit_1x" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    <RadioButton android:id="@id/ub__bad_routes_row_radiobutton" android:background="@color/ub__transparent" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

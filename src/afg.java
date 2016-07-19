@@ -1,12 +1,14 @@
-public final class afg
-  extends Exception
+import android.net.Uri;
+import android.os.IInterface;
+
+public abstract interface afg
+  extends IInterface
 {
-  public afg() {}
+  public abstract acp a();
   
-  public afg(String paramString)
-  {
-    super(paramString);
-  }
+  public abstract Uri b();
+  
+  public abstract double c();
 }
 
 /* Location:

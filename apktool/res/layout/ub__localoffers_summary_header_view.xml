@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/ub__local_offer_header_progress_container" android:background="@color/ub__black" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <FrameLayout android:id="@id/ub__local_offer_header_progress" android:layout_width="@dimen/ub__local_offers_offer_progress_bar_size" android:layout_height="@dimen/ub__local_offers_offer_progress_bar_size">
+                <ProgressBar android:id="@id/ub__local_offer_header_progress_circle" android:layout_width="fill_parent" android:layout_height="fill_parent" android:max="100" android:progress="0" android:progressDrawable="@drawable/ub__localoffers_progress_circle" style="?android:attr/progressBarStyleHorizontal" />
+                <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_large" android:textColor="@color/ub__uber_white_40" android:layout_gravity="center" android:id="@id/ub__local_offer_header_progress_count" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </FrameLayout>
+            <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_60" android:layout_gravity="center" android:paddingTop="@dimen/ub__local_offers_offer_list_item_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/local_offers_points" style="@style/Uber.TextAppearance.P" />
+        </LinearLayout>
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <com.ubercab.ui.TextView android:textColor="@color/ub__uber_white_40" android:id="@id/ub__local_offer_header_progress_text" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Uber.TextAppearance.P" />
+            <com.ubercab.ui.TextView android:textColor="@color/ub__uber_blue_100" android:id="@id/ub__local_offer_header_locations_text" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Uber.TextAppearance.P" />
+        </LinearLayout>
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__right_arrow" />
+    </LinearLayout>
+    <com.ubercab.ui.TextView android:textColor="@color/ub__green" android:gravity="center" android:id="@id/ub__local_offer_header_free_ride" android:background="@color/ub__white" android:padding="@dimen/ui__spacing_unit_2x" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/ub__local_offer_header_progress_container" style="@style/Uber.TextAppearance.P" />
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package android.support.v4.graphics.drawable;
 
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 
 class DrawableWrapperHoneycomb
@@ -10,9 +11,19 @@ class DrawableWrapperHoneycomb
     super(paramDrawable);
   }
   
+  DrawableWrapperHoneycomb(DrawableWrapperDonut.DrawableWrapperState paramDrawableWrapperState, Resources paramResources)
+  {
+    super(paramDrawableWrapperState, paramResources);
+  }
+  
   public void jumpToCurrentState()
   {
     mDrawable.jumpToCurrentState();
+  }
+  
+  DrawableWrapperDonut.DrawableWrapperState mutateConstantState()
+  {
+    return new DrawableWrapperHoneycomb.DrawableWrapperStateHoneycomb(mState, null);
   }
 }
 

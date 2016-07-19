@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView android:layout_gravity="center_vertical" android:id="@id/ub__hiring_coding_challenge_coach_mark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__music_bar_margin_x" android:layout_marginRight="@dimen/ub__music_tray_button_margin" android:src="@drawable/ub__hiring_coding_challenge_icon_trip_tray" />
     <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <com.ubercab.ui.TextView android:textSize="12.0sp" android:textColor="@color/ub__uber_black_80" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hiring_coding_challenge_tray_title" />
+        <com.ubercab.ui.TextView android:textSize="12.0sp" android:textColor="@color/ub__uber_black_80" android:gravity="center" android:layout_gravity="center" android:id="@id/ub__hiring_coding_challenge_tray_title_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hiring_coding_challenge_tray_title" />
         <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:textSize="8.0sp" android:layout_gravity="center" android:id="@id/ub__hiring_coding_challenge_action_textview_tray" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     </LinearLayout>
 </FrameLayout>

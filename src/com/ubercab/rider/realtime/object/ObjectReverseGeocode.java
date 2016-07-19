@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import juf;
+import mzn;
 
 @Shape
 abstract class ObjectReverseGeocode
-  implements juf
+  implements mzn
 {}
 
 /* Location:

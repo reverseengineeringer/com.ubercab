@@ -102,6 +102,7 @@ public class ViewPager
   private float mInitialMotionY;
   private ViewPager.OnPageChangeListener mInternalPageChangeListener;
   private boolean mIsBeingDragged;
+  private boolean mIsScrollStarted;
   private boolean mIsUnableToDrag;
   private final ArrayList<ViewPager.ItemInfo> mItems = new ArrayList();
   private float mLastMotionX;
@@ -288,13 +289,23 @@ public class ViewPager
   
   private void completeScroll(boolean paramBoolean)
   {
-    if (mScrollState == 2) {}
-    int j;
-    for (int i = 1;; i = 0)
+    int i;
+    if (mScrollState == 2)
     {
+      i = 1;
       if (i != 0)
       {
         setScrollingCacheEnabled(false);
+        if (mScroller.isFinished()) {
+          break label170;
+        }
+      }
+    }
+    label170:
+    for (int j = 1;; j = 0)
+    {
+      if (j != 0)
+      {
         mScroller.abortAnimation();
         j = getScrollX();
         k = getScrollY();
@@ -322,6 +333,8 @@ public class ViewPager
         }
         i += 1;
       }
+      i = 0;
+      break;
     }
     if (j != 0)
     {
@@ -591,32 +604,30 @@ public class ViewPager
   
   private boolean pageScrolled(int paramInt)
   {
-    boolean bool = false;
     if (mItems.size() == 0)
     {
-      mCalledSuper = false;
-      onPageScrolled(0, 0.0F, 0);
-      if (!mCalledSuper) {
-        throw new IllegalStateException("onPageScrolled did not call superclass implementation");
-      }
+      if (mFirstLayout) {}
+      do
+      {
+        return false;
+        mCalledSuper = false;
+        onPageScrolled(0, 0.0F, 0);
+      } while (mCalledSuper);
+      throw new IllegalStateException("onPageScrolled did not call superclass implementation");
     }
-    else
-    {
-      ViewPager.ItemInfo localItemInfo = infoForCurrentScrollPosition();
-      int j = getClientWidth();
-      int k = mPageMargin;
-      float f = mPageMargin / j;
-      int i = position;
-      f = (paramInt / j - offset) / (widthFactor + f);
-      paramInt = (int)((k + j) * f);
-      mCalledSuper = false;
-      onPageScrolled(i, f, paramInt);
-      if (!mCalledSuper) {
-        throw new IllegalStateException("onPageScrolled did not call superclass implementation");
-      }
-      bool = true;
+    ViewPager.ItemInfo localItemInfo = infoForCurrentScrollPosition();
+    int j = getClientWidth();
+    int k = mPageMargin;
+    float f = mPageMargin / j;
+    int i = position;
+    f = (paramInt / j - offset) / (widthFactor + f);
+    paramInt = (int)((k + j) * f);
+    mCalledSuper = false;
+    onPageScrolled(i, f, paramInt);
+    if (!mCalledSuper) {
+      throw new IllegalStateException("onPageScrolled did not call superclass implementation");
     }
-    return bool;
+    return true;
   }
   
   private boolean performDrag(float paramFloat)
@@ -681,20 +692,17 @@ public class ViewPager
   {
     if ((paramInt2 > 0) && (!mItems.isEmpty()))
     {
+      if (!mScroller.isFinished())
+      {
+        mScroller.setFinalX(getCurrentItem() * getClientWidth());
+        return;
+      }
       int i = getPaddingLeft();
       int j = getPaddingRight();
       int k = getPaddingLeft();
       int m = getPaddingRight();
       f = getScrollX() / (paramInt2 - k - m + paramInt4);
-      paramInt2 = (int)((paramInt1 - i - j + paramInt3) * f);
-      scrollTo(paramInt2, getScrollY());
-      if (!mScroller.isFinished())
-      {
-        paramInt3 = mScroller.getDuration();
-        paramInt4 = mScroller.timePassed();
-        localItemInfo = infoForPosition(mCurItem);
-        mScroller.startScroll(paramInt2, 0, (int)(offset * paramInt1), 0, paramInt3 - paramInt4);
-      }
+      scrollTo((int)((paramInt1 - i - j + paramInt3) * f), getScrollY());
       return;
     }
     ViewPager.ItemInfo localItemInfo = infoForPosition(mCurItem);
@@ -1087,6 +1095,7 @@ public class ViewPager
   
   public void computeScroll()
   {
+    mIsScrollStarted = true;
     if ((!mScroller.isFinished()) && (mScroller.computeScrollOffset()))
     {
       int i = getScrollX();
@@ -1321,14 +1330,17 @@ public class ViewPager
     if (!mFakeDragging) {
       throw new IllegalStateException("No fake drag in progress. Call beginFakeDrag first.");
     }
-    Object localObject = mVelocityTracker;
-    ((VelocityTracker)localObject).computeCurrentVelocity(1000, mMaximumVelocity);
-    int i = (int)VelocityTrackerCompat.getXVelocity((VelocityTracker)localObject, mActivePointerId);
-    mPopulatePending = true;
-    int j = getClientWidth();
-    int k = getScrollX();
-    localObject = infoForCurrentScrollPosition();
-    setCurrentItemInternal(determineTargetPage(position, (k / j - offset) / widthFactor, i, (int)(mLastMotionX - mInitialMotionX)), true, true, i);
+    if (mAdapter != null)
+    {
+      Object localObject = mVelocityTracker;
+      ((VelocityTracker)localObject).computeCurrentVelocity(1000, mMaximumVelocity);
+      int i = (int)VelocityTrackerCompat.getXVelocity((VelocityTracker)localObject, mActivePointerId);
+      mPopulatePending = true;
+      int j = getClientWidth();
+      int k = getScrollX();
+      localObject = infoForCurrentScrollPosition();
+      setCurrentItemInternal(determineTargetPage(position, (k / j - offset) / widthFactor, i, (int)(mLastMotionX - mInitialMotionX)), true, true, i);
+    }
     endDrag();
     mFakeDragging = false;
   }
@@ -1359,6 +1371,9 @@ public class ViewPager
   {
     if (!mFakeDragging) {
       throw new IllegalStateException("No fake drag in progress. Call beginFakeDrag first.");
+    }
+    if (mAdapter == null) {
+      return;
     }
     mLastMotionX += paramFloat;
     float f2 = getScrollX() - paramFloat;
@@ -1505,6 +1520,35 @@ public class ViewPager
     if (ViewCompat.getImportantForAccessibility(this) == 0) {
       ViewCompat.setImportantForAccessibility(this, 1);
     }
+    ViewCompat.setOnApplyWindowInsetsListener(this, new OnApplyWindowInsetsListener()
+    {
+      private final Rect mTempRect = new Rect();
+      
+      public WindowInsetsCompat onApplyWindowInsets(View paramAnonymousView, WindowInsetsCompat paramAnonymousWindowInsetsCompat)
+      {
+        paramAnonymousView = ViewCompat.onApplyWindowInsets(paramAnonymousView, paramAnonymousWindowInsetsCompat);
+        if (paramAnonymousView.isConsumed()) {
+          return paramAnonymousView;
+        }
+        paramAnonymousWindowInsetsCompat = mTempRect;
+        left = paramAnonymousView.getSystemWindowInsetLeft();
+        top = paramAnonymousView.getSystemWindowInsetTop();
+        right = paramAnonymousView.getSystemWindowInsetRight();
+        bottom = paramAnonymousView.getSystemWindowInsetBottom();
+        int i = 0;
+        int j = getChildCount();
+        while (i < j)
+        {
+          WindowInsetsCompat localWindowInsetsCompat = ViewCompat.dispatchApplyWindowInsets(getChildAt(i), paramAnonymousView);
+          left = Math.min(localWindowInsetsCompat.getSystemWindowInsetLeft(), left);
+          top = Math.min(localWindowInsetsCompat.getSystemWindowInsetTop(), top);
+          right = Math.min(localWindowInsetsCompat.getSystemWindowInsetRight(), right);
+          bottom = Math.min(localWindowInsetsCompat.getSystemWindowInsetBottom(), bottom);
+          i += 1;
+        }
+        return paramAnonymousView.replaceSystemWindowInsets(left, top, right, bottom);
+      }
+    });
   }
   
   public boolean isFakeDragging()
@@ -1521,6 +1565,9 @@ public class ViewPager
   protected void onDetachedFromWindow()
   {
     removeCallbacks(mEndScrollRunnable);
+    if ((mScroller != null) && (!mScroller.isFinished())) {
+      mScroller.abortAnimation();
+    }
     super.onDetachedFromWindow();
   }
   
@@ -1555,7 +1602,7 @@ public class ViewPager
         {
           if (mPageMargin + f2 > k)
           {
-            mMarginDrawable.setBounds((int)f2, mTopPageBounds, (int)(mPageMargin + f2 + 0.5F), mBottomPageBounds);
+            mMarginDrawable.setBounds(Math.round(f2), mTopPageBounds, Math.round(mPageMargin + f2), mBottomPageBounds);
             mMarginDrawable.draw(paramCanvas);
           }
           if (f2 > k + m) {
@@ -1644,6 +1691,7 @@ public class ViewPager
         mLastMotionY = f1;
         mActivePointerId = MotionEventCompat.getPointerId(paramMotionEvent, 0);
         mIsUnableToDrag = false;
+        mIsScrollStarted = true;
         mScroller.computeScrollOffset();
         if ((mScrollState == 2) && (Math.abs(mScroller.getFinalX() - mScroller.getCurrX()) > mCloseEnough))
         {
@@ -2209,7 +2257,8 @@ public class ViewPager
         int j = getClientWidth();
         int k = getScrollX();
         localObject = infoForCurrentScrollPosition();
-        setCurrentItemInternal(determineTargetPage(position, (k / j - offset) / widthFactor, i, (int)(MotionEventCompat.getX(paramMotionEvent, MotionEventCompat.findPointerIndex(paramMotionEvent, mActivePointerId)) - mInitialMotionX)), true, true, i);
+        f1 = mPageMargin / j;
+        setCurrentItemInternal(determineTargetPage(position, (k / j - offset) / (widthFactor + f1), i, (int)(MotionEventCompat.getX(paramMotionEvent, MotionEventCompat.findPointerIndex(paramMotionEvent, mActivePointerId)) - mInitialMotionX)), true, true, i);
         bool1 = resetTouch();
         continue;
         bool1 = bool2;
@@ -2258,17 +2307,13 @@ public class ViewPager
   
   void populate(int paramInt)
   {
-    int i;
     Object localObject2;
-    if (mCurItem != paramInt) {
-      if (mCurItem < paramInt)
-      {
-        i = 66;
-        localObject2 = infoForPosition(mCurItem);
-        mCurItem = paramInt;
-      }
+    if (mCurItem != paramInt)
+    {
+      localObject2 = infoForPosition(mCurItem);
+      mCurItem = paramInt;
     }
-    for (int j = i;; j = 2)
+    for (;;)
     {
       if (mAdapter == null) {
         sortChildDrawingOrder();
@@ -2276,8 +2321,6 @@ public class ViewPager
       do
       {
         return;
-        i = 17;
-        break;
         if (mPopulatePending)
         {
           sortChildDrawingOrder();
@@ -2286,15 +2329,15 @@ public class ViewPager
       } while (getWindowToken() == null);
       mAdapter.startUpdate(this);
       paramInt = mOffscreenPageLimit;
-      int i3 = Math.max(0, mCurItem - paramInt);
-      int i1 = mAdapter.getCount();
-      int i2 = Math.min(i1 - 1, paramInt + mCurItem);
+      int i2 = Math.max(0, mCurItem - paramInt);
+      int n = mAdapter.getCount();
+      int i1 = Math.min(n - 1, paramInt + mCurItem);
       Object localObject1;
-      if (i1 != mExpectedAdapterCount) {
+      if (n != mExpectedAdapterCount) {
         try
         {
           String str = getResources().getResourceName(getId());
-          throw new IllegalStateException("The application's PagerAdapter changed the adapter's contents without calling PagerAdapter#notifyDataSetChanged! Expected adapter item count: " + mExpectedAdapterCount + ", found: " + i1 + " Pager id: " + str + " Pager class: " + getClass() + " Problematic adapter: " + mAdapter.getClass());
+          throw new IllegalStateException("The application's PagerAdapter changed the adapter's contents without calling PagerAdapter#notifyDataSetChanged! Expected adapter item count: " + mExpectedAdapterCount + ", found: " + n + " Pager id: " + str + " Pager class: " + getClass() + " Problematic adapter: " + mAdapter.getClass());
         }
         catch (Resources.NotFoundException localNotFoundException)
         {
@@ -2310,68 +2353,69 @@ public class ViewPager
         localObject1 = (ViewPager.ItemInfo)mItems.get(paramInt);
         if (position >= mCurItem) {
           if (position != mCurItem) {
-            break label1270;
+            break label1246;
           }
         }
       }
       for (;;)
       {
-        if ((localObject1 == null) && (i1 > 0)) {}
+        if ((localObject1 == null) && (n > 0)) {}
         for (Object localObject3 = addNewItem(mCurItem, paramInt);; localObject3 = localObject1)
         {
-          label341:
-          int i4;
+          label318:
+          int i3;
           float f2;
-          label354:
+          label331:
+          int i;
           float f3;
-          int k;
-          label376:
+          int j;
+          label353:
           float f1;
           if (localObject3 != null)
           {
-            int n = paramInt - 1;
-            int m;
+            int m = paramInt - 1;
+            int k;
             Object localObject4;
-            if (n >= 0)
+            if (m >= 0)
             {
-              localObject1 = (ViewPager.ItemInfo)mItems.get(n);
-              i4 = getClientWidth();
-              if (i4 > 0) {
-                break label538;
+              localObject1 = (ViewPager.ItemInfo)mItems.get(m);
+              i3 = getClientWidth();
+              if (i3 > 0) {
+                break label515;
               }
               f2 = 0.0F;
               i = mCurItem;
               f3 = 0.0F;
-              m = i - 1;
-              k = paramInt;
+              k = i - 1;
+              j = paramInt;
               localObject4 = localObject1;
-              if (m < 0) {
-                break label688;
+              if (k < 0) {
+                break label665;
               }
-              if ((f3 < f2) || (m >= i3)) {
-                break label568;
+              if ((f3 < f2) || (k >= i2)) {
+                break label545;
               }
               if (localObject4 == null) {
-                break label688;
+                break label665;
               }
               localObject1 = localObject4;
-              paramInt = n;
+              paramInt = m;
               f1 = f3;
-              i = k;
-              if (m == position)
+              i = j;
+              if (k == position)
               {
                 localObject1 = localObject4;
-                paramInt = n;
+                paramInt = m;
                 f1 = f3;
-                i = k;
+                i = j;
                 if (!scrolling)
                 {
-                  mItems.remove(n);
-                  mAdapter.destroyItem(this, m, object);
-                  paramInt = n - 1;
-                  i = k - 1;
+                  mItems.remove(m);
+                  mAdapter.destroyItem(this, k, object);
+                  paramInt = m - 1;
+                  i = j - 1;
                   if (paramInt < 0) {
-                    break label559;
+                    break label536;
                   }
                   localObject1 = (ViewPager.ItemInfo)mItems.get(paramInt);
                   f1 = f3;
@@ -2380,107 +2424,107 @@ public class ViewPager
             }
             for (;;)
             {
-              m -= 1;
+              k -= 1;
               localObject4 = localObject1;
-              n = paramInt;
+              m = paramInt;
               f3 = f1;
-              k = i;
-              break label376;
+              j = i;
+              break label353;
               paramInt += 1;
               break;
               localObject1 = null;
-              break label341;
-              label538:
-              f2 = 2.0F - widthFactor + getPaddingLeft() / i4;
-              break label354;
-              label559:
+              break label318;
+              label515:
+              f2 = 2.0F - widthFactor + getPaddingLeft() / i3;
+              break label331;
+              label536:
               localObject1 = null;
               f1 = f3;
               continue;
-              label568:
-              if ((localObject4 != null) && (m == position))
+              label545:
+              if ((localObject4 != null) && (k == position))
               {
                 f1 = f3 + widthFactor;
-                paramInt = n - 1;
+                paramInt = m - 1;
                 if (paramInt >= 0)
                 {
                   localObject1 = (ViewPager.ItemInfo)mItems.get(paramInt);
-                  i = k;
+                  i = j;
                 }
                 else
                 {
                   localObject1 = null;
-                  i = k;
+                  i = j;
                 }
               }
               else
               {
                 f1 = f3 + addNewItem1widthFactor;
-                i = k + 1;
-                if (n >= 0)
+                i = j + 1;
+                if (m >= 0)
                 {
-                  localObject1 = (ViewPager.ItemInfo)mItems.get(n);
-                  paramInt = n;
+                  localObject1 = (ViewPager.ItemInfo)mItems.get(m);
+                  paramInt = m;
                 }
                 else
                 {
                   localObject1 = null;
-                  paramInt = n;
+                  paramInt = m;
                 }
               }
             }
-            label688:
+            label665:
             f1 = widthFactor;
-            paramInt = k + 1;
+            paramInt = j + 1;
             if (f1 < 2.0F) {
               if (paramInt < mItems.size())
               {
                 localObject1 = (ViewPager.ItemInfo)mItems.get(paramInt);
-                label729:
-                if (i4 > 0) {
-                  break label854;
+                label706:
+                if (i3 > 0) {
+                  break label831;
                 }
                 f2 = 0.0F;
-                label736:
+                label713:
                 i = mCurItem;
                 i += 1;
-                label748:
-                if (i >= i1) {
-                  break label997;
+                label725:
+                if (i >= n) {
+                  break label974;
                 }
-                if ((f1 < f2) || (i <= i2)) {
-                  break label875;
+                if ((f1 < f2) || (i <= i1)) {
+                  break label852;
                 }
                 if (localObject1 == null) {
-                  break label997;
+                  break label974;
                 }
                 if ((i != position) || (scrolling)) {
-                  break label1260;
+                  break label1236;
                 }
                 mItems.remove(paramInt);
                 mAdapter.destroyItem(this, i, object);
                 if (paramInt >= mItems.size()) {
-                  break label869;
+                  break label846;
                 }
                 localObject1 = (ViewPager.ItemInfo)mItems.get(paramInt);
               }
             }
           }
-          label854:
-          label869:
-          label875:
-          label997:
-          label1252:
-          label1258:
-          label1260:
+          label831:
+          label846:
+          label852:
+          label974:
+          label1228:
+          label1234:
+          label1236:
           for (;;)
           {
             i += 1;
-            break label748;
+            break label725;
             localObject1 = null;
-            break label729;
-            f2 = getPaddingRight() / i4 + 2.0F;
-            break label736;
+            break label706;
+            f2 = getPaddingRight() / i3 + 2.0F;
+            break label713;
             localObject1 = null;
             continue;
             if ((localObject1 != null) && (i == position))
@@ -2503,7 +2547,7 @@ public class ViewPager
               f1 += f3;
               break;
             }
-            calculatePageOffsets((ViewPager.ItemInfo)localObject3, k, (ViewPager.ItemInfo)localObject2);
+            calculatePageOffsets((ViewPager.ItemInfo)localObject3, j, (ViewPager.ItemInfo)localObject2);
             localObject2 = mAdapter;
             paramInt = mCurItem;
             if (localObject3 != null) {}
@@ -2539,17 +2583,17 @@ public class ViewPager
             for (localObject1 = infoForAnyChild((View)localObject1);; localObject1 = null)
             {
               if ((localObject1 != null) && (position == mCurItem)) {
-                break label1258;
+                break label1234;
               }
               paramInt = 0;
               for (;;)
               {
                 if (paramInt >= getChildCount()) {
-                  break label1252;
+                  break label1228;
                 }
                 localObject1 = getChildAt(paramInt);
                 localObject2 = infoForChild((View)localObject1);
-                if ((localObject2 != null) && (position == mCurItem) && (((View)localObject1).requestFocus(j))) {
+                if ((localObject2 != null) && (position == mCurItem) && (((View)localObject1).requestFocus(2))) {
                   break;
                 }
                 paramInt += 1;
@@ -2559,7 +2603,7 @@ public class ViewPager
             break;
           }
         }
-        label1270:
+        label1246:
         localObject1 = null;
       }
       localObject2 = null;
@@ -2587,7 +2631,7 @@ public class ViewPager
   {
     if (mAdapter != null)
     {
-      mAdapter.unregisterDataSetObserver(mObserver);
+      mAdapter.setViewPagerObserver(null);
       mAdapter.startUpdate(this);
       int i = 0;
       while (i < mItems.size())
@@ -2611,13 +2655,13 @@ public class ViewPager
       if (mObserver == null) {
         mObserver = new ViewPager.PagerObserver(this, null);
       }
-      mAdapter.registerDataSetObserver(mObserver);
+      mAdapter.setViewPagerObserver(mObserver);
       mPopulatePending = false;
       bool = mFirstLayout;
       mFirstLayout = true;
       mExpectedAdapterCount = mAdapter.getCount();
       if (mRestoredCurItem < 0) {
-        break label260;
+        break label257;
       }
       mAdapter.restoreState(mRestoredAdapterState, mRestoredClassLoader);
       setCurrentItemInternal(mRestoredCurItem, false, true);
@@ -2631,7 +2675,7 @@ public class ViewPager
         mAdapterChangeListener.onAdapterChanged((PagerAdapter)localObject, paramPagerAdapter);
       }
       return;
-      label260:
+      label257:
       if (!bool) {
         populate();
       } else {
@@ -2863,17 +2907,44 @@ public class ViewPager
       setScrollingCacheEnabled(false);
       return;
     }
-    int i = getScrollX();
-    int j = getScrollY();
-    int k = paramInt1 - i;
-    paramInt2 -= j;
-    if ((k == 0) && (paramInt2 == 0))
+    int i;
+    if ((mScroller != null) && (!mScroller.isFinished()))
     {
+      i = 1;
+      if (i == 0) {
+        break label125;
+      }
+      if (!mIsScrollStarted) {
+        break label113;
+      }
+      i = mScroller.getCurrX();
+      label54:
+      mScroller.abortAnimation();
+      setScrollingCacheEnabled(false);
+    }
+    int j;
+    int k;
+    for (;;)
+    {
+      j = getScrollY();
+      k = paramInt1 - i;
+      paramInt2 -= j;
+      if ((k != 0) || (paramInt2 != 0)) {
+        break label134;
+      }
       completeScroll(false);
       populate();
       setScrollState(0);
       return;
+      i = 0;
+      break;
+      label113:
+      i = mScroller.getStartX();
+      break label54;
+      label125:
+      i = getScrollX();
     }
+    label134:
     setScrollingCacheEnabled(true);
     setScrollState(2);
     paramInt1 = getClientWidth();
@@ -2887,6 +2958,7 @@ public class ViewPager
     for (paramInt1 = Math.round(1000.0F * Math.abs((f2 * f3 + f1) / paramInt3)) * 4;; paramInt1 = (int)((Math.abs(k) / (f1 * f2 + mPageMargin) + 1.0F) * 100.0F))
     {
       paramInt1 = Math.min(paramInt1, 600);
+      mIsScrollStarted = false;
       mScroller.startScroll(i, j, k, paramInt2, paramInt1);
       ViewCompat.postInvalidateOnAnimation(this);
       return;

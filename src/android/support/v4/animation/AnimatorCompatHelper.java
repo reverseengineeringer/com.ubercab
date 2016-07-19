@@ -3,9 +3,9 @@ package android.support.v4.animation;
 import android.os.Build.VERSION;
 import android.view.View;
 
-public abstract class AnimatorCompatHelper
+public final class AnimatorCompatHelper
 {
-  static AnimatorProvider IMPL = new DonutAnimatorCompatProvider();
+  private static final AnimatorProvider IMPL = new DonutAnimatorCompatProvider();
   
   static
   {

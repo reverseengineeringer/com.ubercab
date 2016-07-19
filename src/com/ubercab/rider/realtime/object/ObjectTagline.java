@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jul;
+import mzt;
 
 @Shape
 abstract class ObjectTagline
-  implements jul
+  implements mzt
 {
   static ObjectTagline create()
   {

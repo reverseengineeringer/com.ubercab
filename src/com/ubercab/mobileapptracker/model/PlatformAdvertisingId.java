@@ -6,6 +6,11 @@ import com.ubercab.shape.Shape;
 @Shape
 public abstract class PlatformAdvertisingId
 {
+  public static PlatformAdvertisingId createEmpty()
+  {
+    return new Shape_PlatformAdvertisingId();
+  }
+  
   public static PlatformAdvertisingId createWitAndroidId(String paramString)
   {
     return new Shape_PlatformAdvertisingId().setAndroidAdvertiserId(paramString);

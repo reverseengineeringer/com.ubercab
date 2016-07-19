@@ -1,10 +1,11 @@
-@apl
 public final class ajf
-  implements akd
+  extends aif
 {
-  public final akb a(asq paramasq)
+  public ajf() {}
+  
+  public ajf(Throwable paramThrowable)
   {
-    return new ake(paramasq);
+    super(paramThrowable);
   }
 }
 

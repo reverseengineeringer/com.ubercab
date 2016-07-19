@@ -1,26 +1,13 @@
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.paypal.android.sdk.payments.LoginActivity;
-import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
 
-public final class cbt
-  implements ServiceConnection
+final class cbt
+  implements cbp
 {
-  public cbt(LoginActivity paramLoginActivity) {}
+  cbt(cbs paramcbs) {}
   
-  public final void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
+  public final void a()
   {
-    new StringBuilder().append(LoginActivity.class.getSimpleName()).append(".onServiceConnected");
-    LoginActivity.a(a, a);
-    if (LoginActivity.l(a).a(new cbu(this))) {
-      a.a();
-    }
-  }
-  
-  public final void onServiceDisconnected(ComponentName paramComponentName)
-  {
-    LoginActivity.a(a, null);
+    PaymentActivity.c(a.a);
   }
 }
 

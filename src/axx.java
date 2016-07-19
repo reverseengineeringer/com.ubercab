@@ -1,182 +1,75 @@
-import java.util.Arrays;
+import android.os.IBinder;
 
-public final class axx
-  extends axk<axx>
+final class axx
+  implements axv
 {
-  public byte[] b;
-  public byte[][] c;
-  public boolean d;
+  private IBinder a;
   
-  public axx()
+  axx(IBinder paramIBinder)
   {
-    e();
+    a = paramIBinder;
   }
   
-  private axx b(axh paramaxh)
+  /* Error */
+  public final void a(acp paramacp)
   {
-    for (;;)
-    {
-      int i = paramaxh.a();
-      switch (i)
-      {
-      default: 
-        if (a(paramaxh, i)) {}
-        break;
-      case 0: 
-        return this;
-      case 10: 
-        b = paramaxh.h();
-        break;
-      case 18: 
-        int j = axt.b(paramaxh, 18);
-        if (c == null) {}
-        byte[][] arrayOfByte;
-        for (i = 0;; i = c.length)
-        {
-          arrayOfByte = new byte[j + i][];
-          j = i;
-          if (i != 0)
-          {
-            System.arraycopy(c, 0, arrayOfByte, 0, i);
-            j = i;
-          }
-          while (j < arrayOfByte.length - 1)
-          {
-            arrayOfByte[j] = paramaxh.h();
-            paramaxh.a();
-            j += 1;
-          }
-        }
-        arrayOfByte[j] = paramaxh.h();
-        c = arrayOfByte;
-        break;
-      case 24: 
-        d = paramaxh.f();
-      }
-    }
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +42 -> 57
+    //   18: aload_1
+    //   19: invokeinterface 35 1 0
+    //   24: astore_1
+    //   25: aload_2
+    //   26: aload_1
+    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
+    //   30: aload_0
+    //   31: getfield 15	axx:a	Landroid/os/IBinder;
+    //   34: iconst_1
+    //   35: aload_2
+    //   36: aload_3
+    //   37: iconst_0
+    //   38: invokeinterface 44 5 0
+    //   43: pop
+    //   44: aload_3
+    //   45: invokevirtual 47	android/os/Parcel:readException	()V
+    //   48: aload_3
+    //   49: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   52: aload_2
+    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   56: return
+    //   57: aconst_null
+    //   58: astore_1
+    //   59: goto -34 -> 25
+    //   62: astore_1
+    //   63: aload_3
+    //   64: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   67: aload_2
+    //   68: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   71: aload_1
+    //   72: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	73	0	this	axx
+    //   0	73	1	paramacp	acp
+    //   3	65	2	localParcel1	android.os.Parcel
+    //   7	57	3	localParcel2	android.os.Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	62	finally
+    //   18	25	62	finally
+    //   25	48	62	finally
   }
   
-  private axx e()
+  public final IBinder asBinder()
   {
-    b = axt.h;
-    c = axt.g;
-    d = false;
-    a = null;
-    S = -1;
-    return this;
-  }
-  
-  protected final int a()
-  {
-    int n = 0;
-    int j = super.a();
-    int i = j;
-    if (!Arrays.equals(b, axt.h)) {
-      i = j + axi.b(1, b);
-    }
-    j = i;
-    if (c != null)
-    {
-      j = i;
-      if (c.length > 0)
-      {
-        int k = 0;
-        int m = 0;
-        j = n;
-        while (j < c.length)
-        {
-          byte[] arrayOfByte = c[j];
-          int i1 = k;
-          n = m;
-          if (arrayOfByte != null)
-          {
-            n = m + 1;
-            i1 = k + axi.b(arrayOfByte);
-          }
-          j += 1;
-          k = i1;
-          m = n;
-        }
-        j = i + k + m * 1;
-      }
-    }
-    i = j;
-    if (d) {
-      i = j + axi.b(3);
-    }
-    return i;
-  }
-  
-  public final void a(axi paramaxi)
-  {
-    if (!Arrays.equals(b, axt.h)) {
-      paramaxi.a(1, b);
-    }
-    if ((c != null) && (c.length > 0))
-    {
-      int i = 0;
-      while (i < c.length)
-      {
-        byte[] arrayOfByte = c[i];
-        if (arrayOfByte != null) {
-          paramaxi.a(2, arrayOfByte);
-        }
-        i += 1;
-      }
-    }
-    if (d) {
-      paramaxi.a(3, d);
-    }
-    super.a(paramaxi);
-  }
-  
-  public final boolean equals(Object paramObject)
-  {
-    if (paramObject == this) {}
-    do
-    {
-      return true;
-      if (!(paramObject instanceof axx)) {
-        return false;
-      }
-      paramObject = (axx)paramObject;
-      if (!Arrays.equals(b, b)) {
-        return false;
-      }
-      if (!axo.a(c, c)) {
-        return false;
-      }
-      if (d != d) {
-        return false;
-      }
-      if ((a != null) && (!a.b())) {
-        break;
-      }
-    } while ((a == null) || (a.b()));
-    return false;
-    return a.equals(a);
-  }
-  
-  public final int hashCode()
-  {
-    int k = getClass().getName().hashCode();
-    int m = Arrays.hashCode(b);
-    int n = axo.a(c);
-    int i;
-    if (d)
-    {
-      i = 1231;
-      if ((a != null) && (!a.b())) {
-        break label94;
-      }
-    }
-    label94:
-    for (int j = 0;; j = a.hashCode())
-    {
-      return j + (i + (((k + 527) * 31 + m) * 31 + n) * 31) * 31;
-      i = 1237;
-      break;
-    }
+    return a;
   }
 }
 

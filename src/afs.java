@@ -1,34 +1,8 @@
-import android.view.View;
-import java.lang.ref.WeakReference;
+import java.util.Map;
 
-public final class afs
-  implements age
+public abstract interface afs
 {
-  private WeakReference<pe> a;
-  
-  public afs(pe parampe)
-  {
-    a = new WeakReference(parampe);
-  }
-  
-  public final View a()
-  {
-    pe localpe = (pe)a.get();
-    if (localpe != null) {
-      return localpe.e();
-    }
-    return null;
-  }
-  
-  public final boolean b()
-  {
-    return a.get() == null;
-  }
-  
-  public final age c()
-  {
-    return new aft((pe)a.get());
-  }
+  public abstract void a(ajm paramajm, Map<String, String> paramMap);
 }
 
 /* Location:

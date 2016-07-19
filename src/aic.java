@@ -1,31 +1,77 @@
-import android.os.Bundle;
-import android.os.IInterface;
-import java.util.List;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.IBinder;
+import android.os.RemoteException;
 
-public abstract interface aic
-  extends IInterface
+@aih
+public final class aic
+  extends acu<ahz>
 {
-  public abstract String a();
+  private static final aic a = new aic();
   
-  public abstract List b();
+  private aic()
+  {
+    super("com.google.android.gms.ads.InAppPurchaseManagerCreatorImpl");
+  }
   
-  public abstract String c();
+  public static ahw a(Activity paramActivity)
+  {
+    try
+    {
+      ahw localahw1;
+      if (!b(paramActivity))
+      {
+        ahw localahw2 = a.c(paramActivity);
+        localahw1 = localahw2;
+        if (localahw2 != null) {}
+      }
+      else
+      {
+        ain.a("Using AdOverlay from the client jar.");
+        localahw1 = sc.b().a(paramActivity);
+      }
+      return localahw1;
+    }
+    catch (aid paramActivity)
+    {
+      ain.d(paramActivity.getMessage());
+    }
+    return null;
+  }
   
-  public abstract ahs d();
+  private static ahz b(IBinder paramIBinder)
+  {
+    return aia.a(paramIBinder);
+  }
   
-  public abstract String e();
+  private static boolean b(Activity paramActivity)
+  {
+    paramActivity = paramActivity.getIntent();
+    if (!paramActivity.hasExtra("com.google.android.gms.ads.internal.purchase.useClientJar")) {
+      throw new aid("InAppPurchaseManager requires the useClientJar flag in intent extras.");
+    }
+    return paramActivity.getBooleanExtra("com.google.android.gms.ads.internal.purchase.useClientJar", false);
+  }
   
-  public abstract double f();
-  
-  public abstract String g();
-  
-  public abstract String h();
-  
-  public abstract add i();
-  
-  public abstract Bundle m();
-  
-  public abstract void n();
+  private ahw c(Activity paramActivity)
+  {
+    try
+    {
+      acp localacp = acs.a(paramActivity);
+      paramActivity = ahx.a(((ahz)a(paramActivity)).a(localacp));
+      return paramActivity;
+    }
+    catch (RemoteException paramActivity)
+    {
+      ain.c("Could not create remote InAppPurchaseManager.", paramActivity);
+      return null;
+    }
+    catch (acv paramActivity)
+    {
+      ain.c("Could not create remote InAppPurchaseManager.", paramActivity);
+    }
+    return null;
+  }
 }
 
 /* Location:

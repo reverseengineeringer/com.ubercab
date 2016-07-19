@@ -3,7 +3,7 @@ package android.support.v4.content;
 import android.content.SharedPreferences.Editor;
 import android.os.Build.VERSION;
 
-public class SharedPreferencesCompat$EditorCompat
+public final class SharedPreferencesCompat$EditorCompat
 {
   private static EditorCompat sInstance;
   private final SharedPreferencesCompat.EditorCompat.Helper mHelper;
@@ -26,7 +26,7 @@ public class SharedPreferencesCompat$EditorCompat
     return sInstance;
   }
   
-  public void apply(SharedPreferences.Editor paramEditor)
+  public final void apply(SharedPreferences.Editor paramEditor)
   {
     mHelper.apply(paramEditor);
   }

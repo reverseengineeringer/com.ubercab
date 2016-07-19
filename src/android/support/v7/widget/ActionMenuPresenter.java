@@ -3,6 +3,7 @@ package android.support.v7.widget;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.Parcelable;
 import android.support.v4.view.ActionProvider;
 import android.support.v4.view.ActionProvider.SubUiVisibilityListener;
 import android.support.v7.view.menu.ActionMenuItemView;
@@ -12,32 +13,32 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
-import bv;
-import bw;
-import cn;
-import dd;
-import di;
-import dm;
-import du;
-import dy;
-import dz;
-import ec;
-import ej;
-import ek;
-import el;
-import em;
-import en;
-import eo;
+import gj;
+import gk;
+import ha;
+import hq;
+import hv;
+import hz;
+import ih;
+import il;
+import im;
+import ip;
+import iw;
+import ix;
+import iy;
+import iz;
+import ja;
 import java.util.ArrayList;
+import jb;
 
 public final class ActionMenuPresenter
-  extends dd
+  extends hq
   implements ActionProvider.SubUiVisibilityListener
 {
-  private ek A;
-  public final eo g = new eo(this, (byte)0);
+  private ix A;
+  public final jb g = new jb(this, (byte)0);
   public int h;
-  private em i;
+  private iz i;
   private Drawable j;
   private boolean k;
   private boolean l;
@@ -52,13 +53,13 @@ public final class ActionMenuPresenter
   private int u;
   private final SparseBooleanArray v = new SparseBooleanArray();
   private View w;
-  private en x;
-  private ej y;
-  private el z;
+  private ja x;
+  private iw y;
+  private iy z;
   
   public ActionMenuPresenter(Context paramContext)
   {
-    super(paramContext, bw.abc_action_menu_layout, bw.abc_action_menu_item_layout);
+    super(paramContext, gk.abc_action_menu_layout, gk.abc_action_menu_item_layout);
   }
   
   private View a(MenuItem paramMenuItem)
@@ -78,10 +79,10 @@ public final class ActionMenuPresenter
         break label74;
       }
       View localView = localViewGroup.getChildAt(i1);
-      if ((localView instanceof dz))
+      if ((localView instanceof im))
       {
         localObject = localView;
-        if (((dz)localView).a() == paramMenuItem) {
+        if (((im)localView).a() == paramMenuItem) {
           break;
         }
       }
@@ -91,37 +92,37 @@ public final class ActionMenuPresenter
     return null;
   }
   
-  public final View a(dm paramdm, View paramView, ViewGroup paramViewGroup)
+  public final View a(hz paramhz, View paramView, ViewGroup paramViewGroup)
   {
-    View localView = paramdm.getActionView();
-    if ((localView == null) || (paramdm.l())) {
-      localView = super.a(paramdm, paramView, paramViewGroup);
+    View localView = paramhz.getActionView();
+    if ((localView == null) || (paramhz.l())) {
+      localView = super.a(paramhz, paramView, paramViewGroup);
     }
-    if (paramdm.isActionViewExpanded()) {}
+    if (paramhz.isActionViewExpanded()) {}
     for (int i1 = 8;; i1 = 0)
     {
       localView.setVisibility(i1);
-      paramdm = (ActionMenuView)paramViewGroup;
+      paramhz = (ActionMenuView)paramViewGroup;
       paramView = localView.getLayoutParams();
-      if (!paramdm.checkLayoutParams(paramView)) {
+      if (!paramhz.checkLayoutParams(paramView)) {
         localView.setLayoutParams(ActionMenuView.a(paramView));
       }
       return localView;
     }
   }
   
-  public final dy a(ViewGroup paramViewGroup)
+  public final il a(ViewGroup paramViewGroup)
   {
     paramViewGroup = super.a(paramViewGroup);
     ((ActionMenuView)paramViewGroup).a(this);
     return paramViewGroup;
   }
   
-  public final void a(Context paramContext, di paramdi)
+  public final void a(Context paramContext, hv paramhv)
   {
-    super.a(paramContext, paramdi);
-    paramdi = paramContext.getResources();
-    paramContext = cn.a(paramContext);
+    super.a(paramContext, paramhv);
+    paramhv = paramContext.getResources();
+    paramContext = ha.a(paramContext);
     if (!m) {
       l = paramContext.b();
     }
@@ -136,7 +137,7 @@ public final class ActionMenuPresenter
     {
       if (i == null)
       {
-        i = new em(this, a);
+        i = new iz(this, a);
         if (k)
         {
           i.setImageDrawable(j);
@@ -158,28 +159,43 @@ public final class ActionMenuPresenter
     }
   }
   
+  public final void a(Parcelable paramParcelable)
+  {
+    if (!(paramParcelable instanceof ActionMenuPresenter.SavedState)) {}
+    do
+    {
+      do
+      {
+        return;
+        paramParcelable = (ActionMenuPresenter.SavedState)paramParcelable;
+      } while (a <= 0);
+      paramParcelable = c.findItem(a);
+    } while (paramParcelable == null);
+    a((ip)paramParcelable.getSubMenu());
+  }
+  
   public final void a(ActionMenuView paramActionMenuView)
   {
     f = paramActionMenuView;
     paramActionMenuView.a(c);
   }
   
-  public final void a(di paramdi, boolean paramBoolean)
+  public final void a(hv paramhv, boolean paramBoolean)
   {
-    i();
-    super.a(paramdi, paramBoolean);
+    k();
+    super.a(paramhv, paramBoolean);
   }
   
-  public final void a(dm paramdm, dz paramdz)
+  public final void a(hz paramhz, im paramim)
   {
-    paramdz.a(paramdm);
-    paramdm = (ActionMenuView)f;
-    paramdz = (ActionMenuItemView)paramdz;
-    paramdz.a(paramdm);
+    paramim.a(paramhz);
+    paramhz = (ActionMenuView)f;
+    paramim = (ActionMenuItemView)paramim;
+    paramim.a(paramhz);
     if (A == null) {
-      A = new ek(this, (byte)0);
+      A = new ix(this, (byte)0);
     }
-    paramdz.a(A);
+    paramim.a(A);
   }
   
   public final void a(boolean paramBoolean)
@@ -198,7 +214,7 @@ public final class ActionMenuPresenter
       i1 = 0;
       while (i1 < i4)
       {
-        ActionProvider localActionProvider = ((dm)((ArrayList)localObject).get(i1)).getSupportActionProvider();
+        ActionProvider localActionProvider = ((hz)((ArrayList)localObject).get(i1)).getSupportActionProvider();
         if (localActionProvider != null) {
           localActionProvider.setSubUiVisibilityListener(this);
         }
@@ -218,7 +234,7 @@ public final class ActionMenuPresenter
           if (i1 != 1) {
             break label261;
           }
-          if (((dm)((ArrayList)localObject).get(0)).isActionViewExpanded()) {
+          if (((hz)((ArrayList)localObject).get(0)).isActionViewExpanded()) {
             break label256;
           }
           i1 = 1;
@@ -229,7 +245,7 @@ public final class ActionMenuPresenter
         break label275;
       }
       if (i == null) {
-        i = new em(this, a);
+        i = new iz(this, a);
       }
       localObject = (ViewGroup)i.getParent();
       if (localObject != f)
@@ -269,18 +285,18 @@ public final class ActionMenuPresenter
     return super.a(paramViewGroup, paramInt);
   }
   
-  public final boolean a(dm paramdm)
+  public final boolean a(hz paramhz)
   {
-    return paramdm.h();
+    return paramhz.h();
   }
   
-  public final boolean a(ec paramec)
+  public final boolean a(ip paramip)
   {
-    if (!paramec.hasVisibleItems()) {
+    if (!paramip.hasVisibleItems()) {
       return false;
     }
-    for (Object localObject = paramec; ((ec)localObject).u() != c; localObject = (ec)((ec)localObject).u()) {}
-    View localView = a(((ec)localObject).getItem());
+    for (Object localObject = paramip; ((ip)localObject).u() != c; localObject = (ip)((ip)localObject).u()) {}
+    View localView = a(((ip)localObject).getItem());
     localObject = localView;
     if (localView == null)
     {
@@ -289,11 +305,11 @@ public final class ActionMenuPresenter
       }
       localObject = i;
     }
-    h = paramec.getItem().getItemId();
-    y = new ej(this, b, paramec);
+    h = paramip.getItem().getItemId();
+    y = new iw(this, b, paramip);
     y.a((View)localObject);
-    y.c();
-    super.a(paramec);
+    y.e();
+    super.a(paramip);
     return true;
   }
   
@@ -312,12 +328,12 @@ public final class ActionMenuPresenter
     Object localObject1;
     if (i2 < i9)
     {
-      localObject1 = (dm)localArrayList.get(i2);
-      if (((dm)localObject1).j())
+      localObject1 = (hz)localArrayList.get(i2);
+      if (((hz)localObject1).j())
       {
         i3 += 1;
         label82:
-        if ((!t) || (!((dm)localObject1).isActionViewExpanded())) {
+        if ((!t) || (!((hz)localObject1).isActionViewExpanded())) {
           break label810;
         }
         i1 = 0;
@@ -337,7 +353,7 @@ public final class ActionMenuPresenter
     {
       i2 += 1;
       break;
-      if (((dm)localObject1).i())
+      if (((hz)localObject1).i())
       {
         i4 += 1;
         break label82;
@@ -375,14 +391,14 @@ public final class ActionMenuPresenter
         i1 = i2;
         i4 = i8;
         i2 = i5;
-        dm localdm;
+        hz localhz;
         Object localObject2;
         if (i7 < i9)
         {
-          localdm = (dm)localArrayList.get(i7);
-          if (localdm.j())
+          localhz = (hz)localArrayList.get(i7);
+          if (localhz.j())
           {
-            localObject2 = a(localdm, w, localViewGroup);
+            localObject2 = a(localhz, w, localViewGroup);
             if (w == null) {
               w = ((View)localObject2);
             }
@@ -399,11 +415,11 @@ public final class ActionMenuPresenter
         }
         for (;;)
         {
-          i8 = localdm.getGroupId();
+          i8 = localhz.getGroupId();
           if (i8 != 0) {
             ((SparseBooleanArray)localObject1).put(i8, true);
           }
-          localdm.d(true);
+          localhz.d(true);
           i3 = i4 - i3;
           i4 = i1;
           i1 = i5;
@@ -421,9 +437,9 @@ public final class ActionMenuPresenter
           int i11;
           boolean bool;
           int i12;
-          if (localdm.i())
+          if (localhz.i())
           {
-            i11 = localdm.getGroupId();
+            i11 = localhz.getGroupId();
             bool = ((SparseBooleanArray)localObject1).get(i11);
             if (((i1 > 0) || (bool)) && (i4 > 0) && ((!r) || (i3 > 0)))
             {
@@ -431,7 +447,7 @@ public final class ActionMenuPresenter
               if (i12 == 0) {
                 break label788;
               }
-              localObject2 = a(localdm, w, localViewGroup);
+              localObject2 = a(localhz, w, localViewGroup);
               if (w == null) {
                 w = ((View)localObject2);
               }
@@ -475,7 +491,7 @@ public final class ActionMenuPresenter
               if (i12 != 0) {
                 i5 = i1 - 1;
               }
-              localdm.d(i12);
+              localhz.d(i12);
               i8 = i3;
               i3 = i4;
               i4 = i5;
@@ -504,20 +520,20 @@ public final class ActionMenuPresenter
                 {
                   if (i8 < i7)
                   {
-                    localObject2 = (dm)localArrayList.get(i8);
+                    localObject2 = (hz)localArrayList.get(i8);
                     i5 = i1;
-                    if (((dm)localObject2).getGroupId() == i11)
+                    if (((hz)localObject2).getGroupId() == i11)
                     {
                       i5 = i1;
-                      if (((dm)localObject2).h()) {
+                      if (((hz)localObject2).h()) {
                         i5 = i1 + 1;
                       }
-                      ((dm)localObject2).d(false);
+                      ((hz)localObject2).d(false);
                     }
                     i8 += 1;
                     i1 = i5;
                     continue;
-                    localdm.d(false);
+                    localhz.d(false);
                     i5 = i1;
                     i1 = i3;
                     i3 = i4;
@@ -539,28 +555,35 @@ public final class ActionMenuPresenter
     }
   }
   
-  public final void c()
+  public final Parcelable d()
+  {
+    ActionMenuPresenter.SavedState localSavedState = new ActionMenuPresenter.SavedState();
+    a = h;
+    return localSavedState;
+  }
+  
+  public final void e()
   {
     if (!q) {
-      p = b.getResources().getInteger(bv.abc_max_action_buttons);
+      p = b.getResources().getInteger(gj.abc_max_action_buttons);
     }
     if (c != null) {
-      c.b(true);
+      c.a(true);
     }
   }
   
-  public final void d()
+  public final void f()
   {
     l = true;
     m = true;
   }
   
-  public final void e()
+  public final void g()
   {
     t = true;
   }
   
-  public final Drawable f()
+  public final Drawable h()
   {
     if (i != null) {
       return i.getDrawable();
@@ -571,11 +594,11 @@ public final class ActionMenuPresenter
     return null;
   }
   
-  public final boolean g()
+  public final boolean i()
   {
-    if ((l) && (!k()) && (c != null) && (f != null) && (z == null) && (!c.n().isEmpty()))
+    if ((l) && (!m()) && (c != null) && (f != null) && (z == null) && (!c.n().isEmpty()))
     {
-      z = new el(this, new en(this, b, c, i));
+      z = new iy(this, new ja(this, b, c, i));
       ((View)f).post(z);
       super.a(null);
       return true;
@@ -583,7 +606,7 @@ public final class ActionMenuPresenter
     return false;
   }
   
-  public final boolean h()
+  public final boolean j()
   {
     if ((z != null) && (f != null))
     {
@@ -591,25 +614,10 @@ public final class ActionMenuPresenter
       z = null;
       return true;
     }
-    en localen = x;
-    if (localen != null)
+    ja localja = x;
+    if (localja != null)
     {
-      localen.f();
-      return true;
-    }
-    return false;
-  }
-  
-  public final boolean i()
-  {
-    return h() | j();
-  }
-  
-  public final boolean j()
-  {
-    if (y != null)
-    {
-      y.f();
+      localja.h();
       return true;
     }
     return false;
@@ -617,12 +625,27 @@ public final class ActionMenuPresenter
   
   public final boolean k()
   {
-    return (x != null) && (x.g());
+    return j() | l();
   }
   
   public final boolean l()
   {
-    return (z != null) || (k());
+    if (y != null)
+    {
+      y.h();
+      return true;
+    }
+    return false;
+  }
+  
+  public final boolean m()
+  {
+    return (x != null) && (x.i());
+  }
+  
+  public final boolean n()
+  {
+    return (z != null) || (m());
   }
   
   public final void onSubUiVisibilityChanged(boolean paramBoolean)
@@ -632,7 +655,7 @@ public final class ActionMenuPresenter
       super.a(null);
       return;
     }
-    c.a(false);
+    c.b(false);
   }
 }
 

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import jcq;
+import lyx;
 
 public class BaiduIntentService
   extends IntentService
@@ -29,7 +29,7 @@ public class BaiduIntentService
     Object localObject = paramIntent.getStringExtra("com.ubercab.push.JSON_DATA");
     paramIntent = new Intent("com.ubercab.push.UBER_MESSAGE");
     paramIntent.setPackage(getPackageName());
-    localObject = jcq.a((String)localObject);
+    localObject = lyx.a((String)localObject);
     if (localObject != null)
     {
       paramIntent.putExtras((Bundle)localObject);

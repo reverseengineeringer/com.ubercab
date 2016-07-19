@@ -5,59 +5,59 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.MenuItem;
-import cho;
-import ckr;
+import chu;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
-import dta;
-import dtf;
-import eav;
-import ebj;
-import eud;
-import euh;
-import euj;
-import euo;
-import eup;
-import evf;
-import evg;
-import evh;
-import evi;
+import dyn;
+import dys;
+import ehn;
+import eib;
+import fcn;
+import fct;
+import fcv;
+import fda;
+import fdb;
+import fdu;
+import fdv;
+import fdw;
+import fdx;
 import java.util.Collection;
 import java.util.Collections;
 
 public class AboutActivity
-  extends RiderActivity<eud>
-  implements euh
+  extends RiderActivity<fcn>
+  implements fct
 {
-  public dta g;
+  public dyn g;
   
-  private void a(eud parameud)
+  private void a(fcn paramfcn)
   {
-    parameud.a(this);
+    paramfcn.a(this);
   }
   
-  private eud b(ebj paramebj)
+  private fcn b(eib parameib)
   {
-    return euo.a().a(new eav(this)).a(paramebj).a();
+    return fda.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void g()
   {
     if (a(AboutFragment.class) == null) {
-      a(2131624093, AboutFragment.a(), true);
+      a(2131624166, AboutFragment.a(), true);
     }
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903083);
+    setContentView(2130903108);
     g();
   }
   
   public final void f()
   {
-    if (a(euj.class) == null) {
-      a(2131624093, euj.a());
+    if (a(fcv.class) == null) {
+      a(2131624166, fcv.a());
     }
   }
   
@@ -71,42 +71,42 @@ public class AboutActivity
     return super.onOptionsItemSelected(paramMenuItem);
   }
   
-  @cho
-  public void onSelectGoogleMapsLicenseEvent(evf paramevf)
+  @chu
+  public void onSelectGoogleMapsLicenseEvent(fdu paramfdu)
   {
     if (a(GoogleMapsLicenseFragment.class) == null) {
-      a(2131624093, GoogleMapsLicenseFragment.a(paramevf.a()));
+      a(2131624166, GoogleMapsLicenseFragment.a(paramfdu.a()));
     }
   }
   
-  @cho
-  public void onSelectOtherEvent(evg paramevg)
+  @chu
+  public void onSelectOtherEvent(fdv paramfdv)
   {
     if (a(OtherFragment.class) == null) {
-      a(2131624093, OtherFragment.a());
+      a(2131624166, OtherFragment.a());
     }
   }
   
-  @cho
-  public void onSelectPdfEvent(evh paramevh)
+  @chu
+  public void onSelectPdfEvent(fdw paramfdw)
   {
-    startActivity(new Intent("android.intent.action.VIEW", Uri.parse(paramevh.a())));
+    startActivity(new Intent("android.intent.action.VIEW", Uri.parse(paramfdw.a())));
   }
   
-  @cho
-  public void onSelectWebViewEvent(evi paramevi)
+  @chu
+  public void onSelectWebViewEvent(fdx paramfdx)
   {
     if (a(WebViewFragment.class) == null) {
-      a(2131624093, WebViewFragment.a(paramevi.a(), paramevi.b(), paramevi.c()));
+      a(2131624166, WebViewFragment.a(paramfdx.a(), paramfdx.b(), paramfdx.c()));
     }
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
     return Collections.singleton(g);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

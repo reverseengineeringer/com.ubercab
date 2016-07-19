@@ -2,18 +2,11 @@ package com.crashlytics.android;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.beta.Beta;
 import com.crashlytics.android.internal.CrashEventDataProvider;
@@ -33,41 +26,39 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import javax.net.ssl.HttpsURLConnection;
-import kcq;
-import kcx;
-import kcy;
-import kcz;
-import kdn;
-import kdp;
-import kds;
-import kdt;
-import kdx;
-import kdy;
-import keq;
-import ker;
-import keu;
-import kfa;
-import kfb;
-import kfs;
-import kft;
-import kfu;
-import kga;
-import kgc;
-import kgf;
-import kgg;
-import kgh;
-import kgm;
-import kgu;
-import kgw;
-import kgx;
-import kgy;
-import kha;
-import khd;
+import nji;
+import njp;
+import njq;
+import njr;
+import nkf;
+import nkh;
+import nkk;
+import nkl;
+import nkp;
+import nkq;
+import nli;
+import nlm;
+import nls;
+import nlt;
+import nmk;
+import nml;
+import nmm;
+import nms;
+import nmu;
+import nmx;
+import nmy;
+import nmz;
+import nne;
+import nnm;
+import nno;
+import nnp;
+import nnq;
+import nnv;
 
-@keq(a={CrashEventDataProvider.class})
+@nli(a={CrashEventDataProvider.class})
 public class Crashlytics
-  extends kcx<Void>
-  implements kcy
+  extends njp<Void>
+  implements njq
 {
   static final float CLS_DEFAULT_PROCESS_DELAY = 1.0F;
   static final String COLLECT_CUSTOM_KEYS = "com.crashlytics.CollectCustomKeys";
@@ -89,10 +80,10 @@ public class Crashlytics
   private CrashlyticsExecutorServiceWrapper executorServiceWrapper;
   private CrashEventDataProvider externalCrashEventDataProvider;
   private CrashlyticsUncaughtExceptionHandler handler;
-  private kga httpRequestFactory;
+  private nms httpRequestFactory;
   private File initializationMarkerFile;
   private String installerPackageName;
-  private final Collection<kcx<Boolean>> kits;
+  private final Collection<njp<Boolean>> kits;
   private CrashlyticsListener listener;
   private String packageName;
   private final PinningInfoProvider pinningInfo;
@@ -110,7 +101,7 @@ public class Crashlytics
   
   Crashlytics(float paramFloat, CrashlyticsListener paramCrashlyticsListener, PinningInfoProvider paramPinningInfoProvider, boolean paramBoolean)
   {
-    this(paramFloat, paramCrashlyticsListener, paramPinningInfoProvider, paramBoolean, kdx.a("Crashlytics Exception Handler"));
+    this(paramFloat, paramCrashlyticsListener, paramPinningInfoProvider, paramBoolean, nkp.a("Crashlytics Exception Handler"));
   }
   
   Crashlytics(float paramFloat, CrashlyticsListener paramCrashlyticsListener, PinningInfoProvider paramPinningInfoProvider, boolean paramBoolean, ExecutorService paramExecutorService)
@@ -120,7 +111,7 @@ public class Crashlytics
     pinningInfo = paramPinningInfoProvider;
     disabled = paramBoolean;
     executorServiceWrapper = new CrashlyticsExecutorServiceWrapper(paramExecutorService);
-    kits = Collections.unmodifiableCollection(Arrays.asList(new kcx[] { new Answers(), new Beta() }));
+    kits = Collections.unmodifiableCollection(Arrays.asList(new njp[] { new Answers(), new Beta() }));
   }
   
   private int dipsToPixels(float paramFloat, int paramInt)
@@ -146,7 +137,7 @@ public class Crashlytics
   {
     if ((paramCrashlytics == null) || (handler == null))
     {
-      kcq.c().c("Fabric", "Crashlytics must be initialized by calling Fabric.with(Context) " + paramString, null);
+      nji.c().c("Fabric", "Crashlytics must be initialized by calling Fabric.with(Context) " + paramString, null);
       return false;
     }
     return true;
@@ -154,24 +145,13 @@ public class Crashlytics
   
   private void finishInitSynchronously()
   {
-    Object localObject = new keu()
-    {
-      public Void call()
-      {
-        return doInBackground();
-      }
-      
-      public int getPriority$16699175()
-      {
-        return ker.d;
-      }
-    };
+    Object localObject = new Crashlytics.1(this);
     Iterator localIterator = getDependencies().iterator();
     while (localIterator.hasNext()) {
-      ((keu)localObject).addDependency((kfa)localIterator.next());
+      ((nlm)localObject).addDependency((nls)localIterator.next());
     }
     localObject = getFabric().b().submit((Callable)localObject);
-    kcq.c().a("Fabric", "Crashlytics detected incomplete initialization on previous app launch. Will initialize synchronously.");
+    nji.c().a("Fabric", "Crashlytics detected incomplete initialization on previous app launch. Will initialize synchronously.");
     try
     {
       ((Future)localObject).get(4L, TimeUnit.SECONDS);
@@ -179,35 +159,35 @@ public class Crashlytics
     }
     catch (InterruptedException localInterruptedException)
     {
-      kcq.c().c("Fabric", "Crashlytics was interrupted during initialization.", localInterruptedException);
+      nji.c().c("Fabric", "Crashlytics was interrupted during initialization.", localInterruptedException);
       return;
     }
     catch (ExecutionException localExecutionException)
     {
-      kcq.c().c("Fabric", "Problem encountered during Crashlytics initialization.", localExecutionException);
+      nji.c().c("Fabric", "Problem encountered during Crashlytics initialization.", localExecutionException);
       return;
     }
     catch (TimeoutException localTimeoutException)
     {
-      kcq.c().c("Fabric", "Crashlytics timed out during initialization.", localTimeoutException);
+      nji.c().c("Fabric", "Crashlytics timed out during initialization.", localTimeoutException);
     }
   }
   
   private static String formatLogMessage(int paramInt, String paramString1, String paramString2)
   {
-    return kdp.b(paramInt) + "/" + paramString1 + " " + paramString2;
+    return nkh.b(paramInt) + "/" + paramString1 + " " + paramString2;
   }
   
   public static Crashlytics getInstance()
   {
     try
     {
-      Crashlytics localCrashlytics = (Crashlytics)kcq.a(Crashlytics.class);
+      Crashlytics localCrashlytics = (Crashlytics)nji.a(Crashlytics.class);
       return localCrashlytics;
     }
     catch (IllegalStateException localIllegalStateException)
     {
-      kcq.c().c("Fabric", "Crashlytics must be initialized by calling Fabric.with(Context) prior to calling Crashlytics.getInstance()", null);
+      nji.c().c("Fabric", "Crashlytics must be initialized by calling Fabric.with(Context) prior to calling Crashlytics.getInstance()", null);
       throw localIllegalStateException;
     }
   }
@@ -220,64 +200,12 @@ public class Crashlytics
     return null;
   }
   
-  private boolean getSendDecisionFromUser(final Activity paramActivity, final kgw paramkgw)
+  private boolean getSendDecisionFromUser(Activity paramActivity, nno paramnno)
   {
-    final DialogStringResolver localDialogStringResolver = new DialogStringResolver(paramActivity, paramkgw);
-    final Crashlytics.OptInLatch localOptInLatch = new Crashlytics.OptInLatch(this, null);
-    paramActivity.runOnUiThread(new Runnable()
-    {
-      public void run()
-      {
-        AlertDialog.Builder localBuilder = new AlertDialog.Builder(paramActivity);
-        Object localObject = new DialogInterface.OnClickListener()
-        {
-          public void onClick(DialogInterface paramAnonymous2DialogInterface, int paramAnonymous2Int)
-          {
-            val$latch.setOptIn(true);
-            paramAnonymous2DialogInterface.dismiss();
-          }
-        };
-        float f = paramActivitygetResourcesgetDisplayMetricsdensity;
-        int i = Crashlytics.this.dipsToPixels(f, 5);
-        TextView localTextView = new TextView(paramActivity);
-        localTextView.setAutoLinkMask(15);
-        localTextView.setText(localDialogStringResolver.getMessage());
-        localTextView.setTextAppearance(paramActivity, 16973892);
-        localTextView.setPadding(i, i, i, i);
-        localTextView.setFocusable(false);
-        ScrollView localScrollView = new ScrollView(paramActivity);
-        localScrollView.setPadding(Crashlytics.this.dipsToPixels(f, 14), Crashlytics.this.dipsToPixels(f, 2), Crashlytics.this.dipsToPixels(f, 10), Crashlytics.this.dipsToPixels(f, 12));
-        localScrollView.addView(localTextView);
-        localBuilder.setView(localScrollView).setTitle(localDialogStringResolver.getTitle()).setCancelable(false).setNeutralButton(localDialogStringResolver.getSendButtonTitle(), (DialogInterface.OnClickListener)localObject);
-        if (paramkgwd)
-        {
-          localObject = new DialogInterface.OnClickListener()
-          {
-            public void onClick(DialogInterface paramAnonymous2DialogInterface, int paramAnonymous2Int)
-            {
-              val$latch.setOptIn(false);
-              paramAnonymous2DialogInterface.dismiss();
-            }
-          };
-          localBuilder.setNegativeButton(localDialogStringResolver.getCancelButtonTitle(), (DialogInterface.OnClickListener)localObject);
-        }
-        if (paramkgwf)
-        {
-          localObject = new DialogInterface.OnClickListener()
-          {
-            public void onClick(DialogInterface paramAnonymous2DialogInterface, int paramAnonymous2Int)
-            {
-              setShouldSendUserReportsWithoutPrompting(true);
-              val$latch.setOptIn(true);
-              paramAnonymous2DialogInterface.dismiss();
-            }
-          };
-          localBuilder.setPositiveButton(localDialogStringResolver.getAlwaysSendButtonTitle(), (DialogInterface.OnClickListener)localObject);
-        }
-        localBuilder.show();
-      }
-    });
-    kcq.c().a("Fabric", "Waiting for user opt-in.");
+    DialogStringResolver localDialogStringResolver = new DialogStringResolver(paramActivity, paramnno);
+    Crashlytics.OptInLatch localOptInLatch = new Crashlytics.OptInLatch(this, null);
+    paramActivity.runOnUiThread(new Crashlytics.7(this, paramActivity, localOptInLatch, localDialogStringResolver, paramnno));
+    nji.c().a("Fabric", "Waiting for user opt-in.");
     localOptInLatch.await();
     return localOptInLatch.getOptIn();
   }
@@ -290,13 +218,13 @@ public class Crashlytics
   
   private boolean isRequiringBuildId(Context paramContext)
   {
-    return kdp.a(paramContext, "com.crashlytics.RequireBuildId", true);
+    return nkh.a(paramContext, "com.crashlytics.RequireBuildId", true);
   }
   
   public static void log(int paramInt, String paramString1, String paramString2)
   {
     doLog(paramInt, paramString1, paramString2);
-    kcq.c().a(paramInt, paramString1, paramString2, true);
+    nji.c().a(paramInt, paramString1, paramString2, true);
   }
   
   public static void log(String paramString)
@@ -315,7 +243,7 @@ public class Crashlytics
     } while (!ensureFabricWithCalled("prior to logging exceptions.", localCrashlytics));
     if (paramThrowable == null)
     {
-      kcq.c().a(5, "Fabric", "Crashlytics is ignoring a request to log a null exception.");
+      nji.c().a(5, "Fabric", "Crashlytics is ignoring a request to log a null exception.");
       return;
     }
     handler.writeNonFatalException(Thread.currentThread(), paramThrowable);
@@ -323,17 +251,17 @@ public class Crashlytics
   
   static void recordFatalExceptionEvent(String paramString)
   {
-    Answers localAnswers = (Answers)kcq.a(Answers.class);
+    Answers localAnswers = (Answers)nji.a(Answers.class);
     if (localAnswers != null) {
-      localAnswers.onException(new kds(paramString));
+      localAnswers.onException(new nkk(paramString));
     }
   }
   
   static void recordLoggedExceptionEvent(String paramString)
   {
-    Answers localAnswers = (Answers)kcq.a(Answers.class);
+    Answers localAnswers = (Answers)nji.a(Answers.class);
     if (localAnswers != null) {
-      localAnswers.onException(new kdt(paramString));
+      localAnswers.onException(new nkl(paramString));
     }
   }
   
@@ -357,8 +285,8 @@ public class Crashlytics
     if (pinningInfo != null)
     {
       localObject = new CrashlyticsPinningInfoProvider(pinningInfo);
-      httpRequestFactory = new kfs(kcq.c());
-      httpRequestFactory.a((kgc)localObject);
+      httpRequestFactory = new nmk(nji.c());
+      httpRequestFactory.a((nmu)localObject);
     }
     for (;;)
     {
@@ -366,7 +294,7 @@ public class Crashlytics
       {
         packageName = paramContext.getPackageName();
         installerPackageName = getIdManager().h();
-        kcq.c().a("Fabric", "Installer package name is: " + installerPackageName);
+        nji.c().a("Fabric", "Installer package name is: " + installerPackageName);
         localObject = paramContext.getPackageManager().getPackageInfo(packageName, 0);
         versionCode = Integer.toString(versionCode);
         if (versionName != null) {
@@ -374,11 +302,11 @@ public class Crashlytics
         }
         localObject = "0.0";
         versionName = ((String)localObject);
-        buildId = kdp.l(paramContext);
+        buildId = nkh.l(paramContext);
       }
       catch (Exception localException)
       {
-        kcq.c().c("Fabric", "Error setting up app properties", localException);
+        nji.c().c("Fabric", "Error setting up app properties", localException);
         continue;
       }
       getIdManager().i();
@@ -418,7 +346,7 @@ public class Crashlytics
   @Deprecated
   public static void setPinningInfoProvider(PinningInfoProvider paramPinningInfoProvider)
   {
-    kcq.c().c("Fabric", "Use of Crashlytics.setPinningInfoProvider is deprecated");
+    nji.c().c("Fabric", "Use of Crashlytics.setPinningInfoProvider is deprecated");
   }
   
   public static void setString(String paramString1, String paramString2)
@@ -428,10 +356,10 @@ public class Crashlytics
     }
     if (paramString1 == null)
     {
-      if ((getInstance().getContext() != null) && (kdp.i(getInstance().getContext()))) {
+      if ((getInstance().getContext() != null) && (nkh.i(getInstance().getContext()))) {
         throw new IllegalArgumentException("Custom attribute key must not be null.");
       }
-      kcq.c().c("Fabric", "Attempting to set custom attribute with null key, ignoring.", null);
+      nji.c().c("Fabric", "Attempting to set custom attribute with null key, ignoring.", null);
       return;
     }
     String str = sanitizeAttribute(paramString1);
@@ -444,7 +372,7 @@ public class Crashlytics
         return;
       }
     }
-    kcq.c().a("Fabric", "Exceeded maximum number of custom attributes (64)");
+    nji.c().a("Fabric", "Exceeded maximum number of custom attributes (64)");
   }
   
   public static void setUserEmail(String paramString)
@@ -473,27 +401,7 @@ public class Crashlytics
   
   boolean canSendWithUserApproval()
   {
-    ((Boolean)kgy.a().a(new kha()
-    {
-      public Boolean usingSettings(khd paramAnonymouskhd)
-      {
-        boolean bool2 = true;
-        Activity localActivity = getFabric().a();
-        boolean bool1 = bool2;
-        if (localActivity != null)
-        {
-          bool1 = bool2;
-          if (!localActivity.isFinishing())
-          {
-            bool1 = bool2;
-            if (shouldPromptUserBeforeSendingCrashReports()) {
-              bool1 = Crashlytics.this.getSendDecisionFromUser(localActivity, c);
-            }
-          }
-        }
-        return Boolean.valueOf(bool1);
-      }
-    }, Boolean.valueOf(true))).booleanValue();
+    return ((Boolean)nnq.a().a(new Crashlytics.6(this), Boolean.valueOf(true))).booleanValue();
   }
   
   public void crash()
@@ -503,13 +411,7 @@ public class Crashlytics
   
   boolean didPreviousInitializationComplete()
   {
-    ((Boolean)executorServiceWrapper.executeSyncLoggingException(new Callable()
-    {
-      public Boolean call()
-      {
-        return Boolean.valueOf(initializationMarkerFile.exists());
-      }
-    })).booleanValue();
+    return ((Boolean)executorServiceWrapper.executeSyncLoggingException(new Crashlytics.4(this))).booleanValue();
   }
   
   protected Void doInBackground()
@@ -523,11 +425,11 @@ public class Crashlytics
     {
       try
       {
-        Object localObject1 = kgy.a().b();
+        Object localObject1 = nnq.a().b();
         if (localObject1 == null)
         {
           i = k;
-          kcq.c().c("Fabric", "Received null settings, skipping initialization!");
+          nji.c().c("Fabric", "Received null settings, skipping initialization!");
           return null;
         }
         i = k;
@@ -538,7 +440,7 @@ public class Crashlytics
           i = k;
           handler.finalizeSessions();
           i = k;
-          localObject1 = getCreateReportSpiCall((khd)localObject1);
+          localObject1 = getCreateReportSpiCall((nnv)localObject1);
           if (localObject1 == null) {
             continue;
           }
@@ -548,7 +450,7 @@ public class Crashlytics
       }
       catch (Exception localException1)
       {
-        kcq.c().c("Fabric", "Error dealing with settings", localException1);
+        nji.c().c("Fabric", "Error dealing with settings", localException1);
         j = i;
         continue;
       }
@@ -559,18 +461,18 @@ public class Crashlytics
       if (j != 0) {}
       try
       {
-        kcq.c().a("Fabric", "Crash reporting disabled.");
+        nji.c().a("Fabric", "Crash reporting disabled.");
         markInitializationComplete();
         return null;
       }
       catch (Exception localException2)
       {
-        kcq.c().c("Fabric", "Problem encountered during Crashlytics initialization.", localException2);
+        nji.c().c("Fabric", "Problem encountered during Crashlytics initialization.", localException2);
         markInitializationComplete();
         return null;
       }
       i = k;
-      kcq.c().c("Fabric", "Unable to create a call to upload reports.");
+      nji.c().c("Fabric", "Unable to create a call to upload reports.");
     }
   }
   
@@ -589,9 +491,9 @@ public class Crashlytics
     return new BuildIdValidator(paramString, paramBoolean);
   }
   
-  CreateReportSpiCall getCreateReportSpiCall(khd paramkhd)
+  CreateReportSpiCall getCreateReportSpiCall(nnv paramnnv)
   {
-    if (paramkhd != null) {
+    if (paramnnv != null) {
       return new DefaultCreateReportSpiCall(this, getOverridenSpiEndpoint(), a.d, httpRequestFactory);
     }
     return null;
@@ -600,9 +502,9 @@ public class Crashlytics
   @Deprecated
   public boolean getDebugMode()
   {
-    kcq.c().c("Fabric", "Use of Crashlytics.getDebugMode is deprecated.");
+    nji.c().c("Fabric", "Use of Crashlytics.getDebugMode is deprecated.");
     getFabric();
-    return kcq.d();
+    return nji.d();
   }
   
   SessionEventData getExternalCrashEventData()
@@ -629,14 +531,14 @@ public class Crashlytics
     return installerPackageName;
   }
   
-  public Collection<? extends kcx> getKits()
+  public Collection<? extends njp> getKits()
   {
     return kits;
   }
   
   String getOverridenSpiEndpoint()
   {
-    return kdp.d(getInstance().getContext(), "com.crashlytics.ApiEndpoint");
+    return nkh.d(getInstance().getContext(), "com.crashlytics.ApiEndpoint");
   }
   
   String getPackageName()
@@ -646,13 +548,13 @@ public class Crashlytics
   
   File getSdkDirectory()
   {
-    return new kgf(this).a();
+    return new nmx(this).a();
   }
   
-  kgx getSessionSettingsData()
+  nnp getSessionSettingsData()
   {
-    khd localkhd = kgy.a().b();
-    if (localkhd == null) {
+    nnv localnnv = nnq.a().b();
+    if (localnnv == null) {
       return null;
     }
     return b;
@@ -701,7 +603,7 @@ public class Crashlytics
   {
     if (getPinningInfoProvider() != null)
     {
-      paramURL = httpRequestFactory.a(kft.a, paramURL.toString());
+      paramURL = httpRequestFactory.a(nml.a, paramURL.toString());
       ((HttpsURLConnection)paramURL.a()).setInstanceFollowRedirects(false);
       paramURL.b();
       return true;
@@ -711,36 +613,12 @@ public class Crashlytics
   
   void markInitializationComplete()
   {
-    executorServiceWrapper.executeAsync(new Callable()
-    {
-      public Boolean call()
-      {
-        try
-        {
-          boolean bool = initializationMarkerFile.delete();
-          kcq.c().a("Fabric", "Initialization marker file removed: " + bool);
-          return Boolean.valueOf(bool);
-        }
-        catch (Exception localException)
-        {
-          kcq.c().c("Fabric", "Problem encountered deleting Crashlytics initialization marker.", localException);
-        }
-        return Boolean.valueOf(false);
-      }
-    });
+    executorServiceWrapper.executeAsync(new Crashlytics.3(this));
   }
   
   void markInitializationStarted()
   {
-    executorServiceWrapper.executeSyncLoggingException(new Callable()
-    {
-      public Void call()
-      {
-        initializationMarkerFile.createNewFile();
-        kcq.c().a("Fabric", "Initialization marker file created.");
-        return null;
-      }
-    });
+    executorServiceWrapper.executeSyncLoggingException(new Crashlytics.2(this));
   }
   
   protected boolean onPreExecute()
@@ -753,12 +631,12 @@ public class Crashlytics
     if (disabled) {
       return false;
     }
-    new kdn();
-    Object localObject = kdn.a(paramContext);
+    new nkf();
+    Object localObject = nkf.a(paramContext);
     if (localObject == null) {
       return false;
     }
-    kcq.c().b("Fabric", "Initializing Crashlytics " + getVersion());
+    nji.c().b("Fabric", "Initializing Crashlytics " + getVersion());
     initializationMarkerFile = new File(getSdkDirectory(), "initialization_marker");
     for (;;)
     {
@@ -768,18 +646,18 @@ public class Crashlytics
       }
       catch (CrashlyticsMissingDependencyException paramContext)
       {
-        throw new kfb(paramContext);
+        throw new nlt(paramContext);
         return true;
       }
       catch (Exception paramContext)
       {
-        kcq.c().c("Fabric", "Crashlytics was not started due to an exception during initialization", paramContext);
+        nji.c().c("Fabric", "Crashlytics was not started due to an exception during initialization", paramContext);
         return false;
       }
       try
       {
         localObject = new SessionDataWriter(getContext(), buildId, getPackageName());
-        kcq.c().a("Fabric", "Installing exception handler...");
+        nji.c().a("Fabric", "Installing exception handler...");
         handler = new CrashlyticsUncaughtExceptionHandler(Thread.getDefaultUncaughtExceptionHandler(), listener, executorServiceWrapper, getIdManager(), (SessionDataWriter)localObject, this);
         bool = didPreviousInitializationComplete();
       }
@@ -792,8 +670,8 @@ public class Crashlytics
       {
         handler.ensureOpenSessionExists();
         Thread.setDefaultUncaughtExceptionHandler(handler);
-        kcq.c().a("Fabric", "Successfully installed exception handler.");
-        if ((!bool) || (!kdp.m(paramContext))) {
+        nji.c().a("Fabric", "Successfully installed exception handler.");
+        if ((!bool) || (!nkh.m(paramContext))) {
           continue;
         }
         finishInitSynchronously();
@@ -803,14 +681,14 @@ public class Crashlytics
       {
         continue;
       }
-      kcq.c().c("Fabric", "There was a problem installing the exception handler.", (Throwable)localObject);
+      nji.c().c("Fabric", "There was a problem installing the exception handler.", (Throwable)localObject);
     }
   }
   
   @Deprecated
   public void setDebugMode(boolean paramBoolean)
   {
-    kcq.c().c("Fabric", "Use of Crashlytics.setDebugMode is deprecated.");
+    nji.c().c("Fabric", "Use of Crashlytics.setDebugMode is deprecated.");
   }
   
   void setExternalCrashEventDataProvider(CrashEventDataProvider paramCrashEventDataProvider)
@@ -823,7 +701,7 @@ public class Crashlytics
   {
     try
     {
-      kcq.c().c("Fabric", "Use of Crashlytics.setListener is deprecated.");
+      nji.c().c("Fabric", "Use of Crashlytics.setListener is deprecated.");
       if (paramCrashlyticsListener == null) {
         throw new IllegalArgumentException("listener must not be null.");
       }
@@ -835,32 +713,18 @@ public class Crashlytics
   @SuppressLint({"CommitPrefEdits"})
   void setShouldSendUserReportsWithoutPrompting(boolean paramBoolean)
   {
-    kgh localkgh = new kgh(this);
-    localkgh.a(localkgh.b().putBoolean("always_send_reports_opt_in", paramBoolean));
+    nmz localnmz = new nmz(this);
+    localnmz.a(localnmz.b().putBoolean("always_send_reports_opt_in", paramBoolean));
   }
   
   boolean shouldPromptUserBeforeSendingCrashReports()
   {
-    ((Boolean)kgy.a().a(new kha()
-    {
-      public Boolean usingSettings(khd paramAnonymouskhd)
-      {
-        boolean bool = false;
-        if (d.a)
-        {
-          if (!shouldSendReportsWithoutPrompting()) {
-            bool = true;
-          }
-          return Boolean.valueOf(bool);
-        }
-        return Boolean.valueOf(false);
-      }
-    }, Boolean.valueOf(false))).booleanValue();
+    return ((Boolean)nnq.a().a(new Crashlytics.5(this), Boolean.valueOf(false))).booleanValue();
   }
   
   boolean shouldSendReportsWithoutPrompting()
   {
-    return new kgh(this).a().getBoolean("always_send_reports_opt_in", false);
+    return new nmz(this).a().getBoolean("always_send_reports_opt_in", false);
   }
   
   public boolean verifyPinning(URL paramURL)
@@ -872,7 +736,7 @@ public class Crashlytics
     }
     catch (Exception paramURL)
     {
-      kcq.c().c("Fabric", "Could not verify SSL pinning", paramURL);
+      nji.c().c("Fabric", "Could not verify SSL pinning", paramURL);
     }
     return false;
   }

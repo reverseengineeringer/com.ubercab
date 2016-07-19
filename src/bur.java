@@ -1,89 +1,185 @@
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManager;
-import org.apache.http.conn.scheme.LayeredSocketFactory;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
+import android.util.Log;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
-public class bur
-  implements LayeredSocketFactory
+public abstract class bur
 {
-  private SSLContext a = null;
+  private static final String a = bur.class.getSimpleName();
+  private static long j = 1L;
+  private String b;
+  private String c;
+  private Map d;
+  private final bus e;
+  private final bva f;
+  private bup g;
+  private String h;
+  private brm i;
+  private long k;
+  private Integer l;
+  private String m;
   
-  private static SSLContext a()
+  public bur(bup parambup, bus parambus, bva parambva)
   {
-    try
-    {
-      SSLContext localSSLContext = SSLContext.getInstance("TLS");
-      localSSLContext.init(null, new TrustManager[] { new bus() }, null);
-      return localSSLContext;
-    }
-    catch (Exception localException)
-    {
-      throw new IOException(localException.getLocalizedMessage());
-    }
+    this(parambup, parambus, parambva, null);
   }
   
-  private SSLContext b()
+  public bur(bup parambup, bus parambus, bva parambva, String paramString)
   {
-    if (a == null) {
-      a = a();
-    }
-    return a;
+    long l1 = j;
+    j = 1L + l1;
+    k = l1;
+    g = parambup;
+    h = paramString;
+    e = parambus;
+    f = parambva;
+    d = new LinkedHashMap();
   }
   
-  public Socket connectSocket(Socket paramSocket, String paramString, int paramInt1, InetAddress paramInetAddress, int paramInt2, HttpParams paramHttpParams)
+  public static void l() {}
+  
+  public String a(bup parambup)
   {
-    int i = HttpConnectionParams.getConnectionTimeout(paramHttpParams);
-    int j = HttpConnectionParams.getSoTimeout(paramHttpParams);
-    paramString = new InetSocketAddress(paramString, paramInt1);
-    if (paramSocket != null) {}
-    for (;;)
+    String str = e.a(parambup);
+    if (str != null)
     {
-      paramSocket = (SSLSocket)paramSocket;
-      if ((paramInetAddress != null) || (paramInt2 > 0))
-      {
-        paramInt1 = paramInt2;
-        if (paramInt2 < 0) {
-          paramInt1 = 0;
-        }
-        paramSocket.bind(new InetSocketAddress(paramInetAddress, paramInt1));
+      parambup = str;
+      if (h != null) {
+        parambup = str + h;
       }
-      paramSocket.connect(paramString, i);
-      paramSocket.setSoTimeout(j);
-      return paramSocket;
-      paramSocket = createSocket();
+      return parambup;
     }
+    throw new RuntimeException("API " + parambup.toString() + " has no record for server " + e.c());
   }
   
-  public Socket createSocket()
+  public final void a(brm parambrm)
   {
-    return b().getSocketFactory().createSocket();
+    if (i != null)
+    {
+      IllegalStateException localIllegalStateException = new IllegalStateException("Multiple exceptions reported");
+      Log.e(a, "first error=" + i);
+      Log.e(a, "second error=" + parambrm);
+      Log.e(a, "", localIllegalStateException);
+      throw localIllegalStateException;
+    }
+    i = parambrm;
   }
   
-  public Socket createSocket(Socket paramSocket, String paramString, int paramInt, boolean paramBoolean)
+  public final void a(Integer paramInteger)
   {
-    return b().getSocketFactory().createSocket(paramSocket, paramString, paramInt, paramBoolean);
+    l = paramInteger;
   }
   
-  public boolean equals(Object paramObject)
+  public final void a(String paramString)
   {
-    return (paramObject != null) && (getClass() == paramObject.getClass());
+    b = paramString;
   }
   
-  public int hashCode()
+  protected final void a(String paramString1, String paramString2)
   {
-    return bur.class.hashCode();
+    d.put(paramString1, paramString2);
   }
   
-  public boolean isSecure(Socket paramSocket)
+  public boolean a()
   {
-    return true;
+    return false;
+  }
+  
+  public abstract String b();
+  
+  public final void b(String paramString)
+  {
+    c = paramString;
+  }
+  
+  public final void b(String paramString1, String paramString2)
+  {
+    a(new bro(paramString1, paramString2));
+  }
+  
+  public abstract void c();
+  
+  public final void c(String paramString)
+  {
+    m = paramString;
+  }
+  
+  public abstract void d();
+  
+  public abstract String e();
+  
+  public final bva f()
+  {
+    return f;
+  }
+  
+  public final String g()
+  {
+    return b;
+  }
+  
+  public final String h()
+  {
+    return c;
+  }
+  
+  public final bup i()
+  {
+    return g;
+  }
+  
+  public final Map j()
+  {
+    return d;
+  }
+  
+  public final String k()
+  {
+    return m;
+  }
+  
+  public void m() {}
+  
+  protected final JSONObject n()
+  {
+    String str = c;
+    Object localObject = new JSONTokener(str).nextValue();
+    if (!(localObject instanceof JSONObject)) {
+      throw new JSONException("could not parse:" + str + "\nnextValue:" + localObject);
+    }
+    return (JSONObject)localObject;
+  }
+  
+  public final String o()
+  {
+    return getClass().getSimpleName() + " SN:" + k;
+  }
+  
+  public final long p()
+  {
+    return k;
+  }
+  
+  public final brm q()
+  {
+    return i;
+  }
+  
+  public final boolean r()
+  {
+    return i == null;
+  }
+  
+  public final Integer s()
+  {
+    return l;
+  }
+  
+  public final bus t()
+  {
+    return e;
   }
 }
 

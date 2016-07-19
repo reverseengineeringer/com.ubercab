@@ -1,142 +1,205 @@
+import android.net.Uri;
+import android.os.Binder;
+import android.os.Bundle;
 import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.server.FavaDiagnosticsEntity;
+import com.google.android.gms.common.server.response.SafeParcelResponse;
 
-final class bdy
-  implements bdw
+public abstract class bdy
+  extends Binder
+  implements bdx
 {
-  private IBinder a;
-  
-  bdy(IBinder paramIBinder)
+  public static bdx a(IBinder paramIBinder)
   {
-    a = paramIBinder;
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.plus.internal.IPlusService");
+    if ((localIInterface != null) && ((localIInterface instanceof bdx))) {
+      return (bdx)localIInterface;
+    }
+    return new bdz(paramIBinder);
   }
   
-  /* Error */
-  public final add a(bhk parambhk)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +51 -> 66
-    //   18: aload_1
-    //   19: invokeinterface 35 1 0
-    //   24: astore_1
-    //   25: aload_2
-    //   26: aload_1
-    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   30: aload_0
-    //   31: getfield 15	bdy:a	Landroid/os/IBinder;
-    //   34: iconst_1
-    //   35: aload_2
-    //   36: aload_3
-    //   37: iconst_0
-    //   38: invokeinterface 44 5 0
-    //   43: pop
-    //   44: aload_3
-    //   45: invokevirtual 47	android/os/Parcel:readException	()V
-    //   48: aload_3
-    //   49: invokevirtual 50	android/os/Parcel:readStrongBinder	()Landroid/os/IBinder;
-    //   52: invokestatic 55	ade:a	(Landroid/os/IBinder;)Ladd;
-    //   55: astore_1
-    //   56: aload_3
-    //   57: invokevirtual 58	android/os/Parcel:recycle	()V
-    //   60: aload_2
-    //   61: invokevirtual 58	android/os/Parcel:recycle	()V
-    //   64: aload_1
-    //   65: areturn
-    //   66: aconst_null
-    //   67: astore_1
-    //   68: goto -43 -> 25
-    //   71: astore_1
-    //   72: aload_3
-    //   73: invokevirtual 58	android/os/Parcel:recycle	()V
-    //   76: aload_2
-    //   77: invokevirtual 58	android/os/Parcel:recycle	()V
-    //   80: aload_1
-    //   81: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	82	0	this	bdy
-    //   0	82	1	parambhk	bhk
-    //   3	74	2	localParcel1	android.os.Parcel
-    //   7	66	3	localParcel2	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	71	finally
-    //   18	25	71	finally
-    //   25	56	71	finally
-  }
-  
-  public final IBinder asBinder()
-  {
-    return a;
-  }
-  
-  /* Error */
-  public final add b(bhk parambhk)
-  {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +51 -> 66
-    //   18: aload_1
-    //   19: invokeinterface 35 1 0
-    //   24: astore_1
-    //   25: aload_2
-    //   26: aload_1
-    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   30: aload_0
-    //   31: getfield 15	bdy:a	Landroid/os/IBinder;
-    //   34: iconst_2
-    //   35: aload_2
-    //   36: aload_3
-    //   37: iconst_0
-    //   38: invokeinterface 44 5 0
-    //   43: pop
-    //   44: aload_3
-    //   45: invokevirtual 47	android/os/Parcel:readException	()V
-    //   48: aload_3
-    //   49: invokevirtual 50	android/os/Parcel:readStrongBinder	()Landroid/os/IBinder;
-    //   52: invokestatic 55	ade:a	(Landroid/os/IBinder;)Ladd;
-    //   55: astore_1
-    //   56: aload_3
-    //   57: invokevirtual 58	android/os/Parcel:recycle	()V
-    //   60: aload_2
-    //   61: invokevirtual 58	android/os/Parcel:recycle	()V
-    //   64: aload_1
-    //   65: areturn
-    //   66: aconst_null
-    //   67: astore_1
-    //   68: goto -43 -> 25
-    //   71: astore_1
-    //   72: aload_3
-    //   73: invokevirtual 58	android/os/Parcel:recycle	()V
-    //   76: aload_2
-    //   77: invokevirtual 58	android/os/Parcel:recycle	()V
-    //   80: aload_1
-    //   81: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	82	0	this	bdy
-    //   0	82	1	parambhk	bhk
-    //   3	74	2	localParcel1	android.os.Parcel
-    //   7	66	3	localParcel2	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	71	finally
-    //   18	25	71	finally
-    //   25	56	71	finally
+    String str = null;
+    Object localObject2 = null;
+    Object localObject1 = null;
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.plus.internal.IPlusService");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      a(bdv.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
+      paramParcel2.writeNoException();
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      a(bdv.a(paramParcel1.readStrongBinder()), paramParcel1.readString(), paramParcel1.readString());
+      paramParcel2.writeNoException();
+      return true;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      b(bdv.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
+      paramParcel2.writeNoException();
+      return true;
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = SafeParcelResponse.CREATOR;
+      }
+      for (paramParcel1 = abp.a(paramParcel1);; paramParcel1 = null)
+      {
+        a(paramParcel1);
+        paramParcel2.writeNoException();
+        return true;
+      }
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      paramParcel1 = a();
+      paramParcel2.writeNoException();
+      paramParcel2.writeString(paramParcel1);
+      return true;
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      b();
+      paramParcel2.writeNoException();
+      return true;
+    case 8: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      a(bdv.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 9: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      localObject2 = bdv.a(paramParcel1.readStrongBinder());
+      if (paramParcel1.readInt() != 0)
+      {
+        localObject1 = (Uri)Uri.CREATOR.createFromParcel(paramParcel1);
+        if (paramParcel1.readInt() == 0) {
+          break label476;
+        }
+      }
+      for (paramParcel1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+      {
+        a((bdu)localObject2, (Uri)localObject1, paramParcel1);
+        paramParcel2.writeNoException();
+        return true;
+        localObject1 = null;
+        break;
+      }
+    case 14: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      localObject2 = bdv.a(paramParcel1.readStrongBinder());
+      paramInt1 = paramParcel1.readInt();
+      str = paramParcel1.readString();
+      if (paramParcel1.readInt() != 0) {}
+      for (localObject1 = (Uri)Uri.CREATOR.createFromParcel(paramParcel1);; localObject1 = null)
+      {
+        a((bdu)localObject2, paramInt1, str, (Uri)localObject1, paramParcel1.readString(), paramParcel1.readString());
+        paramParcel2.writeNoException();
+        return true;
+      }
+    case 16: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      localObject2 = a(bdv.a(paramParcel1.readStrongBinder()), paramParcel1.readInt(), paramParcel1.readInt(), paramParcel1.readInt(), paramParcel1.readString());
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject1;
+      if (localObject2 != null) {
+        paramParcel1 = ((aap)localObject2).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 17: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      a(paramParcel1.readString());
+      paramParcel2.writeNoException();
+      return true;
+    case 18: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      c(bdv.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
+      paramParcel2.writeNoException();
+      return true;
+    case 19: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      b(bdv.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 34: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      a(bdv.a(paramParcel1.readStrongBinder()), paramParcel1.createStringArrayList());
+      paramParcel2.writeNoException();
+      return true;
+    case 40: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      d(bdv.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
+      paramParcel2.writeNoException();
+      return true;
+    case 41: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      paramParcel1 = c();
+      paramParcel2.writeNoException();
+      paramParcel2.writeString(paramParcel1);
+      return true;
+    case 42: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      boolean bool = d();
+      paramParcel2.writeNoException();
+      if (bool) {}
+      for (paramInt1 = 1;; paramInt1 = 0)
+      {
+        paramParcel2.writeInt(paramInt1);
+        return true;
+      }
+    case 43: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      paramParcel1 = e();
+      paramParcel2.writeNoException();
+      paramParcel2.writeString(paramParcel1);
+      return true;
+    case 44: 
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      e(bdv.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
+      paramParcel2.writeNoException();
+      return true;
+    case 45: 
+      label476:
+      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+      localObject2 = bdv.a(paramParcel1.readStrongBinder());
+      localObject1 = str;
+      if (paramParcel1.readInt() != 0)
+      {
+        localObject1 = SafeParcelResponse.CREATOR;
+        localObject1 = abp.a(paramParcel1);
+      }
+      a((bdu)localObject2, (SafeParcelResponse)localObject1);
+      paramParcel2.writeNoException();
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusService");
+    str = paramParcel1.readString();
+    if (paramParcel1.readInt() != 0) {
+      localObject1 = FavaDiagnosticsEntity.CREATOR;
+    }
+    for (localObject1 = abq.a(paramParcel1);; localObject1 = null)
+    {
+      if (paramParcel1.readInt() != 0)
+      {
+        localObject2 = FavaDiagnosticsEntity.CREATOR;
+        localObject2 = abq.a(paramParcel1);
+      }
+      a(str, (FavaDiagnosticsEntity)localObject1, (FavaDiagnosticsEntity)localObject2);
+      paramParcel2.writeNoException();
+      return true;
+    }
   }
 }
 

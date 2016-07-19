@@ -1,102 +1,213 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.identity.intents.model.UserAddress;
-import com.google.android.gms.wallet.Address;
-import com.google.android.gms.wallet.FullWallet;
-import com.google.android.gms.wallet.InstrumentInfo;
-import com.google.android.gms.wallet.PaymentMethodToken;
-import com.google.android.gms.wallet.ProxyCard;
+import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
+import java.util.HashMap;
+import java.util.Map;
 
-public final class boj
-  implements Parcelable.Creator<FullWallet>
+public class boj<T>
 {
-  private static FullWallet a(Parcel paramParcel)
+  final int hashCode;
+  final Class<? super T> rawType;
+  final Type type;
+  
+  public boj()
   {
-    PaymentMethodToken localPaymentMethodToken = null;
-    int j = zm.b(paramParcel);
+    type = getSuperclassTypeParameter(getClass());
+    rawType = bmy.b(type);
+    hashCode = type.hashCode();
+  }
+  
+  boj(Type paramType)
+  {
+    type = bmy.a((Type)bmx.a(paramType));
+    rawType = bmy.b(type);
+    hashCode = type.hashCode();
+  }
+  
+  private static AssertionError buildUnexpectedTypeError(Type paramType, Class<?>... paramVarArgs)
+  {
+    StringBuilder localStringBuilder = new StringBuilder("Unexpected type. Expected one of: ");
+    int j = paramVarArgs.length;
     int i = 0;
-    InstrumentInfo[] arrayOfInstrumentInfo = null;
-    UserAddress localUserAddress1 = null;
-    UserAddress localUserAddress2 = null;
-    String[] arrayOfString = null;
-    Address localAddress1 = null;
-    Address localAddress2 = null;
-    String str1 = null;
-    ProxyCard localProxyCard = null;
-    String str2 = null;
-    String str3 = null;
-    while (paramParcel.dataPosition() < j)
+    while (i < j)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      localStringBuilder.append(paramVarArgs[i].getName()).append(", ");
+      i += 1;
+    }
+    localStringBuilder.append("but got: ").append(paramType.getClass().getName()).append(", for type token: ").append(paramType.toString()).append('.');
+    return new AssertionError(localStringBuilder.toString());
+  }
+  
+  public static <T> boj<T> get(Class<T> paramClass)
+  {
+    return new boj(paramClass);
+  }
+  
+  public static boj<?> get(Type paramType)
+  {
+    return new boj(paramType);
+  }
+  
+  static Type getSuperclassTypeParameter(Class<?> paramClass)
+  {
+    paramClass = paramClass.getGenericSuperclass();
+    if ((paramClass instanceof Class)) {
+      throw new RuntimeException("Missing type parameter.");
+    }
+    return bmy.a(((ParameterizedType)paramClass).getActualTypeArguments()[0]);
+  }
+  
+  private static boolean isAssignableFrom(Type paramType, GenericArrayType paramGenericArrayType)
+  {
+    Type localType = paramGenericArrayType.getGenericComponentType();
+    if ((localType instanceof ParameterizedType))
+    {
+      if ((paramType instanceof GenericArrayType)) {
+        paramGenericArrayType = ((GenericArrayType)paramType).getGenericComponentType();
+      }
+      do
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str3 = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        str2 = zm.n(paramParcel, k);
-        break;
-      case 4: 
-        localProxyCard = (ProxyCard)zm.a(paramParcel, k, ProxyCard.CREATOR);
-        break;
-      case 5: 
-        str1 = zm.n(paramParcel, k);
-        break;
-      case 6: 
-        localAddress2 = (Address)zm.a(paramParcel, k, Address.CREATOR);
-        break;
-      case 7: 
-        localAddress1 = (Address)zm.a(paramParcel, k, Address.CREATOR);
-        break;
-      case 8: 
-        arrayOfString = zm.z(paramParcel, k);
-        break;
-      case 9: 
-        localUserAddress2 = (UserAddress)zm.a(paramParcel, k, UserAddress.CREATOR);
-        break;
-      case 10: 
-        localUserAddress1 = (UserAddress)zm.a(paramParcel, k, UserAddress.CREATOR);
-        break;
-      case 11: 
-        arrayOfInstrumentInfo = (InstrumentInfo[])zm.b(paramParcel, k, InstrumentInfo.CREATOR);
-        break;
-      case 12: 
-        localPaymentMethodToken = (PaymentMethodToken)zm.a(paramParcel, k, PaymentMethodToken.CREATOR);
+        return isAssignableFrom(paramGenericArrayType, (ParameterizedType)localType, new HashMap());
+        paramGenericArrayType = paramType;
+      } while (!(paramType instanceof Class));
+      for (paramType = (Class)paramType;; paramType = paramType.getComponentType())
+      {
+        paramGenericArrayType = paramType;
+        if (!paramType.isArray()) {
+          break;
+        }
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    return true;
+  }
+  
+  private static boolean isAssignableFrom(Type paramType, ParameterizedType paramParameterizedType, Map<String, Type> paramMap)
+  {
+    int j = 0;
+    if (paramType == null) {
+      return false;
     }
-    return new FullWallet(i, str3, str2, localProxyCard, str1, localAddress2, localAddress1, arrayOfString, localUserAddress2, localUserAddress1, arrayOfInstrumentInfo, localPaymentMethodToken);
+    if (paramParameterizedType.equals(paramType)) {
+      return true;
+    }
+    Class localClass = bmy.b(paramType);
+    if ((paramType instanceof ParameterizedType)) {}
+    for (paramType = (ParameterizedType)paramType;; paramType = null)
+    {
+      if (paramType != null)
+      {
+        Type[] arrayOfType = paramType.getActualTypeArguments();
+        TypeVariable[] arrayOfTypeVariable = localClass.getTypeParameters();
+        i = 0;
+        while (i < arrayOfType.length)
+        {
+          Type localType = arrayOfType[i];
+          TypeVariable localTypeVariable = arrayOfTypeVariable[i];
+          while ((localType instanceof TypeVariable)) {
+            localType = (Type)paramMap.get(((TypeVariable)localType).getName());
+          }
+          paramMap.put(localTypeVariable.getName(), localType);
+          i += 1;
+        }
+        if (typeEquals(paramType, paramParameterizedType, paramMap)) {
+          return true;
+        }
+      }
+      paramType = localClass.getGenericInterfaces();
+      int k = paramType.length;
+      int i = j;
+      while (i < k)
+      {
+        if (isAssignableFrom(paramType[i], paramParameterizedType, new HashMap(paramMap))) {
+          return true;
+        }
+        i += 1;
+      }
+      return isAssignableFrom(localClass.getGenericSuperclass(), paramParameterizedType, new HashMap(paramMap));
+    }
   }
   
-  public static void a(FullWallet paramFullWallet, Parcel paramParcel, int paramInt)
+  private static boolean matches(Type paramType1, Type paramType2, Map<String, Type> paramMap)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramFullWallet.a());
-    zo.a(paramParcel, 2, a, false);
-    zo.a(paramParcel, 3, b, false);
-    zo.a(paramParcel, 4, c, paramInt, false);
-    zo.a(paramParcel, 5, d, false);
-    zo.a(paramParcel, 6, e, paramInt, false);
-    zo.a(paramParcel, 7, f, paramInt, false);
-    zo.a(paramParcel, 8, g);
-    zo.a(paramParcel, 9, h, paramInt, false);
-    zo.a(paramParcel, 10, paramFullWallet.i, paramInt, false);
-    zo.a(paramParcel, 11, j, paramInt);
-    zo.a(paramParcel, 12, k, paramInt, false);
-    zo.a(paramParcel, i);
+    return (paramType2.equals(paramType1)) || (((paramType1 instanceof TypeVariable)) && (paramType2.equals(paramMap.get(((TypeVariable)paramType1).getName()))));
   }
   
-  private static FullWallet[] a(int paramInt)
+  private static boolean typeEquals(ParameterizedType paramParameterizedType1, ParameterizedType paramParameterizedType2, Map<String, Type> paramMap)
   {
-    return new FullWallet[paramInt];
+    int i;
+    if (paramParameterizedType1.getRawType().equals(paramParameterizedType2.getRawType()))
+    {
+      paramParameterizedType1 = paramParameterizedType1.getActualTypeArguments();
+      paramParameterizedType2 = paramParameterizedType2.getActualTypeArguments();
+      i = 0;
+    }
+    while (i < paramParameterizedType1.length)
+    {
+      if (!matches(paramParameterizedType1[i], paramParameterizedType2[i], paramMap)) {
+        return false;
+      }
+      i += 1;
+    }
+    return true;
+  }
+  
+  public final boolean equals(Object paramObject)
+  {
+    return ((paramObject instanceof boj)) && (bmy.a(type, type));
+  }
+  
+  public final Class<? super T> getRawType()
+  {
+    return rawType;
+  }
+  
+  public final Type getType()
+  {
+    return type;
+  }
+  
+  public final int hashCode()
+  {
+    return hashCode;
+  }
+  
+  @Deprecated
+  public boolean isAssignableFrom(boj<?> paramboj)
+  {
+    return isAssignableFrom(paramboj.getType());
+  }
+  
+  @Deprecated
+  public boolean isAssignableFrom(Class<?> paramClass)
+  {
+    return isAssignableFrom(paramClass);
+  }
+  
+  @Deprecated
+  public boolean isAssignableFrom(Type paramType)
+  {
+    if (paramType == null) {
+      return false;
+    }
+    if (type.equals(paramType)) {
+      return true;
+    }
+    if ((type instanceof Class)) {
+      return rawType.isAssignableFrom(bmy.b(paramType));
+    }
+    if ((type instanceof ParameterizedType)) {
+      return isAssignableFrom(paramType, (ParameterizedType)type, new HashMap());
+    }
+    if ((type instanceof GenericArrayType)) {
+      return (rawType.isAssignableFrom(bmy.b(paramType))) && (isAssignableFrom(paramType, (GenericArrayType)type));
+    }
+    throw buildUnexpectedTypeError(type, new Class[] { Class.class, ParameterizedType.class, GenericArrayType.class });
+  }
+  
+  public final String toString()
+  {
+    return bmy.c(type);
   }
 }
 

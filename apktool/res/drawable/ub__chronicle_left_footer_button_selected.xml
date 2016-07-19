@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:bottomLeftRadius="@dimen/ub__rds__corner_radius_default" />
+    <solid android:color="@color/ub__uber_white_40" />
+    <stroke android:width="1.0px" android:color="@color/ub__transparent" />
+</shape>

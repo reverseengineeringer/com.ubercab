@@ -1,37 +1,90 @@
-import java.util.HashMap;
-import java.util.Map;
+import android.content.Context;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 
-public final class bzf
-  implements bzw
+public abstract class bzf<T extends bzf<T>>
 {
-  private static Map a = new HashMap();
-  private static Map b = new HashMap();
+  private List<String> a = new ArrayList();
+  private bzm b;
+  private bzl c;
+  private String d;
+  private Collection<String> e = new HashSet();
   
-  public bzf()
+  private List<String> b()
   {
-    a.put(bzv.a, "Cancelar");
-    a.put(bzv.b, "American Express");
-    a.put(bzv.c, "Discover");
-    a.put(bzv.d, "JCB");
-    a.put(bzv.e, "MasterCard");
-    a.put(bzv.f, "Visa");
-    a.put(bzv.g, "Concluído");
-    a.put(bzv.h, "CSC");
-    a.put(bzv.i, "Código Postal");
-    a.put(bzv.j, "Validade");
-    a.put(bzv.k, "MM/AA");
-    a.put(bzv.l, "Segure o cartão aqui.\nSerá lido automaticamente.");
-    a.put(bzv.m, "Teclado…");
-    a.put(bzv.n, "Número do cartão");
-    a.put(bzv.o, "Detalhes do cartão");
-    a.put(bzv.p, "Este dispositivo não pode utilizar a câmara para ler números de cartões.");
-    a.put(bzv.q, "A câmara do dispositivo não está disponível.");
-    a.put(bzv.r, "Ocorreu um erro inesperado no dispositivo ao abrir a câmara.");
+    return new ArrayList(a);
   }
   
-  public final String a()
+  private String e()
   {
-    return "pt";
+    return d;
+  }
+  
+  protected abstract T a();
+  
+  public final T a(bzm parambzm)
+  {
+    b = parambzm;
+    return a();
+  }
+  
+  public final boolean a(Context paramContext)
+  {
+    Iterator localIterator = b().iterator();
+    if (localIterator.hasNext())
+    {
+      String str1 = (String)localIterator.next();
+      boolean bool1 = py.a(paramContext, caa.a(e(), str1));
+      String str2 = Locale.getDefault().toString();
+      if ((e.isEmpty()) || (e.contains(str2))) {}
+      for (int i = 1;; i = 0)
+      {
+        boolean bool2 = caa.a(paramContext, str1);
+        if ((!bool1) || (i == 0) || (!bool2)) {
+          break;
+        }
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  public final T b(String paramString)
+  {
+    c = bzl.a(paramString);
+    return a();
+  }
+  
+  public final T c(String paramString)
+  {
+    a.add(paramString);
+    return a();
+  }
+  
+  public final bzm c()
+  {
+    return b;
+  }
+  
+  public final T d(String paramString)
+  {
+    e.add(paramString);
+    return a();
+  }
+  
+  public final bzl d()
+  {
+    return c;
+  }
+  
+  public final T e(String paramString)
+  {
+    d = paramString;
+    return a();
   }
 }
 

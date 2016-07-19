@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jut;
+import nac;
 
 @Shape
 abstract class ObjectTripExpenseInfo
-  implements jut
+  implements nac
 {}
 
 /* Location:

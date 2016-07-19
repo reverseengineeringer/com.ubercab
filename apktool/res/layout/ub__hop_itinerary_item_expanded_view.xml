@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ub__hop_itinerary_eta_container" android:layout_width="@dimen/ub__hop_itinerary_body_expanded_left_column_width" android:layout_height="fill_parent" android:layout_marginTop="@dimen/ub__hop_itinerary_body_collapse_node_size">
+        <ImageView android:id="@id/ub__hop_itinerary_type_icon" android:layout_width="@dimen/ub__hop_itinerary_body_collapse_icon_size" android:layout_height="@dimen/ub__hop_itinerary_body_collapse_icon_size" android:layout_marginBottom="@dimen/ub__hop_itinerary_body_expanded_icon_margin_bottom" />
+        <com.ubercab.ui.TextView android:textSize="@dimen/ub__hop_itinerary_body_collapse_eta_text_size" android:id="@id/ub__hop_itinerary_eta" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="horizontal" android:id="@id/ub__hop_itinerary_line" android:layout_width="@dimen/ub__hop_itinerary_line_width" android:layout_height="fill_parent" android:layout_marginTop="1.0dip" android:layout_marginBottom="-1.0dip" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@id/ub__hop_itinerary_node" android:layout_width="@dimen/ub__hop_itinerary_body_collapse_node_size" android:layout_height="@dimen/ub__hop_itinerary_body_collapse_node_size" android:layout_alignParentTop="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__hop_itinerary_body_expanded_title_margin_left">
+        <com.ubercab.ui.TextView android:textSize="@dimen/ub__hop_itinerary_body_expanded_title_size" android:id="@id/ub__hop_itinerary_title" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <com.ubercab.ui.TextView android:textSize="@dimen/ub__hop_itinerary_body_expanded_address_size" android:textColor="@color/ub__hop_itinerary_walking_node_color" android:id="@id/ub__hop_itinerary_subtitle" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</merge>

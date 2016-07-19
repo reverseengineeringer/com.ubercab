@@ -5,12 +5,12 @@ import android.os.Parcel;
 import android.os.Parcelable.Creator;
 import android.text.TextUtils;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import vm;
+import vf;
 
 public class AccountChangeEventsRequest
   implements SafeParcelable
 {
-  public static final Parcelable.Creator<AccountChangeEventsRequest> CREATOR = new vm();
+  public static final Parcelable.Creator<AccountChangeEventsRequest> CREATOR = new vf();
   public final int a;
   public int b;
   @Deprecated
@@ -42,7 +42,7 @@ public class AccountChangeEventsRequest
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    vm.a(this, paramParcel, paramInt);
+    vf.a(this, paramParcel, paramInt);
   }
 }
 

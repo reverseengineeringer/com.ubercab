@@ -1,6 +1,15 @@
-public abstract interface cez
+import android.view.View;
+import android.view.View.OnClickListener;
+
+final class cez
+  implements View.OnClickListener
 {
-  public abstract void a();
+  cez(cep paramcep) {}
+  
+  public final void onClick(View paramView)
+  {
+    cep.e(a);
+  }
 }
 
 /* Location:

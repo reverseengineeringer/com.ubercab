@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <com.ubercab.ui.CircleImageView android:layout_gravity="center" android:id="@id/ub__bounce_confirmation_image_view_image" android:layout_width="@dimen/ub__bounce_confirmation_view_picture_size" android:layout_height="@dimen/ub__bounce_confirmation_view_picture_size" android:layout_toLeftOf="@id/ub__bounce_confirmation_name_text" uber:srcCompat="@drawable/ub__bounce_contact_frequent_placeholder" uber:circleImageBorderWidth="1.0dip" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Bounce.Confirmation" android:gravity="center" android:layout_gravity="center" android:id="@id/ub__bounce_confirmation_name_text" android:paddingLeft="@dimen/ub__payment_bar_padding_x" android:paddingRight="@dimen/ub__payment_bar_padding_x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+</merge>

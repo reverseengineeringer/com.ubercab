@@ -1,12 +1,37 @@
 package android.support.v4.graphics.drawable;
 
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.content.res.Resources.Theme;
+import android.graphics.ColorFilter;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
+import org.xmlpull.v1.XmlPullParser;
 
 class DrawableCompat$LollipopDrawableImpl
   extends DrawableCompat.KitKatDrawableImpl
 {
+  public void applyTheme(Drawable paramDrawable, Resources.Theme paramTheme)
+  {
+    DrawableCompatLollipop.applyTheme(paramDrawable, paramTheme);
+  }
+  
+  public boolean canApplyTheme(Drawable paramDrawable)
+  {
+    return DrawableCompatLollipop.canApplyTheme(paramDrawable);
+  }
+  
+  public ColorFilter getColorFilter(Drawable paramDrawable)
+  {
+    return DrawableCompatLollipop.getColorFilter(paramDrawable);
+  }
+  
+  public void inflate(Drawable paramDrawable, Resources paramResources, XmlPullParser paramXmlPullParser, AttributeSet paramAttributeSet, Resources.Theme paramTheme)
+  {
+    DrawableCompatLollipop.inflate(paramDrawable, paramResources, paramXmlPullParser, paramAttributeSet, paramTheme);
+  }
+  
   public void setHotspot(Drawable paramDrawable, float paramFloat1, float paramFloat2)
   {
     DrawableCompatLollipop.setHotspot(paramDrawable, paramFloat1, paramFloat2);

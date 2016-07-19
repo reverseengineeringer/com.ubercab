@@ -1,22 +1,39 @@
-import android.graphics.Bitmap;
-import android.os.IInterface;
-
-public abstract interface bgy
-  extends IInterface
+final class bgy
+  extends bgv
 {
-  public abstract add a();
+  static final bgv o = new bgy();
   
-  public abstract add a(float paramFloat);
+  public final boolean b(char paramChar)
+  {
+    switch (paramChar)
+    {
+    default: 
+      if ((paramChar < ' ') || (paramChar > ' ')) {
+        break;
+      }
+    case '\t': 
+    case '\n': 
+    case '\013': 
+    case '\f': 
+    case '\r': 
+    case ' ': 
+    case '': 
+    case ' ': 
+    case ' ': 
+    case ' ': 
+    case ' ': 
+    case '　': 
+      return true;
+    case ' ': 
+      return false;
+    }
+    return false;
+  }
   
-  public abstract add a(int paramInt);
-  
-  public abstract add a(Bitmap paramBitmap);
-  
-  public abstract add a(String paramString);
-  
-  public abstract add b(String paramString);
-  
-  public abstract add c(String paramString);
+  public final String toString()
+  {
+    return "CharMatcher.breakingWhitespace()";
+  }
 }
 
 /* Location:

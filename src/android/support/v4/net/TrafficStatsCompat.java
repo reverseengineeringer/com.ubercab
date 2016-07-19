@@ -3,7 +3,7 @@ package android.support.v4.net;
 import android.os.Build.VERSION;
 import java.net.Socket;
 
-public class TrafficStatsCompat
+public final class TrafficStatsCompat
 {
   private static final TrafficStatsCompat.TrafficStatsCompatImpl IMPL = new TrafficStatsCompat.BaseTrafficStatsCompatImpl();
   

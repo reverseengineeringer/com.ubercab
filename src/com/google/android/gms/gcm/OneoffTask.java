@@ -6,18 +6,7 @@ import android.os.Parcelable.Creator;
 public class OneoffTask
   extends Task
 {
-  public static final Parcelable.Creator<OneoffTask> CREATOR = new Parcelable.Creator()
-  {
-    private static OneoffTask a(Parcel paramAnonymousParcel)
-    {
-      return new OneoffTask(paramAnonymousParcel, (byte)0);
-    }
-    
-    private static OneoffTask[] a(int paramAnonymousInt)
-    {
-      return new OneoffTask[paramAnonymousInt];
-    }
-  };
+  public static final Parcelable.Creator<OneoffTask> CREATOR = new OneoffTask.1();
   private final long a;
   private final long b;
   

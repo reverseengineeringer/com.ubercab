@@ -2,11 +2,11 @@ package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
 import java.util.Locale;
-import jvb;
+import nal;
 
 @Shape
 abstract class ObjectTripVehicle
-  implements jvb
+  implements nal
 {
   public String getLicensePlateFormatted()
   {

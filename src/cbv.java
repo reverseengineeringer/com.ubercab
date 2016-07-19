@@ -1,15 +1,14 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.LoginActivity;
+import com.paypal.android.sdk.payments.PaymentActivity;
+import java.util.TimerTask;
 
-public final class cbv
-  implements DialogInterface.OnClickListener
+final class cbv
+  extends TimerTask
 {
-  public cbv(LoginActivity paramLoginActivity) {}
+  cbv(cbu paramcbu) {}
   
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  public final void run()
   {
-    LoginActivity.m(a);
+    PaymentActivity.e(a.a);
   }
 }
 

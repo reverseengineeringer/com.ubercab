@@ -2,15 +2,29 @@ package android.support.v4.media;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompat.Token;
 
 public final class MediaBrowserCompat
 {
-  private final MediaBrowserCompat.MediaBrowserImplBase mImpl;
+  public static final String EXTRA_PAGE = "android.media.browse.extra.PAGE";
+  public static final String EXTRA_PAGE_SIZE = "android.media.browse.extra.PAGE_SIZE";
+  private static final String TAG = "MediaBrowserCompat";
+  private final MediaBrowserCompat.MediaBrowserImpl mImpl;
   
   public MediaBrowserCompat(Context paramContext, ComponentName paramComponentName, MediaBrowserCompat.ConnectionCallback paramConnectionCallback, Bundle paramBundle)
   {
+    if (Build.VERSION.SDK_INT >= 23)
+    {
+      mImpl = new MediaBrowserCompat.MediaBrowserImplApi23(paramContext, paramComponentName, paramConnectionCallback, paramBundle);
+      return;
+    }
+    if (Build.VERSION.SDK_INT >= 21)
+    {
+      mImpl = new MediaBrowserCompat.MediaBrowserImplApi21(paramContext, paramComponentName, paramConnectionCallback, paramBundle);
+      return;
+    }
     mImpl = new MediaBrowserCompat.MediaBrowserImplBase(paramContext, paramComponentName, paramConnectionCallback, paramBundle);
   }
   
@@ -54,14 +68,30 @@ public final class MediaBrowserCompat
     return mImpl.isConnected();
   }
   
+  public final void subscribe(String paramString, Bundle paramBundle, MediaBrowserCompat.SubscriptionCallback paramSubscriptionCallback)
+  {
+    if (paramBundle == null) {
+      throw new IllegalArgumentException("options are null");
+    }
+    mImpl.subscribe(paramString, paramBundle, paramSubscriptionCallback);
+  }
+  
   public final void subscribe(String paramString, MediaBrowserCompat.SubscriptionCallback paramSubscriptionCallback)
   {
-    mImpl.subscribe(paramString, paramSubscriptionCallback);
+    mImpl.subscribe(paramString, null, paramSubscriptionCallback);
   }
   
   public final void unsubscribe(String paramString)
   {
-    mImpl.unsubscribe(paramString);
+    mImpl.unsubscribe(paramString, null);
+  }
+  
+  public final void unsubscribe(String paramString, Bundle paramBundle)
+  {
+    if (paramBundle == null) {
+      throw new IllegalArgumentException("options are null");
+    }
+    mImpl.unsubscribe(paramString, paramBundle);
   }
 }
 

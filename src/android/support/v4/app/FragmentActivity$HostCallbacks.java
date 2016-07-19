@@ -1,6 +1,7 @@
 package android.support.v4.app;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -79,6 +80,11 @@ class FragmentActivity$HostCallbacks
   public void onStartActivityFromFragment(Fragment paramFragment, Intent paramIntent, int paramInt)
   {
     this$0.startActivityFromFragment(paramFragment, paramIntent, paramInt);
+  }
+  
+  public void onStartActivityFromFragment(Fragment paramFragment, Intent paramIntent, int paramInt, Bundle paramBundle)
+  {
+    this$0.startActivityFromFragment(paramFragment, paramIntent, paramInt, paramBundle);
   }
   
   public void onSupportInvalidateOptionsMenu()

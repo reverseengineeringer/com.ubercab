@@ -1,21 +1,16 @@
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.google.android.gms.common.data.DataHolder;
 
-final class ara
-  extends BroadcastReceiver
+public final class ara
+  extends yn<aqz>
 {
-  private ara(aqz paramaqz) {}
-  
-  public final void onReceive(Context paramContext, Intent paramIntent)
+  public ara(DataHolder paramDataHolder)
   {
-    if ("android.intent.action.USER_PRESENT".equals(paramIntent.getAction())) {
-      aqz.a(a, true);
-    }
-    while (!"android.intent.action.SCREEN_OFF".equals(paramIntent.getAction())) {
-      return;
-    }
-    aqz.a(a, false);
+    super(paramDataHolder);
+  }
+  
+  private aqz b(int paramInt)
+  {
+    return new asd(a, paramInt);
   }
 }
 

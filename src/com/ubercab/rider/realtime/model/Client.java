@@ -4,9 +4,9 @@ import com.ubercab.rider.realtime.response.ProfileType;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import java.util.List;
 import java.util.Map;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface Client
   extends Model
 {
@@ -31,6 +31,8 @@ public abstract interface Client
   public abstract boolean getHasConfirmedMobile();
   
   public abstract String getHasConfirmedMobileStatus();
+  
+  public abstract boolean getHasNoPassword();
   
   public abstract boolean getHasToOptInSmsNotifications();
   

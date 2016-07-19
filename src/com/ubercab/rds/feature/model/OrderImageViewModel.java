@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable;
 import com.ubercab.shape.Shape;
 import com.ubercab.ui.collection.model.DividerViewModel;
 import com.ubercab.ui.collection.model.ViewModel;
-import jfa;
 
 @Shape
 public abstract class OrderImageViewModel
@@ -23,8 +22,6 @@ public abstract class OrderImageViewModel
   
   public abstract Drawable getPlaceholder();
   
-  public abstract jfa getRdsImageLoader();
-  
   public abstract float getWidthRatio();
   
   public abstract OrderImageViewModel setDividerViewModel(DividerViewModel paramDividerViewModel);
@@ -39,8 +36,6 @@ public abstract class OrderImageViewModel
   public abstract OrderImageViewModel setImageUrl(String paramString);
   
   public abstract OrderImageViewModel setPlaceholder(Drawable paramDrawable);
-  
-  public abstract OrderImageViewModel setRdsImageLoader(jfa paramjfa);
   
   public abstract OrderImageViewModel setWidthRatio(float paramFloat);
 }

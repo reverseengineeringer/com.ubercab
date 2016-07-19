@@ -1,52 +1,24 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.location.places.UserDataType;
+import android.content.Context;
+import android.os.Bundle;
 
-public final class bav
-  implements Parcelable.Creator<UserDataType>
+public class bav
 {
-  private static UserDataType a(Parcel paramParcel)
+  private final bcv a;
+  
+  public bav(bcv parambcv)
   {
-    int j = 0;
-    int k = zm.b(paramParcel);
-    String str = null;
-    int i = 0;
-    while (paramParcel.dataPosition() < k)
-    {
-      int m = zm.a(paramParcel);
-      switch (zm.a(m))
-      {
-      default: 
-        zm.a(paramParcel, m);
-        break;
-      case 1: 
-        str = zm.n(paramParcel, m);
-        break;
-      case 1000: 
-        i = zm.e(paramParcel, m);
-        break;
-      case 2: 
-        j = zm.e(paramParcel, m);
-      }
-    }
-    if (paramParcel.dataPosition() != k) {
-      throw new zn("Overread allowed size end=" + k, paramParcel);
-    }
-    return new UserDataType(i, str, j);
+    abe.a(parambcv);
+    a = parambcv;
   }
   
-  public static void a(UserDataType paramUserDataType, Parcel paramParcel)
+  public static bav a(Context paramContext)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, f, false);
-    zo.a(paramParcel, 1000, e);
-    zo.a(paramParcel, 2, g);
-    zo.a(paramParcel, i);
+    return bcv.a(paramContext).m();
   }
   
-  private static UserDataType[] a(int paramInt)
+  public final void a(String paramString1, String paramString2, Bundle paramBundle)
   {
-    return new UserDataType[paramInt];
+    a.l().a(paramString1, paramString2, paramBundle);
   }
 }
 

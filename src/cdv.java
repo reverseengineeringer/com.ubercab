@@ -1,8 +1,19 @@
-import android.os.Parcelable.Creator;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentMethodActivity;
 
 public final class cdv
-  implements Parcelable.Creator
-{}
+  implements DialogInterface.OnClickListener
+{
+  public cdv(PaymentMethodActivity paramPaymentMethodActivity) {}
+  
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  {
+    PaymentMethodActivity.g(a).t();
+    PaymentMethodActivity.h(a);
+  }
+}
 
 /* Location:
  * Qualified Name:     cdv

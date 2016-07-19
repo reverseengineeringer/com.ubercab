@@ -1,15 +1,25 @@
-import android.content.Context;
-import android.view.MotionEvent;
+import java.util.Map;
+import java.util.concurrent.BlockingQueue;
 
-public abstract interface aey
+@aih
+public final class aey
 {
-  public abstract String a(Context paramContext);
+  BlockingQueue<aff> a;
+  Map<String, afb> b;
   
-  public abstract String a(Context paramContext, String paramString);
+  public final afb a(String paramString)
+  {
+    paramString = (afb)b.get(paramString);
+    if (paramString != null) {
+      return paramString;
+    }
+    return afb.a;
+  }
   
-  public abstract void a(int paramInt1, int paramInt2, int paramInt3);
-  
-  public abstract void a(MotionEvent paramMotionEvent);
+  public final boolean a(aff paramaff)
+  {
+    return a.offer(paramaff);
+  }
 }
 
 /* Location:

@@ -1,43 +1,52 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.wallet.firstparty.GetInstrumentsResponse;
 
-public abstract class bfn
-  extends Binder
-  implements bfm
+public final class bfn
+  implements Parcelable.Creator<GetInstrumentsResponse>
 {
-  public static bfm a(IBinder paramIBinder)
+  private static GetInstrumentsResponse a(Parcel paramParcel)
   {
-    if (paramIBinder == null) {
-      return null;
+    byte[][] arrayOfByte = null;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    String[] arrayOfString = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        arrayOfString = zd.z(paramParcel, k);
+        break;
+      case 3: 
+        arrayOfByte = zd.r(paramParcel, k);
+      }
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnMyLocationButtonClickListener");
-    if ((localIInterface != null) && ((localIInterface instanceof bfm))) {
-      return (bfm)localIInterface;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new bfo(paramIBinder);
+    return new GetInstrumentsResponse(i, arrayOfString, arrayOfByte);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static void a(GetInstrumentsResponse paramGetInstrumentsResponse, Parcel paramParcel)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnMyLocationButtonClickListener");
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMyLocationButtonClickListener");
-    boolean bool = a();
-    paramParcel2.writeNoException();
-    if (bool) {}
-    for (paramInt1 = 1;; paramInt1 = 0)
-    {
-      paramParcel2.writeInt(paramInt1);
-      return true;
-    }
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramGetInstrumentsResponse.a());
+    zf.a(paramParcel, 2, a);
+    zf.a(paramParcel, 3, b);
+    zf.a(paramParcel, i);
+  }
+  
+  private static GetInstrumentsResponse[] a(int paramInt)
+  {
+    return new GetInstrumentsResponse[paramInt];
   }
 }
 

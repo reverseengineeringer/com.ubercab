@@ -1,32 +1,116 @@
-public abstract class bts
+public final class bts
+  implements brl
 {
-  private String a;
-  private String b;
+  private btr a;
   
-  private bts() {}
-  
-  protected bts(String paramString)
+  public bts(btr parambtr)
   {
-    this();
-    a = paramString;
-    b = null;
+    a = parambtr;
   }
   
-  protected bts(String paramString1, String paramString2)
+  public final void a(bur parambur)
   {
-    this();
-    a = paramString1;
-    b = paramString2;
-  }
-  
-  public final String a()
-  {
-    return a;
-  }
-  
-  public String toString()
-  {
-    return "ErrorBase[errorCode=" + a + " errorMsgShort=" + b + "]";
+    if ((parambur instanceof bwu))
+    {
+      if (parambur.r())
+      {
+        a.a((bwu)parambur);
+        return;
+      }
+      a.b((bwu)parambur);
+      return;
+    }
+    if ((parambur instanceof bwp))
+    {
+      if (parambur.r())
+      {
+        a.a((bwp)parambur);
+        return;
+      }
+      a.b((bwp)parambur);
+      return;
+    }
+    if ((parambur instanceof bwk))
+    {
+      if (parambur.r())
+      {
+        a.a((bwk)parambur);
+        return;
+      }
+      a.b((bwk)parambur);
+      return;
+    }
+    if ((parambur instanceof bww))
+    {
+      if (parambur.r())
+      {
+        a.a((bww)parambur);
+        return;
+      }
+      a.b((bww)parambur);
+      return;
+    }
+    if ((parambur instanceof bwl))
+    {
+      if (parambur.r())
+      {
+        a.a();
+        return;
+      }
+      a.a((bwl)parambur);
+      return;
+    }
+    if ((parambur instanceof bwi))
+    {
+      if (parambur.r())
+      {
+        a.a((bwi)parambur);
+        return;
+      }
+      a.b((bwi)parambur);
+      return;
+    }
+    if ((parambur instanceof bwj))
+    {
+      if (parambur.r())
+      {
+        a.a((bwj)parambur);
+        return;
+      }
+      a.b((bwj)parambur);
+      return;
+    }
+    if ((parambur instanceof bwg))
+    {
+      if (parambur.r())
+      {
+        a.a((bwg)parambur);
+        return;
+      }
+      a.b((bwg)parambur);
+      return;
+    }
+    if ((parambur instanceof bwn))
+    {
+      if (parambur.r())
+      {
+        a.a((bwn)parambur);
+        return;
+      }
+      a.b((bwn)parambur);
+      return;
+    }
+    if ((parambur instanceof bwo))
+    {
+      if (parambur.r())
+      {
+        a.a((bwo)parambur);
+        return;
+      }
+      a.b((bwo)parambur);
+      return;
+    }
+    throw new RuntimeException("not handled");
   }
 }
 

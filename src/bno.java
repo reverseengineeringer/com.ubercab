@@ -1,47 +1,29 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.firstparty.GetInstrumentsRequest;
+import java.io.Writer;
 
-public final class bno
-  implements Parcelable.Creator<GetInstrumentsRequest>
+final class bno
+  extends Writer
 {
-  private static GetInstrumentsRequest a(Parcel paramParcel)
+  private final Appendable a;
+  private final bnp b = new bnp();
+  
+  private bno(Appendable paramAppendable)
   {
-    int j = zm.b(paramParcel);
-    int i = 0;
-    int[] arrayOfInt = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        arrayOfInt = zm.t(paramParcel, k);
-      }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new GetInstrumentsRequest(i, arrayOfInt);
+    a = paramAppendable;
   }
   
-  public static void a(GetInstrumentsRequest paramGetInstrumentsRequest, Parcel paramParcel)
+  public final void close() {}
+  
+  public final void flush() {}
+  
+  public final void write(int paramInt)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramGetInstrumentsRequest.a());
-    zo.a(paramParcel, 2, a);
-    zo.a(paramParcel, i);
+    a.append((char)paramInt);
   }
   
-  private static GetInstrumentsRequest[] a(int paramInt)
+  public final void write(char[] paramArrayOfChar, int paramInt1, int paramInt2)
   {
-    return new GetInstrumentsRequest[paramInt];
+    b.a = paramArrayOfChar;
+    a.append(b, paramInt1, paramInt1 + paramInt2);
   }
 }
 

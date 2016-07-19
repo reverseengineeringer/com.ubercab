@@ -42,7 +42,7 @@ class DrawerLayout$ViewDragCallback
     {
       i = 1;
       if (i == 0) {
-        break label149;
+        break label150;
       }
       localView = this$0.findDrawerWithGravity(3);
       if (localView != null) {
@@ -56,7 +56,7 @@ class DrawerLayout$ViewDragCallback
       {
         DrawerLayout.LayoutParams localLayoutParams = (DrawerLayout.LayoutParams)localView.getLayoutParams();
         mDragger.smoothSlideViewTo(localView, j, localView.getTop());
-        isPeeking = true;
+        DrawerLayout.LayoutParams.access$202(localLayoutParams, true);
         this$0.invalidate();
         closeOtherDrawer();
         this$0.cancelChildViewTouch();
@@ -64,7 +64,7 @@ class DrawerLayout$ViewDragCallback
       return;
       i = 0;
       break;
-      label149:
+      label150:
       localView = this$0.findDrawerWithGravity(5);
       j = this$0.getWidth();
       j -= k;
@@ -117,7 +117,7 @@ class DrawerLayout$ViewDragCallback
   
   public void onViewCaptured(View paramView, int paramInt)
   {
-    getLayoutParamsisPeeking = false;
+    DrawerLayout.LayoutParams.access$202((DrawerLayout.LayoutParams)paramView.getLayoutParams(), false);
     closeOtherDrawer();
   }
   

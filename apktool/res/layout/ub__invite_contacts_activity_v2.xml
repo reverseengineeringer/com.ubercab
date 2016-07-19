@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/ub__uber_white_20" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.widget.RecyclerView android:id="@id/ub__invite_contacts_recyclerview" android:background="@color/ub__uber_white_20" android:scrollbars="vertical" android:fadingEdgeLength="@dimen/ub__invite_contacts_placeholder_fade_height" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/ub__invite_contacts_footer" android:requiresFadingEdge="vertical" />
+    <LinearLayout android:orientation="vertical" android:id="@id/ub__invite_contacts_footer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__invite_contacts_cta_button_top_margin" android:layout_marginBottom="@dimen/ub__invite_contacts_footer_padding" android:layout_alignParentBottom="true">
+        <com.ubercab.ui.Button android:layout_gravity="center" android:id="@id/ub__invite_contacts_button_list_connect" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip" android:layout_marginBottom="@dimen/ub__invite_contacts_footer_padding" android:maxWidth="@dimen/ub__invite_contacts_cta_button_width_large" android:text="@string/connect_contacts" style="@style/Uber.Widget.Button.Accent" />
+        <com.ubercab.ui.TextView android:layout_gravity="center" android:id="@id/ub__invite_contacts_sync_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sync_contacts_description" style="@style/Style.Rider.TextAppearance.FooterNote.InviteContactsFooterNote" />
+    </LinearLayout>
+    <ProgressBar android:id="@id/ub__invite_contacts_progress" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminate="true" android:layout_centerInParent="true" />
+    <ViewStub android:id="@id/ub__share_on_signup_layout_stub" android:visibility="gone" android:layout="@layout/ub__share_on_signup_activity" android:inflatedId="@id/ub__share_on_signup_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</RelativeLayout>

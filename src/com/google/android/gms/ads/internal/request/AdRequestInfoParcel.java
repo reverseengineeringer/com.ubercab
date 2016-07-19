@@ -1,11 +1,11 @@
 package com.google.android.gms.ads.internal.request;
 
+import aih;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
 import android.os.Messenger;
 import android.os.Parcel;
-import apl;
 import com.google.android.gms.ads.internal.client.AdRequestParcel;
 import com.google.android.gms.ads.internal.client.AdSizeParcel;
 import com.google.android.gms.ads.internal.formats.NativeAdOptionsParcel;
@@ -13,14 +13,13 @@ import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import java.util.Collections;
 import java.util.List;
-import qv;
-import rh;
+import tq;
 
-@apl
+@aih
 public final class AdRequestInfoParcel
   implements SafeParcelable
 {
-  public static final rh CREATOR = new rh();
+  public static final tq CREATOR = new tq();
   public final List<String> A;
   public final long B;
   public final CapabilityParcel C;
@@ -106,16 +105,6 @@ public final class AdRequestInfoParcel
     }
   }
   
-  private AdRequestInfoParcel(Bundle paramBundle1, AdRequestParcel paramAdRequestParcel, AdSizeParcel paramAdSizeParcel, String paramString1, ApplicationInfo paramApplicationInfo, PackageInfo paramPackageInfo, String paramString2, String paramString3, String paramString4, VersionInfoParcel paramVersionInfoParcel, Bundle paramBundle2, int paramInt1, List<String> paramList1, List<String> paramList2, Bundle paramBundle3, boolean paramBoolean, Messenger paramMessenger, int paramInt2, int paramInt3, float paramFloat1, String paramString5, long paramLong1, String paramString6, List<String> paramList3, String paramString7, NativeAdOptionsParcel paramNativeAdOptionsParcel, long paramLong2, CapabilityParcel paramCapabilityParcel, String paramString8, float paramFloat2, int paramInt4, int paramInt5)
-  {
-    this(15, paramBundle1, paramAdRequestParcel, paramAdSizeParcel, paramString1, paramApplicationInfo, paramPackageInfo, paramString2, paramString3, paramString4, paramVersionInfoParcel, paramBundle2, paramInt1, paramList1, paramBundle3, paramBoolean, paramMessenger, paramInt2, paramInt3, paramFloat1, paramString5, paramLong1, paramString6, paramList3, paramString7, paramNativeAdOptionsParcel, paramList2, paramLong2, paramCapabilityParcel, paramString8, paramFloat2, paramInt4, paramInt5);
-  }
-  
-  public AdRequestInfoParcel(qv paramqv, String paramString, long paramLong)
-  {
-    this(a, b, c, d, e, f, paramString, g, h, j, i, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, paramLong, z, A, B, C, D);
-  }
-  
   public final int describeContents()
   {
     return 0;
@@ -123,7 +112,7 @@ public final class AdRequestInfoParcel
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    rh.a(this, paramParcel, paramInt);
+    tq.a(this, paramParcel, paramInt);
   }
 }
 

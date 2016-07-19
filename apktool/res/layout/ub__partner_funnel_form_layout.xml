@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView android:id="@id/ub__vault_imageview_contextual" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/ub__partner_funnel_vault_contextual_image_height" />
     <ScrollView android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <LinearLayout android:orientation="vertical" android:id="@id/ub__form_root" android:padding="@dimen/ub__partner_funnel_base_padding" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/ub__form_root" android:padding="@dimen/ub__partner_funnel_base_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <com.ubercab.ui.Button android:id="@id/ub__form_field_submit_button" android:padding="@dimen/ub__partner_funnel_base_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__partner_funnel_save_continue" style="@style/Uber.Partner.Funnel.Widget.Button.Accent"
               xmlns:android="http://schemas.android.com/apk/res/android" />
         </LinearLayout>

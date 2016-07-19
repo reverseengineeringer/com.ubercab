@@ -1,16 +1,18 @@
+import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
 import java.util.Map;
 
 final class afr$2
-  implements aji
+  implements afs
 {
-  afr$2(afr paramafr) {}
-  
-  public final void a(asq paramasq, Map<String, String> paramMap)
+  public final void a(ajm paramajm, Map<String, String> paramMap)
   {
-    if (!a.a(paramMap)) {
+    paramMap = (String)paramMap.get("u");
+    if (paramMap == null)
+    {
+      ain.d("URL missing from httpTrack GMSG.");
       return;
     }
-    a.d();
+    new aje(paramajm.getContext(), nb, paramMap).b();
   }
 }
 

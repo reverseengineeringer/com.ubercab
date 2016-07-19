@@ -1,171 +1,73 @@
-import android.support.v4.util.ArrayMap;
-import java.io.IOException;
-import java.util.Map;
-
-public final class bkj
-  extends bks
+final class bkj<E>
+  extends bjr<E>
 {
-  private final Map<String, Map<String, String>> a = new ArrayMap();
-  private final Map<String, Map<String, Boolean>> b = new ArrayMap();
-  private final Map<String, avr> c = new ArrayMap();
+  static final bkj<Object> a = new bkj(bjz.a, 0, null, 0);
+  final transient Object[] b;
+  private final transient Object[] c;
+  private final transient int d;
+  private final transient int e;
   
-  bkj(bko parambko)
+  bkj(Object[] paramArrayOfObject1, int paramInt1, Object[] paramArrayOfObject2, int paramInt2)
   {
-    super(parambko);
+    c = paramArrayOfObject1;
+    b = paramArrayOfObject2;
+    d = paramInt2;
+    e = paramInt1;
   }
   
-  private static Map<String, String> a(avr paramavr)
+  final int a(Object[] paramArrayOfObject, int paramInt)
   {
-    ArrayMap localArrayMap = new ArrayMap();
-    if ((paramavr != null) && (d != null))
-    {
-      paramavr = d;
-      int j = paramavr.length;
-      int i = 0;
-      while (i < j)
-      {
-        Object localObject = paramavr[i];
-        if (localObject != null) {
-          localArrayMap.put(a, b);
-        }
-        i += 1;
-      }
-    }
-    return localArrayMap;
+    System.arraycopy(c, 0, paramArrayOfObject, paramInt, c.length);
+    return c.length + paramInt;
   }
   
-  private avr b(String paramString, byte[] paramArrayOfByte)
+  public final bkp<E> b()
   {
-    if (paramArrayOfByte == null) {
-      return new avr();
-    }
-    paramArrayOfByte = axh.a(paramArrayOfByte);
-    avr localavr = new avr();
-    try
-    {
-      localavr.b(paramArrayOfByte);
-      s().z().a("Parsed config. version, gmp_app_id", a, b);
-      return localavr;
-    }
-    catch (IOException paramArrayOfByte)
-    {
-      s().c().a("Unable to merge remote config", paramString, paramArrayOfByte);
-    }
-    return null;
+    return bjv.a(c);
   }
   
-  private static Map<String, Boolean> b(avr paramavr)
+  public final boolean contains(Object paramObject)
   {
-    ArrayMap localArrayMap = new ArrayMap();
-    if ((paramavr != null) && (e != null))
-    {
-      paramavr = e;
-      int j = paramavr.length;
-      int i = 0;
-      while (i < j)
-      {
-        Object localObject = paramavr[i];
-        if (localObject != null) {
-          localArrayMap.put(a, b);
-        }
-        i += 1;
-      }
-    }
-    return localArrayMap;
-  }
-  
-  private void b(String paramString)
-  {
-    E();
-    f();
-    abs.a(paramString);
-    if (!c.containsKey(paramString))
-    {
-      localObject = n().d(paramString);
-      if (localObject == null)
-      {
-        a.put(paramString, null);
-        b.put(paramString, null);
-        c.put(paramString, null);
-      }
-    }
-    else
-    {
-      return;
-    }
-    Object localObject = b(paramString, (byte[])localObject);
-    a.put(paramString, a((avr)localObject));
-    b.put(paramString, b((avr)localObject));
-    c.put(paramString, localObject);
-  }
-  
-  protected final avr a(String paramString)
-  {
-    E();
-    f();
-    abs.a(paramString);
-    b(paramString);
-    return (avr)c.get(paramString);
-  }
-  
-  final String a(String paramString1, String paramString2)
-  {
-    f();
-    b(paramString1);
-    paramString1 = (Map)a.get(paramString1);
-    if (paramString1 != null) {
-      return (String)paramString1.get(paramString2);
-    }
-    return null;
-  }
-  
-  protected final void a() {}
-  
-  protected final boolean a(String paramString, byte[] paramArrayOfByte)
-  {
-    E();
-    f();
-    abs.a(paramString);
-    avr localavr = b(paramString, paramArrayOfByte);
-    if (localavr == null) {
+    Object[] arrayOfObject = b;
+    if ((paramObject == null) || (arrayOfObject == null)) {
       return false;
     }
-    b.put(paramString, b(localavr));
-    c.put(paramString, localavr);
-    a.put(paramString, a(localavr));
-    g().a(paramString, f);
-    try
+    int i = bis.a(paramObject);
+    for (;;)
     {
-      f = null;
-      byte[] arrayOfByte = new byte[localavr.d()];
-      localavr.a(axi.a(arrayOfByte));
-      paramArrayOfByte = arrayOfByte;
-    }
-    catch (IOException localIOException)
-    {
-      for (;;)
-      {
-        s().c().a("Unable to serialize reduced-size config.  Storing full config instead.", localIOException);
+      i &= d;
+      Object localObject = arrayOfObject[i];
+      if (localObject == null) {
+        return false;
       }
+      if (localObject.equals(paramObject)) {
+        return true;
+      }
+      i += 1;
     }
-    n().a(paramString, paramArrayOfByte);
+  }
+  
+  final bjb<E> d()
+  {
+    if (b == null) {
+      return bjb.e();
+    }
+    return new bkc(this, c);
+  }
+  
+  final boolean e()
+  {
     return true;
   }
   
-  final boolean b(String paramString1, String paramString2)
+  public final int hashCode()
   {
-    f();
-    b(paramString1);
-    paramString1 = (Map)b.get(paramString1);
-    if (paramString1 != null)
-    {
-      paramString1 = (Boolean)paramString1.get(paramString2);
-      if (paramString1 == null) {
-        return false;
-      }
-      return paramString1.booleanValue();
-    }
-    return false;
+    return e;
+  }
+  
+  public final int size()
+  {
+    return c.length;
   }
 }
 

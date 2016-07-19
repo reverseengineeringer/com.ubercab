@@ -1,29 +1,13 @@
-import android.annotation.TargetApi;
-import android.app.DownloadManager.Request;
-
-@TargetApi(9)
-public class arc
-  extends arb
+public final class arc
+  implements wa
 {
-  public arc()
-  {
-    super((byte)0);
-  }
+  public final String a;
+  public final int b;
   
-  public final int a()
+  private arc(ard paramard)
   {
-    return 6;
-  }
-  
-  public boolean a(DownloadManager.Request paramRequest)
-  {
-    paramRequest.setShowRunningNotification(true);
-    return true;
-  }
-  
-  public final int b()
-  {
-    return 7;
+    a = ard.a(paramard);
+    b = ard.b(paramard);
   }
 }
 

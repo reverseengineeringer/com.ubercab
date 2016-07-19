@@ -4,53 +4,40 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.TextUtils;
-import bky;
-import bkz;
-import bmh;
-import bmi;
-import bmj;
-import cho;
-import ckr;
+import bdf;
+import bdg;
+import bed;
+import chu;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.app.RiderApplication;
-import com.ubercab.client.core.model.Client;
-import com.ubercab.client.core.model.Ping;
 import com.ubercab.client.core.vendor.google.GoogleApiActivity;
-import dpy;
-import eav;
-import ebj;
-import ehl;
-import ehq;
-import eiz;
-import ejy;
-import eld;
-import erc;
-import eti;
-import gxe;
-import gxf;
-import gyr;
-import java.util.Locale;
+import duw;
+import ehn;
+import eib;
+import eqc;
+import err;
+import iim;
+import iin;
+import ike;
 import java.util.concurrent.Executor;
-import jse;
-import klo;
-import uw;
-import ws;
+import kia;
+import mxk;
+import oed;
+import up;
 
 public class SignupGoogleActivity
-  extends GoogleApiActivity<gyr>
+  extends GoogleApiActivity<ike>
 {
-  public eld i;
-  @Deprecated
-  public ehl j;
-  public RiderApplication k;
-  public ehq l;
-  public dpy m;
-  public jse n;
-  private Executor o;
-  private klo p;
-  private String q;
-  private SignupData r;
+  public kia i;
+  public RiderApplication j;
+  public eqc k;
+  public duw l;
+  public mxk m;
+  private Executor n;
+  private oed o;
+  private String p;
+  private SignupData q;
   
   private void a(SignupData paramSignupData)
   {
@@ -60,78 +47,28 @@ public class SignupGoogleActivity
     finish();
   }
   
-  private void a(gyr paramgyr)
+  private void a(ike paramike)
   {
-    paramgyr.a(this);
+    paramike.a(this);
   }
   
-  private void a(String paramString1, String paramString2, String paramString3)
+  private ike b(eib parameib)
   {
-    k.a(paramString1, paramString2, paramString3);
-    setResult(1);
-    finish();
-  }
-  
-  private gyr b(ebj paramebj)
-  {
-    return gxe.a().a(new eav(this)).a(paramebj).a();
-  }
-  
-  private void b(String paramString)
-  {
-    eti.a(this, q);
-    w();
-    a_(paramString);
-    setResult(0);
-  }
-  
-  private bmh h()
-  {
-    return bkz.g.a(g);
-  }
-  
-  private void i()
-  {
-    SignupData localSignupData = SignupData.n().a(g()).i(q);
-    if ((!TextUtils.isEmpty(m.i())) && (!TextUtils.isEmpty(m.f())))
-    {
-      localSignupData.b(erc.b(m.i(), m.f()));
-      localSignupData.c(m.f().toUpperCase(Locale.US));
-    }
-    bmh localbmh = h();
-    if (localbmh != null)
-    {
-      if (localbmh.g())
-      {
-        localSignupData.e(localbmh.f().e());
-        localSignupData.f(localbmh.f().d());
-      }
-      if ((localbmh.e()) && (localbmh.d().e())) {
-        localSignupData.g(localbmh.d().d());
-      }
-    }
-    if (localSignupData.o())
-    {
-      r = localSignupData;
-      b(getString(2131167227), null);
-      l.a(localSignupData.a(), localSignupData.b(), localSignupData.c(), "thisisnotarealpassword1234567$");
-      return;
-    }
-    a(localSignupData);
+    return iim.a().a(new ehn(this)).a(parameib).a();
   }
   
   final String a(String paramString1, String paramString2)
   {
     Bundle localBundle = new Bundle();
     localBundle.putBoolean("suppressProgressScreen", true);
-    return uw.a(this, paramString1, paramString2, localBundle);
+    return up.a(this, paramString1, paramString2, localBundle);
   }
   
   public final void a(Bundle paramBundle)
   {
-    SignupGoogleActivity.1 local1 = new SignupGoogleActivity.1(this, getResources().getString(2131167344));
-    if (o != null) {}
-    for (paramBundle = o;; paramBundle = AsyncTask.THREAD_POOL_EXECUTOR)
+    SignupGoogleActivity.1 local1 = new SignupGoogleActivity.1(this, getResources().getString(2131167855));
+    if (n != null) {}
+    for (paramBundle = n;; paramBundle = AsyncTask.THREAD_POOL_EXECUTOR)
     {
       local1.executeOnExecutor(paramBundle, new Void[0]);
       return;
@@ -141,52 +78,37 @@ public class SignupGoogleActivity
   public final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    b(getString(2131166015), null);
+    b(getString(2131166127), null);
   }
   
-  @cho
-  public void onLoginGoogleResponseEvent(eiz parameiz)
+  public final bed h()
   {
-    if (!g.d()) {
-      return;
-    }
-    if (parameiz.a())
-    {
-      parameiz = (Ping)parameiz.c();
-      a(parameiz.getClient().getUuid(), parameiz.getClient().getToken(), parameiz.getClient().getEmail());
-      return;
-    }
-    if (parameiz.d() != null)
-    {
-      b(parameiz.a(this));
-      return;
-    }
-    i();
+    return bdg.g.a(g);
   }
   
   public void onPause()
   {
     super.onPause();
-    if (p != null) {
-      p.c();
+    if (o != null) {
+      o.af_();
     }
   }
   
-  @cho
-  public void onValidateAccountResponseEvent(ejy paramejy)
+  @chu
+  public void onValidateAccountResponseEvent(err paramerr)
   {
-    w();
-    if ((!paramejy.i()) || (r == null))
+    x();
+    if ((!paramerr.i()) || (q == null))
     {
-      a_(getString(2131166036));
+      b_(getString(2131166153));
       setResult(0);
       finish();
       return;
     }
-    a(r);
+    a(q);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

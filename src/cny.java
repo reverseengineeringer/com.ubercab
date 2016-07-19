@@ -1,73 +1,38 @@
-import com.ubercab.android.location.UberLatLng;
-import com.ubercab.android.location.UberLatLngBounds;
+import android.net.TrafficStats;
+import android.os.Build.VERSION;
+import android.os.Process;
 
-public final class cny
+final class cny
 {
-  private final cnz a;
-  private UberLatLng b;
-  private UberLatLngBounds c;
-  private int d;
-  private float e;
+  private final int a = Process.myUid();
   
-  cny(float paramFloat)
+  public static cny a()
   {
-    a = cnz.f;
-    e = paramFloat;
+    return new cny();
   }
   
-  cny(UberLatLng paramUberLatLng)
+  private static boolean c()
   {
-    a = cnz.a;
-    b = paramUberLatLng;
+    return Build.VERSION.SDK_INT >= 18;
   }
   
-  cny(UberLatLng paramUberLatLng, float paramFloat)
+  public final long b()
   {
-    a = cnz.c;
-    b = paramUberLatLng;
-    e = paramFloat;
-  }
-  
-  cny(UberLatLngBounds paramUberLatLngBounds, int paramInt)
-  {
-    a = cnz.b;
-    c = paramUberLatLngBounds;
-    d = paramInt;
-  }
-  
-  cny(boolean paramBoolean)
-  {
-    if (paramBoolean) {}
-    for (cnz localcnz = cnz.d;; localcnz = cnz.e)
+    long l1;
+    if (c())
     {
-      a = localcnz;
-      return;
+      l1 = TrafficStats.getTotalTxBytes();
+      if (l1 != -1L) {}
     }
-  }
-  
-  public final cnz a()
-  {
-    return a;
-  }
-  
-  public final UberLatLng b()
-  {
-    return b;
-  }
-  
-  public final UberLatLngBounds c()
-  {
-    return c;
-  }
-  
-  public final int d()
-  {
-    return d;
-  }
-  
-  public final float e()
-  {
-    return e;
+    long l2;
+    do
+    {
+      return 0L;
+      return l1;
+      l1 = TrafficStats.getUidTcpTxBytes(a);
+      l2 = TrafficStats.getUidUdpTxBytes(a);
+    } while ((l1 == -1L) || (l2 == -1L));
+    return l1 + l2;
   }
 }
 

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.tray.TrayRiderDriverPromoLayout android:layout_width="fill_parent" android:layout_height="@dimen/ub__trip_tray_collapsed_item_height_small" style="@style/Style.Rider.Trip.Section.TopBorder"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:layout_gravity="center" android:id="@id/ub__rider_driver_promo_banner_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawableLeft="@drawable/ub__rider_driver_promo_wheel" android:drawablePadding="4.0dip" style="@style/Style.Rider.Trip.RiderDriverPromoBannerText" />
+</com.ubercab.client.feature.trip.tray.TrayRiderDriverPromoLayout>

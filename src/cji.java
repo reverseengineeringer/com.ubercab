@@ -1,69 +1,72 @@
-import android.graphics.Bitmap;
-import java.io.InputStream;
+import android.net.NetworkInfo;
+import java.util.concurrent.Future;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
-public final class cji
+final class cji
+  extends ThreadPoolExecutor
 {
-  private final ciy a;
-  private final Bitmap b;
-  private final InputStream c;
-  private final int d;
-  
-  public cji(Bitmap paramBitmap, ciy paramciy)
+  cji()
   {
-    this((Bitmap)cjs.a(paramBitmap, "bitmap == null"), null, paramciy, 0);
+    super(3, 3, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ckf());
   }
   
-  cji(Bitmap paramBitmap, InputStream paramInputStream, ciy paramciy, int paramInt)
+  private void a(int paramInt)
   {
-    int i;
-    if (paramBitmap != null)
+    setCorePoolSize(paramInt);
+    setMaximumPoolSize(paramInt);
+  }
+  
+  final void a(NetworkInfo paramNetworkInfo)
+  {
+    if ((paramNetworkInfo == null) || (!paramNetworkInfo.isConnectedOrConnecting()))
     {
-      i = 1;
-      if (paramInputStream == null) {
-        break label40;
-      }
+      a(3);
+      return;
     }
-    for (;;)
+    switch (paramNetworkInfo.getType())
     {
-      if ((j ^ i) != 0) {
-        break label46;
-      }
-      throw new AssertionError();
-      i = 0;
-      break;
-      label40:
-      j = 0;
+    default: 
+      a(3);
+      return;
+    case 1: 
+    case 6: 
+    case 9: 
+      a(4);
+      return;
     }
-    label46:
-    b = paramBitmap;
-    c = paramInputStream;
-    a = ((ciy)cjs.a(paramciy, "loadedFrom == null"));
-    d = paramInt;
+    switch (paramNetworkInfo.getSubtype())
+    {
+    case 7: 
+    case 8: 
+    case 9: 
+    case 10: 
+    case 11: 
+    default: 
+      a(3);
+      return;
+    case 13: 
+    case 14: 
+    case 15: 
+      a(3);
+      return;
+    case 3: 
+    case 4: 
+    case 5: 
+    case 6: 
+    case 12: 
+      a(2);
+      return;
+    }
+    a(1);
   }
   
-  public cji(InputStream paramInputStream, ciy paramciy)
+  public final Future<?> submit(Runnable paramRunnable)
   {
-    this(null, (InputStream)cjs.a(paramInputStream, "stream == null"), paramciy, 0);
-  }
-  
-  public final Bitmap a()
-  {
-    return b;
-  }
-  
-  public final InputStream b()
-  {
-    return c;
-  }
-  
-  public final ciy c()
-  {
-    return a;
-  }
-  
-  final int d()
-  {
-    return d;
+    paramRunnable = new cjj((chz)paramRunnable);
+    execute(paramRunnable);
+    return paramRunnable;
   }
 }
 

@@ -16,6 +16,14 @@
         <item quantity="few">@string/rating_bar_stars_content_description__few</item>
         <item quantity="many">@string/rating_bar_stars_content_description__many</item>
     </plurals>
+    <plurals name="share_your_ride_message_with_eta_and_create_family">
+        <item quantity="other">@string/share_your_ride_message_with_eta_and_create_family__other</item>
+        <item quantity="zero">@string/share_your_ride_message_with_eta_and_create_family__zero</item>
+        <item quantity="one">@string/share_your_ride_message_with_eta_and_create_family__one</item>
+        <item quantity="two">@string/share_your_ride_message_with_eta_and_create_family__two</item>
+        <item quantity="few">@string/share_your_ride_message_with_eta_and_create_family__few</item>
+        <item quantity="many">@string/share_your_ride_message_with_eta_and_create_family__many</item>
+    </plurals>
     <plurals name="share_your_ride_message_with_eta_to_destination">
         <item quantity="other">@string/share_your_ride_message_with_eta_to_destination__other</item>
         <item quantity="zero">@string/share_your_ride_message_with_eta_to_destination__zero</item>

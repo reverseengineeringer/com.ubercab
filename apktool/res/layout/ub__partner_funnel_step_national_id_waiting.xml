@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/ub__uber_white_20" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/ub__partner_funnel_national_id_waiting_scroll_view" android:paddingBottom="@dimen/ub__partner_funnel_step_standard_footer_margin" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <RelativeLayout android:orientation="vertical" android:id="@id/ub__partner_funnel_national_id_waiting_scroll_view_relative_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/ub__partner_funnel_national_id_waiting_header_imageview" android:background="@color/ub__partner_funnel_shadow_start_color" android:paddingLeft="@dimen/ub__partner_funnel_step_standard_header_picture_margin" android:paddingTop="@dimen/ub__partner_funnel_step_standard_header_margin" android:paddingRight="@dimen/ub__partner_funnel_step_standard_header_picture_margin" android:paddingBottom="@dimen/ub__partner_funnel_step_standard_header_margin" android:layout_width="fill_parent" android:layout_height="@dimen/ub__partner_funnel_step_standard_header_picture_height" android:scaleType="fitCenter" />
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Funnel.TextAppearance.H3" android:id="@id/ub__partner_funnel_national_id_waiting_message_text_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:layout_below="@id/ub__partner_funnel_national_id_waiting_header_imageview" />
+        </RelativeLayout>
+    </ScrollView>
+    <include android:id="@id/ub__partner_funnel_national_id_waiting_footer" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__partner_funnel_step_standard_footer" />
+</LinearLayout>

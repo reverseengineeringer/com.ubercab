@@ -1,45 +1,11 @@
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import android.os.IInterface;
 
-public abstract class agk
+public abstract interface agk
+  extends IInterface
 {
-  private static MessageDigest b = null;
-  protected Object a = new Object();
+  public abstract agn a(String paramString);
   
-  protected final MessageDigest a()
-  {
-    for (;;)
-    {
-      MessageDigest localMessageDigest;
-      int i;
-      synchronized (a)
-      {
-        if (b != null)
-        {
-          localMessageDigest = b;
-          return localMessageDigest;
-        }
-        i = 0;
-        if (i >= 2) {}
-      }
-      try
-      {
-        b = MessageDigest.getInstance("MD5");
-        i += 1;
-        continue;
-        localMessageDigest = b;
-        return localMessageDigest;
-        localObject2 = finally;
-        throw ((Throwable)localObject2);
-      }
-      catch (NoSuchAlgorithmException localNoSuchAlgorithmException)
-      {
-        for (;;) {}
-      }
-    }
-  }
-  
-  abstract byte[] a(String paramString);
+  public abstract boolean b(String paramString);
 }
 
 /* Location:

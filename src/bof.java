@@ -1,97 +1,86 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.Address;
+import com.google.gson.stream.JsonWriter;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public final class bof
-  implements Parcelable.Creator<Address>
+  extends bmq<Time>
 {
-  private static Address a(Parcel paramParcel)
+  public static final bmr a = new bmr()
   {
-    boolean bool = false;
-    String str1 = null;
-    int j = zm.b(paramParcel);
-    String str2 = null;
-    String str3 = null;
-    String str4 = null;
-    String str5 = null;
-    String str6 = null;
-    String str7 = null;
-    String str8 = null;
-    String str9 = null;
-    String str10 = null;
-    int i = 0;
-    while (paramParcel.dataPosition() < j)
+    public final <T> bmq<T> create(blw paramAnonymousblw, boj<T> paramAnonymousboj)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str10 = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        str9 = zm.n(paramParcel, k);
-        break;
-      case 4: 
-        str8 = zm.n(paramParcel, k);
-        break;
-      case 5: 
-        str7 = zm.n(paramParcel, k);
-        break;
-      case 6: 
-        str6 = zm.n(paramParcel, k);
-        break;
-      case 7: 
-        str5 = zm.n(paramParcel, k);
-        break;
-      case 8: 
-        str4 = zm.n(paramParcel, k);
-        break;
-      case 9: 
-        str3 = zm.n(paramParcel, k);
-        break;
-      case 10: 
-        str2 = zm.n(paramParcel, k);
-        break;
-      case 11: 
-        bool = zm.b(paramParcel, k);
-        break;
-      case 12: 
-        str1 = zm.n(paramParcel, k);
+      if (paramAnonymousboj.getRawType() == Time.class) {
+        return new bof();
       }
+      return null;
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new Address(i, str10, str9, str8, str7, str6, str5, str4, str3, str2, bool, str1);
+  };
+  private final DateFormat b = new SimpleDateFormat("hh:mm:ss a");
+  
+  /* Error */
+  private Time a(com.google.gson.stream.JsonReader paramJsonReader)
+  {
+    // Byte code:
+    //   0: aload_0
+    //   1: monitorenter
+    //   2: aload_1
+    //   3: invokevirtual 38	com/google/gson/stream/JsonReader:peek	()Lcom/google/gson/stream/JsonToken;
+    //   6: getstatic 44	com/google/gson/stream/JsonToken:NULL	Lcom/google/gson/stream/JsonToken;
+    //   9: if_acmpne +13 -> 22
+    //   12: aload_1
+    //   13: invokevirtual 47	com/google/gson/stream/JsonReader:nextNull	()V
+    //   16: aconst_null
+    //   17: astore_1
+    //   18: aload_0
+    //   19: monitorexit
+    //   20: aload_1
+    //   21: areturn
+    //   22: new 49	java/sql/Time
+    //   25: dup
+    //   26: aload_0
+    //   27: getfield 29	bof:b	Ljava/text/DateFormat;
+    //   30: aload_1
+    //   31: invokevirtual 53	com/google/gson/stream/JsonReader:nextString	()Ljava/lang/String;
+    //   34: invokevirtual 59	java/text/DateFormat:parse	(Ljava/lang/String;)Ljava/util/Date;
+    //   37: invokevirtual 65	java/util/Date:getTime	()J
+    //   40: invokespecial 68	java/sql/Time:<init>	(J)V
+    //   43: astore_1
+    //   44: goto -26 -> 18
+    //   47: astore_1
+    //   48: new 70	bmm
+    //   51: dup
+    //   52: aload_1
+    //   53: invokespecial 73	bmm:<init>	(Ljava/lang/Throwable;)V
+    //   56: athrow
+    //   57: astore_1
+    //   58: aload_0
+    //   59: monitorexit
+    //   60: aload_1
+    //   61: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	62	0	this	bof
+    //   0	62	1	paramJsonReader	com.google.gson.stream.JsonReader
+    // Exception table:
+    //   from	to	target	type
+    //   22	44	47	java/text/ParseException
+    //   2	16	57	finally
+    //   22	44	57	finally
+    //   48	57	57	finally
   }
   
-  public static void a(Address paramAddress, Parcel paramParcel)
+  private void a(JsonWriter paramJsonWriter, Time paramTime)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramAddress.a());
-    zo.a(paramParcel, 2, a, false);
-    zo.a(paramParcel, 3, b, false);
-    zo.a(paramParcel, 4, c, false);
-    zo.a(paramParcel, 5, d, false);
-    zo.a(paramParcel, 6, e, false);
-    zo.a(paramParcel, 7, f, false);
-    zo.a(paramParcel, 8, g, false);
-    zo.a(paramParcel, 9, h, false);
-    zo.a(paramParcel, 10, paramAddress.i, false);
-    zo.a(paramParcel, 11, j);
-    zo.a(paramParcel, 12, k, false);
-    zo.a(paramParcel, i);
-  }
-  
-  private static Address[] a(int paramInt)
-  {
-    return new Address[paramInt];
+    if (paramTime == null) {}
+    for (paramTime = null;; paramTime = b.format(paramTime)) {
+      try
+      {
+        paramJsonWriter.value(paramTime);
+        return;
+      }
+      finally {}
+    }
   }
 }
 

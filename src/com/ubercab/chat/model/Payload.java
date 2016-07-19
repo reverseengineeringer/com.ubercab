@@ -2,54 +2,73 @@ package com.ubercab.chat.model;
 
 import com.ubercab.chat.internal.validator.ChatValidatorFactory;
 import com.ubercab.chat.realtime.response.ChatPayload;
-import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
-@Shape
-@jdh(a=ChatValidatorFactory.class)
+@lzo(a=ChatValidatorFactory.class)
 public abstract class Payload
 {
-  public static final int UNKNOWN_DURATION = -1;
-  
-  static Payload create()
+  public static Payload createFromAbbrvMessage(AbbrvMessage paramAbbrvMessage)
   {
-    return new Shape_Payload().setStatus(Payload.Status.MISSING);
+    String str = paramAbbrvMessage.getTp();
+    int i = -1;
+    switch (str.hashCode())
+    {
+    }
+    for (;;)
+    {
+      switch (i)
+      {
+      default: 
+        throw new IllegalArgumentException("Invalid message type: " + paramAbbrvMessage.getTp());
+        if (str.equals("voice"))
+        {
+          i = 0;
+          continue;
+          if (str.equals("text")) {
+            i = 1;
+          }
+        }
+        break;
+      }
+    }
+    return AudioPayload.create(paramAbbrvMessage.getF(), paramAbbrvMessage.getD());
+    return TextPayload.create(paramAbbrvMessage.getF());
   }
   
-  public static Payload create(ChatPayload paramChatPayload)
+  public static Payload createFromServerResponse(ChatPayload paramChatPayload, String paramString)
   {
-    return new Shape_Payload().setEncodingFormat(paramChatPayload.getEncodingFormat()).setDurationMs(paramChatPayload.getDurationMs()).setStatus(Payload.Status.MISSING);
+    int i = -1;
+    switch (paramString.hashCode())
+    {
+    }
+    for (;;)
+    {
+      switch (i)
+      {
+      default: 
+        throw new IllegalArgumentException("Invalid message type: " + paramString);
+        if (paramString.equals("voice"))
+        {
+          i = 0;
+          continue;
+          if (paramString.equals("text")) {
+            i = 1;
+          }
+        }
+        break;
+      }
+    }
+    return AudioPayload.create(paramChatPayload.getEncodingFormat(), paramChatPayload.getDurationMs());
+    return TextPayload.create(paramChatPayload.getEncodingFormat());
   }
-  
-  public static Payload create(String paramString1, String paramString2, String paramString3)
-  {
-    return new Shape_Payload().setDurationMs(-1).setEncodingFormat(paramString1).setId(paramString2).setLocalPath(paramString3).setStatus(Payload.Status.MISSING);
-  }
-  
-  public String getContentType()
-  {
-    return "voice";
-  }
-  
-  public abstract int getDurationMs();
   
   public abstract String getEncodingFormat();
   
   public abstract String getId();
   
-  public abstract String getLocalPath();
+  public abstract void setEncodingFormat(String paramString);
   
-  public abstract Payload.Status getStatus();
-  
-  public abstract Payload setDurationMs(int paramInt);
-  
-  public abstract Payload setEncodingFormat(String paramString);
-  
-  public abstract Payload setId(String paramString);
-  
-  public abstract Payload setLocalPath(String paramString);
-  
-  public abstract Payload setStatus(Payload.Status paramStatus);
+  public abstract void setId(String paramString);
 }
 
 /* Location:

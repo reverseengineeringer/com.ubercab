@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ubercab.client.feature.trip.summary.TripSummaryTabView android:layout_width="fill_parent" android:layout_height="fill_parent"
+<com.ubercab.client.feature.trip.summary.TripSummaryTabView android:background="@drawable/ub__trip_summary_tabview_background_selector" android:layout_width="wrap_content" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ub__trip_summary_tab_content_container" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
-        <com.ubercab.ui.TextView android:id="@id/ub__trip_summary_tab_content" style="@style/Style.Rider.Trip.Summary.ItemText" />
-        <com.ubercab.ui.TextView android:id="@id/ub__trip_summary_tab_footer" android:visibility="gone" android:text="@string/trip_summary_fare_footer_message" style="@style/Style.Rider.Trip.Summary.ItemText" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/ub__trip_summary_tab_content_container" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:id="@id/ub__trip_summary_tab_content" style="@style/Style.Rider.Trip.Summary.ItemText" />
+            <com.ubercab.ui.TextView android:id="@id/ub__trip_summary_tab_footer" android:visibility="visible" android:text="@string/trip_summary_fare_footer_message" style="@style/Style.Rider.Trip.Summary.ItemText" />
+        </LinearLayout>
+        <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:layout_gravity="center_vertical" android:id="@id/ub__trip_summary_tab_note" android:background="@drawable/ub__promo_code_background" android:visibility="gone" android:layout_width="wrap_content" style="@style/Style.Rider.Trip.Summary.ItemText" />
     </LinearLayout>
+    <ProgressBar android:layout_gravity="center" android:id="@id/ub__trip_summary_loading_bar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:indeterminate="true" />
 </com.ubercab.client.feature.trip.summary.TripSummaryTabView>

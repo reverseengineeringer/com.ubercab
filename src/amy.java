@@ -1,47 +1,28 @@
-import java.util.Map;
-
-@apl
-public final class amy
+public class amy
+  extends Exception
 {
-  private final asq a;
-  private final boolean b;
-  private final String c;
+  public final aij a;
+  private long b;
   
-  public amy(asq paramasq, Map<String, String> paramMap)
+  public amy()
   {
-    a = paramasq;
-    c = ((String)paramMap.get("forceOrientation"));
-    if (paramMap.containsKey("allowOrientationChange"))
-    {
-      b = Boolean.parseBoolean((String)paramMap.get("allowOrientationChange"));
-      return;
-    }
-    b = true;
+    a = null;
   }
   
-  public final void a()
+  public amy(aij paramaij)
   {
-    if (a == null)
-    {
-      aqt.d("AdWebView is null");
-      return;
-    }
-    int i;
-    if ("portrait".equalsIgnoreCase(c)) {
-      i = tp.g().b();
-    }
-    for (;;)
-    {
-      a.b(i);
-      return;
-      if ("landscape".equalsIgnoreCase(c)) {
-        i = tp.g().a();
-      } else if (b) {
-        i = -1;
-      } else {
-        i = tp.g().c();
-      }
-    }
+    a = paramaij;
+  }
+  
+  public amy(Throwable paramThrowable)
+  {
+    super(paramThrowable);
+    a = null;
+  }
+  
+  final void a(long paramLong)
+  {
+    b = paramLong;
   }
 }
 

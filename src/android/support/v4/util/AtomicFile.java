@@ -138,7 +138,7 @@ public class AtomicFile
       catch (FileNotFoundException localFileNotFoundException1)
       {
         label85:
-        if (mBaseName.getParentFile().mkdir()) {
+        if (mBaseName.getParentFile().mkdirs()) {
           continue;
         }
         throw new IOException("Couldn't create directory " + mBaseName);

@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jty;
+import mzg;
 
 @Shape
 abstract class ObjectNearbyVehicle
-  implements jty
+  implements mzg
 {
   public static ObjectNearbyVehicle create()
   {

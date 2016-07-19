@@ -1,54 +1,103 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.internal.ResolveAccountResponse;
-import com.google.android.gms.signin.internal.SignInResponse;
+import java.io.Serializable;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.Arrays;
 
-public final class bna
-  implements Parcelable.Creator<SignInResponse>
+final class bna
+  implements Serializable, ParameterizedType
 {
-  private static SignInResponse a(Parcel paramParcel)
+  private static final long serialVersionUID = 0L;
+  private final Type a;
+  private final Type b;
+  private final Type[] c;
+  
+  public bna(Type paramType1, Type paramType2, Type... paramVarArgs)
   {
-    int j = zm.b(paramParcel);
-    ConnectionResult localConnectionResult = null;
-    int i = 0;
-    ResolveAccountResponse localResolveAccountResponse = null;
-    while (paramParcel.dataPosition() < j)
+    int i;
+    boolean bool;
+    if ((paramType2 instanceof Class))
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      Class localClass = (Class)paramType2;
+      if ((Modifier.isStatic(localClass.getModifiers())) || (localClass.getEnclosingClass() == null))
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        localConnectionResult = (ConnectionResult)zm.a(paramParcel, k, ConnectionResult.CREATOR);
-        break;
-      case 3: 
-        localResolveAccountResponse = (ResolveAccountResponse)zm.a(paramParcel, k, ResolveAccountResponse.CREATOR);
+        i = 1;
+        if ((paramType1 == null) && (i == 0)) {
+          break label156;
+        }
+        bool = true;
+        label54:
+        bmx.a(bool);
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    else
+    {
+      if (paramType1 != null) {
+        break label162;
+      }
     }
-    return new SignInResponse(i, localConnectionResult, localResolveAccountResponse);
+    label156:
+    label162:
+    for (paramType1 = null;; paramType1 = bmy.a(paramType1))
+    {
+      a = paramType1;
+      b = bmy.a(paramType2);
+      c = ((Type[])paramVarArgs.clone());
+      i = j;
+      while (i < c.length)
+      {
+        bmx.a(c[i]);
+        bmy.e(c[i]);
+        c[i] = bmy.a(c[i]);
+        i += 1;
+      }
+      i = 0;
+      break;
+      bool = false;
+      break label54;
+    }
   }
   
-  public static void a(SignInResponse paramSignInResponse, Parcel paramParcel, int paramInt)
+  public final boolean equals(Object paramObject)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, paramSignInResponse.a(), paramInt, false);
-    zo.a(paramParcel, 3, paramSignInResponse.b(), paramInt, false);
-    zo.a(paramParcel, i);
+    return ((paramObject instanceof ParameterizedType)) && (bmy.a(this, (ParameterizedType)paramObject));
   }
   
-  private static SignInResponse[] a(int paramInt)
+  public final Type[] getActualTypeArguments()
   {
-    return new SignInResponse[paramInt];
+    return (Type[])c.clone();
+  }
+  
+  public final Type getOwnerType()
+  {
+    return a;
+  }
+  
+  public final Type getRawType()
+  {
+    return b;
+  }
+  
+  public final int hashCode()
+  {
+    return Arrays.hashCode(c) ^ b.hashCode() ^ bmy.a(a);
+  }
+  
+  public final String toString()
+  {
+    StringBuilder localStringBuilder = new StringBuilder((c.length + 1) * 30);
+    localStringBuilder.append(bmy.c(b));
+    if (c.length == 0) {
+      return localStringBuilder.toString();
+    }
+    localStringBuilder.append("<").append(bmy.c(c[0]));
+    int i = 1;
+    while (i < c.length)
+    {
+      localStringBuilder.append(", ").append(bmy.c(c[i]));
+      i += 1;
+    }
+    return ">";
   }
 }
 

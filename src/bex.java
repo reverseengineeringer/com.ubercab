@@ -1,9 +1,33 @@
-import android.os.IInterface;
+import com.google.android.gms.wallet.Cart;
+import com.google.android.gms.wallet.LineItem;
+import java.util.ArrayList;
 
-public abstract interface bex
-  extends IInterface
+public final class bex
 {
-  public abstract void a();
+  private bex(Cart paramCart) {}
+  
+  public final bex a(LineItem paramLineItem)
+  {
+    a.c.add(paramLineItem);
+    return this;
+  }
+  
+  public final bex a(String paramString)
+  {
+    a.a = paramString;
+    return this;
+  }
+  
+  public final Cart a()
+  {
+    return a;
+  }
+  
+  public final bex b(String paramString)
+  {
+    a.b = paramString;
+    return this;
+  }
 }
 
 /* Location:

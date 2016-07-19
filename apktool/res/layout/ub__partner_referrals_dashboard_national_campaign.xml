@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@color/ub__partner_referrals_dashboard_national_campaign_bg_color" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/ub__partner_referrals_national_campaign_down_arrow" android:layout_width="20.0dip" android:layout_height="20.0dip" />
+    <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:id="@id/ub__partner_referrals_dashboard_national_campaign_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:drawableLeft="@drawable/ub__partner_referrals_national_campaign_banner_icon" android:drawablePadding="@dimen/ui__spacing_unit_1x" style="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P" />
+    <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__partner_referrals_learn_more" android:drawableRight="@drawable/ub__partner_referrals_national_campaign_chevron" android:textAllCaps="true" style="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P.Bold.Small" />
+</LinearLayout>

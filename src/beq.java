@@ -1,75 +1,130 @@
+import android.accounts.Account;
+import android.os.Binder;
 import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.internal.AuthAccountRequest;
+import com.google.android.gms.common.internal.ResolveAccountRequest;
+import com.google.android.gms.signin.internal.CheckServerAuthResult;
+import com.google.android.gms.signin.internal.RecordConsentRequest;
+import com.google.android.gms.signin.internal.SignInRequest;
 
-final class beq
-  implements beo
+public abstract class beq
+  extends Binder
+  implements bep
 {
-  private IBinder a;
-  
-  beq(IBinder paramIBinder)
+  public static bep a(IBinder paramIBinder)
   {
-    a = paramIBinder;
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.signin.internal.ISignInService");
+    if ((localIInterface != null) && ((localIInterface instanceof bep))) {
+      return (bep)localIInterface;
+    }
+    return new ber(paramIBinder);
   }
   
-  /* Error */
-  public final void a(bhk parambhk)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +42 -> 57
-    //   18: aload_1
-    //   19: invokeinterface 35 1 0
-    //   24: astore_1
-    //   25: aload_2
-    //   26: aload_1
-    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   30: aload_0
-    //   31: getfield 15	beq:a	Landroid/os/IBinder;
-    //   34: iconst_1
-    //   35: aload_2
-    //   36: aload_3
-    //   37: iconst_0
-    //   38: invokeinterface 44 5 0
-    //   43: pop
-    //   44: aload_3
-    //   45: invokevirtual 47	android/os/Parcel:readException	()V
-    //   48: aload_3
-    //   49: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   52: aload_2
-    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   56: return
-    //   57: aconst_null
-    //   58: astore_1
-    //   59: goto -34 -> 25
-    //   62: astore_1
-    //   63: aload_3
-    //   64: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   67: aload_2
-    //   68: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   71: aload_1
-    //   72: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	73	0	this	beq
-    //   0	73	1	parambhk	bhk
-    //   3	65	2	localParcel1	android.os.Parcel
-    //   7	57	3	localParcel2	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	62	finally
-    //   18	25	62	finally
-    //   25	48	62	finally
-  }
-  
-  public final IBinder asBinder()
-  {
-    return a;
+    boolean bool = false;
+    Object localObject2 = null;
+    Object localObject3 = null;
+    Object localObject4 = null;
+    Object localObject5 = null;
+    Object localObject6 = null;
+    Object localObject1 = null;
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.signin.internal.ISignInService");
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = (AuthAccountRequest)AuthAccountRequest.CREATOR.createFromParcel(paramParcel1);
+      }
+      a((AuthAccountRequest)localObject1, ben.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+      localObject1 = localObject2;
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = (CheckServerAuthResult)CheckServerAuthResult.CREATOR.createFromParcel(paramParcel1);
+      }
+      a((CheckServerAuthResult)localObject1);
+      paramParcel2.writeNoException();
+      return true;
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+      if (paramParcel1.readInt() != 0) {}
+      for (bool = true;; bool = false)
+      {
+        a(bool);
+        paramParcel2.writeNoException();
+        return true;
+      }
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+      localObject1 = localObject3;
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = (ResolveAccountRequest)ResolveAccountRequest.CREATOR.createFromParcel(paramParcel1);
+      }
+      a((ResolveAccountRequest)localObject1, aaz.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 7: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+      a(paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      return true;
+    case 8: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+      paramInt1 = paramParcel1.readInt();
+      localObject1 = localObject4;
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = (Account)Account.CREATOR.createFromParcel(paramParcel1);
+      }
+      a(paramInt1, (Account)localObject1, ben.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 9: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+      localObject1 = aan.a(paramParcel1.readStrongBinder());
+      paramInt1 = paramParcel1.readInt();
+      if (paramParcel1.readInt() != 0) {
+        bool = true;
+      }
+      a((aam)localObject1, paramInt1, bool);
+      paramParcel2.writeNoException();
+      return true;
+    case 10: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+      localObject1 = localObject5;
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = (RecordConsentRequest)RecordConsentRequest.CREATOR.createFromParcel(paramParcel1);
+      }
+      a((RecordConsentRequest)localObject1, ben.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 11: 
+      paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+      a(ben.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+    localObject1 = localObject6;
+    if (paramParcel1.readInt() != 0) {
+      localObject1 = (SignInRequest)SignInRequest.CREATOR.createFromParcel(paramParcel1);
+    }
+    a((SignInRequest)localObject1, ben.a(paramParcel1.readStrongBinder()));
+    paramParcel2.writeNoException();
+    return true;
   }
 }
 

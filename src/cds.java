@@ -1,14 +1,15 @@
-import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
-import java.util.TimerTask;
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.PaymentMethodActivity;
 
-final class cds
-  extends TimerTask
+public final class cds
+  implements View.OnClickListener
 {
-  cds(cdr paramcdr) {}
+  public cds(PaymentMethodActivity paramPaymentMethodActivity) {}
   
-  public final void run()
+  public final void onClick(View paramView)
   {
-    PayPalFuturePaymentActivity.e(a.a);
+    PaymentMethodActivity.d(a);
   }
 }
 

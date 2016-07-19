@@ -1,24 +1,43 @@
-import java.util.regex.Pattern;
+import android.os.Build;
+import java.io.File;
 
 public final class bsj
 {
-  private bsk<String, Pattern> a;
+  private static brc a = new brc();
   
-  public bsj(int paramInt)
+  public static boolean a()
   {
-    a = new bsk(paramInt);
+    boolean bool = false;
+    if ((Build.TAGS != null) && (Build.TAGS.contains("test-keys"))) {}
+    for (int i = 1;; i = 0)
+    {
+      if ((i != 0) || (b()) || (c())) {
+        bool = true;
+      }
+      return bool;
+    }
   }
   
-  public final Pattern a(String paramString)
+  private static boolean b()
   {
-    Pattern localPattern2 = (Pattern)a.a(paramString);
-    Pattern localPattern1 = localPattern2;
-    if (localPattern2 == null)
+    try
     {
-      localPattern1 = Pattern.compile(paramString);
-      a.a(paramString, localPattern1);
+      boolean bool = new File(brc.a("suFileName")).exists();
+      return bool;
     }
-    return localPattern1;
+    catch (Exception localException) {}
+    return false;
+  }
+  
+  private static boolean c()
+  {
+    try
+    {
+      boolean bool = new File(brc.a("superUserApk")).exists();
+      return bool;
+    }
+    catch (Exception localException) {}
+    return false;
   }
 }
 

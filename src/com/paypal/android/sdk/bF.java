@@ -3,23 +3,23 @@ package com.paypal.android.sdk;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
-import bvl;
-import bvp;
-import bvq;
-import bvr;
-import byl;
-import bze;
+import btf;
+import btj;
+import btk;
+import btl;
+import bwf;
+import bwy;
 import java.util.Date;
 
 public final class bF
-  extends bvp
+  extends btj
   implements Parcelable
 {
-  public static final Parcelable.Creator CREATOR = new bvq();
+  public static final Parcelable.Creator CREATOR = new btk();
   private String b;
   private Date c;
   private String d;
-  private bvr e;
+  private btl e;
   private int f;
   private int g;
   
@@ -31,14 +31,14 @@ public final class bF
     b = paramParcel.readString();
     d = paramParcel.readString();
     c = ((Date)paramParcel.readSerializable());
-    e = ((bvr)paramParcel.readSerializable());
+    e = ((btl)paramParcel.readSerializable());
     f = paramParcel.readInt();
     g = paramParcel.readInt();
   }
   
-  public bF(bvl parambvl, String paramString1, String paramString2, Date paramDate, String paramString3, String paramString4, int paramInt1, int paramInt2)
+  public bF(btf parambtf, String paramString1, String paramString2, Date paramDate, String paramString3, String paramString4, int paramInt1, int paramInt2)
   {
-    a = parambvl.b(paramString2);
+    a = parambtf.b(paramString2);
     b = paramString1;
     c = paramDate;
     b(paramString3);
@@ -51,7 +51,7 @@ public final class bF
   {
     a = paramString2;
     b = paramString1;
-    c = byl.a(paramString3);
+    c = bwf.a(paramString3);
     b(paramString4);
     c(paramString5);
     f = paramInt1;
@@ -78,12 +78,12 @@ public final class bF
   
   private void c(String paramString)
   {
-    e = bvr.a(paramString);
+    e = btl.a(paramString);
   }
   
   public final boolean b()
   {
-    return (!bze.a(b)) && (!bze.a(d)) && (!bze.a(a)) && (c != null) && (!c.before(new Date())) && (e != null) && (e != bvr.a) && (f > 0) && (f <= 12) && (g >= 0) && (g <= 9999);
+    return (!bwy.a(b)) && (!bwy.a(d)) && (!bwy.a(a)) && (c != null) && (!c.before(new Date())) && (e != null) && (e != btl.a) && (f > 0) && (f <= 12) && (g >= 0) && (g <= 9999);
   }
   
   public final Date c()
@@ -116,7 +116,7 @@ public final class bF
     return g;
   }
   
-  public final bvr h()
+  public final btl h()
   {
     return e;
   }

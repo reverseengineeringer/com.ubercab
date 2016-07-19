@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,15 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
-import chh;
-import cho;
-import ciu;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import cja;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.model.SafetyNetContact;
 import com.ubercab.client.core.model.SafetyNetContactBuilder;
@@ -31,74 +29,73 @@ import com.ubercab.client.core.ui.ChipEditText;
 import com.ubercab.client.core.ui.ChipEditText.Chip;
 import com.ubercab.client.feature.safetynet.contactpicker.ContactPickerNoPermissionAdapter;
 import com.ubercab.ui.TextView;
-import dps;
-import dsh;
-import dux;
-import ebj;
-import efr;
-import eot;
-import eox;
-import epa;
-import erc;
-import erh;
-import gpn;
-import gpo;
-import gpz;
-import gqb;
-import gqf;
-import gqp;
-import gqs;
-import gqt;
-import gqz;
-import grd;
-import grg;
-import grh;
-import grk;
-import iaj;
-import idj;
-import idk;
-import ife;
+import duq;
+import dxm;
+import eib;
+import enk;
+import ews;
+import eww;
+import exc;
+import ezh;
+import ezl;
+import hys;
+import hyt;
+import hze;
+import hzh;
+import hzo;
+import iab;
+import iaf;
+import iag;
+import iao;
+import ias;
+import iav;
+import iaw;
+import iaz;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import p;
-import r;
+import kct;
+import kgb;
+import kgc;
+import kia;
+import x;
+import z;
 
 public class SafetyNetConfiguredShareTripFragment
-  extends dsh<gqb>
-  implements eot
+  extends dxm<hzh>
+  implements ews
 {
-  public ckc c;
-  public chh d;
-  public ife e;
-  public idk f;
-  public ciu g;
-  public gqf h;
-  idj i;
+  public ckt c;
+  public chn d;
+  public kia e;
+  public kgc f;
+  public cja g;
+  public hzo h;
+  kgb i;
   private int j;
   private boolean k;
   private Boolean l;
   private String m;
-  @InjectView(2131625426)
-  View mContactPickerView;
-  @InjectView(2131625428)
-  ChipEditText mEditTextInvitees;
-  @InjectView(2131625431)
-  TextView mFooterView;
-  @InjectView(2131625432)
-  TextView mFooterViewShare;
-  @InjectView(2131625429)
-  ListView mListView;
-  @InjectView(2131625433)
-  ProgressBar mProgressLoading;
-  @InjectView(2131625427)
-  TextView mTextViewLimitReached;
+  @BindView
+  public View mContactPickerView;
+  @BindView
+  public ChipEditText mEditTextInvitees;
+  @BindView
+  public TextView mFooterView;
+  @BindView
+  public TextView mFooterViewShare;
+  @BindView
+  public ListView mListView;
+  @BindView
+  public ProgressBar mProgressLoading;
+  @BindView
+  public TextView mTextViewLimitReached;
   private MenuItem n;
-  private epa o;
-  private gpz p;
-  private gqt q;
+  private exc o;
+  private hze p;
+  private iag q;
   
   private ChipEditText.Chip a(String paramString)
   {
@@ -110,10 +107,10 @@ public class SafetyNetConfiguredShareTripFragment
     localObject2 = mEditTextInvitees.b(paramString);
     Object localObject1 = localObject2;
     if (localObject2 == null) {
-      localObject1 = mEditTextInvitees.b(erc.b(paramString, null));
+      localObject1 = mEditTextInvitees.b(ezh.b(paramString, null));
     }
     if (localObject1 == null) {
-      localObject1 = mEditTextInvitees.b(erc.d(paramString, null));
+      localObject1 = mEditTextInvitees.b(ezh.d(paramString, null));
     }
     for (;;)
     {
@@ -121,7 +118,7 @@ public class SafetyNetConfiguredShareTripFragment
       if (localObject1 != null) {
         break;
       }
-      return mEditTextInvitees.b(erc.c(paramString, str));
+      return mEditTextInvitees.b(ezh.c(paramString, str));
     }
   }
   
@@ -129,31 +126,40 @@ public class SafetyNetConfiguredShareTripFragment
   {
     if ((l != null) && (l.booleanValue()))
     {
-      q = new gqt(getActivity(), g, true);
-      mEditTextInvitees.setAdapter(new gqt(getActivity(), g, false));
+      q = new iag(getActivity(), g, true);
+      mEditTextInvitees.setAdapter(new iag(getActivity(), g, false));
     }
-    for (iaj localiaj = iaj.a(p, q);; localiaj = iaj.a(p, new ContactPickerNoPermissionAdapter(getActivity(), d)))
+    for (kct localkct = kct.a(p, q);; localkct = kct.a(p, new ContactPickerNoPermissionAdapter(getActivity(), d)))
     {
-      List localList = Arrays.asList(new String[] { getString(2131166356).toUpperCase(), getString(2131166367).toUpperCase() });
-      o = new epa(getActivity(), localiaj, localList);
-      o.c(getResources().getDimensionPixelSize(2131296568));
+      List localList = Arrays.asList(new String[] { getString(2131166591).toUpperCase(), getString(2131166601).toUpperCase() });
+      o = new exc(getActivity(), localkct, localList);
+      o.c(getResources().getDimensionPixelSize(2131296782));
       return;
       q = null;
       mEditTextInvitees.setAdapter(null);
     }
   }
   
-  private void a(gqb paramgqb)
+  private void a(hzh paramhzh)
   {
-    paramgqb.a(this);
+    paramhzh.a(this);
   }
   
-  private gqb b(ebj paramebj)
+  private hzh b(eib parameib)
   {
-    return gpn.a().a(new efr(this)).a(paramebj).a();
+    return hys.a().a(new enk(this)).a(parameib).a();
   }
   
-  private void b()
+  private void d(String paramString)
+  {
+    if (!TextUtils.isEmpty(paramString))
+    {
+      m = paramString;
+      mFooterViewShare.setVisibility(0);
+    }
+  }
+  
+  private void f()
   {
     String str1 = h.m();
     ArrayList localArrayList = new ArrayList();
@@ -162,45 +168,27 @@ public class SafetyNetConfiguredShareTripFragment
     {
       Object localObject = (ChipEditText.Chip)localIterator.next();
       String str2 = ((ChipEditText.Chip)localObject).b().getString("name");
-      localObject = erc.c(((ChipEditText.Chip)localObject).b().getString("number"), str1);
+      localObject = ezh.c(((ChipEditText.Chip)localObject).b().getString("number"), str1);
       String str3 = h.a((String)localObject);
       localArrayList.add(new SafetyNetContactBuilder().setId(str3).setName(str2).setPhone((String)localObject).build());
     }
-    dps.b(getActivity(), mEditTextInvitees);
-    d.c(new grk(localArrayList));
-  }
-  
-  private void d(String paramString)
-  {
-    if (!TextUtils.isEmpty(paramString))
-    {
-      if (!e.b(dux.hv))
-      {
-        m = paramString;
-        mFooterViewShare.setVisibility(0);
-      }
-    }
-    else {
-      return;
-    }
-    mFooterView.setText(gqs.a(getActivity(), getString(2131166359), paramString));
-    mFooterView.setMovementMethod(LinkMovementMethod.getInstance());
-    mFooterView.setVisibility(0);
+    duq.b(getActivity(), mEditTextInvitees);
+    d.c(new iaz(localArrayList));
   }
   
   private void g()
   {
     j = 10;
     List localList = h.e();
-    gqp localgqp = h.g();
-    if ((localList == null) || (localgqp == null) || (l == null))
+    iab localiab = h.g();
+    if ((localList == null) || (localiab == null) || (l == null))
     {
       mContactPickerView.setVisibility(8);
       mProgressLoading.setVisibility(0);
       return;
     }
     p.a(localList);
-    j -= localgqp.b();
+    j -= localiab.b();
     mEditTextInvitees.a(j);
     mListView.setAdapter(o);
     mListView.setVisibility(0);
@@ -238,9 +226,9 @@ public class SafetyNetConfiguredShareTripFragment
     h();
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return p.kP;
+    return x.oK;
   }
   
   public void onActivityCreated(Bundle paramBundle)
@@ -249,40 +237,39 @@ public class SafetyNetConfiguredShareTripFragment
     setHasOptionsMenu(true);
   }
   
-  @OnClick({2131625432})
+  @OnClick
   public void onClickFooterShare()
   {
-    gqs.a(getActivity(), m);
-    c.a(r.hx);
+    iaf.a(getActivity(), m);
+    c.a(z.kD);
   }
   
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
-    paramMenuInflater.inflate(2131755031, paramMenu);
-    n = paramMenu.findItem(2131626153);
-    n.setTitle(getString(2131166385));
+    paramMenuInflater.inflate(2131755034, paramMenu);
+    n = paramMenu.findItem(2131626909);
+    n.setTitle(getString(2131166620));
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903549, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903759, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
   }
   
   public void onDestroyView()
   {
-    super.onDestroyView();
-    if ((e.a(dux.aT, true)) && (i != null))
+    if (i != null)
     {
       i.a();
       i = null;
     }
     mEditTextInvitees.a(null);
-    ButterKnife.reset(this);
+    super.onDestroyView();
   }
   
-  @OnItemClick({2131625429})
+  @OnItemClick
   public void onItemClick(int paramInt)
   {
     Object localObject1 = o.getItem(paramInt);
@@ -293,7 +280,7 @@ public class SafetyNetConfiguredShareTripFragment
       localObject2 = ((SafetyNetContact)localObject1).getPhone();
       localObject1 = localObject2;
       if (!TextUtils.isEmpty((CharSequence)localObject2)) {
-        localObject1 = erc.c((String)localObject2, str);
+        localObject1 = ezh.c((String)localObject2, str);
       }
     }
     for (;;)
@@ -321,9 +308,9 @@ public class SafetyNetConfiguredShareTripFragment
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if ((paramMenuItem.getItemId() == 2131626153) && (!mEditTextInvitees.a()))
+    if ((paramMenuItem.getItemId() == 2131626909) && (!mEditTextInvitees.a()))
     {
-      b();
+      f();
       return true;
     }
     return false;
@@ -377,8 +364,8 @@ public class SafetyNetConfiguredShareTripFragment
   public void onResume()
   {
     super.onResume();
-    d().b().a(getString(2131166357).toUpperCase());
-    if ((l != null) && (idk.a(getContext(), "android.permission.READ_CONTACTS") != l.booleanValue())) {
+    b().b().a(getString(2131166592).toUpperCase());
+    if ((l != null) && (kgc.a(getContext(), "android.permission.READ_CONTACTS") != l.booleanValue())) {
       if (l.booleanValue()) {
         break label85;
       }
@@ -394,32 +381,32 @@ public class SafetyNetConfiguredShareTripFragment
     }
   }
   
-  @cho
-  public void onSafetyNetContactsUpdatedEvent(grd paramgrd)
+  @chu
+  public void onSafetyNetContactsUpdatedEvent(ias paramias)
   {
     if (!k) {
       g();
     }
   }
   
-  @cho
-  public void onSafetyNetShareTripContactsUpdatedEvent(grh paramgrh)
+  @chu
+  public void onSafetyNetShareTripContactsUpdatedEvent(iaw paramiaw)
   {
     if (!k) {
       g();
     }
   }
   
-  @cho
-  public void onSafetyNetShareTripUrlUpdatedEvent(grg paramgrg)
+  @chu
+  public void onSafetyNetShareTripUrlUpdatedEvent(iav paramiav)
   {
-    d(paramgrg.a());
+    d(paramiav.a());
   }
   
-  @cho
-  public void onSettingsClickedEvent(gqz paramgqz)
+  @chu
+  public void onSettingsClickedEvent(iao paramiao)
   {
-    erh.a(getActivity());
+    ezl.b(getActivity());
   }
   
   public void onStart()
@@ -432,23 +419,18 @@ public class SafetyNetConfiguredShareTripFragment
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
-    p = new gpz(getActivity(), g);
-    mEditTextInvitees.a(new eox(getActivity()));
+    p = new hze(getActivity(), g);
+    mEditTextInvitees.a(new eww(getActivity()));
     mEditTextInvitees.a(this);
     mListView.setFastScrollEnabled(true);
-    paramView = d();
-    if ((paramView == null) || (idk.a(getContext(), "android.permission.READ_CONTACTS")))
+    paramView = b();
+    if ((paramView == null) || (kgc.a(getContext(), "android.permission.READ_CONTACTS")))
     {
       l = Boolean.TRUE;
       a();
       return;
     }
-    if (e.a(dux.aT, true))
-    {
-      i = f.a(paramView, 105, new SafetyNetConfiguredShareTripFragment.1(this), new String[] { "android.permission.READ_CONTACTS" });
-      return;
-    }
-    f.a(paramView, 105, new SafetyNetConfiguredShareTripFragment.2(this), new String[] { "android.permission.READ_CONTACTS" });
+    i = f.a(paramView, 105, new SafetyNetConfiguredShareTripFragment.1(this), new String[] { "android.permission.READ_CONTACTS" });
   }
 }
 

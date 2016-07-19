@@ -1,14 +1,16 @@
 package com.ubercab.client.core.model;
 
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import jdh;
+import com.ubercab.rider.realtime.response.GiveGetSnake;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class ClientSignupResponse
 {
   String email;
   String error;
   String first_name;
+  GiveGetSnake give_get_description;
   String last_name;
   String mobile;
   String token;
@@ -78,14 +80,23 @@ public class ClientSignupResponse
           return false;
         }
       }
-      if (uuid == null) {
+      if (uuid != null)
+      {
+        if (uuid.equals(uuid)) {}
+      }
+      else {
+        while (uuid != null) {
+          return false;
+        }
+      }
+      if (give_get_description == null) {
         break;
       }
-    } while (uuid.equals(uuid));
+    } while (give_get_description.equals(give_get_description));
     for (;;)
     {
       return false;
-      if (uuid == null) {
+      if (give_get_description == null) {
         break;
       }
     }
@@ -104,6 +115,11 @@ public class ClientSignupResponse
   public String getFirstName()
   {
     return first_name;
+  }
+  
+  public GiveGetSnake getGiveGetDescription()
+  {
+    return give_get_description;
   }
   
   public String getLastName()
@@ -128,7 +144,7 @@ public class ClientSignupResponse
   
   public int hashCode()
   {
-    int i2 = 0;
+    int i3 = 0;
     int i;
     int j;
     label33:
@@ -137,41 +153,48 @@ public class ClientSignupResponse
     int m;
     label64:
     int n;
+    label80:
+    int i1;
     if (error != null)
     {
       i = error.hashCode();
       if (uuid == null) {
-        break label153;
+        break label175;
       }
       j = uuid.hashCode();
       if (email == null) {
-        break label158;
+        break label180;
       }
       k = email.hashCode();
       if (mobile == null) {
-        break label163;
+        break label185;
       }
       m = mobile.hashCode();
       if (first_name == null) {
-        break label169;
+        break label191;
       }
       n = first_name.hashCode();
-      label80:
       if (last_name == null) {
-        break label175;
+        break label197;
+      }
+      i1 = last_name.hashCode();
+      label96:
+      if (token == null) {
+        break label203;
       }
     }
-    label153:
-    label158:
-    label163:
-    label169:
     label175:
-    for (int i1 = last_name.hashCode();; i1 = 0)
+    label180:
+    label185:
+    label191:
+    label197:
+    label203:
+    for (int i2 = token.hashCode();; i2 = 0)
     {
-      if (token != null) {
-        i2 = token.hashCode();
+      if (give_get_description != null) {
+        i3 = give_get_description.hashCode();
       }
-      return (i1 + (n + (m + (k + (j + i * 31) * 31) * 31) * 31) * 31) * 31 + i2;
+      return (i2 + (i1 + (n + (m + (k + (j + i * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i3;
       i = 0;
       break;
       j = 0;
@@ -182,6 +205,8 @@ public class ClientSignupResponse
       break label64;
       n = 0;
       break label80;
+      i1 = 0;
+      break label96;
     }
   }
   
@@ -203,6 +228,11 @@ public class ClientSignupResponse
   public void setFirstName(String paramString)
   {
     first_name = paramString;
+  }
+  
+  public void setGiveGetDescription(GiveGetSnake paramGiveGetSnake)
+  {
+    give_get_description = paramGiveGetSnake;
   }
   
   public void setLastName(String paramString)

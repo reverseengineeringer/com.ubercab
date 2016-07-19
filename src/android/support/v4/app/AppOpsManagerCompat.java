@@ -3,7 +3,7 @@ package android.support.v4.app;
 import android.content.Context;
 import android.os.Build.VERSION;
 
-public class AppOpsManagerCompat
+public final class AppOpsManagerCompat
 {
   private static final AppOpsManagerCompat.AppOpsManagerImpl IMPL = new AppOpsManagerCompat.AppOpsManagerImpl(null);
   public static final int MODE_ALLOWED = 0;

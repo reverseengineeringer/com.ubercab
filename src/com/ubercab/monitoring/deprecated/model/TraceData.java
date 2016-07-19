@@ -3,18 +3,18 @@ package com.ubercab.monitoring.deprecated.model;
 import com.ubercab.monitoring.deprecated.internal.model.Connection;
 import com.ubercab.monitoring.deprecated.internal.validator.MonitoringValidatorFactory;
 import com.ubercab.shape.Shape;
-import ijy;
 import java.util.Map;
 import java.util.Set;
-import jdh;
+import koi;
+import lzo;
 
 @Shape
-@jdh(a=MonitoringValidatorFactory.class)
+@lzo(a=MonitoringValidatorFactory.class)
 public abstract class TraceData
 {
-  public static TraceData create(ijy paramijy, Connection paramConnection, Map<String, Object> paramMap, Set<String> paramSet, long paramLong)
+  public static TraceData create(koi paramkoi, Connection paramConnection, Map<String, Object> paramMap, Set<String> paramSet, long paramLong)
   {
-    return new Shape_TraceData().setCustomValues(paramMap).setTags(paramSet).setDuration(paramLong).setTraceName(paramijy).setConnection(paramConnection);
+    return new Shape_TraceData().setCustomValues(paramMap).setTags(paramSet).setDuration(paramLong).setTraceName(paramkoi).setConnection(paramConnection);
   }
   
   public abstract Connection getConnection();
@@ -25,7 +25,7 @@ public abstract class TraceData
   
   public abstract Set<String> getTags();
   
-  public abstract ijy getTraceName();
+  public abstract koi getTraceName();
   
   abstract TraceData setConnection(Connection paramConnection);
   
@@ -35,7 +35,7 @@ public abstract class TraceData
   
   abstract TraceData setTags(Set<String> paramSet);
   
-  abstract TraceData setTraceName(ijy paramijy);
+  abstract TraceData setTraceName(koi paramkoi);
 }
 
 /* Location:

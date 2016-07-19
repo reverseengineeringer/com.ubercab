@@ -3,7 +3,7 @@ package android.support.v4.media.session;
 import android.media.Rating;
 import android.media.RemoteControlClient.OnMetadataUpdateListener;
 
-class MediaSessionCompatApi19$OnMetadataUpdateListener<T extends MediaSessionCompatApi14.Callback>
+class MediaSessionCompatApi19$OnMetadataUpdateListener<T extends MediaSessionCompatApi19.Callback>
   implements RemoteControlClient.OnMetadataUpdateListener
 {
   protected final T mCallback;

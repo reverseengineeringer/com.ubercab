@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="@dimen/ui__spacing_unit_3x" android:width="@dimen/ui__spacing_unit_3x" android:viewportWidth="52.0" android:viewportHeight="52.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@color/ub__partner_funnel_global_aqua_illustration_2" android:pathData="M 26 0 C 40.3594034956 0 52 11.6405965044 52 26 C 52 40.3594034956 40.3594034956 52 26 52 C 11.6405965044 52 0 40.3594034956 0 26 C 0 11.6405965044 11.6405965044 0 26 0 Z" />
+    <path android:fillColor="@color/ub__partner_funnel_neutral_0" android:pathData="M37,30.28L23.74,17H16.47a4.75,4.75,0,0,0-4.55,3.38l-1.41,4.69a1.17,1.17,0,0,0-1.14-1H8.19a1.19,1.19,0,0,0,0,2.38h1.9L9.38,28.83V39.56a1.19,1.19,0,0,0,1.19,1.19H13a1.19,1.19,0,0,0,1.19-1.19V38.38h19v1.19a1.19,1.19,0,0,0,1.19,1.19h2.38a1.19,1.19,0,0,0,1.19-1.19V29.4ZM16.51,33h0a0.59,0.59,0,0,1-.59 .59 H14.13a2.38,2.38,0,0,1-2.37-2.37V30.06l4.3,1.08a0.59,0.59,0,0,1,.45 .57 V33Zm19-1.78a2.38,2.38,0,0,1-2.37,2.38H31.34A0.59,0.59,0,0,1,30.75,33h0V31.71a0.59,0.59,0,0,1,.45-0.57l4.3-1.08v1.16Z" />
+    <path android:fillColor="@color/ub__partner_funnel_neutral_0" android:pathData="M37,4.83L25.71,16.14,37,27.46,48.33,16.14ZM40.2,21.16H39.06A0.16,0.16,0,0,1,38.89,21h0V15.76a0.71,0.71,0,0,0-.73-0.69H34.43l1.37,1.35a0.17,0.17,0,0,1,0,.24h0L35,17.43a0.18,0.18,0,0,1-.25,0h0l-3-3a0.18,0.18,0,0,1,0-.25h0l3-3a0.18,0.18,0,0,1,.25,0h0l0.77,0.77a0.21,0.21,0,0,1,0,.28l-1.37,1.39h3.73a2.13,2.13,0,0,1,2.17,2.09V21A0.17,0.17,0,0,1,40.2,21.16Z" />
+</vector>

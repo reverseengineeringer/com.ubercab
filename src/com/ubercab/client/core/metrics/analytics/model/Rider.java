@@ -9,7 +9,12 @@ abstract class Rider
 {
   public static Rider create()
   {
-    return new Shape_Rider().setVersion("3.94.3");
+    return new Shape_Rider().setVersion("3.111.2");
+  }
+  
+  public Rider deepCopy()
+  {
+    return create().setCityName(getCityName()).setCurrentProduct(getCurrentProduct()).setDevice(getDevice()).setDriverStatus(getDriverStatus()).setDriverId(getDriverId()).setPinLocation(getPinLocation()).setRiderStatus(getRiderStatus()).setRiderId(getRiderId()).setTripId(getTripId()).setVersion(getVersion());
   }
   
   abstract String getCityName();

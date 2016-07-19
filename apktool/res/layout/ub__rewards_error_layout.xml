@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="@dimen/ui__spacing_unit_2x"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ub__error_imageview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__rewards_error_padding" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:src="@drawable/ub__rewards_error" />
+    <com.ubercab.ui.TextView android:id="@id/ub__error_textview_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" style="@style/Uber.TextAppearance.P" />
+    <com.ubercab.ui.TextView android:id="@id/ub__error_textview_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" style="@style/Uber.TextAppearance.Byline" />
+</merge>

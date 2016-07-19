@@ -1,16 +1,15 @@
 package com.google.android.gms.ads.internal.formats;
 
+import aih;
 import android.os.Parcel;
-import apl;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import ml;
-import ph;
+import sk;
 
-@apl
+@aih
 public class NativeAdOptionsParcel
   implements SafeParcelable
 {
-  public static final ph CREATOR = new ph();
+  public static final sk CREATOR = new sk();
   public final int a;
   public final boolean b;
   public final int c;
@@ -24,11 +23,6 @@ public class NativeAdOptionsParcel
     d = paramBoolean2;
   }
   
-  public NativeAdOptionsParcel(ml paramml)
-  {
-    this(1, paramml.a(), paramml.b(), paramml.c());
-  }
-  
   public int describeContents()
   {
     return 0;
@@ -36,7 +30,7 @@ public class NativeAdOptionsParcel
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    ph.a(this, paramParcel);
+    sk.a(this, paramParcel);
   }
 }
 

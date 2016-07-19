@@ -1,166 +1,59 @@
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import com.google.android.gms.common.api.Status;
-
-public final class bkt
+final class bkt
+  extends bkw
 {
-  private static volatile bkt e;
-  private final String a;
-  private final Status b;
-  private final boolean c;
-  private final boolean d;
+  final char[] a = new char['Ȁ'];
   
-  private bkt(Context paramContext)
+  private bkt(bks parambks)
   {
-    paramContext = paramContext.getResources();
-    String str = paramContext.getResourcePackageName(lw.common_google_play_services_unknown_issue);
-    int i = paramContext.getIdentifier("google_app_measurement_enable", "integer", str);
-    if (i != 0) {
-      if (paramContext.getInteger(i) != 0)
-      {
-        bool1 = true;
-        if (bool1) {
-          break label111;
-        }
-        label52:
-        d = bool2;
-        label58:
-        c = bool1;
-        i = paramContext.getIdentifier("google_app_id", "string", str);
-        if (i != 0) {
-          break label135;
-        }
-        if (!c) {
-          break label125;
-        }
-      }
-    }
-    label111:
-    label125:
-    for (b = new Status(10, "Missing an expected resource: 'R.string.google_app_id' for initializing Google services.  Possible causes are missing google-services.json or com.google.gms.google-services gradle plugin.");; b = Status.a)
+    super(parambks, null);
+    if (bks.a(parambks).length == 16) {}
+    for (boolean bool = true;; bool = false)
     {
-      a = null;
-      return;
-      bool1 = false;
-      break;
-      bool2 = false;
-      break label52;
-      d = false;
-      break label58;
+      bhx.a(bool);
+      while (i < 256)
+      {
+        a[i] = parambks.a(i >>> 4);
+        a[(i | 0x100)] = parambks.a(i & 0xF);
+        i += 1;
+      }
     }
-    label135:
-    paramContext = paramContext.getString(i);
-    if (TextUtils.isEmpty(paramContext))
+  }
+  
+  bkt(String paramString1, String paramString2)
+  {
+    this(new bks(paramString1, paramString2.toCharArray()));
+  }
+  
+  final int a(byte[] paramArrayOfByte, CharSequence paramCharSequence)
+  {
+    int j = 0;
+    bhx.a(paramArrayOfByte);
+    if (paramCharSequence.length() % 2 == 1) {
+      throw new bkv("Invalid input length " + paramCharSequence.length());
+    }
+    int i = 0;
+    while (j < paramCharSequence.length())
     {
-      if (c) {}
-      for (b = new Status(10, "The resource 'R.string.google_app_id' is invalid, expected an app  identifier and found: '" + paramContext + "'.");; b = Status.a)
-      {
-        a = null;
-        return;
-      }
+      int k = b.d(paramCharSequence.charAt(j));
+      paramArrayOfByte[i] = ((byte)(b.d(paramCharSequence.charAt(j + 1)) | k << 4));
+      j += 2;
+      i += 1;
     }
-    a = paramContext;
-    b = Status.a;
+    return i;
   }
   
-  private bkt(String paramString)
+  final void a(Appendable paramAppendable, byte[] paramArrayOfByte, int paramInt)
   {
-    a = paramString;
-    b = Status.a;
-    c = true;
-    d = false;
-  }
-  
-  public static Status a(Context paramContext)
-  {
-    abs.a(paramContext, "Context must not be null.");
-    if (e == null) {}
-    try
+    int i = 0;
+    bhx.a(paramAppendable);
+    bhx.a(0, paramInt + 0, paramArrayOfByte.length);
+    while (i < paramInt)
     {
-      if (e == null) {
-        e = new bkt(paramContext);
-      }
-      return eb;
+      int j = paramArrayOfByte[(i + 0)] & 0xFF;
+      paramAppendable.append(a[j]);
+      paramAppendable.append(a[(j | 0x100)]);
+      i += 1;
     }
-    finally {}
-  }
-  
-  public static Status a(Context paramContext, String paramString)
-  {
-    abs.a(paramContext, "Context must not be null.");
-    abs.a(paramString, "App ID must be nonempty.");
-    try
-    {
-      if (e != null)
-      {
-        paramContext = e.a(paramString);
-        return paramContext;
-      }
-      e = new bkt(paramString);
-      return eb;
-    }
-    finally {}
-  }
-  
-  private Status a(String paramString)
-  {
-    if ((a != null) && (!a.equals(paramString))) {
-      return new Status(10, "Initialize was called with two different Google App IDs.  Only the first app ID will be used: '" + a + "'.");
-    }
-    return Status.a;
-  }
-  
-  public static String a()
-  {
-    if (e == null) {
-      try
-      {
-        if (e == null) {
-          throw new IllegalStateException("Initialize must be called before getGoogleAppId.");
-        }
-      }
-      finally {}
-    }
-    return e.d();
-  }
-  
-  public static boolean b()
-  {
-    if (e == null) {
-      try
-      {
-        if (e == null) {
-          throw new IllegalStateException("Initialize must be called before isMeasurementEnabled.");
-        }
-      }
-      finally {}
-    }
-    return e.e();
-  }
-  
-  public static boolean c()
-  {
-    if (e == null) {
-      try
-      {
-        if (e == null) {
-          throw new IllegalStateException("Initialize must be called before isMeasurementExplicitlyDisabled.");
-        }
-      }
-      finally {}
-    }
-    return ed;
-  }
-  
-  private String d()
-  {
-    return a;
-  }
-  
-  private boolean e()
-  {
-    return (b.e()) && (c);
   }
 }
 

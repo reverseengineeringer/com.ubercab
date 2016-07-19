@@ -1,64 +1,54 @@
-import com.ubercab.android.location.UberLocation;
+import android.support.v4.util.ArrayMap;
+import com.ubercab.analytics.model.Device;
+import com.ubercab.analytics.network.AnalyticsApi;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.concurrent.LinkedBlockingQueue;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public final class cln
 {
-  private final clo a;
+  private final AnalyticsApi a;
+  private final ckz b;
+  private final LinkedBlockingQueue<Map<String, Object>> c;
+  private final Device d;
+  private final boolean e;
+  private boolean f = false;
+  private clo g;
   
-  public cln(clu paramclu)
+  public cln(AnalyticsApi paramAnalyticsApi, ckz paramckz, Device paramDevice)
   {
-    this(paramclu, new clq().a());
+    a = paramAnalyticsApi;
+    b = paramckz;
+    c = new LinkedBlockingQueue();
+    d = paramDevice;
+    e = false;
   }
   
-  public cln(clu paramclu, clp paramclp)
+  public final void a()
   {
-    a = paramclu.a(paramclp);
-  }
-  
-  public final UberLocation a()
-  {
-    if (a.b()) {
-      return a.a();
-    }
-    return null;
-  }
-  
-  public final void a(cls paramcls)
-  {
-    a.a(paramcls);
-  }
-  
-  public final void a(clt paramclt)
-  {
-    try
-    {
-      a.a(paramclt);
+    if (c.isEmpty()) {
       return;
     }
-    finally
+    ArrayMap localArrayMap = new ArrayMap(1);
+    localArrayMap.put("events", new ArrayList(c));
+    a.sendMonitoring(localArrayMap, new Callback()
     {
-      paramclt = finally;
-      throw paramclt;
-    }
+      public final void failure(RetrofitError paramAnonymousRetrofitError)
+      {
+        if ((cln.a(cln.this)) && (paramAnonymousRetrofitError.getResponse() != null) && (paramAnonymousRetrofitError.getResponse().getStatus() == 400)) {
+          throw new RuntimeException("Server rejected metrics events.", paramAnonymousRetrofitError);
+        }
+      }
+    });
+    c.clear();
   }
   
-  public final void b(cls paramcls)
+  public final void a(clo paramclo)
   {
-    a.b(paramcls);
-  }
-  
-  public final boolean b()
-  {
-    return a.b();
-  }
-  
-  public final void c()
-  {
-    a.c();
-  }
-  
-  public final void d()
-  {
-    a.d();
+    g = paramclo;
   }
 }
 

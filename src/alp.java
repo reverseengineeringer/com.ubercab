@@ -1,8 +1,13 @@
-public abstract interface alp
+import java.util.regex.Pattern;
+
+public final class alp
 {
-  public abstract void a(int paramInt);
+  private static final Pattern a = Pattern.compile("\\$\\{(.*?)\\}");
   
-  public abstract void a(ame paramame);
+  public static boolean a(String paramString)
+  {
+    return (paramString == null) || (zo.a.a(paramString));
+  }
 }
 
 /* Location:

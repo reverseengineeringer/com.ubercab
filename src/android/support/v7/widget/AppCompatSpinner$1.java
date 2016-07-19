@@ -1,13 +1,13 @@
 package android.support.v7.widget;
 
 import android.view.View;
-import fk;
-import gm;
+import kc;
+import lf;
 
 final class AppCompatSpinner$1
-  extends gm
+  extends lf
 {
-  AppCompatSpinner$1(AppCompatSpinner paramAppCompatSpinner, View paramView, fk paramfk)
+  AppCompatSpinner$1(AppCompatSpinner paramAppCompatSpinner, View paramView, kc paramkc)
   {
     super(paramView);
   }

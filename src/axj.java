@@ -1,12 +1,9 @@
-import java.io.IOException;
+import android.os.IInterface;
 
-public final class axj
-  extends IOException
+public abstract interface axj
+  extends IInterface
 {
-  axj(int paramInt1, int paramInt2)
-  {
-    super("CodedOutputStream was writing to a flat byte array and ran out of space (pos " + paramInt1 + " limit " + paramInt2 + ").");
-  }
+  public abstract void a(aum paramaum);
 }
 
 /* Location:

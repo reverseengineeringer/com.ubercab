@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jth;
+import myp;
 
 @Shape
 abstract class ObjectFeedbackTag
-  implements jth
+  implements myp
 {}
 
 /* Location:

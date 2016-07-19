@@ -1,48 +1,182 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.DownloadManager.Request;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.net.http.SslError;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+import android.view.Window;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-public abstract class air
-  extends Binder
-  implements aiq
+@aih
+@TargetApi(8)
+public class air
 {
-  public air()
+  public static air a(int paramInt)
   {
-    attachInterface(this, "com.google.android.gms.ads.internal.formats.client.IOnContentAdLoadedListener");
+    if (paramInt >= 19) {
+      return new aiy();
+    }
+    if (paramInt >= 18) {
+      return new aiw();
+    }
+    if (paramInt >= 17) {
+      return new aiv();
+    }
+    if (paramInt >= 16) {
+      return new aix();
+    }
+    if (paramInt >= 14) {
+      return new aiu();
+    }
+    if (paramInt >= 11) {
+      return new ait();
+    }
+    if (paramInt >= 9) {
+      return new ais();
+    }
+    return new air();
   }
   
-  public static aiq a(IBinder paramIBinder)
+  public static boolean a(ajm paramajm)
   {
-    if (paramIBinder == null) {
-      return null;
+    if (paramajm == null) {
+      return false;
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.formats.client.IOnContentAdLoadedListener");
-    if ((localIInterface != null) && ((localIInterface instanceof aiq))) {
-      return (aiq)localIInterface;
-    }
-    return new ais(paramIBinder);
-  }
-  
-  public IBinder asBinder()
-  {
-    return this;
-  }
-  
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.ads.internal.formats.client.IOnContentAdLoadedListener");
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.IOnContentAdLoadedListener");
-    a(aih.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
+    paramajm.onPause();
     return true;
+  }
+  
+  public static boolean b(ajm paramajm)
+  {
+    if (paramajm == null) {
+      return false;
+    }
+    paramajm.onResume();
+    return true;
+  }
+  
+  public int a()
+  {
+    return 0;
+  }
+  
+  public ajn a(ajm paramajm, boolean paramBoolean)
+  {
+    return new ajn(paramajm, paramBoolean);
+  }
+  
+  public Drawable a(Context paramContext, Bitmap paramBitmap, boolean paramBoolean, float paramFloat)
+  {
+    return new BitmapDrawable(paramContext.getResources(), paramBitmap);
+  }
+  
+  public String a(Context paramContext)
+  {
+    return "";
+  }
+  
+  public String a(SslError paramSslError)
+  {
+    return "";
+  }
+  
+  public Set<String> a(Uri paramUri)
+  {
+    if (paramUri.isOpaque()) {
+      return Collections.emptySet();
+    }
+    paramUri = paramUri.getEncodedQuery();
+    if (paramUri == null) {
+      return Collections.emptySet();
+    }
+    LinkedHashSet localLinkedHashSet = new LinkedHashSet();
+    int j = 0;
+    int i;
+    do
+    {
+      int k = paramUri.indexOf('&', j);
+      i = k;
+      if (k == -1) {
+        i = paramUri.length();
+      }
+      int m = paramUri.indexOf('=', j);
+      if (m <= i)
+      {
+        k = m;
+        if (m != -1) {}
+      }
+      else
+      {
+        k = i;
+      }
+      localLinkedHashSet.add(Uri.decode(paramUri.substring(j, k)));
+      i += 1;
+      j = i;
+    } while (i < paramUri.length());
+    return Collections.unmodifiableSet(localLinkedHashSet);
+  }
+  
+  public void a(Activity paramActivity, ViewTreeObserver.OnGlobalLayoutListener paramOnGlobalLayoutListener)
+  {
+    paramActivity = paramActivity.getWindow();
+    if ((paramActivity != null) && (paramActivity.getDecorView() != null) && (paramActivity.getDecorView().getViewTreeObserver() != null)) {
+      a(paramActivity.getDecorView().getViewTreeObserver(), paramOnGlobalLayoutListener);
+    }
+  }
+  
+  public void a(ViewTreeObserver paramViewTreeObserver, ViewTreeObserver.OnGlobalLayoutListener paramOnGlobalLayoutListener)
+  {
+    paramViewTreeObserver.removeGlobalOnLayoutListener(paramOnGlobalLayoutListener);
+  }
+  
+  public boolean a(DownloadManager.Request paramRequest)
+  {
+    return false;
+  }
+  
+  public boolean a(Context paramContext, WebSettings paramWebSettings)
+  {
+    return false;
+  }
+  
+  public boolean a(View paramView)
+  {
+    return false;
+  }
+  
+  public boolean a(Window paramWindow)
+  {
+    return false;
+  }
+  
+  public int b()
+  {
+    return 1;
+  }
+  
+  public boolean b(View paramView)
+  {
+    return false;
+  }
+  
+  public int c()
+  {
+    return 5;
+  }
+  
+  public WebChromeClient c(ajm paramajm)
+  {
+    return null;
   }
 }
 

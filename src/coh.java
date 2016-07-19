@@ -1,6 +1,19 @@
-public abstract interface coh
+public final class coh
 {
-  public abstract void a(cnw paramcnw);
+  public static long a(long paramLong)
+  {
+    return 125L * paramLong;
+  }
+  
+  public static long a(long paramLong1, long paramLong2)
+  {
+    return 1000L * paramLong1 / paramLong2;
+  }
+  
+  public static long b(long paramLong)
+  {
+    return 1000L * paramLong;
+  }
 }
 
 /* Location:

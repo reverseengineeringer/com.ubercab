@@ -1,45 +1,149 @@
-import android.os.IInterface;
-import com.google.android.gms.maps.model.LatLng;
-import java.util.List;
-
-public abstract interface bgv
-  extends IInterface
+public abstract class bgv
+  implements bhy<Character>
 {
-  public abstract void a();
+  public static final bgv a = ;
+  public static final bgv b = d();
+  public static final bgv c = e();
+  public static final bgv d = f();
+  public static final bgv e = g();
+  public static final bgv f = h();
+  public static final bgv g = i();
+  public static final bgv h = j();
+  public static final bgv i = k();
+  public static final bgv j = l();
+  public static final bgv k = m();
+  public static final bgv l = n();
+  public static final bgv m = a();
+  public static final bgv n = b();
   
-  public abstract void a(float paramFloat);
+  private static bgv a()
+  {
+    return bgw.o;
+  }
   
-  public abstract void a(int paramInt);
+  public static bgv a(char paramChar)
+  {
+    return new bhc(paramChar);
+  }
   
-  public abstract void a(List<LatLng> paramList);
+  private static bgv b()
+  {
+    return bhk.o;
+  }
   
-  public abstract void a(boolean paramBoolean);
+  private static bgv c()
+  {
+    return bhn.p;
+  }
   
-  public abstract boolean a(bgv parambgv);
+  private static bgv d()
+  {
+    return bgy.o;
+  }
   
-  public abstract String b();
+  private static String d(char paramChar)
+  {
+    char[] arrayOfChar = new char[6];
+    char[] tmp6_5 = arrayOfChar;
+    tmp6_5[0] = 92;
+    char[] tmp11_6 = tmp6_5;
+    tmp11_6[1] = 117;
+    char[] tmp16_11 = tmp11_6;
+    tmp16_11[2] = 0;
+    char[] tmp21_16 = tmp16_11;
+    tmp21_16[3] = 0;
+    char[] tmp26_21 = tmp21_16;
+    tmp26_21[4] = 0;
+    char[] tmp31_26 = tmp26_21;
+    tmp31_26[5] = 0;
+    tmp31_26;
+    char c1 = '\000';
+    int i1 = paramChar;
+    paramChar = c1;
+    while (paramChar < '\004')
+    {
+      arrayOfChar[('\005' - paramChar)] = "0123456789ABCDEF".charAt(i1 & 0xF);
+      i1 = (char)(i1 >> 4);
+      paramChar += '\001';
+    }
+    return String.copyValueOf(arrayOfChar);
+  }
   
-  public abstract void b(float paramFloat);
+  private static bgv e()
+  {
+    return bgx.o;
+  }
   
-  public abstract void b(boolean paramBoolean);
+  private static bgv f()
+  {
+    return bgz.o;
+  }
   
-  public abstract List<LatLng> c();
+  private static bgv g()
+  {
+    return bhd.o;
+  }
   
-  public abstract void c(boolean paramBoolean);
+  private static bgv h()
+  {
+    return bhf.o;
+  }
   
-  public abstract float d();
+  private static bgv i()
+  {
+    return bhg.o;
+  }
   
-  public abstract int e();
+  private static bgv j()
+  {
+    return bhi.o;
+  }
   
-  public abstract float f();
+  private static bgv k()
+  {
+    return bhh.o;
+  }
   
-  public abstract boolean g();
+  private static bgv l()
+  {
+    return bhe.o;
+  }
   
-  public abstract boolean h();
+  private static bgv m()
+  {
+    return bhb.o;
+  }
   
-  public abstract int i();
+  private static bgv n()
+  {
+    return bhm.o;
+  }
   
-  public abstract boolean j();
+  public String a(CharSequence paramCharSequence)
+  {
+    int i1 = paramCharSequence.length() - 1;
+    while (i1 >= 0)
+    {
+      if (!b(paramCharSequence.charAt(i1))) {
+        return paramCharSequence.subSequence(0, i1 + 1).toString();
+      }
+      i1 -= 1;
+    }
+    return "";
+  }
+  
+  @Deprecated
+  public final boolean a(Character paramCharacter)
+  {
+    return b(paramCharacter.charValue());
+  }
+  
+  public abstract boolean b(char paramChar);
+  
+  public String toString()
+  {
+    return super.toString();
+  }
 }
 
 /* Location:

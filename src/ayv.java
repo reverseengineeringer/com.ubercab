@@ -1,51 +1,40 @@
-import android.content.Context;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Looper;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
 
-public class ayv
-  extends aag<azi>
+public final class ayv
 {
-  protected final azw<azi> a = new azw()
-  {
-    private azi c()
-    {
-      return (azi)p();
-    }
-    
-    public final void a()
-    {
-      ayv.a(ayv.this);
-    }
-  };
-  private final String e;
+  private LatLng a;
+  private float b;
+  private float c;
+  private float d;
   
-  public ayv(Context paramContext, Looper paramLooper, wu paramwu, wv paramwv, String paramString, aab paramaab)
+  public final ayv a(float paramFloat)
   {
-    super(paramContext, paramLooper, 23, paramaab, paramwu, paramwv);
-    e = paramString;
+    b = paramFloat;
+    return this;
   }
   
-  private static azi b(IBinder paramIBinder)
+  public final ayv a(LatLng paramLatLng)
   {
-    return azj.a(paramIBinder);
+    a = paramLatLng;
+    return this;
   }
   
-  protected final String a()
+  public final CameraPosition a()
   {
-    return "com.google.android.location.internal.GoogleLocationManagerService.START";
+    return new CameraPosition(a, b, c, d);
   }
   
-  protected final String b()
+  public final ayv b(float paramFloat)
   {
-    return "com.google.android.gms.location.internal.IGoogleLocationManagerService";
+    c = paramFloat;
+    return this;
   }
   
-  protected final Bundle m()
+  public final ayv c(float paramFloat)
   {
-    Bundle localBundle = new Bundle();
-    localBundle.putString("client_name", e);
-    return localBundle;
+    d = paramFloat;
+    return this;
   }
 }
 

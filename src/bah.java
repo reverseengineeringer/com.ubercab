@@ -1,52 +1,52 @@
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.location.places.internal.AutocompletePredictionEntity.SubstringEntity;
+import com.google.android.gms.maps.model.LatLng;
 
 public final class bah
-  implements Parcelable.Creator<AutocompletePredictionEntity.SubstringEntity>
+  implements Parcelable.Creator<LatLng>
 {
-  private static AutocompletePredictionEntity.SubstringEntity a(Parcel paramParcel)
+  public static LatLng a(Parcel paramParcel)
   {
-    int k = 0;
-    int m = zm.b(paramParcel);
-    int j = 0;
+    double d1 = 0.0D;
+    int j = zd.b(paramParcel);
     int i = 0;
-    while (paramParcel.dataPosition() < m)
+    double d2 = 0.0D;
+    while (paramParcel.dataPosition() < j)
     {
-      int n = zm.a(paramParcel);
-      switch (zm.a(n))
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
       default: 
-        zm.a(paramParcel, n);
+        zd.a(paramParcel, k);
         break;
       case 1: 
-        j = zm.e(paramParcel, n);
-        break;
-      case 1000: 
-        i = zm.e(paramParcel, n);
+        i = zd.e(paramParcel, k);
         break;
       case 2: 
-        k = zm.e(paramParcel, n);
+        d2 = zd.l(paramParcel, k);
+        break;
+      case 3: 
+        d1 = zd.l(paramParcel, k);
       }
     }
-    if (paramParcel.dataPosition() != m) {
-      throw new zn("Overread allowed size end=" + m, paramParcel);
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new AutocompletePredictionEntity.SubstringEntity(i, j, k);
+    return new LatLng(i, d2, d1);
   }
   
-  public static void a(AutocompletePredictionEntity.SubstringEntity paramSubstringEntity, Parcel paramParcel)
+  public static void a(LatLng paramLatLng, Parcel paramParcel)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, b);
-    zo.a(paramParcel, 1000, a);
-    zo.a(paramParcel, 2, c);
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramLatLng.a());
+    zf.a(paramParcel, 2, a);
+    zf.a(paramParcel, 3, b);
+    zf.a(paramParcel, i);
   }
   
-  private static AutocompletePredictionEntity.SubstringEntity[] a(int paramInt)
+  private static LatLng[] a(int paramInt)
   {
-    return new AutocompletePredictionEntity.SubstringEntity[paramInt];
+    return new LatLng[paramInt];
   }
 }
 

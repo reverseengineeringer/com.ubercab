@@ -1,118 +1,61 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
-public abstract class bhr
-  extends Binder
-  implements bhq
+public final class bhr
 {
-  public static bhq a(IBinder paramIBinder)
+  private final bhq a;
+  private final String b;
+  
+  private bhr(bhq parambhq, String paramString)
   {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-    if ((localIInterface != null) && ((localIInterface instanceof bhq))) {
-      return (bhq)localIInterface;
-    }
-    return new bhs(paramIBinder);
+    a = parambhq;
+    b = ((String)bhx.a(paramString));
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  private <A extends Appendable> A a(A paramA, Iterator<? extends Map.Entry<?, ?>> paramIterator)
   {
-    int i = 0;
-    int j = 0;
-    boolean bool2 = false;
-    int k = 0;
-    boolean bool1 = false;
-    switch (paramInt1)
+    bhx.a(paramA);
+    if (paramIterator.hasNext())
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      a();
-      paramParcel2.writeNoException();
-      return true;
-    case 2: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      b();
-      paramParcel2.writeNoException();
-      return true;
-    case 3: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      paramParcel1 = c();
-      paramParcel2.writeNoException();
-      paramParcel2.writeString(paramParcel1);
-      return true;
-    case 4: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      a(paramParcel1.readFloat());
-      paramParcel2.writeNoException();
-      return true;
-    case 5: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      float f = d();
-      paramParcel2.writeNoException();
-      paramParcel2.writeFloat(f);
-      return true;
-    case 6: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      if (paramParcel1.readInt() != 0) {
-        bool1 = true;
+      Map.Entry localEntry = (Map.Entry)paramIterator.next();
+      paramA.append(a.a(localEntry.getKey()));
+      paramA.append(b);
+      paramA.append(a.a(localEntry.getValue()));
+      while (paramIterator.hasNext())
+      {
+        paramA.append(bhq.a(a));
+        localEntry = (Map.Entry)paramIterator.next();
+        paramA.append(a.a(localEntry.getKey()));
+        paramA.append(b);
+        paramA.append(a.a(localEntry.getValue()));
       }
-      a(bool1);
-      paramParcel2.writeNoException();
-      return true;
-    case 7: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      bool1 = e();
-      paramParcel2.writeNoException();
-      paramInt1 = i;
-      if (bool1) {
-        paramInt1 = 1;
-      }
-      paramParcel2.writeInt(paramInt1);
-      return true;
-    case 8: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      bool1 = a(a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      paramInt1 = j;
-      if (bool1) {
-        paramInt1 = 1;
-      }
-      paramParcel2.writeInt(paramInt1);
-      return true;
-    case 9: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      paramInt1 = f();
-      paramParcel2.writeNoException();
-      paramParcel2.writeInt(paramInt1);
-      return true;
-    case 10: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-      bool1 = bool2;
-      if (paramParcel1.readInt() != 0) {
-        bool1 = true;
-      }
-      b(bool1);
-      paramParcel2.writeNoException();
-      return true;
     }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-    bool1 = g();
-    paramParcel2.writeNoException();
-    paramInt1 = k;
-    if (bool1) {
-      paramInt1 = 1;
+    return paramA;
+  }
+  
+  private StringBuilder a(StringBuilder paramStringBuilder, Iterable<? extends Map.Entry<?, ?>> paramIterable)
+  {
+    return a(paramStringBuilder, paramIterable.iterator());
+  }
+  
+  private StringBuilder a(StringBuilder paramStringBuilder, Iterator<? extends Map.Entry<?, ?>> paramIterator)
+  {
+    try
+    {
+      a(paramStringBuilder, paramIterator);
+      return paramStringBuilder;
     }
-    paramParcel2.writeInt(paramInt1);
-    return true;
+    catch (IOException paramStringBuilder)
+    {
+      throw new AssertionError(paramStringBuilder);
+    }
+  }
+  
+  public final StringBuilder a(StringBuilder paramStringBuilder, Map<?, ?> paramMap)
+  {
+    return a(paramStringBuilder, paramMap.entrySet());
   }
 }
 

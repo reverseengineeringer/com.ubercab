@@ -3,7 +3,7 @@ package android.support.v4.view;
 import android.os.Build.VERSION;
 import android.view.ViewGroup.MarginLayoutParams;
 
-public class MarginLayoutParamsCompat
+public final class MarginLayoutParamsCompat
 {
   static final MarginLayoutParamsCompat.MarginLayoutParamsCompatImpl IMPL = new MarginLayoutParamsCompat.MarginLayoutParamsCompatImplBase();
   
@@ -18,7 +18,16 @@ public class MarginLayoutParamsCompat
   
   public static int getLayoutDirection(ViewGroup.MarginLayoutParams paramMarginLayoutParams)
   {
-    return IMPL.getLayoutDirection(paramMarginLayoutParams);
+    int j = IMPL.getLayoutDirection(paramMarginLayoutParams);
+    int i = j;
+    if (j != 0)
+    {
+      i = j;
+      if (j != 1) {
+        i = 0;
+      }
+    }
+    return i;
   }
   
   public static int getMarginEnd(ViewGroup.MarginLayoutParams paramMarginLayoutParams)

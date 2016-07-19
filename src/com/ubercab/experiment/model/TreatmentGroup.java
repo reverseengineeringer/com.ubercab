@@ -2,6 +2,8 @@ package com.ubercab.experiment.model;
 
 public abstract interface TreatmentGroup
 {
+  public static final TreatmentGroup CONTROL = new TreatmentGroup.1();
+  
   public abstract String name();
 }
 

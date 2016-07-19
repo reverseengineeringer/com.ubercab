@@ -1,34 +1,20 @@
-import android.os.IBinder;
-import android.os.Parcel;
+import java.util.Arrays;
 
-final class abc
-  implements aba
+public final class abc
 {
-  private IBinder a;
-  
-  abc(IBinder paramIBinder)
+  public static int a(Object... paramVarArgs)
   {
-    a = paramIBinder;
+    return Arrays.hashCode(paramVarArgs);
   }
   
-  public final void a()
+  public static abd a(Object paramObject)
   {
-    Parcel localParcel = Parcel.obtain();
-    try
-    {
-      localParcel.writeInterfaceToken("com.google.android.gms.common.internal.ICancelToken");
-      a.transact(2, localParcel, null, 1);
-      return;
-    }
-    finally
-    {
-      localParcel.recycle();
-    }
+    return new abd(paramObject, (byte)0);
   }
   
-  public final IBinder asBinder()
+  public static boolean a(Object paramObject1, Object paramObject2)
   {
-    return a;
+    return (paramObject1 == paramObject2) || ((paramObject1 != null) && (paramObject1.equals(paramObject2)));
   }
 }
 

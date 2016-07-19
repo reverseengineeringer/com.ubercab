@@ -2,29 +2,31 @@ package com.ubercab.rider.realtime.object;
 
 import com.ubercab.rider.realtime.model.City;
 import com.ubercab.rider.realtime.model.ClientStatus;
+import com.ubercab.rider.realtime.model.Eyeball;
 import com.ubercab.rider.realtime.model.Meta;
 import com.ubercab.rider.realtime.model.Trip;
-import hzz;
 import java.util.List;
 import java.util.Map;
-import jod;
-import jsf;
-import jsi;
-import jsk;
+import kcj;
+import mmb;
+import mxl;
+import mxo;
+import mxp;
 
 public class ObjectDataStore
-  extends jsi
+  extends mxo
 {
   private Map<String, Object> appConfig;
   private ObjectCity city;
   private ObjectClient client;
   private ObjectClientStatus clientStatus;
-  private final hzz clock;
-  private final jsf data;
+  private final kcj clock;
+  private final mxl data;
   private List<ObjectExperiment> experiments;
   private final ObjectDataStore.ExternalData externalData;
   private ObjectEyeball eyeball;
   private Long lastTransactionTimeMillis;
+  private boolean shouldCompareTimeStamps;
   private ObjectTrip trip;
   private boolean updateAppConfig;
   private boolean updateCity;
@@ -36,42 +38,48 @@ public class ObjectDataStore
   @Deprecated
   private boolean useExternalData;
   
-  ObjectDataStore(jsk paramjsk, hzz paramhzz, boolean paramBoolean)
+  ObjectDataStore(mxp parammxp, kcj paramkcj, boolean paramBoolean)
   {
-    super(paramjsk);
-    clock = paramhzz;
+    super(parammxp);
+    clock = paramkcj;
     data = new ObjectDataStore.InternalData(this, null);
     externalData = new ObjectDataStore.ExternalData(this, null);
     useExternalData = paramBoolean;
   }
   
-  private boolean checkLastModifiedCity(jsf paramjsf, City paramCity)
+  private boolean checkLastModifiedCity(mxl parammxl, City paramCity)
   {
-    paramjsf = paramjsf.getCity();
-    return (paramCity == null) || (paramCity.getMeta() == null) || (paramjsf == null) || (paramjsf.getMeta() == null) || (paramjsf.getMeta().getlastModifiedTimeMs() <= paramCity.getMeta().getlastModifiedTimeMs());
+    parammxl = parammxl.getCity();
+    return (paramCity == null) || (paramCity.getMeta() == null) || (parammxl == null) || (parammxl.getMeta() == null) || (parammxl.getMeta().getlastModifiedTimeMs() <= paramCity.getMeta().getlastModifiedTimeMs());
   }
   
-  private boolean checkLastModifiedClientStatus(jsf paramjsf, ClientStatus paramClientStatus)
+  private boolean checkLastModifiedClientStatus(mxl parammxl, ClientStatus paramClientStatus)
   {
-    paramjsf = paramjsf.getClientStatus();
-    return (paramClientStatus == null) || (paramClientStatus.getMeta() == null) || (paramjsf == null) || (paramjsf.getMeta() == null) || (paramjsf.getMeta().getlastModifiedTimeMs() <= paramClientStatus.getMeta().getlastModifiedTimeMs());
+    parammxl = parammxl.getClientStatus();
+    return (paramClientStatus == null) || (paramClientStatus.getMeta() == null) || (parammxl == null) || (parammxl.getMeta() == null) || (parammxl.getMeta().getlastModifiedTimeMs() <= paramClientStatus.getMeta().getlastModifiedTimeMs());
   }
   
-  private boolean checkLastModifiedTrip(jsf paramjsf, Trip paramTrip)
+  private boolean checkLastModifiedEyeBall(mxl parammxl, Eyeball paramEyeball)
   {
-    paramjsf = paramjsf.getTrip();
-    return (paramTrip == null) || (paramTrip.getMeta() == null) || (paramjsf == null) || (paramjsf.getMeta() == null) || (paramjsf.getMeta().getlastModifiedTimeMs() <= paramTrip.getMeta().getlastModifiedTimeMs());
+    parammxl = parammxl.getEyeball();
+    return (paramEyeball == null) || (paramEyeball.getMeta() == null) || (parammxl == null) || (parammxl.getMeta() == null) || (parammxl.getMeta().getlastModifiedTimeMs() <= paramEyeball.getMeta().getlastModifiedTimeMs());
   }
   
-  public static ObjectDataStore newStore(jsk paramjsk, boolean paramBoolean)
+  private boolean checkLastModifiedTrip(mxl parammxl, Trip paramTrip)
   {
-    return new ObjectDataStore(paramjsk, new hzz(), paramBoolean);
+    parammxl = parammxl.getTrip();
+    return (paramTrip == null) || (paramTrip.getMeta() == null) || (parammxl == null) || (parammxl.getMeta() == null) || (parammxl.getMeta().getlastModifiedTimeMs() <= paramTrip.getMeta().getlastModifiedTimeMs());
   }
   
-  public void commit(jod<jsf> paramjod)
+  public static ObjectDataStore newStore(mxp parammxp, boolean paramBoolean)
   {
-    lastTransactionTimeMillis = Long.valueOf(hzz.a());
-    paramjod.call(data);
+    return new ObjectDataStore(parammxp, new kcj(), paramBoolean);
+  }
+  
+  public void commit(mmb<mxl> parammmb)
+  {
+    lastTransactionTimeMillis = Long.valueOf(kcj.b());
+    parammmb.call(data);
     if (updateAppConfig)
     {
       stream(appConfig);
@@ -110,7 +118,7 @@ public class ObjectDataStore
     streamTransaction();
   }
   
-  public jsf getData()
+  public mxl getData()
   {
     if (useExternalData) {
       return externalData;
@@ -121,6 +129,11 @@ public class ObjectDataStore
   public Long getLastTransactionTimeMillis()
   {
     return lastTransactionTimeMillis;
+  }
+  
+  public void setShouldCompareTimeStamps(boolean paramBoolean)
+  {
+    shouldCompareTimeStamps = paramBoolean;
   }
 }
 

@@ -1,188 +1,371 @@
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-import com.paypal.android.sdk.payments.PayPalService;
-import com.paypal.android.sdk.payments.ProofOfPayment;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class cfa
-  implements cfh
+  implements byp
 {
-  private cfg a;
-  private cff b;
+  private static final Map a = new HashMap();
+  private static final Map b = new HashMap();
+  private static final Map c = new HashMap();
   
-  public cfa(PayPalService paramPayPalService)
+  public cfa()
   {
-    a = new cfg(paramPayPalService);
-    b = new cff(paramPayPalService);
+    a.put(bvh.a, "Agree and Pay");
+    a.put(bvh.b, "& other");
+    a.put(bvh.c, "Authenticating");
+    a.put(bvh.d, "Back");
+    a.put(bvh.e, "Backup");
+    a.put(bvh.f, "Cancel");
+    a.put(bvh.g, "American Express");
+    a.put(bvh.h, "Carta Aura");
+    a.put(bvh.i, "Carte Aurore");
+    a.put(bvh.j, "Carta Prepagata PayPal");
+    a.put(bvh.k, "Carte Bancaire");
+    a.put(bvh.l, "Cofinoga");
+    a.put(bvh.m, "Delta");
+    a.put(bvh.n, "Discover");
+    a.put(bvh.o, "Electron");
+    a.put(bvh.p, "JCB");
+    a.put(bvh.q, "Maestro");
+    a.put(bvh.r, "MasterCard");
+    a.put(bvh.s, "Postepay");
+    a.put(bvh.t, "4 étoiles");
+    a.put(bvh.u, "Tarjeta Aurora");
+    a.put(bvh.v, "Visa");
+    a.put(bvh.w, "Change Funding Source");
+    a.put(bvh.x, "Current");
+    a.put(bvh.y, "Checking this device…");
+    a.put(bvh.z, "Clear card details");
+    a.put(bvh.A, "Confirm");
+    a.put(bvh.B, "Are you sure you want to clear your card details?");
+    a.put(bvh.C, "Charge Card");
+    a.put(bvh.D, "Are you sure you want to log out of PayPal?");
+    a.put(bvh.E, "Pay");
+    a.put(bvh.F, "Agree");
+    a.put(bvh.G, "Account Creation Date");
+    a.put(bvh.H, "Account Status");
+    a.put(bvh.I, "Account Type");
+    a.put(bvh.J, "Address Line 1");
+    a.put(bvh.K, "Age Range");
+    a.put(bvh.L, "Date of Birth");
+    a.put(bvh.M, "Email Address");
+    a.put(bvh.N, "Full Name");
+    a.put(bvh.O, "Gender");
+    a.put(bvh.P, "Language");
+    a.put(bvh.Q, "Locale");
+    a.put(bvh.R, "Phone Number");
+    a.put(bvh.S, "Time Zone");
+    a.put(bvh.T, "Share the following: %s.");
+    a.put(bvh.U, "Use Seamless Checkout.");
+    a.put(bvh.V, "%s asks that you:");
+    a.put(bvh.W, "Share the <a href='%1$s'>funding sources</a> linked to your PayPal account.");
+    a.put(bvh.X, "Enable the display of your funding options to allow you to make a choice.");
+    a.put(bvh.Y, "<a href='%1$s'>Authorise charges</a> for future %2$s purchases paid for with PayPal. You instruct PayPal to pay all amounts requested by %3$s.");
+    a.put(bvh.Z, "Allow them to add and manage their loyalty card in your PayPal wallet.");
+    a.put(bvh.aa, "Agree to the %1$s <a href='%2$s'>privacy policy</a> and <a href='%3$s'>user agreement</a>");
+    a.put(bvh.ab, "Permit them to <a href='%1$s'>request money</a> on your behalf until you withdraw consent.");
+    a.put(bvh.ac, "Permit them to <a href='%1$s'>send money</a> on your behalf until you withdraw consent.");
+    a.put(bvh.ad, "Consent");
+    a.put(bvh.ae, "Email");
+    a.put(bvh.af, "Mock Data");
+    a.put(bvh.ag, "Sandbox");
+    a.put(bvh.ah, "Expires");
+    a.put(bvh.ai, "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    a.put(bvh.aj, "Forgotten your password?");
+    a.put(bvh.ak, "From");
+    a.put(bvh.al, "How would you like to fund future payments to %1$s?");
+    a.put(bvh.am, "<h1><strong>Future Payment Agreement</strong></h1><p>Your default funding source will be used to pay for future PayPal payments from this merchant.</p><p>To cancel this agreement, log in to your PayPal account, go to <strong>Profile</strong> &gt; <strong>My Settings</strong> &gt; <strong>Log In with PayPal</strong> and remove this merchant from the list.</p><p>The Recurring Payment section of the <a href='%s'>PayPal User Agreement</a> shall apply.</p><p>To make sure payments work with your PayPal account, this app may simulate a small test transaction, but no money will be transferred for this.</p>");
+    a.put(bvh.an, "Internal Error");
+    a.put(bvh.ao, "<p>By clicking the button below, I hereby agree to the terms of the <a href='%1$s'>PayPal User Agreement</a> and declare that I am in compliance with Japanese laws and regulations, including sanctions against payments to North Korea and Iran pursuant to the <a href='%2$s'>Foreign Exchange and Foreign Trade Act</a> to complete the transaction.</p>");
+    a.put(bvh.ap, "Log In");
+    a.put(bvh.aq, "Log In with PayPal");
+    a.put(bvh.ar, "Log Out");
+    a.put(bvh.as, "Log out");
+    a.put(bvh.at, "OK");
+    a.put(bvh.au, "Password");
+    a.put(bvh.av, "Pay After Delivery");
+    a.put(bvh.aw, "Pay with");
+    a.put(bvh.ax, "Pay with Card");
+    a.put(bvh.ay, "PayPal Balance");
+    a.put(bvh.az, "PayPal Credit");
+    a.put(bvh.aA, "Phone");
+    a.put(bvh.aB, "PIN");
+    a.put(bvh.aC, "Preferred Funding Source");
+    a.put(bvh.aD, "PayPal protects your <a href='%s'>privacy</a> and financial information.");
+    a.put(bvh.aE, "Processing");
+    a.put(bvh.aF, "Remember card");
+    a.put(bvh.aG, "Request Money");
+    a.put(bvh.aH, "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Log In with PayPal</strong> options under <strong>Profile</strong> settings and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the partner.</p>");
+    a.put(bvh.aI, "Savings");
+    a.put(bvh.aJ, "Send Money");
+    a.put(bvh.aK, "There was a problem communicating with the PayPal servers. Please try again.");
+    a.put(bvh.aL, "Please log in to PayPal again.");
+    a.put(bvh.aM, "Session Expired");
+    a.put(bvh.aN, "Delivery Address");
+    a.put(bvh.aO, "New to PayPal? Sign Up");
+    a.put(bvh.aP, "Stay logged in");
+    a.put(bvh.aQ, "System error (%s). Please try again later.");
+    a.put(bvh.aR, "Try Again");
+    a.put(bvh.aS, "Unable to log in because two-factor authentication has been enabled for your account.");
+    a.put(bvh.aT, "Verification Code");
+    a.put(bvh.aU, "Send a text message to your phone. The 6-digit code you receive will be valid for 5 minutes.");
+    a.put(bvh.aV, "Sending Text");
+    a.put(bvh.aW, "Enter the 6-digit verification code");
+    a.put(bvh.aX, "Your mobile number");
+    a.put(bvh.aY, "Send Text");
+    a.put(bvh.aZ, "Send Text Again");
+    a.put(bvh.ba, "Unable to log in because two-factor authentication has been enabled for your account. Please visit the PayPal website to activate your security key.");
+    a.put(bvh.bb, "Payments from this device are not allowed.");
+    a.put(bvh.bc, "Unauthorised Device");
+    a.put(bvh.bd, "Payments to this merchant are not allowed (invalid clientId).");
+    a.put(bvh.be, "Invalid merchant");
+    a.put(bvh.bf, "There was a problem processing your payment. Please try again.");
+    a.put(bvh.bg, "Unrecognised Source");
+    a.put(bvh.bh, "We’re Sorry");
+    a.put(bvh.bi, "Your Order");
+    a.put(bvh.bj, "Clear Card?");
+    a.put(bvh.bk, "Consent Failed");
+    a.put(bvh.bl, "Connection Failed");
+    a.put(bvh.bm, "Login Failed");
+    a.put(bvh.bn, "Log in with password");
+    a.put(bvh.bo, "Log in with PIN");
+    a.put(bvh.bp, "One moment…");
+    a.put(bvh.bq, "Payment Failed");
+    a.put(bvh.br, "Scan");
+    a.put(bvh.bs, "Incorrect Security code. Please try again.");
+    a.put(bvh.bt, "Via");
+    a.put(bvh.bu, "System error. Please try again later.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|AT", "Share information about the <a href='%1$s'>funding sources</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|BE", "Share the information about the <a href='%1$s'>funding sources</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|BG", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CH", "Share information about the <a href='%1$s'>funding sources</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CY", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CZ", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|DE", "Share information about the <a href='%1$s'>funding sources</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|DK", "Share information about the <a href='%1$s'>payment methods</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|EE", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|ES", "Share information with them about the <a href='%1$s'>funding sources</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|FI", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|GB", "Share the <a href='%1$s'>funding sources</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|GR", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|HU", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|IE", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|IT", "Share the <a href='%1$s'>funding sources</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LI", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LT", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LU", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LV", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|MT", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|NL", "Share the information about the <a href='%1$s'>funding sources</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|NO", "Share information about the <a href='%1$s'>payment methods</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|PL", "Share the information about the <a href='%1$s'>funding sources</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|PT", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SE", "Share information about the <a href='%1$s'>payment methods</a> linked to your PayPal account.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SI", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SK", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SM", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|VA", "Share the <a href='%1$s'>funding sources</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|AU", "<p><a href='%1$s'>Authorise charges</a> for future %2$s purchases paid for with PayPal. You instruct PayPal to pay all amounts requested by %3$s.</p><p>Please see the <a href='https://www.paypal.com/webapps/mpp/ua/recurringpymts-full'>PayPal Recurring Payments and Billing Agreement</a> for more information.</p>");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|CN", "<p><a href='%1$s'>Authorise charges</a> for future %2$s purchases paid for with PayPal. You instruct PayPal to pay all amounts requested by %3$s.</p><p>Please see the <a href='https://cms.paypal.com/c2/cgi-bin/?cmd=_render-content&content_ID=ua/UserAgreement_full'>PayPal Recurring Payments and Billing Agreement</a> for more information.</p>");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|MY", "<a href='%1$s'>Authorise charges</a> for future purchases paid for with PayPal. You authorise and instruct PayPal to pay all amounts.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|NZ", "<a href='%1$s'>Authorise charges</a> for future purchases paid for with PayPal. You authorise and instruct PayPal to pay all amounts.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|SG", "<a href='%1$s'>Authorise charges</a> for future purchases paid for with PayPal. You authorise and instruct PayPal to pay all amounts.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|US", "Pre-approve future payments made from your PayPal account without logging in to PayPal each time. <a href='%1$s'>See additional terms</a>, including funding sources and how to cancel future payments.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|AT", "Permit %2$s to <a href='%1$s'>request money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|BE", "Permit %2$s to <a href='%1$s'>request money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|CH", "Permit %2$s to <a href='%1$s'>request money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|DE", "Permit %2$s to <a href='%1$s'>request money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|GB", "Permit %2$s to <a href='%1$s'>request money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|NL", "Permit %2$s to <a href='%1$s'>request money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|PL", "Permit %2$s to <a href='%1$s'>request money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|AT", "Permit %2$s to <a href='%1$s'>send money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|BE", "Permit %2$s to <a href='%1$s'>send money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|CH", "Permit %2$s to <a href='%1$s'>send money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|DE", "Permit %2$s to <a href='%1$s'>send money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|GB", "Permit %2$s to <a href='%1$s'>send money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|NL", "Permit %2$s to <a href='%1$s'>send money</a> on your behalf until you withdraw consent.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|PL", "Permit %2$s to <a href='%1$s'>send money</a> on your behalf until you withdraw consent.");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|AT", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|BE", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares the information about which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|BG", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CH", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CY", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CZ", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|DE", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|EE", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|ES", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|FI", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|GR", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|HU", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|IE", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|IT", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LI", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LT", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LU", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LV", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|MT", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|NL", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares the information about which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|PL", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares the information about which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|PT", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SI", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SK", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SM", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|VA", "<h1><strong>Funding Sources</strong></h1><p>PayPal only shares which of your funding sources are available for use.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|AU", "<h1><strong>Future Payment Agreement</strong></h1><p>To make sure your PayPal account can be charged in future, this app may simulate a small test transaction but no money will be transferred.</p><p>Your default funding source (your PayPal balance, linked bank account, debit or credit card, in that order) will be used to pay for PayPal purchases. Please note, if your default funding source doesn’t have enough funds to cover the purchase, your bank or card provider may charge you a fee.</p><p>To cancel this agreement, log in to your PayPal account and go to <strong>Profile</strong> then click <strong>My Settings</strong> and <strong>Change</strong> beside “Log in with PayPal.”</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|BR", "<h1><strong>Future Payment Agreement</strong></h1><p>To make sure your PayPal account can be charged in the future, this app may simulate a small test transaction but no money will be transferred.</p><p>Your PayPal balance or primary debit or credit card will be used to pay for PayPal purchases.</p><p>To cancel this agreement, log in to your PayPal account and go to <strong>Profile</strong> &gt; <strong>My Settings</strong> &gt; <strong>Log In with PayPal</strong> and remove this merchant from the list.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|CN", "<h1><strong>Future Payment Agreement</strong></h1><p>To make sure your PayPal Account can be charged in the future, this app may simulate a small test transaction but no payment will be transferred.</p><p>Your default funding source will be used to pay for PayPal purchases.</p><p>To cancel this agreement, log in to your PayPal Account, go to <strong>Profile</strong> &gt; <strong>Settings</strong> &gt; <strong>Log In with PayPal</strong> and remove this merchant from the list.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|GB", "<h1><strong>Future Payment Agreement</strong></h1><p>Your default funding source will be used to pay for future PayPal payments from this merchant.</p><p>To cancel this agreement, log in to your PayPal account, go to <strong>Profile</strong> &gt; <strong>My Settings</strong> &gt; <strong>Log in with PayPal</strong> and remove this merchant from the list.</p><p>The Recurring Payment section of the <a href='%s'>PayPal User Agreement</a> shall apply.</p><p>To make sure payments work with your PayPal account, this app may simulate a small test transaction, but no money will be transferred for this.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|HK", "<h1><strong>Future Payment Authorisation</strong></h1><p>To make sure your PayPal account can be charged in the future, this app may simulate a small test transaction but no payment will be transferred.</p><p>Your default funding source will be used to pay for PayPal purchases.</p><p>To cancel this authorisation, log in to your PayPal account, go to <strong>Profile</strong> &gt; <strong>My account settings</strong> &gt; <strong>Log In with PayPal</strong> and remove this merchant from the list.</p><p>Please see the “Pre-approved Payments” section of the <a href='%s'>PayPal User Agreement</a> for more information.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|JP", "<h1><strong>Future Payment Authorisation</strong></h1><p>To make sure your PayPal account can be charged in the future, this app may simulate a small test transaction but no payment will be transferred.</p><p>Your default funding source will be used to pay for PayPal purchases.</p><p>To cancel this authorisation, log in to your PayPal account, go to <strong>Profile</strong> &gt; <strong>My account settings</strong> &gt; <strong>Log In with PayPal</strong> and remove this merchant from the list.</p><p>Please see the “Pre-approved Payments” section of the <a href='%s'>PayPal User Agreement</a> for more information.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|MX", "<h1><strong>Future Payment Agreement</strong></h1><p>To make sure your PayPal account can be charged in the future, this app may simulate a small test transaction but no money will be transferred.</p><p>Your PayPal balance or primary debit or credit card will be used to pay for PayPal purchases.</p><p>To cancel this agreement, log in to your PayPal account and go to <strong>Profile</strong> &gt; <strong>My Settings</strong> &gt; <strong>Log In with PayPal</strong> and remove this merchant from the list.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|MY", "<h1><strong>Future Payment Authorisation</strong></h1><p>To make sure your PayPal account can be charged in the future, this app may simulate a small test transaction but no payment will be transferred.</p><p>Your default funding source will be used to pay for PayPal purchases.</p><p>To cancel this authorisation, log in to your PayPal account, go to <strong>Profile</strong> &gt; <strong>My account settings</strong> &gt; <strong>Log In with PayPal</strong> and remove this merchant from the list.</p><p>Please see the “Pre-approved Payments” section of the <a href='%s'>PayPal User Agreement</a> for more information.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|NZ", "<h1><strong>Future Payment Authorisation</strong></h1><p>To make sure your PayPal account can be charged in the future, this app may simulate a small test transaction but no payment will be transferred.</p><p>Your default funding source will be used to pay for PayPal purchases.</p><p>To cancel this authorisation, log in to your PayPal account, go to <strong>Profile</strong> &gt; <strong>My account settings</strong> &gt; <strong>Log In with PayPal</strong> and remove this merchant from the list.</p><p>Please see the “Pre-approved Payments” section of the <a href='%s'>PayPal User Agreement</a> for more information.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|SG", "<h1><strong>Future Payment Authorisation</strong></h1><p>To make sure your PayPal account can be charged in the future, this app may simulate a small test transaction but no payment will be transferred.</p><p>Your default funding source will be used to pay for PayPal purchases.</p><p>To cancel this authorisation, log in to your PayPal account, go to <strong>Profile</strong> &gt; <strong>My account settings</strong> &gt; <strong>Log In with PayPal</strong> and remove this merchant from the list.</p><p>Please see the “Pre-approved Payments” section of the <a href='%s'>PayPal User Agreement</a> for more information.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|US", "<h1><strong>Future Payment Agreement</strong></h1><p>PayPal will first use your PayPal balance to pay for your purchase. If that doesn’t cover your total, your bank account, PayPal Credit, debit card, credit card, and/or eCheque will be used in that order.</p><p>To cancel this agreement, go to www.paypal.co.uk <strong>Profile</strong> &gt; <strong>My Settings</strong> &gt; <strong>Log In with PayPal</strong> and remove this merchant from the list.</p><p>A small payment authorisation may be required to make sure your PayPal account can be charged in the future. The authorisation will be voided and you won’t be charged.</p>");
+    b.put("LOG_IN_TO_PAYPAL|AU", "Log In with PayPal");
+    b.put("LOG_IN_TO_PAYPAL|GB", "Log In with PayPal");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AD", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AL", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AT", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the partner.</p><p>To withdraw consent, log in to your PayPal account and click on the gear icon. Go to <strong>Security</strong>, select <strong>Log In with PayPal</strong> and remove this partner.</p><p>PayPal is not responsible for any actions or errors on the part of the partner.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AU", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Log in with PayPal</strong> options under <strong>Profile</strong> settings and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the partner.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BA", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BE", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in to your PayPal account then go to <strong>Log In with PayPal</strong> options under your <strong>Profile</strong> settings and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BG", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CH", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the partner.</p><p>To withdraw consent, log in to your PayPal account and click on the gear icon. Go to <strong>Security</strong>, select <strong>Log In with PayPal</strong> and remove this partner.</p><p>PayPal is not responsible for any actions or errors on the part of the partner.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CY", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CZ", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|DE", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the partner.</p><p>To withdraw consent, log in to your PayPal account and click on the gear icon. Go to <strong>Security</strong>, select <strong>Log In with PayPal</strong> and remove this partner.</p><p>PayPal is not responsible for any actions or errors on the part of the partner.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|DK", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in to your PayPal account then go to <strong>Log In with PayPal</strong> options under <strong>Profile</strong> settings and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|EE", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|ES", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in to your PayPal account, click on the gear icon at the top right corner, choose <strong>Security</strong>, select <strong>Log In with PayPal</strong> and remove the merchant. If you’re still using the classic website, go to <strong>My Profile</strong>, choose <strong>My Account Settings</strong>, select <strong>Log In with PayPal</strong> and remove the merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|FI", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|GB", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the partner.</p><p>To withdraw consent, log in to your PayPal account, then under <strong>Profile</strong> settings go to <strong>Log in with PayPal</strong> and remove this partner.</p><p>PayPal is not responsible for any actions or errors on the part of the partner.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|GR", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|HR", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|HU", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IE", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IS", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IT", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.it then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LI", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LT", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LU", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LV", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|MT", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|NL", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in to your PayPal account then go to <strong>Log In with PayPal</strong> options under your <strong>Profile</strong> settings and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|NO", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in to your PayPal account then go to <strong>Log In with PayPal</strong> options under <strong>Profile</strong> settings and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|PL", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in to your PayPal account then go to <strong>Log In with PayPal</strong> options under your <strong>Profile</strong> settings and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|PT", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|RO", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|RU", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the partner.</p><p>To withdraw consent, log in at paypal.ru, click on the gear icon at the top right corner, choose <strong>Security</strong> tab and in the <strong>Log In with PayPal</strong> option remove this partner.</p><p>PayPal is not responsible for any actions or errors on the part of the partner.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SE", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in to your PayPal account then go to <strong>Log In with PayPal</strong> options under <strong>Profile</strong> settings and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SI", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SK", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SM", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|TR", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com.tr click on the gear icon at the top right corner, choose <strong>Security</strong> tab and in the <strong>Log In with PayPal</strong> option remove this partner.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|UA", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|US", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Log In with PayPal</strong> options under <strong>Profile</strong> settings and remove this merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|VA", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|ZA", "<h1><strong>%s</strong></h1><p>Any relevant transaction details will be shared with the merchant.</p><p>To withdraw consent, log in at paypal.com then go to <strong>Profile</strong>, <strong>Security</strong>, find the <strong>Log In with PayPal</strong> and remove this merchant.</p><p>PayPal is not responsible for any actions or errors on the part of the merchant.</p>");
+    c.put("AMOUNT_MISMATCH", "Cart item amounts total does not match sale amount.");
+    c.put("AUTHORIZATION_ALREADY_COMPLETED", "This authorisation has already been completed.");
+    c.put("AUTHORIZATION_CANNOT_BE_VOIDED", "Authorisation is in a state that cannot be voided.");
+    c.put("AUTHORIZATION_EXPIRED", "Authorisation has expired.");
+    c.put("AUTHORIZATION_ID_DOES_NOT_EXIST", "The requested authorisation ID does not exist.");
+    c.put("AUTHORIZATION_VOIDED", "Authorisation has been voided.");
+    c.put("CANNOT_REAUTH_CHILD_AUTHORIZATION", "Can only reauthorise the original authorisation, not a reauthorisation.");
+    c.put("CANNOT_REAUTH_INSIDE_HONOR_PERIOD", "Reauthorisation is not allowed within the honour period.");
+    c.put("CAPTURE_AMOUNT_LIMIT_EXCEEDED", "The amount exceeds the allowable limit.");
+    c.put("CARD_TOKEN_PAYER_MISMATCH", "Cannot access saved card details.");
+    c.put("CREDIT_CARD_CVV_CHECK_FAILED", "The card details are invalid. Please correct and submit again.");
+    c.put("CREDIT_CARD_REFUSED", "Card declined.");
+    c.put("CURRENCY_MISMATCH", "Currency of capture must be the same as currency of authorisation.");
+    c.put("CURRENCY_NOT_ALLOWED", "This currency is not currently supported by PayPal.");
+    c.put("DATA_RETRIEVAL", "System error. Please try again later.");
+    c.put("DUPLICATE_REQUEST_ID", "System error. Please try again later.");
+    c.put("EXPIRED_CREDIT_CARD", "Card has expired");
+    c.put("EXPIRED_CREDIT_CARD_TOKEN", "The information for this card is no longer on file.\nPlease submit again.");
+    c.put("FEATURE_UNSUPPORTED_FOR_PAYEE", "Feature is unsupported for this vendor.");
+    c.put("FULL_REFUND_NOT_ALLOWED_AFTER_PARTIAL_REFUND", "This transaction has already been partially refunded.");
+    c.put("IMMEDIATE_PAY_NOT_SUPPORTED", "Immediate pay is not supported for the Intent passed.");
+    c.put("INSTRUMENT_DECLINED", "Your selected funding source was not accepted. Please choose a different source.");
+    c.put("INSUFFICIENT_FUNDS", "Buyer cannot pay – insufficient funds.");
+    c.put("INTERNAL_SERVICE_ERROR", "System error. Please try again later.");
+    c.put("INVALID_ACCOUNT_NUMBER", "That account number does not exist.");
+    c.put("INVALID_ARGUMENT", "Transaction refused because of an invalid argument");
+    c.put("INVALID_CITY_STATE_ZIP", "Invalid town/city/postcode combination.");
+    c.put("INVALID_FACILITATOR_CONFIGURATION", "This transaction cannot be processed due to an invalid facilitator configuration.");
+    c.put("INVALID_PAYER_ID", "System error (invalid Payer ID). Please try again later.");
+    c.put("INVALID_RESOURCE_ID", "System error. Please try again later.");
+    c.put("PAYEE_ACCOUNT_INVALID", "Vendor account does not have a confirmed email address.");
+    c.put("PAYEE_ACCOUNT_LOCKED_OR_CLOSED", "This vendor cannot receive payments at this time.");
+    c.put("PAYEE_ACCOUNT_NO_CONFIRMED_EMAIL", "Vendor account does not have a confirmed email address.");
+    c.put("PAYEE_ACCOUNT_RESTRICTED", "This vendor cannot receive payments at this time.");
+    c.put("PAYER_ACCOUNT_LOCKED_OR_CLOSED", "Your account is locked or closed.");
+    c.put("PAYER_ACCOUNT_RESTRICTED", "Your account has been limited.");
+    c.put("PAYER_CANNOT_PAY", "You cannot pay for this transaction with PayPal.");
+    c.put("PAYER_EMPTY_BILLING_ADDRESS", "Billing address is required for non-PayPal credit card transactions.");
+    c.put("PAYER_ID_MISSING_FOR_CARD_TOKEN", "Cannot access saved card details.");
+    c.put("PAYMENT_APPROVAL_EXPIRED", "Payment approval has expired.");
+    c.put("PAYMENT_EXPIRED", "The payment has expired.");
+    c.put("PAYMENT_NOT_APPROVED_FOR_EXECUTION", "Payer has not approved payment.");
+    c.put("PAYMENT_REQUEST_ID_INVALID", "PayPal request ID is invalid. Please try again later.");
+    c.put("PAYMENT_STATE_INVALID", "This request is invalid due to the current state of the payment.");
+    c.put("PERMISSION_DENIED", "No permission for the requested operation.");
+    c.put("REFUND_EXCEEDED_TRANSACTION_AMOUNT", "The requested refund exceeds the amount of the original transaction.");
+    c.put("REFUND_TIME_LIMIT_EXCEEDED", "This transaction is too old to refund.");
+    c.put("REQUIRED_SCOPE_MISSING", "System error. Please try again later.");
+    c.put("TOO_MANY_REAUTHORIZATIONS", "No more reauthorisations for this authorisation are allowed.");
+    c.put("TRANSACTION_ALREADY_REFUNDED", "This transaction has already been refunded.");
+    c.put("TRANSACTION_LIMIT_EXCEEDED", "The amount exceeds the allowable limit.");
+    c.put("TRANSACTION_REFUSED", "The transaction was refused.");
+    c.put("TRANSACTION_REFUSED_BY_PAYPAL_RISK", "The transaction was refused.");
+    c.put("TRANSACTION_REFUSED_PAYEE_PREFERENCE", "Merchant profile preference is set to automatically refuse certain transactions.");
+    c.put("UNKNOWN_ERROR", "System error. Please try again later.");
+    c.put("UNSUPPORTED_PAYEE_COUNTRY", "Your country is unsupported.");
+    c.put("VALIDATION_ERROR", "The payment information is invalid. Please correct and submit again.");
+    c.put("ORDER_ALREADY_COMPLETED", "Order has already been voided or completed, or has expired.");
+    c.put("MAXIMUM_ALLOWED_AUTHORIZATION_REACHED_FOR_ORDER", "Maximum number of allowed authorisations for the order has been reached.");
+    c.put("ORDER_VOIDED", "Order has been voided.");
+    c.put("ORDER_CANNOT_BE_VOIDED", "Order is in a state which prevents voiding.");
+    c.put("INVALID_EXPERIENCE_PROFILE_ID", "System error. Please try again later.");
+    c.put("UNAUTHORIZED_PAYMENT", "The merchant does not accept payments of this type.");
+    c.put("DCC_UNSUPPORTED_CURRENCY_CC_TYPE", "Currency not supported for card type.");
+    c.put("DCC_CC_TYPE_NOT_SUPPORTED", "Card type not supported.");
+    c.put("ADDRESS_ADDITION_ERROR", "Error encountered while adding delivery address to PayPal account.");
+    c.put("DUPLICATE_TRANSACTION", "Duplicate transaction.");
+    c.put("INVALID_SHIPPING_ADDRESS", "The delivery address provided is not valid.");
+    c.put("PAYMENT_CREATION_ERROR", "There was a problem setting up this payment. Please visit the PayPal website to check your account.");
+    c.put("PAYMENT_CREATION_ERROR_EXPIRED_PAYMENT_CARD", "There was a problem setting up this payment - your card has expired. Please visit the PayPal website to check your account.");
+    c.put("PAYMENT_CREATION_ERROR_INSTANT_PAYMENT_REQUIRED", "There was a problem setting up this payment - instant payment required, such as a credit card. Please visit the PayPal website to check your account.");
+    c.put("PAYMENT_CREATION_ERROR_NEED_CONFIRMED_CARD", "There was a problem setting up this payment - card must be confirmed. Please visit the PayPal website to check your account.");
+    c.put("PAYMENT_CREATION_ERROR_NEED_PHONE_NUMBER", "There was a problem setting up this payment - this app requires that your account include a phone number. Please visit the PayPal website to check your account.");
+    c.put("PAYMENT_CREATION_ERROR_NEED_VALID_FUNDING_INSTRUMENT", "There was a problem setting up this payment - account needs a valid funding source, such as a bank account or payment card. Please visit the PayPal website to check your account.");
+    c.put("PAYMENT_CREATION_ERROR_NEGATIVE_BALANCE", "There was a problem setting up this payment - your balance is negative. Please visit the PayPal website to check your account.");
+    c.put("PAYMENT_CREATION_ERROR_SENDING_LIMIT_REACHED", "There was a problem setting up this payment - your sending limit has been reached. Please visit the PayPal website to check your account.");
+    c.put("AUTH_RC_RISK_FAILURE", "Declined due to risk.");
+    c.put("AUTH_RC_OFAC_BLOCKED_IP", "Client not authorised.");
+    c.put("AUTH_RC_IP_COMPLIANCE_FAILURE", "Client not authorised.");
+    c.put("invalid_user", "Incorrect username/password. Please try again.");
+    c.put("locked_user", "Your PayPal account has been temporarily locked. Please try again later, or go to www.paypal.com to immediately unlock your PayPal account.");
+    c.put("max_attempts_exceeded", "Too many failed login attempts. Please try again later.");
+    c.put("invalid_request", "An error has occurred.");
+    c.put("unauthorized_client", "Request not authorised.");
+    c.put("access_denied", "Request not authorised.");
+    c.put("unsupported_response_type", "An error has occurred.");
+    c.put("invalid_scope", "Request not authorised.");
+    c.put("server_error", "System error. Please try again later.");
+    c.put("temporarily_unavailable", "System error. Please try again later.");
+    c.put("stepup_required", "Your login cannot be completed at this time. Please try again later, or go to www.paypal.com to address any security concerns with your PayPal account.");
   }
   
-  public static AlertDialog a(Activity paramActivity, bxn parambxn1, bxn parambxn2, DialogInterface.OnClickListener paramOnClickListener)
+  public final String a()
   {
-    return new AlertDialog.Builder(paramActivity).setIcon(17301543).setTitle(bxl.a(parambxn1)).setMessage(bxl.a(parambxn2)).setPositiveButton(bxl.a(bxn.at), paramOnClickListener).setNegativeButton(bxl.a(bxn.f), null).create();
+    return "en_GB";
   }
   
-  private static AlertDialog a(Context paramContext, bxn parambxn, String paramString, DialogInterface.OnClickListener paramOnClickListener)
+  public final String a(String paramString)
   {
-    parambxn = bxl.a(parambxn);
-    String str = bxl.a(bxn.at);
-    return new AlertDialog.Builder(paramContext).setMessage(paramString).setCancelable(false).setTitle(parambxn).setPositiveButton(str, paramOnClickListener).create();
-  }
-  
-  public static Dialog a(Activity paramActivity, DialogInterface.OnClickListener paramOnClickListener)
-  {
-    return new AlertDialog.Builder(paramActivity).setIcon(17301543).setCancelable(false).setTitle(bxl.a(bxn.aR)).setMessage(bxl.a(bxn.aK)).setPositiveButton(bxl.a(bxn.aR), paramOnClickListener).setNegativeButton(bxl.a(bxn.f), new cfd(paramActivity)).create();
-  }
-  
-  public static Dialog a(Activity paramActivity, bxn parambxn, Bundle paramBundle)
-  {
-    return a(paramActivity, parambxn, paramBundle.getString("alert_errors"), new cfb());
-  }
-  
-  public static Dialog a(Activity paramActivity, bxn parambxn, Bundle paramBundle, int paramInt)
-  {
-    return a(paramActivity, parambxn, paramBundle.getString("alert_errors"), new cfc(paramActivity, paramInt));
-  }
-  
-  public static Dialog a(Activity paramActivity, bxn parambxn, Bundle paramBundle, DialogInterface.OnClickListener paramOnClickListener)
-  {
-    return a(paramActivity, parambxn, paramBundle.getString("alert_errors"), paramOnClickListener);
-  }
-  
-  public static Dialog a(Context paramContext, bxn parambxn1, bxn parambxn2)
-  {
-    paramContext = new ProgressDialog(paramContext);
-    paramContext.setTitle(bxl.a(parambxn1));
-    paramContext.setMessage(bxl.a(parambxn2));
-    paramContext.setCancelable(false);
-    return paramContext;
-  }
-  
-  public static Object a(bwx parambwx)
-  {
-    if ((parambwx instanceof bym))
-    {
-      parambwx = (bym)parambwx;
-      return new ProofOfPayment(parambwx.w(), parambwx.u(), parambwx.x(), parambwx.y(), parambwx.z());
-    }
-    if ((parambwx instanceof byq))
-    {
-      parambwx = (byq)parambwx;
-      return new ProofOfPayment(parambwx.D(), parambwx.E(), parambwx.G(), parambwx.F(), parambwx.H());
-    }
-    throw new RuntimeException("Dev error");
-  }
-  
-  public static void a(Activity paramActivity, TextView paramTextView, bxn parambxn)
-  {
-    if (parambxn != null) {}
-    for (parambxn = bxl.a(parambxn);; parambxn = "")
-    {
-      Bitmap localBitmap = bxa.d("iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCNDMzRTRFQ0M2MjQxMUUzOURBQ0E3QTY0NjU3OUI5QiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCNDMzRTRFREM2MjQxMUUzOURBQ0E3QTY0NjU3OUI5QiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkI0MzNFNEVBQzYyNDExRTM5REFDQTdBNjQ2NTc5QjlCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkI0MzNFNEVCQzYyNDExRTM5REFDQTdBNjQ2NTc5QjlCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Eyd0MQAABoFJREFUeNrMWl1MU2cY/oqnQKFYyo8tWCmpxuGi2xq4mftp3XZhZO4n3G0mW7KQBRO9WOLPpZoserMbXXSRGC42NQuBLIJb2JJl2VyWwRDGksVB3QQ7UUsrSKlA//a87i3pSHvOJ/WUvcmTtqen33n/vud93y8VyWRSEMbGxsSmTZvEcsE1K757H/cMJnOTKHAf8PNal4APgWZg3ZEjR4SW0D0pfVMo0PpRIBAojMfjjXhbI3ITelYRsJbXegJ4AXgL+MDr9b66d+9ey6Muqqh9WVFRIdxud3lxcbH3MRlQyCjj9TanvvR4PM81NjZafT7ft/39/Xemp6djsotmlT179ohz586V19bWKkJ/aSwtLT3Y3t7eAql+FK9klbq6OqPT6bQbIXkwwGQwGLbime+1tbXt2L9//8MMyCmFwuEw5et6YI3InzyFVNrpcrm+7evrC4RCofiKIwApB+yAUeRXNs7MzHgSiURpTikEsXIElDwb4IzFYk2gSVOuBlAEalfBAKvsc7UMsKxSChHVlkjop34DNjF5YsMqGJBE8YyjiCb+o2xBgRwLEWuC+4lGKYWIywx5NmAOxfNeU1OTGB8fF4uLi4aJiYnk/Py8nAGkPAoYVeG1q6A8yX3oEIQOSjQaFaOjo6bm5uaI3++XMwDWG2C9yWKxlIvVkUlkwQSKKO3Bt9FQOk+cOHF2y5YtU1IGIP0U5J8dBlhXyYBx4A/AAbQCWw8dOvQbXr8B5mU2scLsY1klA26yAXWsB6Xya8CTsixkZB7OdwSSRH7Ar8BdoImjQPq8AjTIGqBwBc73HqD0+Im9Tw50A6l2wsnXxP85hRaALmAG2AGsS/vOwMUtuwGpQoENrGAjk7WVefb+d0A3P/cdoEqLdJYu0HxJnAvmEaBQBVRam8linWQR+B74FIgCNAF6styXOQJoXQXGOLFr1y4qYkYUElsevf8n8AnwJfAG8LpKlNQjUFNTI1BArDy36i0BoA/4HPgFeBF4F3hmeWmi6szInlO0ByKRyBqdZgBqzGLsxQhv1JTyg0yTB4HnM5ALpc4YU6tmJaaiYdNhjCR+p2ZmBPiBc34UqGfF3+SjloIsuU/UOiljQGoK02qhqehMA/3AMIc5yXRnYG8TLS5cuHAhPDAwEEQ7ELDb7XMcDYXz/WX2vksjevQcn6wBMtMQpcBXwEVeXEnj65QBDwhQPtHZ2VnU1tZWBAPI49uBZ4Gd3K6rph7a6TvoRIfKysqC1dXVUim0TsKA28DHwC3gJU67YlY8yRGkzwo8b4Xyjvr6egc7qIRhlkg9aqOHW1pa/Lt37xbHjh2TioBDw4Aoh/Nn9mQbV22Fw53k93SUaITXzYB1hbPFcElJScfw8PCdhoYGoUqjsViMWmmZFKL0uc73bGf606OxC6I2fTEyMvK12WwWlZWVQrWQgUIJa7mEq7HQPVqcmz2zTjWCNnt7d3f3pdbW1oe6ZTqpW/KyzWYTx48fF9u2bbNK5H+QOdmmU79EdeHS6dOnOzs6OsYwDy/N6lkNqKqqMhw+fFiRbKGn2AB7hoZrJQUuysWNKu1fSJvP+vv7L2LzR8LhsEjPEjUaVdKmHy25x0Y8jpablL7BhEAF7irSZvLo0aMP5ubmNH+sZBhirJIRIBp9GpA5CvfxoDLL3iZXLgwODoZ7e3uDvN51bhfomkiljS4GYF6Ymp2dDTocDnthYWGVBpNEQ6FQH/ARN2/zqap95syZh8c3uchyA2wyKXTq1KmZnp6eua6urgqXy6WWQlTU/OfPn7968uRJf1qR+zeMU1M573Zl2SCvFQF6eGRoaCiAwiIQhQ0aNErpgmyYuOnz+aJ6cO3yCNRqsBB5cNLtdodQ3tGalNVoUC7d/zeKUFivgaIgAwuZNRS6vW/fvgdInzLsAa0iFuXNPqOXAeneoyPtzUL9xJrSbJI6QmA9N2tCKwJAKB8GxJklyrmNSGaIFu263/lzvcTMQAbcwqSXlwjQcHKW51FL2oCSkiKuvj8yFcrMDLTGbZPJNK+7AeDpWdBdL14H8NHEyieXpQ+Vxpter3ejx+NxakUAa0WwZuDy5ctJ/Q4j+T8H165dE1ar3FHogQMHvPhNDzCr8t+IBNa8gjXrHpeuqv+VoBMJOtSSEaSElYueKoVizbtYM6HnucySAQaDQSiK3EkKFDNymqkxlg9rXsGakbwYsIIWOJ6BqdLlBh+hLOhpwD8CDABZh9T1S2qGIgAAAABJRU5ErkJggg==", paramActivity);
-      bze.a(paramActivity, paramTextView, parambxn, "PayPal - ", new BitmapDrawable(paramActivity.getResources(), localBitmap));
-      return;
-    }
-  }
-  
-  static void a(Activity paramActivity, cck paramcck)
-  {
-    int j = 0;
-    if (((a != null) && (a.intValue() >= 500)) || (paramcck.c())) {}
-    for (int i = 1; i != 0; i = 0)
-    {
-      paramActivity.showDialog(2);
-      return;
-    }
-    i = j;
-    if (paramcck.a())
-    {
-      i = j;
-      if ("invalid_client".equals(b)) {
-        i = 1;
-      }
-    }
-    if (i != 0)
-    {
-      a(paramActivity, bxl.a(bxn.bd), 3);
-      return;
-    }
-    a(paramActivity, bxl.a(bxn.bb), 1);
-  }
-  
-  public static void a(Activity paramActivity, String paramString, int paramInt)
-  {
-    Bundle localBundle = new Bundle();
-    localBundle.putString("alert_errors", paramString);
-    paramActivity.removeDialog(paramInt);
-    paramActivity.showDialog(paramInt, localBundle);
-  }
-  
-  public static void a(TextView paramTextView, String paramString)
-  {
-    if (paramTextView != null)
-    {
-      if ((paramString == null) || (bvh.c(paramString))) {
-        paramTextView.setVisibility(8);
-      }
-    }
-    else {
-      return;
-    }
-    if (bvh.b(paramString))
-    {
-      paramTextView.setText(bxl.a(bxn.ag));
-      return;
-    }
-    if (bvh.a(paramString))
-    {
-      paramTextView.setText(bxl.a(bxn.af));
-      return;
-    }
-    paramTextView.setText(paramString);
-  }
-  
-  public static boolean a(Activity paramActivity)
-  {
-    String str = paramActivity.getClass().getName();
-    paramActivity = paramActivity.getCallingActivity();
-    if (paramActivity == null)
-    {
-      Log.e("paypal.sdk", str + " called by a null activity, not allowed");
-      return false;
-    }
-    paramActivity = paramActivity.getClassName();
-    if (!paramActivity.startsWith("com.paypal.android.sdk.payments."))
-    {
-      Log.e("paypal.sdk", str + " called by " + paramActivity + " which is not part of the SDK, not allowed");
-      return false;
-    }
-    return true;
-  }
-  
-  public static Intent b(Activity paramActivity)
-  {
-    Intent localIntent = new Intent(paramActivity.getApplicationContext(), PayPalService.class);
-    localIntent.putExtra("initializingActivity", paramActivity.getClass().getSimpleName());
-    if (paramActivity.getIntent().hasExtra("com.paypal.android.sdk.paypalConfiguration")) {
-      localIntent.putExtra("com.paypal.android.sdk.paypalConfiguration", paramActivity.getIntent().getParcelableExtra("com.paypal.android.sdk.paypalConfiguration"));
-    }
-    return localIntent;
-  }
-  
-  public final void a(bxk parambxk, boolean paramBoolean, String paramString1, String paramString2, String paramString3)
-  {
-    a.a(parambxk, paramBoolean, paramString1, paramString2, null);
-    b.a(parambxk, paramBoolean, paramString1, paramString2, paramString3);
+    return (String)c.get(paramString);
   }
 }
 

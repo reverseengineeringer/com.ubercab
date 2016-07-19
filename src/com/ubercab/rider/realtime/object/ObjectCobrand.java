@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsq;
+import mxw;
 
 @Shape
 abstract class ObjectCobrand
-  implements jsq
+  implements mxw
 {}
 
 /* Location:

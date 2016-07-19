@@ -2,13 +2,12 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.KeyEvent.DispatcherState;
 import android.view.inputmethod.InputMethodManager;
-import bp;
-import if;
+import gd;
+import mz;
 
 public class SearchView$SearchAutoComplete
   extends AppCompatAutoCompleteTextView
@@ -23,22 +22,12 @@ public class SearchView$SearchAutoComplete
   
   public SearchView$SearchAutoComplete(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, bp.autoCompleteTextViewStyle);
+    this(paramContext, paramAttributeSet, gd.autoCompleteTextViewStyle);
   }
   
   public SearchView$SearchAutoComplete(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-  }
-  
-  private boolean a()
-  {
-    return TextUtils.getTrimmedLength(getText()) == 0;
-  }
-  
-  final void a(SearchView paramSearchView)
-  {
-    b = paramSearchView;
   }
   
   public boolean enoughToFilter()
@@ -74,7 +63,7 @@ public class SearchView$SearchAutoComplete
         if ((paramKeyEvent.isTracking()) && (!paramKeyEvent.isCanceled()))
         {
           b.clearFocus();
-          SearchView.p(b);
+          SearchView.a(b);
           return true;
         }
       }

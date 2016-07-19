@@ -12,81 +12,85 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ciu;
-import cjg;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import cja;
+import cjm;
+import ckt;
+import cli;
+import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.FareSplit;
 import com.ubercab.rider.realtime.model.FareSplitClient;
 import com.ubercab.rider.realtime.model.PaymentProfile;
 import com.ubercab.rider.realtime.model.Profile;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.TextView;
-import dsf;
-import dux;
-import ebj;
-import efm;
-import eic;
-import eqr;
-import erf;
-import euc;
-import fjj;
-import fjk;
-import fjl;
-import fjm;
-import fjn;
-import fjo;
-import gif;
-import gil;
-import iad;
-import ife;
-import jry;
-import jsj;
-import kld;
-import klo;
-import kls;
-import kul;
-import p;
-import r;
+import dxk;
+import eaj;
+import eib;
+import enf;
+import eqp;
+import eyu;
+import ezg;
+import ezj;
+import ezz;
+import fcm;
+import fyh;
+import fyi;
+import fyk;
+import fyl;
+import fym;
+import fyn;
+import hjm;
+import hjv;
+import kcn;
+import kia;
+import mxd;
+import mxm;
+import mxp;
+import odr;
+import oed;
+import oeh;
+import opc;
+import x;
+import z;
 
 public class FareSplitInvitationFragment
-  extends dsf<fjo>
+  extends dxk<fyn>
   implements DialogInterface.OnKeyListener
 {
-  public ckc a;
-  public chh b;
-  public jsj d;
-  public ife e;
-  public ciu f;
-  public jry g;
-  public gif h;
-  private PaymentProfile i;
-  private klo j;
-  private klo k;
-  private iad<Profile> l;
-  private klo m;
-  @InjectView(2131624400)
-  Button mButtonAccept;
-  @InjectView(2131624395)
-  ImageView mImageViewPicture;
-  @InjectView(2131624401)
-  ProgressBar mProgressBarLoading;
-  @InjectView(2131624398)
-  TextView mTextViewFee;
-  @InjectView(2131624397)
-  TextView mTextViewSubtitle;
-  @InjectView(2131624390)
-  View mViewContent;
-  private gil n;
+  public ckt a;
+  public chn b;
+  public mxm d;
+  public mxp e;
+  public kia f;
+  public cja g;
+  public mxd h;
+  public hjm i;
+  private PaymentProfile j;
+  private oed k;
+  private oed l;
+  private kcn<Profile> m;
+  @BindView
+  public Button mButtonAccept;
+  @BindView
+  public ImageView mImageViewPicture;
+  @BindView
+  public ProgressBar mProgressBarLoading;
+  @BindView
+  public TextView mTextViewFee;
+  @BindView
+  public TextView mTextViewSubtitle;
+  @BindView
+  public View mViewContent;
+  private oed n;
+  private hjv o;
   
-  private void a(fjo paramfjo)
+  private void a(fyn paramfyn)
   {
-    paramfjo.a(this);
+    paramfyn.a(this);
   }
   
   private void a(boolean paramBoolean)
@@ -101,36 +105,45 @@ public class FareSplitInvitationFragment
     mViewContent.setVisibility(0);
   }
   
-  private fjo b(ebj paramebj)
+  private fyn b(eib parameib)
   {
-    return fjj.a().a(new efm(this)).a(paramebj).a();
+    return fyh.a().a(new enf(this)).a(parameib).a();
   }
   
   private void d()
   {
     mButtonAccept.setVisibility(8);
-    mTextViewFee.setText(getString(2131165870));
+    mTextViewFee.setText(getString(2131165963));
   }
   
   private void e()
   {
     a(true);
-    if ((e.a(dux.bG, true)) && (n != null) && (l != null) && (l.b()) && (!n.a((Profile)l.c(), false)))
+    if ((f.a(eaj.cj, true)) && (o != null) && (m != null) && (m.b()))
     {
-      d();
-      kul.e("Unable to switch to profile in fare split accept request", new Object[0]);
-      return;
-    }
-    if (i != null) {
-      if (!"PayPal".equals(i.getCardType())) {
-        break label162;
+      if (!o.a((Profile)m.c(), false))
+      {
+        d();
+        opc.e("Unable to switch to profile in fare split accept request", new Object[0]);
+        return;
+      }
+      localObject = i.c();
+      if ((d.c() != null) && (localObject != null))
+      {
+        localObject = ((Profile)localObject).getDefaultPaymentProfileUuid();
+        j = d.c().findPaymentProfileByUuid((String)localObject);
       }
     }
-    label162:
-    for (String str = euc.a(getActivity());; str = null)
+    if (j != null) {
+      if (!"PayPal".equals(j.getCardType())) {
+        break label212;
+      }
+    }
+    label212:
+    for (Object localObject = fcm.a(getActivity());; localObject = null)
     {
-      j = g.a(i.getUuid(), str).a(kls.a()).b(new fjl(this, (byte)0));
-      a.a(r.bt);
+      k = h.a(j.getUuid(), (String)localObject).a(oeh.a()).b(new fyk(this, (byte)0));
+      a.a(z.cS);
       return;
     }
   }
@@ -138,13 +151,13 @@ public class FareSplitInvitationFragment
   private void f()
   {
     a(true);
-    a.a(r.bw);
-    k = g.b().a(kls.a()).b(new fjm(this, (byte)0));
+    a.a(z.cV);
+    l = h.b().a(oeh.a()).b(new fyl(this, (byte)0));
   }
   
-  public final ckr a()
+  public final cli a()
   {
-    return p.cL;
+    return x.em;
   }
   
   public final void a(FareSplit paramFareSplit)
@@ -162,23 +175,32 @@ public class FareSplitInvitationFragment
       dismiss();
       return;
     }
-    paramFareSplit = eqr.a(localFareSplitClient1);
-    mTextViewSubtitle.setText(getString(2131165861, new Object[] { paramFareSplit }));
+    paramFareSplit = eyu.a(localFareSplitClient1);
+    mTextViewSubtitle.setText(getString(2131165955, new Object[] { paramFareSplit }));
     mTextViewFee.setText(localFareSplitClient2.getFeeString());
     paramFareSplit = localFareSplitClient1.getPictureUrl();
     if (TextUtils.isEmpty(paramFareSplit)) {
-      mImageViewPicture.setImageResource(2130837650);
+      mImageViewPicture.setImageResource(2130837697);
     }
     for (;;)
     {
-      if ((e.a(dux.bG, true)) && (h.p()))
+      if ((f.a(eaj.cj, true)) && (i.o()))
       {
-        paramFareSplit = h.c();
-        if ((paramFareSplit != null) && (n != null) && ((erf.g(paramFareSplit)) || (!n.a(paramFareSplit))))
+        paramFareSplit = i.c();
+        if ((paramFareSplit != null) && (o != null) && ((ezj.d(paramFareSplit)) || (!o.a(paramFareSplit))))
         {
-          l = n.a();
-          if (!l.b()) {
+          m = o.b();
+          if (!m.b()) {
             d();
+          }
+        }
+        if (d.c() != null)
+        {
+          paramFareSplit = d.c().getLastSelectedPaymentProfile();
+          if ((paramFareSplit != null) && ((ezg.e(paramFareSplit)) || (ezg.f(paramFareSplit))))
+          {
+            d();
+            a.a(x.ep);
           }
         }
       }
@@ -187,40 +209,40 @@ public class FareSplitInvitationFragment
       if (!paramFareSplit.equals(mImageViewPicture.getTag()))
       {
         mImageViewPicture.setTag(paramFareSplit);
-        f.a(paramFareSplit).a(2130837650).b(2130837650).a(mImageViewPicture);
+        ezz.a(g, paramFareSplit).a(2130837697).b(2130837697).a(mImageViewPicture);
       }
     }
   }
   
   public final void a(PaymentProfile paramPaymentProfile)
   {
-    i = paramPaymentProfile;
+    j = paramPaymentProfile;
   }
   
-  public final void a(gil paramgil)
+  public final void a(hjv paramhjv)
   {
-    n = paramgil;
+    o = paramhjv;
   }
   
-  @cho
-  public void onAcceptFareSplitResponse(eic parameic)
+  @chu
+  public void onAcceptFareSplitResponse(eqp parameqp)
   {
-    if (!parameic.a())
+    if (!parameqp.a())
     {
-      Toast.makeText(getActivity(), parameic.b(), 0).show();
+      Toast.makeText(getActivity(), parameqp.b(), 0).show();
       a(false);
       return;
     }
     dismiss();
   }
   
-  @OnClick({2131624400})
+  @OnClick
   public void onButtonAcceptClicked()
   {
     e();
   }
   
-  @OnClick({2131624399})
+  @OnClick
   public void onButtonDeclineClicked()
   {
     f();
@@ -229,7 +251,7 @@ public class FareSplitInvitationFragment
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setStyle(1, 2131362219);
+    setStyle(1, 2131362292);
   }
   
   public Dialog onCreateDialog(Bundle paramBundle)
@@ -244,15 +266,9 @@ public class FareSplitInvitationFragment
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
     super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle);
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903199, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903269, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public boolean onKey(DialogInterface paramDialogInterface, int paramInt, KeyEvent paramKeyEvent)
@@ -263,19 +279,19 @@ public class FareSplitInvitationFragment
   public void onPause()
   {
     super.onPause();
-    if (j != null) {
-      j.c();
-    }
     if (k != null) {
-      k.c();
+      k.af_();
     }
-    m.c();
+    if (l != null) {
+      l.af_();
+    }
+    n.af_();
   }
   
   public void onResume()
   {
     super.onResume();
-    m = d.g().c(new fjn(this, (byte)0));
+    n = e.g().c(new fym(this, (byte)0));
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)

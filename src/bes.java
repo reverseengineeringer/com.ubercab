@@ -1,49 +1,59 @@
-import android.location.Location;
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
+import android.accounts.Account;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.signin.internal.RecordConsentRequest;
 
-public abstract class bes
-  extends Binder
-  implements ber
+public final class bes
+  implements Parcelable.Creator<RecordConsentRequest>
 {
-  public static ber a(IBinder paramIBinder)
+  private static RecordConsentRequest a(Parcel paramParcel)
   {
-    if (paramIBinder == null) {
-      return null;
+    int j = zd.b(paramParcel);
+    Scope[] arrayOfScope = null;
+    Account localAccount = null;
+    int i = 0;
+    String str = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        localAccount = (Account)zd.a(paramParcel, k, Account.CREATOR);
+        break;
+      case 3: 
+        arrayOfScope = (Scope[])zd.b(paramParcel, k, Scope.CREATOR);
+        break;
+      case 4: 
+        str = zd.n(paramParcel, k);
+      }
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnLocationChangeListener");
-    if ((localIInterface != null) && ((localIInterface instanceof ber))) {
-      return (ber)localIInterface;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new bet(paramIBinder);
+    return new RecordConsentRequest(i, localAccount, arrayOfScope, str);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static void a(RecordConsentRequest paramRecordConsentRequest, Parcel paramParcel, int paramInt)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnLocationChangeListener");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnLocationChangeListener");
-      a(ade.a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnLocationChangeListener");
-    if (paramParcel1.readInt() != 0) {}
-    for (paramParcel1 = (Location)Location.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-    {
-      a(paramParcel1);
-      paramParcel2.writeNoException();
-      return true;
-    }
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, paramRecordConsentRequest.a(), paramInt, false);
+    zf.a(paramParcel, 3, paramRecordConsentRequest.b(), paramInt);
+    zf.a(paramParcel, 4, paramRecordConsentRequest.c(), false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static RecordConsentRequest[] a(int paramInt)
+  {
+    return new RecordConsentRequest[paramInt];
   }
 }
 

@@ -1,4 +1,11 @@
-public abstract interface alg {}
+public abstract interface alg
+{
+  public abstract void a(aka<?> paramaka, akq<?> paramakq);
+  
+  public abstract void a(aka<?> paramaka, akq<?> paramakq, Runnable paramRunnable);
+  
+  public abstract void a(aka<?> paramaka, amy paramamy);
+}
 
 /* Location:
  * Qualified Name:     alg

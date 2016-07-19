@@ -1,10 +1,9 @@
 import android.view.View.OnClickListener;
-import com.ubercab.android.partner.funnel.realtime.models.legal.LegalItem;
 import com.ubercab.shape.Shape;
 
 @Shape
 public abstract class dio
-  extends diz
+  extends div
 {
   public static dio a()
   {
@@ -13,20 +12,16 @@ public abstract class dio
   
   public abstract dio a(View.OnClickListener paramOnClickListener);
   
-  public abstract dio a(LegalItem paramLegalItem);
+  public abstract dio a(String paramString);
   
-  abstract dio a(String paramString);
+  public abstract String b();
   
-  public abstract View.OnClickListener b();
+  public abstract View.OnClickListener c();
   
-  public final int c()
+  public final int d()
   {
-    return 1;
+    return 2;
   }
-  
-  public abstract String d();
-  
-  public abstract LegalItem e();
 }
 
 /* Location:

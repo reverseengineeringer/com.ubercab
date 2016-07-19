@@ -1,8 +1,20 @@
-import android.os.Parcelable.Creator;
+import com.paypal.android.sdk.payments.LoginActivity;
 
 public final class cas
-  implements Parcelable.Creator
-{}
+  implements cbk
+{
+  public cas(LoginActivity paramLoginActivity) {}
+  
+  public final void a(cbn paramcbn)
+  {
+    LoginActivity.a(a, paramcbn);
+  }
+  
+  public final void a(Object paramObject)
+  {
+    LoginActivity.i(a);
+  }
+}
 
 /* Location:
  * Qualified Name:     cas

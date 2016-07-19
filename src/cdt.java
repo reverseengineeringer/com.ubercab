@@ -1,8 +1,19 @@
-import android.os.Parcelable.Creator;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentConfirmActivity;
+import com.paypal.android.sdk.payments.PaymentMethodActivity;
+import java.util.TimerTask;
 
 public final class cdt
-  implements Parcelable.Creator
-{}
+  extends TimerTask
+{
+  public cdt(PaymentMethodActivity paramPaymentMethodActivity) {}
+  
+  public final void run()
+  {
+    a.removeDialog(3);
+    PaymentConfirmActivity.a(a, cdn.a, PaymentMethodActivity.g(a).d());
+  }
+}
 
 /* Location:
  * Qualified Name:     cdt

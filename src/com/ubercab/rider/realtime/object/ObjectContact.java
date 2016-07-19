@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsv;
+import myb;
 
 @Shape
 public abstract class ObjectContact
-  implements jsv
+  implements myb
 {
   public static ObjectContact create()
   {

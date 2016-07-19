@@ -1,194 +1,117 @@
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Random;
-import java.util.Set;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-import org.apache.http.Header;
-import org.apache.http.client.HttpClient;
-import org.apache.http.conn.ClientConnectionManager;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.message.BasicHeader;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class bwn
-  extends bwi
+  extends buq
 {
   private static final String a = bwn.class.getSimpleName();
-  private final bvl b;
-  private final String c;
-  private final bwy d;
-  private final btz e;
-  private final btz f;
-  private final bxg g;
-  private final ScheduledExecutorService h;
-  private final ConcurrentLinkedQueue i;
+  private Map b = new HashMap();
+  private String c;
+  private String d;
+  private String e;
   
-  public bwn(bvl parambvl, String paramString1, bxg parambxg, bwy parambwy, String paramString2, String paramString3, boolean paramBoolean)
+  public bwn(bus parambus, bva parambva, String paramString1, String paramString2, String paramString3)
   {
-    b = parambvl;
-    c = paramString1;
-    g = parambxg;
-    d = parambwy;
-    parambvl = bwj.a();
-    boolean bool2 = bvh.d(paramString1);
-    if ((bool2) && (!paramBoolean))
+    super(localbuw, parambus, parambva, str, "/" + paramString3);
+    a("Content-Type", "application/x-www-form-urlencoded");
+  }
+  
+  private static void a(JSONArray paramJSONArray, Map paramMap)
+  {
+    if (paramJSONArray != null)
     {
-      paramBoolean = true;
-      if (bool2) {
-        break label121;
+      int i = 0;
+      while (i < paramJSONArray.length())
+      {
+        Object localObject = paramJSONArray.getJSONObject(i);
+        if (localObject != null)
+        {
+          String str = ((JSONObject)localObject).optString("name");
+          localObject = ((JSONObject)localObject).optString("value");
+          if ((bwy.d(str)) && (bwy.d((CharSequence)localObject))) {
+            paramMap.put(str, localObject);
+          }
+        }
+        i += 1;
+      }
+    }
+  }
+  
+  public final String b()
+  {
+    return "";
+  }
+  
+  public final void c()
+  {
+    Object localObject2 = n();
+    JSONArray localJSONArray = ((JSONObject)localObject2).optJSONArray("capabilities");
+    int i;
+    Object localObject1;
+    if (localJSONArray != null)
+    {
+      i = 0;
+      if (i >= localJSONArray.length()) {
+        break label170;
+      }
+      localObject1 = localJSONArray.getJSONObject(i);
+      if ((localObject1 == null) || (!"PAYPAL_ACCESS".equals(((JSONObject)localObject1).optString("name")))) {
+        break label163;
       }
     }
     for (;;)
     {
-      e = btv.a(paramBoolean, bool1, paramString2);
-      e.a(parambvl);
-      f = btv.a(false, false, paramString3);
-      f.a(parambvl);
-      h = Executors.newSingleThreadScheduledExecutor();
-      i = new ConcurrentLinkedQueue();
+      if (localObject1 != null)
+      {
+        a(((JSONObject)localObject1).optJSONArray("attributes"), b);
+        localObject1 = b;
+        new StringBuilder("Attributes: ").append(localObject1.toString());
+      }
+      localObject1 = ((JSONObject)localObject2).optJSONArray("attributes");
+      if (localObject1 != null)
+      {
+        localObject2 = new HashMap();
+        a((JSONArray)localObject1, (Map)localObject2);
+        c = ((String)((Map)localObject2).get("privacy_policy_url"));
+        d = ((String)((Map)localObject2).get("user_agreement_url"));
+        e = ((String)((Map)localObject2).get("display_name"));
+      }
       return;
-      paramBoolean = false;
+      label163:
+      i += 1;
       break;
-      label121:
-      bool1 = false;
+      label170:
+      localObject1 = null;
     }
   }
   
-  private static String a(String paramString1, String paramString2)
+  public final void d() {}
+  
+  public final String e()
   {
-    String str = paramString1;
-    if (paramString2 != null)
-    {
-      str = paramString1;
-      if (!paramString1.endsWith("/")) {
-        str = paramString1 + "/";
-      }
-      str = str + paramString2;
-    }
-    return str;
+    return " {\n     \"attributes\": [\n         {\n             \"name\": \"display_name\",\n             \"value\": \"Example Merchant\"\n         },\n         {\n             \"name\": \"privacy_policy_url\",\n             \"value\": \"http://www.example.com/privacy-policy\"\n         },\n         {\n             \"name\": \"user_agreement_url\",\n             \"value\": \"http://www.example.com/user-agreement\"\n         }\n     ],\n     \"name\": \"LiveTestApp\",\n     \"capabilities\": [\n         {\n             \"scopes\": [],\n             \"name\": \"PAYPAL_ACCESS\",\n             \"attributes\": [\n                 {\n                     \"name\": \"openid_connect\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_date_of_birth\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_fullname\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_gender\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_zip\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_language\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_city\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_country\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_timezone\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_email\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_street_address1\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_street_address2\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_phone_number\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_locale\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_state\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_age_range\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_account_verified\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_account_creation_date\",\n                     \"value\": \"Y\"\n                 },\n                 {\n                     \"name\": \"oauth_account_type\",\n                     \"value\": \"Y\"\n                 }\n             ]\n         },\n         {\n             \"scopes\": [\n                 \"https://api.paypal.com/v1/payments/.*\",\n                 \"https://api.paypal.com/v1/vault/credit-card\",\n                 \"https://api.paypal.com/v1/vault/credit-card/.*\"\n             ],\n             \"name\": \"PAYMENT\",\n             \"features\": [\n                 {\n                     \"status\": \"ACTIVE\",\n                     \"name\": \"ACCEPT_CARD\"\n                 },\n                 {\n                     \"status\": \"ACTIVE\",\n                     \"name\": \"ACCEPT_PAYPAL\"\n                 }\n             ]\n         }\n     ]\n }    ";
   }
   
-  private void a(bwx parambwx, String paramString, btz parambtz, bue parambue)
+  public final Map u()
   {
-    switch (bwq.a[parambwx.i().b().ordinal()])
-    {
-    default: 
-      throw new RuntimeException(parambwx.i().b() + " not supported.");
-    case 1: 
-      parambtz.a(b.f(), a(paramString, parambwx.g()), a(parambwx, null), parambue);
-      return;
-    case 2: 
-      String str = parambwx.g();
-      StringEntity localStringEntity = new StringEntity(str, Charset.forName("UTF-8").name());
-      parambtz.a(b.f(), paramString, a(parambwx, str), localStringEntity, parambue);
-      return;
-    }
-    e.b(b.f(), a(paramString, parambwx.g()), a(parambwx, null), new bwr(this, parambwx, (byte)0));
+    return b;
   }
   
-  private Header[] a(bwx parambwx, String paramString)
+  public final String v()
   {
-    ArrayList localArrayList = new ArrayList();
-    Iterator localIterator = parambwx.j().entrySet().iterator();
-    while (localIterator.hasNext())
-    {
-      Map.Entry localEntry = (Map.Entry)localIterator.next();
-      localArrayList.add(new BasicHeader((String)localEntry.getKey(), (String)localEntry.getValue()));
-    }
-    if (paramString != null) {}
-    try
-    {
-      localArrayList.add(bze.a(g.c(), localArrayList, paramString));
-      paramString = (Header[])localArrayList.toArray(new Header[0]);
-      int k = paramString.length;
-      int j = 0;
-      if (j < k)
-      {
-        localArrayList = paramString[j];
-        if (parambwx.a()) {
-          new StringBuilder().append(parambwx.o()).append(" header: ").append(localArrayList.getName()).append("=").append(localArrayList.getValue());
-        }
-        for (;;)
-        {
-          j += 1;
-          break;
-          new StringBuilder().append(parambwx.o()).append(" header: ").append(localArrayList.getName()).append("=").append(localArrayList.getValue());
-        }
-      }
-      return paramString;
-    }
-    catch (UnsupportedEncodingException paramString)
-    {
-      for (;;) {}
-    }
-    catch (NoSuchAlgorithmException paramString)
-    {
-      for (;;) {}
-    }
-    catch (InvalidKeyException paramString)
-    {
-      for (;;) {}
-    }
+    return c;
   }
   
-  final void a()
+  public final String w()
   {
-    e.a(b.f());
-    f.a(b.f());
+    return d;
   }
   
-  final void b()
+  public final String x()
   {
-    e.a().getConnectionManager().closeIdleConnections(1L, TimeUnit.MILLISECONDS);
-    f.a().getConnectionManager().closeIdleConnections(1L, TimeUnit.MILLISECONDS);
-  }
-  
-  public final boolean b(bwx parambwx)
-  {
-    if (!b.a())
-    {
-      parambwx.a(new btu(btt.b.toString()));
-      return false;
-    }
-    bwx.l();
-    String str = parambwx.a(parambwx.i());
-    if (parambwx.a())
-    {
-      new StringBuilder().append(parambwx.o()).append(" endpoint: ").append(str);
-      new StringBuilder().append(parambwx.o()).append(" request: ").append(parambwx.g());
-    }
-    try
-    {
-      if (parambwx.a())
-      {
-        i.offer(new bwo(this, parambwx, str));
-        int j = new Random().nextInt(190) + 10;
-        new StringBuilder("Delaying tracking execution for ").append(j).append(" seconds");
-        h.schedule(new bwp(this), j, TimeUnit.SECONDS);
-      }
-      for (;;)
-      {
-        return true;
-        new StringBuilder().append(parambwx.o()).append(" endpoint: ").append(str);
-        new StringBuilder().append(parambwx.o()).append(" request: ").append(parambwx.g());
-        break;
-        a(parambwx, str, e, new bwr(this, parambwx, (byte)0));
-      }
-      return false;
-    }
-    catch (UnsupportedEncodingException localUnsupportedEncodingException)
-    {
-      parambwx.a(new btu(btt.d, localUnsupportedEncodingException));
-    }
+    return e;
   }
 }
 

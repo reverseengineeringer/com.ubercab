@@ -1,9 +1,25 @@
-import android.os.IInterface;
+import android.util.Log;
 
-public abstract interface ain
-  extends IInterface
+@aih
+public final class ain
+  extends uf
 {
-  public abstract void a(aic paramaic);
+  private static boolean a()
+  {
+    return ((Boolean)aex.ak.c()).booleanValue();
+  }
+  
+  private static boolean b()
+  {
+    return (a(2)) && (a());
+  }
+  
+  public static void e(String paramString)
+  {
+    if (b()) {
+      Log.v("Ads", paramString);
+    }
+  }
 }
 
 /* Location:

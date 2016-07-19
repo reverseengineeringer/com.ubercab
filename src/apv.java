@@ -1,19 +1,52 @@
-import android.content.Context;
-import java.util.WeakHashMap;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.location.internal.FusedLocationProviderResult;
 
-@apl
-public final class apv
+public abstract class apv
+  extends Binder
+  implements apu
 {
-  private WeakHashMap<Context, apw> a = new WeakHashMap();
-  
-  public final apt a(Context paramContext)
+  public apv()
   {
-    Object localObject = (apw)a.get(paramContext);
-    if ((localObject != null) && (!((apw)localObject).a()) && (((Boolean)agz.al.c()).booleanValue())) {}
-    for (localObject = new apu(paramContext, b).a();; localObject = new apu(paramContext).a())
+    attachInterface(this, "com.google.android.gms.location.internal.IFusedLocationProviderCallback");
+  }
+  
+  public static apu a(IBinder paramIBinder)
+  {
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.location.internal.IFusedLocationProviderCallback");
+    if ((localIInterface != null) && ((localIInterface instanceof apu))) {
+      return (apu)localIInterface;
+    }
+    return new apw(paramIBinder);
+  }
+  
+  public IBinder asBinder()
+  {
+    return this;
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    switch (paramInt1)
     {
-      a.put(paramContext, new apw(this, (apt)localObject));
-      return (apt)localObject;
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.location.internal.IFusedLocationProviderCallback");
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.location.internal.IFusedLocationProviderCallback");
+    if (paramParcel1.readInt() != 0) {}
+    for (paramParcel1 = (FusedLocationProviderResult)FusedLocationProviderResult.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+    {
+      a(paramParcel1);
+      return true;
     }
   }
 }

@@ -1,11 +1,13 @@
-import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 
-final class cjv
+public abstract interface cjv
 {
-  static cie a(Context paramContext)
-  {
-    return new cit(paramContext);
-  }
+  public abstract void a(Bitmap paramBitmap);
+  
+  public abstract void a(Drawable paramDrawable);
+  
+  public abstract void b(Drawable paramDrawable);
 }
 
 /* Location:

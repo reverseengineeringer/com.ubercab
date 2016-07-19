@@ -1,44 +1,56 @@
-import android.location.Location;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 
 public final class ayx
-  implements ayn
 {
-  public final Location a(ws paramws)
+  private double a = Double.POSITIVE_INFINITY;
+  private double b = Double.NEGATIVE_INFINITY;
+  private double c = NaN.0D;
+  private double d = NaN.0D;
+  
+  private boolean a(double paramDouble)
   {
-    paramws = ays.a(paramws);
-    try
-    {
-      paramws = paramws.c();
-      return paramws;
+    if (c <= d) {
+      if ((c > paramDouble) || (paramDouble > d)) {}
     }
-    catch (Exception paramws) {}
-    return null;
+    while ((c <= paramDouble) || (paramDouble <= d))
+    {
+      return true;
+      return false;
+    }
+    return false;
   }
   
-  public final wx<Status> a(ws paramws, final ayq paramayq)
+  public final ayx a(LatLng paramLatLng)
   {
-    paramws.b(new ayy(paramws)
+    a = Math.min(a, a);
+    b = Math.max(b, a);
+    double d1 = b;
+    if (Double.isNaN(c))
     {
-      private void a(azs paramAnonymousazs)
-      {
-        ayz localayz = new ayz(this);
-        paramAnonymousazs.a(paramayq, localayz);
-      }
-    });
+      c = d1;
+      d = d1;
+    }
+    while (a(d1)) {
+      return this;
+    }
+    if (LatLngBounds.a(c, d1) < LatLngBounds.b(d, d1))
+    {
+      c = d1;
+      return this;
+    }
+    d = d1;
+    return this;
   }
   
-  public final wx<Status> a(ws paramws, final LocationRequest paramLocationRequest, final ayq paramayq)
+  public final LatLngBounds a()
   {
-    paramws.b(new ayy(paramws)
+    if (!Double.isNaN(c)) {}
+    for (boolean bool = true;; bool = false)
     {
-      private void a(azs paramAnonymousazs)
-      {
-        ayz localayz = new ayz(this);
-        paramAnonymousazs.a(paramLocationRequest, paramayq, localayz);
-      }
-    });
+      abe.a(bool, "no included points");
+      return new LatLngBounds(new LatLng(a, c), new LatLng(b, d));
+    }
   }
 }
 

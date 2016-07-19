@@ -1,15 +1,14 @@
-@apl
-public abstract class apx
+import android.app.PendingIntent;
+import android.os.IInterface;
+
+public abstract interface apx
+  extends IInterface
 {
-  protected static void b(app paramapp)
-  {
-    paramapp.c();
-    if (paramapp.a() != null) {
-      paramapp.a().a();
-    }
-  }
+  public abstract void a(int paramInt, PendingIntent paramPendingIntent);
   
-  public abstract void a(app paramapp);
+  public abstract void a(int paramInt, String[] paramArrayOfString);
+  
+  public abstract void b(int paramInt, String[] paramArrayOfString);
 }
 
 /* Location:

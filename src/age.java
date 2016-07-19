@@ -1,12 +1,6 @@
-import android.view.View;
-
 public abstract interface age
 {
-  public abstract View a();
-  
-  public abstract boolean b();
-  
-  public abstract age c();
+  public abstract agc a();
 }
 
 /* Location:

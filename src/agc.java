@@ -1,25 +1,8 @@
-import java.util.Collections;
-import java.util.Map;
-
-public final class agc
+@aih
+public abstract class agc
+  implements wp
 {
-  public byte[] a;
-  public String b;
-  public long c;
-  public long d;
-  public long e;
-  public long f;
-  public Map<String, String> g = Collections.emptyMap();
-  
-  public final boolean a()
-  {
-    return e < System.currentTimeMillis();
-  }
-  
-  public final boolean b()
-  {
-    return f < System.currentTimeMillis();
-  }
+  public final void b() {}
 }
 
 /* Location:

@@ -3,7 +3,7 @@ package com.ubercab.client.feature.signup;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.ubercab.shape.Shape;
-import eqy;
+import ezd;
 import java.util.Map;
 
 @Shape
@@ -14,10 +14,10 @@ public abstract class SignupData
   {
     Object localObject = null;
     if (paramMap == null) {
-      return n();
+      return p();
     }
-    ThirdPartyToken localThirdPartyToken = ThirdPartyToken.a((String)paramMap.get("thirdPartyType"), (String)paramMap.get("thirdPartyToken"), eqy.a((String)paramMap.get("expireIn"), 60000L), null, (String)paramMap.get("thirdPartyCode"));
-    SignupData localSignupData = n().e((String)paramMap.get("firstName")).f((String)paramMap.get("lastName")).a((String)paramMap.get("email")).j((String)paramMap.get("thirdPartyId")).k((String)paramMap.get("mobile")).b((String)paramMap.get("mobile")).c((String)paramMap.get("mobileCountryIso2"));
+    ThirdPartyToken localThirdPartyToken = ThirdPartyToken.a((String)paramMap.get("thirdPartyType"), (String)paramMap.get("thirdPartyToken"), ezd.a((String)paramMap.get("expireIn"), 60000L), null, (String)paramMap.get("thirdPartyCode"));
+    SignupData localSignupData = p().e((String)paramMap.get("firstName")).f((String)paramMap.get("lastName")).a((String)paramMap.get("email")).j((String)paramMap.get("thirdPartyId")).k((String)paramMap.get("mobile")).l((String)paramMap.get("alipayFirstName")).m((String)paramMap.get("alipayLastName")).b((String)paramMap.get("mobile")).c((String)paramMap.get("mobileCountryIso2"));
     paramMap = (Map<String, String>)localObject;
     if (localThirdPartyToken.f()) {
       paramMap = localThirdPartyToken;
@@ -25,7 +25,7 @@ public abstract class SignupData
     return localSignupData.a(paramMap);
   }
   
-  public static SignupData n()
+  public static SignupData p()
   {
     return new Shape_SignupData();
   }
@@ -78,16 +78,24 @@ public abstract class SignupData
   
   public abstract String k();
   
+  public abstract SignupData l(String paramString);
+  
   public abstract String l();
   
-  public abstract ThirdPartyToken m();
+  public abstract SignupData m(String paramString);
   
-  public final boolean o()
+  public abstract String m();
+  
+  public abstract String n();
+  
+  public abstract ThirdPartyToken o();
+  
+  public final boolean q()
   {
     return (!TextUtils.isEmpty(e())) && (!TextUtils.isEmpty(f())) && (!TextUtils.isEmpty(b())) && (!TextUtils.isEmpty(c()));
   }
   
-  public final String p()
+  public final String r()
   {
     String str1;
     String str2;
@@ -133,7 +141,7 @@ public abstract class SignupData
     }
   }
   
-  public final String q()
+  public final String s()
   {
     String str1;
     String str2;
@@ -155,8 +163,8 @@ public abstract class SignupData
         str1 = "email";
         break;
         str2 = str1;
-      } while (m() == null);
-      str3 = m().e();
+      } while (o() == null);
+      str3 = o().e();
       str2 = str1;
     } while (TextUtils.isEmpty(str3));
     return str3;

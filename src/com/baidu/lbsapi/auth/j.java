@@ -1,32 +1,50 @@
 package com.baidu.lbsapi.auth;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import java.util.Hashtable;
 
 class j
-  extends Handler
+  implements Runnable
 {
-  j(i parami, Looper paramLooper)
-  {
-    super(paramLooper);
-  }
+  j(h paramh, int paramInt, boolean paramBoolean, String paramString1, String paramString2, Hashtable paramHashtable) {}
   
-  public void handleMessage(Message paramMessage)
+  public void run()
   {
     if (a.a) {
-      a.a("handleMessage !!");
+      a.a("status = " + a + "; forced = " + b + "checkAK = " + h.a(f, c));
     }
-    Object localObject = paramMessage.getData().getString("listenerKey");
-    localObject = (n)i.a().get(localObject);
+    if ((a == 601) || (b) || (a == -1) || (h.a(f, c)))
+    {
+      if (a.a) {
+        a.a("authenticate sendAuthRequest");
+      }
+      String[] arrayOfString = b.b(h.b());
+      if (a.a) {
+        a.a("authStrings.length:" + arrayOfString.length);
+      }
+      if ((arrayOfString != null) && (arrayOfString.length > 1))
+      {
+        if (a.a) {
+          a.a("more sha1 auth");
+        }
+        h.a(f, b, d, e, arrayOfString, c);
+        return;
+      }
+      h.a(f, b, d, e, c);
+      return;
+    }
+    if (602 == a)
+    {
+      if (a.a) {
+        a.a("authenticate wait  ");
+      }
+      h.c().b();
+      h.a(f, null, c);
+      return;
+    }
     if (a.a) {
-      a.a("handleMessage listener = " + localObject);
+      a.a("authenticate else  ");
     }
-    if (localObject != null) {
-      ((n)localObject).a(what, obj.toString());
-    }
+    h.a(f, null, c);
   }
 }
 

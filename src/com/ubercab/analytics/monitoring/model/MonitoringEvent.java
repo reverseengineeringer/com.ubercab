@@ -1,8 +1,11 @@
 package com.ubercab.analytics.monitoring.model;
 
+import com.ubercab.analytics.internal.AnalyticsValidatorFactory;
 import com.ubercab.shape.Shape;
+import lzo;
 
 @Shape
+@lzo(a=AnalyticsValidatorFactory.class)
 public abstract class MonitoringEvent
 {
   public static MonitoringEvent create()

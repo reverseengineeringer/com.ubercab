@@ -4,62 +4,58 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import cho;
-import ckc;
-import ckr;
-import cku;
+import chu;
+import ckt;
+import cli;
+import cll;
 import com.ubercab.client.core.app.RiderActivity;
-import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.client.core.vendor.google.GoogleWalletActivity;
 import com.ubercab.client.feature.payment.AddPaymentActivity;
 import com.ubercab.client.feature.payment.PaymentFragment;
 import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.Profile;
 import com.ubercab.rider.realtime.request.param.CreateProfile;
-import dps;
-import eav;
-import ebj;
-import ejv;
-import eld;
-import epw;
-import erf;
-import eri;
-import gco;
-import gcs;
-import ggo;
-import ggp;
-import ghl;
-import gif;
-import gij;
-import giv;
-import giw;
-import gix;
-import gjb;
+import duq;
+import ehn;
+import eib;
+import esu;
+import exw;
+import ezj;
+import ezm;
+import hch;
+import hcl;
+import hhj;
+import hhk;
+import hij;
+import hik;
+import hjm;
+import hjo;
+import hko;
+import hkp;
+import hkq;
+import hks;
 import java.util.Iterator;
 import java.util.List;
-import jry;
-import jsg;
-import kld;
-import klo;
-import p;
-import r;
+import mxd;
+import mxm;
+import odr;
+import oed;
+import x;
+import z;
 
 public class OnBoardingActivity
-  extends RiderActivity<ghl>
+  extends RiderActivity<hik>
 {
-  public ckc g;
-  public jsg h;
-  public eld i;
-  public gif j;
-  public jry k;
+  public ckt g;
+  public mxm h;
+  public esu i;
+  public hjm j;
+  public mxd k;
   private Profile l;
   private int m;
   private String n;
@@ -67,7 +63,7 @@ public class OnBoardingActivity
   private ProgressDialog p;
   private Profile q;
   private List<String> r;
-  private klo s;
+  private oed s;
   
   public static Intent a(Context paramContext, boolean paramBoolean)
   {
@@ -85,29 +81,17 @@ public class OnBoardingActivity
     for (;;)
     {
       if (localObject != null) {
-        g.a((ckr)localObject);
+        g.a((cli)localObject);
       }
       return;
-      localObject = p.oN;
+      localObject = x.tl;
       continue;
-      localObject = p.oR;
+      localObject = x.tp;
       continue;
-      localObject = p.oV;
+      localObject = x.tt;
       continue;
-      localObject = p.oZ;
+      localObject = x.tx;
     }
-  }
-  
-  private void a(Fragment paramFragment)
-  {
-    String str = paramFragment.getClass().getName();
-    FragmentTransaction localFragmentTransaction = getSupportFragmentManager().beginTransaction();
-    if (!RiderApplication.a(this).k()) {
-      localFragmentTransaction.setCustomAnimations(2130968610, 2130968593, 2130968590, 2130968615);
-    }
-    localFragmentTransaction.replace(2131624118, paramFragment, str);
-    localFragmentTransaction.addToBackStack(str);
-    localFragmentTransaction.commit();
   }
   
   private static void a(PaymentFragment paramPaymentFragment, String paramString)
@@ -119,42 +103,39 @@ public class OnBoardingActivity
   
   private void a(Profile paramProfile1, Profile paramProfile2)
   {
-    a(2131624118, OnBoardingFinishedFragment.a(paramProfile1, paramProfile2));
+    a(2131624191, OnBoardingFinishedFragment.a(paramProfile1, paramProfile2));
   }
   
   private void a(Profile paramProfile, String paramString, com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile)
   {
     if ((paramPaymentProfile != null) && (!TextUtils.isEmpty(paramPaymentProfile.getUuid())) && (!TextUtils.isEmpty(paramString)) && (paramProfile != null))
     {
-      p = epw.a(this, getString(2131167175));
+      p = exw.b(this, getString(2131167548));
       p.show();
-      paramProfile = j.a(paramProfile).a(paramPaymentProfile.getUuid()).b(paramString).a();
-      if (j.t()) {
-        s = paramProfile.b(new OnBoardingActivity.2(this));
-      }
+      s = j.b(paramProfile).a(paramPaymentProfile.getUuid()).b(paramString).a().b(new OnBoardingActivity.1(this));
       return;
     }
-    a_(getString(2131166253));
+    b_(getString(2131166414));
   }
   
-  private void a(ghl paramghl)
+  private void a(hik paramhik)
   {
-    paramghl.a(this);
+    paramhik.a(this);
   }
   
   private static boolean a(Profile paramProfile)
   {
-    return (paramProfile != null) && (erf.i(paramProfile));
+    return (paramProfile != null) && (ezj.f(paramProfile));
   }
   
-  private ghl b(ebj paramebj)
+  private hik b(eib parameib)
   {
-    return ggo.a().a(new eav(this)).a(paramebj).a();
+    return hhj.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void b(Profile paramProfile)
   {
-    j.f(paramProfile);
+    j.g(paramProfile);
     setResult(-1);
     finish();
   }
@@ -168,37 +149,37 @@ public class OnBoardingActivity
     for (;;)
     {
       if (localObject != null) {
-        g.a((cku)localObject);
+        g.a((cll)localObject);
       }
       return;
-      localObject = r.mw;
+      localObject = z.qe;
       continue;
-      localObject = r.mD;
+      localObject = z.ql;
       m = 0;
       continue;
-      localObject = r.mL;
+      localObject = z.qt;
       m = 1;
     }
   }
   
   private void g()
   {
-    if ((j.k()) && (getIntent() != null) && (getIntent().getBooleanExtra("EXTRA_HAS_COMPANY_BRAND", false)) && (h.c() != null)) {}
+    if ((getIntent() != null) && (getIntent().getBooleanExtra("EXTRA_HAS_COMPANY_BRAND", false)) && (h.c() != null)) {}
     for (EditEmailFragment localEditEmailFragment = EditEmailFragment.a(true, h.c().getEmail());; localEditEmailFragment = EditEmailFragment.a(true))
     {
-      a(2131624118, localEditEmailFragment, false);
+      a(2131624191, localEditEmailFragment, false);
       return;
     }
   }
   
   private void h()
   {
-    a(PaymentFragment.a(q));
+    hij.a(this, PaymentFragment.a(q), 2131624191);
   }
   
   private void i()
   {
-    a(ReportIntervalFragment.a());
+    hij.a(this, ReportIntervalFragment.a(), 2131624191);
   }
   
   private void j()
@@ -209,26 +190,26 @@ public class OnBoardingActivity
     if (q != null) {}
     for (String str = q.getEmail();; str = "")
     {
-      a(2131624118, EditEmailFragment.a(false, str));
+      a(2131624191, EditEmailFragment.a(false, str));
       return;
     }
   }
   
   private boolean k()
   {
-    Object localObject2 = j.d();
+    Object localObject2 = j.e();
     Object localObject1 = null;
     Iterator localIterator = ((List)localObject2).iterator();
     while (localIterator.hasNext())
     {
       localObject2 = (Profile)localIterator.next();
-      if (erf.j((Profile)localObject2))
+      if (ezj.g((Profile)localObject2))
       {
         l = ((Profile)localObject2);
       }
       else
       {
-        if (!erf.i((Profile)localObject2)) {
+        if (!ezj.f((Profile)localObject2)) {
           break label101;
         }
         localObject1 = localObject2;
@@ -251,8 +232,8 @@ public class OnBoardingActivity
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903093);
-    b().a(2131166252);
+    setContentView(2130903118);
+    b().a(2131166413);
     if (a(EditEmailFragment.class) == null)
     {
       a(0);
@@ -279,7 +260,7 @@ public class OnBoardingActivity
         a(localPaymentFragment, str);
         setResult(paramInt2, paramIntent);
       }
-      k.a().b(eri.a());
+      k.a().b(ezm.a());
     }
     label70:
     label82:
@@ -311,41 +292,41 @@ public class OnBoardingActivity
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755020, paramMenu);
+    getMenuInflater().inflate(2131755022, paramMenu);
     return true;
   }
   
-  @cho
-  public void onEditEmailCompleteEvent(giv paramgiv)
+  @chu
+  public void onEditEmailCompleteEvent(hko paramhko)
   {
-    g.a(r.mz);
-    dps.a(this);
-    n = paramgiv.a();
+    g.a(z.qh);
+    duq.a(this);
+    n = paramhko.a();
     a(1);
     h();
   }
   
-  @cho
-  public void onGetTroyProfilesUpdatedEvent(giw paramgiw)
+  @chu
+  public void onGetTroyProfilesUpdatedEvent(hkp paramhkp)
   {
     if (p != null) {
       p.dismiss();
     }
-    if ((paramgiw.a()) || (!k())) {
-      a_(getString(2131166253));
+    if ((paramhkp.a()) || (!k())) {
+      b_(getString(2131166414));
     }
   }
   
-  @cho
-  public void onOnBoardingProfileSelectedEvent(gix paramgix)
+  @chu
+  public void onOnBoardingProfileSelectedEvent(hkq paramhkq)
   {
-    q = paramgix.a();
-    if (paramgix.b())
+    q = paramhkq.a();
+    if (paramhkq.b())
     {
       j();
       return;
     }
-    b(paramgix.a());
+    b(paramhkq.a());
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -365,16 +346,16 @@ public class OnBoardingActivity
   public void onPause()
   {
     if (isFinishing()) {
-      eri.a(s);
+      ezm.a(s);
     }
     super.onPause();
   }
   
-  @cho
-  public void onPaymentProfileSelectedEvent(gco paramgco)
+  @chu
+  public void onPaymentProfileSelectedEvent(hch paramhch)
   {
-    g.a(r.mH);
-    o = paramgco.a();
+    g.a(z.qp);
+    o = paramhch.a();
     if (a(q))
     {
       a(q, n, o);
@@ -387,7 +368,7 @@ public class OnBoardingActivity
   public boolean onPrepareOptionsMenu(Menu paramMenu)
   {
     boolean bool = true;
-    MenuItem localMenuItem = paramMenu.findItem(2131626143);
+    MenuItem localMenuItem = paramMenu.findItem(2131626898);
     if (m == 1) {}
     for (;;)
     {
@@ -398,58 +379,38 @@ public class OnBoardingActivity
     }
   }
   
-  @cho
-  public void onReportIntervalCompleteEvent(gjb paramgjb)
+  @chu
+  public void onReportIntervalCompleteEvent(hks paramhks)
   {
-    g.a(r.mT);
-    r = paramgjb.a();
+    g.a(z.qB);
+    r = paramhks.a();
     if ((!TextUtils.isEmpty(n)) && (o != null) && (r != null))
     {
-      p = epw.a(this, getString(2131165668));
+      p = exw.b(this, getString(2131165727));
       p.show();
-      paramgjb = CreateProfile.create("Business");
-      paramgjb.setEmail(n);
-      paramgjb.setDefaultPaymentProfileUuid(o.getUuid());
-      paramgjb.setSelectedSummaryPeriods(r);
+      paramhks = CreateProfile.create("Business");
+      paramhks.setEmail(n);
+      paramhks.setDefaultPaymentProfileUuid(o.getUuid());
+      paramhks.setSelectedSummaryPeriods(r);
       CreateProfile localCreateProfile = CreateProfile.create("Personal");
       if (h.c() != null) {
         localCreateProfile.setEmail(h.c().getEmail());
       }
-      j.a(paramgjb, localCreateProfile);
+      j.a(paramhks, localCreateProfile);
       return;
     }
-    a_(getString(2131166253));
+    b_(getString(2131166414));
   }
   
-  @cho
-  public void onSelectGoogleWalletEvent(gcs paramgcs)
+  @chu
+  public void onSelectGoogleWalletEvent(hcl paramhcl)
   {
-    paramgcs = new Intent(this, GoogleWalletActivity.class);
-    paramgcs.setAction("com.ubercab.ACTION_CHANGE_MASKED_WALLET");
-    startActivityForResult(paramgcs, 1002);
+    paramhcl = new Intent(this, GoogleWalletActivity.class);
+    paramhcl.setAction("com.ubercab.ACTION_CHANGE_MASKED_WALLET");
+    startActivityForResult(paramhcl, 1002);
   }
   
-  @cho
-  @Deprecated
-  public void onUpdateProfileResponseEvent(ejv paramejv)
-  {
-    if (p != null)
-    {
-      Profile localProfile = paramejv.b();
-      if ((!paramejv.k()) && (localProfile != null)) {
-        p.setOnDismissListener(new OnBoardingActivity.1(this, localProfile));
-      }
-      for (;;)
-      {
-        p.dismiss();
-        return;
-        a_(getString(2131166253));
-      }
-    }
-    a_(getString(2131166253));
-  }
-  
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

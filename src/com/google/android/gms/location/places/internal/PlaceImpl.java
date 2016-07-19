@@ -1,12 +1,13 @@
 package com.google.android.gms.location.places.internal;
 
-import abq;
-import abr;
+import abc;
+import abd;
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
-import bab;
+import aqt;
+import arz;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -18,9 +19,9 @@ import java.util.Map;
 import java.util.TimeZone;
 
 public final class PlaceImpl
-  implements SafeParcelable
+  implements aqt, SafeParcelable
 {
-  public static final bab CREATOR = new bab();
+  public static final arz CREATOR = new arz();
   public final int a;
   private final String b;
   private final Bundle c;
@@ -134,7 +135,7 @@ public final class PlaceImpl
         return false;
       }
       paramObject = (PlaceImpl)paramObject;
-    } while ((b.equals(b)) && (abq.a(w, w)) && (m == m));
+    } while ((b.equals(b)) && (abc.a(w, w)) && (m == m));
     return false;
   }
   
@@ -155,7 +156,7 @@ public final class PlaceImpl
   
   public final int hashCode()
   {
-    return abq.a(new Object[] { b, w, Long.valueOf(m) });
+    return abc.a(new Object[] { b, w, Long.valueOf(m) });
   }
   
   public final Uri i()
@@ -217,12 +218,12 @@ public final class PlaceImpl
   @SuppressLint({"DefaultLocale"})
   public final String toString()
   {
-    return abq.a(this).a("id", b).a("placeTypes", o).a("locale", w).a("name", p).a("address", q).a("phoneNumber", r).a("latlng", e).a("viewport", g).a("websiteUri", i).a("isPermanentlyClosed", Boolean.valueOf(j)).a("priceLevel", Integer.valueOf(l)).a("timestampSecs", Long.valueOf(m)).toString();
+    return abc.a(this).a("id", b).a("placeTypes", o).a("locale", w).a("name", p).a("address", q).a("phoneNumber", r).a("latlng", e).a("viewport", g).a("websiteUri", i).a("isPermanentlyClosed", Boolean.valueOf(j)).a("priceLevel", Integer.valueOf(l)).a("timestampSecs", Long.valueOf(m)).toString();
   }
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    bab.a(this, paramParcel, paramInt);
+    arz.a(this, paramParcel, paramInt);
   }
 }
 

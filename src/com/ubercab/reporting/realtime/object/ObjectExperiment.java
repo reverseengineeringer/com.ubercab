@@ -1,11 +1,11 @@
 package com.ubercab.reporting.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jqs;
+import mpb;
 
 @Shape
 public abstract class ObjectExperiment
-  implements jqs
+  implements mpb
 {
   static ObjectExperiment create()
   {

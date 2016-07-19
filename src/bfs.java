@@ -1,10 +1,19 @@
-import android.os.IInterface;
-import com.google.android.gms.maps.model.PointOfInterest;
+import com.google.android.gms.wallet.wobs.CommonWalletObject;
 
-public abstract interface bfs
-  extends IInterface
+public final class bfs
 {
-  public abstract void a(PointOfInterest paramPointOfInterest);
+  private bfs(CommonWalletObject paramCommonWalletObject) {}
+  
+  public final bfs a(String paramString)
+  {
+    a.a = paramString;
+    return this;
+  }
+  
+  public final CommonWalletObject a()
+  {
+    return a;
+  }
 }
 
 /* Location:

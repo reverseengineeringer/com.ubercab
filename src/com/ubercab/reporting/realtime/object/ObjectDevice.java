@@ -1,11 +1,11 @@
 package com.ubercab.reporting.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jqr;
+import mpa;
 
 @Shape
 public abstract class ObjectDevice
-  implements jqr
+  implements mpa
 {
   static ObjectDevice create()
   {

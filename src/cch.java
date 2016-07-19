@@ -1,8 +1,16 @@
-public abstract interface cch
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.LoginActivity;
+
+public final class cch
+  implements View.OnClickListener
 {
-  public abstract void a(cck paramcck);
+  public cch(LoginActivity paramLoginActivity) {}
   
-  public abstract void a(Object paramObject);
+  public final void onClick(View paramView)
+  {
+    LoginActivity.c(a);
+  }
 }
 
 /* Location:

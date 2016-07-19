@@ -1,27 +1,20 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-public abstract class ckz
+public abstract interface ckz
 {
-  private final List<cla> a = new ArrayList();
+  public abstract Double a();
   
-  public final void a(cla paramcla)
-  {
-    a.add(paramcla);
-  }
+  public abstract Double b();
   
-  public abstract String b();
+  public abstract Float c();
   
-  public abstract long c();
+  public abstract Float d();
   
-  protected final void d()
-  {
-    Iterator localIterator = a.iterator();
-    while (localIterator.hasNext()) {
-      ((cla)localIterator.next()).a();
-    }
-  }
+  public abstract Double e();
+  
+  public abstract Float f();
+  
+  public abstract Float g();
+  
+  public abstract Long h();
 }
 
 /* Location:

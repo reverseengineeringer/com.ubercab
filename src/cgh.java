@@ -1,25 +1,4 @@
-public final class cgh
-  extends RuntimeException
-{
-  private static final long serialVersionUID = -7208133561904200801L;
-  
-  public cgh() {}
-  
-  public cgh(Exception paramException)
-  {
-    super(paramException);
-  }
-  
-  public cgh(String paramString)
-  {
-    super(paramString);
-  }
-  
-  public cgh(String paramString, Exception paramException)
-  {
-    super(paramString, paramException);
-  }
-}
+public final class cgh {}
 
 /* Location:
  * Qualified Name:     cgh

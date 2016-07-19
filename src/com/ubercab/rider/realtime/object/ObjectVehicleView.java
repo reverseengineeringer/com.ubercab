@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jvh;
+import nar;
 
 @Shape
 abstract class ObjectVehicleView
-  implements jvh
+  implements nar
 {
   static ObjectVehicleView create()
   {

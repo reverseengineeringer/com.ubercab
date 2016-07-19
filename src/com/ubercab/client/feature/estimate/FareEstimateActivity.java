@@ -2,86 +2,167 @@ package com.ubercab.client.feature.estimate;
 
 import android.content.Intent;
 import android.os.Bundle;
-import cho;
-import ckc;
-import ckr;
+import android.support.v7.app.ActionBar;
+import android.text.TextUtils;
+import android.widget.LinearLayout;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.location.RiderLocation;
+import com.ubercab.client.core.model.CnLocation;
 import com.ubercab.client.feature.search.LocationSearchActivity;
-import eav;
-import ebj;
-import fbb;
-import fbc;
-import fbh;
-import fbr;
-import fbs;
-import hgp;
-import p;
+import com.ubercab.rider.realtime.request.param.Location;
+import com.ubercab.ui.TextView;
+import dzn;
+import ehn;
+import eib;
+import fou;
+import fov;
+import foz;
+import fpa;
+import fpd;
+import hug;
+import ird;
+import iyz;
+import kia;
+import mxd;
+import mxm;
+import odr;
+import oed;
+import oeh;
+import x;
 
-@Deprecated
 public class FareEstimateActivity
-  extends RiderActivity<fbh>
+  extends RiderActivity<foz>
+  implements fpd
 {
-  public ckc g;
-  public hgp h;
-  private Float i;
-  private long j;
-  private RiderLocation k;
-  private RiderLocation l;
+  public ckt g;
+  public mxm h;
+  public kia i;
+  public hug j;
+  public ird k;
+  public mxd l;
+  public dzn m;
+  @BindView
+  public FareEstimateMultiAddressView mMultiAddressView;
+  @BindView
+  public TextView mTextViewFare;
+  @BindView
+  public TextView mTextViewFarePoints;
+  @BindView
+  public TextView mTextViewFarePointsExplanation;
+  @BindView
+  public TextView mTextViewMessage;
+  @BindView
+  public TextView mTextViewVehicle;
+  @BindView
+  public LinearLayout mViewGroupResults;
+  @BindView
+  public LinearLayout mViewGroupSurge;
+  public iyz n;
+  private float o;
+  @Deprecated
+  private long p;
+  private String q;
+  private RiderLocation r;
+  private RiderLocation s;
+  private oed t;
+  private oed u;
   
-  private void a(fbh paramfbh)
+  private void a(RiderLocation paramRiderLocation1, RiderLocation paramRiderLocation2)
   {
-    paramfbh.a(this);
+    s = paramRiderLocation1;
+    r = paramRiderLocation2;
+    mMultiAddressView.a(paramRiderLocation1, paramRiderLocation2);
   }
   
-  private fbh b(ebj paramebj)
+  private void a(foz paramfoz)
   {
-    return fbb.a().a(new eav(this)).a(paramebj).a();
+    paramfoz.a(this);
   }
   
-  private void f()
+  private foz b(eib parameib)
   {
-    FareEstimateFragment localFareEstimateFragment = (FareEstimateFragment)a(FareEstimateFragment.class);
-    if (localFareEstimateFragment == null) {
-      a(2131624305, FareEstimateFragment.a(l, k, j, i), true);
-    }
-    for (;;)
-    {
-      g.a(p.cG);
-      return;
-      localFareEstimateFragment.a(l, k);
-    }
+    return fou.a().a(new ehn(this)).a(parameib).a();
   }
   
-  private void g()
+  private void b(String paramString)
   {
-    startActivityForResult(LocationSearchActivity.a(this, "com.ubercab.ACTION_PICKUP_LOCATION", l, k, null, false), 2009);
-    g.a(p.cH);
+    mTextViewFare.setVisibility(8);
+    mTextViewVehicle.setVisibility(8);
+    mViewGroupSurge.setVisibility(8);
+    mTextViewMessage.setVisibility(0);
+    mViewGroupResults.setVisibility(0);
+    mTextViewMessage.setText(paramString);
   }
   
   private void h()
   {
-    startActivityForResult(LocationSearchActivity.a(this, "com.ubercab.ACTION_DESTINATION", l, k, null, false), 2010);
-    g.a(p.cH);
+    startActivityForResult(LocationSearchActivity.a(this, "com.ubercab.ACTION_PICKUP_LOCATION", s, r, null, false), 2009);
+    g.a(x.ei);
+  }
+  
+  private void i()
+  {
+    startActivityForResult(LocationSearchActivity.a(this, "com.ubercab.ACTION_DESTINATION", s, r, null, false), 2010);
+    g.a(x.ei);
+  }
+  
+  private void j()
+  {
+    String str = m.S();
+    if ((TextUtils.isEmpty(str)) || (!TextUtils.isDigitsOnly(str))) {
+      b(getString(2131165943));
+    }
+    while ((s == null) || (r == null)) {
+      return;
+    }
+    b(getString(2131165869), null);
+    CnLocation localCnLocation1 = s.getCnLocation();
+    CnLocation localCnLocation2 = r.getCnLocation();
+    t = l.a(Integer.valueOf(str).intValue(), Location.create(localCnLocation1.getLatitude(), localCnLocation1.getLongitude()), Location.create(localCnLocation2.getLatitude(), localCnLocation2.getLongitude()), Integer.valueOf(0), Long.valueOf(p), q, null, null, null, null, null).a(oeh.a()).b(new fpa(this, (byte)0));
+    g.a(x.eh);
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903164);
+    setContentView(2130903229);
+    ButterKnife.a(this);
     if (paramBundle == null)
     {
-      i = Float.valueOf(getIntent().getFloatExtra("com.ubercab.CURRENCY_TO_POINTS_RATIO", 0.0F));
-      j = getIntent().getLongExtra("com.ubercab.FARE_ID", 0L);
-      k = ((RiderLocation)getIntent().getParcelableExtra("com.ubercab.LOCATION_DESTINATION"));
-      l = ((RiderLocation)getIntent().getParcelableExtra("com.ubercab.LOCATION_PICKUP"));
+      o = getIntent().getFloatExtra("com.ubercab.CURRENCY_TO_POINTS_RATIO", 0.0F);
+      p = getIntent().getLongExtra("com.ubercab.FARE_ID", 0L);
+      q = getIntent().getStringExtra("com.ubercab.FARE_UUID");
+      r = ((RiderLocation)getIntent().getParcelableExtra("com.ubercab.LOCATION_DESTINATION"));
+      s = ((RiderLocation)getIntent().getParcelableExtra("com.ubercab.LOCATION_PICKUP"));
     }
+    if (b() != null) {
+      b().a(getString(2131165942));
+    }
+    mMultiAddressView.a(getString(2131166378));
+    mMultiAddressView.b(getString(2131166009));
+    mMultiAddressView.c(getString(2131166628));
+    mMultiAddressView.a(this);
+    mMultiAddressView.a(s, r);
+  }
+  
+  public final void f()
+  {
+    h();
+  }
+  
+  public final void g()
+  {
+    i();
   }
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
-    if ((paramInt2 == 0) && (k == null)) {
+    if ((paramInt2 == 0) && (r == null)) {
       finish();
     }
     do
@@ -89,68 +170,73 @@ public class FareEstimateActivity
       return;
       if ((paramInt1 == 2009) && (paramInt2 == -1))
       {
-        l = ((RiderLocation)paramIntent.getParcelableExtra("com.ubercab.LOCATION"));
-        h.a(l);
+        s = ((RiderLocation)paramIntent.getParcelableExtra("com.ubercab.LOCATION"));
+        n.a(s);
         setResult(-1, getIntent());
         return;
       }
     } while ((paramInt1 != 2010) || (paramInt2 != -1));
-    k = ((RiderLocation)paramIntent.getParcelableExtra("com.ubercab.LOCATION"));
-    paramIntent = getIntent();
-    paramIntent.putExtra("com.ubercab.LOCATION_DESTINATION", k);
-    setResult(-1, paramIntent);
+    r = ((RiderLocation)paramIntent.getParcelableExtra("com.ubercab.LOCATION"));
+    setResult(-1, getIntent().putExtra("com.ubercab.LOCATION_DESTINATION", r));
   }
   
-  @cho
-  public void onDestinationChangeEvent(fbr paramfbr)
+  public void onDestroy()
   {
-    h();
+    if (mMultiAddressView != null) {
+      mMultiAddressView.b(this);
+    }
+    super.onDestroy();
   }
   
-  @cho
-  public void onPickupChangeEvent(fbs paramfbs)
+  public void onPause()
   {
-    g();
+    super.onPause();
+    if (t != null) {
+      t.af_();
+    }
+    if (u != null) {
+      u.af_();
+    }
   }
   
   protected void onRestoreInstanceState(Bundle paramBundle)
   {
     super.onRestoreInstanceState(paramBundle);
-    i = Float.valueOf(paramBundle.getFloat("com.ubercab.CURRENCY_TO_POINTS_RATIO", 0.0F));
-    j = paramBundle.getLong("com.ubercab.FARE_ID");
-    k = ((RiderLocation)paramBundle.getParcelable("com.ubercab.LOCATION_DESTINATION"));
-    l = ((RiderLocation)paramBundle.getParcelable("com.ubercab.LOCATION_PICKUP"));
+    o = paramBundle.getFloat("com.ubercab.CURRENCY_TO_POINTS_RATIO", 0.0F);
+    p = paramBundle.getLong("com.ubercab.FARE_ID");
+    q = paramBundle.getString("com.ubercab.FARE_UUID");
+    r = ((RiderLocation)paramBundle.getParcelable("com.ubercab.LOCATION_DESTINATION"));
+    s = ((RiderLocation)paramBundle.getParcelable("com.ubercab.LOCATION_PICKUP"));
   }
   
   public void onResume()
   {
     super.onResume();
-    if (isFinishing()) {
-      return;
-    }
-    if (k == null)
+    if (r == null)
     {
-      h();
+      i();
       return;
     }
-    f();
+    j();
+    a(s, r);
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putFloat("com.ubercab.CURRENCY_TO_POINTS_RATIO", i.floatValue());
-    paramBundle.putParcelable("com.ubercab.LOCATION_DESTINATION", k);
-    paramBundle.putParcelable("com.ubercab.LOCATION_PICKUP", l);
-    paramBundle.putLong("com.ubercab.FARE_ID", j);
+    paramBundle.putFloat("com.ubercab.CURRENCY_TO_POINTS_RATIO", o);
+    paramBundle.putParcelable("com.ubercab.LOCATION_DESTINATION", r);
+    paramBundle.putParcelable("com.ubercab.LOCATION_PICKUP", s);
+    paramBundle.putLong("com.ubercab.FARE_ID", p);
+    paramBundle.putString("com.ubercab.FARE_UUID", q);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }
   
-  protected final boolean v()
+  protected final boolean w()
   {
     return true;
   }

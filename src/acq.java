@@ -1,34 +1,44 @@
-import android.content.ComponentName;
-import android.content.ServiceConnection;
+import android.os.Binder;
 import android.os.IBinder;
-import android.os.Looper;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import android.os.IInterface;
+import android.os.Parcel;
 
-public final class acq
-  implements ServiceConnection
+public abstract class acq
+  extends Binder
+  implements acp
 {
-  boolean a = false;
-  private final BlockingQueue<IBinder> b = new LinkedBlockingQueue();
-  
-  public final IBinder a()
+  public acq()
   {
-    if (Looper.myLooper() == Looper.getMainLooper()) {
-      throw new IllegalStateException("BlockingServiceConnection.getService() called on main thread");
-    }
-    if (a) {
-      throw new IllegalStateException();
-    }
-    a = true;
-    return (IBinder)b.take();
+    attachInterface(this, "com.google.android.gms.dynamic.IObjectWrapper");
   }
   
-  public final void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
+  public static acp a(IBinder paramIBinder)
   {
-    b.add(paramIBinder);
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.dynamic.IObjectWrapper");
+    if ((localIInterface != null) && ((localIInterface instanceof acp))) {
+      return (acp)localIInterface;
+    }
+    return new acr(paramIBinder);
   }
   
-  public final void onServiceDisconnected(ComponentName paramComponentName) {}
+  public IBinder asBinder()
+  {
+    return this;
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    }
+    paramParcel2.writeString("com.google.android.gms.dynamic.IObjectWrapper");
+    return true;
+  }
 }
 
 /* Location:

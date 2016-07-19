@@ -2,10 +2,10 @@ package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class AppConfig
 {
   public static final String SETTING_SLIDER_STYLE_STACKED = "stacked";
@@ -27,8 +27,6 @@ public abstract class AppConfig
   public abstract boolean getEnableMusicBar();
   
   public abstract boolean getEnableNetworkMonitoring();
-  
-  public abstract boolean getEnableSosIndiaRider();
   
   public abstract boolean getEnableUpfrontPricingV1();
   
@@ -55,8 +53,6 @@ public abstract class AppConfig
   abstract AppConfig setEnableMusicBar(boolean paramBoolean);
   
   abstract AppConfig setEnableNetworkMonitoring(boolean paramBoolean);
-  
-  abstract AppConfig setEnableSosIndiaRider(boolean paramBoolean);
   
   abstract AppConfig setEnableUpfrontPricingV1(boolean paramBoolean);
   

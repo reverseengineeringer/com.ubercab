@@ -1,12 +1,12 @@
 package com.ubercab.crash;
 
 import com.ubercab.crash.model.ProcessedCrash;
-import idr;
-import ids;
-import idt;
+import kgj;
+import kgk;
+import kgl;
 
 final class CrashService$1
-  implements idt
+  implements kgl
 {
   CrashService$1(CrashService paramCrashService) {}
   

@@ -1,32 +1,17 @@
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import java.util.Set;
+import com.google.android.gms.common.api.Status;
 
 final class ans$1
-  implements Runnable
+  extends bfi
 {
-  ans$1(ans paramans, String paramString1, String paramString2) {}
-  
-  public final void run()
+  ans$1(ans paramans, wj paramwj, int paramInt)
   {
-    final WebView localWebView = c.a();
-    localWebView.setWebViewClient(new WebViewClient()
-    {
-      public final void onPageFinished(WebView paramAnonymousWebView, String paramAnonymousString)
-      {
-        aqt.a("Loading assets have finished");
-        c.a.remove(localWebView);
-      }
-      
-      public final void onReceivedError(WebView paramAnonymousWebView, int paramAnonymousInt, String paramAnonymousString1, String paramAnonymousString2)
-      {
-        aqt.d("Loading assets have failed.");
-        c.a.remove(localWebView);
-      }
-    });
-    c.a.add(localWebView);
-    localWebView.loadDataWithBaseURL(a, b, "text/html", "UTF-8", null);
-    aqt.a("Fetching assets finished.");
+    super(paramwj);
+  }
+  
+  private void a(ant paramant)
+  {
+    paramant.b(b);
+    a(Status.a);
   }
 }
 

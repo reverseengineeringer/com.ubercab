@@ -5,26 +5,24 @@ import android.graphics.Bitmap;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.widget.RatingBar;
-import bp;
-import fh;
-import it;
+import gd;
+import jt;
+import jz;
 
 public class AppCompatRatingBar
   extends RatingBar
 {
-  private fh a;
-  private it b;
+  private jz a = new jz(this, b);
+  private jt b = jt.a();
   
   public AppCompatRatingBar(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, bp.ratingBarStyle);
+    this(paramContext, paramAttributeSet, gd.ratingBarStyle);
   }
   
   public AppCompatRatingBar(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    b = it.a(paramContext);
-    a = new fh(this, b);
     a.a(paramAttributeSet, paramInt);
   }
   

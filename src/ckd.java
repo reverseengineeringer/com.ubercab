@@ -1,16 +1,10 @@
-import retrofit.Callback;
-import retrofit.RetrofitError;
+import android.content.Context;
 
 final class ckd
-  implements Callback<Void>
 {
-  private ckf b = null;
-  
-  ckd(ckc paramckc) {}
-  
-  public final void failure(RetrofitError paramRetrofitError)
+  static cik a(Context paramContext)
   {
-    ckc.a(a, paramRetrofitError);
+    return new ciz(paramContext);
   }
 }
 

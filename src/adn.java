@@ -1,18 +1,43 @@
-import android.content.SharedPreferences;
-import java.util.concurrent.Callable;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Message;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
 
-public final class adn
-  extends adk<Long>
+public abstract class adn
+  extends Binder
+  implements adm
 {
-  public static Long a(SharedPreferences paramSharedPreferences, final String paramString, final Long paramLong)
+  public static adm a(IBinder paramIBinder)
   {
-    (Long)avg.a(new Callable()
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.iid.IMessengerCompat");
+    if ((localIInterface != null) && ((localIInterface instanceof adm))) {
+      return (adm)localIInterface;
+    }
+    return new ado(paramIBinder);
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    switch (paramInt1)
     {
-      private Long a()
-      {
-        return Long.valueOf(getLong(paramString, paramLong.longValue()));
-      }
-    });
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.iid.IMessengerCompat");
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.iid.IMessengerCompat");
+    if (paramParcel1.readInt() != 0) {}
+    for (paramParcel1 = (Message)Message.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+    {
+      a(paramParcel1);
+      return true;
+    }
   }
 }
 

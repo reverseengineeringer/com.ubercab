@@ -1,115 +1,41 @@
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Map;
-
 public final class bjz
-  extends bks
 {
-  public bjz(bko parambko)
-  {
-    super(parambko);
-  }
+  static final Object[] a = new Object[0];
   
-  protected static HttpURLConnection a(URL paramURL)
+  static Object a(Object paramObject, int paramInt)
   {
-    paramURL = paramURL.openConnection();
-    if (!(paramURL instanceof HttpURLConnection)) {
-      throw new IOException("Failed to obtain HTTP connection");
+    if (paramObject == null) {
+      throw new NullPointerException("at index " + paramInt);
     }
-    paramURL = (HttpURLConnection)paramURL;
-    paramURL.setDefaultUseCaches(false);
-    bjf.H();
-    paramURL.setConnectTimeout(60000);
-    bjf.I();
-    paramURL.setReadTimeout(61000);
-    paramURL.setInstanceFollowRedirects(false);
-    paramURL.setDoInput(true);
-    return paramURL;
+    return paramObject;
   }
   
-  private static byte[] b(HttpURLConnection paramHttpURLConnection)
+  static Object[] a(Object... paramVarArgs)
   {
-    byte[] arrayOfByte = null;
-    Object localObject = arrayOfByte;
-    ByteArrayOutputStream localByteArrayOutputStream;
-    try
+    return c(paramVarArgs, paramVarArgs.length);
+  }
+  
+  public static <T> T[] a(T[] paramArrayOfT, int paramInt)
+  {
+    return bkb.a(paramArrayOfT, paramInt);
+  }
+  
+  static <T> T[] b(T[] paramArrayOfT, int paramInt)
+  {
+    Object[] arrayOfObject = a(paramArrayOfT, paramInt);
+    System.arraycopy(paramArrayOfT, 0, arrayOfObject, 0, Math.min(paramArrayOfT.length, paramInt));
+    return arrayOfObject;
+  }
+  
+  private static Object[] c(Object[] paramArrayOfObject, int paramInt)
+  {
+    int i = 0;
+    while (i < paramInt)
     {
-      localByteArrayOutputStream = new ByteArrayOutputStream();
-      localObject = arrayOfByte;
-      paramHttpURLConnection = paramHttpURLConnection.getInputStream();
-      localObject = paramHttpURLConnection;
-      arrayOfByte = new byte['Ѐ'];
-      for (;;)
-      {
-        localObject = paramHttpURLConnection;
-        int i = paramHttpURLConnection.read(arrayOfByte);
-        if (i <= 0) {
-          break;
-        }
-        localObject = paramHttpURLConnection;
-        localByteArrayOutputStream.write(arrayOfByte, 0, i);
-      }
-      localObject = paramHttpURLConnection;
+      a(paramArrayOfObject[i], i);
+      i += 1;
     }
-    finally
-    {
-      if (localObject != null) {
-        ((InputStream)localObject).close();
-      }
-    }
-    arrayOfByte = localByteArrayOutputStream.toByteArray();
-    if (paramHttpURLConnection != null) {
-      paramHttpURLConnection.close();
-    }
-    return arrayOfByte;
-  }
-  
-  protected final void a() {}
-  
-  public final void a(String paramString, URL paramURL, Map<String, String> paramMap, bka parambka)
-  {
-    f();
-    E();
-    abs.a(paramURL);
-    abs.a(parambka);
-    r().b(new bkc(this, paramString, paramURL, null, paramMap, parambka));
-  }
-  
-  public final void a(String paramString, URL paramURL, byte[] paramArrayOfByte, bka parambka)
-  {
-    f();
-    E();
-    abs.a(paramURL);
-    abs.a(paramArrayOfByte);
-    abs.a(parambka);
-    r().b(new bkc(this, paramString, paramURL, paramArrayOfByte, null, parambka));
-  }
-  
-  public final boolean b()
-  {
-    E();
-    Object localObject1 = (ConnectivityManager)m().getSystemService("connectivity");
-    try
-    {
-      localObject1 = ((ConnectivityManager)localObject1).getActiveNetworkInfo();
-      if ((localObject1 != null) && (((NetworkInfo)localObject1).isConnected())) {
-        return true;
-      }
-    }
-    catch (SecurityException localSecurityException)
-    {
-      for (;;)
-      {
-        Object localObject2 = null;
-      }
-    }
-    return false;
+    return paramArrayOfObject;
   }
 }
 

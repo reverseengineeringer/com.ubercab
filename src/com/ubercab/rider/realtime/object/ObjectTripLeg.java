@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import juw;
+import naf;
 
 @Shape
 abstract class ObjectTripLeg
-  implements juw
+  implements naf
 {}
 
 /* Location:

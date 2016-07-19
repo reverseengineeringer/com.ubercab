@@ -1,16 +1,15 @@
 package com.google.android.gms.ads.internal.client;
 
+import aih;
 import android.os.Parcel;
-import apl;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import nd;
-import ut;
+import rw;
 
-@apl
+@aih
 public final class SearchAdRequestParcel
   implements SafeParcelable
 {
-  public static final nd CREATOR = new nd();
+  public static final rw CREATOR = new rw();
   public final int a;
   public final int b;
   public final int c;
@@ -46,25 +45,6 @@ public final class SearchAdRequestParcel
     o = paramString3;
   }
   
-  public SearchAdRequestParcel(ut paramut)
-  {
-    a = 1;
-    b = paramut.a();
-    c = paramut.b();
-    d = paramut.c();
-    e = paramut.d();
-    f = paramut.e();
-    g = paramut.f();
-    h = paramut.g();
-    i = paramut.h();
-    j = paramut.i();
-    k = paramut.j();
-    l = paramut.k();
-    m = paramut.l();
-    n = paramut.m();
-    o = paramut.n();
-  }
-  
   public final int describeContents()
   {
     return 0;
@@ -72,7 +52,7 @@ public final class SearchAdRequestParcel
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    nd.a(this, paramParcel);
+    rw.a(this, paramParcel);
   }
 }
 

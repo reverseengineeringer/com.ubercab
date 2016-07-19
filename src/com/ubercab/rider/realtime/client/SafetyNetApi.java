@@ -4,7 +4,7 @@ import com.ubercab.rider.realtime.request.body.SafetyNetContactsBody;
 import com.ubercab.rider.realtime.request.body.SafetyNetDeleteContactsBody;
 import com.ubercab.rider.realtime.response.SafetyNetContacts;
 import com.ubercab.rider.realtime.response.SafetyNetDeletedContacts;
-import kld;
+import odr;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
@@ -14,13 +14,13 @@ import retrofit.http.Path;
 public abstract interface SafetyNetApi
 {
   @GET("/rt/safetynet/users/{userUuid}/contacts")
-  public abstract kld<SafetyNetContacts> getContacts(@Path("userUuid") String paramString);
+  public abstract odr<SafetyNetContacts> getContacts(@Path("userUuid") String paramString);
   
   @POST("/rt/safetynet/users/{userUuid}/create-contacts")
-  public abstract kld<SafetyNetContacts> postCreateContacts(@Path("userUuid") String paramString, @Body SafetyNetContactsBody paramSafetyNetContactsBody);
+  public abstract odr<SafetyNetContacts> postCreateContacts(@Path("userUuid") String paramString, @Body SafetyNetContactsBody paramSafetyNetContactsBody);
   
   @PUT("/rt/safetynet/users/{userUuid}/delete-contacts")
-  public abstract kld<SafetyNetDeletedContacts> putDeleteContacts(@Path("userUuid") String paramString, @Body SafetyNetDeleteContactsBody paramSafetyNetDeleteContactsBody);
+  public abstract odr<SafetyNetDeletedContacts> putDeleteContacts(@Path("userUuid") String paramString, @Body SafetyNetDeleteContactsBody paramSafetyNetDeleteContactsBody);
 }
 
 /* Location:

@@ -1,38 +1,56 @@
-import android.graphics.Bitmap;
-import java.io.InputStream;
+import android.view.ViewTreeObserver;
+import android.view.ViewTreeObserver.OnPreDrawListener;
+import android.widget.ImageView;
+import java.lang.ref.WeakReference;
 
-public final class cif
+final class cif
+  implements ViewTreeObserver.OnPreDrawListener
 {
-  final InputStream a;
-  final Bitmap b;
-  final boolean c;
-  final long d;
+  final cjm a;
+  final WeakReference<ImageView> b;
+  cib c;
   
-  public cif(InputStream paramInputStream, boolean paramBoolean, long paramLong)
+  cif(cjm paramcjm, ImageView paramImageView, cib paramcib)
   {
-    if (paramInputStream == null) {
-      throw new IllegalArgumentException("Stream may not be null.");
-    }
-    a = paramInputStream;
-    b = null;
-    c = paramBoolean;
-    d = paramLong;
+    a = paramcjm;
+    b = new WeakReference(paramImageView);
+    c = paramcib;
+    paramImageView.getViewTreeObserver().addOnPreDrawListener(this);
   }
   
-  public final InputStream a()
+  final void a()
   {
-    return a;
+    c = null;
+    Object localObject = (ImageView)b.get();
+    if (localObject == null) {}
+    do
+    {
+      return;
+      localObject = ((ImageView)localObject).getViewTreeObserver();
+    } while (!((ViewTreeObserver)localObject).isAlive());
+    ((ViewTreeObserver)localObject).removeOnPreDrawListener(this);
   }
   
-  @Deprecated
-  public final Bitmap b()
+  public final boolean onPreDraw()
   {
-    return b;
-  }
-  
-  public final long c()
-  {
-    return d;
+    ImageView localImageView = (ImageView)b.get();
+    if (localImageView == null) {}
+    ViewTreeObserver localViewTreeObserver;
+    int i;
+    int j;
+    do
+    {
+      do
+      {
+        return true;
+        localViewTreeObserver = localImageView.getViewTreeObserver();
+      } while (!localViewTreeObserver.isAlive());
+      i = localImageView.getWidth();
+      j = localImageView.getHeight();
+    } while ((i <= 0) || (j <= 0));
+    localViewTreeObserver.removeOnPreDrawListener(this);
+    a.c().b(i, j).a(localImageView, c);
+    return true;
   }
 }
 

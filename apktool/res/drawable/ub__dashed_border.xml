@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/ub__white" />
+            <stroke android:width="@dimen/ub__eats_share_border_width" android:color="@color/ub__uber_black_transparent_15" android:dashWidth="@dimen/ub__eats_share_border_dash_width" android:dashGap="@dimen/ub__eats_share_border_dash_gap" />
+        </shape>
+    </item>
+</selector>

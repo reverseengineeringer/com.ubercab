@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:id="@id/ub__life_detail_step2_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_alignParentLeft="true" style="@style/Uber.TextAppearance.H2" />
+        <com.ubercab.ui.TextView android:layout_gravity="center_vertical" android:id="@id/ub__life_detail_step2_iconvalue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_alignParentRight="true" style="@style/Uber.TextAppearance.P" />
+        <ImageView android:id="@id/ub__life_detail_step2_icon" android:layout_width="@dimen/ui__icon_small" android:layout_height="@dimen/ui__icon_small" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__life_uip_coin" android:scaleType="fitXY" android:layout_toLeftOf="@id/ub__life_detail_step2_iconvalue" />
+    </RelativeLayout>
+    <View android:layout_width="wrap_content" android:layout_height="@dimen/ui__spacing_unit_2x" />
+    <com.ubercab.ui.TextView android:id="@id/ub__life_detail_step2_confirmtext" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" style="@style/Uber.TextAppearance.P" />
+    <View android:layout_width="wrap_content" android:layout_height="@dimen/ui__spacing_unit_2x" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.Button android:textColor="@color/ub__black" android:id="@id/ub__life_detail_step2_confirmcancelbtn" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" style="@style/Uber.Widget.Button" />
+        <com.ubercab.ui.Button android:id="@id/ub__life_detail_step2_confirmbtn" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" style="@style/Uber.Widget.Button" />
+    </LinearLayout>
+</LinearLayout>

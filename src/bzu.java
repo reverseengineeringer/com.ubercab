@@ -1,17 +1,34 @@
-import android.content.Intent;
+import java.util.Random;
 
-public final class bzu
+final class bzu
 {
-  private static final bzt a = new bzt(bzv.class, cal.a);
+  String a;
+  private long b;
   
-  public static String a(bzv parambzv)
+  bzu()
   {
-    return a.a(parambzv);
+    long l = System.currentTimeMillis();
+    if (a == null) {
+      b = l;
+    }
+    if (b + 1800000L > l)
+    {
+      b = (l + 1800000L);
+      Random localRandom = new Random(b);
+      StringBuilder localStringBuilder = new StringBuilder();
+      int i = 0;
+      while (i < 8)
+      {
+        localStringBuilder.append((char)(Math.abs(localRandom.nextInt()) % 10 + 48));
+        i += 1;
+      }
+      a = localStringBuilder.toString();
+    }
   }
   
-  public static void a(Intent paramIntent)
+  final boolean a()
   {
-    a.a(paramIntent.getStringExtra("io.card.payment.languageOrLocale"));
+    return b > System.currentTimeMillis();
   }
 }
 

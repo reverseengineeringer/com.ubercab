@@ -1,23 +1,58 @@
-@apl
+import android.os.Handler;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+@aih
 final class ajk
 {
-  private final String a;
-  private final String b;
+  private final Object a = new Object();
+  private final List<Runnable> b = new ArrayList();
+  private final List<Runnable> c = new ArrayList();
+  private boolean d = false;
   
-  public ajk(String paramString1, String paramString2)
+  private static void b(Runnable paramRunnable)
   {
-    a = paramString1;
-    b = paramString2;
+    aip.a(paramRunnable);
   }
   
-  public final String a()
+  private static void c(Runnable paramRunnable)
   {
-    return a;
+    ue.a.post(paramRunnable);
   }
   
-  public final String b()
+  public final void a()
   {
-    return b;
+    synchronized (a)
+    {
+      if (d) {
+        return;
+      }
+      Iterator localIterator1 = b.iterator();
+      if (localIterator1.hasNext()) {
+        b((Runnable)localIterator1.next());
+      }
+    }
+    Iterator localIterator2 = c.iterator();
+    while (localIterator2.hasNext()) {
+      c((Runnable)localIterator2.next());
+    }
+    b.clear();
+    c.clear();
+    d = true;
+  }
+  
+  public final void a(Runnable paramRunnable)
+  {
+    synchronized (a)
+    {
+      if (d)
+      {
+        c(paramRunnable);
+        return;
+      }
+      c.add(paramRunnable);
+    }
   }
 }
 

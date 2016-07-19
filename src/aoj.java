@@ -1,58 +1,226 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
-public abstract class aoj
-  extends Binder
-  implements aoi
+public final class aoj
 {
-  public aoj()
+  public static <T extends aoi> String a(T paramT)
   {
-    attachInterface(this, "com.google.android.gms.ads.internal.purchase.client.IPlayStorePurchaseListener");
-  }
-  
-  public static aoi a(IBinder paramIBinder)
-  {
-    if (paramIBinder == null) {
-      return null;
+    if (paramT == null) {
+      return "";
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.purchase.client.IPlayStorePurchaseListener");
-    if ((localIInterface != null) && ((localIInterface instanceof aoi))) {
-      return (aoi)localIInterface;
-    }
-    return new aok(paramIBinder);
-  }
-  
-  public IBinder asBinder()
-  {
-    return this;
-  }
-  
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
+    StringBuffer localStringBuffer = new StringBuffer();
+    try
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.ads.internal.purchase.client.IPlayStorePurchaseListener");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.purchase.client.IPlayStorePurchaseListener");
-      boolean bool = a(paramParcel1.readString());
-      paramParcel2.writeNoException();
-      if (bool) {}
-      for (paramInt1 = 1;; paramInt1 = 0)
+      a(null, paramT, new StringBuffer(), localStringBuffer);
+      return localStringBuffer.toString();
+    }
+    catch (IllegalAccessException paramT)
+    {
+      return "Error printing proto: " + paramT.getMessage();
+    }
+    catch (InvocationTargetException paramT) {}
+    return "Error printing proto: " + paramT.getMessage();
+  }
+  
+  private static String a(String paramString)
+  {
+    StringBuffer localStringBuffer = new StringBuffer();
+    int i = 0;
+    if (i < paramString.length())
+    {
+      char c = paramString.charAt(i);
+      if (i == 0) {
+        localStringBuffer.append(Character.toLowerCase(c));
+      }
+      for (;;)
       {
-        paramParcel2.writeInt(paramInt1);
-        return true;
+        i += 1;
+        break;
+        if (Character.isUpperCase(c)) {
+          localStringBuffer.append('_').append(Character.toLowerCase(c));
+        } else {
+          localStringBuffer.append(c);
+        }
       }
     }
-    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.purchase.client.IPlayStorePurchaseListener");
-    a(aog.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    return true;
+    return localStringBuffer.toString();
+  }
+  
+  private static void a(String paramString, Object paramObject, StringBuffer paramStringBuffer1, StringBuffer paramStringBuffer2)
+  {
+    if (paramObject != null)
+    {
+      if (!(paramObject instanceof aoi)) {
+        break label431;
+      }
+      int m = paramStringBuffer1.length();
+      if (paramString != null)
+      {
+        paramStringBuffer2.append(paramStringBuffer1).append(a(paramString)).append(" <\n");
+        paramStringBuffer1.append("  ");
+      }
+      Class localClass = paramObject.getClass();
+      Object localObject1 = localClass.getFields();
+      int n = localObject1.length;
+      int i = 0;
+      String str;
+      Object localObject2;
+      if (i < n)
+      {
+        Object localObject3 = localObject1[i];
+        j = ((Field)localObject3).getModifiers();
+        str = ((Field)localObject3).getName();
+        if ((!"cachedSize".equals(str)) && ((j & 0x1) == 1) && ((j & 0x8) != 8) && (!str.startsWith("_")) && (!str.endsWith("_")))
+        {
+          localObject2 = ((Field)localObject3).getType();
+          localObject3 = ((Field)localObject3).get(paramObject);
+          if (!((Class)localObject2).isArray()) {
+            break label246;
+          }
+          if (((Class)localObject2).getComponentType() != Byte.TYPE) {
+            break label195;
+          }
+          a(str, localObject3, paramStringBuffer1, paramStringBuffer2);
+        }
+        for (;;)
+        {
+          i += 1;
+          break;
+          label195:
+          if (localObject3 == null) {}
+          for (j = 0;; j = Array.getLength(localObject3))
+          {
+            int k = 0;
+            while (k < j)
+            {
+              a(str, Array.get(localObject3, k), paramStringBuffer1, paramStringBuffer2);
+              k += 1;
+            }
+            break;
+          }
+          label246:
+          a(str, localObject3, paramStringBuffer1, paramStringBuffer2);
+        }
+      }
+      localObject1 = localClass.getMethods();
+      int j = localObject1.length;
+      i = 0;
+      while (i < j)
+      {
+        str = localObject1[i].getName();
+        if (str.startsWith("set")) {
+          str = str.substring(3);
+        }
+        for (;;)
+        {
+          try
+          {
+            localObject2 = localClass.getMethod("has" + str, new Class[0]);
+            if (!((Boolean)((Method)localObject2).invoke(paramObject, new Object[0])).booleanValue()) {}
+          }
+          catch (NoSuchMethodException localNoSuchMethodException2)
+          {
+            continue;
+          }
+          try
+          {
+            localObject2 = localClass.getMethod("get" + str, new Class[0]);
+            a(str, ((Method)localObject2).invoke(paramObject, new Object[0]), paramStringBuffer1, paramStringBuffer2);
+          }
+          catch (NoSuchMethodException localNoSuchMethodException1) {}
+        }
+        i += 1;
+      }
+      if (paramString != null)
+      {
+        paramStringBuffer1.setLength(m);
+        paramStringBuffer2.append(paramStringBuffer1).append(">\n");
+      }
+    }
+    return;
+    label431:
+    paramString = a(paramString);
+    paramStringBuffer2.append(paramStringBuffer1).append(paramString).append(": ");
+    if ((paramObject instanceof String))
+    {
+      paramString = b((String)paramObject);
+      paramStringBuffer2.append("\"").append(paramString).append("\"");
+    }
+    for (;;)
+    {
+      paramStringBuffer2.append("\n");
+      return;
+      if ((paramObject instanceof byte[])) {
+        a((byte[])paramObject, paramStringBuffer2);
+      } else {
+        paramStringBuffer2.append(paramObject);
+      }
+    }
+  }
+  
+  private static void a(byte[] paramArrayOfByte, StringBuffer paramStringBuffer)
+  {
+    if (paramArrayOfByte == null)
+    {
+      paramStringBuffer.append("\"\"");
+      return;
+    }
+    paramStringBuffer.append('"');
+    int i = 0;
+    if (i < paramArrayOfByte.length)
+    {
+      int j = paramArrayOfByte[i] & 0xFF;
+      if ((j == 92) || (j == 34)) {
+        paramStringBuffer.append('\\').append((char)j);
+      }
+      for (;;)
+      {
+        i += 1;
+        break;
+        if ((j >= 32) && (j < 127)) {
+          paramStringBuffer.append((char)j);
+        } else {
+          paramStringBuffer.append(String.format("\\%03o", new Object[] { Integer.valueOf(j) }));
+        }
+      }
+    }
+    paramStringBuffer.append('"');
+  }
+  
+  private static String b(String paramString)
+  {
+    String str = paramString;
+    if (!paramString.startsWith("http"))
+    {
+      str = paramString;
+      if (paramString.length() > 200) {
+        str = paramString.substring(0, 200) + "[...]";
+      }
+    }
+    return c(str);
+  }
+  
+  private static String c(String paramString)
+  {
+    int j = paramString.length();
+    StringBuilder localStringBuilder = new StringBuilder(j);
+    int i = 0;
+    if (i < j)
+    {
+      char c = paramString.charAt(i);
+      if ((c >= ' ') && (c <= '~') && (c != '"') && (c != '\'')) {
+        localStringBuilder.append(c);
+      }
+      for (;;)
+      {
+        i += 1;
+        break;
+        localStringBuilder.append(String.format("\\u%04x", new Object[] { Integer.valueOf(c) }));
+      }
+    }
+    return localStringBuilder.toString();
   }
 }
 

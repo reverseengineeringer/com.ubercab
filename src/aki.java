@@ -1,34 +1,10 @@
-@apl
-final class aki
+import android.os.IInterface;
+import com.google.android.gms.common.api.Status;
+
+public abstract interface aki
+  extends IInterface
 {
-  nu a;
-  om b;
-  anw c;
-  aho d;
-  nr e;
-  sd f;
-  
-  final void a(tf paramtf)
-  {
-    if (a != null) {
-      paramtf.a(new akj(this, a));
-    }
-    if (b != null) {
-      paramtf.a(b);
-    }
-    if (c != null) {
-      paramtf.a(c);
-    }
-    if (d != null) {
-      paramtf.a(d);
-    }
-    if (e != null) {
-      paramtf.a(e);
-    }
-    if (f != null) {
-      paramtf.a(f);
-    }
-  }
+  public abstract void a(Status paramStatus);
 }
 
 /* Location:

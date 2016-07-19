@@ -1,8 +1,11 @@
 package com.ubercab.analytics.model;
 
+import com.ubercab.analytics.internal.AnalyticsValidatorFactory;
 import com.ubercab.shape.Shape;
+import lzo;
 
 @Shape
+@lzo(a=AnalyticsValidatorFactory.class)
 public abstract class AnalyticsFragment
 {
   public static AnalyticsFragment create(String paramString, long paramLong)

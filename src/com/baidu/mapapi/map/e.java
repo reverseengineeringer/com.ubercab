@@ -1,61 +1,19 @@
 package com.baidu.mapapi.map;
 
-import android.graphics.Point;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
 
-class e
+final class e
+  implements Parcelable.Creator<BaiduMapOptions>
 {
-  public final double a;
-  public final double b;
-  public final double c;
-  public final double d;
-  public final double e;
-  public final double f;
-  
-  public e(double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4)
+  public final BaiduMapOptions a(Parcel paramParcel)
   {
-    a = paramDouble1;
-    b = paramDouble3;
-    c = paramDouble2;
-    d = paramDouble4;
-    e = ((paramDouble1 + paramDouble2) / 2.0D);
-    f = ((paramDouble3 + paramDouble4) / 2.0D);
+    return new BaiduMapOptions(paramParcel);
   }
   
-  public boolean a(double paramDouble1, double paramDouble2)
+  public final BaiduMapOptions[] a(int paramInt)
   {
-    return (a <= paramDouble1) && (paramDouble1 <= c) && (b <= paramDouble2) && (paramDouble2 <= d);
-  }
-  
-  public boolean a(double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4)
-  {
-    return (paramDouble1 < c) && (a < paramDouble2) && (paramDouble3 < d) && (b < paramDouble4);
-  }
-  
-  public boolean a(Point paramPoint)
-  {
-    return a(x, y);
-  }
-  
-  public boolean a(e parame)
-  {
-    return a(a, c, b, d);
-  }
-  
-  public boolean b(e parame)
-  {
-    return (a >= a) && (c <= c) && (b >= b) && (d <= d);
-  }
-  
-  public String toString()
-  {
-    StringBuilder localStringBuilder = new StringBuilder();
-    localStringBuilder.append("minX: " + a);
-    localStringBuilder.append(" minY: " + b);
-    localStringBuilder.append(" maxX: " + c);
-    localStringBuilder.append(" maxY: " + d);
-    localStringBuilder.append(" midX: " + e);
-    localStringBuilder.append(" midY: " + f);
-    return localStringBuilder.toString();
+    return new BaiduMapOptions[paramInt];
   }
 }
 

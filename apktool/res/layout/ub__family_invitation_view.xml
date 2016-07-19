@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_gravity="center" android:layout_width="@dimen/ub__family_alert_dialog_width" android:layout_height="wrap_content" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:layout_width="fill_parent" android:layout_height="@dimen/ub__family_alert_dialog_banner_height" layout="@layout/ub__family_alert_dialog_banner_view" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Style.Rider.TextAppearance.Family.Dialog.Title" android:gravity="center" android:id="@id/ub__family_invitation_text_view_title" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__family_invitation_text_view_content" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.TextAppearance.Byline" />
+        <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__family_invitation_legal_text_view" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.TextAppearance.Byline" />
+        <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__family_invitation_text_view_error" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Style.Rider.TextAppearance.Family.Invite.Error" />
+        <include layout="@layout/ub__profiles_listview_divider" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__family_invitation_decline_text_view" android:background="@drawable/ub__listitem_background_selector" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/decline" android:layout_weight="1.0" style="@style/Style.Rider.TextAppearance.Family.Dialog.Gray.Button" />
+            <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__family_invitation_accept_text_view" android:background="@drawable/ub__listitem_background_selector" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/accept" android:layout_weight="1.0" style="@style/Style.Rider.TextAppearance.Family.Dialog.Button" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

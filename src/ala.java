@@ -1,7 +1,8 @@
-public final class ala<T>
-  implements akz<T>
+public abstract interface ala
 {
-  public final void a(T paramT) {}
+  public abstract long a();
+  
+  public abstract long b();
 }
 
 /* Location:

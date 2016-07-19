@@ -5,7 +5,7 @@ import com.ubercab.shape.Shape;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import jyx;
+import nfq;
 
 @Shape
 public abstract class RowViewModel
@@ -31,7 +31,7 @@ public abstract class RowViewModel
   
   public abstract DividerViewModel getDividerViewModel();
   
-  public abstract List<jyx> getLayoutParams();
+  public abstract List<nfq> getLayoutParams();
   
   public abstract int getMinimumHeight();
   
@@ -51,9 +51,9 @@ public abstract class RowViewModel
   
   public abstract int getPaddingTop();
   
-  public jyx getParamAtPosition(int paramInt)
+  public nfq getParamAtPosition(int paramInt)
   {
-    return (jyx)getLayoutParams().get(paramInt);
+    return (nfq)getLayoutParams().get(paramInt);
   }
   
   public ViewModel getViewModelAtPosition(int paramInt)
@@ -71,7 +71,7 @@ public abstract class RowViewModel
   
   public abstract RowViewModel setDividerViewModel(DividerViewModel paramDividerViewModel);
   
-  public abstract RowViewModel setLayoutParams(List<jyx> paramList);
+  public abstract RowViewModel setLayoutParams(List<nfq> paramList);
   
   public abstract RowViewModel setMinimumHeight(int paramInt);
   
@@ -91,28 +91,28 @@ public abstract class RowViewModel
   
   public abstract RowViewModel setPaddingTop(int paramInt);
   
-  public RowViewModel setViewModels(ViewModel paramViewModel, jyx paramjyx)
+  public RowViewModel setViewModels(ViewModel paramViewModel, nfq paramnfq)
   {
     setViewModels(Collections.singletonList(paramViewModel));
-    return setLayoutParams(Collections.singletonList(paramjyx));
+    return setLayoutParams(Collections.singletonList(paramnfq));
   }
   
-  public RowViewModel setViewModels(ViewModel paramViewModel1, jyx paramjyx1, ViewModel paramViewModel2, jyx paramjyx2)
+  public RowViewModel setViewModels(ViewModel paramViewModel1, nfq paramnfq1, ViewModel paramViewModel2, nfq paramnfq2)
   {
     setViewModels(Arrays.asList(new ViewModel[] { paramViewModel1, paramViewModel2 }));
-    return setLayoutParams(Arrays.asList(new jyx[] { paramjyx1, paramjyx2 }));
+    return setLayoutParams(Arrays.asList(new nfq[] { paramnfq1, paramnfq2 }));
   }
   
-  public RowViewModel setViewModels(ViewModel paramViewModel1, jyx paramjyx1, ViewModel paramViewModel2, jyx paramjyx2, ViewModel paramViewModel3, jyx paramjyx3)
+  public RowViewModel setViewModels(ViewModel paramViewModel1, nfq paramnfq1, ViewModel paramViewModel2, nfq paramnfq2, ViewModel paramViewModel3, nfq paramnfq3)
   {
     setViewModels(Arrays.asList(new ViewModel[] { paramViewModel1, paramViewModel2, paramViewModel3 }));
-    return setLayoutParams(Arrays.asList(new jyx[] { paramjyx1, paramjyx2, paramjyx3 }));
+    return setLayoutParams(Arrays.asList(new nfq[] { paramnfq1, paramnfq2, paramnfq3 }));
   }
   
-  public RowViewModel setViewModels(ViewModel paramViewModel1, jyx paramjyx1, ViewModel paramViewModel2, jyx paramjyx2, ViewModel paramViewModel3, jyx paramjyx3, ViewModel paramViewModel4, jyx paramjyx4)
+  public RowViewModel setViewModels(ViewModel paramViewModel1, nfq paramnfq1, ViewModel paramViewModel2, nfq paramnfq2, ViewModel paramViewModel3, nfq paramnfq3, ViewModel paramViewModel4, nfq paramnfq4)
   {
     setViewModels(Arrays.asList(new ViewModel[] { paramViewModel1, paramViewModel2, paramViewModel3, paramViewModel4 }));
-    return setLayoutParams(Arrays.asList(new jyx[] { paramjyx1, paramjyx2, paramjyx3, paramjyx4 }));
+    return setLayoutParams(Arrays.asList(new nfq[] { paramnfq1, paramnfq2, paramnfq3, paramnfq4 }));
   }
   
   public abstract RowViewModel setViewModels(List<ViewModel> paramList);

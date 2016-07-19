@@ -5,10 +5,24 @@
         <item name="gapBetweenBars">3.0dip</item>
         <item name="barLength">18.0dip</item>
     </style>
+    <style name="Widget.Design.TabLayout" parent="@style/Base.Widget.Design.TabLayout">
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">fill</item>
+    </style>
     <style name="Base.Theme.AppCompat.DialogWhenLarge" parent="@style/Theme.AppCompat" />
     <style name="Base.Theme.AppCompat.Light.DialogWhenLarge" parent="@style/Theme.AppCompat.Light" />
     <style name="Base.Widget.AppCompat.Spinner.Underlined" parent="@style/Base.Widget.AppCompat.Spinner">
         <item name="android:background">@drawable/abc_spinner_textfield_background_material</item>
+    </style>
+    <style name="Theme.AppCompat.DayNight" parent="@style/Theme.AppCompat.Light" />
+    <style name="Theme.AppCompat.DayNight.DarkActionBar" parent="@style/Theme.AppCompat.Light.DarkActionBar" />
+    <style name="Theme.AppCompat.DayNight.Dialog" parent="@style/Theme.AppCompat.Light.Dialog" />
+    <style name="Theme.AppCompat.DayNight.Dialog.Alert" parent="@style/Theme.AppCompat.Light.Dialog.Alert" />
+    <style name="Theme.AppCompat.DayNight.Dialog.MinWidth" parent="@style/Theme.AppCompat.Light.Dialog.MinWidth" />
+    <style name="Theme.AppCompat.DayNight.DialogWhenLarge" parent="@style/Theme.AppCompat.Light.DialogWhenLarge" />
+    <style name="Theme.AppCompat.DayNight.NoActionBar" parent="@style/Theme.AppCompat.Light.NoActionBar" />
+    <style name="Uber.TextAppearance.Preload" parent="@style/Uber.TextAppearance">
+        <item name="android:lineSpacingMultiplier">1.0</item>
     </style>
     <style name="Base.TextAppearance.AppCompat.Inverse" parent="@style/Base.TextAppearance.AppCompat">
         <item name="android:textColor">?android:textColorPrimaryInverse</item>
@@ -247,10 +261,6 @@
     <style name="Base.TextAppearance.AppCompat.Title" parent="@style/Base.TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/abc_text_size_title_material</item>
         <item name="android:textColor">?android:textColorPrimary</item>
-    </style>
-    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="@style/TextAppearance.AppCompat.Menu">
-        <item name="android:textColor">?actionMenuTextColor</item>
-        <item name="textAllCaps">@bool/abc_config_actionMenuItemAllCaps</item>
     </style>
     <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle" parent="@style/TextAppearance.AppCompat.Subhead">
         <item name="android:textSize">@dimen/abc_text_size_subtitle_material_toolbar</item>
@@ -497,6 +507,10 @@
     </style>
     <style name="Uber.Widget.Button.Supporting" parent="@style/Base.Uber.Widget.Button.Supporting" />
     <style name="Uber.Widget.Toolbar" parent="@style/Base.Uber.Widget.Toolbar" />
+    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="@style/TextAppearance.AppCompat.Button">
+        <item name="android:textColor">?actionMenuTextColor</item>
+        <item name="textAllCaps">@bool/abc_config_actionMenuItemAllCaps</item>
+    </style>
     <style name="Base.TextAppearance.AppCompat.Widget.Button.Inverse" parent="@style/TextAppearance.AppCompat.Button">
         <item name="android:textColor">?android:textColorPrimaryInverse</item>
     </style>
@@ -504,10 +518,36 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Widget.Button.Inverse</item>
         <item name="android:background">@drawable/abc_btn_colored_material</item>
     </style>
+    <style name="Base.Widget.AppCompat.RatingBar.Indicator" parent="@android:style/Widget.RatingBar">
+        <item name="android:maxHeight">36.0dip</item>
+        <item name="android:indeterminateDrawable">@drawable/abc_ratingbar_indicator_material</item>
+        <item name="android:progressDrawable">@drawable/abc_ratingbar_indicator_material</item>
+        <item name="android:minHeight">36.0dip</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+    </style>
+    <style name="Base.Widget.AppCompat.RatingBar.Small" parent="@android:style/Widget.RatingBar">
+        <item name="android:maxHeight">16.0dip</item>
+        <item name="android:indeterminateDrawable">@drawable/abc_ratingbar_small_material</item>
+        <item name="android:progressDrawable">@drawable/abc_ratingbar_small_material</item>
+        <item name="android:minHeight">16.0dip</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+    </style>
+    <style name="CardView" parent="@style/Base.CardView" />
     <style name="AlertDialog.AppCompat" parent="@style/Base.AlertDialog.AppCompat" />
     <style name="AlertDialog.AppCompat.Light" parent="@style/Base.AlertDialog.AppCompat.Light" />
     <style name="Animation.AppCompat.Dialog" parent="@style/Base.Animation.AppCompat.Dialog" />
     <style name="Animation.AppCompat.DropDownUp" parent="@style/Base.Animation.AppCompat.DropDownUp" />
+    <style name="Animation.Design.BottomSheetDialog" parent="@style/Animation.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/design_bottom_sheet_slide_in</item>
+        <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
+    </style>
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark</item>
+        <item name="colorAccent">@android:color/white</item>
+    </style>
     <style name="Base.AlertDialog.AppCompat" parent="@android:style/Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
         <item name="listLayout">@layout/abc_select_dialog_material</item>
@@ -523,6 +563,13 @@
     <style name="Base.Animation.AppCompat.DropDownUp" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/abc_grow_fade_in_from_bottom</item>
         <item name="android:windowExitAnimation">@anim/abc_shrink_fade_out_from_bottom</item>
+    </style>
+    <style name="Base.CardView" parent="@android:style/Widget">
+        <item name="cardCornerRadius">@dimen/cardview_default_radius</item>
+        <item name="cardElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardMaxElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="cardPreventCornerOverlap">true</item>
     </style>
     <style name="Base.DialogWindowTitle.AppCompat" parent="@android:style/Widget">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
@@ -599,14 +646,15 @@
         <item name="android:actionBarSize">@dimen/ub__action_bar_height</item>
         <item name="android:actionOverflowButtonStyle">@style/Uber.Widget.ActionButtonOverflow</item>
         <item name="floatingLabelStyle">@style/Uber.Widget.FloatingLabel</item>
-        <item name="selectedIndicatorColor">@color/ub__uber_blue_100</item>
-        <item name="unselectedIndicatorColor">@color/ub__uber_black_40</item>
+        <item name="snackbarViewStyle">@style/Uber.Widget.SnackbarView</item>
         <item name="actionOverflowButtonStyle">@style/Uber.Widget.ActionButtonOverflow</item>
         <item name="actionOverflowMenuStyle">@style/Uber.Widget.ActionOverflowMenuStyle</item>
         <item name="actionBarStyle">@style/Uber.Widget.ActionBar</item>
         <item name="actionBarSize">@dimen/ub__action_bar_height</item>
         <item name="toolbarStyle">@style/Uber.Widget.Toolbar</item>
         <item name="colorAccent">@color/ub__uber_blue_100</item>
+        <item name="selectedIndicatorColor">@color/ub__uber_blue_100</item>
+        <item name="unselectedIndicatorColor">@color/ub__uber_black_40</item>
     </style>
     <style name="Base.Theme.Uber.Black" parent="@style/Theme.Uber">
         <item name="android:actionBarStyle">@style/Uber.Widget.ActionBar.Black</item>
@@ -819,6 +867,8 @@
         <item name="editTextStyle">@style/Widget.AppCompat.EditText</item>
         <item name="radioButtonStyle">@style/Widget.AppCompat.CompoundButton.RadioButton</item>
         <item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>
+        <item name="ratingBarStyleIndicator">@style/Widget.AppCompat.RatingBar.Indicator</item>
+        <item name="ratingBarStyleSmall">@style/Widget.AppCompat.RatingBar.Small</item>
         <item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>
         <item name="spinnerStyle">@style/Widget.AppCompat.Spinner</item>
         <item name="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
@@ -946,6 +996,8 @@
         <item name="editTextStyle">@style/Widget.AppCompat.EditText</item>
         <item name="radioButtonStyle">@style/Widget.AppCompat.CompoundButton.RadioButton</item>
         <item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>
+        <item name="ratingBarStyleIndicator">@style/Widget.AppCompat.RatingBar.Indicator</item>
+        <item name="ratingBarStyleSmall">@style/Widget.AppCompat.RatingBar.Small</item>
         <item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>
         <item name="spinnerStyle">@style/Widget.AppCompat.Spinner</item>
         <item name="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
@@ -1082,23 +1134,51 @@
         <item name="titleTextAppearance">@style/TextAppearance.Widget.AppCompat.Toolbar.Title</item>
         <item name="subtitleTextAppearance">@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle</item>
         <item name="titleMargins">4.0dip</item>
-        <item name="maxButtonHeight">56.0dip</item>
+        <item name="maxButtonHeight">@dimen/abc_action_bar_default_height_material</item>
         <item name="collapseIcon">?homeAsUpIndicator</item>
         <item name="collapseContentDescription">@string/abc_toolbar_collapse_description</item>
     </style>
-    <style name="CardView">
-        <item name="cardBackgroundColor">@color/cardview_light_background</item>
-        <item name="cardCornerRadius">@dimen/cardview_default_radius</item>
-        <item name="cardElevation">@dimen/cardview_default_elevation</item>
-        <item name="cardMaxElevation">@dimen/cardview_default_elevation</item>
-        <item name="cardUseCompatPadding">false</item>
-        <item name="cardPreventCornerOverlap">true</item>
+    <style name="Base.Widget.Design.TabLayout" parent="@android:style/Widget">
+        <item name="tabIndicatorColor">?colorAccent</item>
+        <item name="tabIndicatorHeight">2.0dip</item>
+        <item name="tabBackground">?selectableItemBackground</item>
+        <item name="tabMaxWidth">@dimen/design_tab_max_width</item>
+        <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+        <item name="tabPaddingStart">12.0dip</item>
+        <item name="tabPaddingEnd">12.0dip</item>
     </style>
     <style name="CardView.Dark" parent="@style/CardView">
         <item name="cardBackgroundColor">@color/cardview_dark_background</item>
     </style>
     <style name="CardView.Light" parent="@style/CardView">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
+    </style>
+    <style name="Payment.CampusCard.TextAppearance.Balance" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_small</item>
+        <item name="android:textColor">@color/ub__uber_black_40</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="fontPath">@string/ub__font_news</item>
+    </style>
+    <style name="Payment.CampusCard.TextAppearance.BalanceValue" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_small</item>
+        <item name="android:textColor">@color/ub__green</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="fontPath">@string/ub__font_news</item>
+    </style>
+    <style name="Payment.CampusCard.TextAppearance.Institution.Title" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">20.0sp</item>
+        <item name="android:textColor">@color/ub__uber_black_80</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:lineSpacingMultiplier">1.4</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">@string/ub__font_news</item>
+    </style>
+    <style name="Payment.CampusCard.TextAppearance.Username" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_small</item>
+        <item name="android:textColor">@color/ub__uber_black_80</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">@string/ub__font_news</item>
     </style>
     <style name="Style.Payment.Button.Link" parent="@style/Uber.Widget.Button">
         <item name="android:textAppearance">@style/TextAppearance.Payment.LinkText</item>
@@ -1107,6 +1187,22 @@
         <item name="android:paddingTop">3.0dip</item>
         <item name="android:paddingBottom">3.0dip</item>
         <item name="android:minHeight">0.0dip</item>
+    </style>
+    <style name="Style.Payment.Refresh.Button.Primary" parent="@style/Uber.Widget.Button">
+        <item name="android:textAppearance">@style/Uber.TextAppearance.H4</item>
+        <item name="android:textSize">@dimen/ub__text_size_default</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ub__white</item>
+        <item name="android:background">@drawable/ub__payment_button_primary</item>
+        <item name="android:color">@color/ub__black</item>
+    </style>
+    <style name="Style.Payment.Refresh.Button.Secondary" parent="@style/Uber.Widget.Button">
+        <item name="android:textAppearance">@style/Uber.TextAppearance.H4</item>
+        <item name="android:textSize">@dimen/ub__text_size_default</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ub__textcolor_refresh_button</item>
+        <item name="android:background">@drawable/ub__payment_button_secondary</item>
+        <item name="android:color">@color/ub__white</item>
     </style>
     <style name="Style.Payment.TextAppearance.NumberMedium" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">50.0sp</item>
@@ -1124,6 +1220,10 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:button">@null</item>
         <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="Style.Paytm.Button.AmountPicker.Accent" parent="@style/Style.Paytm.Button.AmountPicker">
+        <item name="android:textColor">@color/ub__suggested_amount_button_text</item>
+        <item name="android:background">@drawable/ub__suggested_amount_button</item>
     </style>
     <style name="Style.Rider.BadgeView" parent="">
         <item name="android:layout_width">@dimen/ub__profiles_profile_navigation_drawer_badge</item>
@@ -1180,6 +1280,12 @@
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+    <style name="Style.Rider.Commute.OptIn.Disclaimer.Dialog" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowMinWidthMajor">@dimen/ub__commute_disclaimer_opt_in_alert_width</item>
+        <item name="android:windowMinWidthMinor">@dimen/ub__commute_disclaimer_opt_in_alert_width</item>
+    </style>
     <style name="Style.Rider.Edge.Overlay.Subtitle" parent="@style/Uber.TextAppearance.P">
         <item name="android:textColor">@color/ub__uber_white_100</item>
     </style>
@@ -1212,7 +1318,13 @@
         <item name="android:maxLines">2</item>
         <item name="android:lines">2</item>
         <item name="android:drawablePadding">1.0dip</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
         <item name="fontPath">@string/ub__font_narrow_news</item>
+    </style>
+    <style name="Style.Rider.Family.Date.Divider" parent="">
+        <item name="android:background">@color/ub__uber_white_80</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1.0dip</item>
     </style>
     <style name="Style.Rider.Form" parent="">
         <item name="android:layout_marginLeft">@dimen/ub__form_margin_x</item>
@@ -1257,6 +1369,10 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:maxWidth">@dimen/ub__map_tooltip_max_width</item>
         <item name="android:singleLine">true</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="Style.Rider.Legacy.TextAppearance.CardOffers.Dialog.Secondary" parent="@style/Uber.TextAppearance.H3">
+        <item name="android:lineSpacingMultiplier">1.6</item>
         <item name="android:textAllCaps">false</item>
     </style>
     <style name="Style.Rider.Legacy.TextAppearance.Field" parent="@style/Uber.TextAppearance">
@@ -1326,6 +1442,26 @@
         <item name="android:height">@dimen/ub__octane_receipt_two_point_smiley_button_size</item>
         <item name="android:width">@dimen/ub__octane_receipt_two_point_smiley_button_size</item>
     </style>
+    <style name="Style.Rider.Octane.ReceiptDialog.Tag.Button" parent="@style/Uber.Widget.Button">
+        <item name="android:textSize">@dimen/ub__text_size_small</item>
+        <item name="android:textColor">@drawable/ub__receipt_octane_feedback_button_text_color</item>
+        <item name="android:background">@drawable/ub__receipt_octane_feedback_button</item>
+        <item name="android:layout_margin">@dimen/ub__octane_receipt_tag_margin</item>
+        <item name="android:button">@null</item>
+        <item name="android:minWidth">@dimen/ui__spacing_unit_6x</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">@string/ub__font_narrow_news</item>
+    </style>
+    <style name="Style.Rider.Octane.ReceiptDialog.Tag.CtaText" parent="@style/Uber.Widget.TextView">
+        <item name="android:textSize">@dimen/ub__text_size_small</item>
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="fontPath">@string/ub__font_medium</item>
+    </style>
     <style name="Style.Rider.Pickup.Tooltip.Eta" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">10.0sp</item>
         <item name="android:textColor">@color/ub__white</item>
@@ -1387,12 +1523,90 @@
         <item name="android:background">@drawable/ub__button_refresh_secondary</item>
         <item name="android:color">@color/ub__white</item>
     </style>
+    <style name="Style.Rider.Reservation.Dialog.NegativeButton" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+    </style>
+    <style name="Style.Rider.Reservation.Message.Title" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="Style.Rider.Reservation.OpenBeta.Message" parent="@style/Uber.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__text_size_micro</item>
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="Style.Rider.Reservation.OpenBeta.Title" parent="@style/Uber.TextAppearance.H4">
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="Style.Rider.Reservation.Snackbar" parent="@style/Uber.Widget.SnackbarView">
+        <item name="snackbarViewSuccessColor">@color/ub__green</item>
+    </style>
+    <style name="Style.Rider.Reservation.Trip.Tab" parent="@style/TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/ub__uber_black_40</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="Style.Rider.Reservation.Trip.TabLayout" parent="@style/Widget.Design.TabLayout">
+        <item name="android:textAppearance">@style/Style.Rider.Reservation.Trip.Tab</item>
+        <item name="fontPath">@string/ub__font_news</item>
+        <item name="tabTextAppearance">@style/Style.Rider.Reservation.Trip.Tab</item>
+        <item name="tabSelectedTextColor">@color/ub__uber_black_80</item>
+    </style>
     <style name="Style.Rider.SegmentedButton" parent="@style/Uber.Widget.Button">
         <item name="android:paddingLeft">24.0dip</item>
         <item name="android:paddingRight">24.0dip</item>
     </style>
     <style name="Style.Rider.Spinner.NoLine" parent="@style/Uber.Widget.Spinner.NoLine">
         <item name="android:spinnerMode">dropdown</item>
+    </style>
+    <style name="Style.Rider.SurveyDialog.MultiSelect.Button" parent="@style/Uber.Widget.Button">
+        <item name="android:textAppearance">@style/Uber.TextAppearance.H3</item>
+        <item name="android:textColor">@drawable/ub__receipt_octane_feedback_button_text_color</item>
+        <item name="android:background">@drawable/ub__survey_multi_select_button</item>
+        <item name="android:button">@null</item>
+        <item name="android:minHeight">@dimen/ub__button_height_small</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.CardOffers.Dialog.Button" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ub__uber_blue_120</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.CardOffers.Dialog.Button.Secondary" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Chronicle.DriverName" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_medium</item>
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+        <item name="fontPath">@string/ub__font_medium</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Chronicle.SurveyButton" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_action_button</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="fontPath">@string/ub__font_medium</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Chronicle.SurveyHeader" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_large</item>
+        <item name="android:textColor">@color/ub__white</item>
+        <item name="fontPath">@string/ub__font_narrow_medium</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Chronicle.SurveyQuestion" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_medium</item>
+        <item name="android:textColor">@color/ub__uber_black_80</item>
+        <item name="fontPath">@string/ub__font_news</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Commute.OptInDialog.Link" parent="@style/Uber.TextAppearance">
+        <item name="android:textColor">@color/ub__uber_blue_120</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Commute.OptInDialog.Paragraph" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">14.0dip</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="fontPath">@string/ub__font_narrow_news</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Commute.OptInDialog.Title" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textSize">@dimen/ub__text_size_large</item>
+        <item name="android:textColor">@color/ub__black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">@string/ub__font_book</item>
     </style>
     <style name="Style.Rider.TextAppearance.DefaultParagraph" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">@dimen/ub__textsize_p</item>
@@ -1412,6 +1626,17 @@
         <item name="android:textSize">@dimen/ub__text_size_micro</item>
         <item name="android:textColor">@color/ub__white</item>
         <item name="fontPath">@string/ub__font_medium</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Eats.Share.Code" parent="@style/Style.Rider.TextAppearance.Eats.Share.Headline">
+        <item name="android:textSize">15.0sp</item>
+        <item name="fontPath">@string/ub__font_medium</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Eats.Share.Headline" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textColor">@color/ub__uber_black_80</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="fontPath">@string/ub__font_narrow_medium</item>
     </style>
     <style name="Style.Rider.TextAppearance.EatsPromoBanner" parent="@style/Uber.TextAppearance.H3">
         <item name="android:textColor">@color/ub__white</item>
@@ -1450,12 +1675,23 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/ub__uber_blue_120</item>
     </style>
+    <style name="Style.Rider.TextAppearance.Family.Dialog.Button.Secondary" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ub__uber_black_40</item>
+    </style>
     <style name="Style.Rider.TextAppearance.Family.Dialog.Content" parent="@style/Uber.TextAppearance.Byline">
         <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Family.Dialog.Gray.Button" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/ub__uber_black_40</item>
     </style>
     <style name="Style.Rider.TextAppearance.Family.Dialog.Title" parent="@style/Uber.TextAppearance.H2">
         <item name="android:textColor">@color/ub__black</item>
         <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Family.Invite.Error" parent="@style/Uber.TextAppearance.Byline">
+        <item name="android:textColor">@color/ub__red</item>
     </style>
     <style name="Style.Rider.TextAppearance.Field" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">@dimen/ub__textsize_p</item>
@@ -1467,6 +1703,10 @@
         <item name="android:paddingTop">4.0dip</item>
         <item name="android:paddingRight">4.0dip</item>
         <item name="android:paddingBottom">12.0dip</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.FooterNote.InviteContactsFooterNote" parent="@style/Style.Rider.TextAppearance.FooterNote">
+        <item name="android:textColor">@color/ub__uber_black_40</item>
+        <item name="android:textAllCaps">false</item>
     </style>
     <style name="Style.Rider.TextAppearance.FooterNote.Link" parent="@style/Style.Rider.TextAppearance.FooterNote">
         <item name="android:textColor">@color/ub__textcolor_link</item>
@@ -1509,8 +1749,16 @@
     <style name="Style.Rider.TextAppearance.NavDrawer.Profile" parent="@style/Style.Rider.TextAppearance.NavDrawer">
         <item name="android:textAllCaps">false</item>
     </style>
+    <style name="Style.Rider.TextAppearance.Octane.RatingsDialog.CommentSupport" parent="@style/Style.Rider.TextAppearance.SurveyDialog.H4">
+        <item name="android:background">@color/ub__uber_white_10</item>
+        <item name="android:paddingLeft">@dimen/ui__spacing_unit_2x</item>
+        <item name="android:paddingTop">@dimen/ub__octane_ratings_comment_support_top_bottom_padding</item>
+        <item name="android:paddingRight">@dimen/ui__spacing_unit_2x</item>
+        <item name="android:paddingBottom">@dimen/ub__octane_ratings_comment_support_top_bottom_padding</item>
+    </style>
     <style name="Style.Rider.TextAppearance.Octane.ReceiptDialog.Comment" parent="@style/Uber.TextAppearance.P">
-        <item name="android:textColor">@color/ub__uber_white_120</item>
+        <item name="android:textSize">@dimen/ub__text_size_action_button</item>
+        <item name="android:textColor">@color/ub__uber_black_40</item>
         <item name="android:ellipsize">end</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">@dimen/ui__spacing_unit_2x</item>
@@ -1559,6 +1807,17 @@
         <item name="android:scrollbars">vertical</item>
         <item name="android:singleLine">true</item>
         <item name="android:inputType">textMultiLine</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.Octane.ReceiptDialog.InfoMessage" parent="@style/Uber.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__text_size_micro</item>
+        <item name="android:textColor">@color/ub__white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/ub__green</item>
+        <item name="android:padding">@dimen/ui__spacing_unit_1x</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/ub__octane_receipt_dialog_info_message_min_height</item>
+        <item name="android:singleLine">false</item>
     </style>
     <style name="Style.Rider.TextAppearance.Octane.ReceiptDialog.MapPickDropDetail" parent="@style/Uber.TextAppearance.Byline">
         <item name="android:textSize">@dimen/ub__text_size_micro</item>
@@ -1614,6 +1873,11 @@
     <style name="Style.Rider.TextAppearance.PaymentValue" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">@dimen/ub__payment_textsize_value</item>
     </style>
+    <style name="Style.Rider.TextAppearance.PreloadOnboardingTerms" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_small</item>
+        <item name="android:textColor">@color/ub__uber_white_100</item>
+        <item name="android:textColorLink">@color/ub__uber_teal</item>
+    </style>
     <style name="Style.Rider.TextAppearance.ProfileItem" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">@dimen/ub__text_size_medium</item>
         <item name="android:textColor">@color/ub__uber_black_80</item>
@@ -1622,34 +1886,19 @@
         <item name="android:textAllCaps">true</item>
         <item name="fontPath">@string/ub__font_narrow_news</item>
     </style>
+    <style name="Style.Rider.TextAppearance.Profiles.ExpenseCode.Search.Header" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textColor">@color/ub__uber_white_100</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontPath">@string/ub__font_medium</item>
+    </style>
     <style name="Style.Rider.TextAppearance.Promo" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">27.0sp</item>
         <item name="android:textColor">@color/ub__uber_blue_100</item>
         <item name="android:gravity">center</item>
         <item name="fontPath">@string/ub__font_news</item>
-    </style>
-    <style name="Style.Rider.TextAppearance.RideHijackCallOut.TextView" parent="@style/Uber.TextAppearance.H3">
-        <item name="android:textColor">@color/ub__uber_blue_100</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/ub__ride_hijack_callout_bg</item>
-        <item name="android:paddingRight">@dimen/ub__ride_hijack_callout_text_padding_right</item>
-        <item name="android:textAllCaps">false</item>
-    </style>
-    <style name="Style.Rider.TextAppearance.RideHijackItem.Tagline" parent="@style/Uber.TextAppearance.H2">
-        <item name="android:textColor">@color/ub__ride_hijack_item_view_tagline_textcolor</item>
-        <item name="android:gravity">center</item>
-        <item name="android:lineSpacingMultiplier">1.0</item>
-    </style>
-    <style name="Style.Rider.TextAppearance.RideHijackItem.Title" parent="@style/Uber.TextAppearance.H3">
-        <item name="android:textColor">@color/ub__ride_hijack_item_view_title_textcolor</item>
-        <item name="android:gravity">center</item>
-        <item name="android:paddingBottom">3.0dip</item>
-        <item name="android:lineSpacingMultiplier">1.0</item>
-        <item name="android:textAllCaps">false</item>
-    </style>
-    <style name="Style.Rider.TextAppearance.RideHijackMemo" parent="@style/Uber.TextAppearance.H3">
-        <item name="android:textColor">@color/ub__uber_blue_60</item>
-        <item name="android:gravity">center</item>
     </style>
     <style name="Style.Rider.TextAppearance.SetPickup" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">@dimen/ub__text_size_medium</item>
@@ -1674,6 +1923,12 @@
     </style>
     <style name="Style.Rider.TextAppearance.SurgeMultiplierBadge" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">@dimen/ub__trip_panel_rate_card_textsize_surge_multiplier</item>
+        <item name="android:textColor">@color/ub__uber_blue_100</item>
+        <item name="android:singleLine">true</item>
+        <item name="fontPath">@string/ub__font_narrow_medium</item>
+    </style>
+    <style name="Style.Rider.TextAppearance.SurgeMultiplierSmallBadge" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__trip_panel_rate_card_textsize_surge_multiplier_small</item>
         <item name="android:textColor">@color/ub__uber_blue_100</item>
         <item name="android:singleLine">true</item>
         <item name="fontPath">@string/ub__font_narrow_medium</item>
@@ -1713,23 +1968,6 @@
         <item name="android:textSize">@dimen/ub__textsize_tab</item>
         <item name="android:textColor">@drawable/ub__tab_text_color</item>
         <item name="fontPath">@string/ub__font_narrow_news</item>
-    </style>
-    <style name="Style.Rider.TextAppearance.ToggleButton.Footnote" parent="@style/Uber.TextAppearance.H3">
-        <item name="android:textColor">@color/ub__uber_blue_60</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_marginTop">@dimen/ub__margin_small</item>
-    </style>
-    <style name="Style.Rider.TextAppearance.ToggleButton.Tagline" parent="@style/Uber.TextAppearance.H2">
-        <item name="android:textColor">@color/ub__toggle_button_item_text_color</item>
-        <item name="android:gravity">center</item>
-        <item name="android:lineSpacingMultiplier">1.0</item>
-    </style>
-    <style name="Style.Rider.TextAppearance.ToggleButton.Title" parent="@style/Uber.TextAppearance.H3">
-        <item name="android:textColor">@color/ub__toggle_button_item_text_color</item>
-        <item name="android:gravity">center</item>
-        <item name="android:paddingBottom">3.0dip</item>
-        <item name="android:lineSpacingMultiplier">1.0</item>
-        <item name="android:textAllCaps">false</item>
     </style>
     <style name="Style.Rider.TextAppearance.VehicleOption" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">@dimen/ub__textsize_vehicle_slider</item>
@@ -1772,6 +2010,19 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/ub__trip_tray_action_button_bg</item>
         <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="Style.Rider.Trip.CardOffer" parent="">
+        <item name="android:paddingLeft">@dimen/ui__spacing_unit_2x</item>
+        <item name="android:paddingRight">@dimen/ui__spacing_unit_2x</item>
+        <item name="android:paddingBottom">@dimen/ui__spacing_unit_2x</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Style.Rider.Trip.CardOffer.Profile" parent="@style/Style.Rider.Trip.CardOffer">
+        <item name="android:paddingLeft">@dimen/ui__spacing_unit_3x</item>
+        <item name="android:paddingRight">@dimen/ui__spacing_unit_3x</item>
     </style>
     <style name="Style.Rider.Trip.Cobranding.MessageText" parent="">
         <item name="android:textSize">@dimen/ub__textsize_tray_secondary_line</item>
@@ -1873,7 +2124,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:maxLines">1</item>
         <item name="android:lines">1</item>
-        <item name="android:drawablePadding">2.0dip</item>
+        <item name="android:drawablePadding">5.0dip</item>
     </style>
     <style name="Style.Rider.Trip.Payment.Text" parent="">
         <item name="android:textAppearance">@style/Style.Rider.Trip.TextAppearance.H6</item>
@@ -1882,6 +2133,12 @@
         <item name="android:singleLine">true</item>
         <item name="android:drawablePadding">@dimen/ub__payment_bar_drawable_padding</item>
         <item name="android:textAllCaps">true</item>
+    </style>
+    <style name="Style.Rider.Trip.PaymentDynamics.CampaignMessage" parent="@style/Uber.TextAppearance.H4">
+        <item name="android:textColor">@color/ub__uber_black_80</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ub__trip_tray_action_button_bg</item>
+        <item name="android:textAllCaps">false</item>
     </style>
     <style name="Style.Rider.Trip.Profiles.Divider" parent="">
         <item name="android:background">@color/ub__uber_white_60</item>
@@ -1904,7 +2161,7 @@
         <item name="android:gravity">center</item>
         <item name="android:clickable">true</item>
         <item name="android:layout_width">0.0dip</item>
-        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1.0</item>
     </style>
     <style name="Style.Rider.Trip.Profiles.SubSection" parent="">
@@ -1912,6 +2169,11 @@
         <item name="android:clickable">true</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="Style.Rider.Trip.RiderDriverPromoBannerText" parent="">
+        <item name="android:textSize">@dimen/ub__text_size_small</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="android:gravity">center</item>
     </style>
     <style name="Style.Rider.Trip.Section" parent="">
         <item name="android:background">@color/ub__white</item>
@@ -2013,6 +2275,21 @@
     <style name="Style.Rider.Trip.Time.Estimate.Footer" parent="@style/Style.Rider.Trip.Time.Estimate.Content">
         <item name="android:textSize">@dimen/ub__trip_time_estimate_footer_text_size</item>
     </style>
+    <style name="Style.Rider.TripTracker.Button.Contact.Driver" parent="@style/Uber.Widget.Button">
+        <item name="android:textSize">@dimen/ub__trip_tracker_driver_contact_button_text_size</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="android:background">@drawable/ub__trip_container</item>
+        <item name="android:layout_marginLeft">@dimen/ub__trip_tracker_driver_contact_button_margin</item>
+        <item name="android:layout_marginRight">@dimen/ub__trip_tracker_driver_contact_button_margin</item>
+        <item name="fontPath">@string/ub__font_narrow_medium</item>
+        <item name="textAllCaps">true</item>
+    </style>
+    <style name="Style.Rider.TripTracker.Driver.Text" parent="@style/Style.Rider.Trip.Driver.Text">
+        <item name="android:textSize">14.0sp</item>
+    </style>
+    <style name="Style.Rider.TripTracker.Driver.Text.Weak" parent="@style/Style.Rider.Trip.Driver.Text.Weak">
+        <item name="android:textSize">11.0sp</item>
+    </style>
     <style name="Style.Rider.Widget.DialogButton" parent="@style/Uber.Widget.DialogButton">
         <item name="android:gravity">end</item>
         <item name="android:paddingRight">@dimen/ub__dialog_padding_sides</item>
@@ -2065,6 +2342,28 @@
     <style name="TextAppearance.AppCompat.Widget.PopupMenu.Small" parent="@style/Base.TextAppearance.AppCompat.Widget.PopupMenu.Small" />
     <style name="TextAppearance.AppCompat.Widget.Switch" parent="@style/Base.TextAppearance.AppCompat.Widget.Switch" />
     <style name="TextAppearance.AppCompat.Widget.TextView.SpinnerItem" parent="@style/Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem" />
+    <style name="TextAppearance.Design.CollapsingToolbar.Expanded" parent="@style/TextAppearance.AppCompat.Display1">
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.Design.Counter" parent="@style/TextAppearance.AppCompat.Caption" />
+    <style name="TextAppearance.Design.Counter.Overflow" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">?textColorError</item>
+    </style>
+    <style name="TextAppearance.Design.Error" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">?textColorError</item>
+    </style>
+    <style name="TextAppearance.Design.Hint" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">?colorControlActivated</item>
+    </style>
+    <style name="TextAppearance.Design.Snackbar.Message" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/design_snackbar_text_size</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.Design.Tab" parent="@style/TextAppearance.AppCompat.Button">
+        <item name="android:textSize">@dimen/design_tab_text_size</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+        <item name="textAllCaps">true</item>
+    </style>
     <style name="TextAppearance.Payment.Balance" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">32.0sp</item>
         <item name="android:textColor">@color/ub__uber_blue_100</item>
@@ -2108,6 +2407,30 @@
         <item name="android:dialogTheme">@style/Theme.Uber.Dialog</item>
         <item name="actionMenuTextColor">@color/ub__uber_blue_120</item>
     </style>
+    <style name="Theme.Design" parent="@style/Theme.AppCompat">
+        <item name="textColorError">@color/design_textinput_error_color_dark</item>
+    </style>
+    <style name="Theme.Design.BottomSheetDialog" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
+        <item name="bottomSheetStyle">@style/Widget.Design.BottomSheet.Modal</item>
+    </style>
+    <style name="Theme.Design.Light" parent="@style/Theme.AppCompat.Light">
+        <item name="textColorError">@color/design_textinput_error_color_light</item>
+    </style>
+    <style name="Theme.Design.Light.BottomSheetDialog" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
+        <item name="bottomSheetStyle">@style/Widget.Design.BottomSheet.Modal</item>
+    </style>
+    <style name="Theme.Design.Light.NoActionBar" parent="@style/Theme.Design.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Design.NoActionBar" parent="@style/Theme.Design">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
     <style name="Theme.IAPTheme" parent="@android:style/Theme">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
@@ -2115,6 +2438,29 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="Theme.RDS" parent="@style/Theme.Uber.White">
+        <item name="android:dialogTheme">@style/Theme.RDS.Dialog</item>
+    </style>
+    <style name="Theme.RDS.Dialog" parent="@style/Theme.Uber.Dialog">
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
+    <style name="Theme.RDS.NoActionBar" parent="@style/Theme.RDS">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.RDS.Transparent" parent="@style/Theme.RDS.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+    </style>
+    <style name="Theme.RDS.Transparent.ActivityDialog" parent="@style/Theme.RDS.Transparent">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
     </style>
     <style name="Theme.Rider" parent="@style/Theme.Uber.White">
         <item name="android:progressBarStyleHorizontal">@style/Style.Rider.ProgressBar</item>
@@ -2156,6 +2502,17 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="Theme.Rider.Reservation.Cancel.Dialog" parent="@style/Theme.Rider.Reservation.Dialog.Base">
+        <item name="android:textAppearance">@style/Uber.TextAppearance.Byline</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+    </style>
+    <style name="Theme.Rider.Reservation.DateTimePicker.Dialog" parent="@style/Theme.Rider.Reservation.Dialog.Base" />
+    <style name="Theme.Rider.Reservation.Dialog.Base" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="android:windowMinWidthMajor">90.0%</item>
+        <item name="android:windowMinWidthMinor">90.0%</item>
+        <item name="colorAccent">@color/ub__uber_blue_100</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Style.Rider.Reservation.Dialog.NegativeButton</item>
+    </style>
     <style name="Theme.Rider.Toolbar" parent="@style/Theme.Uber.Toolbar">
         <item name="android:progressBarStyleHorizontal">@style/Style.Rider.ProgressBar</item>
         <item name="android:ratingBarStyle">@style/Style.Rider.RatingBar</item>
@@ -2188,6 +2545,10 @@
         <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
         <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
     </style>
+    <style name="Theme.Uber.Life" parent="@style/Theme.Uber">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
     <style name="Theme.Uber.Partner.Funnel" parent="@style/Theme.Uber.Black">
         <item name="android:buttonStyle">@style/Uber.Partner.Funnel.Widget.Button.Primary</item>
         <item name="android:windowBackground">@color/ub__uber_white_20</item>
@@ -2218,6 +2579,40 @@
     <style name="ThemeOverlay.AppCompat.Dark" parent="@style/Base.ThemeOverlay.AppCompat.Dark" />
     <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="ThemeOverlay.AppCompat.Light" parent="@style/Base.ThemeOverlay.AppCompat.Light" />
+    <style name="Uber.Driver.Partner.Referrals.Button.SocialMedia" parent="@style/Uber.Widget.Button.Secondary">
+        <item name="android:textColor">@color/ub__white</item>
+    </style>
+    <style name="Uber.Driver.Partner.Referrals.Button.Supporting.Teal" parent="@style/Uber.Widget.Button.Supporting">
+        <item name="android:textColor">@color/ub__partner_referrals_teal_button_default_bg_color</item>
+        <item name="android:background">@drawable/ub__partner_referrals_secondary_teal_button_selector</item>
+    </style>
+    <style name="Uber.Driver.Partner.Referrals.ContactPicker.Tabs" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.H5.White">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline</item>
+    </style>
+    <style name="Uber.Driver.TextAppearance.H5.Dark" parent="@style/Uber.Partner.Referrals.TextAppearance.H5">
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+    </style>
+    <style name="Uber.Life.Drawer" parent="@style/Theme.Uber.Dialog">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:layout_margin">0.0dip</item>
+    </style>
+    <style name="Uber.Life.Drawer.Animation" parent="@style/Uber.Life.Drawer">
+        <item name="android:windowEnterAnimation">@anim/ub__life_drawer_up</item>
+        <item name="android:windowExitAnimation">@anim/ub__life_drawer_down</item>
+    </style>
+    <style name="Uber.Life.Home.Category.TabLayout" parent="@style/Widget.Design.TabLayout">
+        <item name="android:background">@color/ub__white</item>
+        <item name="tabIndicatorColor">@color/ub__white</item>
+        <item name="tabIndicatorHeight">0.0dip</item>
+        <item name="tabBackground">@color/ub__white</item>
+        <item name="tabMode">scrollable</item>
+        <item name="tabPaddingStart">@dimen/ui__spacing_unit_1x</item>
+        <item name="tabPaddingEnd">0.0dip</item>
+    </style>
     <style name="Uber.Lists" parent="">
         <item name="android:scrollbars">none</item>
         <item name="android:clipToPadding">false</item>
@@ -2255,6 +2650,10 @@
         <item name="android:background">@color/ub__listview_background_dark</item>
         <item name="android:listSelector">@drawable/ub__listview_selector_dark</item>
         <item name="android:divider">@null</item>
+    </style>
+    <style name="Uber.Partner.Funnel.EditText.VerifyToken" parent="@style/Uber.Widget.EditText">
+        <item name="android:textSize">@dimen/ub__partner_funnel_textsize_verify_token</item>
+        <item name="fontPath">@string/ub__font_book</item>
     </style>
     <style name="Uber.Partner.Funnel.RecyclerView.Card" parent="">
         <item name="android:paddingLeft">@dimen/ui__spacing_unit_1x</item>
@@ -2364,6 +2763,14 @@
     <style name="Uber.Partner.Funnel.TextAppearance.H1.Light" parent="@style/Uber.Partner.Funnel.TextAppearance.H1">
         <item name="android:textColor">@color/ub__partner_funnel_text_light</item>
     </style>
+    <style name="Uber.Partner.Funnel.TextAppearance.H1.Narrow.LowerCase" parent="@style/Uber.TextAppearance.H1">
+        <item name="android:lineSpacingMultiplier">1.5</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">@string/ub__font_narrow_book</item>
+    </style>
+    <style name="Uber.Partner.Funnel.TextAppearance.H1.Narrow.LowerCase.Grey" parent="@style/Uber.Partner.Funnel.TextAppearance.H1.Narrow.LowerCase">
+        <item name="android:textColor">@color/ub__uber_black_40</item>
+    </style>
     <style name="Uber.Partner.Funnel.TextAppearance.H2" parent="@style/Uber.TextAppearance.H2">
         <item name="android:textSize">@dimen/ub__partner_funnel_textsize_h2</item>
         <item name="android:lineSpacingMultiplier">1.0</item>
@@ -2373,6 +2780,12 @@
     </style>
     <style name="Uber.Partner.Funnel.TextAppearance.H2.Light" parent="@style/Uber.Partner.Funnel.TextAppearance.H2">
         <item name="android:textColor">@color/ub__partner_funnel_text_light</item>
+    </style>
+    <style name="Uber.Partner.Funnel.TextAppearance.H2.Narrow.LowerCase.Blue" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textColor">@color/ub__uber_blue_100</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">@string/ub__font_narrow_book</item>
     </style>
     <style name="Uber.Partner.Funnel.TextAppearance.H3" parent="@style/Uber.TextAppearance.H3">
         <item name="android:textSize">@dimen/ub__partner_funnel_textsize_h3</item>
@@ -2423,7 +2836,7 @@
     <style name="Uber.Partner.Funnel.TextAppearance.Legal.Description" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">@dimen/ub__partner_funnel_textsize_h6</item>
         <item name="android:textColor">@color/ub__uber_black_60</item>
-        <item name="android:lineSpacingExtra">@dimen/ub__partner_funnel_textspacing_h4</item>
+        <item name="android:lineSpacingExtra">@dimen/ub__partner_funnel_spacing_half</item>
         <item name="fontPath">@string/ub__font_news</item>
     </style>
     <style name="Uber.Partner.Funnel.TextAppearance.Legal.Title" parent="@style/Uber.TextAppearance">
@@ -2531,6 +2944,12 @@
         <item name="android:textAllCaps">true</item>
         <item name="fontPath">@string/ub__font_medium</item>
     </style>
+    <style name="Uber.Partner.Funnel.TextAppearance.Step.City" parent="@style/Uber.TextAppearance.Byline">
+        <item name="android:textSize">@dimen/ub__text_size_medium</item>
+    </style>
+    <style name="Uber.Partner.Funnel.TextAppearance.Step.City.Link" parent="@style/Uber.Partner.Funnel.TextAppearance.Step.City">
+        <item name="android:textColor">@color/ub__uber_blue_80</item>
+    </style>
     <style name="Uber.Partner.Funnel.TextAppearance.Step.Description" parent="@style/Uber.Partner.Funnel.TextAppearance.Step.Header">
         <item name="android:textSize">@dimen/ub__partner_funnel_textsize_h4</item>
     </style>
@@ -2585,11 +3004,198 @@
         <item name="cardBackgroundColor">@color/ub__white</item>
         <item name="cardCornerRadius">@dimen/ub__partner_funnel_cardview_corner_radius</item>
     </style>
+    <style name="Uber.Partner.Funnel.Widget.EditText" parent="@style/Uber.Widget.EditText">
+        <item name="android:textColor">@color/ub__partner_funnel_edit_text</item>
+    </style>
     <style name="Uber.Partner.Funnel.Widget.HorizontalSeparator" parent="">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">1.0px</item>
     </style>
     <style name="Uber.Partner.Funnel.Widget.Spinner" parent="@style/Uber.Widget.Spinner" />
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.Byline" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline_small</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.Byline.White" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.Byline">
+        <item name="android:textColor">@color/ub__white</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.Giga" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_giga</item>
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+        <item name="fontPath">@string/ub__font_narrow_book</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.Giga.Green" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.Giga">
+        <item name="android:textColor">@color/ub__green</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.H2" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textSize">21.0sp</item>
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">@string/ub__font_news</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.H2.White" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.H2">
+        <item name="android:textColor">@color/ub__white</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.H5" parent="@style/Uber.TextAppearance.H5">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="textAllCaps">true</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.H5.Dark" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.H5">
+        <item name="android:textColor">@color/ub__uber_black_40</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.H5.White" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.H5">
+        <item name="android:textColor">@color/ub__white</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.InviteTitle" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.Pending">
+        <item name="android:textColor">@color/ub__uber_black_40</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.Kilo.White" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_kilo</item>
+        <item name="android:textColor">@color/ub__uber_white_10</item>
+        <item name="fontPath">@string/ub__font_narrow_book</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.ListItem" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P">
+        <item name="fontPath">@string/ub__font_news</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.ListItem.SingleLine" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.ListItem">
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.NoInvites" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.Byline">
+        <item name="android:textColor">@color/ub__uber_black_40</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.P" parent="@style/Uber.Partner.Referrals.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline</item>
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+        <item name="fontPath">@string/ub__font_book</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.P.Bold" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P">
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">@string/ub__font_medium</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.P.Bold.Small" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P.Bold">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline_small</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.P.Gray" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P">
+        <item name="android:textColor">@color/ub__partner_referrals_national_campaign_conditions_text_color</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.P.Gray.Tiny" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P.Gray">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline_tiny</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.P.Large" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_h2</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.P.Small" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline_small</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Alloy.TextAppearance.Pending" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.Byline">
+        <item name="android:textAllCaps">true</item>
+        <item name="fontPath">@string/ub__font_news</item>
+        <item name="textAllCaps">true</item>
+    </style>
+    <style name="Uber.Partner.Referrals.AlloyTextAppearance.NumberedItem" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P.Bold">
+        <item name="android:textColor">@color/ub__white</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="Uber.Partner.Referrals.ContactPicker.BottomSendButton" parent="@style/Uber.Widget.Button.Accent">
+        <item name="android:background">@drawable/ub__partner_referrals_contact_picker_bottom_send_bg</item>
+    </style>
+    <style name="Uber.Partner.Referrals.ContactPicker.TextAppearance.InviteCode" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P">
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="textAllCaps">true</item>
+    </style>
+    <style name="Uber.Partner.Referrals.ContactPicker.TextAppearance.InviteCode.Bold" parent="@style/Uber.Partner.Referrals.ContactPicker.TextAppearance.Title">
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+    </style>
+    <style name="Uber.Partner.Referrals.ContactPicker.TextAppearance.Title" parent="@style/Uber.Partner.Referrals.TextAppearance.P.Bold">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline_small</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="textAllCaps">true</item>
+    </style>
+    <style name="Uber.Partner.Referrals.ContactPicker.TextAppearance.Title.Copy" parent="@style/Uber.Partner.Referrals.ContactPicker.TextAppearance.Title">
+        <item name="android:textColor">@color/ub__uber_blue_100</item>
+    </style>
+    <style name="Uber.Partner.Referrals.ContactPickerDriver.NativeSmsDialog.TextAppearance.LinkPreview" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline_small</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.Byline" parent="@style/Uber.TextAppearance.Byline">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.Byline.Dark" parent="@style/Uber.Partner.Referrals.TextAppearance.Byline">
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.Byline.Dark.NoSpacingMultiplier" parent="@style/Uber.Partner.Referrals.TextAppearance.Byline.Dark">
+        <item name="android:lineSpacingMultiplier">1.0</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.H1" parent="@style/Uber.TextAppearance.H1">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_h1</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="fontPath">@string/ub__font_medium</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.H2" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_h2</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.H2.Dark" parent="@style/Uber.Partner.Referrals.TextAppearance.H2">
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.H3" parent="@style/Uber.TextAppearance.H3">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_h3</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+        <item name="fontPath">@string/ub__font_book</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.H5" parent="@style/Uber.TextAppearance.H5">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_h5</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.InviteTabs" parent="@style/Uber.TextAppearance.H3">
+        <item name="android:textColor">@color/ub__partner_referrals_invites_tab_text_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">@dimen/ui__spacing_unit_1x</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.NativeSmsDialog.LinkPreview" parent="@style/Uber.Partner.Referrals.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline_small</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.P" parent="@style/Uber.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_p</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.P.Bold" parent="@style/Uber.Partner.Referrals.TextAppearance.P">
+        <item name="android:textAllCaps">false</item>
+        <item name="fontPath">@string/ub__font_medium</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.P.Bold.AllCaps" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P.Bold">
+        <item name="android:textAllCaps">true</item>
+        <item name="textAllCaps">true</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.P.Bold.AllCaps.Blue" parent="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P.Bold">
+        <item name="android:textColor">@color/ub__uber_blue_100</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="textAllCaps">true</item>
+    </style>
+    <style name="Uber.Partner.Referrals.TextAppearance.P.Small" parent="@style/Uber.Partner.Referrals.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__partner_referrals_textsize_byline_small</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+    <style name="Uber.Partner.Referrals.Widget.Button.Accent.Narrow" parent="@style/Uber.Widget.Button.Accent">
+        <item name="android:paddingTop">@dimen/ui__spacing_unit_1x</item>
+        <item name="android:paddingBottom">@dimen/ui__spacing_unit_1x</item>
+        <item name="android:minHeight">0.0dip</item>
+    </style>
     <style name="Uber.Photo.TextAppearance.Hint" parent="@style/Uber.TextAppearance.P">
         <item name="android:textColor">@color/ub__uber_white_20</item>
         <item name="android:gravity">center_horizontal</item>
@@ -2605,6 +3211,58 @@
     <style name="Uber.Photo.TextAppearance.Permission.Instruction" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">18.0sp</item>
         <item name="android:textColor">@color/ub__black</item>
+    </style>
+    <style name="Uber.RDS.Chronicle.DoneActionText" parent="@style/Uber.TextAppearance.ActionButton">
+        <item name="android:textColor">@color/ub__uber_blue_100</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingLeft">@dimen/ui__spacing_unit_1x</item>
+        <item name="android:paddingTop">@dimen/ui__spacing_unit_1x</item>
+        <item name="android:paddingRight">@dimen/ui__spacing_unit_2x</item>
+        <item name="android:paddingBottom">@dimen/ui__spacing_unit_1x</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="Uber.RDS.Chronicle.DriverName" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_medium</item>
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+        <item name="fontPath">@string/ub__font_medium</item>
+    </style>
+    <style name="Uber.RDS.Chronicle.EditText" parent="@style/Uber.TextAppearance.FloatingLabel.EditText">
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">start|center|top</item>
+        <item name="android:background">@color/ub__white</item>
+        <item name="android:paddingLeft">@dimen/ui__spacing_unit_3x</item>
+        <item name="android:paddingTop">@dimen/ui__spacing_unit_2x</item>
+        <item name="android:paddingRight">@dimen/ui__spacing_unit_3x</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:inputType">textMultiLine</item>
+    </style>
+    <style name="Uber.RDS.Chronicle.Image.Container" parent="">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:translationY">@dimen/ub__rds__chronicle_survey_driver_padding_neg</item>
+    </style>
+    <style name="Uber.RDS.Chronicle.SurveyButton" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_action_button</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="fontPath">@string/ub__font_medium</item>
+    </style>
+    <style name="Uber.RDS.Chronicle.SurveyHeader" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_large</item>
+        <item name="android:textColor">@color/ub__white</item>
+        <item name="fontPath">@string/ub__font_narrow_medium</item>
+    </style>
+    <style name="Uber.RDS.Chronicle.SurveyQuestion" parent="@style/Uber.TextAppearance">
+        <item name="android:textSize">@dimen/ub__text_size_medium</item>
+        <item name="android:textColor">@color/ub__uber_black_80</item>
+        <item name="fontPath">@string/ub__font_news</item>
+    </style>
+    <style name="Uber.RDS.Chronicle.SurveyTitle" parent="@style/Uber.TextAppearance.H1">
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
     </style>
     <style name="Uber.RDS.Message.Action" parent="@style/Uber.TextAppearance.Byline">
         <item name="android:ellipsize">end</item>
@@ -2652,6 +3310,16 @@
         <item name="android:paddingLeft">@dimen/ui__spacing_unit_1x</item>
         <item name="android:paddingRight">@dimen/ui__spacing_unit_1x</item>
     </style>
+    <style name="Uber.Rider.Widget.Button.Preload" parent="@android:style/Widget.Holo.Light.Button">
+        <item name="android:textSize">@dimen/ub__text_size_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/ub__white</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/ub__fpl_button_accent</item>
+        <item name="android:minHeight">@dimen/ub__fpl_button_height</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
     <style name="Uber.TextAppearance" parent="@style/TextAppearance.AppCompat">
         <item name="android:textColor">@color/ub__black</item>
     </style>
@@ -2661,6 +3329,32 @@
         <item name="android:lineSpacingMultiplier">1.25</item>
         <item name="android:textAllCaps">true</item>
         <item name="fontPath">@string/ub__font_narrow_medium</item>
+    </style>
+    <style name="Uber.TextAppearance.Bounce.Byline" parent="@style/Uber.TextAppearance.Byline">
+        <item name="android:textSize">@dimen/ub__bounce_text_size_xsmall</item>
+        <item name="android:textColor">@color/ub__uber_white_120</item>
+        <item name="fontPath">@string/ub__font_news</item>
+    </style>
+    <style name="Uber.TextAppearance.Bounce.Confirmation" parent="@style/Uber.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__bounce_text_size_large</item>
+        <item name="android:textColor">@color/ub__bounce_confirmation_text_color</item>
+        <item name="fontPath">@string/ub__font_narrow_news</item>
+    </style>
+    <style name="Uber.TextAppearance.Bounce.Footer" parent="@style/Uber.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__bounce_text_size_small</item>
+        <item name="android:textColor">@color/ub__bounce_footer_text_color</item>
+        <item name="fontPath">@string/ub__font_news</item>
+    </style>
+    <style name="Uber.TextAppearance.Bounce.H2" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textSize">@dimen/ub__bounce_text_size_large</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="fontPath">@string/ub__font_narrow_news</item>
+    </style>
+    <style name="Uber.TextAppearance.Bounce.P" parent="@style/Uber.TextAppearance.P">
+        <item name="android:textSize">@dimen/ub__bounce_text_size_normal</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+        <item name="fontPath">@string/ub__font_news</item>
     </style>
     <style name="Uber.TextAppearance.Byline" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">@dimen/ub__text_size_small</item>
@@ -2708,6 +3402,13 @@
         <item name="android:textAllCaps">false</item>
         <item name="fontPath">@string/ub__font_news</item>
     </style>
+    <style name="Uber.TextAppearance.H1.Rewards" parent="@style/Uber.TextAppearance.H1">
+        <item name="android:textSize">21.0sp</item>
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="textAllCaps">false</item>
+    </style>
     <style name="Uber.TextAppearance.H1.White" parent="@style/Uber.TextAppearance.H1">
         <item name="android:textColor">@color/ub__uber_white_100</item>
     </style>
@@ -2754,6 +3455,51 @@
         <item name="fontPath">@string/ub__font_narrow_news</item>
     </style>
     <style name="Uber.TextAppearance.ItemHeader" parent="@style/Uber.TextAppearance.H4" />
+    <style name="Uber.TextAppearance.Life.CategoryTab" parent="@style/Uber.TextAppearance.P">
+        <item name="android:background">@drawable/ub__life_categorytab</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Uber.TextAppearance.Life.History.ExpiringTag" parent="@style/Uber.TextAppearance.Life.StatusTag">
+        <item name="android:background">@drawable/ub__life_pointhistory_expiringtag</item>
+    </style>
+    <style name="Uber.TextAppearance.Life.History.NegativePoints" parent="@style/Uber.TextAppearance.H1">
+        <item name="android:textColor">@color/ub__red</item>
+    </style>
+    <style name="Uber.TextAppearance.Life.Home.StatusMessage" parent="@style/Uber.TextAppearance.H3">
+        <item name="android:textColor">@color/ub__uber_black_40</item>
+    </style>
+    <style name="Uber.TextAppearance.Life.Home.Title" parent="@style/Uber.TextAppearance.P">
+        <item name="android:textColor">@color/ub__uber_black_100</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+        <item name="fontPath">@string/ub__font_news</item>
+    </style>
+    <style name="Uber.TextAppearance.Life.InfoIcon" parent="@style/Uber.TextAppearance.H2">
+        <item name="android:textColor">@color/ub__white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ub__life_infoicon</item>
+        <item name="android:layout_width">@dimen/ui__icon_medium</item>
+        <item name="android:layout_height">@dimen/ui__icon_medium</item>
+    </style>
+    <style name="Uber.TextAppearance.Life.NewStatusTag" parent="@style/Uber.TextAppearance.Life.StatusTag">
+        <item name="android:textColor">@color/ub__uber_blue_120</item>
+    </style>
+    <style name="Uber.TextAppearance.Life.ProfileCurrentTag" parent="@style/Uber.TextAppearance.Life.StatusTag">
+        <item name="android:background">@drawable/ub__life_profilestatustag</item>
+        <item name="android:paddingBottom">@dimen/ui__life_uip_profile_status_spacing_bottom</item>
+    </style>
+    <style name="Uber.TextAppearance.Life.StatusTag" parent="@style/Uber.TextAppearance.H5">
+        <item name="android:textColor">@color/ub__white</item>
+        <item name="android:paddingLeft">@dimen/ui__life_status_spacing_horizontal</item>
+        <item name="android:paddingTop">@dimen/ui__life_status_spacing_top</item>
+        <item name="android:paddingRight">@dimen/ui__life_status_spacing_horizontal</item>
+        <item name="android:paddingBottom">@dimen/ui__life_status_spacing_bottom</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Uber.TextAppearance.Life.UIP.TierContent" parent="@style/Uber.TextAppearance.H3">
+        <item name="fontPath">@string/ub__font_book</item>
+    </style>
     <style name="Uber.TextAppearance.ListItemMain" parent="@style/Uber.TextAppearance.P">
         <item name="android:textColor">@color/ub__uber_black_90</item>
     </style>
@@ -2770,12 +3516,23 @@
         <item name="android:textColor">@color/ub__uber_black_80</item>
         <item name="android:lineSpacingMultiplier">1.0</item>
     </style>
+    <style name="Uber.TextAppearance.P.Snackbar" parent="@style/Uber.TextAppearance.P">
+        <item name="android:textColor">@color/ub__white</item>
+    </style>
     <style name="Uber.TextAppearance.PaymentItem" parent="@style/Uber.TextAppearance">
         <item name="android:textSize">@dimen/ub__text_size_medium</item>
         <item name="android:textColor">@color/ub__uber_black_80</item>
         <item name="android:lineSpacingMultiplier">1.25</item>
         <item name="android:textAllCaps">true</item>
         <item name="fontPath">@string/ub__font_narrow_news</item>
+    </style>
+    <style name="Uber.TextAppearance.Preload.Description" parent="@style/Uber.TextAppearance.Preload">
+        <item name="android:textSize">@dimen/ub__text_size_medium</item>
+        <item name="android:textColor">@color/ub__uber_black_60</item>
+    </style>
+    <style name="Uber.TextAppearance.Preload.Title" parent="@style/Uber.TextAppearance.Preload">
+        <item name="android:textSize">@dimen/ub__fpl_preload_onboarding_title_text_size</item>
+        <item name="android:textColor">@color/ub__black</item>
     </style>
     <style name="Uber.TextAppearance.SplashSlogan" parent="@style/Uber.TextAppearance.H5">
         <item name="android:textSize">8.0sp</item>
@@ -2822,6 +3579,16 @@
         <item name="android:minHeight">@dimen/ub__action_button_min_height</item>
     </style>
     <style name="Uber.Widget.ActionOverflowMenuStyle" parent="@style/Widget.AppCompat.Light.PopupMenu.Overflow" />
+    <style name="Uber.Widget.BottomSheet" parent="@style/Theme.Uber.Dialog">
+        <item name="android:backgroundDimAmount">0.3</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Uber.Widget.BottomSheet.Animation</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="Uber.Widget.BottomSheet.Animation" parent="@style/Uber.Widget.BottomSheet">
+        <item name="android:windowEnterAnimation">@anim/dock_bottom_enter</item>
+        <item name="android:windowExitAnimation">@anim/dock_bottom_exit</item>
+    </style>
     <style name="Uber.Widget.Button.Accent" parent="@style/Uber.Widget.Button">
         <item name="android:textColor">@color/ub__button_accent_text</item>
         <item name="android:background">@drawable/ub__button_accent</item>
@@ -2831,6 +3598,13 @@
     <style name="Uber.Widget.Button.Accent.Small" parent="@style/Uber.Widget.Button.Accent">
         <item name="android:textSize">@dimen/ub__text_size_micro</item>
         <item name="android:minHeight">@dimen/ub__button_height_small</item>
+    </style>
+    <style name="Uber.Widget.Button.AddCampusCard" parent="@style/Uber.Widget.Button.Secondary">
+        <item name="android:textSize">@dimen/ub__text_size_medium</item>
+        <item name="android:textColor">@color/ub__uber_black_80</item>
+        <item name="android:foreground">@color/ub__transparent</item>
+        <item name="android:height">@dimen/ub__action_button_min_height</item>
+        <item name="android:textAllCaps">false</item>
     </style>
     <style name="Uber.Widget.Button.Primary" parent="@style/Uber.Widget.Button">
         <item name="android:textColor">@color/ub__button_primary_text</item>
@@ -2893,6 +3667,13 @@
         <item name="floatingLabelSubTextAppearance">@style/Uber.TextAppearance.FloatingLabel.SubText</item>
         <item name="floatingLabelInfoTextColor">@color/ub__uber_blue_100</item>
         <item name="floatingLabelErrorTextColor">@color/ub__red</item>
+    </style>
+    <style name="Uber.Widget.SnackbarView" parent="">
+        <item name="android:padding">@dimen/ui__spacing_unit_2x</item>
+        <item name="snackbarViewDefaultColor">@color/ub__uber_black_80</item>
+        <item name="snackbarViewErrorColor">@color/ub__red</item>
+        <item name="snackbarViewSuccessColor">@color/ub__uber_blue_100</item>
+        <item name="snackbarViewWarningColor">@color/ub__yellow</item>
     </style>
     <style name="Uber.Widget.Spinner" parent="@style/Widget.AppCompat.Spinner">
         <item name="android:background">@drawable/ub__spinner_background</item>
@@ -3005,6 +3786,8 @@
     <style name="Widget.AppCompat.ProgressBar" parent="@style/Base.Widget.AppCompat.ProgressBar" />
     <style name="Widget.AppCompat.ProgressBar.Horizontal" parent="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
     <style name="Widget.AppCompat.RatingBar" parent="@style/Base.Widget.AppCompat.RatingBar" />
+    <style name="Widget.AppCompat.RatingBar.Indicator" parent="@style/Base.Widget.AppCompat.RatingBar.Indicator" />
+    <style name="Widget.AppCompat.RatingBar.Small" parent="@style/Base.Widget.AppCompat.RatingBar.Small" />
     <style name="Widget.AppCompat.SearchView" parent="@style/Base.Widget.AppCompat.SearchView" />
     <style name="Widget.AppCompat.SearchView.ActionBar" parent="@style/Base.Widget.AppCompat.SearchView.ActionBar" />
     <style name="Widget.AppCompat.SeekBar" parent="@style/Base.Widget.AppCompat.SeekBar" />
@@ -3015,4 +3798,73 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="@style/Base.Widget.AppCompat.TextView.SpinnerItem" />
     <style name="Widget.AppCompat.Toolbar" parent="@style/Base.Widget.AppCompat.Toolbar" />
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="@style/Base.Widget.AppCompat.Toolbar.Button.Navigation" />
+    <style name="Widget.Design.AppBarLayout" parent="@android:style/Widget">
+        <item name="android:background">?colorPrimary</item>
+        <item name="elevation">@dimen/design_appbar_elevation</item>
+    </style>
+    <style name="Widget.Design.BottomSheet.Modal" parent="@android:style/Widget">
+        <item name="android:background">?android:colorBackground</item>
+        <item name="behavior_peekHeight">@dimen/design_bottom_sheet_modal_peek_height</item>
+        <item name="behavior_hideable">true</item>
+    </style>
+    <style name="Widget.Design.CollapsingToolbar" parent="@android:style/Widget">
+        <item name="expandedTitleMargin">32.0dip</item>
+        <item name="statusBarScrim">?colorPrimaryDark</item>
+    </style>
+    <style name="Widget.Design.CoordinatorLayout" parent="@android:style/Widget">
+        <item name="statusBarBackground">?colorPrimaryDark</item>
+    </style>
+    <style name="Widget.Design.FloatingActionButton" parent="@android:style/Widget">
+        <item name="android:background">@drawable/design_fab_background</item>
+        <item name="elevation">@dimen/design_fab_elevation</item>
+        <item name="rippleColor">?colorControlHighlight</item>
+        <item name="fabSize">normal</item>
+        <item name="pressedTranslationZ">@dimen/design_fab_translation_z_pressed</item>
+        <item name="borderWidth">@dimen/design_fab_border_width</item>
+        <item name="backgroundTint">?colorAccent</item>
+    </style>
+    <style name="Widget.Design.NavigationView" parent="">
+        <item name="android:background">?android:windowBackground</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:maxWidth">@dimen/design_navigation_max_width</item>
+        <item name="elevation">@dimen/design_navigation_elevation</item>
+    </style>
+    <style name="Widget.Design.ScrimInsetsFrameLayout" parent="">
+        <item name="insetForeground">#44000000</item>
+    </style>
+    <style name="Widget.Design.Snackbar" parent="@android:style/Widget">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark</item>
+        <item name="android:background">@drawable/design_snackbar_background</item>
+        <item name="android:paddingLeft">@dimen/design_snackbar_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/design_snackbar_padding_horizontal</item>
+        <item name="android:maxWidth">@dimen/design_snackbar_max_width</item>
+        <item name="android:minWidth">@dimen/design_snackbar_min_width</item>
+        <item name="elevation">@dimen/design_snackbar_elevation</item>
+        <item name="maxActionInlineWidth">@dimen/design_snackbar_action_inline_max_width</item>
+    </style>
+    <style name="Widget.Design.TextInputLayout" parent="@android:style/Widget">
+        <item name="hintTextAppearance">@style/TextAppearance.Design.Hint</item>
+        <item name="errorTextAppearance">@style/TextAppearance.Design.Error</item>
+        <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
+        <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow</item>
+    </style>
+    <style name="cb_approve_otp" parent="@android:style/Widget.Button">
+        <item name="android:textSize">@dimen/cb_fourteenScaled</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:padding">0.0dip</item>
+    </style>
+    <style name="cb_edit_text" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/cb_edit_text</item>
+    </style>
+    <style name="cb_progress_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+    </style>
 </resources>

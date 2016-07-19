@@ -1,15 +1,104 @@
-import android.view.View;
-import android.view.View.OnClickListener;
-
-final class cfw
-  implements View.OnClickListener
+public final class cfw
 {
-  cfw(cfm paramcfm) {}
-  
-  public final void onClick(View paramView)
-  {
-    cfm.e(a);
-  }
+  public static final int abc_action_bar_content_inset_material = 2131296288;
+  public static final int abc_action_bar_default_height_material = 2131296269;
+  public static final int abc_action_bar_default_padding_end_material = 2131296289;
+  public static final int abc_action_bar_default_padding_start_material = 2131296290;
+  public static final int abc_action_bar_icon_vertical_padding_material = 2131296301;
+  public static final int abc_action_bar_overflow_padding_end_material = 2131296302;
+  public static final int abc_action_bar_overflow_padding_start_material = 2131296303;
+  public static final int abc_action_bar_progress_bar_size = 2131296270;
+  public static final int abc_action_bar_stacked_max_height = 2131296304;
+  public static final int abc_action_bar_stacked_tab_max_width = 2131296305;
+  public static final int abc_action_bar_subtitle_bottom_margin_material = 2131296306;
+  public static final int abc_action_bar_subtitle_top_margin_material = 2131296307;
+  public static final int abc_action_button_min_height_material = 2131296308;
+  public static final int abc_action_button_min_width_material = 2131296309;
+  public static final int abc_action_button_min_width_overflow_material = 2131296310;
+  public static final int abc_alert_dialog_button_bar_height = 2131296268;
+  public static final int abc_button_inset_horizontal_material = 2131296311;
+  public static final int abc_button_inset_vertical_material = 2131296312;
+  public static final int abc_button_padding_horizontal_material = 2131296313;
+  public static final int abc_button_padding_vertical_material = 2131296314;
+  public static final int abc_config_prefDialogWidth = 2131296273;
+  public static final int abc_control_corner_material = 2131296315;
+  public static final int abc_control_inset_material = 2131296316;
+  public static final int abc_control_padding_material = 2131296317;
+  public static final int abc_dialog_list_padding_vertical_material = 2131296318;
+  public static final int abc_dialog_min_width_major = 2131296278;
+  public static final int abc_dialog_min_width_minor = 2131296279;
+  public static final int abc_dialog_padding_material = 2131296319;
+  public static final int abc_dialog_padding_top_material = 2131296320;
+  public static final int abc_disabled_alpha_material_dark = 2131296321;
+  public static final int abc_disabled_alpha_material_light = 2131296322;
+  public static final int abc_dropdownitem_icon_width = 2131296323;
+  public static final int abc_dropdownitem_text_padding_left = 2131296324;
+  public static final int abc_dropdownitem_text_padding_right = 2131296325;
+  public static final int abc_edit_text_inset_bottom_material = 2131296326;
+  public static final int abc_edit_text_inset_horizontal_material = 2131296327;
+  public static final int abc_edit_text_inset_top_material = 2131296328;
+  public static final int abc_floating_window_z = 2131296329;
+  public static final int abc_list_item_padding_horizontal_material = 2131296330;
+  public static final int abc_panel_menu_list_width = 2131296331;
+  public static final int abc_search_view_preferred_width = 2131296332;
+  public static final int abc_search_view_text_min_width = 2131296280;
+  public static final int abc_switch_padding = 2131296299;
+  public static final int abc_text_size_body_1_material = 2131296336;
+  public static final int abc_text_size_body_2_material = 2131296337;
+  public static final int abc_text_size_button_material = 2131296338;
+  public static final int abc_text_size_caption_material = 2131296339;
+  public static final int abc_text_size_display_1_material = 2131296340;
+  public static final int abc_text_size_display_2_material = 2131296341;
+  public static final int abc_text_size_display_3_material = 2131296342;
+  public static final int abc_text_size_display_4_material = 2131296343;
+  public static final int abc_text_size_headline_material = 2131296344;
+  public static final int abc_text_size_large_material = 2131296345;
+  public static final int abc_text_size_medium_material = 2131296346;
+  public static final int abc_text_size_menu_material = 2131296347;
+  public static final int abc_text_size_small_material = 2131296348;
+  public static final int abc_text_size_subhead_material = 2131296349;
+  public static final int abc_text_size_subtitle_material_toolbar = 2131296271;
+  public static final int abc_text_size_title_material = 2131296350;
+  public static final int abc_text_size_title_material_toolbar = 2131296272;
+  public static final int cb_circle_indicator_outer_radius = 2131296356;
+  public static final int cb_circle_indicator_radius = 2131296357;
+  public static final int cb_eight = 2131296358;
+  public static final int cb_eighteen = 2131296359;
+  public static final int cb_four = 2131296360;
+  public static final int cb_fourteenScaled = 2131296361;
+  public static final int cb_progress_bar_height = 2131296362;
+  public static final int cb_sixteen = 2131296363;
+  public static final int cb_sixteenScaled = 2131296364;
+  public static final int cb_thirtysix = 2131296365;
+  public static final int cb_twelve = 2131296366;
+  public static final int cb_twelveScaled = 2131296367;
+  public static final int cb_twentyfour = 2131296368;
+  public static final int disabled_alpha_material_dark = 2131296390;
+  public static final int disabled_alpha_material_light = 2131296391;
+  public static final int highlight_alpha_material_colored = 2131296392;
+  public static final int highlight_alpha_material_dark = 2131296393;
+  public static final int highlight_alpha_material_light = 2131296394;
+  public static final int mr_activity_horizontal_margin = 2131296300;
+  public static final int mr_activity_vertical_margin = 2131296402;
+  public static final int mr_circle_indicator_outer_radius = 2131296403;
+  public static final int mr_circle_indicator_radius = 2131296404;
+  public static final int mr_eight = 2131296405;
+  public static final int mr_eighteen = 2131296406;
+  public static final int mr_four = 2131296407;
+  public static final int mr_fourteen = 2131296408;
+  public static final int mr_fourteenScaled = 2131296409;
+  public static final int mr_fourtytwo = 2131296410;
+  public static final int mr_sixteen = 2131296411;
+  public static final int mr_sixteenScaled = 2131296412;
+  public static final int mr_thirtysix = 2131296413;
+  public static final int mr_thirtytwo = 2131296414;
+  public static final int mr_twelve = 2131296415;
+  public static final int mr_twelveScaled = 2131296416;
+  public static final int mr_twentyfour = 2131296417;
+  public static final int mr_two = 2131296418;
+  public static final int notification_large_icon_height = 2131296419;
+  public static final int notification_large_icon_width = 2131296420;
+  public static final int notification_subtext_size = 2131296421;
 }
 
 /* Location:

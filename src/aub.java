@@ -1,6 +1,22 @@
-public abstract interface aub<T>
+final class aub
+  extends avx
 {
-  public abstract void a(T paramT);
+  private final atw a;
+  
+  aub(atw paramatw)
+  {
+    a = paramatw;
+  }
+  
+  public final void a()
+  {
+    a.a();
+  }
+  
+  public final void b()
+  {
+    a.b();
+  }
 }
 
 /* Location:

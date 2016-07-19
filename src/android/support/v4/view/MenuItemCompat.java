@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MenuItemCompat
+public final class MenuItemCompat
 {
   static final MenuItemCompat.MenuVersionImpl IMPL = new MenuItemCompat.BaseMenuVersionImpl();
   public static final int SHOW_AS_ACTION_ALWAYS = 2;

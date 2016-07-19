@@ -1,9 +1,15 @@
-public abstract class ayt<R extends xa>
-  extends xg<R, azs>
+public final class ayt
 {
-  public ayt(ws paramws)
+  private final acp a;
+  
+  public ayt(acp paramacp)
   {
-    super(ays.a(), paramws);
+    a = ((acp)abe.a(paramacp));
+  }
+  
+  public final acp a()
+  {
+    return a;
   }
 }
 

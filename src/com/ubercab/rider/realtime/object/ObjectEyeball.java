@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsz;
+import myh;
 
 @Shape
 abstract class ObjectEyeball
-  implements jsz
+  implements myh
 {
   public static ObjectEyeball create()
   {

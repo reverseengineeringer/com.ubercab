@@ -10,7 +10,7 @@
         <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <com.ubercab.ui.Button android:textStyle="bold" android:id="@id/ub__commute_disclaimer_button_not_now" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/commute_disclaimer_overlay_reject" android:layout_weight="1.0" style="@style/Uber.Widget.Button.Secondary" />
             <View android:layout_width="@dimen/ui__spacing_unit_3x" android:layout_height="0.0dip" />
-            <com.ubercab.ui.Button android:textStyle="bold" android:id="@id/ub__commute_disclaimer_button_continue" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/commute_disclaimer_overlay_accept" android:layout_weight="1.0" style="@style/Uber.Widget.Button.Accent" />
+            <com.ubercab.ui.Button android:textStyle="bold" android:textColor="@color/ub__uber_blue_120" android:id="@id/ub__commute_disclaimer_button_continue" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/commute_disclaimer_overlay_accept" android:layout_weight="1.0" style="@style/Uber.Widget.Button.Accent" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

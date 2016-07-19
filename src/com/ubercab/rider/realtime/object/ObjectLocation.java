@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jtr;
+import myz;
 
 @Shape
 abstract class ObjectLocation
-  implements jtr
+  implements myz
 {}
 
 /* Location:

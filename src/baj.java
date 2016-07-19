@@ -1,54 +1,58 @@
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.personalized.PlaceAliasResult;
-import com.google.android.gms.location.places.personalized.PlaceUserData;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PointOfInterest;
 
 public final class baj
-  implements Parcelable.Creator<PlaceAliasResult>
+  implements Parcelable.Creator<PointOfInterest>
 {
-  private static PlaceAliasResult a(Parcel paramParcel)
+  public static PointOfInterest a(Parcel paramParcel)
   {
-    int j = zm.b(paramParcel);
-    Status localStatus = null;
+    int j = zd.b(paramParcel);
+    String str1 = null;
+    LatLng localLatLng = null;
     int i = 0;
-    PlaceUserData localPlaceUserData = null;
+    String str2 = null;
     while (paramParcel.dataPosition() < j)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
       default: 
-        zm.a(paramParcel, k);
+        zd.a(paramParcel, k);
         break;
       case 1: 
-        localStatus = (Status)zm.a(paramParcel, k, Status.CREATOR);
-        break;
-      case 1000: 
-        i = zm.e(paramParcel, k);
+        i = zd.e(paramParcel, k);
         break;
       case 2: 
-        localPlaceUserData = (PlaceUserData)zm.a(paramParcel, k, PlaceUserData.CREATOR);
+        localLatLng = (LatLng)zd.a(paramParcel, k, LatLng.CREATOR);
+        break;
+      case 3: 
+        str1 = zd.n(paramParcel, k);
+        break;
+      case 4: 
+        str2 = zd.n(paramParcel, k);
       }
     }
     if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new PlaceAliasResult(i, localStatus, localPlaceUserData);
+    return new PointOfInterest(i, localLatLng, str1, str2);
   }
   
-  public static void a(PlaceAliasResult paramPlaceAliasResult, Parcel paramParcel, int paramInt)
+  public static void a(PointOfInterest paramPointOfInterest, Parcel paramParcel, int paramInt)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramPlaceAliasResult.a(), paramInt, false);
-    zo.a(paramParcel, 1000, a);
-    zo.a(paramParcel, 2, paramPlaceAliasResult.b(), paramInt, false);
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramPointOfInterest.a());
+    zf.a(paramParcel, 2, a, paramInt, false);
+    zf.a(paramParcel, 3, b, false);
+    zf.a(paramParcel, 4, c, false);
+    zf.a(paramParcel, i);
   }
   
-  private static PlaceAliasResult[] a(int paramInt)
+  private static PointOfInterest[] a(int paramInt)
   {
-    return new PlaceAliasResult[paramInt];
+    return new PointOfInterest[paramInt];
   }
 }
 

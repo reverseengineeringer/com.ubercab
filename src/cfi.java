@@ -1,28 +1,40 @@
-import android.os.Build;
-import android.os.Build.VERSION;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class cfi
-  implements bxg
 {
-  public final String a()
-  {
-    return "2.9.10";
-  }
+  public static final List a;
   
-  public final String b()
+  static
   {
-    String str1 = Build.VERSION.RELEASE;
-    String str2 = Build.MANUFACTURER + " " + Build.MODEL;
-    StringBuilder localStringBuilder = new StringBuilder();
-    if (bze.d("")) {
-      localStringBuilder.append(" ");
-    }
-    return String.format("PayPalSDK/%s %s (%s %s; %s; %s)", new Object[] { "PayPal-Android-SDK", "2.9.10", "Android", str1, str2, localStringBuilder.toString().trim() });
-  }
-  
-  public final String c()
-  {
-    return "1d3523bb5c312838069f6196f54ae1d530d80463";
+    ArrayList localArrayList = new ArrayList();
+    a = localArrayList;
+    localArrayList.add(new byq());
+    a.add(new byr());
+    a.add(new bys());
+    a.add(new byt());
+    a.add(new cad());
+    a.add(new cfa());
+    a.add(new cfb());
+    a.add(new cfc());
+    a.add(new cfd());
+    a.add(new cfe());
+    a.add(new cff());
+    a.add(new cfg());
+    a.add(new cfh());
+    a.add(new cfj());
+    a.add(new bqf());
+    a.add(new bqg());
+    a.add(new bqh());
+    a.add(new bqi());
+    a.add(new bqj());
+    a.add(new bqk());
+    a.add(new bql());
+    a.add(new bqm());
+    a.add(new bqn());
+    a.add(new bqo());
+    a.add(new bqp());
+    a.add(new bqq());
   }
 }
 

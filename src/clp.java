@@ -1,37 +1,26 @@
-public final class clp
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public abstract class clp
 {
-  private final boolean a;
+  private final List<clq> a = new ArrayList();
   
-  private clp(clq paramclq)
+  public final void a(clq paramclq)
   {
-    a = clq.a(paramclq);
+    a.add(paramclq);
   }
   
-  public final boolean a()
-  {
-    return a;
-  }
+  public abstract String b();
   
-  public final boolean equals(Object paramObject)
-  {
-    if (this == paramObject) {}
-    do
-    {
-      return true;
-      if ((paramObject == null) || (getClass() != paramObject.getClass())) {
-        return false;
-      }
-      paramObject = (clp)paramObject;
-    } while (a == a);
-    return false;
-  }
+  public abstract long c();
   
-  public final int hashCode()
+  protected final void d()
   {
-    if (a) {
-      return 1;
+    Iterator localIterator = a.iterator();
+    while (localIterator.hasNext()) {
+      ((clq)localIterator.next()).a();
     }
-    return 0;
   }
 }
 

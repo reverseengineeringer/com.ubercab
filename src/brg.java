@@ -1,78 +1,77 @@
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
+import org.json.JSONObject;
 
-public final class brg
-  extends bpw<Object>
+public class brg
+  extends buq
 {
-  public static final bpx a = new bpx()
-  {
-    public final <T> bpw<T> create(bpc paramAnonymousbpc, brp<T> paramAnonymousbrp)
-    {
-      if (paramAnonymousbrp.getRawType() == Object.class) {
-        return new brg(paramAnonymousbpc, (byte)0);
-      }
-      return null;
-    }
-  };
-  private final bpc b;
+  private brh a;
   
-  private brg(bpc parambpc)
+  static
   {
-    b = parambpc;
+    brg.class.getSimpleName();
   }
   
-  public final Object a(JsonReader paramJsonReader)
+  public brg(bup parambup, bus parambus, bva parambva, brh parambrh)
   {
-    Object localObject = paramJsonReader.peek();
-    switch (brg.2.a[localObject.ordinal()])
-    {
-    default: 
-      throw new IllegalStateException();
-    case 1: 
-      localObject = new ArrayList();
-      paramJsonReader.beginArray();
-      while (paramJsonReader.hasNext()) {
-        ((List)localObject).add(a(paramJsonReader));
-      }
-      paramJsonReader.endArray();
-      return localObject;
-    case 2: 
-      localObject = new bqm();
-      paramJsonReader.beginObject();
-      while (paramJsonReader.hasNext()) {
-        ((Map)localObject).put(paramJsonReader.nextName(), a(paramJsonReader));
-      }
-      paramJsonReader.endObject();
-      return localObject;
-    case 3: 
-      return paramJsonReader.nextString();
-    case 4: 
-      return Double.valueOf(paramJsonReader.nextDouble());
-    case 5: 
-      return Boolean.valueOf(paramJsonReader.nextBoolean());
-    }
-    paramJsonReader.nextNull();
-    return null;
+    super(parambup, parambus, parambva, null);
+    a = parambrh;
+    a("Accept", "application/json; charset=utf-8");
+    a("Accept-Language", "en_US");
+    a("Content-Type", "application/json");
   }
   
-  public final void a(JsonWriter paramJsonWriter, Object paramObject)
+  private static JSONObject a(Map paramMap)
   {
-    if (paramObject == null)
+    JSONObject localJSONObject = new JSONObject();
+    Iterator localIterator = paramMap.keySet().iterator();
+    while (localIterator.hasNext())
     {
-      paramJsonWriter.nullValue();
-      return;
+      String str = (String)localIterator.next();
+      localJSONObject.accumulate(str, paramMap.get(str));
     }
-    bpw localbpw = b.a(paramObject.getClass());
-    if ((localbpw instanceof brg))
-    {
-      paramJsonWriter.beginObject();
-      paramJsonWriter.endObject();
-      return;
-    }
-    localbpw.a(paramJsonWriter, paramObject);
+    return localJSONObject;
+  }
+  
+  public final String a(bup parambup)
+  {
+    return "https://api.paypal.com/v1/tracking/events";
+  }
+  
+  public final boolean a()
+  {
+    return true;
+  }
+  
+  public final String b()
+  {
+    Object localObject1 = bwy.a(t().d().e());
+    String str = a.a;
+    Object localObject2 = new JSONObject();
+    ((JSONObject)localObject2).accumulate("tracking_visitor_id", localObject1);
+    ((JSONObject)localObject2).accumulate("tracking_visit_id", str);
+    JSONObject localJSONObject = new JSONObject();
+    localJSONObject.accumulate("actor", localObject2);
+    localJSONObject.accumulate("channel", "mobile");
+    localObject2 = Long.toString(System.currentTimeMillis());
+    localJSONObject.accumulate("tracking_event", localObject2);
+    a.b.put("t", localObject2);
+    a.b.put("dsid", localObject1);
+    a.b.put("vid", str);
+    localJSONObject.accumulate("event_params", a(a.b));
+    localObject1 = new JSONObject();
+    ((JSONObject)localObject1).accumulate("events", localJSONObject);
+    return ((JSONObject)localObject1).toString();
+  }
+  
+  public final void c() {}
+  
+  public final void d() {}
+  
+  public final String e()
+  {
+    return "mockResponse";
   }
 }
 

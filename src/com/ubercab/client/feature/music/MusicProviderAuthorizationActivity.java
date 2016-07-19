@@ -3,81 +3,81 @@ package com.ubercab.client.feature.music;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.model.TunesProvider;
-import eav;
-import ebj;
-import fqc;
-import fqd;
-import fqs;
-import fqt;
-import fsj;
-import ftq;
-import p;
+import ehn;
+import eib;
+import gid;
+import gie;
+import git;
+import giu;
+import gko;
+import gmj;
+import x;
 
 public class MusicProviderAuthorizationActivity
-  extends RiderActivity<fsj>
+  extends RiderActivity<gko>
 {
-  public ckc g;
+  public ckt g;
   
   public static Intent a(Context paramContext, TunesProvider paramTunesProvider)
   {
     return new Intent(paramContext, MusicProviderAuthorizationActivity.class).putExtra("com.ubercab.MUSIC_PROVIDER", paramTunesProvider);
   }
   
-  private void a(fsj paramfsj)
+  private void a(gko paramgko)
   {
-    paramfsj.a(this);
+    paramgko.a(this);
   }
   
-  private fsj b(ebj paramebj)
+  private gko b(eib parameib)
   {
-    return fqs.a().a(new eav(this)).a(paramebj).a();
+    return git.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void f()
   {
     if (a(MusicProviderAuthorizationFragment.class) == null) {
-      a(2131624656, MusicProviderAuthorizationFragment.a((TunesProvider)getIntent().getParcelableExtra("com.ubercab.MUSIC_PROVIDER")), true);
+      a(2131624988, MusicProviderAuthorizationFragment.a((TunesProvider)getIntent().getParcelableExtra("com.ubercab.MUSIC_PROVIDER")), true);
     }
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903286);
+    setContentView(2130903381);
     f();
   }
   
-  @cho
-  public void onAuthorizationErrorEvent(fqc paramfqc)
+  @chu
+  public void onAuthorizationErrorEvent(gid paramgid)
   {
     setResult(0, null);
-    g.a(p.nd);
+    g.a(x.rh);
     finish();
   }
   
-  @cho
-  public void onAuthorizationResponseEvent(fqd paramfqd)
+  @chu
+  public void onAuthorizationResponseEvent(gie paramgie)
   {
     Intent localIntent = new Intent();
-    localIntent.putExtra("com.ubercab.AUTHORIZATION_CODE", paramfqd.a());
+    localIntent.putExtra("com.ubercab.AUTHORIZATION_CODE", paramgie.a());
     setResult(-1, localIntent);
-    g.a(p.ne);
+    g.a(x.ri);
     finish();
   }
   
-  @cho
-  public void onCancelAuthorizationEvent(ftq paramftq)
+  @chu
+  public void onCancelAuthorizationEvent(gmj paramgmj)
   {
     setResult(0, null);
     finish();
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

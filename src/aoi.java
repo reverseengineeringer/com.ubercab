@@ -1,11 +1,40 @@
-import android.os.IInterface;
-
-public abstract interface aoi
-  extends IInterface
+public abstract class aoi
 {
-  public abstract void a(aof paramaof);
+  protected volatile int B = -1;
   
-  public abstract boolean a(String paramString);
+  public aoi a()
+  {
+    return (aoi)super.clone();
+  }
+  
+  public abstract aoi a(anz paramanz);
+  
+  public void a(aoa paramaoa) {}
+  
+  protected int b()
+  {
+    return 0;
+  }
+  
+  public final int c()
+  {
+    if (B < 0) {
+      d();
+    }
+    return B;
+  }
+  
+  public final int d()
+  {
+    int i = b();
+    B = i;
+    return i;
+  }
+  
+  public String toString()
+  {
+    return aoj.a(this);
+  }
 }
 
 /* Location:

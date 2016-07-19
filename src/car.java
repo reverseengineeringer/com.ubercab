@@ -1,9 +1,19 @@
-final class car
-  implements Runnable
+import com.paypal.android.sdk.payments.LoginActivity;
+import com.paypal.android.sdk.payments.aj;
+
+public final class car
+  implements cbk
 {
-  public final void run()
+  public car(LoginActivity paramLoginActivity) {}
+  
+  public final void a(cbn paramcbn)
   {
-    caq.a().e();
+    LoginActivity.b(a, b);
+  }
+  
+  public final void a(Object paramObject)
+  {
+    LoginActivity.a(a, aj.j);
   }
 }
 

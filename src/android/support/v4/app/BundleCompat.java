@@ -4,7 +4,7 @@ import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.os.IBinder;
 
-public class BundleCompat
+public final class BundleCompat
 {
   public static IBinder getBinder(Bundle paramBundle, String paramString)
   {

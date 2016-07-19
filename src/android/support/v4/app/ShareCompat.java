@@ -7,7 +7,7 @@ import android.os.Build.VERSION;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ShareCompat
+public final class ShareCompat
 {
   public static final String EXTRA_CALLING_ACTIVITY = "android.support.v4.app.EXTRA_CALLING_ACTIVITY";
   public static final String EXTRA_CALLING_PACKAGE = "android.support.v4.app.EXTRA_CALLING_PACKAGE";

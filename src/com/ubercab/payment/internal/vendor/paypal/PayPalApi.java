@@ -1,7 +1,7 @@
 package com.ubercab.payment.internal.vendor.paypal;
 
 import com.ubercab.android.payment.realtime.model.PaymentProfile;
-import iwh;
+import lqf;
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.POST;
@@ -9,7 +9,7 @@ import retrofit.http.POST;
 public abstract interface PayPalApi
 {
   @POST("/rt/payment/payment_profiles/")
-  public abstract void create(@Body iwh paramiwh, Callback<PaymentProfile> paramCallback);
+  public abstract void create(@Body lqf paramlqf, Callback<PaymentProfile> paramCallback);
 }
 
 /* Location:

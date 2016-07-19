@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jum;
+import mzu;
 
 @Shape
 abstract class ObjectThirdPartyIdentity
-  implements jum
+  implements mzu
 {}
 
 /* Location:

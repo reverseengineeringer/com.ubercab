@@ -1,61 +1,32 @@
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
-
-final class brm<T>
-  extends bpw<T>
+public abstract class brm
 {
-  private final bpc a;
-  private final bpw<T> b;
-  private final Type c;
+  private String a;
+  private String b;
   
-  brm(bpc parambpc, bpw<T> parambpw, Type paramType)
+  private brm() {}
+  
+  protected brm(String paramString)
   {
-    a = parambpc;
-    b = parambpw;
-    c = paramType;
+    this();
+    a = paramString;
+    b = null;
   }
   
-  private static Type a(Type paramType, Object paramObject)
+  protected brm(String paramString1, String paramString2)
   {
-    Object localObject = paramType;
-    if (paramObject != null) {
-      if ((paramType != Object.class) && (!(paramType instanceof TypeVariable)))
-      {
-        localObject = paramType;
-        if (!(paramType instanceof Class)) {}
-      }
-      else
-      {
-        localObject = paramObject.getClass();
-      }
-    }
-    return (Type)localObject;
+    this();
+    a = paramString1;
+    b = paramString2;
   }
   
-  public final T a(JsonReader paramJsonReader)
+  public final String a()
   {
-    return (T)b.a(paramJsonReader);
+    return a;
   }
   
-  public final void a(JsonWriter paramJsonWriter, T paramT)
+  public String toString()
   {
-    Object localObject1 = b;
-    Object localObject2 = a(c, paramT);
-    if (localObject2 != c)
-    {
-      localObject2 = a.a(brp.get((Type)localObject2));
-      localObject1 = localObject2;
-      if ((localObject2 instanceof bri))
-      {
-        localObject1 = localObject2;
-        if (!(b instanceof bri)) {
-          localObject1 = b;
-        }
-      }
-    }
-    ((bpw)localObject1).a(paramJsonWriter, paramT);
+    return "ErrorBase[errorCode=" + a + " errorMsgShort=" + b + "]";
   }
 }
 

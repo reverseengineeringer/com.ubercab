@@ -1,38 +1,31 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import com.google.android.gms.wallet.Cart;
+import com.google.android.gms.wallet.FullWalletRequest;
 
-public abstract class bey
-  extends Binder
-  implements bex
+public final class bey
 {
-  public static bex a(IBinder paramIBinder)
+  private bey(FullWalletRequest paramFullWalletRequest) {}
+  
+  public final bey a(Cart paramCart)
   {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnMapLoadedCallback");
-    if ((localIInterface != null) && ((localIInterface instanceof bex))) {
-      return (bex)localIInterface;
-    }
-    return new bez(paramIBinder);
+    a.c = paramCart;
+    return this;
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public final bey a(String paramString)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnMapLoadedCallback");
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMapLoadedCallback");
-    a();
-    paramParcel2.writeNoException();
-    return true;
+    a.a = paramString;
+    return this;
+  }
+  
+  public final FullWalletRequest a()
+  {
+    return a;
+  }
+  
+  public final bey b(String paramString)
+  {
+    a.b = paramString;
+    return this;
   }
 }
 

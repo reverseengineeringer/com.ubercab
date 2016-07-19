@@ -1,23 +1,24 @@
-import android.content.Intent;
+import java.util.Collections;
+import java.util.Map;
 
 public final class aef
-  extends awg
 {
-  private Intent b;
+  public byte[] a;
+  public String b;
+  public long c;
+  public long d;
+  public long e;
+  public long f;
+  public Map<String, String> g = Collections.emptyMap();
   
-  public aef() {}
-  
-  public aef(aqe paramaqe)
+  public final boolean a()
   {
-    super(paramaqe);
+    return e < System.currentTimeMillis();
   }
   
-  public final String getMessage()
+  public final boolean b()
   {
-    if (b != null) {
-      return "User needs to (re)enter credentials.";
-    }
-    return super.getMessage();
+    return f < System.currentTimeMillis();
   }
 }
 

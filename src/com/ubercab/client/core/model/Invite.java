@@ -1,9 +1,9 @@
 package com.ubercab.client.core.model;
 
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class Invite
 {
   public static final String STATUS_INVITED = "INVITED";

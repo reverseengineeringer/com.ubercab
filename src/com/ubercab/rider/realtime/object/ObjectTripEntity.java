@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jus;
+import nab;
 
 @Shape
 abstract class ObjectTripEntity
-  implements jus
+  implements nab
 {}
 
 /* Location:

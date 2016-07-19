@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/ub__green" />
+            <size android:height="@dimen/ub__card_offers_earned_rides_confirmation_diameter" android:width="@dimen/ub__card_offers_earned_rides_confirmation_diameter" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="@dimen/ub__card_offers_earned_rides_white_ring_thickness" android:color="@android:color/transparent" />
+            <solid android:color="@color/ub__white" />
+            <size android:height="@dimen/ub__card_offers_earned_rides_confirmation_diameter" android:width="@dimen/ub__card_offers_earned_rides_confirmation_diameter" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="@dimen/ub__card_offers_earned_rides_inner_ring_confirmation_thickness" android:color="@android:color/transparent" />
+            <solid android:color="@color/ub__green" />
+            <size android:height="@dimen/ub__card_offers_earned_rides_confirmation_diameter" android:width="@dimen/ub__card_offers_earned_rides_confirmation_diameter" />
+        </shape>
+    </item>
+</layer-list>

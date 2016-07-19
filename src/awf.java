@@ -1,10 +1,10 @@
-public final class awf
-  implements bky
+import android.os.IInterface;
+import com.google.android.gms.maps.model.CameraPosition;
+
+public abstract interface awf
+  extends IInterface
 {
-  public final bmh a(ws paramws)
-  {
-    return bkz.a(paramws).c();
-  }
+  public abstract void a(CameraPosition paramCameraPosition);
 }
 
 /* Location:

@@ -3,7 +3,7 @@ package android.support.v4.os;
 import android.os.AsyncTask;
 import android.os.Build.VERSION;
 
-public class AsyncTaskCompat
+public final class AsyncTaskCompat
 {
   public static <Params, Progress, Result> AsyncTask<Params, Progress, Result> executeParallel(AsyncTask<Params, Progress, Result> paramAsyncTask, Params... paramVarArgs)
   {

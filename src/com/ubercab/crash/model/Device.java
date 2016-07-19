@@ -2,10 +2,10 @@ package com.ubercab.crash.model;
 
 import com.ubercab.crash.internal.validator.CrashValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=CrashValidatorFactory.class)
+@lzo(a=CrashValidatorFactory.class)
 public abstract class Device
 {
   public static Device create(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, Boolean paramBoolean)

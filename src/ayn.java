@@ -1,14 +1,10 @@
-import android.location.Location;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.LocationRequest;
+import android.os.IInterface;
+import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
 public abstract interface ayn
+  extends IInterface
 {
-  public abstract Location a(ws paramws);
-  
-  public abstract wx<Status> a(ws paramws, ayq paramayq);
-  
-  public abstract wx<Status> a(ws paramws, LocationRequest paramLocationRequest, ayq paramayq);
+  public abstract void a(StreetViewPanoramaOrientation paramStreetViewPanoramaOrientation);
 }
 
 /* Location:

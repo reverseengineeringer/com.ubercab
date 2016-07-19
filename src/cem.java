@@ -1,15 +1,16 @@
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.paypal.android.sdk.payments.PaymentMethodActivity;
+import com.paypal.android.sdk.bK;
 
-public final class cem
-  implements View.OnClickListener
+final class cem
 {
-  public cem(PaymentMethodActivity paramPaymentMethodActivity) {}
+  public String a;
+  public bK b;
+  public String c;
   
-  public final void onClick(View paramView)
+  cem(String paramString1, bK parambK, String paramString2)
   {
-    PaymentMethodActivity.a(a);
+    a = paramString1;
+    b = parambK;
+    c = paramString2;
   }
 }
 

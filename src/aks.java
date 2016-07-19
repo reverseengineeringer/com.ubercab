@@ -1,19 +1,6 @@
-public abstract interface aks
-  extends ald
+public abstract interface aks<T>
 {
-  public abstract void a();
-  
-  public abstract void a(akt paramakt);
-  
-  public abstract void a(String paramString);
-  
-  public abstract void a(ms paramms, pt parampt, aje paramaje, qc paramqc);
-  
-  public abstract ale b();
-  
-  public abstract void b(String paramString);
-  
-  public abstract void c(String paramString);
+  public abstract void a(T paramT);
 }
 
 /* Location:

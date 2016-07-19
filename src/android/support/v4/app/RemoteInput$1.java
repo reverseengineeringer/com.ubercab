@@ -7,7 +7,7 @@ final class RemoteInput$1
 {
   public final RemoteInput build(String paramString, CharSequence paramCharSequence, CharSequence[] paramArrayOfCharSequence, boolean paramBoolean, Bundle paramBundle)
   {
-    return new RemoteInput(paramString, paramCharSequence, paramArrayOfCharSequence, paramBoolean, paramBundle);
+    return new RemoteInput(paramString, paramCharSequence, paramArrayOfCharSequence, paramBoolean, paramBundle, null);
   }
   
   public final RemoteInput[] newArray(int paramInt)

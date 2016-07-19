@@ -1,23 +1,16 @@
-import android.support.v7.app.AppCompatDelegateImplV7;
-import android.view.Window.Callback;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.view.OnApplyWindowInsetsListener;
+import android.support.v4.view.WindowInsetsCompat;
+import android.view.View;
 
 public final class ba
-  implements dx
+  implements OnApplyWindowInsetsListener
 {
-  private ba(AppCompatDelegateImplV7 paramAppCompatDelegateImplV7) {}
+  private ba(CoordinatorLayout paramCoordinatorLayout) {}
   
-  public final void a(di paramdi, boolean paramBoolean)
+  public final WindowInsetsCompat onApplyWindowInsets(View paramView, WindowInsetsCompat paramWindowInsetsCompat)
   {
-    AppCompatDelegateImplV7.a(a, paramdi);
-  }
-  
-  public final boolean a(di paramdi)
-  {
-    Window.Callback localCallback = a.p();
-    if (localCallback != null) {
-      localCallback.onMenuOpened(108, paramdi);
-    }
-    return true;
+    return CoordinatorLayout.a(a, paramWindowInsetsCompat);
   }
 }
 

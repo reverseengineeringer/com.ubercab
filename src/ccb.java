@@ -1,69 +1,23 @@
-public class ccb
+import com.paypal.android.sdk.payments.PaymentConfirmActivity;
+
+public final class ccb
+  implements cbm
 {
-  private static final String a = ccb.class.getSimpleName();
-  private cck b;
-  private Object c;
-  private cch d;
+  public ccb(PaymentConfirmActivity paramPaymentConfirmActivity) {}
   
-  private void b(cch paramcch)
+  public final void a()
   {
-    paramcch.a(c);
-    if ((!(c instanceof byp)) && (!(c instanceof byt))) {}
-    for (int i = 1;; i = 0)
-    {
-      c = null;
-      if (i != 0) {
-        d = null;
-      }
-      return;
-    }
+    PaymentConfirmActivity.a();
+    PaymentConfirmActivity.l(a);
   }
   
-  final void a()
+  public final void a(cbn paramcbn)
   {
-    if (c == null) {
-      c = "success";
+    PaymentConfirmActivity.f(a);
+    ced.a(a, bvf.a(b), 1);
+    if (PaymentConfirmActivity.g(a) != cdn.a) {
+      PaymentConfirmActivity.i(a).b(true);
     }
-    if (d != null) {
-      b(d);
-    }
-  }
-  
-  public final void a(cch paramcch)
-  {
-    if (c != null)
-    {
-      b(paramcch);
-      return;
-    }
-    if (b != null)
-    {
-      paramcch.a(b);
-      b = null;
-      d = null;
-      return;
-    }
-    d = paramcch;
-  }
-  
-  public final void a(cck paramcck)
-  {
-    if (d != null)
-    {
-      d.a(paramcck);
-      return;
-    }
-    b = paramcck;
-  }
-  
-  final void a(Object paramObject)
-  {
-    c = paramObject;
-  }
-  
-  public final void b()
-  {
-    d = null;
   }
 }
 

@@ -1,22 +1,52 @@
-@apl
+import android.content.Context;
+import java.util.Map;
+
+@aih
 public final class aja
-  extends aio
 {
-  private final mo a;
+  public static final ajb<Void> a = new ajb() {};
+  private static akc b;
+  private static final Object c = new Object();
   
-  public aja(mo parammo)
+  public aja(Context paramContext)
   {
-    a = parammo;
+    b = a(paramContext);
   }
   
-  private static aif b(aic paramaic)
+  private static akc a(Context paramContext)
   {
-    return new aif(paramaic);
+    synchronized (c)
+    {
+      if (b == null) {
+        b = adu.a(paramContext.getApplicationContext());
+      }
+      paramContext = b;
+      return paramContext;
+    }
   }
   
-  public final void a(aic paramaic)
+  public final ajj<String> a(final String paramString, final Map<String, String> paramMap)
   {
-    a.a(b(paramaic));
+    final ajc localajc = new ajc(this, (byte)0);
+    paramString = new adt(paramString, localajc, new akr()
+    {
+      public final void a(amy paramAnonymousamy)
+      {
+        ain.d("Failed to load URL: " + paramString + "\n" + paramAnonymousamy.toString());
+        localajc.a(null);
+      }
+    }, paramMap)
+    {
+      public final Map<String, String> a()
+      {
+        if (paramMap == null) {
+          return super.a();
+        }
+        return paramMap;
+      }
+    };
+    b.a(paramString);
+    return localajc;
   }
 }
 

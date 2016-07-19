@@ -1,141 +1,59 @@
 package com.ubercab.client.core.model;
 
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import jdh;
+import com.ubercab.shape.Shape;
+import lzo;
+import nba;
+import nbb;
 
-@jdh(a=RiderValidatorFactory.class)
-public class FareEstimateVehicleViewData
+@Shape
+@lzo(a=RiderValidatorFactory.class)
+public abstract class FareEstimateVehicleViewData
+  extends nba<FareEstimateVehicleViewData>
 {
   private static final float DEFAULT_SURGE_MULTIPLIER = 1.0F;
-  private String fareString;
-  private String maxFare;
-  private String minFare;
-  private Float surgeMultiplier;
   
-  public boolean equals(Object paramObject)
+  public static FareEstimateVehicleViewData create()
   {
-    if (this == paramObject) {}
-    do
-    {
-      return true;
-      if ((paramObject == null) || (getClass() != paramObject.getClass())) {
-        return false;
-      }
-      paramObject = (FareEstimateVehicleViewData)paramObject;
-      if (fareString != null)
-      {
-        if (fareString.equals(fareString)) {}
-      }
-      else {
-        while (fareString != null) {
-          return false;
-        }
-      }
-      if (maxFare != null)
-      {
-        if (maxFare.equals(maxFare)) {}
-      }
-      else {
-        while (maxFare != null) {
-          return false;
-        }
-      }
-      if (minFare != null)
-      {
-        if (minFare.equals(minFare)) {}
-      }
-      else {
-        while (minFare != null) {
-          return false;
-        }
-      }
-      if (surgeMultiplier == null) {
-        break;
-      }
-    } while (surgeMultiplier.equals(surgeMultiplier));
-    for (;;)
-    {
-      return false;
-      if (surgeMultiplier == null) {
-        break;
-      }
+    return new Shape_FareEstimateVehicleViewData();
+  }
+  
+  public abstract String getDiscountDescription();
+  
+  public abstract String getDiscountString();
+  
+  public abstract String getFareString();
+  
+  public abstract String getMaxFare();
+  
+  public abstract String getMinFare();
+  
+  public abstract Float getSurgeMultiplier();
+  
+  protected Object onGet(nbb<FareEstimateVehicleViewData> paramnbb, Object paramObject)
+  {
+    if (paramObject != null) {
+      return paramObject;
     }
-  }
-  
-  public String getFareString()
-  {
-    return fareString;
-  }
-  
-  public String getMaxFare()
-  {
-    return maxFare;
-  }
-  
-  public String getMinFare()
-  {
-    return minFare;
-  }
-  
-  public float getSurgeMultiplier()
-  {
-    if (surgeMultiplier == null) {
-      return 1.0F;
-    }
-    return surgeMultiplier.floatValue();
-  }
-  
-  public int hashCode()
-  {
-    int m = 0;
-    int i;
-    int j;
-    if (fareString != null)
+    switch (FareEstimateVehicleViewData.1.$SwitchMap$com$ubercab$client$core$model$Shape_FareEstimateVehicleViewData$Property[((Shape_FareEstimateVehicleViewData.Property)paramnbb).ordinal()])
     {
-      i = fareString.hashCode();
-      if (maxFare == null) {
-        break label87;
-      }
-      j = maxFare.hashCode();
-      label33:
-      if (minFare == null) {
-        break label92;
-      }
+    default: 
+      return null;
     }
-    label87:
-    label92:
-    for (int k = minFare.hashCode();; k = 0)
-    {
-      if (surgeMultiplier != null) {
-        m = surgeMultiplier.hashCode();
-      }
-      return (k + (j + i * 31) * 31) * 31 + m;
-      i = 0;
-      break;
-      j = 0;
-      break label33;
-    }
+    return Float.valueOf(1.0F);
   }
   
-  void setFareString(String paramString)
-  {
-    fareString = paramString;
-  }
+  abstract FareEstimateVehicleViewData setDiscountDescription(String paramString);
   
-  void setMaxFare(String paramString)
-  {
-    maxFare = paramString;
-  }
+  abstract FareEstimateVehicleViewData setDiscountString(String paramString);
   
-  void setMinFare(String paramString)
-  {
-    minFare = paramString;
-  }
+  abstract FareEstimateVehicleViewData setFareString(String paramString);
   
-  void setSurgeMultiplier(float paramFloat)
-  {
-    surgeMultiplier = Float.valueOf(paramFloat);
-  }
+  abstract FareEstimateVehicleViewData setMaxFare(String paramString);
+  
+  abstract FareEstimateVehicleViewData setMinFare(String paramString);
+  
+  abstract FareEstimateVehicleViewData setSurgeMultiplier(Float paramFloat);
 }
 
 /* Location:

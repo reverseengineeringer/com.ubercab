@@ -1,56 +1,67 @@
-import android.content.ComponentName;
-import android.content.Intent;
+import android.os.Binder;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
 
-final class aat
+public abstract class aat
+  extends Binder
+  implements aas
 {
-  private final String a;
-  private final ComponentName b;
-  
-  public aat(ComponentName paramComponentName)
+  public aat()
   {
-    a = null;
-    b = ((ComponentName)abs.a(paramComponentName));
+    attachInterface(this, "com.google.android.gms.common.internal.IGmsCallbacks");
   }
   
-  public aat(String paramString)
+  public static aas a(IBinder paramIBinder)
   {
-    a = abs.a(paramString);
-    b = null;
-  }
-  
-  public final Intent a()
-  {
-    if (a != null) {
-      return new Intent(a).setPackage("com.google.android.gms");
+    if (paramIBinder == null) {
+      return null;
     }
-    return new Intent().setComponent(b);
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.common.internal.IGmsCallbacks");
+    if ((localIInterface != null) && ((localIInterface instanceof aas))) {
+      return (aas)localIInterface;
+    }
+    return new aau(paramIBinder);
   }
   
-  public final boolean equals(Object paramObject)
+  public IBinder asBinder()
   {
-    if (this == paramObject) {}
-    do
+    return this;
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    IBinder localIBinder = null;
+    Object localObject = null;
+    switch (paramInt1)
     {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.common.internal.IGmsCallbacks");
       return true;
-      if (!(paramObject instanceof aat)) {
-        return false;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.common.internal.IGmsCallbacks");
+      paramInt1 = paramParcel1.readInt();
+      localIBinder = paramParcel1.readStrongBinder();
+      if (paramParcel1.readInt() != 0) {
+        localObject = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);
       }
-      paramObject = (aat)paramObject;
-    } while ((abq.a(a, a)) && (abq.a(b, b)));
-    return false;
-  }
-  
-  public final int hashCode()
-  {
-    return abq.a(new Object[] { a, b });
-  }
-  
-  public final String toString()
-  {
-    if (a == null) {
-      return b.flattenToString();
+      a(paramInt1, localIBinder, (Bundle)localObject);
+      paramParcel2.writeNoException();
+      return true;
     }
-    return a;
+    paramParcel1.enforceInterface("com.google.android.gms.common.internal.IGmsCallbacks");
+    paramInt1 = paramParcel1.readInt();
+    localObject = localIBinder;
+    if (paramParcel1.readInt() != 0) {
+      localObject = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);
+    }
+    a(paramInt1, (Bundle)localObject);
+    paramParcel2.writeNoException();
+    return true;
   }
 }
 

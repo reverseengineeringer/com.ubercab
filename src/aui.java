@@ -1,30 +1,129 @@
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.Process;
+import android.os.RemoteException;
 
 public final class aui
 {
-  public static boolean a()
+  private final avk a;
+  
+  aui(avk paramavk)
   {
-    return (zy.a) && (atx.b()) && (atx.a() == Process.myUid());
+    a = paramavk;
   }
   
-  public static boolean a(Context paramContext, String paramString)
+  public final void a()
   {
-    boolean bool = false;
-    paramContext = paramContext.getPackageManager();
     try
     {
-      int i = getApplicationInfo0flags;
-      if ((i & 0x200000) != 0) {
-        bool = true;
-      }
-      return bool;
+      a.a(false);
+      return;
     }
-    catch (PackageManager.NameNotFoundException paramContext) {}
-    return false;
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final void a(boolean paramBoolean)
+  {
+    try
+    {
+      a.d(paramBoolean);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final void b()
+  {
+    try
+    {
+      a.b(false);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final void b(boolean paramBoolean)
+  {
+    try
+    {
+      a.e(paramBoolean);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final void c()
+  {
+    try
+    {
+      a.c(false);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final void d()
+  {
+    try
+    {
+      a.f(false);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final void e()
+  {
+    try
+    {
+      a.g(false);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final void f()
+  {
+    try
+    {
+      a.h(false);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final void g()
+  {
+    try
+    {
+      a.j(false);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
   }
 }
 

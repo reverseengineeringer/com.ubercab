@@ -1,41 +1,48 @@
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-
-public final class bkh
+final class bkh<E>
+  extends bjb<E>
 {
-  private final String b;
-  private final long c;
-  private boolean d;
-  private long e;
+  static final bjb<Object> a = new bkh(bjz.a);
+  private final transient int b;
+  private final transient int c;
+  private final transient Object[] d;
   
-  public bkh(bkf parambkf, String paramString, long paramLong)
+  bkh(Object[] paramArrayOfObject)
   {
-    abs.a(paramString);
-    b = paramString;
-    c = paramLong;
+    this(paramArrayOfObject, 0, paramArrayOfObject.length);
   }
   
-  private void b()
+  private bkh(Object[] paramArrayOfObject, int paramInt1, int paramInt2)
   {
-    if (d) {
-      return;
-    }
-    d = true;
-    e = bkf.a(a).getLong(b, c);
+    b = paramInt1;
+    c = paramInt2;
+    d = paramArrayOfObject;
   }
   
-  public final long a()
+  final int a(Object[] paramArrayOfObject, int paramInt)
   {
-    b();
-    return e;
+    System.arraycopy(d, b, paramArrayOfObject, paramInt, c);
+    return c + paramInt;
   }
   
-  public final void a(long paramLong)
+  public final bkq<E> a(int paramInt)
   {
-    SharedPreferences.Editor localEditor = bkf.a(a).edit();
-    localEditor.putLong(b, paramLong);
-    localEditor.apply();
-    e = paramLong;
+    return bjv.a(d, b, c, paramInt);
+  }
+  
+  final bjb<E> b(int paramInt1, int paramInt2)
+  {
+    return new bkh(d, b + paramInt1, paramInt2 - paramInt1);
+  }
+  
+  public final E get(int paramInt)
+  {
+    bhx.a(paramInt, c);
+    return (E)d[(b + paramInt)];
+  }
+  
+  public final int size()
+  {
+    return c;
   }
 }
 

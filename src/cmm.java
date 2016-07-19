@@ -1,22 +1,38 @@
-import com.ubercab.android.m4.pipeline.model.Metric;
-import com.ubercab.shape.Shape;
-import java.util.List;
-
-@Shape
-abstract class cmm
+public final class cmm
 {
-  static cmm a(List<Metric> paramList, byte[] paramArrayOfByte)
+  private cmj a = new cmj(3000L, 5000L, 1);
+  private cmd b = null;
+  private odr<cmr> c = null;
+  private cmn d;
+  
+  private odr<cmr> b(odr<cms> paramodr)
   {
-    return new cmo().a(paramArrayOfByte).a(paramList);
+    return cml.a(paramodr, a, b, c, d);
   }
   
-  abstract cmm a(List<Metric> paramList);
+  public final cmm a()
+  {
+    a.a(false);
+    return this;
+  }
   
-  abstract cmm a(byte[] paramArrayOfByte);
+  public final cmm a(cmd paramcmd)
+  {
+    b = paramcmd;
+    return this;
+  }
   
-  abstract List<Metric> a();
+  public final cmm a(odr<cmr> paramodr)
+  {
+    c = paramodr;
+    d = null;
+    return this;
+  }
   
-  abstract byte[] b();
+  public final odr<cmr> a(cms paramcms)
+  {
+    return b(odr.b(paramcms));
+  }
 }
 
 /* Location:

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__uber_black_100" android:id="@id/ub__bad_routes_title_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:id="@id/ub__bad_routes_body_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.ubercab.ui.Button android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/ub__bad_routes_need_help_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_3x" android:text="@string/ub__rds__need_help" style="@style/Uber.Widget.Button.Supporting" />
+</merge>

@@ -1,0 +1,71 @@
+import com.ubercab.rider.realtime.model.ActiveTripPathPoint;
+import com.ubercab.rider.realtime.model.City;
+import com.ubercab.rider.realtime.model.Client;
+import com.ubercab.rider.realtime.model.ClientStatus;
+import com.ubercab.rider.realtime.model.Experiment;
+import com.ubercab.rider.realtime.model.Eyeball;
+import com.ubercab.rider.realtime.model.Trip;
+import java.util.List;
+import java.util.Map;
+
+public abstract class mxo
+  implements mma<mxl>
+{
+  private final mxp stream;
+  
+  public mxo(mxp parammxp)
+  {
+    stream = parammxp;
+  }
+  
+  public void stream(ActiveTripPathPoint paramActiveTripPathPoint)
+  {
+    stream.a(paramActiveTripPathPoint);
+  }
+  
+  public void stream(City paramCity)
+  {
+    stream.a(paramCity);
+  }
+  
+  public void stream(Client paramClient)
+  {
+    stream.a(paramClient);
+  }
+  
+  public void stream(ClientStatus paramClientStatus)
+  {
+    stream.a(paramClientStatus);
+  }
+  
+  public void stream(Eyeball paramEyeball)
+  {
+    stream.a(paramEyeball);
+  }
+  
+  public void stream(Trip paramTrip)
+  {
+    stream.a(paramTrip);
+  }
+  
+  public void stream(List<? extends Experiment> paramList)
+  {
+    stream.a(paramList);
+  }
+  
+  public void stream(Map<String, Object> paramMap)
+  {
+    stream.a(paramMap);
+  }
+  
+  public final void streamTransaction()
+  {
+    stream.l();
+  }
+}
+
+/* Location:
+ * Qualified Name:     mxo
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

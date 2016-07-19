@@ -1,46 +1,146 @@
-import android.view.View;
+import android.app.Activity;
+import android.content.Context;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.WindowManager;
+import com.google.android.gms.ads.internal.client.AdSizeParcel;
+import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
+import java.util.Map;
 
-@apl
+@aih
 public final class ahj
-  extends ahm
+  extends ahk
+  implements afs
 {
-  private final tb a;
-  private final String b;
-  private final String c;
+  DisplayMetrics a;
+  int b = -1;
+  int c = -1;
+  int d = -1;
+  int e = -1;
+  int f = -1;
+  int g = -1;
+  private final ajm h;
+  private final Context i;
+  private final WindowManager j;
+  private final aes k;
+  private float l;
+  private int m;
   
-  public ahj(tb paramtb, String paramString1, String paramString2)
+  public ahj(ajm paramajm, Context paramContext, aes paramaes)
   {
-    a = paramtb;
-    b = paramString1;
-    c = paramString2;
+    super(paramajm);
+    h = paramajm;
+    i = paramContext;
+    k = paramaes;
+    j = ((WindowManager)paramContext.getSystemService("window"));
   }
   
-  public final String a()
+  private void a()
   {
-    return b;
+    a = new DisplayMetrics();
+    Display localDisplay = j.getDefaultDisplay();
+    localDisplay.getMetrics(a);
+    l = a.density;
+    m = localDisplay.getRotation();
   }
   
-  public final void a(add paramadd)
+  private void a(int paramInt1, int paramInt2)
   {
-    if (paramadd == null) {
+    if ((i instanceof Activity)) {
+      ul.c();
+    }
+    for (int n = aiq.c((Activity)i)[0];; n = 0)
+    {
+      b(paramInt1, paramInt2 - n, f, g);
+      h.k().a(paramInt1, paramInt2);
       return;
     }
-    a.b((View)adg.a(paramadd));
   }
   
-  public final String b()
+  private void b()
   {
-    return c;
+    sc.a();
+    b = ue.b(a, a.widthPixels);
+    sc.a();
+    c = ue.b(a, a.heightPixels);
+    Object localObject = h.e();
+    if ((localObject == null) || (((Activity)localObject).getWindow() == null))
+    {
+      d = b;
+      e = c;
+      return;
+    }
+    ul.c();
+    localObject = aiq.a((Activity)localObject);
+    sc.a();
+    d = ue.b(a, localObject[0]);
+    sc.a();
+    e = ue.b(a, localObject[1]);
   }
   
-  public final void c()
+  private void c()
   {
-    a.x();
+    if (h.j().e)
+    {
+      f = b;
+      g = c;
+      return;
+    }
+    h.measure(0, 0);
+    sc.a();
+    f = ue.b(i, h.getMeasuredWidth());
+    sc.a();
+    g = ue.b(i, h.getMeasuredHeight());
   }
   
-  public final void d()
+  private void d()
   {
-    a.y();
+    a();
+    b();
+    c();
+    g();
+    h();
+    f();
+    e();
+  }
+  
+  private void e()
+  {
+    if (ain.a(2)) {
+      ain.c("Dispatching Ready Event.");
+    }
+    b(h.n().b);
+  }
+  
+  private void f()
+  {
+    int[] arrayOfInt = new int[2];
+    h.getLocationOnScreen(arrayOfInt);
+    sc.a();
+    int n = ue.b(i, arrayOfInt[0]);
+    sc.a();
+    a(n, ue.b(i, arrayOfInt[1]));
+  }
+  
+  private void g()
+  {
+    a(b, c, d, e, l, m);
+  }
+  
+  private void h()
+  {
+    ahh localahh = i();
+    h.a("onDeviceFeaturesReceived", localahh.a());
+  }
+  
+  private ahh i()
+  {
+    return new ahi().b(k.a()).a(k.b()).c(k.d()).d(k.c()).a().b();
+  }
+  
+  public final void a(ajm paramajm, Map<String, String> paramMap)
+  {
+    d();
   }
 }
 

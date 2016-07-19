@@ -2,10 +2,10 @@ package com.ubercab.chat.realtime.request.body;
 
 import com.ubercab.chat.realtime.internal.validator.ChatRealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=ChatRealtimeValidatorFactory.class)
+@lzo(a=ChatRealtimeValidatorFactory.class)
 public abstract class ChatPayloadBody
 {
   public static ChatPayloadBody create()

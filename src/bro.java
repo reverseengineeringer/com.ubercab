@@ -1,68 +1,24 @@
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonToken;
-import com.google.gson.stream.JsonWriter;
-import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
-
-final class bro<T extends Enum<T>>
-  extends bpw<T>
+public final class bro
+  extends brm
 {
-  private final Map<String, T> a = new HashMap();
-  private final Map<T, String> b = new HashMap();
-  
-  public bro(Class<T> paramClass)
+  public bro(brn parambrn, Exception paramException)
   {
-    for (;;)
-    {
-      try
-      {
-        Enum[] arrayOfEnum = (Enum[])paramClass.getEnumConstants();
-        int j = arrayOfEnum.length;
-        int i = 0;
-        if (i < j)
-        {
-          Enum localEnum = arrayOfEnum[i];
-          String str = localEnum.name();
-          bqa localbqa = (bqa)paramClass.getField(str).getAnnotation(bqa.class);
-          if (localbqa != null)
-          {
-            str = localbqa.a();
-            a.put(str, localEnum);
-            b.put(localEnum, str);
-            i += 1;
-          }
-        }
-        else
-        {
-          return;
-        }
-      }
-      catch (NoSuchFieldException paramClass)
-      {
-        throw new AssertionError();
-      }
-    }
+    this(parambrn.toString(), paramException);
   }
   
-  private void a(JsonWriter paramJsonWriter, T paramT)
+  public bro(String paramString)
   {
-    if (paramT == null) {}
-    for (paramT = null;; paramT = (String)b.get(paramT))
-    {
-      paramJsonWriter.value(paramT);
-      return;
-    }
+    super(paramString);
   }
   
-  private T b(JsonReader paramJsonReader)
+  public bro(String paramString1, String paramString2)
   {
-    if (paramJsonReader.peek() == JsonToken.NULL)
-    {
-      paramJsonReader.nextNull();
-      return null;
-    }
-    return (Enum)a.get(paramJsonReader.nextString());
+    super(paramString1, paramString2);
+  }
+  
+  private bro(String paramString, Throwable paramThrowable)
+  {
+    super(paramString, str);
   }
 }
 

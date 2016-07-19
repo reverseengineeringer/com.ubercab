@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/ub__line_divider" android:showDividers="end|middle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.rds.feature.view.TripMapView android:id="@id/ub__trip_problem_map" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.ubercab.rds.feature.view.TripContextView android:id="@id/ub__trip_problem_context" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.ubercab.rds.feature.view.TripRouteView android:id="@id/ub__trip_problem_route" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

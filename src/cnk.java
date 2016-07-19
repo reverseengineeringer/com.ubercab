@@ -1,20 +1,6 @@
-public final class cnk
+public abstract interface cnk
 {
-  private cme a;
-  
-  public final cnj a()
-  {
-    if (a == null) {
-      throw new IllegalStateException("PluginManager: buffer cannot be null.");
-    }
-    return new cnj(a, (byte)0);
-  }
-  
-  public final cnk a(cme paramcme)
-  {
-    a = paramcme;
-    return this;
-  }
+  public abstract cni a(long paramLong, cmx<cnh> paramcmx);
 }
 
 /* Location:

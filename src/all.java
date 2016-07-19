@@ -1,14 +1,57 @@
-public abstract interface all
+import android.os.Build.VERSION;
+
+public final class all
 {
-  public abstract void r();
+  public static boolean a()
+  {
+    return a(11);
+  }
   
-  public abstract void s();
+  private static boolean a(int paramInt)
+  {
+    return Build.VERSION.SDK_INT >= paramInt;
+  }
   
-  public abstract void t();
+  public static boolean b()
+  {
+    return a(13);
+  }
   
-  public abstract void u();
+  public static boolean c()
+  {
+    return a(14);
+  }
   
-  public abstract void v();
+  public static boolean d()
+  {
+    return a(17);
+  }
+  
+  public static boolean e()
+  {
+    return a(18);
+  }
+  
+  public static boolean f()
+  {
+    return a(19);
+  }
+  
+  public static boolean g()
+  {
+    return a(20);
+  }
+  
+  @Deprecated
+  public static boolean h()
+  {
+    return i();
+  }
+  
+  public static boolean i()
+  {
+    return a(21);
+  }
 }
 
 /* Location:

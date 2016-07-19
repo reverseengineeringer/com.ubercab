@@ -7,9 +7,7 @@ class NotificationCompat$NotificationCompatImplGingerbread
 {
   public Notification build(NotificationCompat.Builder paramBuilder, NotificationCompat.BuilderExtender paramBuilderExtender)
   {
-    paramBuilderExtender = mNotification;
-    paramBuilderExtender.setLatestEventInfo(mContext, mContentTitle, mContentText, mContentIntent);
-    paramBuilderExtender = NotificationCompatGingerbread.add(paramBuilderExtender, mContext, mContentTitle, mContentText, mContentIntent, mFullScreenIntent);
+    paramBuilderExtender = NotificationCompatGingerbread.add(mNotification, mContext, mContentTitle, mContentText, mContentIntent, mFullScreenIntent);
     if (mPriority > 0) {
       flags |= 0x80;
     }

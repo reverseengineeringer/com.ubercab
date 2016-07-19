@@ -1,24 +1,65 @@
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-abstract class brj
+public class brj
 {
-  final String g;
-  final boolean h;
-  final boolean i;
+  private static final String a = brj.class.getSimpleName();
+  private final List b = new ArrayList();
   
-  protected brj(String paramString, boolean paramBoolean1, boolean paramBoolean2)
+  public final void a()
   {
-    g = paramString;
-    h = paramBoolean1;
-    i = paramBoolean2;
+    synchronized (b)
+    {
+      Iterator localIterator = b.iterator();
+      if (localIterator.hasNext())
+      {
+        brk localbrk = (brk)localIterator.next();
+        b.remove(localbrk);
+      }
+    }
   }
   
-  abstract void a(JsonReader paramJsonReader, Object paramObject);
+  public final void a(brl parambrl)
+  {
+    synchronized (b)
+    {
+      Iterator localIterator = b.iterator();
+      while (localIterator.hasNext()) {
+        if (nexta == parambrl)
+        {
+          new StringBuilder("Ignoring attempt to re-register listener ").append(parambrl);
+          return;
+        }
+      }
+      b.add(new brk(parambrl));
+      return;
+    }
+  }
   
-  abstract void a(JsonWriter paramJsonWriter, Object paramObject);
-  
-  abstract boolean a(Object paramObject);
+  public final void a(bur parambur)
+  {
+    new StringBuilder("dispatching ").append(parambur.o());
+    if (parambur.p() < 0L) {
+      new StringBuilder("discarding ").append(parambur.o());
+    }
+    for (;;)
+    {
+      return;
+      ArrayList localArrayList = new ArrayList();
+      synchronized (b)
+      {
+        Iterator localIterator = b.iterator();
+        if (localIterator.hasNext()) {
+          localArrayList.add(0, (brk)localIterator.next());
+        }
+      }
+      ??? = localArrayList.iterator();
+      while (((Iterator)???).hasNext()) {
+        nexta.a(parambur);
+      }
+    }
+  }
 }
 
 /* Location:

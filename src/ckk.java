@@ -1,7 +1,12 @@
- enum ckk
-  implements ckp
+public final class ckk
 {
-  private ckk() {}
+  public static <T> T a(T paramT, String paramString)
+  {
+    if (paramT == null) {
+      throw new NullPointerException(paramString);
+    }
+    return paramT;
+  }
 }
 
 /* Location:

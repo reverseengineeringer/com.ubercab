@@ -4,10 +4,10 @@ import android.os.Parcelable;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.List;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class Item
   implements Parcelable, com.ubercab.rider.realtime.model.Item
 {

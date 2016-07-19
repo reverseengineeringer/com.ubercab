@@ -1,37 +1,37 @@
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
+import android.os.Bundle;
+import android.os.IInterface;
+import com.google.android.gms.maps.GoogleMapOptions;
 
-public final class aus
+public abstract interface aus
+  extends IInterface
 {
-  public static void a(StringBuilder paramStringBuilder, HashMap<String, String> paramHashMap)
-  {
-    paramStringBuilder.append("{");
-    Iterator localIterator = paramHashMap.keySet().iterator();
-    int i = 1;
-    while (localIterator.hasNext())
-    {
-      String str1 = (String)localIterator.next();
-      if (i == 0) {
-        paramStringBuilder.append(",");
-      }
-      String str2;
-      for (;;)
-      {
-        str2 = (String)paramHashMap.get(str1);
-        paramStringBuilder.append("\"").append(str1).append("\":");
-        if (str2 != null) {
-          break label98;
-        }
-        paramStringBuilder.append("null");
-        break;
-        i = 0;
-      }
-      label98:
-      paramStringBuilder.append("\"").append(str2).append("\"");
-    }
-    paramStringBuilder.append("}");
-  }
+  public abstract acp a(acp paramacp1, acp paramacp2, Bundle paramBundle);
+  
+  public abstract aum a();
+  
+  public abstract void a(acp paramacp, GoogleMapOptions paramGoogleMapOptions, Bundle paramBundle);
+  
+  public abstract void a(Bundle paramBundle);
+  
+  public abstract void a(axj paramaxj);
+  
+  public abstract void b();
+  
+  public abstract void b(Bundle paramBundle);
+  
+  public abstract void c();
+  
+  public abstract void c(Bundle paramBundle);
+  
+  public abstract void d();
+  
+  public abstract void e();
+  
+  public abstract void f();
+  
+  public abstract boolean g();
+  
+  public abstract void h();
 }
 
 /* Location:

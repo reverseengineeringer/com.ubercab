@@ -1,5 +1,6 @@
 package android.support.v4.graphics.drawable;
 
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 
 class DrawableWrapperKitKat
@@ -10,9 +11,19 @@ class DrawableWrapperKitKat
     super(paramDrawable);
   }
   
+  DrawableWrapperKitKat(DrawableWrapperDonut.DrawableWrapperState paramDrawableWrapperState, Resources paramResources)
+  {
+    super(paramDrawableWrapperState, paramResources);
+  }
+  
   public boolean isAutoMirrored()
   {
     return mDrawable.isAutoMirrored();
+  }
+  
+  DrawableWrapperDonut.DrawableWrapperState mutateConstantState()
+  {
+    return new DrawableWrapperKitKat.DrawableWrapperStateKitKat(mState, null);
   }
   
   public void setAutoMirrored(boolean paramBoolean)

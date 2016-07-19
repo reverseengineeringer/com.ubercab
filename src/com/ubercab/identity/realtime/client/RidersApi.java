@@ -1,14 +1,14 @@
 package com.ubercab.identity.realtime.client;
 
 import com.ubercab.identity.realtime.response.AlipaySignature;
-import kld;
+import odr;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
 public abstract interface RidersApi
 {
   @GET("/rt/riders/sign-rsa")
-  public abstract kld<AlipaySignature> getSignature(@Query("input") String paramString);
+  public abstract odr<AlipaySignature> getSignature(@Query("input") String paramString);
 }
 
 /* Location:

@@ -9,10 +9,10 @@ import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.List;
 import java.util.Map;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class Status
 {
   public static Status create(Map<String, Object> paramMap, City paramCity, ClientStatus paramClientStatus, List<? extends Experiment> paramList, Eyeball paramEyeball, Trip paramTrip)

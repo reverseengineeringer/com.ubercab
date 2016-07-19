@@ -1,74 +1,35 @@
-import android.content.Context;
-import android.support.v4.util.SimpleArrayMap;
-import android.text.TextUtils;
-import com.google.android.gms.ads.internal.formats.NativeAdOptionsParcel;
-import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
+import android.os.Handler;
 
-@apl
-public final class te
-  extends ob
+@aih
+final class te
+  implements Runnable
 {
-  private nu a;
-  private ain b;
-  private aiq c;
-  private SimpleArrayMap<String, ait> d;
-  private SimpleArrayMap<String, aiw> e;
-  private NativeAdOptionsParcel f;
-  private op g;
-  private final Context h;
-  private final alu i;
-  private final String j;
-  private final VersionInfoParcel k;
-  private final sv l;
+  private sx a;
+  private boolean b = false;
   
-  public te(Context paramContext, String paramString, alu paramalu, VersionInfoParcel paramVersionInfoParcel, sv paramsv)
+  te(sx paramsx)
   {
-    h = paramContext;
-    j = paramString;
-    i = paramalu;
-    k = paramVersionInfoParcel;
-    e = new SimpleArrayMap();
-    d = new SimpleArrayMap();
-    l = paramsv;
+    a = paramsx;
   }
   
-  public final nx a()
+  public final void a()
   {
-    return new td(h, j, i, k, a, b, c, e, d, f, g, l);
+    b = true;
+    aiq.a.removeCallbacks(this);
   }
   
-  public final void a(ain paramain)
+  public final void b()
   {
-    b = paramain;
+    aiq.a.postDelayed(this, 250L);
   }
   
-  public final void a(aiq paramaiq)
+  public final void run()
   {
-    c = paramaiq;
-  }
-  
-  public final void a(NativeAdOptionsParcel paramNativeAdOptionsParcel)
-  {
-    f = paramNativeAdOptionsParcel;
-  }
-  
-  public final void a(String paramString, aiw paramaiw, ait paramait)
-  {
-    if (TextUtils.isEmpty(paramString)) {
-      throw new IllegalArgumentException("Custom template ID for native custom template ad is empty. Please provide a valid template id.");
+    if (!b)
+    {
+      a.j();
+      b();
     }
-    e.put(paramString, paramaiw);
-    d.put(paramString, paramait);
-  }
-  
-  public final void a(nu paramnu)
-  {
-    a = paramnu;
-  }
-  
-  public final void a(op paramop)
-  {
-    g = paramop;
   }
 }
 

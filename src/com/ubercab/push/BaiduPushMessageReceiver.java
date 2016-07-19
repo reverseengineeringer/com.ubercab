@@ -6,8 +6,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushMessageReceiver;
 import java.util.List;
-import jcp;
-import jcq;
+import lyw;
+import lyx;
 
 public class BaiduPushMessageReceiver
   extends PushMessageReceiver
@@ -22,7 +22,7 @@ public class BaiduPushMessageReceiver
     if (paramInt != 0) {
       paramString3 = null;
     }
-    paramString1 = jcp.a(paramString3);
+    paramString1 = lyw.a(paramString3);
     LocalBroadcastManager.getInstance(paramContext).sendBroadcast(paramString1);
   }
   
@@ -32,13 +32,13 @@ public class BaiduPushMessageReceiver
   
   public void onMessage(Context paramContext, String paramString1, String paramString2)
   {
-    if (TextUtils.isEmpty(paramString2)) {}
-    for (;;)
-    {
-      a(paramContext, paramString1);
-      return;
-      paramString1 = paramString2;
+    if (!TextUtils.isEmpty(paramString2)) {
+      a(paramContext, paramString2);
     }
+    while (TextUtils.isEmpty(paramString1)) {
+      return;
+    }
+    a(paramContext, paramString1);
   }
   
   public void onNotificationArrived(Context paramContext, String paramString1, String paramString2, String paramString3)
@@ -49,7 +49,7 @@ public class BaiduPushMessageReceiver
   public void onNotificationClicked(Context paramContext, String paramString1, String paramString2, String paramString3)
   {
     paramString1 = new Intent("com.ubercab.push.ACTION_CLICK");
-    paramString2 = jcq.a(paramString3);
+    paramString2 = lyx.a(paramString3);
     if (paramString2 != null) {
       paramString1.putExtras(paramString2);
     }
@@ -63,7 +63,7 @@ public class BaiduPushMessageReceiver
     if (paramInt == 0) {}
     for (boolean bool = true;; bool = false)
     {
-      paramString = jcp.a(bool);
+      paramString = lyw.a(bool);
       LocalBroadcastManager.getInstance(paramContext).sendBroadcast(paramString);
       return;
     }

@@ -1,4 +1,15 @@
-public final class cdd {}
+import com.paypal.android.sdk.payments.PaymentConfirmActivity;
+
+final class cdd
+  implements cbp
+{
+  cdd(cce paramcce) {}
+  
+  public final void a()
+  {
+    PaymentConfirmActivity.b(a.a);
+  }
+}
 
 /* Location:
  * Qualified Name:     cdd

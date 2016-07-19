@@ -4,9 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public final class TaggedLocationDistanceConstraints
   implements Parcelable
 {

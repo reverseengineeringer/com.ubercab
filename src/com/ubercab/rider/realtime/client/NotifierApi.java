@@ -1,7 +1,7 @@
 package com.ubercab.rider.realtime.client;
 
 import com.ubercab.rider.realtime.request.body.DeviceTokensBody;
-import kld;
+import odr;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
 import retrofit.http.POST;
@@ -11,10 +11,10 @@ import retrofit.http.Query;
 public abstract interface NotifierApi
 {
   @DELETE("/rt/notifier/device-tokens/{deviceToken}")
-  public abstract kld<Void> deleteDeviceToken(@Path("deviceToken") String paramString1, @Query("device_token_type") String paramString2, @Query("certificate") String paramString3);
+  public abstract odr<Void> deleteDeviceToken(@Path("deviceToken") String paramString1, @Query("device_token_type") String paramString2, @Query("certificate") String paramString3);
   
   @POST("/rt/notifier/device-tokens")
-  public abstract kld<Void> postDeviceToken(@Body DeviceTokensBody paramDeviceTokensBody);
+  public abstract odr<Void> postDeviceToken(@Body DeviceTokensBody paramDeviceTokensBody);
 }
 
 /* Location:

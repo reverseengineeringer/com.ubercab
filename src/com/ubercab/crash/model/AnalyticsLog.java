@@ -2,10 +2,10 @@ package com.ubercab.crash.model;
 
 import com.ubercab.crash.internal.validator.CrashValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=CrashValidatorFactory.class)
+@lzo(a=CrashValidatorFactory.class)
 public abstract class AnalyticsLog
 {
   public static AnalyticsLog create(long paramLong, String paramString1, String paramString2, Double paramDouble1, Double paramDouble2, String paramString3)

@@ -2,16 +2,18 @@ package com.ubercab.client.feature.notification.model;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import bpc;
-import eqy;
+import blw;
+import ezd;
 
 public abstract class NotificationData
 {
   static final String KEY_MESSAGE_IDENTIFIER = "message_identifier";
+  static final String KEY_PUSH_ID = "push_id";
   static final String KEY_TIMESTAMP = "timestamp";
   static final String KEY_TYPE = "type";
   private static final String SIMPLE_MESSAGE_ID = "19";
   private String mMessageIdentifier;
+  protected String mPushId;
   private final NotificationData.Source mSource;
   protected Long mTimestamp;
   private final String mType;
@@ -22,7 +24,7 @@ public abstract class NotificationData
     mType = paramString;
   }
   
-  public static NotificationData fromUberBundle(bpc parambpc, Bundle paramBundle)
+  public static NotificationData fromUberBundle(blw paramblw, Bundle paramBundle)
   {
     Object localObject2 = null;
     Object localObject1 = null;
@@ -38,24 +40,28 @@ public abstract class NotificationData
       {
       default: 
         label96:
-        parambpc = (bpc)localObject2;
+        paramblw = (blw)localObject2;
       }
       break;
     }
     for (;;)
     {
-      localObject1 = parambpc;
-      if (parambpc == null) {
+      localObject1 = paramblw;
+      if (paramblw == null) {
         break;
       }
       mMessageIdentifier = paramBundle.getString("message_identifier");
-      paramBundle = paramBundle.getString("timestamp");
-      localObject1 = parambpc;
+      localObject1 = paramBundle.getString("timestamp");
+      if (localObject1 != null) {
+        mTimestamp = Long.valueOf(ezd.a((String)localObject1, 0L));
+      }
+      paramBundle = paramBundle.getString("push_id");
+      localObject1 = paramblw;
       if (paramBundle == null) {
         break;
       }
-      mTimestamp = Long.valueOf(eqy.a(paramBundle, 0L));
-      return parambpc;
+      mPushId = paramBundle;
+      return paramblw;
       if (!str.equals("trip")) {
         break label96;
       }
@@ -91,19 +97,19 @@ public abstract class NotificationData
       }
       i = 6;
       break label96;
-      parambpc = TripNotificationData.fromUberBundle(parambpc, paramBundle);
+      paramblw = TripNotificationData.fromUberBundle(paramblw, paramBundle);
       continue;
-      parambpc = FareSplitAcceptedNotificationData.fromUberBundle(paramBundle);
+      paramblw = FareSplitAcceptedNotificationData.fromUberBundle(paramBundle);
       continue;
-      parambpc = FareSplitInviteNotificationData.fromUberBundle(paramBundle);
+      paramblw = FareSplitInviteNotificationData.fromUberBundle(paramBundle);
       continue;
-      parambpc = MessageNotificationData.fromUberBundle(paramBundle);
+      paramblw = MessageNotificationData.fromUberBundle(paramBundle);
       continue;
-      parambpc = ReceiptNotificationData.fromUberBundle(paramBundle);
+      paramblw = ReceiptNotificationData.fromUberBundle(paramBundle);
       continue;
-      parambpc = SurgeNotificationData.fromUberBundle(paramBundle);
+      paramblw = SurgeNotificationData.fromUberBundle(paramBundle);
       continue;
-      parambpc = ChatNotificationData.fromUberBundle(parambpc, paramBundle);
+      paramblw = ChatNotificationData.fromUberBundle(paramblw, paramBundle);
     }
   }
   
@@ -113,6 +119,11 @@ public abstract class NotificationData
       return "19";
     }
     return mMessageIdentifier;
+  }
+  
+  public String getPushId()
+  {
+    return mPushId;
   }
   
   public NotificationData.Source getSource()

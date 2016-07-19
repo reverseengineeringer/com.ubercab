@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.card.view.CardView android:id="@id/ub__local_offer_list_item" android:layout_width="@dimen/ub__local_offers_offer_list_item_width" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__local_offers_offer_list_item_margin" android:layout_marginRight="@dimen/ub__local_offers_offer_list_item_margin" card_view:cardBackgroundColor="@color/ub__white" card_view:cardCornerRadius="@dimen/ub__button_corner_radius" card_view:cardUseCompatPadding="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <com.ubercab.ui.TextView android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="?android:dividerVertical" android:showDividers="middle">
+            <com.ubercab.ui.TextView android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <com.ubercab.ui.TextView android:paddingLeft="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <com.ubercab.ui.TextView android:paddingLeft="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <ImageView android:id="@id/ub__local_offer_list_item_image" android:paddingTop="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="@dimen/ub__local_offers_offer_list_image_height" android:scaleType="fitXY" />
+        <com.ubercab.ui.Button android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x" android:text="@string/local_offers" style="@style/Uber.Widget.Button.Accent" />
+    </LinearLayout>
+</com.ubercab.ui.card.view.CardView>

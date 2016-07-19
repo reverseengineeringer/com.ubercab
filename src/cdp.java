@@ -1,32 +1,15 @@
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
-import com.paypal.android.sdk.payments.PayPalService;
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.PaymentMethodActivity;
 
 public final class cdp
-  implements ServiceConnection
+  implements View.OnClickListener
 {
-  public cdp(PayPalFuturePaymentActivity paramPayPalFuturePaymentActivity) {}
+  public cdp(PaymentMethodActivity paramPaymentMethodActivity) {}
   
-  public final void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
+  public final void onClick(View paramView)
   {
-    new StringBuilder().append(PayPalFuturePaymentActivity.a()).append(".onServiceConnected");
-    if (a.isFinishing()) {
-      new StringBuilder().append(PayPalFuturePaymentActivity.a()).append(".onServiceConnected exit - isFinishing");
-    }
-    do
-    {
-      return;
-      PayPalFuturePaymentActivity.a(a, a);
-    } while (!PayPalFuturePaymentActivity.b(a).a(new cdq(this)));
-    PayPalFuturePaymentActivity.c(a);
-  }
-  
-  public final void onServiceDisconnected(ComponentName paramComponentName)
-  {
-    PayPalFuturePaymentActivity.a(a, null);
-    PayPalFuturePaymentActivity.a();
+    PaymentMethodActivity.a(a);
   }
 }
 

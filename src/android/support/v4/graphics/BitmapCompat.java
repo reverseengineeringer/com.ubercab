@@ -3,7 +3,7 @@ package android.support.v4.graphics;
 import android.graphics.Bitmap;
 import android.os.Build.VERSION;
 
-public class BitmapCompat
+public final class BitmapCompat
 {
   static final BitmapCompat.BitmapImpl IMPL = new BitmapCompat.BaseBitmapImpl();
   

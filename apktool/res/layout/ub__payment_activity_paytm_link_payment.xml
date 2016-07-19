@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.payment.internal.ui.ContentLoadingView android:id="@id/ub__payment_content_loading" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:gravity="center" android:id="@id/ub__payment_activity_paytm_link_payment_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/ub__payment_add_credit_card_paytm" />
+            <com.ubercab.payment.internal.ui.BankCardFieldsView android:id="@id/ub__payment_activity_paytm_add_bank_card_fields" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_1x" />
+            <com.ubercab.ui.Button android:layout_gravity="center_horizontal" android:id="@id/ub__payment_paytm_button_add_card" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/ub__payment_add_card" uber:autoShrink="true" style="@style/Style.Payment.Refresh.Button.Primary" />
+            <com.ubercab.ui.DividerWithText android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/ub__payment_or_use_other_payment" />
+            <com.ubercab.ui.Button android:layout_gravity="center_horizontal" android:id="@id/ub__payment_paytm_button_net_banking" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__payment_net_banking" uber:autoShrink="true" style="@style/Style.Payment.Refresh.Button.Secondary" />
+        </LinearLayout>
+    </ScrollView>
+</com.ubercab.payment.internal.ui.ContentLoadingView>

@@ -1,68 +1,97 @@
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.playlog.internal.LogEvent;
-
-public final class bku
-  implements Parcelable.Creator<LogEvent>
+final class bku
+  extends bkw
 {
-  private static LogEvent a(Parcel paramParcel)
+  private bku(bks parambks, Character paramCharacter)
   {
-    long l1 = 0L;
-    Bundle localBundle = null;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    byte[] arrayOfByte = null;
-    String str = null;
-    long l2 = 0L;
-    while (paramParcel.dataPosition() < j)
+    super(parambks, paramCharacter);
+    if (bks.a(parambks).length == 64) {}
+    for (boolean bool = true;; bool = false)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      bhx.a(bool);
+      return;
+    }
+  }
+  
+  bku(String paramString1, String paramString2, Character paramCharacter)
+  {
+    this(new bks(paramString1, paramString2.toCharArray()), paramCharacter);
+  }
+  
+  final int a(byte[] paramArrayOfByte, CharSequence paramCharSequence)
+  {
+    int j = 0;
+    bhx.a(paramArrayOfByte);
+    paramCharSequence = a().a(paramCharSequence);
+    if (!b.b(paramCharSequence.length())) {
+      throw new bkv("Invalid input length " + paramCharSequence.length());
+    }
+    int i = 0;
+    for (;;)
+    {
+      int k;
+      int m;
+      if (j < paramCharSequence.length())
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        l2 = zm.g(paramParcel, k);
-        break;
-      case 3: 
-        str = zm.n(paramParcel, k);
-        break;
-      case 4: 
-        arrayOfByte = zm.q(paramParcel, k);
-        break;
-      case 5: 
-        localBundle = zm.p(paramParcel, k);
-        break;
-      case 6: 
-        l1 = zm.g(paramParcel, k);
+        bks localbks = b;
+        k = j + 1;
+        m = localbks.d(paramCharSequence.charAt(j));
+        localbks = b;
+        j = k + 1;
+        int n = m << 18 | localbks.d(paramCharSequence.charAt(k)) << 12;
+        k = i + 1;
+        paramArrayOfByte[i] = ((byte)(n >>> 16));
+        if (j >= paramCharSequence.length()) {
+          break label286;
+        }
+        localbks = b;
+        m = j + 1;
+        n |= localbks.d(paramCharSequence.charAt(j)) << 6;
+        i = k + 1;
+        paramArrayOfByte[k] = ((byte)(n >>> 8 & 0xFF));
+        if (m < paramCharSequence.length())
+        {
+          localbks = b;
+          j = m + 1;
+          m = localbks.d(paramCharSequence.charAt(m));
+          k = i + 1;
+          paramArrayOfByte[i] = ((byte)((n | m) & 0xFF));
+          i = k;
+        }
       }
+      else
+      {
+        return i;
+      }
+      j = m;
+      continue;
+      label286:
+      i = k;
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new LogEvent(i, l2, l1, str, arrayOfByte, localBundle);
   }
   
-  public static void a(LogEvent paramLogEvent, Parcel paramParcel)
+  final void a(Appendable paramAppendable, byte[] paramArrayOfByte, int paramInt)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, b);
-    zo.a(paramParcel, 3, d, false);
-    zo.a(paramParcel, 4, e);
-    zo.a(paramParcel, 5, f);
-    zo.a(paramParcel, 6, c);
-    zo.a(paramParcel, i);
-  }
-  
-  private static LogEvent[] a(int paramInt)
-  {
-    return new LogEvent[paramInt];
+    bhx.a(paramAppendable);
+    bhx.a(0, paramInt + 0, paramArrayOfByte.length);
+    int j = 0;
+    int i = paramInt;
+    while (i >= 3)
+    {
+      int n = j + 1;
+      int k = paramArrayOfByte[j];
+      int m = n + 1;
+      n = paramArrayOfByte[n];
+      j = m + 1;
+      k = (n & 0xFF) << 8 | (k & 0xFF) << 16 | paramArrayOfByte[m] & 0xFF;
+      paramAppendable.append(b.a(k >>> 18));
+      paramAppendable.append(b.a(k >>> 12 & 0x3F));
+      paramAppendable.append(b.a(k >>> 6 & 0x3F));
+      paramAppendable.append(b.a(k & 0x3F));
+      i -= 3;
+    }
+    if (j < paramInt + 0) {
+      a(paramAppendable, paramArrayOfByte, j, paramInt + 0 - j);
+    }
   }
 }
 

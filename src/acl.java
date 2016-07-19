@@ -1,72 +1,72 @@
-import android.os.SystemClock;
-import android.support.v4.util.SimpleArrayMap;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.util.Base64;
 import android.util.Log;
 
 public final class acl
 {
-  private final long a;
-  private final int b;
-  private final SimpleArrayMap<String, Long> c;
+  private static final acl a = new acl();
   
-  public acl()
+  static acg a(PackageInfo paramPackageInfo, acg... paramVarArgs)
   {
-    a = 60000L;
-    b = 10;
-    c = new SimpleArrayMap(10);
-  }
-  
-  public acl(long paramLong)
-  {
-    a = paramLong;
-    b = 1024;
-    c = new SimpleArrayMap();
-  }
-  
-  private void a(long paramLong1, long paramLong2)
-  {
-    int i = c.size() - 1;
-    while (i >= 0)
+    if (signatures.length != 1)
     {
-      if (paramLong2 - ((Long)c.valueAt(i)).longValue() > paramLong1) {
-        c.removeAt(i);
-      }
-      i -= 1;
+      Log.w("GoogleSignatureVerifier", "Package has more than one signature.");
+      return null;
     }
-  }
-  
-  public final Long a(String paramString)
-  {
-    long l2 = SystemClock.elapsedRealtime();
-    long l1 = a;
-    try
+    paramPackageInfo = new ach(signatures[0].toByteArray());
+    int i = 0;
+    while (i < paramVarArgs.length)
     {
-      while (c.size() >= b)
-      {
-        a(l1, l2);
-        l1 /= 2L;
-        Log.w("ConnectionTracker", "The max capacity " + b + " is not enough. Current durationThreshold is: " + l1);
+      if (paramVarArgs[i].equals(paramPackageInfo)) {
+        return paramVarArgs[i];
       }
-      paramString = (Long)c.put(paramString, Long.valueOf(l2));
+      i += 1;
     }
-    finally {}
-    return paramString;
+    if (Log.isLoggable("GoogleSignatureVerifier", 2)) {
+      Log.v("GoogleSignatureVerifier", "Signature not valid.  Found: \n" + Base64.encodeToString(paramPackageInfo.a(), 0));
+    }
+    return null;
   }
   
-  public final boolean b(String paramString)
+  public static acl a()
   {
-    for (;;)
+    return a;
+  }
+  
+  private static boolean a(PackageInfo paramPackageInfo, boolean paramBoolean)
+  {
+    if ((paramPackageInfo != null) && (signatures != null))
     {
-      try
+      if (paramBoolean) {}
+      for (paramPackageInfo = a(paramPackageInfo, acj.a); paramPackageInfo != null; paramPackageInfo = a(paramPackageInfo, new acg[] { acj.a[0] })) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  public static boolean a(PackageManager paramPackageManager, PackageInfo paramPackageInfo)
+  {
+    boolean bool1 = false;
+    if (paramPackageInfo == null) {}
+    boolean bool2;
+    do
+    {
+      do
       {
-        if (c.remove(paramString) != null)
-        {
-          bool = true;
-          return bool;
+        return bool1;
+        if (ack.a(paramPackageManager)) {
+          return a(paramPackageInfo, true);
         }
-      }
-      finally {}
-      boolean bool = false;
-    }
+        bool2 = a(paramPackageInfo, false);
+        bool1 = bool2;
+      } while (bool2);
+      bool1 = bool2;
+    } while (!a(paramPackageInfo, true));
+    Log.w("GoogleSignatureVerifier", "Test-keys aren't accepted on this build.");
+    return bool2;
   }
 }
 

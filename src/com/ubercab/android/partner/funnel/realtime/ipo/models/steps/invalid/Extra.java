@@ -9,7 +9,15 @@ public abstract class Extra
 {
   public abstract String getDriverStatus();
   
+  public abstract String getRedirectUrl();
+  
+  public abstract String getSupportEmail();
+  
   abstract Extra setDriverStatus(String paramString);
+  
+  abstract Extra setRedirectUrl(String paramString);
+  
+  abstract Extra setSupportEmail(String paramString);
 }
 
 /* Location:

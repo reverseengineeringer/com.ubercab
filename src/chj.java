@@ -1,13 +1,10 @@
-public final class chj
+public abstract interface chj
 {
-  public final Object a;
-  public final Object b;
+  public abstract void a(int paramInt, String paramString, boolean paramBoolean);
   
-  public chj(Object paramObject1, Object paramObject2)
-  {
-    a = paramObject1;
-    b = paramObject2;
-  }
+  public abstract void a(Exception paramException);
+  
+  public abstract void b(String paramString);
 }
 
 /* Location:

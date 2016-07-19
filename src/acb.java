@@ -1,54 +1,73 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.server.response.FieldMappingDictionary;
-import com.google.android.gms.common.server.response.FieldMappingDictionary.Entry;
-import java.util.ArrayList;
+import android.content.Context;
+import android.content.Intent;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import android.util.Log;
+import com.google.android.gms.common.stats.WakeLockEvent;
+import java.util.List;
 
 public final class acb
-  implements Parcelable.Creator<FieldMappingDictionary>
 {
-  private static FieldMappingDictionary a(Parcel paramParcel)
+  private static String a = "WakeLockTracker";
+  private static acb b = new acb();
+  private static Integer c;
+  
+  public static acb a()
   {
-    String str = null;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    ArrayList localArrayList = null;
-    while (paramParcel.dataPosition() < j)
+    return b;
+  }
+  
+  public static void a(Context paramContext, String paramString1, int paramInt1, String paramString2, String paramString3, int paramInt2, List<String> paramList, long paramLong)
+  {
+    if (!b()) {}
+    long l;
+    do
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      return;
+      if (TextUtils.isEmpty(paramString1))
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        localArrayList = zm.c(paramParcel, k, FieldMappingDictionary.Entry.CREATOR);
-        break;
-      case 3: 
-        str = zm.n(paramParcel, k);
+        Log.e(a, "missing wakeLock key. " + paramString1);
+        return;
       }
+      l = System.currentTimeMillis();
+    } while ((7 != paramInt1) && (8 != paramInt1) && (10 != paramInt1) && (11 != paramInt1));
+    paramString1 = new WakeLockEvent(l, paramInt1, paramString2, paramInt2, paramList, paramString1, SystemClock.elapsedRealtime(), ale.a(paramContext), paramString3, paramContext.getPackageName(), ale.b(paramContext), paramLong);
+    try
+    {
+      paramContext.startService(new Intent().setComponent(abw.a).putExtra("com.google.android.gms.common.stats.EXTRA_LOG_EVENT", paramString1));
+      return;
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    catch (Exception paramContext)
+    {
+      Log.wtf(a, paramContext);
     }
-    return new FieldMappingDictionary(i, localArrayList, str);
   }
   
-  public static void a(FieldMappingDictionary paramFieldMappingDictionary, Parcel paramParcel)
+  public static void a(Context paramContext, String paramString1, String paramString2, String paramString3, int paramInt, List<String> paramList)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramFieldMappingDictionary.a());
-    zo.b(paramParcel, 2, paramFieldMappingDictionary.b(), false);
-    zo.a(paramParcel, 3, paramFieldMappingDictionary.c(), false);
-    zo.a(paramParcel, i);
+    a(paramContext, paramString1, 8, paramString2, paramString3, paramInt, paramList, 0L);
   }
   
-  private static FieldMappingDictionary[] a(int paramInt)
+  private static boolean b()
   {
-    return new FieldMappingDictionary[paramInt];
+    if (c == null) {
+      c = Integer.valueOf(c());
+    }
+    return c.intValue() != abw.b;
+  }
+  
+  private static int c()
+  {
+    try
+    {
+      if (akz.a()) {
+        return ((Integer)abv.a.d()).intValue();
+      }
+      int i = abw.b;
+      return i;
+    }
+    catch (SecurityException localSecurityException) {}
+    return abw.b;
   }
 }
 

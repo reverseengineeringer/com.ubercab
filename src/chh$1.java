@@ -1,13 +1,26 @@
-import java.util.concurrent.ConcurrentLinkedQueue;
+import javax.net.ssl.SSLException;
 
 final class chh$1
-  extends ThreadLocal<ConcurrentLinkedQueue<chi>>
+  implements Runnable
 {
   chh$1(chh paramchh) {}
   
-  private static ConcurrentLinkedQueue<chi> a()
+  public final void run()
   {
-    return new ConcurrentLinkedQueue();
+    if (chh.a(a) == chd.d) {}
+    try
+    {
+      chh localchh = a;
+      chh.c(a);
+      chh.a(localchh, chk.a(chh.b(a), a));
+      chh.a(a, chd.a);
+      chh.d(a).e();
+      return;
+    }
+    catch (SSLException localSSLException)
+    {
+      chh.a(a, "Error connecting over SSL", localSSLException);
+    }
   }
 }
 

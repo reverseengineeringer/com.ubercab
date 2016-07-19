@@ -1,8 +1,18 @@
-import com.ubercab.android.m4.pipeline.model.Metric;
-
-abstract interface cni
+public abstract class cni
 {
-  public abstract void a(Metric paramMetric);
+  private final long a;
+  
+  public cni(long paramLong)
+  {
+    a = paramLong;
+  }
+  
+  protected final long a()
+  {
+    return a;
+  }
+  
+  abstract cnl a(cnb paramcnb);
 }
 
 /* Location:

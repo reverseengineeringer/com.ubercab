@@ -1,10 +1,43 @@
-import android.os.IInterface;
-import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.wallet.LineItem;
 
-public abstract interface bfa
-  extends IInterface
+public final class bfa
 {
-  public abstract void a(LatLng paramLatLng);
+  private bfa(LineItem paramLineItem) {}
+  
+  public final bfa a(String paramString)
+  {
+    a.a = paramString;
+    return this;
+  }
+  
+  public final LineItem a()
+  {
+    return a;
+  }
+  
+  public final bfa b(String paramString)
+  {
+    a.b = paramString;
+    return this;
+  }
+  
+  public final bfa c(String paramString)
+  {
+    a.c = paramString;
+    return this;
+  }
+  
+  public final bfa d(String paramString)
+  {
+    a.d = paramString;
+    return this;
+  }
+  
+  public final bfa e(String paramString)
+  {
+    a.f = paramString;
+    return this;
+  }
 }
 
 /* Location:

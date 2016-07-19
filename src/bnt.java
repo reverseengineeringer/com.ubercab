@@ -1,53 +1,53 @@
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.fragment.WalletFragmentStyle;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
+import java.lang.reflect.Type;
+import java.util.Collection;
+import java.util.Iterator;
 
-public final class bnt
-  implements Parcelable.Creator<WalletFragmentStyle>
+final class bnt<E>
+  extends bmq<Collection<E>>
 {
-  private static WalletFragmentStyle a(Parcel paramParcel)
+  private final bmq<E> a;
+  private final bnl<? extends Collection<E>> b;
+  
+  public bnt(blw paramblw, Type paramType, bmq<E> parambmq, bnl<? extends Collection<E>> parambnl)
   {
-    int j = 0;
-    int k = zm.b(paramParcel);
-    Bundle localBundle = null;
-    int i = 0;
-    while (paramParcel.dataPosition() < k)
+    a = new bog(paramblw, parambmq, paramType);
+    b = parambnl;
+  }
+  
+  private Collection<E> a(JsonReader paramJsonReader)
+  {
+    if (paramJsonReader.peek() == JsonToken.NULL)
     {
-      int m = zm.a(paramParcel);
-      switch (zm.a(m))
-      {
-      default: 
-        zm.a(paramParcel, m);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, m);
-        break;
-      case 2: 
-        localBundle = zm.p(paramParcel, m);
-        break;
-      case 3: 
-        j = zm.e(paramParcel, m);
-      }
+      paramJsonReader.nextNull();
+      return null;
     }
-    if (paramParcel.dataPosition() != k) {
-      throw new zn("Overread allowed size end=" + k, paramParcel);
+    Collection localCollection = (Collection)b.a();
+    paramJsonReader.beginArray();
+    while (paramJsonReader.hasNext()) {
+      localCollection.add(a.read(paramJsonReader));
     }
-    return new WalletFragmentStyle(i, localBundle, j);
+    paramJsonReader.endArray();
+    return localCollection;
   }
   
-  public static void a(WalletFragmentStyle paramWalletFragmentStyle, Parcel paramParcel)
+  private void a(JsonWriter paramJsonWriter, Collection<E> paramCollection)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, b);
-    zo.a(paramParcel, 3, c);
-    zo.a(paramParcel, i);
-  }
-  
-  private static WalletFragmentStyle[] a(int paramInt)
-  {
-    return new WalletFragmentStyle[paramInt];
+    if (paramCollection == null)
+    {
+      paramJsonWriter.nullValue();
+      return;
+    }
+    paramJsonWriter.beginArray();
+    paramCollection = paramCollection.iterator();
+    while (paramCollection.hasNext())
+    {
+      Object localObject = paramCollection.next();
+      a.write(paramJsonWriter, localObject);
+    }
+    paramJsonWriter.endArray();
   }
 }
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.card.view.CardView android:id="@id/ub__card_offer_list_item" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__card_offers_card_view_margin" card_view:cardBackgroundColor="@color/ub__white" card_view:cardCornerRadius="@dimen/ub__card_offers_payment_rewards_list_item_radius" card_view:cardElevation="@dimen/ub__card_offers_payment_rewards_list_item_radius" card_view:cardUseCompatPadding="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/ub__card_offer_list_item_image" android:layout_width="fill_parent" android:layout_height="@dimen/ub__card_offers_payment_rewards_list_item_image_height" android:scaleType="fitXY" />
+        <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_small" android:textColor="@color/ub__uber_black_60" android:gravity="center_vertical" android:id="@id/ub__card_offer_list_item_listing_text" android:paddingLeft="@dimen/ub__card_offers_payment_rewards_list_item_short_headline_padding" android:paddingRight="@dimen/ub__card_offers_payment_rewards_list_item_short_headline_padding" android:layout_width="fill_parent" android:layout_height="@dimen/ub__card_offers_payment_rewards_list_item_short_headline_height" />
+    </LinearLayout>
+</com.ubercab.ui.card.view.CardView>

@@ -1,55 +1,73 @@
-import android.os.Binder;
+import android.content.Context;
+import android.os.Bundle;
 import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import com.google.android.gms.maps.model.CameraPosition;
+import android.os.Looper;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.plus.internal.PlusSession;
+import com.google.android.gms.plus.internal.model.people.PersonEntity;
+import java.util.Set;
 
-public abstract class bea
-  extends Binder
-  implements bdz
+public final class bea
+  extends zv<bdx>
 {
-  public bea()
+  private bed d;
+  private final PlusSession e;
+  
+  public bea(Context paramContext, Looper paramLooper, zq paramzq, PlusSession paramPlusSession, wl paramwl, wm paramwm)
   {
-    attachInterface(this, "com.google.android.gms.maps.internal.IOnCameraChangeListener");
+    super(paramContext, paramLooper, 2, paramzq, paramwl, paramwm);
+    e = paramPlusSession;
   }
   
-  public static bdz a(IBinder paramIBinder)
+  private static boolean a(Set<Scope> paramSet)
   {
-    if (paramIBinder == null) {
-      return null;
+    if ((paramSet == null) || (paramSet.isEmpty())) {}
+    while ((paramSet.size() == 1) && (paramSet.contains(new Scope("plus_one_placeholder_scope")))) {
+      return false;
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnCameraChangeListener");
-    if ((localIInterface != null) && ((localIInterface instanceof bdz))) {
-      return (bdz)localIInterface;
-    }
-    return new beb(paramIBinder);
+    return true;
   }
   
-  public IBinder asBinder()
+  private static bdx b(IBinder paramIBinder)
   {
-    return this;
+    return bdy.a(paramIBinder);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  protected final void a(int paramInt1, IBinder paramIBinder, Bundle paramBundle, int paramInt2)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnCameraChangeListener");
-      return true;
+    if ((paramInt1 == 0) && (paramBundle != null) && (paramBundle.containsKey("loaded_person"))) {
+      d = PersonEntity.a(paramBundle.getByteArray("loaded_person"));
     }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnCameraChangeListener");
-    if (paramParcel1.readInt() != 0) {
-      bhw localbhw = CameraPosition.CREATOR;
-    }
-    for (paramParcel1 = bhw.a(paramParcel1);; paramParcel1 = null)
-    {
-      a(paramParcel1);
-      paramParcel2.writeNoException();
-      return true;
-    }
+    super.a(paramInt1, paramIBinder, paramBundle, paramInt2);
+  }
+  
+  public final boolean c()
+  {
+    return a(k().a(bdg.c));
+  }
+  
+  protected final String f()
+  {
+    return "com.google.android.gms.plus.service.START";
+  }
+  
+  protected final String g()
+  {
+    return "com.google.android.gms.plus.internal.IPlusService";
+  }
+  
+  protected final Bundle l()
+  {
+    Bundle localBundle = e.k();
+    localBundle.putStringArray("request_visible_actions", e.d());
+    localBundle.putString("auth_package", e.f());
+    return localBundle;
+  }
+  
+  public final bed q()
+  {
+    m();
+    return d;
   }
 }
 

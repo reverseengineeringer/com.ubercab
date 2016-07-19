@@ -5,52 +5,54 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.text.TextUtils;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.location.RiderLocation;
 import com.ubercab.client.feature.safetynet.SafetyNetShareTripActivity;
 import com.ubercab.client.feature.search.LocationSearchActivity;
 import com.ubercab.rider.realtime.model.Trip;
-import dpz;
-import dsq;
-import dta;
-import dtf;
 import dux;
-import dvp;
-import eav;
-import ebj;
-import fbt;
-import fbu;
-import fbv;
-import fbw;
-import fbx;
-import gqf;
-import ife;
+import dyd;
+import dyn;
+import dys;
+import eaj;
+import ebi;
+import ehn;
+import eib;
+import fpg;
+import fph;
+import fpj;
+import fpk;
+import fpl;
+import hzo;
 import java.util.Collection;
 import java.util.Collections;
-import jsc;
-import jsg;
-import kld;
-import klo;
-import kls;
-import r;
+import khv;
+import kia;
+import mxi;
+import mxm;
+import odr;
+import oed;
+import oeh;
+import z;
 
 public class ShareEtaActivity
-  extends RiderActivity<fbw>
+  extends RiderActivity<fpk>
   implements DialogInterface.OnCancelListener
 {
-  public ckc g;
-  public jsg h;
-  public ife i;
-  public dta j;
-  public gqf k;
-  public jsc l;
-  private boolean m;
-  private RiderLocation n;
-  private klo o;
-  private klo p;
+  public ckt g;
+  public khv h;
+  public mxm i;
+  public kia j;
+  public dyn k;
+  public hzo l;
+  public mxi m;
+  private boolean n;
+  private RiderLocation o;
+  private oed p;
+  private oed q;
   
   private Intent a(String paramString, int paramInt)
   {
@@ -58,53 +60,60 @@ public class ShareEtaActivity
       return null;
     }
     int i1 = paramInt / 60;
-    String str = getString(2131166459);
-    boolean bool = i.b(dux.gj);
+    String str2 = getString(2131166713);
+    boolean bool = j.c(eaj.jR);
     Object localObject;
+    String str1;
     if ((i1 > 0) && (bool))
     {
       paramInt = 1;
-      localObject = getResources().getQuantityString(2131689474, i1, new Object[] { Integer.valueOf(i1), paramString });
-      if (paramInt == 0) {
-        break label182;
+      if (!h.a(eaj.kR)) {
+        break label210;
       }
+      localObject = getResources().getQuantityString(2131689474, i1, new Object[] { Integer.valueOf(i1), paramString, "uber://family?action=create" });
+      str1 = getString(2131166700, new Object[] { paramString, "uber://family?action=create" });
       paramString = (String)localObject;
-      label81:
-      paramString = dpz.b(paramString);
+      localObject = str1;
+      label120:
+      if (paramInt == 0) {
+        break label259;
+      }
+      label124:
+      paramString = dux.b(paramString);
       localObject = new Intent("android.intent.action.SEND");
       ((Intent)localObject).putExtra("sms", paramString);
       ((Intent)localObject).putExtra("android.intent.extra.TEXT", paramString);
-      ((Intent)localObject).putExtra("android.intent.extra.SUBJECT", str);
+      ((Intent)localObject).putExtra("android.intent.extra.SUBJECT", str2);
       ((Intent)localObject).setType("text/plain");
-      if (i.b(dux.hw)) {
-        break label210;
-      }
-      if (!i.b(dux.hu)) {
-        break label200;
+      if (!j.c(eaj.mo)) {
+        break label265;
       }
     }
-    label182:
-    label200:
-    for (paramString = getString(2131166358);; paramString = getString(2131166460))
+    label210:
+    label259:
+    label265:
+    for (paramString = getString(2131166593);; paramString = getString(2131166714))
     {
       return Intent.createChooser((Intent)localObject, paramString);
       paramInt = 0;
       break;
-      paramString = getString(2131166452, new Object[] { paramString });
-      break label81;
+      str1 = getResources().getQuantityString(2131689475, i1, new Object[] { Integer.valueOf(i1), paramString });
+      localObject = getString(2131166699, new Object[] { paramString });
+      paramString = str1;
+      break label120;
+      paramString = (String)localObject;
+      break label124;
     }
-    label210:
-    return Intent.createChooser((Intent)localObject, getString(2131166460));
   }
   
-  private void a(fbw paramfbw)
+  private void a(fpk paramfpk)
   {
-    paramfbw.a(this);
+    paramfpk.a(this);
   }
   
-  private fbw b(ebj paramebj)
+  private fpk b(eib parameib)
   {
-    return fbt.a().a(new eav(this)).a(paramebj).a();
+    return fpg.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void b(String paramString)
@@ -142,32 +151,32 @@ public class ShareEtaActivity
     startActivity(paramString);
     setResult(-1);
     finish();
-    g.a(r.il);
+    g.a(z.lu);
   }
   
   private void f()
   {
     if (h())
     {
-      a(getString(2131166015), this);
+      a(getString(2131166127), this);
       return;
     }
-    a(getString(2131166451), this);
+    a(getString(2131166698), this);
   }
   
   private void g()
   {
     if (h())
     {
-      b(getString(2131166015), null);
+      b(getString(2131166127), null);
       return;
     }
-    b(getString(2131166451), null);
+    b(getString(2131166698), null);
   }
   
   private boolean h()
   {
-    return (i.b(dux.hu)) && ((!i.a(dux.hu, dvp.a)) || (k.j()));
+    return (j.c(eaj.mo)) && ((!j.a(eaj.mo, ebi.a)) || (l.j()));
   }
   
   public final void a(Trip paramTrip)
@@ -178,16 +187,16 @@ public class ShareEtaActivity
       finish();
       return;
     }
-    if (n != null)
+    if (o != null)
     {
       g();
-      if (h.f() != null) {
-        o = l.a(h.f().getUuid(), n.getCnLocation()).a(kls.a()).b(new fbv(this, (byte)0));
+      if (i.f() != null) {
+        p = m.a(i.f().getUuid(), o.getCnLocation()).a(oeh.a()).b(new fpj(this, (byte)0));
       }
-      n = null;
+      o = null;
       return;
     }
-    if ((paramTrip.getDestination() == null) && (!m))
+    if ((paramTrip.getDestination() == null) && (!n))
     {
       if (paramTrip.getPickupLocation() != null) {}
       for (paramTrip = RiderLocation.create(paramTrip.getPickupLocation());; paramTrip = null)
@@ -198,7 +207,7 @@ public class ShareEtaActivity
     }
     int i1 = paramTrip.getEtaToDestination();
     f();
-    p = l.b(paramTrip.getUuid()).a(kls.a()).b(new fbx(this, getApplicationContext(), i1, (byte)0));
+    q = m.c(paramTrip.getUuid()).a(oeh.a()).b(new fpl(this, getApplicationContext(), i1, (byte)0));
   }
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -209,51 +218,51 @@ public class ShareEtaActivity
     {
     case 0: 
     default: 
-      g.a(r.ij);
+      g.a(z.ls);
       setResult(0);
       finish();
       return;
     case -1: 
-      n = ((RiderLocation)paramIntent.getParcelableExtra("com.ubercab.LOCATION"));
+      o = ((RiderLocation)paramIntent.getParcelableExtra("com.ubercab.LOCATION"));
       return;
     }
-    m = true;
-    g.a(r.im);
+    n = true;
+    g.a(z.lv);
   }
   
   public void onCancel(DialogInterface paramDialogInterface)
   {
     setResult(0);
-    g.a(r.ij);
+    g.a(z.ls);
     finish();
   }
   
   public void onPause()
   {
     super.onPause();
-    if (o != null) {
-      o.c();
-    }
     if (p != null) {
-      p.c();
+      p.af_();
+    }
+    if (q != null) {
+      q.af_();
     }
   }
   
-  @cho
+  @chu
   @Deprecated
-  public void onRiderPersistentConnectionManagerReadyEvent(dsq paramdsq)
+  public void onRiderPersistentConnectionManagerReadyEvent(dyd paramdyd)
   {
     if (!isFinishing()) {
-      a(h.f());
+      a(i.f());
     }
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
-    return Collections.singleton(j);
+    return Collections.singleton(k);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

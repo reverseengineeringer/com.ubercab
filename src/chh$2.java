@@ -1,11 +1,15 @@
 final class chh$2
-  extends ThreadLocal<Boolean>
+  implements Runnable
 {
   chh$2(chh paramchh) {}
   
-  private static Boolean a()
+  public final void run()
   {
-    return Boolean.valueOf(false);
+    if (chh.a(a) == chd.b)
+    {
+      chh.a(a, chd.c);
+      chh.d(a).f();
+    }
   }
 }
 

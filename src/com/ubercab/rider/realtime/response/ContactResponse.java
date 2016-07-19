@@ -3,10 +3,10 @@ package com.ubercab.rider.realtime.response;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.List;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class ContactResponse
 {
   public static ContactResponse create()

@@ -1,51 +1,53 @@
-import com.ubercab.android.location.UberLatLng;
-import com.ubercab.android.location.UberLocation;
-import java.text.NumberFormat;
-import java.util.Locale;
-import java.util.Random;
+import android.app.Activity;
+import android.app.Application.ActivityLifecycleCallbacks;
+import android.os.Bundle;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public final class cld
+  implements Application.ActivityLifecycleCallbacks
 {
-  private final NumberFormat a = NumberFormat.getInstance(Locale.US);
-  private final Random b;
-  private final UberLatLng c;
+  private final List<cle> a = new CopyOnWriteArrayList();
+  private int b = 0;
   
-  public cld(UberLocation paramUberLocation)
+  public final void a(cle paramcle)
   {
-    this(paramUberLocation, new Random());
+    a.add(paramcle);
   }
   
-  private cld(UberLocation paramUberLocation, Random paramRandom)
+  public final void onActivityCreated(Activity paramActivity, Bundle paramBundle) {}
+  
+  public final void onActivityDestroyed(Activity paramActivity) {}
+  
+  public final void onActivityPaused(Activity paramActivity) {}
+  
+  public final void onActivityResumed(Activity paramActivity) {}
+  
+  public final void onActivitySaveInstanceState(Activity paramActivity, Bundle paramBundle) {}
+  
+  public final void onActivityStarted(Activity paramActivity)
   {
-    a.setMaximumFractionDigits(6);
-    b = paramRandom;
-    c = a(paramUberLocation.g());
+    b += 1;
+    if (b == 1)
+    {
+      Iterator localIterator = a.iterator();
+      while (localIterator.hasNext()) {
+        ((cle)localIterator.next()).a(paramActivity.getIntent());
+      }
+    }
   }
   
-  private UberLatLng a(UberLatLng paramUberLatLng)
+  public final void onActivityStopped(Activity paramActivity)
   {
-    double d1 = Math.sqrt(b.nextDouble()) * 0.0071877807726864335D;
-    double d3 = 6.283185307179586D * b.nextDouble();
-    double d2 = Math.cos(d3);
-    d3 = Math.sin(d3);
-    double d4 = paramUberLatLng.a();
-    d2 = Math.min(Math.max(d2 * d1 / Math.cos(paramUberLatLng.a()), -0.0071877807726864335D), 0.0071877807726864335D);
-    return new UberLatLng(d4 + d1 * d3, paramUberLatLng.b() + d2, paramUberLatLng.c());
-  }
-  
-  public final double a()
-  {
-    return Double.valueOf(a.format(c.a())).doubleValue();
-  }
-  
-  public final double b()
-  {
-    return Double.valueOf(a.format(c.b())).doubleValue();
-  }
-  
-  public final UberLatLng c()
-  {
-    return c;
+    b -= 1;
+    if (b == 0)
+    {
+      paramActivity = a.iterator();
+      while (paramActivity.hasNext()) {
+        ((cle)paramActivity.next()).a();
+      }
+    }
   }
 }
 

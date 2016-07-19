@@ -2,7 +2,7 @@ package android.support.v4.view;
 
 import android.os.Build.VERSION;
 
-public class ScaleGestureDetectorCompat
+public final class ScaleGestureDetectorCompat
 {
   static final ScaleGestureDetectorCompat.ScaleGestureDetectorImpl IMPL = new ScaleGestureDetectorCompat.BaseScaleGestureDetectorImpl(null);
   

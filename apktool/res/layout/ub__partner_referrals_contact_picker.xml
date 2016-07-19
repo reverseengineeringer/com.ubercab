@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <android.support.design.widget.AppBarLayout android:id="@id/ub__referrals_contact_picker_top_banner_frame" android:background="@color/ub__uber_black_80" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <android.support.design.widget.CoordinatorLayout android:id="@id/ub_referrals_contact_picker_coordinator_layout" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <FrameLayout android:id="@id/ub__referrals_contact_picker_container" android:layout_width="fill_parent" android:layout_height="fill_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </android.support.design.widget.CoordinatorLayout>
+        <ViewStub android:id="@id/ub__referrals_contact_picker_bottom_send_stub" android:layout_width="fill_parent" android:layout_height="0.0dip" />
+    </LinearLayout>
+    <com.ubercab.ui.SnackbarView android:id="@id/ub__partner_referrals_contact_picker_snackbar" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</FrameLayout>

@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jux;
+import nag;
 
 @Shape
 abstract class ObjectTripLegAction
-  implements jux
+  implements nag
 {}
 
 /* Location:

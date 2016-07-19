@@ -1,76 +1,35 @@
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Application.ActivityLifecycleCallbacks;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
+import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
 
-@TargetApi(14)
-final class bit
-  implements Application.ActivityLifecycleCallbacks
+abstract class bit<E>
+  extends bjb<E>
 {
-  private bit(bis parambis) {}
-  
-  private boolean a(String paramString)
+  private void readObject(ObjectInputStream paramObjectInputStream)
   {
-    if (!TextUtils.isEmpty(paramString))
-    {
-      a.a("auto", "_ldl", paramString);
-      return true;
-    }
-    return false;
+    throw new InvalidObjectException("Use SerializedForm");
   }
   
-  public final void onActivityCreated(Activity paramActivity, Bundle paramBundle)
+  abstract biy<E> a();
+  
+  public boolean contains(Object paramObject)
   {
-    try
-    {
-      a.s().z().a("onActivityCreated");
-      paramActivity = paramActivity.getIntent();
-      if (paramActivity == null) {
-        return;
-      }
-      paramActivity = paramActivity.getData();
-      if ((paramActivity == null) || (!paramActivity.isHierarchical())) {
-        return;
-      }
-      paramActivity = paramActivity.getQueryParameter("referrer");
-      if (TextUtils.isEmpty(paramActivity)) {
-        return;
-      }
-      if (!paramActivity.contains("gclid"))
-      {
-        a.s().y().a("Activity created with data 'referrer' param without gclid");
-        return;
-      }
-    }
-    catch (Throwable paramActivity)
-    {
-      a.s().b().a("Throwable caught in onActivityCreated", paramActivity);
-      return;
-    }
-    a.s().y().a("Activity created with referrer", paramActivity);
-    a(paramActivity);
+    return a().contains(paramObject);
   }
   
-  public final void onActivityDestroyed(Activity paramActivity) {}
-  
-  public final void onActivityPaused(Activity paramActivity)
+  public boolean isEmpty()
   {
-    a.q().c();
+    return a().isEmpty();
   }
   
-  public final void onActivityResumed(Activity paramActivity)
+  public int size()
   {
-    a.q().b();
+    return a().size();
   }
   
-  public final void onActivitySaveInstanceState(Activity paramActivity, Bundle paramBundle) {}
-  
-  public final void onActivityStarted(Activity paramActivity) {}
-  
-  public final void onActivityStopped(Activity paramActivity) {}
+  Object writeReplace()
+  {
+    return new biu(a());
+  }
 }
 
 /* Location:

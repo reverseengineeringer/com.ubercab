@@ -1,91 +1,29 @@
-import android.app.Activity;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-import android.view.ViewTreeObserver.OnScrollChangedListener;
+import android.content.Context;
+import android.os.Looper;
 
-@apl
 public final class ary
+  extends wb<arx, arc>
 {
-  private Activity a;
-  private boolean b;
-  private boolean c;
-  private boolean d;
-  private ViewTreeObserver.OnGlobalLayoutListener e;
-  private ViewTreeObserver.OnScrollChangedListener f;
+  private final String a = null;
   
-  public ary(Activity paramActivity, ViewTreeObserver.OnGlobalLayoutListener paramOnGlobalLayoutListener, ViewTreeObserver.OnScrollChangedListener paramOnScrollChangedListener)
+  private arx a(Context paramContext, Looper paramLooper, zq paramzq, arc paramarc, wl paramwl, wm paramwm)
   {
-    a = paramActivity;
-    e = paramOnGlobalLayoutListener;
-    f = paramOnScrollChangedListener;
-  }
-  
-  private void e()
-  {
-    if (a == null) {}
-    while (b) {
-      return;
-    }
-    if (e != null)
+    String str;
+    if (a != null)
     {
-      tp.e();
-      aqz.a(a, e);
+      str = a;
+      if (paramarc != null) {
+        break label58;
+      }
+      paramarc = new ard().a();
     }
-    if (f != null)
+    label58:
+    for (;;)
     {
-      tp.e();
-      aqz.a(a, f);
+      return new arx(paramContext, paramLooper, paramzq, paramwl, paramwm, str, paramarc);
+      str = paramContext.getPackageName();
+      break;
     }
-    b = true;
-  }
-  
-  private void f()
-  {
-    if (a == null) {}
-    while (!b) {
-      return;
-    }
-    if (e != null) {
-      tp.g().a(a, e);
-    }
-    if (f != null)
-    {
-      tp.e();
-      aqz.b(a, f);
-    }
-    b = false;
-  }
-  
-  public final void a()
-  {
-    d = true;
-    if (c) {
-      e();
-    }
-  }
-  
-  public final void a(Activity paramActivity)
-  {
-    a = paramActivity;
-  }
-  
-  public final void b()
-  {
-    d = false;
-    f();
-  }
-  
-  public final void c()
-  {
-    c = true;
-    if (d) {
-      e();
-    }
-  }
-  
-  public final void d()
-  {
-    c = false;
-    f();
   }
 }
 

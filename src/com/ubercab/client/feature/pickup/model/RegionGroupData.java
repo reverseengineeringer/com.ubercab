@@ -2,7 +2,7 @@ package com.ubercab.client.feature.pickup.model;
 
 import com.ubercab.android.location.UberLatLng;
 import com.ubercab.shape.Shape;
-import fka;
+import fzb;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -19,7 +19,7 @@ public abstract class RegionGroupData
   
   public boolean containsLatLng(UberLatLng paramUberLatLng)
   {
-    return fka.a(paramUberLatLng, getRegionData());
+    return fzb.a(paramUberLatLng, getRegionData());
   }
   
   public Set<GuidedPickupGeocodeRegion.PickupLocation> getAllPickupLocations()

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.CoordinatorLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <android.support.design.widget.AppBarLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x">
+            <android.support.design.widget.CollapsingToolbarLayout android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_scrollFlags="scroll">
+                <ImageView android:id="@id/ub__partner_referrals_national_campaign_illustration" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="@dimen/ub__partner_referrals_national_campaign_illustration_height" android:scaleType="centerCrop" app:layout_collapseMode="parallax" />
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+        <android.support.v4.widget.NestedScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.H2" android:id="@id/ub__partner_referrals_national_campaign_tagline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x" />
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P" android:id="@id/ub__partner_referrals_national_campaign_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:lineSpacingMultiplier="1.5" />
+                <LinearLayout android:orientation="vertical" android:id="@id/ub__partner_referrals_national_campaign_conditions_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_6x" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_6x" />
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P" android:id="@id/ub__partner_referrals_national_campaign_disclaimer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x" android:lineSpacingMultiplier="1.5" />
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+    <FrameLayout android:background="@drawable/ub__partner_referrals_national_campaign_call_to_action_background" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.Button android:id="@id/ub__partner_referrals_national_campaign_call_to_action" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x" style="@style/Uber.Widget.Button.Accent" />
+    </FrameLayout>
+</LinearLayout>

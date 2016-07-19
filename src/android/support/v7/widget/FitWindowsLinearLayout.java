@@ -4,14 +4,14 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import gd;
-import ge;
+import kv;
+import kw;
 
 public class FitWindowsLinearLayout
   extends LinearLayout
-  implements gd
+  implements kv
 {
-  private ge a;
+  private kw a;
   
   public FitWindowsLinearLayout(Context paramContext)
   {
@@ -23,9 +23,9 @@ public class FitWindowsLinearLayout
     super(paramContext, paramAttributeSet);
   }
   
-  public final void a(ge paramge)
+  public final void a(kw paramkw)
   {
-    a = paramge;
+    a = paramkw;
   }
   
   protected boolean fitSystemWindows(Rect paramRect)

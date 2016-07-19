@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/ub__partner_referrals_dashboard_share_sheet_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.Byline" android:layout_gravity="center_horizontal" android:id="@id/ub_referrals_dashboard_remind_title" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.ubercab.ui.collection.RecyclerView android:orientation="vertical" android:id="@id/ub_referrals_dashboard_share_grid" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

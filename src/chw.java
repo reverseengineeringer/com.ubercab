@@ -1,67 +1,111 @@
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.UriMatcher;
-import android.net.Uri;
-import android.os.Build.VERSION;
-import android.provider.ContactsContract.Contacts;
-import java.io.InputStream;
-import java.util.List;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import java.lang.ref.WeakReference;
 
-final class chw
-  extends cjh
+abstract class chw<T>
 {
-  private static final UriMatcher b;
-  final Context a;
+  final cja a;
+  final cjk b;
+  final WeakReference<T> c;
+  final boolean d;
+  final int e;
+  final int f;
+  final int g;
+  final Drawable h;
+  final String i;
+  final Object j;
+  boolean k;
+  boolean l;
   
-  static
+  chw(cja paramcja, T paramT, cjk paramcjk, int paramInt1, int paramInt2, int paramInt3, Drawable paramDrawable, String paramString, Object paramObject, boolean paramBoolean)
   {
-    UriMatcher localUriMatcher = new UriMatcher(-1);
-    b = localUriMatcher;
-    localUriMatcher.addURI("com.android.contacts", "contacts/lookup/*/#", 1);
-    b.addURI("com.android.contacts", "contacts/lookup/*", 1);
-    b.addURI("com.android.contacts", "contacts/#/photo", 2);
-    b.addURI("com.android.contacts", "contacts/#", 3);
-    b.addURI("com.android.contacts", "display_photo/#", 4);
-  }
-  
-  chw(Context paramContext)
-  {
-    a = paramContext;
-  }
-  
-  private InputStream c(cje paramcje)
-  {
-    ContentResolver localContentResolver = a.getContentResolver();
-    Uri localUri = d;
-    paramcje = localUri;
-    switch (b.match(localUri))
+    a = paramcja;
+    b = paramcjk;
+    if (paramT == null)
     {
-    default: 
-      throw new IllegalStateException("Invalid uri: " + localUri);
-    case 1: 
-      localUri = ContactsContract.Contacts.lookupContact(localContentResolver, localUri);
-      paramcje = localUri;
-      if (localUri == null) {
-        return null;
+      paramcja = null;
+      c = paramcja;
+      e = paramInt1;
+      f = paramInt2;
+      d = paramBoolean;
+      g = paramInt3;
+      h = paramDrawable;
+      i = paramString;
+      if (paramObject == null) {
+        break label90;
       }
-    case 3: 
-      if (Build.VERSION.SDK_INT < 14) {
-        return ContactsContract.Contacts.openContactPhotoInputStream(localContentResolver, paramcje);
-      }
-      return chx.a(localContentResolver, paramcje);
     }
-    return localContentResolver.openInputStream(localUri);
+    for (;;)
+    {
+      j = paramObject;
+      return;
+      paramcja = new chx(this, paramT, i);
+      break;
+      label90:
+      paramObject = this;
+    }
   }
   
-  public final boolean a(cje paramcje)
+  abstract void a();
+  
+  abstract void a(Bitmap paramBitmap, cje paramcje);
+  
+  void b()
   {
-    paramcje = d;
-    return ("content".equals(paramcje.getScheme())) && (ContactsContract.Contacts.CONTENT_URI.getHost().equals(paramcje.getHost())) && (!paramcje.getPathSegments().contains("photo"));
+    l = true;
   }
   
-  public final cji b(cje paramcje)
+  final cjk c()
   {
-    return new cji(c(paramcje), ciy.b);
+    return b;
+  }
+  
+  T d()
+  {
+    if (c == null) {
+      return null;
+    }
+    return (T)c.get();
+  }
+  
+  final String e()
+  {
+    return i;
+  }
+  
+  final boolean f()
+  {
+    return l;
+  }
+  
+  final boolean g()
+  {
+    return k;
+  }
+  
+  final int h()
+  {
+    return e;
+  }
+  
+  final int i()
+  {
+    return f;
+  }
+  
+  final cja j()
+  {
+    return a;
+  }
+  
+  final int k()
+  {
+    return b.r;
+  }
+  
+  final Object l()
+  {
+    return j;
   }
 }
 

@@ -10,9 +10,13 @@ public abstract class SelectProfileBody
     return new Shape_SelectProfileBody().setProfileUUID(paramString1).setJobUUID(paramString2);
   }
   
+  public abstract AddExpenseInfoBody getExpenseInfo();
+  
   public abstract String getJobUUID();
   
   public abstract String getProfileUUID();
+  
+  public abstract SelectProfileBody setExpenseInfo(AddExpenseInfoBody paramAddExpenseInfoBody);
   
   abstract SelectProfileBody setJobUUID(String paramString);
   

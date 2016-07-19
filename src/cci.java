@@ -1,10 +1,16 @@
-import android.os.Binder;
-import com.paypal.android.sdk.payments.PayPalService;
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.LoginActivity;
 
 public final class cci
-  extends Binder
+  implements View.OnClickListener
 {
-  public cci(PayPalService paramPayPalService) {}
+  public cci(LoginActivity paramLoginActivity) {}
+  
+  public final void onClick(View paramView)
+  {
+    LoginActivity.d(a);
+  }
 }
 
 /* Location:

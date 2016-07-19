@@ -1,17 +1,44 @@
-import android.os.Process;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 
 final class cjw
-  extends Thread
+  extends chw<cjv>
 {
-  public cjw(Runnable paramRunnable)
+  cjw(cja paramcja, cjv paramcjv, cjk paramcjk, int paramInt1, int paramInt2, Drawable paramDrawable, String paramString, Object paramObject, int paramInt3)
   {
-    super(paramRunnable);
+    super(paramcja, paramcjv, paramcjk, paramInt1, paramInt2, paramInt3, paramDrawable, paramString, paramObject, false);
   }
   
-  public final void run()
+  final void a()
   {
-    Process.setThreadPriority(10);
-    super.run();
+    cjv localcjv = (cjv)d();
+    if (localcjv != null)
+    {
+      if (g != 0) {
+        localcjv.a(a.c.getResources().getDrawable(g));
+      }
+    }
+    else {
+      return;
+    }
+    localcjv.a(h);
+  }
+  
+  final void a(Bitmap paramBitmap, cje paramcje)
+  {
+    if (paramBitmap == null) {
+      throw new AssertionError(String.format("Attempted to complete action with no result!\n%s", new Object[] { this }));
+    }
+    paramcje = (cjv)d();
+    if (paramcje != null)
+    {
+      paramcje.a(paramBitmap);
+      if (paramBitmap.isRecycled()) {
+        throw new IllegalStateException("Target callback must not recycle bitmap!");
+      }
+    }
   }
 }
 

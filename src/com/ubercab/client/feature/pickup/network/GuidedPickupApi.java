@@ -11,7 +11,7 @@ import retrofit.http.Query;
 public abstract interface GuidedPickupApi
 {
   @GET("/rt/locations/pickups/geocode_region")
-  public abstract void geocodeRegion(@Query("latitude") double paramDouble1, @Query("longitude") double paramDouble2, @Query("radius") double paramDouble3, Callback<GuidedPickupGeocodeRegion> paramCallback);
+  public abstract void geocodeRegion(@Query("latitude") double paramDouble1, @Query("longitude") double paramDouble2, @Query("radius") double paramDouble3, @Query("data_version") String paramString, Callback<GuidedPickupGeocodeRegion> paramCallback);
   
   @GET("/rt/locations/pickups/snap")
   public abstract void snap(@Query("latitude") double paramDouble1, @Query("longitude") double paramDouble2, Callback<GuidedPickupSnap> paramCallback);

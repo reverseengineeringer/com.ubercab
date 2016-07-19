@@ -1,163 +1,159 @@
-import android.os.Binder;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.maps.GoogleMapOptions;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.text.TextUtils;
+import android.util.Pair;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient.Info;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.SecureRandom;
+import java.util.Locale;
 
-public abstract class bcm
-  extends Binder
-  implements bcl
+final class bcm
+  extends bcz
 {
-  public static bcl a(IBinder paramIBinder)
+  static final Pair<String, Long> a = new Pair("", Long.valueOf(0L));
+  public final bcp b = new bcp(this, "health_monitor", bbm.S(), (byte)0);
+  public final bco c = new bco(this, "last_upload", 0L);
+  public final bco d = new bco(this, "last_upload_attempt", 0L);
+  public final bco e = new bco(this, "backoff", 0L);
+  public final bco f = new bco(this, "last_delete_stale", 0L);
+  public final bco g = new bco(this, "midnight_offset", 0L);
+  public final bco h = new bco(this, "time_before_start", 10000L);
+  public final bco i = new bco(this, "session_timeout", 1800000L);
+  public final bcn j = new bcn(this, "start_new_session");
+  public final bco k = new bco(this, "last_pause_time", 0L);
+  public final bco l = new bco(this, "time_active", 0L);
+  public boolean m;
+  private SharedPreferences o;
+  private String p;
+  private boolean q;
+  private long r;
+  private final SecureRandom s = new SecureRandom();
+  
+  bcm(bcv parambcv)
   {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-    if ((localIInterface != null) && ((localIInterface instanceof bcl))) {
-      return (bcl)localIInterface;
-    }
-    return new bcn(paramIBinder);
+    super(parambcv);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  private SharedPreferences y()
   {
-    Object localObject = null;
-    add localadd1;
-    switch (paramInt1)
+    f();
+    E();
+    return o;
+  }
+  
+  final Pair<String, Boolean> a(String paramString)
+  {
+    f();
+    long l1 = l().b();
+    if ((p != null) && (l1 < r)) {
+      return new Pair(p, Boolean.valueOf(q));
+    }
+    r = (l1 + u().a(paramString));
+    AdvertisingIdClient.setShouldSkipGmsCoreVersionCheck(true);
+    try
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      paramParcel1 = a();
-      paramParcel2.writeNoException();
-      if (paramParcel1 != null) {}
-      for (paramParcel1 = paramParcel1.asBinder();; paramParcel1 = null)
+      paramString = AdvertisingIdClient.getAdvertisingIdInfo(m());
+      p = paramString.getId();
+      q = paramString.isLimitAdTrackingEnabled();
+      AdvertisingIdClient.setShouldSkipGmsCoreVersionCheck(false);
+      return new Pair(p, Boolean.valueOf(q));
+    }
+    catch (Throwable paramString)
+    {
+      for (;;)
       {
-        paramParcel2.writeStrongBinder(paramParcel1);
-        return true;
-      }
-    case 2: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      localadd1 = ade.a(paramParcel1.readStrongBinder());
-      if (paramParcel1.readInt() != 0)
-      {
-        localObject = GoogleMapOptions.CREATOR;
-        localObject = bim.a(paramParcel1);
-        if (paramParcel1.readInt() == 0) {
-          break label266;
-        }
-      }
-      for (paramParcel1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-      {
-        a(localadd1, (GoogleMapOptions)localObject, paramParcel1);
-        paramParcel2.writeNoException();
-        return true;
-        localObject = null;
-        break;
-      }
-    case 3: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      if (paramParcel1.readInt() != 0) {}
-      for (paramParcel1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-      {
-        a(paramParcel1);
-        paramParcel2.writeNoException();
-        return true;
-      }
-    case 4: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      localadd1 = ade.a(paramParcel1.readStrongBinder());
-      add localadd2 = ade.a(paramParcel1.readStrongBinder());
-      if (paramParcel1.readInt() != 0) {}
-      for (paramParcel1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-      {
-        localadd1 = a(localadd1, localadd2, paramParcel1);
-        paramParcel2.writeNoException();
-        paramParcel1 = (Parcel)localObject;
-        if (localadd1 != null) {
-          paramParcel1 = localadd1.asBinder();
-        }
-        paramParcel2.writeStrongBinder(paramParcel1);
-        return true;
-      }
-    case 5: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      b();
-      paramParcel2.writeNoException();
-      return true;
-    case 6: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      c();
-      paramParcel2.writeNoException();
-      return true;
-    case 7: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      d();
-      paramParcel2.writeNoException();
-      return true;
-    case 8: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      e();
-      paramParcel2.writeNoException();
-      return true;
-    case 9: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      f();
-      paramParcel2.writeNoException();
-      return true;
-    case 10: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      if (paramParcel1.readInt() != 0) {}
-      for (paramParcel1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-      {
-        b(paramParcel1);
-        paramParcel2.writeNoException();
-        if (paramParcel1 == null) {
-          break;
-        }
-        paramParcel2.writeInt(1);
-        paramParcel1.writeToParcel(paramParcel2, 1);
-        return true;
-      }
-      paramParcel2.writeInt(0);
-      return true;
-    case 11: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      boolean bool = g();
-      paramParcel2.writeNoException();
-      if (bool) {}
-      for (paramInt1 = 1;; paramInt1 = 0)
-      {
-        paramParcel2.writeInt(paramInt1);
-        return true;
-      }
-    case 12: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      a(bfe.a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      return true;
-    case 13: 
-      label266:
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-      if (paramParcel1.readInt() != 0) {}
-      for (paramParcel1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-      {
-        c(paramParcel1);
-        paramParcel2.writeNoException();
-        return true;
+        s().y().a("Unable to get advertising id", paramString);
+        p = "";
       }
     }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
-    h();
-    paramParcel2.writeNoException();
-    return true;
+  }
+  
+  protected final void a()
+  {
+    o = m().getSharedPreferences("com.google.android.gms.measurement.prefs", 0);
+    m = o.getBoolean("has_been_opened", false);
+    if (!m)
+    {
+      SharedPreferences.Editor localEditor = o.edit();
+      localEditor.putBoolean("has_been_opened", true);
+      localEditor.apply();
+    }
+  }
+  
+  final void a(boolean paramBoolean)
+  {
+    f();
+    s().z().a("Setting useService", Boolean.valueOf(paramBoolean));
+    SharedPreferences.Editor localEditor = y().edit();
+    localEditor.putBoolean("use_service", paramBoolean);
+    localEditor.apply();
+  }
+  
+  final String b()
+  {
+    byte[] arrayOfByte = new byte[16];
+    s.nextBytes(arrayOfByte);
+    return String.format(Locale.US, "%032x", new Object[] { new BigInteger(1, arrayOfByte) });
+  }
+  
+  final String b(String paramString)
+  {
+    paramString = (String)afirst;
+    MessageDigest localMessageDigest = bbj.e("MD5");
+    if (localMessageDigest == null) {
+      return null;
+    }
+    return String.format(Locale.US, "%032X", new Object[] { new BigInteger(1, localMessageDigest.digest(paramString.getBytes())) });
+  }
+  
+  final long c()
+  {
+    E();
+    f();
+    long l2 = g.a();
+    long l1 = l2;
+    if (l2 == 0L)
+    {
+      l1 = s.nextInt(86400000) + 1;
+      g.a(l1);
+    }
+    return l1;
+  }
+  
+  final Boolean v()
+  {
+    f();
+    if (!y().contains("use_service")) {
+      return null;
+    }
+    return Boolean.valueOf(y().getBoolean("use_service", false));
+  }
+  
+  final boolean w()
+  {
+    f();
+    SharedPreferences localSharedPreferences = y();
+    if (!bda.c()) {}
+    for (boolean bool = true;; bool = false) {
+      return localSharedPreferences.getBoolean("measurement_enabled", bool);
+    }
+  }
+  
+  protected final String x()
+  {
+    f();
+    String str1 = y().getString("previous_os_version", null);
+    String str2 = j().c();
+    if ((!TextUtils.isEmpty(str2)) && (!str2.equals(str1)))
+    {
+      SharedPreferences.Editor localEditor = y().edit();
+      localEditor.putString("previous_os_version", str2);
+      localEditor.apply();
+    }
+    return str1;
   }
 }
 

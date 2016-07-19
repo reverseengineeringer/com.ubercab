@@ -1,89 +1,154 @@
-public final class bjr<V>
+import java.util.Arrays;
+import java.util.Set;
+
+public abstract class bjr<E>
+  extends biy<E>
+  implements Set<E>
 {
-  private final V a;
-  private final atx<V> b;
-  private V c;
-  private final String d;
-  
-  private bjr(String paramString, atx<V> paramatx, V paramV)
+  private static int a(int paramInt)
   {
-    abs.a(paramatx);
-    b = paramatx;
-    a = paramV;
-    d = paramString;
-  }
-  
-  static bjr<Boolean> a(String paramString)
-  {
-    return b(paramString);
-  }
-  
-  static bjr<Integer> a(String paramString, int paramInt)
-  {
-    return a(paramString, paramInt, paramInt);
-  }
-  
-  private static bjr<Integer> a(String paramString, int paramInt1, int paramInt2)
-  {
-    return new bjr(paramString, atx.a(paramString, Integer.valueOf(paramInt2)), Integer.valueOf(paramInt1));
-  }
-  
-  static bjr<Long> a(String paramString, long paramLong)
-  {
-    return a(paramString, paramLong, paramLong);
-  }
-  
-  private static bjr<Long> a(String paramString, long paramLong1, long paramLong2)
-  {
-    return new bjr(paramString, atx.a(paramString, Long.valueOf(paramLong2)), Long.valueOf(paramLong1));
-  }
-  
-  static bjr<String> a(String paramString1, String paramString2)
-  {
-    return a(paramString1, paramString2, paramString2);
-  }
-  
-  static bjr<String> a(String paramString1, String paramString2, String paramString3)
-  {
-    return new bjr(paramString1, atx.a(paramString1, paramString3), paramString2);
-  }
-  
-  private static bjr<Boolean> b(String paramString)
-  {
-    return new bjr(paramString, atx.a(paramString), Boolean.valueOf(true));
-  }
-  
-  public final V a(V paramV)
-  {
-    Object localObject;
-    if (c != null) {
-      localObject = c;
-    }
-    do
+    int j;
+    if (paramInt < 751619276)
     {
-      return (V)localObject;
-      localObject = paramV;
-    } while (paramV != null);
-    if ((zy.a) && (atx.b())) {
-      return (V)b.e();
+      int i = Integer.highestOneBit(paramInt - 1) << 1;
+      for (;;)
+      {
+        j = i;
+        if (i * 0.7D >= paramInt) {
+          break;
+        }
+        i <<= 1;
+      }
     }
-    return (V)a;
+    if (paramInt < 1073741824) {}
+    for (boolean bool = true;; bool = false)
+    {
+      bhx.a(bool, "collection too large");
+      j = 1073741824;
+      return j;
+    }
   }
   
-  public final String a()
+  private static <E> bjr<E> a(int paramInt, Object... paramVarArgs)
   {
-    return d;
+    int n;
+    Object[] arrayOfObject;
+    int i1;
+    int k;
+    int j;
+    int i;
+    Object localObject1;
+    int m;
+    label81:
+    Object localObject2;
+    switch (paramInt)
+    {
+    default: 
+      n = a(paramInt);
+      arrayOfObject = new Object[n];
+      i1 = n - 1;
+      k = 0;
+      j = 0;
+      i = 0;
+      if (k < paramInt)
+      {
+        localObject1 = bjz.a(paramVarArgs[k], k);
+        int i2 = localObject1.hashCode();
+        m = bis.a(i2);
+        int i3 = m & i1;
+        localObject2 = arrayOfObject[i3];
+        if (localObject2 == null)
+        {
+          m = j + 1;
+          paramVarArgs[j] = localObject1;
+          arrayOfObject[i3] = localObject1;
+          j = i + i2;
+          i = m;
+        }
+      }
+      break;
+    }
+    for (;;)
+    {
+      m = k + 1;
+      k = j;
+      j = i;
+      i = k;
+      k = m;
+      break;
+      return f();
+      return a(paramVarArgs[0]);
+      if (!localObject2.equals(localObject1))
+      {
+        m += 1;
+        break label81;
+        Arrays.fill(paramVarArgs, j, paramInt, null);
+        if (j == 1) {
+          return new bkn(paramVarArgs[0], i);
+        }
+        if (n != a(j)) {
+          return a(j, paramVarArgs);
+        }
+        localObject1 = paramVarArgs;
+        if (j < paramVarArgs.length) {
+          localObject1 = bjz.b(paramVarArgs, j);
+        }
+        return new bkj((Object[])localObject1, i, arrayOfObject, i1);
+      }
+      m = i;
+      i = j;
+      j = m;
+    }
   }
   
-  public final V b()
+  public static <E> bjr<E> a(E paramE)
   {
-    if (c != null) {
-      return (V)c;
+    return new bkn(paramE);
+  }
+  
+  public static <E> bjr<E> a(E[] paramArrayOfE)
+  {
+    switch (paramArrayOfE.length)
+    {
+    default: 
+      return a(paramArrayOfE.length, (Object[])paramArrayOfE.clone());
+    case 0: 
+      return f();
     }
-    if ((zy.a) && (atx.b())) {
-      return (V)b.e();
+    return a(paramArrayOfE[0]);
+  }
+  
+  public static <E> bjr<E> f()
+  {
+    return bkj.a;
+  }
+  
+  public abstract bkp<E> b();
+  
+  boolean e()
+  {
+    return false;
+  }
+  
+  public boolean equals(Object paramObject)
+  {
+    if (paramObject == this) {
+      return true;
     }
-    return (V)a;
+    if (((paramObject instanceof bjr)) && (e()) && (((bjr)paramObject).e()) && (hashCode() != paramObject.hashCode())) {
+      return false;
+    }
+    return bkk.a(this, paramObject);
+  }
+  
+  public int hashCode()
+  {
+    return bkk.a(this);
+  }
+  
+  Object writeReplace()
+  {
+    return new bjt(toArray());
   }
 }
 

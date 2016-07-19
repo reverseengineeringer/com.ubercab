@@ -1,31 +1,11 @@
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.paypal.android.sdk.payments.PayPalService;
-import com.paypal.android.sdk.payments.PaymentMethodActivity;
-
-public final class cet
-  implements ServiceConnection
+final class cet
+  implements cec
 {
-  public cet(PaymentMethodActivity paramPaymentMethodActivity) {}
+  cet(cep paramcep) {}
   
-  public final void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
+  public final void a()
   {
-    new StringBuilder().append(PaymentMethodActivity.a()).append(".onServiceConnected");
-    if (a.isFinishing()) {
-      new StringBuilder().append(PaymentMethodActivity.a()).append(".onServiceConnected exit - isFinishing");
-    }
-    do
-    {
-      return;
-      PaymentMethodActivity.a(a, a);
-    } while (!PaymentMethodActivity.g(a).a(new ceu(this)));
-    PaymentMethodActivity.i(a);
-  }
-  
-  public final void onServiceDisconnected(ComponentName paramComponentName)
-  {
-    PaymentMethodActivity.a(a, null);
+    cep.a(a, bve.u);
   }
 }
 

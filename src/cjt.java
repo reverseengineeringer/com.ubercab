@@ -1,12 +1,45 @@
-import android.annotation.TargetApi;
-import android.app.ActivityManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
-@TargetApi(11)
 final class cjt
+  extends Handler
 {
-  static int a(ActivityManager paramActivityManager)
+  private final cjs a;
+  
+  public cjt(Looper paramLooper, cjs paramcjs)
   {
-    return paramActivityManager.getLargeMemoryClass();
+    super(paramLooper);
+    a = paramcjs;
+  }
+  
+  public final void handleMessage(final Message paramMessage)
+  {
+    switch (what)
+    {
+    default: 
+      cja.a.post(new Runnable()
+      {
+        public final void run()
+        {
+          throw new AssertionError("Unhandled stats message." + paramMessagewhat);
+        }
+      });
+      return;
+    case 0: 
+      a.c();
+      return;
+    case 1: 
+      a.d();
+      return;
+    case 2: 
+      a.b(arg1);
+      return;
+    case 3: 
+      a.c(arg1);
+      return;
+    }
+    a.a((Long)obj);
   }
 }
 

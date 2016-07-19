@@ -1,231 +1,164 @@
+import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Color;
-import android.os.SystemClock;
-import android.text.TextUtils;
-import android.view.MotionEvent;
+import android.webkit.WebResourceResponse;
+import java.io.ByteArrayInputStream;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.WeakHashMap;
-import org.json.JSONObject;
+import java.util.concurrent.TimeUnit;
 
-@apl
+@aih
+@TargetApi(11)
 public final class ajy
-  implements aji
+  extends ajn
 {
-  private final Map<asq, Integer> a = new WeakHashMap();
-  
-  private static int a(Context paramContext, Map<String, String> paramMap, String paramString, int paramInt)
+  public ajy(ajm paramajm, boolean paramBoolean)
   {
-    paramMap = (String)paramMap.get(paramString);
-    int i = paramInt;
-    if (paramMap != null) {}
-    try
-    {
-      np.a();
-      i = sp.a(paramContext, Integer.parseInt(paramMap));
-      return i;
-    }
-    catch (NumberFormatException paramContext)
-    {
-      aqt.d("Could not parse " + paramString + " in a video GMSG: " + paramMap);
-    }
-    return paramInt;
+    super(paramajm, paramBoolean);
   }
   
-  public final void a(asq paramasq, Map<String, String> paramMap)
+  private static WebResourceResponse a(Context paramContext, String paramString1, String paramString2)
   {
-    Object localObject2 = (String)paramMap.get("action");
-    if (localObject2 == null) {
-      aqt.d("Action missing from video GMSG.");
+    HashMap localHashMap = new HashMap();
+    localHashMap.put("User-Agent", ul.c().a(paramContext, paramString1));
+    localHashMap.put("Cache-Control", "max-stale=3600");
+    paramContext = (String)new aja(paramContext).a(paramString2, localHashMap).get(60L, TimeUnit.SECONDS);
+    if (paramContext == null) {
+      return null;
     }
-    for (;;)
-    {
-      return;
-      if (aqt.a(3))
-      {
-        localObject1 = new JSONObject(paramMap);
-        ((JSONObject)localObject1).remove("google.afma.Notify_dt");
-        aqt.a("Video GMSG: " + (String)localObject2 + " " + ((JSONObject)localObject1).toString());
-      }
-      int i;
-      if ("background".equals(localObject2))
-      {
-        paramMap = (String)paramMap.get("color");
-        if (TextUtils.isEmpty(paramMap))
-        {
-          aqt.d("Color parameter missing from color video GMSG.");
-          return;
-        }
-        try
-        {
-          i = Color.parseColor(paramMap);
-          paramMap = paramasq.v();
-          if (paramMap != null)
-          {
-            paramMap = paramMap.a();
-            if (paramMap != null)
-            {
-              paramMap.setBackgroundColor(i);
-              return;
-            }
-          }
-        }
-        catch (IllegalArgumentException paramasq)
-        {
-          aqt.d("Invalid color parameter in video GMSG.");
-          return;
-        }
-        a.put(paramasq, Integer.valueOf(i));
-        return;
-      }
-      Object localObject1 = paramasq.v();
-      if (localObject1 == null)
-      {
-        aqt.d("Could not get underlay container for a video GMSG.");
-        return;
-      }
-      boolean bool1 = "new".equals(localObject2);
-      boolean bool2 = "position".equals(localObject2);
-      int j;
-      int k;
-      int m;
-      if ((bool1) || (bool2))
-      {
-        localObject2 = paramasq.getContext();
-        i = a((Context)localObject2, paramMap, "x", 0);
-        j = a((Context)localObject2, paramMap, "y", 0);
-        k = a((Context)localObject2, paramMap, "w", -1);
-        m = a((Context)localObject2, paramMap, "h", -1);
-      }
-      try
-      {
-        Integer.parseInt((String)paramMap.get("player"));
-        if ((bool1) && (((asp)localObject1).a() == null))
-        {
-          ((asp)localObject1).b(i, j, k, m);
-          if (!a.containsKey(paramasq)) {
-            continue;
-          }
-          i = ((Integer)a.get(paramasq)).intValue();
-          paramasq = ((asp)localObject1).a();
-          paramasq.setBackgroundColor(i);
-          paramasq.k();
-          return;
-        }
-        ((asp)localObject1).a(i, j, k, m);
-        return;
-        localObject1 = ((asp)localObject1).a();
-        if (localObject1 == null)
-        {
-          px.a(paramasq);
-          return;
-        }
-        if ("click".equals(localObject2))
-        {
-          paramasq = paramasq.getContext();
-          i = a(paramasq, paramMap, "x", 0);
-          j = a(paramasq, paramMap, "y", 0);
-          long l = SystemClock.uptimeMillis();
-          paramasq = MotionEvent.obtain(l, l, 0, i, j, 0);
-          ((px)localObject1).a(paramasq);
-          paramasq.recycle();
-          return;
-        }
-        if ("currentTime".equals(localObject2))
-        {
-          paramasq = (String)paramMap.get("time");
-          if (paramasq == null)
-          {
-            aqt.d("Time parameter missing from currentTime video GMSG.");
-            return;
-          }
-          try
-          {
-            ((px)localObject1).a((int)(Float.parseFloat(paramasq) * 1000.0F));
-            return;
-          }
-          catch (NumberFormatException paramMap)
-          {
-            aqt.d("Could not parse time parameter from currentTime video GMSG: " + paramasq);
-            return;
-          }
-        }
-        if ("hide".equals(localObject2))
-        {
-          ((px)localObject1).setVisibility(4);
-          return;
-        }
-        if ("load".equals(localObject2))
-        {
-          ((px)localObject1).f();
-          return;
-        }
-        if ("mimetype".equals(localObject2))
-        {
-          ((px)localObject1).a((String)paramMap.get("mimetype"));
-          return;
-        }
-        if ("muted".equals(localObject2))
-        {
-          if (Boolean.parseBoolean((String)paramMap.get("muted")))
-          {
-            ((px)localObject1).i();
-            return;
-          }
-          ((px)localObject1).j();
-          return;
-        }
-        if ("pause".equals(localObject2))
-        {
-          ((px)localObject1).g();
-          return;
-        }
-        if ("play".equals(localObject2))
-        {
-          ((px)localObject1).h();
-          return;
-        }
-        if ("show".equals(localObject2))
-        {
-          ((px)localObject1).setVisibility(0);
-          return;
-        }
-        if ("src".equals(localObject2))
-        {
-          ((px)localObject1).b((String)paramMap.get("src"));
-          return;
-        }
-        if ("volume".equals(localObject2))
-        {
-          paramasq = (String)paramMap.get("volume");
-          if (paramasq == null)
-          {
-            aqt.d("Level parameter missing from volume video GMSG.");
-            return;
-          }
-          try
-          {
-            ((px)localObject1).a(Float.parseFloat(paramasq));
-            return;
-          }
-          catch (NumberFormatException paramMap)
-          {
-            aqt.d("Could not parse volume parameter from volume video GMSG: " + paramasq);
-            return;
-          }
-        }
-        if ("watermark".equals(localObject2))
-        {
-          ((px)localObject1).k();
-          return;
-        }
-        aqt.d("Unknown video action: " + (String)localObject2);
-        return;
-      }
-      catch (NumberFormatException paramMap)
-      {
-        for (;;) {}
-      }
-    }
+    return new WebResourceResponse("application/javascript", "UTF-8", new ByteArrayInputStream(paramContext.getBytes("UTF-8")));
+  }
+  
+  /* Error */
+  public final WebResourceResponse shouldInterceptRequest(android.webkit.WebView paramWebView, String paramString)
+  {
+    // Byte code:
+    //   0: ldc 97
+    //   2: new 99	java/io/File
+    //   5: dup
+    //   6: aload_2
+    //   7: invokespecial 102	java/io/File:<init>	(Ljava/lang/String;)V
+    //   10: invokevirtual 106	java/io/File:getName	()Ljava/lang/String;
+    //   13: invokevirtual 110	java/lang/String:equalsIgnoreCase	(Ljava/lang/String;)Z
+    //   16: ifne +10 -> 26
+    //   19: aload_0
+    //   20: aload_1
+    //   21: aload_2
+    //   22: invokespecial 112	ajn:shouldInterceptRequest	(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
+    //   25: areturn
+    //   26: aload_1
+    //   27: instanceof 114
+    //   30: ifne +15 -> 45
+    //   33: ldc 116
+    //   35: invokestatic 121	ain:d	(Ljava/lang/String;)V
+    //   38: aload_0
+    //   39: aload_1
+    //   40: aload_2
+    //   41: invokespecial 112	ajn:shouldInterceptRequest	(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
+    //   44: areturn
+    //   45: aload_1
+    //   46: checkcast 114	ajm
+    //   49: astore 4
+    //   51: aload 4
+    //   53: invokeinterface 125 1 0
+    //   58: invokevirtual 128	ajn:e	()V
+    //   61: aload 4
+    //   63: invokeinterface 132 1 0
+    //   68: getfield 137	com/google/android/gms/ads/internal/client/AdSizeParcel:e	Z
+    //   71: ifeq +61 -> 132
+    //   74: getstatic 143	aex:F	Laet;
+    //   77: invokevirtual 148	aet:c	()Ljava/lang/Object;
+    //   80: checkcast 67	java/lang/String
+    //   83: astore_3
+    //   84: new 150	java/lang/StringBuilder
+    //   87: dup
+    //   88: ldc -104
+    //   90: invokespecial 153	java/lang/StringBuilder:<init>	(Ljava/lang/String;)V
+    //   93: aload_3
+    //   94: invokevirtual 157	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   97: ldc -97
+    //   99: invokevirtual 157	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   102: invokevirtual 162	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   105: invokestatic 164	ain:e	(Ljava/lang/String;)V
+    //   108: aload 4
+    //   110: invokeinterface 168 1 0
+    //   115: aload_0
+    //   116: getfield 171	ajy:a	Lajm;
+    //   119: invokeinterface 175 1 0
+    //   124: getfield 181	com/google/android/gms/ads/internal/util/client/VersionInfoParcel:b	Ljava/lang/String;
+    //   127: aload_3
+    //   128: invokestatic 183	ajy:a	(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
+    //   131: areturn
+    //   132: aload 4
+    //   134: invokeinterface 187 1 0
+    //   139: ifeq +16 -> 155
+    //   142: getstatic 190	aex:E	Laet;
+    //   145: invokevirtual 148	aet:c	()Ljava/lang/Object;
+    //   148: checkcast 67	java/lang/String
+    //   151: astore_3
+    //   152: goto -68 -> 84
+    //   155: getstatic 193	aex:D	Laet;
+    //   158: invokevirtual 148	aet:c	()Ljava/lang/Object;
+    //   161: checkcast 67	java/lang/String
+    //   164: astore_3
+    //   165: goto -81 -> 84
+    //   168: astore_3
+    //   169: new 150	java/lang/StringBuilder
+    //   172: dup
+    //   173: ldc -61
+    //   175: invokespecial 153	java/lang/StringBuilder:<init>	(Ljava/lang/String;)V
+    //   178: aload_3
+    //   179: invokevirtual 200	java/lang/Exception:getMessage	()Ljava/lang/String;
+    //   182: invokevirtual 157	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   185: invokevirtual 162	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   188: invokestatic 121	ain:d	(Ljava/lang/String;)V
+    //   191: aload_0
+    //   192: aload_1
+    //   193: aload_2
+    //   194: invokespecial 112	ajn:shouldInterceptRequest	(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
+    //   197: areturn
+    //   198: astore_3
+    //   199: goto -30 -> 169
+    //   202: astore_3
+    //   203: goto -34 -> 169
+    //   206: astore_3
+    //   207: goto -38 -> 169
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	210	0	this	ajy
+    //   0	210	1	paramWebView	android.webkit.WebView
+    //   0	210	2	paramString	String
+    //   83	82	3	str	String
+    //   168	11	3	localInterruptedException	InterruptedException
+    //   198	1	3	localExecutionException	java.util.concurrent.ExecutionException
+    //   202	1	3	localIOException	java.io.IOException
+    //   206	1	3	localTimeoutException	java.util.concurrent.TimeoutException
+    //   49	84	4	localajm	ajm
+    // Exception table:
+    //   from	to	target	type
+    //   0	26	168	java/lang/InterruptedException
+    //   26	45	168	java/lang/InterruptedException
+    //   45	84	168	java/lang/InterruptedException
+    //   84	132	168	java/lang/InterruptedException
+    //   132	152	168	java/lang/InterruptedException
+    //   155	165	168	java/lang/InterruptedException
+    //   0	26	198	java/util/concurrent/ExecutionException
+    //   26	45	198	java/util/concurrent/ExecutionException
+    //   45	84	198	java/util/concurrent/ExecutionException
+    //   84	132	198	java/util/concurrent/ExecutionException
+    //   132	152	198	java/util/concurrent/ExecutionException
+    //   155	165	198	java/util/concurrent/ExecutionException
+    //   0	26	202	java/io/IOException
+    //   26	45	202	java/io/IOException
+    //   45	84	202	java/io/IOException
+    //   84	132	202	java/io/IOException
+    //   132	152	202	java/io/IOException
+    //   155	165	202	java/io/IOException
+    //   0	26	206	java/util/concurrent/TimeoutException
+    //   26	45	206	java/util/concurrent/TimeoutException
+    //   45	84	206	java/util/concurrent/TimeoutException
+    //   84	132	206	java/util/concurrent/TimeoutException
+    //   132	152	206	java/util/concurrent/TimeoutException
+    //   155	165	206	java/util/concurrent/TimeoutException
   }
 }
 

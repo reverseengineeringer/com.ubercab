@@ -1,54 +1,97 @@
-import com.google.android.gms.ads.internal.client.AdRequestParcel;
-import java.util.LinkedList;
+import android.os.Binder;
 
-@apl
-final class ako
+public abstract class ako<T>
 {
-  private final LinkedList<akp> a;
-  private AdRequestParcel b;
-  private final String c;
-  private final int d;
+  private static final Object c = new Object();
+  private static akp d = null;
+  private static int e = 0;
+  private static String f = "com.google.android.providers.gsf.permission.READ_GSERVICES";
+  protected final String a;
+  protected final T b;
+  private T g = null;
   
-  ako(AdRequestParcel paramAdRequestParcel, String paramString, int paramInt)
+  protected ako(String paramString, T paramT)
   {
-    abs.a(paramAdRequestParcel);
-    abs.a(paramString);
-    a = new LinkedList();
-    b = paramAdRequestParcel;
-    c = paramString;
-    d = paramInt;
+    a = paramString;
+    b = paramT;
   }
   
-  final AdRequestParcel a()
+  public static int a()
   {
-    return b;
+    return e;
   }
   
-  final void a(akf paramakf)
+  public static ako<Boolean> a(String paramString)
   {
-    paramakf = new akp(this, paramakf);
-    a.add(paramakf);
-    paramakf.a(b);
+    new ako(paramString, Boolean.valueOf(true))
+    {
+      private static Boolean g()
+      {
+        return ako.f().a();
+      }
+    };
   }
   
-  final int b()
+  public static ako<Integer> a(String paramString, Integer paramInteger)
   {
-    return d;
+    new ako(paramString, paramInteger)
+    {
+      private static Integer g()
+      {
+        return ako.f().c();
+      }
+    };
   }
   
-  final String c()
+  public static ako<Long> a(String paramString, Long paramLong)
   {
-    return c;
+    new ako(paramString, paramLong)
+    {
+      private static Long g()
+      {
+        return ako.f().b();
+      }
+    };
   }
   
-  final akp d()
+  public static ako<String> a(String paramString1, String paramString2)
   {
-    return (akp)a.remove();
+    new ako(paramString1, paramString2)
+    {
+      private static String g()
+      {
+        return ako.f().d();
+      }
+    };
   }
   
-  final int e()
+  public static boolean b()
   {
-    return a.size();
+    return d != null;
+  }
+  
+  protected abstract T c();
+  
+  public final T d()
+  {
+    if (g != null) {
+      return (T)g;
+    }
+    return (T)c();
+  }
+  
+  public final T e()
+  {
+    long l = Binder.clearCallingIdentity();
+    try
+    {
+      Object localObject1 = d();
+      return (T)localObject1;
+    }
+    finally
+    {
+      Binder.restoreCallingIdentity(l);
+    }
   }
 }
 

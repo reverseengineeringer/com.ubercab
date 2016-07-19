@@ -8,13 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Toast;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import cho;
-import ckc;
-import ckp;
-import ckr;
+import chu;
+import ckt;
+import clg;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.model.AnonymousPhoneNumberResponse;
@@ -22,59 +21,62 @@ import com.ubercab.locale.phone.PhoneNumberView;
 import com.ubercab.rider.realtime.model.City;
 import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.Trip;
+import com.ubercab.rider.realtime.model.TripContactInfo;
 import com.ubercab.rider.realtime.model.TripDriver;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.TextView;
-import dpf;
-import dps;
-import dsf;
-import dux;
-import ebj;
-import efm;
-import ehh;
-import eig;
-import eiq;
-import emx;
-import erc;
-import hha;
-import hip;
-import hit;
-import hiu;
-import hiv;
-import hnk;
-import idk;
-import ife;
-import ija;
-import jsg;
-import jzz;
-import p;
-import r;
+import dua;
+import duq;
+import dxk;
+import eaj;
+import eib;
+import enf;
+import epx;
+import eqs;
+import eqy;
+import eun;
+import ezh;
+import izk;
+import jbv;
+import jca;
+import jcb;
+import jcc;
+import jht;
+import kgb;
+import kgc;
+import khv;
+import kia;
+import kmz;
+import mxm;
+import ngq;
+import x;
+import z;
 
 public class ContactDriverAnonymouslyFragment
-  extends dsf<hip>
-  implements ija
+  extends dxk<jbv>
+  implements kmz
 {
-  public ckc a;
-  public emx b;
-  public jsg d;
-  public ife e;
-  public idk f;
-  public ehh g;
-  int h = -1;
-  private boolean i;
-  private boolean j;
+  public ckt a;
+  public eun b;
+  public khv d;
+  public mxm e;
+  public kia f;
+  public kgc g;
+  public epx h;
+  int i = -1;
+  kgb j;
   private boolean k;
   private PhoneNumberView l;
-  @InjectView(2131624209)
-  Button mButtonCall;
-  @InjectView(2131624206)
-  Button mButtonEdit;
-  @InjectView(2131624208)
-  Button mButtonText;
-  @InjectView(2131624205)
-  TextView mTextViewPhoneNumber;
-  @InjectView(2131624207)
-  ViewStub mViewStubEdit;
+  @BindView
+  public Button mButtonCall;
+  @BindView
+  public Button mButtonEdit;
+  @BindView
+  public Button mButtonText;
+  @BindView
+  public TextView mTextViewPhoneNumber;
+  @BindView
+  public ViewStub mViewStubEdit;
   
   private void a(int paramInt, String paramString)
   {
@@ -83,13 +85,13 @@ public class ContactDriverAnonymouslyFragment
     default: 
       throw new IllegalArgumentException("Invalid action: " + paramInt);
     case 0: 
-      hit.a(getActivity(), paramString);
+      jca.a(getActivity(), paramString);
       return;
     case 1: 
-      hit.b(getActivity(), paramString);
+      jca.b(getActivity(), paramString);
       return;
     }
-    hit.c(getActivity(), paramString);
+    jca.c(getActivity(), paramString);
   }
   
   public static void a(RiderActivity paramRiderActivity)
@@ -97,71 +99,49 @@ public class ContactDriverAnonymouslyFragment
     new ContactDriverAnonymouslyFragment().show(paramRiderActivity.getSupportFragmentManager(), ContactDriverAnonymouslyFragment.class.getName());
   }
   
-  private void a(hip paramhip)
+  private void a(String paramString1, clg paramclg, String paramString2)
   {
-    paramhip.a(this);
-  }
-  
-  private void a(String paramString1, ckp paramckp, String paramString2)
-  {
-    paramString1 = AnalyticsEvent.create(paramString1).setName(paramckp).setValue(paramString2);
+    paramString1 = AnalyticsEvent.create(paramString1).setName(paramclg).setValue(paramString2);
     a.a(paramString1);
   }
   
-  private boolean a(int paramInt, AnonymousPhoneNumberResponse paramAnonymousPhoneNumberResponse)
+  private void a(jbv paramjbv)
   {
-    if (e.b(dux.hB)) {
-      if (j) {
-        if ((paramInt == 0) || (paramInt == 1)) {
-          if (TextUtils.isEmpty(paramAnonymousPhoneNumberResponse.getAnonymousVoiceNumber())) {}
-        }
-      }
-    }
-    while (!TextUtils.isEmpty(paramAnonymousPhoneNumberResponse.getAnonymousNumber()))
-    {
-      do
-      {
-        do
-        {
-          do
-          {
-            return true;
-            return false;
-            if (paramInt != 2) {
-              break;
-            }
-          } while (!TextUtils.isEmpty(paramAnonymousPhoneNumberResponse.getAnonymousSmsNumber()));
-          return false;
-          if (paramInt != 0) {
-            break;
-          }
-        } while (!TextUtils.isEmpty(paramAnonymousPhoneNumberResponse.getAnonymousVoiceNumber()));
-        return false;
-        if (paramInt != 2) {
-          break;
-        }
-      } while (!TextUtils.isEmpty(paramAnonymousPhoneNumberResponse.getAnonymousSmsNumber()));
-      return false;
-    }
-    return false;
-    return false;
+    paramjbv.a(this);
   }
   
-  private hip b(ebj paramebj)
+  private static boolean a(int paramInt, AnonymousPhoneNumberResponse paramAnonymousPhoneNumberResponse)
   {
-    return hiu.a().a(new efm(this)).a(paramebj).a();
+    if ((paramInt == 0) || (paramInt == 1)) {
+      if (TextUtils.isEmpty(paramAnonymousPhoneNumberResponse.getAnonymousVoiceNumber())) {}
+    }
+    do
+    {
+      return true;
+      return false;
+      if (paramInt != 2) {
+        break;
+      }
+    } while (!TextUtils.isEmpty(paramAnonymousPhoneNumberResponse.getAnonymousSmsNumber()));
+    return false;
+    return false;
   }
   
   private String b(boolean paramBoolean)
   {
-    return String.format("%s:%s", new Object[] { f(), String.valueOf(paramBoolean) });
+    return String.format("%s:%s", new Object[] { g(), String.valueOf(paramBoolean) });
+  }
+  
+  private jbv b(eib parameib)
+  {
+    return jcb.a().a(new enf(this)).a(parameib).a();
   }
   
   private void d()
   {
-    boolean bool = erc.e(l.g(), l.d());
+    boolean bool = ezh.e(l.g(), l.d());
     if (!bool) {
-      l.a(new jzz(2131165984));
+      l.a(new ngq(2131166094));
     }
     for (;;)
     {
@@ -174,113 +154,78 @@ public class ContactDriverAnonymouslyFragment
   
   private void d(int paramInt)
   {
-    String str2 = null;
-    dps.a(getActivity());
+    duq.a(getActivity());
     f(paramInt);
-    if (i)
+    if (!e(paramInt))
     {
-      if (!e(paramInt))
-      {
-        dpf.a(getActivity(), 2131166213);
-        dismiss();
+      dua.a(getActivity(), 2131166373);
+      if (d.b(eaj.mm)) {
+        a("impression", x.sS, g() + ":Error processing anonymous number request");
       }
-      return;
+      dismiss();
     }
-    String str1;
-    Object localObject;
-    TripDriver localTripDriver;
-    if (l != null)
-    {
-      str1 = erc.c(l.g(), l.d());
-      localObject = d.f();
-      if (localObject == null) {
-        break label169;
-      }
-      localTripDriver = ((Trip)localObject).getDriver();
-    }
-    for (;;)
-    {
-      if (localTripDriver != null)
-      {
-        City localCity = d.b();
-        if (localCity != null) {
-          str2 = localCity.getCityName();
-        }
-        localObject = ((Trip)localObject).getUuid();
-        if (3 == paramInt)
-        {
-          g.a((String)localObject, str2, str1);
-          return;
-          str1 = erc.c(mTextViewPhoneNumber.getText().toString(), null);
-          break;
-          label169:
-          localTripDriver = null;
-          continue;
-        }
-        h = paramInt;
-        g.a(localTripDriver.getUuid(), (String)localObject, str2, str1);
-        return;
-      }
-    }
-    dpf.a(getActivity(), 2131166213);
-    dismiss();
   }
   
   private boolean e()
   {
-    return e.b(dux.hz);
+    return f.c(eaj.mp);
   }
   
   private boolean e(int paramInt)
   {
     String str2 = null;
     String str1;
-    Object localObject;
+    Trip localTrip;
     TripDriver localTripDriver;
+    label52:
+    Object localObject;
     if (l != null)
     {
-      str1 = erc.c(l.g(), l.d());
-      localObject = d.f();
-      if (localObject == null) {
+      str1 = ezh.c(l.g(), l.d());
+      localTrip = e.f();
+      if (localTrip == null) {
         break label129;
       }
-      localTripDriver = ((Trip)localObject).getDriver();
-      label52:
+      localTripDriver = localTrip.getDriver();
       if (localTripDriver == null) {
-        break label160;
+        break label233;
       }
-      City localCity = d.b();
-      if (localCity != null) {
-        str2 = localCity.getCityName();
+      localObject = e.b();
+      if (localObject != null) {
+        str2 = ((City)localObject).getCityName();
       }
-      localObject = ((Trip)localObject).getUuid();
+      localObject = localTrip.getUuid();
       if (3 != paramInt) {
         break label134;
       }
-      g.a((String)localObject, str2, str1);
+      h.a((String)localObject, str2, str1);
     }
     for (;;)
     {
       return true;
-      str1 = erc.c(mTextViewPhoneNumber.getText().toString(), null);
+      str1 = ezh.c(mTextViewPhoneNumber.getText().toString(), null);
       break;
       label129:
       localTripDriver = null;
       break label52;
       label134:
-      h = paramInt;
-      g.a(localTripDriver.getUuid(), (String)localObject, str2, str1);
+      if ((f()) && (localTrip.getContact() != null) && (!k))
+      {
+        if (paramInt == 2) {
+          a(paramInt, localTrip.getContact().getSms());
+        }
+        for (;;)
+        {
+          dismissAllowingStateLoss();
+          break;
+          a(paramInt, localTrip.getContact().getVoice());
+        }
+      }
+      i = paramInt;
+      h.a(localTripDriver.getUuid(), (String)localObject, str2, str1);
     }
-    label160:
+    label233:
     return false;
-  }
-  
-  private String f()
-  {
-    if (e()) {
-      return "anonymous_inbound";
-    }
-    return "anonymous_outbound";
   }
   
   private void f(int paramInt)
@@ -292,7 +237,7 @@ public class ContactDriverAnonymouslyFragment
     case 0: 
     case 1: 
     case 3: 
-      mButtonCall.setText(2131165386);
+      mButtonCall.setText(2131165442);
     }
     for (;;)
     {
@@ -303,19 +248,42 @@ public class ContactDriverAnonymouslyFragment
         l.setEnabled(false);
       }
       return;
-      mButtonText.setText(2131165386);
+      mButtonText.setText(2131165442);
     }
   }
   
-  public final void G_()
+  private boolean f()
+  {
+    if (!f.a(eaj.mq, true)) {}
+    Trip localTrip;
+    do
+    {
+      return false;
+      localTrip = e.f();
+    } while ((localTrip == null) || (localTrip.getContact() == null));
+    return true;
+  }
+  
+  private String g()
+  {
+    if (f()) {
+      return "anonymous_next_gen";
+    }
+    if (e()) {
+      return "anonymous_inbound";
+    }
+    return "anonymous_outbound";
+  }
+  
+  public final void D_()
   {
     k = true;
     d();
   }
   
-  public final ckr a()
+  public final cli a()
   {
-    return p.aZ;
+    return x.bA;
   }
   
   public final void a(String paramString)
@@ -331,79 +299,66 @@ public class ContactDriverAnonymouslyFragment
     return false;
   }
   
-  @cho
-  public void onAnonymousPhoneNumberResponseEvent(eig parameig)
+  @chu
+  public void onAnonymousPhoneNumberResponseEvent(eqs parameqs)
   {
-    if ((i) && (h == -1)) {
+    if (i == -1) {
       return;
     }
-    int m;
-    if ((parameig.i()) && (a(h, (AnonymousPhoneNumberResponse)parameig.g()))) {
-      if (e.b(dux.hB)) {
-        if (j)
-        {
-          m = h;
-          if (h == 2)
-          {
-            parameig = ((AnonymousPhoneNumberResponse)parameig.g()).getAnonymousSmsNumber();
-            a(m, parameig);
-          }
-        }
+    if ((parameqs.i()) && (a(i, (AnonymousPhoneNumberResponse)parameqs.g())))
+    {
+      int m = i;
+      if (i == 2)
+      {
+        parameqs = ((AnonymousPhoneNumberResponse)parameqs.g()).getAnonymousSmsNumber();
+        a(m, parameqs);
       }
     }
     for (;;)
     {
-      if (i) {
-        h = -1;
-      }
+      i = -1;
       dismiss();
       return;
-      parameig = ((AnonymousPhoneNumberResponse)parameig.g()).getAnonymousVoiceNumber();
+      parameqs = ((AnonymousPhoneNumberResponse)parameqs.g()).getAnonymousVoiceNumber();
       break;
-      m = h;
-      if (h == 0) {}
-      for (parameig = ((AnonymousPhoneNumberResponse)parameig.g()).getAnonymousVoiceNumber();; parameig = ((AnonymousPhoneNumberResponse)parameig.g()).getAnonymousSmsNumber())
-      {
-        a(m, parameig);
-        break;
+      dua.a(getActivity(), 2131166373);
+      if (d.b(eaj.mm)) {
+        a("impression", x.sS, g() + ":Error processing anonymous number response");
       }
-      a(h, ((AnonymousPhoneNumberResponse)parameig.g()).getAnonymousNumber());
-      continue;
-      dpf.a(getActivity(), 2131166213);
     }
   }
   
-  @OnClick({2131624209})
+  @OnClick
   public void onClickCall()
   {
-    a("tap", r.ak, b(k));
+    a("tap", z.aE, b(k));
     RiderActivity localRiderActivity = b();
     if (e())
     {
       d(3);
       return;
     }
-    if ((localRiderActivity == null) || (idk.a(getContext(), "android.permission.CALL_PHONE")))
+    if ((localRiderActivity == null) || (kgc.a(getContext(), "android.permission.CALL_PHONE")))
     {
       d(0);
       return;
     }
-    f.a(localRiderActivity, 107, new ContactDriverAnonymouslyFragment.1(this), new String[] { "android.permission.CALL_PHONE" });
+    j = g.a(localRiderActivity, 107, new ContactDriverAnonymouslyFragment.1(this), new String[] { "android.permission.CALL_PHONE" });
   }
   
-  @OnClick({2131624206})
+  @OnClick
   public void onClickEdit()
   {
-    a("tap", r.ah, f());
+    a("tap", z.aB, g());
     if ((mViewStubEdit == null) || (mViewStubEdit.getParent() == null)) {
       return;
     }
     Object localObject = mViewStubEdit.inflate();
     mViewStubEdit = null;
-    l = ((PhoneNumberView)((View)localObject).findViewById(2131624210));
+    l = ((PhoneNumberView)((View)localObject).findViewById(2131624386));
     String str = mTextViewPhoneNumber.getText().toString();
-    localObject = erc.a(str, null);
-    str = erc.d(str, null);
+    localObject = ezh.a(str, null);
+    str = ezh.d(str, null);
     l.a(str, (String)localObject);
     l.a(this);
     mTextViewPhoneNumber.setVisibility(8);
@@ -411,61 +366,66 @@ public class ContactDriverAnonymouslyFragment
     d();
   }
   
-  @OnClick({2131624208})
+  @OnClick
   public void onClickText()
   {
-    a("tap", r.aj, b(k));
+    a("tap", z.aD, b(k));
     d(2);
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setStyle(1, 2131362220);
-    i = e.a(dux.hx, true);
-    j = e.a(dux.hy, true);
+    setStyle(1, 2131362293);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903125, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903188, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
   }
   
   public void onDestroyView()
   {
+    if (j != null)
+    {
+      j.a();
+      j = null;
+    }
     super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
-  @cho
-  public void onInitiateAnonymousInboundCallResponseEvent(eiq parameiq)
+  @chu
+  public void onInitiateAnonymousInboundCallResponseEvent(eqy parameqy)
   {
-    if (parameiq.i()) {
-      Toast.makeText(getActivity(), 2131166214, 1).show();
+    if (parameqy.i()) {
+      Toast.makeText(getActivity(), 2131166374, 1).show();
     }
     for (;;)
     {
       dismiss();
       return;
-      dpf.a(getActivity(), 2131166213);
+      dua.a(getActivity(), 2131166373);
+      if (d.b(eaj.mm)) {
+        a("impression", x.sS, g() + ":Error processing initiate inbound response");
+      }
     }
   }
   
   public void onResume()
   {
     super.onResume();
-    if ((i) && ((h == 0) || (h == 1) || (h == 2))) {
-      e(h);
+    if ((i == 0) || (i == 1) || (i == 2)) {
+      e(i);
     }
-    a("impression", p.bb, f());
+    a("impression", x.bC, g());
   }
   
-  @cho
-  public void onTripUiStateChangedEvent(hnk paramhnk)
+  @chu
+  public void onTripUiStateChangedEvent(jht paramjht)
   {
-    if (!hha.d(paramhnk.b())) {
+    if (!izk.f(paramjht.b())) {
       dismiss();
     }
   }
@@ -475,41 +435,44 @@ public class ContactDriverAnonymouslyFragment
     Object localObject = null;
     int n = 0;
     super.onViewCreated(paramView, paramBundle);
-    paramView = d.c();
+    paramView = e.c();
     if (paramView != null) {}
     for (paramView = paramView.getMobile(); TextUtils.isEmpty(paramView); paramView = null)
     {
-      dpf.a(getActivity(), 2131166213);
+      dua.a(getActivity(), 2131166373);
+      if (d.b(eaj.mm)) {
+        a("impression", x.sS, g() + ":Client number is empty");
+      }
       dismiss();
       return;
     }
-    mTextViewPhoneNumber.setText(erc.b(paramView));
+    mTextViewPhoneNumber.setText(ezh.b(paramView));
     if (e()) {
-      mButtonCall.setText(2131165388);
+      mButtonCall.setText(2131165444);
     }
-    paramBundle = d.f();
+    paramBundle = e.f();
     paramView = (View)localObject;
     if (paramBundle != null) {
       paramView = paramBundle.getDriver();
     }
-    if ((paramView != null) && (hit.a(b, e, paramView)))
+    if ((paramView != null) && (jca.a(b, f, paramView)))
     {
       m = 1;
-      boolean bool = hit.a(b);
+      boolean bool = jca.a(b);
       paramView = mButtonCall;
       if (m == 0) {
-        break label181;
+        break label226;
       }
       m = 0;
-      label152:
+      label197:
       paramView.setVisibility(m);
       paramView = mButtonText;
       if (!bool) {
-        break label187;
+        break label232;
       }
     }
-    label181:
-    label187:
+    label226:
+    label232:
     for (int m = n;; m = 8)
     {
       paramView.setVisibility(m);
@@ -517,7 +480,7 @@ public class ContactDriverAnonymouslyFragment
       m = 0;
       break;
       m = 8;
-      break label152;
+      break label197;
     }
   }
 }

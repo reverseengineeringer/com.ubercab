@@ -4,7 +4,7 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
-import bko;
+import bcv;
 
 public class AppMeasurementContentProvider
   extends ContentProvider
@@ -26,7 +26,7 @@ public class AppMeasurementContentProvider
   
   public boolean onCreate()
   {
-    bko.a(getContext());
+    bcv.a(getContext());
     return false;
   }
   

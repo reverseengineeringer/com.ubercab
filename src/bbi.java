@@ -1,15 +1,19 @@
 public final class bbi
 {
-  private final add a;
+  public final String a;
+  public final String b;
+  public final long c;
+  public final Object d;
   
-  bbi(add paramadd)
+  bbi(String paramString1, String paramString2, long paramLong, Object paramObject)
   {
-    a = ((add)abs.a(paramadd));
-  }
-  
-  public final add a()
-  {
-    return a;
+    abe.a(paramString1);
+    abe.a(paramString2);
+    abe.a(paramObject);
+    a = paramString1;
+    b = paramString2;
+    c = paramLong;
+    d = paramObject;
   }
 }
 

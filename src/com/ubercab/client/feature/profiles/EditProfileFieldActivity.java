@@ -4,172 +4,294 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
+import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import cho;
-import ckr;
+import chu;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.feature.payment.AddPaymentActivity;
 import com.ubercab.client.feature.payment.PaymentActivity;
+import com.ubercab.client.feature.payment.PaymentFragment;
+import com.ubercab.client.feature.profiles.model.TypedProfile;
+import com.ubercab.rider.realtime.model.PaymentProfile;
 import com.ubercab.rider.realtime.model.Profile;
-import dps;
-import dta;
-import dtf;
-import eav;
-import ebj;
-import ejv;
-import epw;
-import eri;
-import ggm;
-import ggn;
-import ghh;
-import ghi;
-import ghj;
-import gif;
-import gij;
-import giv;
-import gjb;
+import duq;
+import dyn;
+import dys;
+import eaj;
+import ehn;
+import eib;
+import exw;
+import ezm;
+import hch;
+import hhh;
+import hhi;
+import hif;
+import hig;
+import hih;
+import hij;
+import hjm;
+import hjo;
+import hko;
+import hks;
 import java.util.Collection;
 import java.util.Collections;
-import kld;
-import klo;
-import kul;
+import kia;
+import mxd;
+import odr;
+import oed;
+import opc;
 
 public class EditProfileFieldActivity
-  extends RiderActivity<ghh>
+  extends RiderActivity<hif>
 {
-  public dta g;
-  public gif h;
-  private ProgressDialog i;
-  private ghi j;
-  private Profile k;
-  private klo l;
+  public kia g;
+  public dyn h;
+  public mxd i;
+  public hjm j;
+  private hjo k;
+  private ProgressDialog l;
+  private hig m;
+  private Profile n;
+  private boolean o;
+  private oed p;
   
   public static Intent a(Context paramContext, Profile paramProfile)
   {
-    return new Intent(paramContext, EditProfileFieldActivity.class).setAction("ACTION_EDIT_SUMMARY_REPORTS").putExtra("EXTRA_TROY_PROFILE_UUID", paramProfile.getUuid()).putExtra("EXTRA_ON_SAVE_ACTION_MODE", ghi.a);
+    return new Intent(paramContext, EditProfileFieldActivity.class).setAction("ACTION_EDIT_SUMMARY_REPORTS").putExtra("EXTRA_TROY_PROFILE_UUID", paramProfile.getUuid()).putExtra("EXTRA_ON_SAVE_ACTION_MODE", hig.a);
   }
   
-  public static Intent a(Context paramContext, Profile paramProfile, ghi paramghi)
+  public static Intent a(Context paramContext, Profile paramProfile, hig paramhig)
   {
-    return new Intent(paramContext, EditProfileFieldActivity.class).setAction("ACTION_EDIT_EMAIL").putExtra("EXTRA_TROY_PROFILE_UUID", paramProfile.getUuid()).putExtra("EXTRA_ON_SAVE_ACTION_MODE", paramghi);
+    return new Intent(paramContext, EditProfileFieldActivity.class).setAction("ACTION_EDIT_EMAIL").putExtra("EXTRA_TROY_PROFILE_UUID", paramProfile.getUuid()).putExtra("EXTRA_ON_SAVE_ACTION_MODE", paramhig);
+  }
+  
+  private void a(int paramInt1, int paramInt2)
+  {
+    if (!j())
+    {
+      b().a(getString(2131165917, new Object[] { Integer.valueOf(paramInt2), Integer.valueOf(2) }));
+      return;
+    }
+    b().a(paramInt1);
+  }
+  
+  private static void a(PaymentFragment paramPaymentFragment, String paramString)
+  {
+    if (paramString != null) {
+      paramPaymentFragment.d(paramString);
+    }
   }
   
   private void a(Profile paramProfile)
   {
-    if (a(ReportIntervalFragment.class) == null) {
-      a(2131624119, ReportIntervalFragment.a(paramProfile), true);
+    if (g())
+    {
+      o = false;
+      a(2131165819, 2);
+      hij.a(this, EditEmailFragment.a(j.d(paramProfile).shouldShowBusinessProfileAsTitle(), paramProfile.getEmail()), 2131624192);
+      supportInvalidateOptionsMenu();
     }
+    while (a(EditEmailFragment.class) != null) {
+      return;
+    }
+    a(2131624192, EditEmailFragment.a(paramProfile), true);
   }
   
-  private void a(ghh paramghh)
+  private void a(hif paramhif)
   {
-    paramghh.a(this);
+    paramhif.a(this);
   }
   
   private void a(boolean paramBoolean)
   {
-    if (i == null) {
+    if (l == null) {
       return;
     }
-    i.setOnDismissListener(new EditProfileFieldActivity.1(this, paramBoolean));
-    i.dismiss();
+    l.setOnDismissListener(new EditProfileFieldActivity.1(this, paramBoolean));
+    l.dismiss();
   }
   
-  private ghh b(ebj paramebj)
+  private hif b(eib parameib)
   {
-    return ggm.a().a(new eav(this)).a(paramebj).a();
+    return hhh.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void b(Profile paramProfile)
   {
-    if (a(EditEmailFragment.class) == null) {
-      a(2131624119, EditEmailFragment.a(paramProfile), true);
+    if (a(ReportIntervalFragment.class) == null) {
+      a(2131624192, ReportIntervalFragment.a(paramProfile), true);
     }
   }
   
   private void f()
   {
-    if (i != null) {
-      i.dismiss();
+    if (l != null) {
+      l.dismiss();
     }
   }
   
-  private void g()
+  private boolean g()
   {
-    switch (EditProfileFieldActivity.2.a[j.ordinal()])
+    return (g.c(eaj.ma)) && (hig.a != m);
+  }
+  
+  private boolean h()
+  {
+    return getSupportFragmentManager().getBackStackEntryCount() == 1;
+  }
+  
+  private void i()
+  {
+    if (m == null) {
+      m = hig.a;
+    }
+    switch (EditProfileFieldActivity.2.a[m.ordinal()])
     {
     default: 
       setResult(-1);
       finish();
       return;
     case 1: 
-      startActivityForResult(AddPaymentActivity.a(this, k), 2000);
+      startActivityForResult(AddPaymentActivity.a(this, n), 2000);
       return;
     }
-    startActivityForResult(PaymentActivity.a(this, null, k), 2000);
+    if (g())
+    {
+      a(2131165745, 1);
+      k();
+      return;
+    }
+    startActivityForResult(PaymentActivity.a(this, null, n), 2000);
   }
   
-  private void h()
+  private boolean j()
   {
-    i = epw.a(this, getString(2131167175));
-    i.show();
+    return (n != null) && (!j.d(n).isEmailEditable());
+  }
+  
+  private void k()
+  {
+    o = true;
+    a(2131624192, PaymentFragment.a(n));
+  }
+  
+  private void l()
+  {
+    l = exw.b(this, getString(2131167548));
+    l.show();
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903094);
+    setContentView(2130903119);
     paramBundle = getIntent().getStringExtra("EXTRA_TROY_PROFILE_UUID");
-    k = h.a(paramBundle);
-    if (k == null)
+    n = j.a(paramBundle);
+    if (n == null)
     {
-      kul.e("Null Profile in EditProfileField with uuid = " + paramBundle, new Object[0]);
+      opc.e("Null Profile in EditProfileField with uuid = " + paramBundle, new Object[0]);
       setResult(-99);
       finish();
     }
     do
     {
       return;
-      j = ((ghi)getIntent().getSerializableExtra("EXTRA_ON_SAVE_ACTION_MODE"));
+      m = ((hig)getIntent().getSerializableExtra("EXTRA_ON_SAVE_ACTION_MODE"));
       paramBundle = getIntent().getAction();
       if ("ACTION_EDIT_SUMMARY_REPORTS".equals(paramBundle))
       {
-        a(k);
+        b(n);
         return;
       }
     } while (!"ACTION_EDIT_EMAIL".equals(paramBundle));
-    b(k);
+    if ((j()) || (g()))
+    {
+      i();
+      return;
+    }
+    a(n);
   }
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
-    if ((paramInt1 == 2000) && (paramInt2 == -1))
+    if (paramInt1 == 2000) {
+      if ((paramInt2 == -1) || ((paramInt2 == 0) && (j())))
+      {
+        setResult(paramInt2, paramIntent);
+        if ((!g()) || (j()) || (n == null)) {
+          break label66;
+        }
+        a(n);
+      }
+    }
+    label66:
+    while ((paramInt1 != 1001) || (paramInt2 != -1))
     {
-      setResult(paramInt2, paramIntent);
+      return;
       finish();
+      return;
+    }
+    PaymentFragment localPaymentFragment = (PaymentFragment)a(PaymentFragment.class);
+    if (localPaymentFragment != null) {
+      if (paramIntent != null) {
+        break label126;
+      }
+    }
+    label126:
+    for (paramIntent = null;; paramIntent = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID"))
+    {
+      a(localPaymentFragment, paramIntent);
+      i.a().b(ezm.a());
+      return;
     }
   }
   
-  @cho
-  public void onEditEmailCompleteEvent(giv paramgiv)
+  public void onBackPressed()
   {
-    dps.a(this);
-    h();
-    if (h.t())
+    if (g())
     {
-      if ((paramgiv.a() == null) || (k == null)) {
-        f();
-      }
-      do
+      if (h())
       {
+        setResult(0);
+        finish();
         return;
-        paramgiv = h.a(k).b(paramgiv.a()).a();
-      } while (!h.t());
-      l = paramgiv.b(new ghj(this, (byte)0));
+      }
+      a(2131165745, 1);
+    }
+    super.onBackPressed();
+  }
+  
+  public boolean onCreateOptionsMenu(Menu paramMenu)
+  {
+    super.onCreateOptionsMenu(paramMenu);
+    if (g()) {
+      getMenuInflater().inflate(2131755022, paramMenu);
+    }
+    return true;
+  }
+  
+  @chu
+  public void onEditEmailCompleteEvent(hko paramhko)
+  {
+    duq.a(this);
+    l();
+    if ((paramhko.a() == null) || (n == null))
+    {
+      f();
       return;
     }
-    h.b(k, paramgiv.a());
+    if ((g()) && (k != null)) {}
+    for (hjo localhjo = k;; localhjo = j.b(n))
+    {
+      p = localhjo.b(paramhko.a()).a().b(new hih(this, (byte)0));
+      return;
+    }
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -179,49 +301,80 @@ public class EditProfileFieldActivity
       finish();
       return true;
     }
+    if (paramMenuItem.getItemId() == 2131626898)
+    {
+      startActivityForResult(new Intent(this, AddPaymentActivity.class), 1001);
+      return true;
+    }
     return super.onOptionsItemSelected(paramMenuItem);
   }
   
   public void onPause()
   {
     if (isFinishing()) {
-      eri.a(l);
+      ezm.a(p);
     }
     super.onPause();
   }
   
-  @cho
-  public void onReportIntervalCompleteEvent(gjb paramgjb)
+  @chu
+  public void onPaymentProfileSelectedEvent(hch paramhch)
   {
-    h();
-    if (h.t())
+    if (!g()) {
+      return;
+    }
+    Intent localIntent = new Intent();
+    if ((paramhch.a() != null) && (n != null))
     {
-      if ((paramgjb.a() == null) || (k == null))
+      paramhch = paramhch.a().getUuid();
+      if (!TextUtils.isEmpty(paramhch))
       {
-        f();
-        return;
+        k = j.b(n).a(paramhch);
+        localIntent.putExtra("com.ubercab.PAYMENT_PROFILE_UUID", paramhch);
       }
-      l = h.a(k).b(paramgjb.a()).a().b(new ghj(this, (byte)0));
+      localIntent.putExtra("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID", n.getUuid());
+    }
+    setResult(-1, localIntent);
+    if ((!j()) && (n != null))
+    {
+      a(n);
       return;
     }
-    h.a(k, paramgjb.a());
-  }
-  
-  @cho
-  public void onUpdateProfileResponseEvent(ejv paramejv)
-  {
-    if (i == null) {
+    if (k == null)
+    {
+      finish();
       return;
     }
-    a(paramejv.k());
+    l();
+    p = k.a().b(new hih(this, (byte)0));
   }
   
-  protected final Collection<dtf> t()
+  public boolean onPrepareOptionsMenu(Menu paramMenu)
   {
-    return Collections.singleton(g);
+    if (g()) {
+      paramMenu.findItem(2131626898).setVisible(o);
+    }
+    return super.onPrepareOptionsMenu(paramMenu);
   }
   
-  public final ckr u()
+  @chu
+  public void onReportIntervalCompleteEvent(hks paramhks)
+  {
+    l();
+    if ((paramhks.a() == null) || (n == null))
+    {
+      f();
+      return;
+    }
+    p = j.b(n).b(paramhks.a()).a().b(new hih(this, (byte)0));
+  }
+  
+  protected final Collection<dys> u()
+  {
+    return Collections.singleton(h);
+  }
+  
+  public final cli v()
   {
     return RiderActivity.a;
   }

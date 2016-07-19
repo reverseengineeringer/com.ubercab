@@ -1,53 +1,72 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.LocationSettingsStates;
 
-public abstract class ats
-  extends Binder
-  implements atr
+public final class ats
+  implements Parcelable.Creator<LocationSettingsStates>
 {
-  public ats()
+  private static LocationSettingsStates a(Parcel paramParcel)
   {
-    attachInterface(this, "com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
-  }
-  
-  public static atr a(IBinder paramIBinder)
-  {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
-    if ((localIInterface != null) && ((localIInterface instanceof atr))) {
-      return (atr)localIInterface;
-    }
-    return new att(paramIBinder);
-  }
-  
-  public IBinder asBinder()
-  {
-    return this;
-  }
-  
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
+    boolean bool1 = false;
+    int j = zd.b(paramParcel);
+    boolean bool2 = false;
+    boolean bool3 = false;
+    boolean bool4 = false;
+    boolean bool5 = false;
+    boolean bool6 = false;
+    int i = 0;
+    while (paramParcel.dataPosition() < j)
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
-      return true;
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        bool6 = zd.b(paramParcel, k);
+        break;
+      case 1000: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        bool5 = zd.b(paramParcel, k);
+        break;
+      case 3: 
+        bool4 = zd.b(paramParcel, k);
+        break;
+      case 4: 
+        bool3 = zd.b(paramParcel, k);
+        break;
+      case 5: 
+        bool2 = zd.b(paramParcel, k);
+        break;
+      case 6: 
+        bool1 = zd.b(paramParcel, k);
+      }
     }
-    paramParcel1.enforceInterface("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
-    if (paramParcel1.readInt() != 0) {}
-    for (paramParcel1 = (Status)Status.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-    {
-      a(paramParcel1);
-      return true;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
+    return new LocationSettingsStates(i, bool6, bool5, bool4, bool3, bool2, bool1);
+  }
+  
+  public static void a(LocationSettingsStates paramLocationSettingsStates, Parcel paramParcel)
+  {
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramLocationSettingsStates.b());
+    zf.a(paramParcel, 1000, paramLocationSettingsStates.a());
+    zf.a(paramParcel, 2, paramLocationSettingsStates.d());
+    zf.a(paramParcel, 3, paramLocationSettingsStates.f());
+    zf.a(paramParcel, 4, paramLocationSettingsStates.c());
+    zf.a(paramParcel, 5, paramLocationSettingsStates.e());
+    zf.a(paramParcel, 6, paramLocationSettingsStates.g());
+    zf.a(paramParcel, i);
+  }
+  
+  private static LocationSettingsStates[] a(int paramInt)
+  {
+    return new LocationSettingsStates[paramInt];
   }
 }
 

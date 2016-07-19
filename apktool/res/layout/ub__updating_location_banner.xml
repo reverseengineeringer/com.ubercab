@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__white" android:gravity="center" android:id="@id/ub__textview_network_error" android:background="@color/ub__uber_blue_100" android:padding="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/updating_location"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

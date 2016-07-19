@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 abstract class BaseFragmentActivityHoneycomb
-  extends BaseFragmentActivityDonut
+  extends BaseFragmentActivityEclair
 {
   public View onCreateView(View paramView, String paramString, Context paramContext, AttributeSet paramAttributeSet)
   {

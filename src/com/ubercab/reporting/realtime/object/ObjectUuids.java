@@ -1,11 +1,11 @@
 package com.ubercab.reporting.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jqy;
+import mph;
 
 @Shape
 public abstract class ObjectUuids
-  implements jqy
+  implements mph
 {
   static ObjectUuids create()
   {

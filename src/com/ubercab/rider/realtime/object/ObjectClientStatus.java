@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsp;
+import mxv;
 
 @Shape
 abstract class ObjectClientStatus
-  implements jsp
+  implements mxv
 {
   public static ObjectClientStatus create()
   {

@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import juv;
+import nae;
 
 @Shape
 abstract class ObjectTripFareChange
-  implements juv
+  implements nae
 {}
 
 /* Location:

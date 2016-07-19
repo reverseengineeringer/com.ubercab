@@ -12,37 +12,37 @@ import android.text.style.TextAppearanceSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import bpc;
-import bps;
+import blw;
+import bmm;
 import com.ubercab.experiment.model.Experiment;
 import com.ubercab.experiment.model.ExperimentDefinition;
 import com.ubercab.experiment.model.TreatmentGroupDefinition;
-import ift;
 import java.util.Iterator;
 import java.util.List;
+import kij;
 
 public class ExperimentPreference
   extends ListPreference
 {
   private final Experiment a;
   private final ExperimentDefinition b;
-  private final bpc c;
+  private final blw c;
   private ForegroundColorSpan d;
   private ForegroundColorSpan e;
   private CharSequence f;
   
-  public ExperimentPreference(Context paramContext, bpc parambpc, ExperimentDefinition paramExperimentDefinition, Experiment paramExperiment)
+  public ExperimentPreference(Context paramContext, blw paramblw, ExperimentDefinition paramExperimentDefinition, Experiment paramExperiment)
   {
     super(paramContext);
     a = paramExperiment;
     b = paramExperimentDefinition;
-    c = parambpc;
+    c = paramblw;
     setPersistent(true);
     setKey(paramExperimentDefinition.getName());
     setSummary(paramExperimentDefinition.getDescription());
-    Object localObject = paramContext.getString(ift.value_server);
-    parambpc = paramContext.getString(ift.value_off);
-    paramExperiment = paramContext.getString(ift.value_on);
+    Object localObject = paramContext.getString(kij.value_server);
+    paramblw = paramContext.getString(kij.value_off);
+    paramExperiment = paramContext.getString(kij.value_on);
     TextAppearanceSpan localTextAppearanceSpan = new TextAppearanceSpan(paramContext, 16974259);
     d = new ForegroundColorSpan(-16776961);
     e = new ForegroundColorSpan(-3355444);
@@ -60,7 +60,7 @@ public class ExperimentPreference
       if (paramExperimentDefinition.isFeatureFlag()) {
         if (paramContext.getName().equals("control"))
         {
-          paramContext = parambpc;
+          paramContext = paramblw;
           label206:
           arrayOfCharSequence1[(i + 1)] = paramContext;
         }
@@ -112,7 +112,7 @@ public class ExperimentPreference
         {
           localObject = getContext();
           if ("control".equalsIgnoreCase(a.getTreatmentGroupName())) {}
-          for (i = ift.value_off;; i = ift.value_on)
+          for (i = kij.value_off;; i = kij.value_on)
           {
             localObject = new SpannableString(((Context)localObject).getString(i));
             break;
@@ -125,14 +125,14 @@ public class ExperimentPreference
     {
       localObject = getContext();
       if ("control".equalsIgnoreCase(getValue())) {
-        i = ift.value_off;
+        i = kij.value_off;
       }
     }
     for (Object localObject = new SpannableString(((Context)localObject).getString(i));; localObject = new SpannableString(getValue()))
     {
       ((SpannableString)localObject).setSpan(d, 0, ((SpannableString)localObject).length(), 33);
       return (CharSequence)localObject;
-      i = ift.value_on;
+      i = kij.value_on;
       break;
     }
   }
@@ -146,11 +146,11 @@ public class ExperimentPreference
       paramString = ((TreatmentGroupDefinition)c.a(str, TreatmentGroupDefinition.class)).getName();
       return paramString;
     }
-    catch (bps paramString)
+    catch (NullPointerException paramString)
     {
       return str;
     }
-    catch (NullPointerException paramString)
+    catch (bmm paramString)
     {
       for (;;) {}
     }
@@ -207,7 +207,7 @@ public class ExperimentPreference
           }
           localTreatmentGroupDefinition = (TreatmentGroupDefinition)((Iterator)localObject).next();
         } while (!TextUtils.equals(paramString, localTreatmentGroupDefinition.getName()));
-        paramString = c.a(localTreatmentGroupDefinition);
+        paramString = c.b(localTreatmentGroupDefinition);
       }
       else
       {

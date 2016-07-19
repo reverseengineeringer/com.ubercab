@@ -4,9 +4,10 @@ public class MediaBrowserServiceCompat$Result<T>
 {
   private Object mDebug;
   private boolean mDetachCalled;
+  private int mFlags;
   private boolean mSendResultCalled;
   
-  MediaBrowserServiceCompat$Result(MediaBrowserServiceCompat paramMediaBrowserServiceCompat, Object paramObject)
+  MediaBrowserServiceCompat$Result(Object paramObject)
   {
     mDebug = paramObject;
   }
@@ -27,7 +28,7 @@ public class MediaBrowserServiceCompat$Result<T>
     return (mDetachCalled) || (mSendResultCalled);
   }
   
-  void onResultSent(T paramT) {}
+  void onResultSent(T paramT, int paramInt) {}
   
   public void sendResult(T paramT)
   {
@@ -35,7 +36,12 @@ public class MediaBrowserServiceCompat$Result<T>
       throw new IllegalStateException("sendResult() called twice for: " + mDebug);
     }
     mSendResultCalled = true;
-    onResultSent(paramT);
+    onResultSent(paramT, mFlags);
+  }
+  
+  void setFlags(int paramInt)
+  {
+    mFlags = paramInt;
   }
 }
 

@@ -1,90 +1,143 @@
-import android.graphics.BitmapFactory.Options;
-import android.net.NetworkInfo;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build.VERSION;
+import android.os.SystemClock;
+import android.util.DisplayMetrics;
+import android.widget.ImageView;
 
-public abstract class cjh
+final class cjh
+  extends BitmapDrawable
 {
-  static void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, BitmapFactory.Options paramOptions, cje paramcje)
+  private static final Paint e = new Paint();
+  Drawable a;
+  long b;
+  boolean c;
+  int d = 255;
+  private final boolean f;
+  private final float g;
+  private final cje h;
+  
+  private cjh(Context paramContext, Bitmap paramBitmap, Drawable paramDrawable, cje paramcje, boolean paramBoolean1, boolean paramBoolean2)
   {
-    int i = 1;
-    if ((paramInt4 > paramInt2) || (paramInt3 > paramInt1))
+    super(paramContext.getResources(), paramBitmap);
+    f = paramBoolean2;
+    g = getResourcesgetDisplayMetricsdensity;
+    h = paramcje;
+    if ((paramcje != cje.a) && (!paramBoolean1)) {}
+    for (int i = 1;; i = 0)
     {
-      if (paramInt2 != 0) {
-        break label43;
+      if (i != 0)
+      {
+        a = paramDrawable;
+        c = true;
+        b = SystemClock.uptimeMillis();
       }
-      i = (int)Math.floor(paramInt3 / paramInt1);
+      return;
+    }
+  }
+  
+  private static Path a(Point paramPoint, int paramInt)
+  {
+    Point localPoint1 = new Point(x + paramInt, y);
+    Point localPoint2 = new Point(x, y + paramInt);
+    Path localPath = new Path();
+    localPath.moveTo(x, y);
+    localPath.lineTo(x, y);
+    localPath.lineTo(x, y);
+    return localPath;
+  }
+  
+  private void a(Canvas paramCanvas)
+  {
+    e.setColor(-1);
+    paramCanvas.drawPath(a(new Point(0, 0), (int)(16.0F * g)), e);
+    e.setColor(h.d);
+    paramCanvas.drawPath(a(new Point(0, 0), (int)(15.0F * g)), e);
+  }
+  
+  static void a(ImageView paramImageView, Context paramContext, Bitmap paramBitmap, cje paramcje, boolean paramBoolean1, boolean paramBoolean2)
+  {
+    Drawable localDrawable = paramImageView.getDrawable();
+    if ((localDrawable instanceof AnimationDrawable)) {
+      ((AnimationDrawable)localDrawable).stop();
+    }
+    paramImageView.setImageDrawable(new cjh(paramContext, paramBitmap, localDrawable, paramcje, paramBoolean1, paramBoolean2));
+  }
+  
+  static void a(ImageView paramImageView, Drawable paramDrawable)
+  {
+    paramImageView.setImageDrawable(paramDrawable);
+    if ((paramImageView.getDrawable() instanceof AnimationDrawable)) {
+      ((AnimationDrawable)paramImageView.getDrawable()).start();
+    }
+  }
+  
+  public final void draw(Canvas paramCanvas)
+  {
+    if (!c) {
+      super.draw(paramCanvas);
     }
     for (;;)
     {
-      inSampleSize = i;
-      inJustDecodeBounds = false;
+      if (f) {
+        a(paramCanvas);
+      }
       return;
-      label43:
-      if (paramInt1 == 0)
+      float f1 = (float)(SystemClock.uptimeMillis() - b) / 200.0F;
+      if (f1 >= 1.0F)
       {
-        i = (int)Math.floor(paramInt4 / paramInt2);
+        c = false;
+        a = null;
+        super.draw(paramCanvas);
       }
       else
       {
-        paramInt2 = (int)Math.floor(paramInt4 / paramInt2);
-        paramInt1 = (int)Math.floor(paramInt3 / paramInt1);
-        if (k) {
-          i = Math.max(paramInt2, paramInt1);
-        } else {
-          i = Math.min(paramInt2, paramInt1);
+        if (a != null) {
+          a.draw(paramCanvas);
+        }
+        super.setAlpha((int)(f1 * d));
+        super.draw(paramCanvas);
+        super.setAlpha(d);
+        if (Build.VERSION.SDK_INT <= 10) {
+          invalidateSelf();
         }
       }
     }
   }
   
-  static void a(int paramInt1, int paramInt2, BitmapFactory.Options paramOptions, cje paramcje)
+  protected final void onBoundsChange(Rect paramRect)
   {
-    a(paramInt1, paramInt2, outWidth, outHeight, paramOptions, paramcje);
-  }
-  
-  static boolean a(BitmapFactory.Options paramOptions)
-  {
-    return (paramOptions != null) && (inJustDecodeBounds);
-  }
-  
-  static BitmapFactory.Options d(cje paramcje)
-  {
-    boolean bool = paramcje.d();
-    if (q != null) {}
-    for (int i = 1;; i = 0)
-    {
-      Object localObject = null;
-      if ((bool) || (i != 0))
-      {
-        BitmapFactory.Options localOptions = new BitmapFactory.Options();
-        inJustDecodeBounds = bool;
-        localObject = localOptions;
-        if (i != 0)
-        {
-          inPreferredConfig = q;
-          localObject = localOptions;
-        }
-      }
-      return (BitmapFactory.Options)localObject;
+    if (a != null) {
+      a.setBounds(paramRect);
     }
+    super.onBoundsChange(paramRect);
   }
   
-  int a()
+  public final void setAlpha(int paramInt)
   {
-    return 0;
+    d = paramInt;
+    if (a != null) {
+      a.setAlpha(paramInt);
+    }
+    super.setAlpha(paramInt);
   }
   
-  boolean a(NetworkInfo paramNetworkInfo)
+  public final void setColorFilter(ColorFilter paramColorFilter)
   {
-    return false;
-  }
-  
-  public abstract boolean a(cje paramcje);
-  
-  public abstract cji b(cje paramcje);
-  
-  boolean b()
-  {
-    return false;
+    if (a != null) {
+      a.setColorFilter(paramColorFilter);
+    }
+    super.setColorFilter(paramColorFilter);
   }
 }
 

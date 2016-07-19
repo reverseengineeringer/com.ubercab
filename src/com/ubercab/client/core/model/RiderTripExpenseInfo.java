@@ -4,13 +4,13 @@ import android.os.Parcelable;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.TripExpenseInfo;
 import com.ubercab.shape.Shape;
-import jdh;
-import jut;
+import lzo;
+import nac;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class RiderTripExpenseInfo
-  implements Parcelable, jut
+  implements Parcelable, nac
 {
   public static RiderTripExpenseInfo create()
   {

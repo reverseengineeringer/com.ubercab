@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 
-public class ViewParentCompat
+public final class ViewParentCompat
 {
   static final ViewParentCompat.ViewParentCompatImpl IMPL = new ViewParentCompat.ViewParentCompatStubImpl();
   

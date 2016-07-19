@@ -1,13 +1,14 @@
-import com.paypal.android.sdk.payments.PaymentMethodActivity;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 
 final class cew
-  implements Runnable
+  implements DialogInterface.OnClickListener
 {
-  cew(cev paramcev) {}
+  cew(cep paramcep) {}
   
-  public final void run()
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
   {
-    PaymentMethodActivity.f(a.a);
+    cep.c(a);
   }
 }
 

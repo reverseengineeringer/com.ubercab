@@ -1,11 +1,11 @@
 package com.ubercab.client.core.model;
 
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import iac;
 import java.util.Map;
-import jdh;
+import kcm;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public final class SignupRequired
 {
   public Map<String, String> fields;
@@ -19,7 +19,7 @@ public final class SignupRequired
       return false;
     }
     paramObject = (SignupRequired)paramObject;
-    return iac.a(fields, fields);
+    return kcm.a(fields, fields);
   }
   
   final Map<String, String> getFields()

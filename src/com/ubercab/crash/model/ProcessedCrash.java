@@ -2,7 +2,7 @@ package com.ubercab.crash.model;
 
 import android.os.Parcelable;
 import com.ubercab.shape.Shape;
-import idz;
+import kgr;
 
 @Shape
 public abstract class ProcessedCrash
@@ -19,7 +19,7 @@ public abstract class ProcessedCrash
   
   public void addExperimentTreatment(String paramString, Boolean paramBoolean)
   {
-    setExperimentTreatments(idz.a(getExperimentTreatments(), paramString, paramBoolean));
+    setExperimentTreatments(kgr.a(getExperimentTreatments(), paramString, paramBoolean));
   }
   
   public abstract String getCrashId();
@@ -28,7 +28,7 @@ public abstract class ProcessedCrash
   
   public boolean isExperimentOn(String paramString)
   {
-    return idz.a(getExperimentTreatments(), paramString);
+    return kgr.a(getExperimentTreatments(), paramString);
   }
   
   abstract ProcessedCrash setCrashId(String paramString);

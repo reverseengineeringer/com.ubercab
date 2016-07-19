@@ -1,48 +1,52 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.wallet.firstparty.GetBuyFlowInitializationTokenRequest;
 
-public abstract class bfk
-  extends Binder
-  implements bfj
+public final class bfk
+  implements Parcelable.Creator<GetBuyFlowInitializationTokenRequest>
 {
-  public static bfj a(IBinder paramIBinder)
+  private static GetBuyFlowInitializationTokenRequest a(Parcel paramParcel)
   {
-    if (paramIBinder == null) {
-      return null;
+    byte[] arrayOfByte2 = null;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    byte[] arrayOfByte1 = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        arrayOfByte1 = zd.q(paramParcel, k);
+        break;
+      case 3: 
+        arrayOfByte2 = zd.q(paramParcel, k);
+      }
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnMarkerDragListener");
-    if ((localIInterface != null) && ((localIInterface instanceof bfj))) {
-      return (bfj)localIInterface;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new bfl(paramIBinder);
+    return new GetBuyFlowInitializationTokenRequest(i, arrayOfByte1, arrayOfByte2);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static void a(GetBuyFlowInitializationTokenRequest paramGetBuyFlowInitializationTokenRequest, Parcel paramParcel)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnMarkerDragListener");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMarkerDragListener");
-      a(bhl.a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      return true;
-    case 2: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMarkerDragListener");
-      b(bhl.a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMarkerDragListener");
-    c(bhl.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    return true;
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramGetBuyFlowInitializationTokenRequest.a());
+    zf.a(paramParcel, 2, a);
+    zf.a(paramParcel, 3, b);
+    zf.a(paramParcel, i);
+  }
+  
+  private static GetBuyFlowInitializationTokenRequest[] a(int paramInt)
+  {
+    return new GetBuyFlowInitializationTokenRequest[paramInt];
   }
 }
 

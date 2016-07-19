@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
@@ -23,430 +23,445 @@ import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import chh;
-import cho;
-import ckc;
-import ckg;
-import ckp;
-import ckr;
-import cnw;
-import coh;
+import butterknife.BindView;
+import chn;
+import chu;
+import cja;
+import ckt;
+import ckx;
+import clg;
+import cli;
+import com.google.android.gms.wallet.FullWallet;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.android.location.UberLatLng;
+import com.ubercab.android.map.CameraPosition;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.client.core.config.AppConfigKey;
 import com.ubercab.client.core.location.RiderLocation;
 import com.ubercab.client.core.model.CnLocation;
+import com.ubercab.client.core.model.Note;
 import com.ubercab.client.core.model.RiderBalance;
 import com.ubercab.client.core.model.RiderTripExpenseInfo;
-import com.ubercab.client.core.model.UpfrontFareDetail;
 import com.ubercab.client.core.vendor.google.GmmProductSurge;
+import com.ubercab.client.feature.addressbook.share.ShareContactsActivity;
 import com.ubercab.client.feature.chat.ChatThreadActivity;
 import com.ubercab.client.feature.estimate.FareEstimateActivity;
-import com.ubercab.client.feature.estimate.FareEstimateActivityV2;
 import com.ubercab.client.feature.estimate.RewardPointsFareEstimateFragment;
 import com.ubercab.client.feature.mobilemessage.MobileMessagePopupWindow;
 import com.ubercab.client.feature.profiles.expensecode.ExpenseCodeConfigureActivity;
+import com.ubercab.client.feature.profiles.expensecode.ExpenseCodeSearchActivity;
 import com.ubercab.client.feature.promo.PromoFragment;
+import com.ubercab.client.feature.reservation.TripSchedulerActivity;
 import com.ubercab.client.feature.safetynet.SafetyNetPopupWindow;
 import com.ubercab.client.feature.search.LocationSearchActivity;
-import com.ubercab.client.feature.shoppingcart.model.Store;
-import com.ubercab.client.feature.surge.SurgeActivity;
-import com.ubercab.client.feature.surge.SurgeConfirmationActivity;
-import com.ubercab.client.feature.surge.SurgeConfirmationData;
+import com.ubercab.client.feature.surge.ui.LockedSurgeData;
+import com.ubercab.client.feature.surge.ui.SurgeConfirmationActivity;
 import com.ubercab.client.feature.trip.controller.PoolDispatchingOverlayController;
+import com.ubercab.client.feature.trip.controller.RatingsBannerViewController;
+import com.ubercab.client.feature.trip.controller.UpfrontPricingDispatchingOverlayController;
 import com.ubercab.client.feature.trip.event.PanelSlideEvent;
 import com.ubercab.client.feature.trip.map.MapFragment;
-import com.ubercab.client.feature.trip.map.layer.pins.PoolSurgeDialogFragment;
 import com.ubercab.client.feature.trip.pickupnote.PickupNoteComposeActivity;
 import com.ubercab.client.feature.trip.profiles.ProfilePickerDialogFragment;
 import com.ubercab.client.feature.trip.ridepool.CapacityChangeDialogFragment;
 import com.ubercab.client.feature.trip.slider.FareDetailsPopupWindow;
+import com.ubercab.client.feature.triptracker.TripTrackerActivity;
 import com.ubercab.network.uspout.UspoutClient;
+import com.ubercab.payment.internal.model.AuthorizeResult;
+import com.ubercab.rider.pricing.AcceptedSurgeData;
 import com.ubercab.rider.realtime.model.Balance;
 import com.ubercab.rider.realtime.model.City;
 import com.ubercab.rider.realtime.model.Client;
-import com.ubercab.rider.realtime.model.ClientStatus;
 import com.ubercab.rider.realtime.model.ConfirmedFare;
+import com.ubercab.rider.realtime.model.ConfirmedUpfrontFare;
 import com.ubercab.rider.realtime.model.DynamicFare;
-import com.ubercab.rider.realtime.model.EtdInfo;
 import com.ubercab.rider.realtime.model.Eyeball;
 import com.ubercab.rider.realtime.model.FareInfo;
 import com.ubercab.rider.realtime.model.FareSplit;
 import com.ubercab.rider.realtime.model.FareSplitClient;
-import com.ubercab.rider.realtime.model.HopResponse.Route;
 import com.ubercab.rider.realtime.model.MobileMessage;
 import com.ubercab.rider.realtime.model.MobileMessageDisplayProperties;
+import com.ubercab.rider.realtime.model.PaymentProfile;
 import com.ubercab.rider.realtime.model.Profile;
 import com.ubercab.rider.realtime.model.Reminder;
 import com.ubercab.rider.realtime.model.RewardInfo;
+import com.ubercab.rider.realtime.model.RiderFareConsent;
 import com.ubercab.rider.realtime.model.SkippedFare;
+import com.ubercab.rider.realtime.model.TrackedTripToken;
 import com.ubercab.rider.realtime.model.Trip;
+import com.ubercab.rider.realtime.model.TripDriver;
+import com.ubercab.rider.realtime.model.TripExpenseInfo;
 import com.ubercab.rider.realtime.model.UpfrontFare;
 import com.ubercab.rider.realtime.model.VehicleView;
 import com.ubercab.rider.realtime.request.body.FixedRoute;
 import com.ubercab.rider.realtime.request.param.DeviceData;
 import com.ubercab.rider.realtime.request.param.Location;
-import com.ubercab.rider.realtime.response.LocationDescription;
-import dpf;
-import dsf;
-import dsh;
-import dtx;
-import dty;
-import dud;
-import due;
-import dux;
-import dvi;
-import efr;
-import egd;
-import egl;
-import egn;
-import ehg;
-import ehl;
-import eip;
-import ejc;
-import eld;
-import emx;
-import eng;
-import eni;
-import enl;
-import eqm;
-import erf;
-import eri;
-import ers;
-import ert;
-import ext;
-import eyg;
-import eyh;
-import eyn;
-import eyo;
+import com.ubercab.rider.realtime.response.HopResponse.Route;
+import cqz;
+import dua;
+import duw;
+import dxk;
+import dxm;
+import dzm;
+import dzn;
+import dzs;
+import ead;
+import eaj;
+import eaq;
+import ebc;
+import ecw;
+import enk;
+import enz;
+import eor;
+import eoy;
+import eqx;
+import esu;
+import eun;
+import eux;
+import eva;
+import eyp;
 import eze;
-import ezs;
-import fae;
-import fcj;
-import fjq;
-import flw;
-import fma;
-import fmz;
-import foa;
-import fos;
-import fpg;
-import fph;
-import fpj;
-import fui;
-import fvz;
-import gcc;
-import gcr;
-import gel;
-import gem;
-import gep;
-import gev;
-import gey;
-import gfk;
-import gfl;
-import gif;
-import gjc;
-import glt;
-import gqf;
-import gri;
-import gur;
-import gva;
-import gvb;
-import gvc;
-import gvd;
-import gvg;
-import gvh;
-import gvj;
-import gvk;
-import gvl;
-import han;
-import hcf;
-import hch;
-import hcl;
-import hcm;
-import hcn;
-import hco;
-import hcr;
-import hcu;
-import hcx;
-import hde;
-import hdg;
-import hes;
-import hev;
-import hew;
-import hex;
-import hey;
-import hez;
-import hfa;
+import ezf;
+import ezg;
+import ezm;
+import ezw;
+import ezx;
+import fib;
+import fio;
+import fke;
+import fle;
+import flf;
+import flj;
+import flk;
+import fll;
+import flr;
+import fls;
+import fmo;
+import fns;
+import fpx;
+import fyp;
+import gbk;
+import gbx;
+import gce;
+import gcg;
+import gcm;
+import gft;
+import ggk;
+import ghd;
+import ghe;
+import ghg;
+import gnb;
+import gqa;
+import hck;
+import hei;
+import hep;
+import heq;
 import hfb;
-import hfc;
-import hgm;
-import hgp;
-import hgt;
-import hgv;
-import hha;
-import hhg;
-import hhh;
-import hij;
-import hik;
-import hiy;
-import hiz;
-import hja;
-import hjb;
-import hjc;
-import hje;
-import hjf;
-import hjj;
-import hjl;
+import hfe;
+import hfr;
+import hfs;
 import hjm;
-import hjq;
-import hjt;
-import hju;
-import hjv;
-import hka;
-import hkb;
-import hkc;
-import hkh;
-import hkm;
-import hkp;
-import hkq;
-import hli;
-import hlp;
+import hkn;
+import hkt;
 import hlq;
-import hlr;
-import hls;
-import hmg;
-import hmj;
-import hmk;
-import hmo;
-import hmp;
-import hmq;
-import hmr;
-import hms;
-import hmt;
-import hmu;
-import hmw;
-import hmx;
-import hmy;
-import hnb;
-import hnc;
-import hnf;
-import hng;
-import hni;
-import hnj;
-import hnk;
-import hnl;
-import hnm;
+import hme;
 import hnn;
-import hpa;
-import hsd;
-import hso;
-import hsp;
-import hts;
-import hvi;
-import hvj;
-import hzq;
-import hzz;
-import iac;
-import iad;
-import iae;
-import ian;
-import iap;
-import ife;
-import ijv;
-import ijw;
-import ijy;
-import ijz;
-import java.util.ArrayList;
-import java.util.Collection;
+import hpe;
+import htr;
+import hua;
+import hut;
+import hzo;
+import iax;
+import ifq;
+import igg;
+import igh;
+import igi;
+import igj;
+import igm;
+import ign;
+import igp;
+import igq;
+import igr;
+import ird;
+import itd;
+import itf;
+import ith;
+import itk;
+import itl;
+import itm;
+import itn;
+import itv;
+import ity;
+import iub;
+import iuk;
+import iwo;
+import iws;
+import iwt;
+import iwu;
+import iwv;
+import iww;
+import iyw;
+import iyz;
+import izd;
+import izf;
+import izk;
+import izo;
+import izp;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import jon;
-import jrv;
-import jry;
-import jsc;
-import jsg;
-import jsj;
-import kld;
-import klo;
-import kls;
-import kul;
-import kuo;
-import p;
-import r;
+import jbi;
+import jbj;
+import jcf;
+import jcg;
+import jch;
+import jci;
+import jcj;
+import jcm;
+import jcn;
+import jcs;
+import jcu;
+import jcv;
+import jda;
+import jdd;
+import jdf;
+import jdg;
+import jdl;
+import jdm;
+import jdn;
+import jdt;
+import jdz;
+import jea;
+import jed;
+import jee;
+import jeo;
+import jey;
+import jez;
+import jfg;
+import jfn;
+import jfo;
+import jfp;
+import jfq;
+import jfs;
+import jft;
+import jgn;
+import jgt;
+import jgu;
+import jgx;
+import jgy;
+import jgz;
+import jha;
+import jhb;
+import jhc;
+import jhd;
+import jhf;
+import jhg;
+import jhh;
+import jhk;
+import jhl;
+import jho;
+import jhp;
+import jhr;
+import jhs;
+import jht;
+import jhu;
+import jhv;
+import jhw;
+import jhx;
+import jhy;
+import jjr;
+import joj;
+import jow;
+import jox;
+import jqo;
+import jsf;
+import jtk;
+import juc;
+import jyg;
+import kca;
+import kcj;
+import kcm;
+import kcn;
+import kco;
+import kcv;
+import khv;
+import kia;
+import kof;
+import kog;
+import koi;
+import koj;
+import ldk;
+import ldm;
+import mvs;
+import mvt;
+import mvu;
+import mwz;
+import mxd;
+import mxi;
+import mxm;
+import mxp;
+import odr;
+import oed;
+import oeh;
+import ooy;
+import opc;
+import opf;
+import x;
+import y;
+import z;
 
 public class TripFragment
-  extends dsh<hfc>
-  implements coh, eyo, foa, gem, gvb, gvd, hch, hco, hgv, hhh, hik, hiz, hjc, hjf, hjm, hjv, hkb, hkq, hlq, hls, hsp
+  extends dxm<iww>
+  implements cqz, flk, fll, gcg, gft, heq, hua, igh, igj, itf, itn, izf, izp, jbj, jcg, jcj, jcn, jcv, jdg, jdm, jee, jey, jfo, jft, jox
 {
-  public hcx A;
-  public hcu B;
-  public han C;
-  public jrv D;
-  public jon<DeviceData> E;
+  public jdt A;
+  public ecw B;
+  public ggk C;
+  public itv D;
+  public dzm E;
+  public hei F;
+  public ldm G;
+  public cja H;
+  public iub I;
+  public ity J;
+  public ird K;
+  public mvt L;
+  public mvu M;
+  public mwz N;
+  public odr<DeviceData> O;
   @Deprecated
-  public eld F;
-  public gif G;
-  public RiderApplication H;
-  @Deprecated
-  public ehl I;
-  public jry J;
-  public eng K;
-  public gur L;
-  public egl M;
-  public ijv N;
-  public ijw O;
-  public hgm P;
-  public hgp Q;
-  public hgt R;
-  public jsc S;
-  public hha T;
-  public gqf U;
-  public dty V;
-  public gel W;
-  public hmg X;
-  public UspoutClient Y;
-  public hiy Z;
-  public hjq aA;
-  FareDetailsPopupWindow aB;
-  MobileMessagePopupWindow aC;
-  SafetyNetPopupWindow aD;
-  private final Runnable aE = new TripFragment.1(this);
-  private klo aF;
-  private String aG;
-  private RiderLocation aH;
-  private String aI;
-  private klo aJ;
-  private klo aK;
-  private klo aL;
-  @Deprecated
-  private boolean aM;
-  private boolean aN;
-  private GmmProductSurge aO;
-  private int aP;
-  private MapFragment aQ;
-  public fui aa;
-  public hja ab;
-  public hjb ac;
-  public hhg ad;
-  public hcf ae;
-  public hij af;
-  public eyn ag;
-  public hjj ah;
-  public hcn ai;
-  public hjl aj;
-  public hso ak;
-  public hju al;
-  public hka am;
-  public hsd an;
-  public hkm ao;
-  public hpa ap;
-  public hkp aq;
-  public PoolDispatchingOverlayController ar;
-  public fae as;
-  public gva at;
-  public gvc au;
-  public fma av;
-  public hli aw;
-  public hvi ax;
-  public hlp ay;
-  public hlr az;
-  public egn c;
-  public ckc d;
-  public emx e;
+  public esu P;
+  public hjm Q;
+  public RiderApplication R;
+  public mxd S;
+  public duw T;
+  public ifq U;
+  public eor V;
+  public List<kof> W;
+  public kog X;
+  public jsf Y;
+  public iyw Z;
+  public joj aA;
+  public jdz aB;
+  public jfp aC;
+  public jea aD;
+  public jjr aE;
+  public jed aF;
+  public PoolDispatchingOverlayController aG;
+  public fns aH;
+  public igg aI;
+  public igi aJ;
+  public gcm aK;
+  public jfg aL;
+  public jfn aM;
+  public jfq aN;
+  public UpfrontPricingDispatchingOverlayController aO;
+  public jfs aP;
+  public jda aQ;
+  public RatingsBannerViewController aR;
+  public htr aS;
+  public hut aT;
+  public jez aU;
+  public jeo aV;
+  FareDetailsPopupWindow aW;
+  MobileMessagePopupWindow aX;
+  SafetyNetPopupWindow aY;
+  private final Runnable aZ = new TripFragment.1(this);
+  public iyz aa;
+  public izd ab;
+  public mxi ac;
+  public izk ad;
+  public hzo ae;
+  public dzn af;
+  public hep ag;
+  public jgn ah;
+  public UspoutClient ai;
+  public juc aj;
+  public jcf ak;
+  public gnb al;
+  public jch am;
+  public jci an;
+  public izo ao;
+  public itd ap;
+  public jbi aq;
+  public flj ar;
+  public fls as;
+  public jcs at;
+  public itm au;
+  public jcu av;
+  public jow aw;
+  public hnn ax;
+  public jdf ay;
+  public jdl az;
+  private oed ba;
+  private String bb;
+  private RiderLocation bc;
+  private String bd;
+  private oed be;
+  private oed bf;
+  private oed bg = ooy.b();
+  private oed bh;
+  private boolean bi;
+  private GmmProductSurge bj;
+  private int bk;
+  private MapFragment bl;
+  private boolean bm;
+  public eoy c;
+  public ckt d;
+  public eun e;
   public Application f;
-  public chh g;
-  public hje h;
-  public hzz i;
-  public eyg j;
-  public eyh k;
-  public jsg l;
-  public jsj m;
-  @InjectView(2131625749)
-  ViewGroup mBackgroundLayout;
-  @InjectView(2131625750)
-  FrameLayout mPinView;
-  @InjectView(2131625756)
-  ViewGroup mViewFooter;
-  @InjectView(2131625752)
-  LinearLayout mViewHeader;
-  public hjt n;
-  public ife o;
-  public gep p;
-  public gev q;
-  public flw r;
-  public gfl s;
-  public gfk t;
-  public fmz u;
-  public hkh v;
-  public fos w;
-  public hcr x;
-  public dtx y;
-  public ehg z;
+  public fib g;
+  public chn h;
+  public khv i;
+  public ead j;
+  public jcm k;
+  public fio l;
+  public kcj m;
+  @BindView
+  public ViewGroup mBackgroundLayout;
+  @BindView
+  public FrameLayout mPinView;
+  @BindView
+  public ViewGroup mViewFooter;
+  @BindView
+  public LinearLayout mViewHeader;
+  public fle n;
+  public flf o;
+  public gbk p;
+  public mxm q;
+  public mxp r;
+  public jdd s;
+  public hlq t;
+  public kia u;
+  public hfb v;
+  public gbx w;
+  public gce x;
+  public hfs y;
+  public hfr z;
   
-  private hfc V()
+  private void a(Menu paramMenu)
   {
-    return hcl.a().a(new efr(this)).a((hdg)((RiderActivity)getActivity()).d()).a();
+    paramMenu = paramMenu.findItem(2131626920);
+    aT.a(paramMenu);
   }
   
-  private boolean W()
+  private void a(clg paramclg, String paramString)
   {
-    return (o.b(dux.ak)) && (M.a(TripFragment.class));
-  }
-  
-  private boolean X()
-  {
-    if (o.b(dux.hH)) {}
-    for (;;)
-    {
-      return false;
-      Object localObject = l.b();
-      String str = T.n();
-      if (localObject != null) {}
-      for (localObject = ((City)localObject).findVehicleViewById(str); (localObject != null) && (((VehicleView)localObject).getAllowRidepool()) && (e.a(AppConfigKey.j, false)); localObject = null) {
-        return true;
-      }
-    }
-  }
-  
-  private void Y()
-  {
-    Object localObject = T.h();
-    if ((localObject == null) || (((RiderLocation)localObject).getUberLatLng() == null)) {}
-    do
-    {
-      return;
-      localObject = ((RiderLocation)localObject).getUberLatLng();
-    } while (localObject == null);
-    D.a(((UberLatLng)localObject).a(), ((UberLatLng)localObject).b()).a(kls.a()).b(new hez(this, (byte)0));
-  }
-  
-  private void Z()
-  {
-    if (o.b(dux.bq)) {
-      c.b(V.y());
-    }
-  }
-  
-  private void a(ckp paramckp, String paramString)
-  {
-    if (!aw()) {
+    if (!u.a(eaj.jI, true)) {
       return;
     }
-    ckg localckg = d.a(r.gc.name());
-    d.a(AnalyticsEvent.create("tap").setName(paramckp).setValue(paramString));
-    R.a(localckg.b());
-    localckg.a();
+    ckx localckx = d.a(z.iL.name());
+    d.a(AnalyticsEvent.create("tap").setName(paramclg).setValue(paramString));
+    ab.a(localckx.b());
+    localckx.a();
   }
   
-  private void a(com.ubercab.client.core.model.Note paramNote, RiderLocation paramRiderLocation)
+  private void a(Note paramNote, RiderLocation paramRiderLocation)
   {
-    startActivityForResult(PickupNoteComposeActivity.a(getActivity(), paramNote, paramRiderLocation), 6001);
+    startActivityForResult(PickupNoteComposeActivity.a(getActivity(), paramNote, paramRiderLocation), 1021);
   }
   
   private void a(FareSplit paramFareSplit)
@@ -457,200 +472,120 @@ public class TripFragment
       return;
       paramFareSplit = paramFareSplit.getClientSelf();
     } while ((paramFareSplit == null) || (!paramFareSplit.getStatus().equals("Pending")));
-    g.c(new fjq());
+    h.c(new fyp());
   }
   
-  private void a(hfc paramhfc)
+  private void a(iww paramiww)
   {
-    paramhfc.a(this);
+    paramiww.a(this);
   }
   
-  private void a(ijy paramijy)
+  private void a(koi paramkoi)
   {
-    if (W()) {
-      O.a(ijz.a, paramijy);
+    if (ao()) {
+      X.a(koj.a, paramkoi);
     }
   }
   
   private boolean a(MobileMessage paramMobileMessage)
   {
-    iae.a(paramMobileMessage);
-    if ((aC != null) && ((aC.isShowing()) || (aC.d()))) {
+    kco.a(paramMobileMessage);
+    if ((aX != null) && ((aX.isShowing()) || (aX.d()))) {
       return false;
     }
-    aC = new MobileMessagePopupWindow(getActivity(), d, g, l, o, w, H, V, Y);
-    return aC.a(paramMobileMessage);
+    aX = new MobileMessagePopupWindow(getActivity(), d, h, q, i, C, af, ai);
+    return aX.a(paramMobileMessage);
   }
   
-  private List<Reminder> aa()
+  private static boolean a(Object paramObject1, Object paramObject2)
   {
-    iad localiad = k.e();
-    if (localiad.b()) {
-      return (List)localiad.c();
-    }
-    return Collections.emptyList();
-  }
-  
-  private void ab()
-  {
-    au.f();
-  }
-  
-  private void ac()
-  {
-    Q.a(false);
-    if (isResumed())
+    int i1;
+    if (paramObject1 == null)
     {
-      UberLatLng localUberLatLng = aQ.q();
-      if (localUberLatLng != null) {
-        Q.b(localUberLatLng);
+      i1 = 1;
+      if (paramObject2 != null) {
+        break label24;
       }
     }
-  }
-  
-  private void ad()
-  {
-    T.r();
-    d.a(r.ab);
-  }
-  
-  private void ae()
-  {
-    new AlertDialog.Builder(getActivity()).setTitle(getString(2131166506)).setMessage(getString(2131166504)).setPositiveButton(getString(2131166502), new TripFragment.2(this)).setNegativeButton(getString(2131165320), new TripFragment.12(this)).create().show();
-    d.a(p.mX);
-  }
-  
-  @Deprecated
-  private kld<ClientStatus> af()
-  {
-    return m.f();
-  }
-  
-  private void ag()
-  {
-    Object localObject = T.h();
-    RiderLocation localRiderLocation = T.i();
-    String str = T.n();
-    boolean bool = X();
-    if (eyh.a(o)) {}
-    for (localObject = LocationSearchActivity.a(getActivity(), "com.ubercab.ACTION_DESTINATION", (RiderLocation)localObject, localRiderLocation, str, bool, aa());; localObject = LocationSearchActivity.a(getActivity(), "com.ubercab.ACTION_DESTINATION", (RiderLocation)localObject, localRiderLocation, str, bool))
+    label24:
+    for (int i2 = 1;; i2 = 0)
     {
-      startActivityForResult((Intent)localObject, 2008);
-      return;
+      if (i1 == i2) {
+        break label29;
+      }
+      return true;
+      i1 = 0;
+      break;
     }
+    label29:
+    return false;
   }
   
-  private void ah()
+  private void aA()
   {
-    RiderLocation localRiderLocation1 = y.b();
-    RiderLocation localRiderLocation2 = T.i();
-    String str = T.n();
-    startActivityForResult(LocationSearchActivity.a(getActivity(), "com.ubercab.ACTION_PICKUP_LOCATION", localRiderLocation1, localRiderLocation2, str, false), 2007);
-  }
-  
-  private void ai()
-  {
-    View localView = getView();
-    if (localView == null) {
-      return;
-    }
-    if (localView.getHeight() == 0)
-    {
-      localView.getViewTreeObserver().addOnPreDrawListener(new TripFragment.3(this, localView));
-      return;
-    }
-    int i2 = ers.a(getActivity());
-    if (o.b(dux.gh)) {}
-    for (int i1 = ad.f();; i1 = ac.r())
-    {
-      i1 = i1 + i2 + aq.h() + av.d();
-      int i5 = al.l();
-      int i3 = al.m();
-      int i4 = au.h();
-      at.a(i1, i5);
-      i2 = at.b() + i1;
-      i5 += i4;
-      i3 += i4;
-      aq.a(i2, i5);
-      aQ.a(0, i2, 0, i5);
-      aQ.b(-i3);
-      ap.a(i1, i5);
-      aA.a(i1, i3);
-      ae.a(i1, al.n());
-      ae.a();
-      return;
-    }
-  }
-  
-  private void aj()
-  {
-    if (l.c() == null) {
+    if (q.c() == null) {
       return;
     }
     getActivity().invalidateOptionsMenu();
-    ai();
-    ak();
+    az();
+    aB();
   }
   
-  private void ak()
+  private void aB()
   {
-    Trip localTrip = l.f();
-    if ((o.b(dux.hI)) && (hha.c(T.g())) && (localTrip != null) && (!localTrip.getUuid().equals(V.V())) && (localTrip.getFareChange() != null))
+    Trip localTrip = q.f();
+    if ((u.c(eaj.mF)) && (izk.e(ad.g())) && (localTrip != null) && (!localTrip.getUuid().equals(af.aq())) && (localTrip.getFareChange() != null))
     {
-      CapacityChangeDialogFragment.a(d(), p.nU, localTrip.getFareChange());
-      V.o(localTrip.getUuid());
-      d.a(p.ai);
+      CapacityChangeDialogFragment.a(b(), x.sa, localTrip.getFareChange());
+      af.r(localTrip.getUuid());
+      d.a(x.ay);
     }
   }
   
-  private void al()
+  private void aC()
   {
-    int i1 = T.g();
-    if ((q.e()) || (s.a(i1)))
+    int i1 = ad.g();
+    if ((v.f()) || (y.a(i1)))
     {
-      T.a(true, Boolean.valueOf(true));
+      ad.a(true, Boolean.valueOf(true));
       return;
     }
-    T.d(true);
+    ad.d(true);
   }
   
-  private void am()
+  private void aD()
   {
-    if (!dpf.a(getActivity().getWindow())) {
+    if (!dua.a(getActivity().getWindow())) {
       return;
     }
-    aD = new SafetyNetPopupWindow(getActivity(), d, g);
-    aD.b();
-    U.l();
+    aY = new SafetyNetPopupWindow(getActivity(), d, h);
+    aY.b();
+    ae.l();
   }
   
-  private void an()
+  private void aE()
   {
-    if (!dpf.a(getActivity().getWindow())) {}
+    if (!dua.a(getActivity().getWindow())) {}
     String str;
     do
     {
       do
       {
         return;
-      } while ((aB != null) && (aB.isShowing()));
-      str = T.n();
+      } while ((aW != null) && (aW.isShowing()));
+      str = ad.m();
     } while (TextUtils.isEmpty(str));
-    aB = new FareDetailsPopupWindow(getActivity(), g, l, m, str, o);
-    aB.showAtLocation(getActivity().getWindow().getDecorView(), 48, 0, 0);
-    aB.setOnDismissListener(new TripFragment.4(this));
-    d.a(p.cD);
-    T.a(true);
+    aW = new FareDetailsPopupWindow(getActivity(), h, q, r, K, aj, str, u);
+    aW.showAtLocation(getActivity().getWindow().getDecorView(), 48, 0, 0);
+    aW.setOnDismissListener(new TripFragment.11(this));
+    d.a(x.ee);
+    ad.a(true);
   }
   
   @Deprecated
-  private boolean ao()
+  private boolean aF()
   {
-    boolean bool2 = true;
-    boolean bool1;
-    if ((!o.b(dux.hH)) || (!T.m())) {
-      bool1 = false;
-    }
+    if ((!u.c(eaj.mE)) || (!ad.l())) {}
     Object localObject;
     do
     {
@@ -661,198 +596,419 @@ public class TripFragment
         {
           do
           {
-            return bool1;
-            bool1 = bool2;
-          } while (al.q());
-          localObject = l.b();
-          if (localObject == null) {
             return false;
-          }
-          localVehicleView = ((City)localObject).findVehicleViewById(T.n());
-          if (localVehicleView == null) {
-            return false;
-          }
-          if (!o.b(dux.dm)) {
-            break;
-          }
-          bool1 = bool2;
-        } while (localVehicleView.getAllowHop());
-        bool1 = bool2;
-      } while (localVehicleView.getAllowRidepool());
-      if ((!o.b(dux.b)) || (TextUtils.isEmpty(localVehicleView.getLinkedVehicleViewId()))) {
-        return false;
-      }
+            localObject = q.b();
+          } while (localObject == null);
+          localVehicleView = ((City)localObject).findVehicleViewById(ad.m());
+        } while (localVehicleView == null);
+        if ((u.c(eaj.ff)) && (localVehicleView.getAllowHop())) {
+          return true;
+        }
+        if (localVehicleView.getAllowRidepool()) {
+          return true;
+        }
+      } while ((!u.c(eaj.c)) || (TextUtils.isEmpty(localVehicleView.getLinkedVehicleViewId())));
       localObject = ((City)localObject).findVehicleViewById(localVehicleView.getLinkedVehicleViewId());
-      if (localObject == null) {
-        break;
-      }
-      bool1 = bool2;
-    } while (((VehicleView)localObject).getAllowRidepool());
-    return false;
+    } while ((localObject == null) || (!((VehicleView)localObject).getAllowRidepool()));
+    return true;
   }
   
   @Deprecated
-  private int ap()
+  private int aG()
   {
-    if (ao()) {
-      return T.l();
+    if (aF()) {
+      return ad.k();
     }
     return 0;
   }
   
-  private View aq()
+  private View aH()
   {
-    return ((ert)getActivity()).a();
+    return ((ezx)getActivity()).a();
   }
   
-  private void ar()
+  private void aI()
   {
-    if ((!hha.f(T.g())) || (!o.b(dux.g))) {}
+    if (ad.i() == null)
+    {
+      an.i();
+      return;
+    }
+    ar.a(getContext(), af.N(), this);
+  }
+  
+  private void aJ()
+  {
+    if (ad.i() == null)
+    {
+      an.i();
+      return;
+    }
+    ad.e(true);
+    ar.b(getContext(), af.N(), this);
+  }
+  
+  private void aK()
+  {
+    if ((!izk.h(ad.g())) || (!u.c(eaj.f))) {}
     String str;
     MobileMessage localMobileMessage;
     do
     {
       return;
-      str = T.n();
-      localMobileMessage = w.d(str);
-    } while ((localMobileMessage == null) || (V.b(str)));
-    V.c(str);
+      str = ad.m();
+      localMobileMessage = C.d(str);
+    } while ((localMobileMessage == null) || (af.c(str)));
+    af.d(str);
     a(localMobileMessage);
   }
   
-  private void as()
+  private void aL()
   {
-    if (aI != null)
+    if (bd != null)
     {
-      MobileMessage localMobileMessage = w.a(aI);
+      MobileMessage localMobileMessage = C.a(bd);
       if (localMobileMessage != null) {
         a(localMobileMessage);
       }
-      aI = null;
+      bd = null;
     }
   }
   
-  private void at()
+  private boolean aM()
   {
-    if (q.c() != gey.c) {}
+    return (!i.b(eaj.ci)) || (Z.b() == null) || (TextUtils.isEmpty(Z.b().getCode()));
+  }
+  
+  private void aN()
+  {
+    if (v.c() != hfe.c) {}
     MobileMessage localMobileMessage;
     do
     {
       return;
-      localMobileMessage = w.c();
+      localMobileMessage = C.c();
     } while (localMobileMessage == null);
-    d.a(AnalyticsEvent.create("impression").setName(p.iV));
+    d.a(AnalyticsEvent.create("impression").setName(x.mg));
     a(localMobileMessage);
   }
   
-  private String au()
+  private void aO()
   {
-    Object localObject3 = null;
-    Object localObject2 = y.b();
-    Object localObject1 = localObject3;
-    if (localObject2 != null)
+    MobileMessage localMobileMessage = C.d();
+    if (localMobileMessage != null) {
+      a(localMobileMessage);
+    }
+  }
+  
+  private void aP()
+  {
+    String str1 = ad.m();
+    String str2 = af.N();
+    TripDriver localTripDriver;
+    if (q.f() != null)
     {
-      localObject1 = localObject3;
-      if (((RiderLocation)localObject2).isHotspotLocation())
+      localTripDriver = q.f().getDriver();
+      if (!ar.a(str1, localTripDriver)) {
+        break label73;
+      }
+      ar.a(getActivity(), localTripDriver);
+    }
+    label73:
+    while ((!ar.a(flr.c, str1)) || (!"Commute".equals(localTripDriver.getFlowType())))
+    {
+      return;
+      localTripDriver = null;
+      break;
+    }
+    ar.a(getActivity(), localTripDriver, str2, new TripFragment.2(this));
+  }
+  
+  private void aQ()
+  {
+    Object localObject1 = q.c();
+    if ((localObject1 != null) && (((Client)localObject1).isMobileRevoked().booleanValue())) {
+      kca.a(b());
+    }
+    Object localObject2;
+    do
+    {
+      do
       {
-        localObject2 = ((RiderLocation)localObject2).getUberLatLng();
-        localObject1 = localObject3;
-        if (localObject2 != null)
+        boolean bool;
+        do
         {
-          localObject1 = p.b((UberLatLng)localObject2);
-          if (localObject1 != null) {
-            break label78;
+          return;
+          bool = Z.x();
+          if (Z.j())
+          {
+            h.c(new jgy());
+            return;
           }
+          if (Z.a() != null) {
+            break;
+          }
+        } while (getActivity() == null);
+        ay.l();
+        return;
+        if ((Q.j()) && (hme.a(Q.c(), Q)) && (!bool) && (aM()))
+        {
+          d(1001);
+          return;
         }
-      }
-    }
-    label78:
-    for (localObject2 = null;; localObject2 = ((LocationDescription)localObject1).getShortName("driver_msg"))
+        if ((!Q.j()) && (Z.f()) && (!bool) && (Q.m()))
+        {
+          h.c(new hck(Z.a(), Z.b()));
+          return;
+        }
+        if ((!u.c(eaj.bq)) || (!Z.k())) {
+          break label314;
+        }
+        if (!eze.a(u, ezf.b, getContext(), T, af, null)) {
+          break;
+        }
+        Z.m();
+        localObject1 = Z.a();
+      } while (localObject1 == null);
+      localObject2 = G.a("android_pay");
+    } while (localObject2 == null);
+    startActivityForResult(((ldk)localObject2).a(ezg.a((PaymentProfile)localObject1)), 1003);
+    return;
+    c(getString(2131167537));
+    return;
+    label314:
+    if (!u.a(eaj.jI, true))
     {
-      localObject1 = localObject3;
-      if (!TextUtils.isEmpty((CharSequence)localObject2)) {
-        localObject1 = getString(2131165960, new Object[] { localObject2 });
+      localObject2 = aa.a(true);
+      localObject1 = localObject2;
+      if (u.a(eaj.iJ, true)) {
+        localObject1 = TextUtils.join(":", new Object[] { localObject2, ad.m(), Long.valueOf(L.a()) });
       }
-      return (String)localObject1;
+      d.a(AnalyticsEvent.create("tap").setName(z.iL).setValue((String)localObject1));
     }
+    f(Z.h());
+  }
+  
+  private boolean ak()
+  {
+    if ((u.b(eaj.ax, "gift_box")) && (ad.g() != 5)) {}
+    for (boolean bool = true;; bool = false)
+    {
+      if (bool) {
+        d.a(x.gh);
+      }
+      return bool;
+    }
+  }
+  
+  private boolean al()
+  {
+    int i1;
+    if ((u.c(eaj.iW)) && (!u.b(eaj.ax, "gift_box")))
+    {
+      i1 = 1;
+      if (ad.g() != 5) {
+        break label63;
+      }
+    }
+    label63:
+    for (int i2 = 1;; i2 = 0)
+    {
+      if ((i1 == 0) || (i2 != 0)) {
+        break label68;
+      }
+      return true;
+      i1 = 0;
+      break;
+    }
+    label68:
+    return false;
+  }
+  
+  private boolean am()
+  {
+    return (i.a(eaj.kZ)) && (!TextUtils.isEmpty(af.bj()));
+  }
+  
+  private iww an()
+  {
+    return itk.a().a(new enk(this)).a((iuk)((RiderActivity)getActivity()).d()).a();
+  }
+  
+  private boolean ao()
+  {
+    return (u.c(eaj.ai)) && (V.a(TripFragment.class));
+  }
+  
+  private boolean ap()
+  {
+    if (u.c(eaj.mE)) {}
+    while ((!aq()) || (!e.a(AppConfigKey.i, false))) {
+      return false;
+    }
+    return true;
+  }
+  
+  private boolean aq()
+  {
+    Object localObject = q.b();
+    String str = ad.m();
+    if (localObject != null) {}
+    for (localObject = ((City)localObject).findVehicleViewById(str); (localObject != null) && (((VehicleView)localObject).getAllowRidepool()); localObject = null) {
+      return true;
+    }
+    return false;
+  }
+  
+  private void ar()
+  {
+    Object localObject = ad.h();
+    if ((localObject == null) || (((RiderLocation)localObject).getUberLatLng() == null)) {}
+    do
+    {
+      return;
+      localObject = ((RiderLocation)localObject).getUberLatLng();
+    } while (localObject == null);
+    N.a(((UberLatLng)localObject).a(), ((UberLatLng)localObject).b()).a(oeh.a()).b(new iwu(this, (byte)0));
+  }
+  
+  private void as()
+  {
+    if (u.c(eaj.bN)) {
+      c.b(af.N());
+    }
+  }
+  
+  private List<Reminder> at()
+  {
+    kcn localkcn = o.e();
+    if (localkcn.b()) {
+      return (List)localkcn.c();
+    }
+    return Collections.emptyList();
+  }
+  
+  private void au()
+  {
+    aJ.f();
   }
   
   private void av()
   {
-    Client localClient = l.c();
-    if ((localClient != null) && (localClient.isMobileRevoked().booleanValue())) {
-      hzq.a(d());
-    }
-    boolean bool;
-    do
+    aa.b(false);
+    if (isResumed())
     {
-      return;
-      if (o.b(dux.gr)) {}
-      for (bool = P.p(); P.i(); bool = aM)
-      {
-        g.c(new hmp());
-        return;
+      UberLatLng localUberLatLng = bl.m();
+      if (localUberLatLng != null) {
+        aa.b(localUberLatLng);
       }
-      if (P.a() != null) {
-        break;
-      }
-    } while (getActivity() == null);
-    al.k();
-    return;
-    if ((G.i()) && (erf.f(G.c())) && (!bool))
-    {
-      getActivity().startActivityForResult(ExpenseCodeConfigureActivity.a(getContext(), RiderTripExpenseInfo.create(P.b()), false), 2011);
-      return;
     }
-    if ((P.f()) && (!bool) && (G.o()))
-    {
-      g.c(new gcr(P.a(), P.b()));
-      return;
-    }
-    if ((!aw()) && (!o.a(dux.fr, true))) {
-      d.a(AnalyticsEvent.create("tap").setName(r.gc).setValue(Q.i()));
-    }
-    a(P.h(), false);
   }
   
-  private boolean aw()
+  private void aw()
   {
-    return (o.a(dux.gc, true)) && (o.b(dux.gr));
+    ad.s();
+    d.a(z.av);
+  }
+  
+  private void ax()
+  {
+    RiderLocation localRiderLocation1 = E.b();
+    RiderLocation localRiderLocation2 = ad.i();
+    String str = ad.m();
+    startActivityForResult(LocationSearchActivity.a(getActivity(), "com.ubercab.ACTION_PICKUP_LOCATION", localRiderLocation1, localRiderLocation2, str, false), 1016);
+  }
+  
+  private void ay()
+  {
+    if (am())
+    {
+      TrackedTripToken localTrackedTripToken = jyg.a(af.bj());
+      if (localTrackedTripToken != null) {
+        startActivity(TripTrackerActivity.a(getContext(), localTrackedTripToken));
+      }
+    }
+  }
+  
+  private void az()
+  {
+    View localView = getView();
+    if (localView == null) {
+      return;
+    }
+    if (localView.getHeight() == 0)
+    {
+      localView.getViewTreeObserver().addOnPreDrawListener(new TripFragment.10(this, localView));
+      return;
+    }
+    int i2 = ezw.a(getActivity());
+    if (u.c(eaj.jP)) {}
+    for (int i1 = ao.f();; i1 = an.u())
+    {
+      i1 = i1 + i2 + aF.h() + aK.d();
+      int i5 = ay.n();
+      int i3 = ay.o();
+      int i4 = aJ.h();
+      aI.a(i1, i5);
+      i2 = aI.b() + i1;
+      i5 += i4;
+      i3 += i4;
+      aF.a(i2, i5);
+      bl.a(0, i2, 0, i5);
+      bl.b(-i3);
+      aE.a(i1, i5);
+      aQ.a(i1, i3);
+      ap.a(i1, ay.p());
+      ap.a();
+      if (i.a(eaj.dO)) {
+        aV.a(-i3);
+      }
+      if (!i.a(eaj.eh)) {
+        break;
+      }
+      as.b(-i3 - aV.c());
+      return;
+    }
+  }
+  
+  private void b(Menu paramMenu)
+  {
+    paramMenu.findItem(2131626919).setVisible(al());
   }
   
   private void b(RiderLocation paramRiderLocation, FareInfo paramFareInfo)
   {
-    if (l.f() != null) {
-      T.b(paramRiderLocation);
+    if (q.f() != null) {
+      ad.c(paramRiderLocation);
     }
     for (;;)
     {
       a(paramRiderLocation, paramFareInfo);
       return;
-      if (y.b() != null) {
-        T.a(paramRiderLocation);
+      if (E.b() != null) {
+        ad.a(paramRiderLocation);
       }
     }
   }
   
-  private void b(ijy paramijy)
+  private void b(koi paramkoi)
   {
-    O.b(paramijy);
-    O.a(N);
+    X.b(paramkoi);
+    X.a((kof[])W.toArray(new kof[W.size()]));
   }
   
   private void c(int paramInt)
   {
     Long localLong = null;
-    Object localObject = hes.a(paramInt);
+    Object localObject = iwo.a(paramInt);
     AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression");
     if (localObject != null)
     {
-      localAnalyticsEvent.setName((ckp)localObject);
-      if (paramInt != 6) {
+      localAnalyticsEvent.setName((clg)localObject);
+      if (paramInt != 7) {
         break label93;
       }
-      localObject = l.f();
+      localObject = q.f();
       if (localObject == null) {
         break label88;
       }
@@ -872,9 +1028,9 @@ public class TripFragment
       localObject = null;
       continue;
       label93:
-      if ((paramInt == 7) || (paramInt == 8))
+      if ((paramInt == 8) || (paramInt == 9))
       {
-        localLong = q.j();
+        localLong = v.k();
         localObject = null;
       }
       else
@@ -884,10 +1040,124 @@ public class TripFragment
     }
   }
   
-  private DynamicFare f(String paramString)
+  private void c(Menu paramMenu)
+  {
+    paramMenu.findItem(2131626921).setVisible(ak());
+  }
+  
+  private void c(boolean paramBoolean)
+  {
+    Object localObject1 = null;
+    boolean bool = false;
+    M.a("TFrag.finishLookingBegin", true);
+    Object localObject2 = q.b();
+    String str = ad.m();
+    if (localObject2 != null) {}
+    for (localObject2 = ((City)localObject2).findVehicleViewById(str); localObject2 == null; localObject2 = null) {
+      return;
+    }
+    if (!((VehicleView)localObject2).isDestinationEnabled()) {
+      ad.r();
+    }
+    DynamicFare localDynamicFare = g(str);
+    int i1;
+    if ((localDynamicFare != null) && (localDynamicFare.getMultiplier() > 1.0F))
+    {
+      i1 = 1;
+      if ((i1 == 0) || ((!paramBoolean) && (!((VehicleView)localObject2).getAllowedToSurge()))) {
+        break label271;
+      }
+      i1 = 1;
+      label128:
+      if ((i1 == 0) || (!aj.a(localDynamicFare))) {
+        break label276;
+      }
+      if (u.a(eaj.cW, true)) {
+        L.i();
+      }
+      paramBoolean = "sobriety".equals(localDynamicFare.getScreenType());
+      if (paramBoolean) {
+        break label408;
+      }
+    }
+    label271:
+    label276:
+    label408:
+    for (localObject1 = "skip_sobriety";; localObject1 = null)
+    {
+      if (aj.e())
+      {
+        localObject1 = "upfront_fare_uber_x";
+        paramBoolean = bool;
+      }
+      for (;;)
+      {
+        localObject1 = LockedSurgeData.a(localDynamicFare, bj, paramBoolean, (String)localObject1, ((VehicleView)localObject2).getDescription(), ((VehicleView)localObject2).getGroupDisplayName(), str, eva.a((VehicleView)localObject2), ((VehicleView)localObject2).getUuid());
+        startActivityForResult(SurgeConfirmationActivity.a(f, (LockedSurgeData)localObject1), 1027);
+        return;
+        i1 = 0;
+        break;
+        i1 = 0;
+        break label128;
+        L.c();
+        L.e();
+        if (u.a(eaj.cU, true)) {
+          L.h();
+        }
+        localObject2 = E.b();
+        long l1 = kcj.b();
+        if (localObject2 != null) {
+          localObject1 = ((RiderLocation)localObject2).getUberLatLng();
+        }
+        localObject1 = mvt.a(localDynamicFare, l1, (UberLatLng)localObject1, aj.b(localDynamicFare), str);
+        L.a((SkippedFare)localObject1);
+        L.b((SkippedFare)localObject1);
+        aj.a(localDynamicFare, str);
+        M.a("TFrag.finishLookingEnd");
+        aC();
+        return;
+      }
+    }
+  }
+  
+  private void d(int paramInt)
+  {
+    Profile localProfile = Q.c();
+    if (localProfile == null)
+    {
+      dua.a(getActivity(), 2131167537);
+      opc.e("handleRequestUberClicked tries to start expense code activity with null profile.", new Object[0]);
+      return;
+    }
+    if (i.b(eaj.ci))
+    {
+      localObject = RiderTripExpenseInfo.create(Z.b());
+      if (!t.a(localProfile)) {
+        break label96;
+      }
+    }
+    label96:
+    for (Object localObject = ExpenseCodeSearchActivity.a(getContext(), localProfile, (RiderTripExpenseInfo)localObject, false);; localObject = ExpenseCodeConfigureActivity.a(getContext(), localProfile, (RiderTripExpenseInfo)localObject, false))
+    {
+      getActivity().startActivityForResult((Intent)localObject, paramInt);
+      return;
+      localObject = RiderTripExpenseInfo.create();
+      break;
+    }
+  }
+  
+  private void d(Menu paramMenu)
+  {
+    paramMenu = paramMenu.findItem(2131626922);
+    if (paramMenu != null) {
+      paramMenu.setVisible(am());
+    }
+  }
+  
+  private DynamicFare g(String paramString)
   {
     DynamicFare localDynamicFare = null;
-    Object localObject = l.e();
+    Object localObject = q.e();
     if (localObject != null) {}
     for (localObject = ((Eyeball)localObject).getDynamicFares();; localObject = null)
     {
@@ -898,9 +1168,9 @@ public class TripFragment
     }
   }
   
-  private boolean g(String paramString)
+  private boolean h(String paramString)
   {
-    City localCity = l.b();
+    City localCity = q.b();
     if ((localCity == null) || (e.a(AppConfigKey.d, false))) {}
     do
     {
@@ -910,176 +1180,343 @@ public class TripFragment
     return true;
   }
   
-  public static TripFragment o()
+  public static TripFragment u()
   {
     return new TripFragment();
   }
   
   public final void A()
   {
-    ai();
+    ad.a(false, null);
   }
   
   public final void B()
   {
-    T();
+    Object localObject2 = aa.a(true);
+    Object localObject1 = localObject2;
+    if (u.a(eaj.iJ, true))
+    {
+      localObject2 = TextUtils.join(":", new Object[] { localObject2, ad.m(), Long.valueOf(L.a()) });
+      if (!u.a(eaj.b, true)) {
+        break label276;
+      }
+      if (!aq()) {
+        break label180;
+      }
+      localObject1 = "pool";
+    }
+    label180:
+    label276:
+    for (localObject1 = TextUtils.join(":", new Object[] { localObject2, localObject1 });; localObject1 = localObject2)
+    {
+      a(z.iL, (String)localObject1);
+      if (i.a(eaj.ei, flr.c)) {
+        ar.d(false);
+      }
+      localObject1 = ar;
+      localObject2 = flr.a;
+      af.N();
+      if (((flj)localObject1).a((flr)localObject2, ad.m()))
+      {
+        aI();
+        return;
+        localObject1 = "non-pool";
+        break;
+      }
+      localObject1 = ar;
+      localObject2 = flr.b;
+      af.N();
+      if (((flj)localObject1).a((flr)localObject2, ad.m()))
+      {
+        aJ();
+        return;
+      }
+      if ((ar.a(getContext(), ad.m(), af.N())) && (b() != null))
+      {
+        ar.a(b());
+        return;
+      }
+      aQ();
+      return;
+    }
   }
   
   public final void C()
   {
-    d.a(AnalyticsEvent.create("tap").setName(r.hR).setValue("map"));
-    if ((q.e()) && (T.g() != 1))
-    {
-      T.a(true, null);
-      return;
-    }
-    ah();
+    PromoFragment.a(b());
   }
   
   public final void D()
   {
-    Object localObject = y.b();
-    RiderLocation localRiderLocation = T.i();
-    boolean bool = X();
-    if (eyh.a(o)) {}
-    for (localObject = LocationSearchActivity.a(getActivity(), "com.ubercab.ACTION_DESTINATION", (RiderLocation)localObject, localRiderLocation, T.n(), bool, aa());; localObject = LocationSearchActivity.a(getActivity(), "com.ubercab.ACTION_DESTINATION", (RiderLocation)localObject, localRiderLocation, T.n(), bool))
-    {
-      startActivityForResult((Intent)localObject, 2008);
-      return;
-    }
+    ae();
   }
   
   public final void E()
   {
-    d.a(AnalyticsEvent.create("tap").setName(r.hB).setValue("map"));
-    ak.d();
-    ag();
+    if (u.c(eaj.fg))
+    {
+      if (x.t())
+      {
+        aO();
+        d.a(AnalyticsEvent.create("tap").setName(z.bc));
+        return;
+      }
+      aN();
+      return;
+    }
+    aN();
+  }
+  
+  public final void E_()
+  {
+    if (u.c(eaj.fg)) {
+      aO();
+    }
   }
   
   public final void F()
   {
-    if (l.f() == null)
+    Object localObject;
+    if ((u.c(eaj.fp)) && (x.m() != null) && (!x.m().getEnabled().booleanValue()))
     {
-      d.a(r.ar);
-      ak.e();
-      S();
+      localObject = C.d();
+      if (localObject != null) {
+        a((MobileMessage)localObject);
+      }
       return;
     }
-    if (T.g() == 8)
+    if ((u.c(eaj.ff)) && ((!u.a(eaj.fl, true)) || (x.o() != null)))
     {
-      g.c(new hmo());
+      localObject = RiderLocation.create(x.o());
+      ad.a((RiderLocation)localObject);
+      c(false);
       return;
     }
-    ak.e();
-    S();
-    a(null, null);
+    if (x.m() != null)
+    {
+      a(z.dk, x.m().getUuid());
+      if (!u.a(eaj.jI, true)) {
+        d.a(AnalyticsEvent.create("tap").setName(z.dk).setValue(x.m().getUuid()));
+      }
+    }
+    if (u.a(eaj.iO, true)) {
+      c(false);
+    }
+    aQ();
+  }
+  
+  public final void F_()
+  {
+    aQ();
   }
   
   public final void G()
   {
-    ak.l();
+    RiderLocation localRiderLocation = E.b();
+    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap");
+    localAnalyticsEvent.setName(z.jW);
+    if ((localRiderLocation != null) && (localRiderLocation.getUberLatLng() != null)) {
+      localAnalyticsEvent.setValue(String.format("%f:%f", new Object[] { Double.valueOf(localRiderLocation.getUberLatLng().a()), Double.valueOf(localRiderLocation.getUberLatLng().b()) }));
+    }
+    d.a(localAnalyticsEvent);
+    startActivity(TripSchedulerActivity.a(getContext(), localRiderLocation, ad.m()));
+  }
+  
+  public final void G_()
+  {
+    aQ();
   }
   
   public final void H()
   {
-    ak.m();
-  }
-  
-  public final boolean H_()
-  {
-    ak.h();
-    return false;
+    az();
   }
   
   public final void I()
   {
-    ak.o();
-  }
-  
-  public final boolean I_()
-  {
-    ae.d();
-    aq.g();
-    return false;
+    ac();
   }
   
   public final void J()
   {
-    d.a(AnalyticsEvent.create("tap").setName(r.hY).setValue(q.d()));
-    C.a("pinClicked");
-    Object localObject = T.n();
-    localObject = w.c((String)localObject);
-    if ((localObject != null) && (w.f(((MobileMessage)localObject).getId())) && (a((MobileMessage)localObject))) {
-      return;
-    }
-    localObject = l.c();
-    if ((localObject != null) && (((Client)localObject).isMobileRevoked().booleanValue()))
+    d.a(AnalyticsEvent.create("tap").setName(z.la).setValue("map"));
+    if ((v.f()) && (ad.g() != 1))
     {
-      hzq.a(d());
+      ad.a(true, null);
       return;
     }
-    if (g(T.n()))
-    {
-      d.a(r.kK);
-      ab();
-      return;
-    }
-    c(false);
+    ax();
   }
   
-  public final void J_()
+  public final void K()
   {
-    if (getActivity() != null) {
-      au.i();
+    Object localObject = E.b();
+    RiderLocation localRiderLocation = ad.i();
+    boolean bool = ap();
+    if (flf.a(u)) {}
+    for (localObject = LocationSearchActivity.a(getActivity(), "com.ubercab.ACTION_DESTINATION", (RiderLocation)localObject, localRiderLocation, ad.m(), bool, at());; localObject = LocationSearchActivity.a(getActivity(), "com.ubercab.ACTION_DESTINATION", (RiderLocation)localObject, localRiderLocation, ad.m(), bool))
+    {
+      startActivityForResult((Intent)localObject, 1014);
+      return;
     }
   }
-  
-  public final void K() {}
   
   public final void L()
   {
-    if (al.r()) {}
-    while (4 != T.g()) {
-      return;
-    }
-    if (q.e())
+    if (aj.h())
     {
-      T.a(true, Boolean.valueOf(true));
+      h.c(new jhw());
       return;
     }
-    ad();
+    d.a(AnalyticsEvent.create("tap").setName(z.kK).setValue("map"));
+    aw.d();
+    ae();
   }
   
   public final void M()
   {
-    al.g();
+    if (q.f() == null)
+    {
+      d.a(z.aM);
+      aw.e();
+      ay.v();
+      ab();
+      return;
+    }
+    if ((i.a(mvs.e)) && (aj.h()))
+    {
+      h.c(new jhx());
+      return;
+    }
+    if (ad.g() == 9)
+    {
+      h.c(new jgx());
+      return;
+    }
+    aw.e();
+    ab();
+    a(null, null);
   }
   
   public final void N()
   {
-    if (o.a(dux.cd, true))
+    aw.l();
+  }
+  
+  public final void O()
+  {
+    aw.m();
+  }
+  
+  public final void P()
+  {
+    aw.o();
+  }
+  
+  public final void Q()
+  {
+    az();
+  }
+  
+  public final void R()
+  {
+    d.a(AnalyticsEvent.create("tap").setName(z.lh).setValue(v.d()));
+    j.a(y.f);
+    Object localObject1 = ad.m();
+    Object localObject2 = q.b();
+    if (localObject2 != null)
     {
-      T.r();
+      localObject2 = ((City)localObject2).findVehicleViewById((String)localObject1);
+      if ((localObject2 != null) && (((VehicleView)localObject2).getDestinationOnLooking()) && (ad.i() == null)) {
+        an.p();
+      }
+    }
+    for (;;)
+    {
+      return;
+      if (i.b(eaj.eO)) {
+        k.R();
+      }
+      p.c();
+      L.a("pinClicked");
+      localObject1 = C.c((String)localObject1);
+      if ((localObject1 == null) || (!C.f(((MobileMessage)localObject1).getId())) || (!a((MobileMessage)localObject1)))
+      {
+        localObject1 = q.c();
+        if ((localObject1 != null) && (((Client)localObject1).isMobileRevoked().booleanValue()))
+        {
+          kca.a(b());
+          return;
+        }
+        if (h(ad.m()))
+        {
+          d.a(z.ol);
+          au();
+        }
+        while (i.a(eaj.eb))
+        {
+          aR.d();
+          return;
+          if ((u.c(eaj.fy)) && (g.g())) {
+            g.a(getActivity(), q, H);
+          }
+          c(false);
+        }
+      }
+    }
+  }
+  
+  public final void S() {}
+  
+  public final void T()
+  {
+    if (ay.s()) {}
+    while (4 != ad.g()) {
+      return;
+    }
+    if (v.f())
+    {
+      ad.a(true, Boolean.valueOf(true));
+      return;
+    }
+    aw();
+  }
+  
+  public final void U()
+  {
+    ay.w();
+  }
+  
+  public final void V()
+  {
+    ay.g();
+  }
+  
+  public final void W()
+  {
+    if (u.a(eaj.cT, true))
+    {
+      ad.s();
       return;
     }
     c(false);
   }
   
-  public final void O()
+  public final void X()
   {
-    N();
+    W();
   }
   
-  public final void P()
+  public final void Y()
   {
-    A.a();
+    I.a();
   }
   
-  final boolean Q()
+  final boolean Z()
   {
-    aQ.p();
-    if ((aC != null) && (aC.isShowing())) {
-      aC.c();
+    bl.l();
+    if ((aX != null) && (aX.isShowing())) {
+      aX.c();
     }
     do
     {
@@ -1088,73 +1525,51 @@ public class TripFragment
         do
         {
           return true;
-        } while ((h.d()) || (az.c()));
-        if ((aB != null) && (aB.isShowing()))
+        } while ((k.e()) || (aP.c()));
+        if ((aW != null) && (aW.isShowing()))
         {
-          aB.dismiss();
-          aB = null;
+          aW.dismiss();
+          aW = null;
           return true;
         }
-      } while ((al.p()) || (au.j()) || (am.a()));
-      switch (T.g())
+      } while ((ay.r()) || (aJ.j()) || (az.a()));
+      switch (ad.g())
       {
       default: 
-        if ((aD != null) && (aD.isShowing()))
+        if ((aY != null) && (aY.isShowing()))
         {
-          aD.dismiss();
-          aD = null;
+          aY.dismiss();
+          aY = null;
           return true;
         }
         break;
       case 4: 
-        if (q.e())
+        if (v.f())
         {
-          T.a(true, Boolean.valueOf(true));
+          ad.a(true, Boolean.valueOf(true));
           return true;
         }
-        ad();
+        aw();
         return true;
       }
-    } while (n.c());
+    } while (s.c());
     return false;
-  }
-  
-  final void R()
-  {
-    b(getString(2131165326));
-    Object localObject = l.f();
-    if (localObject != null) {}
-    for (localObject = ((Trip)localObject).getUuid();; localObject = null)
-    {
-      aK = S.d((String)localObject).a(kls.a()).b(new hfa(this, (byte)0));
-      return;
-    }
-  }
-  
-  final void S()
-  {
-    T.q();
-  }
-  
-  final void T()
-  {
-    hnc localhnc = new hnc(P.a(), P.d(), P.e(), P.b());
-    g.c(localhnc);
-  }
-  
-  final void U()
-  {
-    al.d();
   }
   
   public final void a()
   {
-    av();
+    aQ();
   }
   
   public final void a(int paramInt)
   {
-    ak.a(paramInt);
+    aw.a(paramInt);
+    if (i.a(eaj.dO)) {
+      aV.b(paramInt);
+    }
+    if (i.a(eaj.eh)) {
+      as.a(paramInt);
+    }
   }
   
   public final void a(Intent paramIntent)
@@ -1164,125 +1579,177 @@ public class TripFragment
   
   public final void a(Rect paramRect)
   {
-    am.a(hkc.a, paramRect);
+    az.a(jdn.a, paramRect);
   }
   
-  public final void a(cnw paramcnw)
+  public final void a(CameraPosition paramCameraPosition)
   {
-    if (!T.p()) {
+    if (!ad.q()) {
       return;
     }
-    if (t.i())
+    if (z.j())
     {
-      if (paramcnw.d() < 14.0F) {
+      if (paramCameraPosition.b() < 14.0F) {
         break label75;
       }
-      q.a();
+      v.a();
     }
     for (;;)
     {
-      ak.c();
-      aq.a(paramcnw.b());
-      paramcnw = paramcnw.b();
-      if (paramcnw == null) {
+      aw.c();
+      aF.a(paramCameraPosition.a());
+      paramCameraPosition = paramCameraPosition.a();
+      if (paramCameraPosition == null) {
         break;
       }
-      Q.b(paramcnw);
+      aa.b(paramCameraPosition);
       return;
       label75:
-      q.b();
+      v.b();
     }
   }
   
   public final void a(RiderLocation paramRiderLocation)
   {
-    V.f(false);
-    A.a(null);
+    af.j(false);
+    I.a(null);
     b(paramRiderLocation, null);
-    ar();
+    aK();
   }
   
   final void a(RiderLocation paramRiderLocation, FareInfo paramFareInfo)
   {
-    String str = T.n();
+    String str = ad.m();
     if ((TextUtils.isEmpty(str)) || (!TextUtils.isDigitsOnly(str)))
     {
-      kul.d("Invalid vehicle view Id when attempting to set destination: %s", new Object[] { str });
+      opc.d("Invalid vehicle view Id when attempting to set destination: %s", new Object[] { str });
       return;
     }
     if (paramRiderLocation != null)
     {
       paramRiderLocation = paramRiderLocation.getCnLocation();
-      if (!hha.c(T.g())) {
-        break label139;
+      if (!izk.e(ad.g())) {
+        break label147;
       }
-      if (l.f() == null) {
-        break label134;
+      if (q.f() == null) {
+        break label142;
       }
-      paramFareInfo = l.f().getUuid();
+      paramFareInfo = q.f().getUuid();
       label90:
-      aL = S.a(paramFareInfo, paramRiderLocation).a(kls.a()).b(new hfb(this, (byte)0));
+      bf = ac.a(paramFareInfo, paramRiderLocation).a(oeh.a()).b(new iwv(this, (byte)0));
     }
-    label134:
-    label139:
-    label156:
-    label172:
+    label142:
+    label147:
+    label168:
     label188:
-    label350:
-    label355:
-    label421:
-    label422:
+    label205:
+    label313:
+    label336:
+    label473:
+    label479:
+    label495:
+    label535:
+    label674:
+    label682:
+    label683:
     for (;;)
     {
-      al.h();
+      ay.h();
+      x.a(true);
       return;
       paramRiderLocation = null;
       break;
       paramFareInfo = null;
       break label90;
-      Object localObject = T.h();
+      Object localObject = ad.h();
+      Location localLocation;
       if (localObject != null)
       {
         localObject = ((RiderLocation)localObject).getCnLocation();
         if (localObject == null) {
-          break label350;
+          break label473;
         }
         localObject = Location.create(((CnLocation)localObject).getLatitude(), ((CnLocation)localObject).getLongitude());
         if (paramRiderLocation == null) {
-          break label355;
+          break label479;
         }
-        paramRiderLocation = Location.create(paramRiderLocation.getLatitude(), paramRiderLocation.getLongitude());
-        if ((paramFareInfo == null) || (paramFareInfo.getVehicleViewId().equals(str)) || (!ag.a(str))) {
-          break label421;
+        localLocation = Location.create(paramRiderLocation.getLatitude(), paramRiderLocation.getLongitude());
+        if ((paramFareInfo == null) || (paramFareInfo.getVehicleViewId().equals(str)) || (!ar.a(str))) {
+          break label682;
         }
         paramFareInfo = null;
       }
       for (;;)
       {
-        if ((localObject == null) || (paramRiderLocation == null)) {
-          break label422;
+        if ((localObject == null) || (localLocation == null)) {
+          break label683;
         }
-        if ((o.b(dux.dm)) && (r.m()) && (r.g() != null))
+        boolean bool = u.a(eaj.iM, true);
+        if (bool) {
+          bg.af_();
+        }
+        List localList = aj.m();
+        RiderLocation localRiderLocation = null;
+        if (i.a(eaj.eP))
         {
-          paramFareInfo = FixedRoute.create().setUuid(r.g().getUuid()).setFare(r.g().getFare());
-          aL = J.a(Integer.valueOf(str).intValue(), (Location)localObject, paramRiderLocation, Integer.valueOf(ap()), null, null, paramFareInfo).a(kls.a()).b(new hex(this, (byte)0));
+          paramRiderLocation = Z.a();
+          if (paramRiderLocation == null)
+          {
+            paramRiderLocation = null;
+            localRiderLocation = paramRiderLocation;
+          }
+        }
+        else
+        {
+          paramRiderLocation = null;
+          if (!x.t()) {
+            break label495;
+          }
+          paramRiderLocation = x.x();
+          if ((!u.c(eaj.ff)) || (!x.s()) || (x.m() == null)) {
+            break label535;
+          }
+          paramRiderLocation = FixedRoute.create().setUuid(x.m().getUuid()).setFare(x.m().getFare());
+          paramRiderLocation = S.a(Integer.valueOf(str).intValue(), (Location)localObject, localLocation, Integer.valueOf(aG()), null, null, null, paramRiderLocation, null, localList, localRiderLocation).a(oeh.a()).b(new iwt(this, (byte)0));
+        }
+        for (;;)
+        {
+          if (!bool) {
+            break label674;
+          }
+          bg = paramRiderLocation;
           break;
           localObject = null;
-          break label156;
+          break label168;
           localObject = null;
-          break label172;
-          paramRiderLocation = null;
           break label188;
+          localLocation = null;
+          break label205;
+          paramRiderLocation = paramRiderLocation.getUuid();
+          break label313;
+          if (!i.b(eaj.fn)) {
+            break label336;
+          }
+          paramRiderLocation = ad.o();
+          if (paramRiderLocation == null) {}
+          for (paramRiderLocation = null;; paramRiderLocation = paramRiderLocation.getHopVersion()) {
+            break;
+          }
+          if (x.t()) {
+            paramRiderLocation = S.a(Integer.valueOf(str).intValue(), (Location)localObject, localLocation, Integer.valueOf(aG()), null, null, null, null, paramRiderLocation, localList, localRiderLocation).a(oeh.a()).b(new iwt(this, (byte)0));
+          } else {
+            paramRiderLocation = S.a(Integer.valueOf(str).intValue(), (Location)localObject, localLocation, Integer.valueOf(aG()), Long.valueOf(L.a()), L.b(), paramFareInfo, null, paramRiderLocation, localList, localRiderLocation).a(oeh.a()).b(new iwt(this, (byte)0));
+          }
         }
-        aL = J.a(Integer.valueOf(str).intValue(), (Location)localObject, paramRiderLocation, Integer.valueOf(ap()), Long.valueOf(C.a()), paramFareInfo, null).a(kls.a()).b(new hex(this, (byte)0));
+        bf = paramRiderLocation;
         break;
       }
     }
   }
   
-  public final void a(com.ubercab.client.core.model.Note paramNote)
+  public final void a(Note paramNote)
   {
-    RiderLocation localRiderLocation = y.b();
+    RiderLocation localRiderLocation = E.b();
     if (localRiderLocation == null) {
       return;
     }
@@ -1291,526 +1758,224 @@ public class TripFragment
   
   public final void a(GmmProductSurge paramGmmProductSurge)
   {
-    aO = paramGmmProductSurge;
+    bj = paramGmmProductSurge;
   }
   
   public final void a(Profile paramProfile)
   {
-    if ((T.g() == 7) || (T.g() == 8)) {}
+    if ((ad.g() == 8) || (ad.g() == 9)) {}
     for (boolean bool = true;; bool = false)
     {
-      al.a(paramProfile, bool);
+      ay.a(paramProfile, bool);
       return;
     }
-  }
-  
-  public final void a(hka paramhka, boolean paramBoolean)
-  {
-    if (paramBoolean) {
-      a(al.o());
-    }
-    paramhka.a();
   }
   
   @Deprecated
-  public final void a(String paramString, Long paramLong, boolean paramBoolean)
+  public final void a(UpfrontFare paramUpfrontFare, RiderFareConsent paramRiderFareConsent)
   {
-    if (o.a(dux.fr, true))
+    ConfirmedUpfrontFare localConfirmedUpfrontFare = paramRiderFareConsent.getUpfrontPriceShown();
+    if (localConfirmedUpfrontFare == null) {}
+    for (paramRiderFareConsent = null;; paramRiderFareConsent = localConfirmedUpfrontFare.getUpfrontUuid())
     {
-      if (!o.a(dux.a, true)) {
-        break label105;
+      if ((a(localConfirmedUpfrontFare, paramUpfrontFare)) || ((paramUpfrontFare != null) && (paramRiderFareConsent != null) && (!paramRiderFareConsent.equals(paramUpfrontFare.getUuid())))) {
+        M.a(eaj.ii, "Consent mismatch: " + new LinkedHashMap(kcv.a("upfront price shown", localConfirmedUpfrontFare, "upfront fare", paramUpfrontFare, "upfront uuid", paramRiderFareConsent)));
       }
-      if (!paramBoolean) {
-        break label97;
-      }
-    }
-    label97:
-    for (String str = "pool";; str = "non-pool")
-    {
-      d.a(AnalyticsEvent.create("tap").setName(r.gc).setValue(TextUtils.join(":", new Object[] { Q.i(), paramString, paramLong, str })));
       return;
     }
-    label105:
-    d.a(AnalyticsEvent.create("tap").setName(r.gc).setValue(TextUtils.join(":", new Object[] { Q.i(), paramString, paramLong })));
   }
   
   final void a(String paramString1, String paramString2)
   {
-    au.b(paramString1, paramString2);
+    aJ.b(paramString1, paramString2);
   }
   
   public final void a(String paramString1, String paramString2, String paramString3)
   {
-    new AlertDialog.Builder(getActivity()).setMessage(paramString1).setPositiveButton(paramString2, new TripFragment.7(this, paramString3)).create().show();
+    new AlertDialog.Builder(getActivity()).setMessage(paramString1).setPositiveButton(paramString2, new TripFragment.8(this, paramString3)).create().show();
   }
   
-  @Deprecated
-  final void a(String paramString, boolean paramBoolean)
+  public final void a(List<jqo> paramList)
   {
-    if (o.b(dux.gr))
-    {
-      P.a(paramString);
-      R.c();
-    }
-    Object localObject4;
-    Object localObject1;
-    do
-    {
-      do
-      {
-        return;
-        localObject4 = T.n();
-      } while (TextUtils.isEmpty((CharSequence)localObject4));
-      localObject1 = y.b();
-    } while (localObject1 == null);
-    CnLocation localCnLocation3 = r.h();
-    CnLocation localCnLocation2 = r.i();
-    Object localObject2 = r.g();
-    int i1;
-    if ((hha.b(T.g())) && (localCnLocation3 != null) && (localCnLocation2 != null) && (localObject2 != null))
-    {
-      i1 = 1;
-      if (!o.b(dux.dm)) {
-        break label1900;
-      }
-      if ((!r.m()) || (localCnLocation3 == null) || (localCnLocation2 == null) || (localObject2 == null)) {
-        break label951;
-      }
-      i1 = 1;
-    }
-    label161:
-    label176:
-    label181:
-    label202:
-    label216:
-    label306:
-    label638:
-    label951:
-    label962:
-    label972:
-    label978:
-    label999:
-    label1005:
-    label1051:
-    label1267:
-    label1295:
-    label1367:
-    label1386:
-    label1404:
-    label1658:
-    label1737:
-    label1743:
-    label1749:
-    label1755:
-    label1761:
-    label1768:
-    label1826:
-    label1859:
-    label1870:
-    label1881:
-    label1900:
-    for (int i2 = i1;; i2 = i1)
-    {
-      String str;
-      CnLocation localCnLocation1;
-      Object localObject7;
-      Object localObject9;
-      Object localObject3;
-      boolean bool2;
-      Object localObject5;
-      Object localObject8;
-      Object localObject6;
-      if (i2 != 0)
-      {
-        str = ((HopResponse.Route)localObject2).getUuid();
-        if (i2 == 0) {
-          break label962;
-        }
-        localObject1 = y.c();
-        if (localObject1 == null) {
-          break label972;
-        }
-        localCnLocation1 = ((RiderLocation)localObject1).getCnLocation();
-        localObject1 = T.i();
-        if (i2 == 0) {
-          break label978;
-        }
-        localObject1 = al.o();
-        localObject7 = localObject1;
-        if (localObject1 == null)
-        {
-          localObject7 = localObject1;
-          if (t.f())
-          {
-            localObject2 = au();
-            localObject7 = localObject1;
-            if (!TextUtils.isEmpty((CharSequence)localObject2)) {
-              localObject7 = com.ubercab.client.core.model.Note.create().setText((String)localObject2);
-            }
-          }
-        }
-        localObject1 = null;
-        localObject9 = l.b();
-        if (localObject9 == null) {
-          break label999;
-        }
-        localObject3 = ((City)localObject9).findVehicleViewById((String)localObject4);
-        if (localObject3 == null) {
-          break label1881;
-        }
-        bool1 = ag.a((String)localObject4);
-        bool2 = ag.c();
-        if (ag.b((String)localObject4)) {
-          localObject1 = Boolean.TRUE;
-        }
-        localObject5 = localObject3;
-        localObject2 = localObject4;
-        if (o.b(dux.b))
-        {
-          localObject5 = localObject3;
-          localObject2 = localObject4;
-          if (((VehicleView)localObject3).getLinkedVehicleViewId() != null) {
-            if (bool1)
-            {
-              localObject5 = localObject3;
-              localObject2 = localObject4;
-              if (!bool2) {}
-            }
-            else
-            {
-              localObject5 = ((VehicleView)localObject3).getLinkedVehicleViewId();
-              localObject2 = ((City)localObject9).findVehicleViewById((String)localObject5);
-              if ((localObject2 == null) || (!V.T())) {
-                break label1870;
-              }
-              V.aj();
-              localObject3 = localObject5;
-              if (!o.a(dux.bT, true))
-              {
-                localObject4 = f(((VehicleView)localObject2).getId());
-                if (localObject4 != null) {
-                  C.a(((VehicleView)localObject2).getId(), ((DynamicFare)localObject4).getFareId());
-                }
-              }
-              localObject5 = localObject2;
-              localObject2 = localObject3;
-            }
-          }
-        }
-        localObject4 = localObject5;
-        localObject3 = localObject2;
-        if (bool1)
-        {
-          localObject4 = localObject5;
-          localObject3 = localObject2;
-          if (!bool2)
-          {
-            localObject4 = localObject5;
-            localObject3 = localObject2;
-            if (((VehicleView)localObject5).getLinkedVehicleViewId() != null)
-            {
-              localObject4 = localObject5;
-              localObject3 = localObject2;
-              if (A.c() != null)
-              {
-                localObject3 = ((VehicleView)localObject5).getLinkedVehicleViewId();
-                localObject4 = ((City)localObject9).findVehicleViewById((String)localObject3);
-                bool1 = A.c().getVehicleViewId().equals(localObject3);
-                if ((localObject4 == null) || (!bool1)) {
-                  break label1859;
-                }
-                V.aj();
-                localObject2 = localObject4;
-                if (!o.a(dux.bT, true))
-                {
-                  localObject4 = f(((VehicleView)localObject2).getId());
-                  if (localObject4 != null) {
-                    C.a(((VehicleView)localObject2).getId(), ((DynamicFare)localObject4).getFareId());
-                  }
-                }
-                localObject4 = localObject2;
-              }
-            }
-          }
-        }
-        localObject8 = localObject4;
-        localObject2 = localObject3;
-        if (((VehicleView)localObject4).getHijackVehicleViewId() != null)
-        {
-          localObject8 = localObject4;
-          localObject2 = localObject3;
-          if (o.b(dux.c))
-          {
-            localObject2 = ((VehicleView)localObject4).getHijackVehicleViewId();
-            localObject8 = ((City)localObject9).findVehicleViewById((String)localObject2);
-            localObject6 = localObject4;
-            localObject5 = localObject3;
-            if (localObject8 != null)
-            {
-              localObject6 = localObject4;
-              localObject5 = localObject3;
-              if (V.T())
-              {
-                V.aj();
-                localObject6 = localObject8;
-                localObject5 = localObject2;
-              }
-            }
-            localObject8 = localObject6;
-            localObject2 = localObject5;
-            if (!o.a(dux.bT, true))
-            {
-              localObject3 = f(((VehicleView)localObject6).getId());
-              localObject8 = localObject6;
-              localObject2 = localObject5;
-              if (localObject3 != null)
-              {
-                C.a(((VehicleView)localObject6).getId(), ((DynamicFare)localObject3).getFareId());
-                localObject2 = localObject5;
-                localObject8 = localObject6;
-              }
-            }
-          }
-        }
-        bool2 = ((VehicleView)localObject8).getAllowRidepool();
-        if (!o.a(dux.dd, true)) {
-          break label1005;
-        }
-        bool1 = enl.a((VehicleView)localObject8, o, V);
-      }
-      for (;;)
-      {
-        if ((localCnLocation2 != null) || ((!bool1) && (!bool2))) {
-          break label1051;
-        }
-        ac.m();
-        return;
-        i1 = 0;
-        break;
-        i1 = 0;
-        break label161;
-        str = null;
-        break label176;
-        localCnLocation3 = ((RiderLocation)localObject1).getCnLocation();
-        break label181;
-        localCnLocation1 = null;
-        break label202;
-        if (localObject1 != null)
-        {
-          localCnLocation2 = ((RiderLocation)localObject1).getCnLocation();
-          break label216;
-        }
-        localCnLocation2 = null;
-        break label216;
-        localObject3 = null;
-        break label306;
-        bool1 = V.U();
-        if ((((VehicleView)localObject8).isDestinationRequired()) || ((((VehicleView)localObject8).isDestinationPreferred()) && (!bool1))) {
-          bool1 = true;
-        } else {
-          bool1 = false;
-        }
-      }
-      boolean bool1 = ((VehicleView)localObject8).getIsCashOnly();
-      boolean bool3;
-      if (g((String)localObject2))
-      {
-        localObject3 = ((VehicleView)localObject8).getUuid();
-        if (!TextUtils.isEmpty((CharSequence)localObject3))
-        {
-          localObject3 = L.c((String)localObject3);
-          if (localObject3 != null)
-          {
-            localObject4 = new ArrayList();
-            localObject3 = ((Store)localObject3).getItemsForServer();
-            if (localObject3 != null) {
-              ((List)localObject4).addAll((Collection)localObject3);
-            }
-            localObject3 = localObject1;
-            bool3 = bool1;
-            localObject1 = localObject2;
-            bool1 = bool2;
-            localObject2 = localObject3;
-            bool2 = bool3;
-            localObject3 = localObject4;
-          }
-        }
-      }
-      for (;;)
-      {
-        if (bool1) {
-          V.e(true);
-        }
-        if (i2 != 0)
-        {
-          i1 = 1;
-          if (!o.b(dux.dm)) {
-            break label1826;
-          }
-          i1 = ap();
-        }
-        for (;;)
-        {
-          T.e(true);
-          localObject6 = P.a(getActivity());
-          bool3 = P.d();
-          long l1;
-          if ((P.e()) && (!bool2) && (localObject9 != null) && (gcc.a(((City)localObject9).getCountryIso2())))
-          {
-            bool2 = true;
-            localObject8 = A.e();
-            if (!G.p()) {
-              break label1737;
-            }
-            localObject4 = G.c();
-            boolean bool4 = o.b(dux.aV);
-            boolean bool5 = W.o();
-            localObject5 = null;
-            if (localObject3 != null) {
-              localObject5 = iap.a(ian.a((Iterable)localObject3, new TripFragment.8(this)));
-            }
-            if ((!o.b(dux.eS)) && (i2 == 0)) {
-              break label1743;
-            }
-            i2 = 1;
-            if (!V.ak()) {
-              break label1749;
-            }
-            localObject3 = A.b();
-            localObject9 = J;
-            int i3 = Integer.parseInt((String)localObject1);
-            if (i2 == 0) {
-              break label1755;
-            }
-            localObject2 = ((jry)localObject9).a(i3, localCnLocation3, localCnLocation2, localCnLocation1, Long.valueOf(C.a()), (UpfrontFare)localObject8, paramString, (String)localObject6, (Profile)localObject4, Boolean.valueOf(bool3), Boolean.valueOf(paramBoolean), Boolean.valueOf(bool2), P.b(), Integer.valueOf(i1), (com.ubercab.rider.realtime.request.param.Note)localObject7, (List)localObject5, Boolean.valueOf(bool5), (DeviceData)E.a(), (EtdInfo)localObject3, str, Boolean.valueOf(bool4), (Boolean)localObject2, C.b()).a(kls.a());
-            paramString = (String)localObject2;
-            if (o.b(dux.fC)) {
-              paramString = ((kld)localObject2).b(new TripFragment.11(this)).c(new TripFragment.10(this)).d(new TripFragment.9(this));
-            }
-            paramString = kld.a(paramString, af(), new hey());
-            localObject2 = (TripActivity)getActivity();
-            localObject2.getClass();
-            aJ = paramString.b(new hde((TripActivity)localObject2));
-            if (o.a(dux.fr, true))
-            {
-              l1 = C.a();
-              if (!o.a(dux.a, true)) {
-                break label1768;
-              }
-              if (!bool1) {
-                break label1761;
-              }
-              paramString = "pool";
-              d.a(AnalyticsEvent.create("tap").setName(r.gc).setValue(TextUtils.join(":", new Object[] { Q.i(), localObject1, Long.valueOf(l1), paramString })));
-            }
-          }
-          for (;;)
-          {
-            b(false);
-            return;
-            i1 = ap();
-            break;
-            bool2 = false;
-            break label1267;
-            localObject4 = null;
-            break label1295;
-            i2 = 0;
-            break label1367;
-            localObject3 = null;
-            break label1386;
-            localCnLocation1 = null;
-            break label1404;
-            paramString = "non-pool";
-            break label1658;
-            d.a(AnalyticsEvent.create("tap").setName(r.gc).setValue(TextUtils.join(":", new Object[] { Q.i(), localObject1, Long.valueOf(l1) })));
-          }
-        }
-        localObject3 = null;
-        bool3 = bool2;
-        localObject4 = localObject2;
-        bool2 = bool1;
-        localObject2 = localObject1;
-        bool1 = bool3;
-        localObject1 = localObject4;
-        continue;
-        localObject3 = localObject2;
-        localObject2 = localObject5;
-        break label638;
-        localObject2 = localObject3;
-        localObject3 = localObject4;
-        break;
-        localObject2 = null;
-        bool1 = false;
-        bool2 = false;
-        localObject1 = localObject4;
-        localObject3 = null;
-      }
-    }
+    C.a(paramList);
   }
   
-  public final void a(List<hts> paramList)
+  public final void a(jdl paramjdl, boolean paramBoolean)
   {
-    w.a(paramList);
+    if (paramBoolean) {
+      a(ay.q());
+    }
+    paramjdl.a();
   }
   
   public final void a(boolean paramBoolean)
   {
-    g.c(new hmw(paramBoolean));
+    Object localObject1 = q.b();
+    if (localObject1 == null) {}
+    Object localObject2;
+    RiderLocation localRiderLocation;
+    do
+    {
+      do
+      {
+        do
+        {
+          return;
+          localObject1 = ((City)localObject1).findVehicleViewById(ad.m());
+        } while (localObject1 == null);
+        localObject2 = getActivity();
+      } while (localObject2 == null);
+      localRiderLocation = E.b();
+    } while (localRiderLocation == null);
+    if (((((VehicleView)localObject1).getAllowFareEstimate()) || (paramBoolean)) && (((VehicleView)localObject1).isDestinationEnabled()))
+    {
+      localObject1 = new Intent((Context)localObject2, FareEstimateActivity.class).putExtra("com.ubercab.FARE_ID", L.a()).putExtra("com.ubercab.FARE_UUID", L.b()).putExtra("com.ubercab.LOCATION_DESTINATION", ad.i()).putExtra("com.ubercab.LOCATION_PICKUP", localRiderLocation);
+      localObject2 = Z.p();
+      if (localObject2 != null) {
+        ((Intent)localObject1).putExtra("com.ubercab.CURRENCY_TO_POINTS_RATIO", ((Balance)localObject2).getRewardsToCurrencyRatio());
+      }
+      startActivityForResult((Intent)localObject1, 1012);
+      return;
+    }
+    new AlertDialog.Builder((Context)localObject2).setMessage(getString(2131165945, new Object[] { ((VehicleView)localObject1).getDescription() })).setPositiveButton(getString(2131165405), null).create().show();
+  }
+  
+  final void a(boolean paramBoolean1, boolean paramBoolean2, int paramInt)
+  {
+    a_(getString(2131165353));
+    Object localObject = q.f();
+    if (localObject != null) {}
+    for (localObject = ((Trip)localObject).getUuid();; localObject = null)
+    {
+      RiderLocation localRiderLocation = ad.i();
+      FareInfo localFareInfo = I.c();
+      be = ac.e((String)localObject).a(oeh.a()).b(new TripFragment.9(this, paramBoolean1, paramBoolean2, localRiderLocation, localFareInfo, paramInt));
+      return;
+    }
   }
   
   public final boolean a(Point paramPoint)
   {
-    if (ap.d()) {
+    if (aE.d()) {
       return true;
     }
-    if (!T.p()) {
+    if (!ad.q()) {
       return false;
     }
     paramPoint = getView();
     if (paramPoint != null) {
-      paramPoint.removeCallbacks(aE);
+      paramPoint.removeCallbacks(aZ);
     }
-    ae.b();
-    aq.f();
-    Q.a(true);
-    Q.j();
-    if ((eni.a(l.d())) && (y.b() == null)) {
-      Q.k();
+    ap.b();
+    aF.f();
+    aa.b(true);
+    aa.i();
+    if ((eux.a(q.d())) && (E.b() == null)) {
+      aa.j();
     }
     return false;
   }
   
   public final boolean a(String paramString)
   {
-    boolean bool = g(paramString);
+    boolean bool = h(paramString);
     if (bool) {
-      ab();
+      au();
     }
     return bool;
   }
   
-  public final void b()
+  final void aa()
   {
-    av();
+    a(true, false, 0);
+  }
+  
+  final void ab()
+  {
+    ad.r();
+  }
+  
+  final void ac()
+  {
+    jhl localjhl = new jhl(Z.a(), Z.d(), Z.e(), Z.b());
+    h.c(localjhl);
+  }
+  
+  final void ad()
+  {
+    ay.d();
+  }
+  
+  final void ae()
+  {
+    Object localObject = ad.h();
+    RiderLocation localRiderLocation = ad.i();
+    String str = ad.m();
+    boolean bool = ap();
+    if (flf.a(u)) {}
+    for (localObject = LocationSearchActivity.a(getActivity(), "com.ubercab.ACTION_DESTINATION", (RiderLocation)localObject, localRiderLocation, str, bool, at());; localObject = LocationSearchActivity.a(getActivity(), "com.ubercab.ACTION_DESTINATION", (RiderLocation)localObject, localRiderLocation, str, bool))
+    {
+      startActivityForResult((Intent)localObject, 1014);
+      return;
+    }
+  }
+  
+  public final boolean af()
+  {
+    return ay.m();
+  }
+  
+  final void ag()
+  {
+    if (!aB.c())
+    {
+      d.a(x.id);
+      aB.b();
+    }
+  }
+  
+  final void ah()
+  {
+    if (aB.c())
+    {
+      d.a(x.ic);
+      aB.a();
+    }
+  }
+  
+  public final void ai()
+  {
+    aS.e();
+  }
+  
+  public final void aj()
+  {
+    aS.f();
   }
   
   public final void b(int paramInt)
   {
-    aj.a(paramInt);
-    ak.n();
+    av.a(paramInt);
+    aw.n();
   }
   
-  @Deprecated
-  final void b(boolean paramBoolean)
+  final void b(Intent paramIntent)
   {
-    aM = paramBoolean;
+    if (paramIntent != null) {
+      au.a(paramIntent);
+    }
+  }
+  
+  public final void b(boolean paramBoolean)
+  {
+    h.c(new jhf(paramBoolean));
   }
   
   public final boolean b(Point paramPoint)
   {
     boolean bool2 = false;
     boolean bool1;
-    if ((ap.d()) && (al.p())) {
+    if ((aE.d()) && (ay.r())) {
       bool1 = true;
     }
     do
@@ -1819,150 +1984,122 @@ public class TripFragment
       {
         return bool1;
         bool1 = bool2;
-      } while (!T.p());
-      ae.c();
-      aq.e();
-      ak.i();
+      } while (!ad.q());
+      ap.c();
+      aF.e();
+      aw.i();
       paramPoint = getView();
       bool1 = bool2;
     } while (paramPoint == null);
-    paramPoint.postDelayed(aE, aP);
+    paramPoint.postDelayed(aZ, bk);
     return false;
-  }
-  
-  public final void c(boolean paramBoolean)
-  {
-    C.a("finishLookingBegin");
-    Object localObject = l.b();
-    String str = T.n();
-    if (localObject != null) {}
-    for (localObject = ((City)localObject).findVehicleViewById(str); localObject == null; localObject = null) {
-      return;
-    }
-    if (!((VehicleView)localObject).isDestinationEnabled()) {
-      T.q();
-    }
-    DynamicFare localDynamicFare = f(str);
-    int i1;
-    if ((localDynamicFare != null) && (localDynamicFare.getMultiplier() > 1.0F))
-    {
-      i1 = 1;
-      if ((i1 == 0) || ((!paramBoolean) && (!((VehicleView)localObject).getAllowedToSurge()))) {
-        break label258;
-      }
-      if (o.a(dux.cl, true)) {
-        C.e();
-      }
-      if (!o.b(dux.co)) {
-        break label223;
-      }
-      localObject = SurgeConfirmationData.a(localDynamicFare, aO, ((VehicleView)localObject).getDescription(), ((VehicleView)localObject).getGroupDisplayName(), str, enl.a((VehicleView)localObject), ((VehicleView)localObject).getUuid());
-    }
-    for (localObject = SurgeConfirmationActivity.a(f, (SurgeConfirmationData)localObject);; localObject = SurgeActivity.a(f, str, localDynamicFare, paramBoolean, aO))
-    {
-      startActivityForResult((Intent)localObject, 3001);
-      return;
-      i1 = 0;
-      break;
-      label223:
-      paramBoolean = "sobriety".equals(localDynamicFare.getScreenType());
-    }
-    label258:
-    C.a(str, 0L);
-    if (o.a(dux.cg, true)) {
-      C.d();
-    }
-    long l1;
-    RiderLocation localRiderLocation;
-    if (o.a(dux.ck, true))
-    {
-      l1 = hzz.a();
-      localRiderLocation = y.b();
-      if (localDynamicFare != null) {
-        break label377;
-      }
-    }
-    label377:
-    for (localObject = "no_dynamic_fare";; localObject = "other")
-    {
-      localObject = han.a(localDynamicFare, l1, localRiderLocation, (String)localObject, str);
-      C.a((SkippedFare)localObject);
-      C.b((SkippedFare)localObject);
-      C.a("finishLookingEnd");
-      al();
-      return;
-    }
   }
   
   public final void d(String paramString)
   {
-    T.c(paramString);
+    ad.c(paramString);
+  }
+  
+  public final cli e()
+  {
+    return dxm.a;
   }
   
   public final void e(String paramString)
   {
-    paramString = w.d(paramString);
+    paramString = C.d(paramString);
     if (paramString != null) {
-      g.c(new fph(paramString));
+      h.c(new ghe(paramString));
     }
   }
   
-  public final ckr f()
+  public final void f() {}
+  
+  @Deprecated
+  final void f(String paramString)
   {
-    return dsh.a;
+    Z.a(paramString);
+    ab.c();
   }
   
-  public final void g()
+  public final boolean g()
   {
-    ai();
+    aw.h();
+    return false;
   }
   
-  public final void h()
+  public final boolean h()
   {
-    al.j();
+    ap.d();
+    aF.g();
+    return false;
   }
   
   public final void i()
   {
-    al.j();
+    ay.k();
   }
   
   public final void j()
   {
-    fcj.a(getActivity(), d);
+    ay.k();
   }
   
   public final void k()
   {
-    T.c(true);
-    c(false);
+    View localView = getView();
+    if ((localView != null) && (aR.a() == null))
+    {
+      aR.a((ViewGroup)localView.findViewById(2131626413));
+      aR.a(this);
+    }
+    aR.a(r, H, d);
   }
   
   public final void l()
   {
-    g.c(new hmk());
+    aR.b();
+    aR.c();
   }
   
   public final void m()
   {
-    g.c(new hni());
+    if (getActivity() != null) {
+      aJ.i();
+    }
   }
   
   public final void n()
   {
-    fvz.a(getActivity(), l, V);
-    d.a(p.kh);
+    if (!u.a(mvs.i, true)) {
+      return;
+    }
+    Object localObject = E.b();
+    long l1 = kcj.b();
+    if (localObject != null) {}
+    for (localObject = ((RiderLocation)localObject).getUberLatLng();; localObject = null)
+    {
+      localObject = mvt.a(null, l1, (UberLatLng)localObject, "eats", ad.m());
+      L.a((SkippedFare)localObject);
+      L.b((SkippedFare)localObject);
+      return;
+    }
+  }
+  
+  public final void o()
+  {
+    az();
   }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
-    if (paramInt1 == 4001) {
-      ad();
+    if (paramInt1 == 1026) {
+      aw();
     }
     if (paramInt2 != -1) {
-      if (paramInt1 == 3001) {
-        T.r();
+      if (paramInt1 == 1027) {
+        ad.s();
       }
     }
     do
@@ -1972,115 +2109,144 @@ public class TripFragment
         do
         {
           return;
-          if ((paramInt1 != 2008) || (paramInt2 != 2)) {
+          if ((paramInt1 != 1014) || (paramInt2 != 2)) {
             break;
           }
-          V.f(true);
-          ac.t();
-        } while ((o.a(dux.ht, dvi.b)) || (o.a(dux.ht, dvi.c)));
+          af.j(true);
+          an.w();
+        } while ((u.a(eaj.mn, ebc.b)) || (u.a(eaj.mn, ebc.c)));
         c(true);
         return;
-        kul.d("Bad activity result [%d] for request [%d]", new Object[] { Integer.valueOf(paramInt2), Integer.valueOf(paramInt1) });
+        opc.d("Bad activity result [%d] for request [%d]", new Object[] { Integer.valueOf(paramInt2), Integer.valueOf(paramInt1) });
         return;
-        if (paramInt1 != 2007) {
+        if (paramInt1 != 1016) {
           break;
         }
         paramIntent = (RiderLocation)paramIntent.getParcelableExtra("com.ubercab.LOCATION");
-        Q.a(paramIntent);
-      } while (s.a(T.g()));
-      T.a(false, null);
+        aa.a(paramIntent);
+      } while (y.a(ad.g()));
+      ad.a(false, null);
       return;
-      Object localObject1;
       Object localObject2;
-      if (paramInt1 == 2008)
+      if (paramInt1 == 1014)
       {
-        V.f(false);
+        af.j(false);
         localObject1 = (RiderLocation)paramIntent.getParcelableExtra("com.ubercab.LOCATION");
         localObject2 = (FareInfo)paramIntent.getParcelableExtra("com.ubercab.FAREINFO");
-        if (eyh.a(o))
+        if (flf.a(u))
         {
           paramIntent = paramIntent.getStringExtra("com.ubercab.CLIENT_ID");
           if (paramIntent != null)
           {
-            k.a(paramIntent);
-            j.b(paramIntent);
+            o.a(paramIntent);
+            n.b(paramIntent);
           }
         }
-        A.a((FareInfo)localObject2);
+        I.a((FareInfo)localObject2);
         b((RiderLocation)localObject1, (FareInfo)localObject2);
-        ar();
+        aK();
         return;
       }
-      if (paramInt1 == 2009)
+      if (paramInt1 == 1015)
       {
         localObject1 = (RiderLocation)paramIntent.getParcelableExtra("com.ubercab.LOCATION");
         paramIntent = (FareInfo)paramIntent.getParcelableExtra("com.ubercab.FAREINFO");
-        A.a(paramIntent);
+        I.a(paramIntent);
         b((RiderLocation)localObject1, paramIntent);
         c(false);
         return;
       }
-      if (paramInt1 == 5001)
+      if (paramInt1 == 1012)
       {
         paramIntent = (RiderLocation)paramIntent.getParcelableExtra("com.ubercab.LOCATION_DESTINATION");
-        T.a(paramIntent);
+        ad.a(paramIntent);
         return;
       }
-      if (paramInt1 == 3001)
+      if (paramInt1 == 1027)
       {
-        long l1 = paramIntent.getLongExtra("com.ubercab.FARE_ID", 0L);
-        localObject1 = paramIntent.getStringExtra("com.ubercab.VEHICLE_VIEW_ID");
-        localObject2 = (ConfirmedFare)paramIntent.getParcelableExtra("com.ubercab.EXTRA_CONFIRMED_ACCEPTED_FARE");
-        ConfirmedFare localConfirmedFare = (ConfirmedFare)paramIntent.getParcelableExtra("com.ubercab.EXTRA_CONFIRMED_ENTERED_FARE");
-        paramIntent = (SkippedFare)paramIntent.getParcelableExtra("com.ubercab.EXTRA_SKIPPED_ENTERED_FARE");
-        C.a((ConfirmedFare)localObject2);
-        C.b(localConfirmedFare);
-        C.b(paramIntent);
-        C.a((String)localObject1, l1);
-        if ((o.b(dux.ch)) && ((localObject2 == null) || ((paramIntent == null) && (localConfirmedFare == null)))) {
-          kul.a(dux.ch.name()).e("Surge activity result: %s, %s, %s. Vvid: %s, FareId: %s", new Object[] { localObject2, localConfirmedFare, paramIntent, localObject1, Long.valueOf(l1) });
+        localObject1 = (AcceptedSurgeData)paramIntent.getParcelableExtra("com.ubercab.ACCEPTED_SURGE_DATA");
+        if (localObject1 != null) {
+          L.a((AcceptedSurgeData)localObject1);
         }
-        al();
+        for (;;)
+        {
+          if (u.a(eaj.iL, true)) {
+            L.i();
+          }
+          localObject1 = (ConfirmedFare)paramIntent.getParcelableExtra("com.ubercab.EXTRA_CONFIRMED_ACCEPTED_FARE");
+          localObject2 = (ConfirmedFare)paramIntent.getParcelableExtra("com.ubercab.EXTRA_CONFIRMED_ENTERED_FARE");
+          paramIntent = (SkippedFare)paramIntent.getParcelableExtra("com.ubercab.EXTRA_SKIPPED_ENTERED_FARE");
+          L.a((ConfirmedFare)localObject1);
+          L.b((ConfirmedFare)localObject2);
+          L.b(paramIntent);
+          if ((u.c(mvs.a)) && ((localObject1 == null) || ((paramIntent == null) && (localObject2 == null)))) {
+            opc.a(mvs.a.name()).e("Surge activity result: %s, %s, %s.", new Object[] { localObject1, localObject2, paramIntent });
+          }
+          aC();
+          return;
+          long l1 = paramIntent.getLongExtra("com.ubercab.FARE_ID", 0L);
+          localObject1 = paramIntent.getStringExtra("com.ubercab.FARE_UUID");
+          localObject2 = paramIntent.getStringExtra("com.ubercab.VEHICLE_VIEW_ID");
+          L.a(l1, (String)localObject1, (String)localObject2);
+        }
+      }
+      if (paramInt1 == 1021)
+      {
+        paramIntent = (Note)paramIntent.getParcelableExtra("com.ubercab.PICKUPNOTE");
+        ay.a(paramIntent);
         return;
       }
-    } while (paramInt1 != 6001);
-    paramIntent = (com.ubercab.client.core.model.Note)paramIntent.getParcelableExtra("com.ubercab.PICKUPNOTE");
-    al.a(paramIntent);
-  }
-  
-  @cho
-  public void onAddDestinationEvent(hmj paramhmj)
-  {
-    ag();
-  }
-  
-  @cho
-  public void onContactDriver(hvj paramhvj)
-  {
-    paramhvj = l.f();
-    if ((paramhvj == null) || (paramhvj.getDriver() == null)) {
-      return;
-    }
-    if ((o.b(dux.aV)) && (ext.a(paramhvj)))
+    } while (paramInt1 != 1003);
+    Object localObject1 = (AuthorizeResult)paramIntent.getParcelableExtra("authorize_result");
+    paramIntent = (FullWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_FULL_WALLET");
+    if ((localObject1 != null) && (!TextUtils.isEmpty(((AuthorizeResult)localObject1).getToken())))
     {
-      paramhvj = ChatThreadActivity.a(getActivity());
-      getActivity().startActivity(paramhvj);
+      Z.a(((AuthorizeResult)localObject1).getToken(), paramIntent);
+      ab.c();
       return;
     }
-    ah.a();
+    opc.d("Android Pay flow did not return authorization token", new Object[0]);
+  }
+  
+  @chu
+  public void onAddDestinationEvent(jgt paramjgt)
+  {
+    ae();
+  }
+  
+  @chu
+  public void onContactDriver(jtk paramjtk)
+  {
+    paramjtk = q.f();
+    if ((paramjtk == null) || (paramjtk.getDriver() == null)) {
+      return;
+    }
+    if (fke.a(u, paramjtk))
+    {
+      paramjtk = ChatThreadActivity.a(getActivity());
+      getActivity().startActivity(paramjtk);
+      return;
+    }
+    at.a();
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    aP = getResources().getInteger(17694722);
+    bk = getResources().getInteger(17694722);
     if (paramBundle != null)
     {
-      aN = paramBundle.getBoolean("com.ubercab.BUNDLE_GMM_IS_INTENT_CONSUMED");
-      aO = ((GmmProductSurge)paramBundle.getParcelable("com.ubercab.BUNDLE_GMM_SURGE_DISPLAYED"));
-      C.a(T.n(), paramBundle.getLong("com.ubercab.CONFIRMATION_SURGE_FARE_ID"));
-      aH = ((RiderLocation)paramBundle.getParcelable("com.ubercab.LOCATION_PREVIOUS_PICKUP"));
-      aI = paramBundle.getString("com.ubercab.BUNDLE_MOBILE_MESSAGE_MSG_ID");
+      bi = paramBundle.getBoolean("com.ubercab.BUNDLE_GMM_IS_INTENT_CONSUMED");
+      bj = ((GmmProductSurge)paramBundle.getParcelable("com.ubercab.BUNDLE_GMM_SURGE_DISPLAYED"));
+      L.a(paramBundle.getLong("com.ubercab.CONFIRMATION_SURGE_FARE_ID"), paramBundle.getString("com.ubercab.CONFIRMATION_SURGE_FARE_UUID"), ad.m());
+      bc = ((RiderLocation)paramBundle.getParcelable("com.ubercab.LOCATION_PREVIOUS_PICKUP"));
+      bd = paramBundle.getString("com.ubercab.BUNDLE_MOBILE_MESSAGE_MSG_ID");
+    }
+    if (paramBundle == null) {}
+    for (boolean bool = true;; bool = false)
+    {
+      bm = bool;
+      return;
     }
   }
   
@@ -2089,107 +2255,120 @@ public class TripFragment
     if (getActivity() == null) {
       return;
     }
-    paramMenuInflater.inflate(2131755039, paramMenu);
+    paramMenuInflater.inflate(2131755041, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    a(egd.w);
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903646, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
-    b(egd.w);
+    a(enz.w);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903862, paramViewGroup, false);
+    a(paramLayoutInflater);
+    b(enz.w);
     return paramLayoutInflater;
   }
   
-  @cho
-  public void onDestinationChangedEvent(hmq paramhmq)
+  @chu
+  public void onCurrentlySelectedProfileSetEvent(hkn paramhkn)
   {
-    ac.n();
-    ad.c();
-    ak.f();
-    al.a(paramhmq);
-    Z.c();
-    aq.c();
-    W.f();
-    aj();
+    if ((i.b(eaj.ci)) && (izk.b(ad.g()))) {
+      Z.a(RiderTripExpenseInfo.create());
+    }
   }
   
-  @cho
-  public void onDestinationPinClicked(hmr paramhmr)
+  @chu
+  public void onDestinationChangedEvent(jgz paramjgz)
   {
-    al.e();
+    an.q();
+    ao.c();
+    aw.f();
+    ay.a(paramjgz);
+    ak.c();
+    aF.c();
+    ag.f();
+    aA();
+  }
+  
+  @chu
+  public void onDestinationPinClicked(jha paramjha)
+  {
+    ay.e();
   }
   
   public void onDestroy()
   {
     super.onDestroy();
-    if (o.b(dux.gr)) {
-      R.d();
-    }
-    if (aJ != null) {
-      aJ.c();
-    }
+    ab.d();
+    Y.b();
   }
   
   public void onDestroyView()
   {
-    super.onDestroyView();
-    aQ.b(this);
-    aQ.b(this);
-    Z.b(this);
-    ac.b(this);
-    ad.b(this);
-    if (o.b(dux.aV))
-    {
-      af.b(this);
-      af.b();
-    }
-    ai.b(this);
+    bl.b(this);
+    bl.b(this);
     ak.b(this);
-    aj.b(this);
-    az.b(this);
-    al.b(this);
-    am.b(this);
-    at.b(this);
+    ab.b(an);
+    an.b(this);
+    ao.b(this);
+    if (fke.c(u))
+    {
+      aq.b(this);
+      aq.b();
+    }
     au.b(this);
-    W.b(q);
-    W.b(this);
-    r.b(av);
-    ButterKnife.reset(this);
-    if ((aC != null) && (aC.isShowing()))
+    aw.b(this);
+    av.b(this);
+    aP.b(this);
+    ay.b(this);
+    az.b(this);
+    aI.b(this);
+    aJ.b(this);
+    ag.b(v);
+    ag.b(this);
+    x.b(aK);
+    x.b(this);
+    w.e();
+    if (i.a(eaj.eb))
     {
-      aC.dismiss();
-      aC = null;
+      aS.d();
+      aR.b();
+      aR.c();
     }
-    if ((aD != null) && (aD.isShowing()))
+    if ((aX != null) && (aX.isShowing()))
     {
-      aD.dismiss();
-      aD = null;
+      aX.dismiss();
+      aX = null;
     }
-    if ((aB != null) && (aB.isShowing()))
+    if ((aY != null) && (aY.isShowing()))
     {
-      aB.dismiss();
-      aB = null;
+      aY.dismiss();
+      aY = null;
     }
+    if ((aW != null) && (aW.isShowing()))
+    {
+      aW.dismiss();
+      aW = null;
+    }
+    ezm.a(bh);
+    super.onDestroyView();
   }
   
-  @cho
-  public void onDismissMobileMessage(fpj paramfpj)
+  @chu
+  public void onDismissMobileMessage(ghg paramghg)
   {
-    aC = null;
+    aX = null;
   }
   
-  @cho
-  public void onEdgeColorPickerRequestEvent(eze parameze)
+  @chu
+  public void onEdgeColorPickerRequestEvent(fmo paramfmo)
   {
-    n.a(parameze.a());
+    s.a(paramfmo.a());
   }
   
-  @cho
-  public void onFareEvent(hms paramhms)
+  @chu
+  public void onFareEvent(jhb paramjhb)
   {
-    if (P.a() == null) {
-      aG = null;
+    if (Z.a() == null) {
+      bb = null;
     }
     double d1;
     do
@@ -2198,19 +2377,19 @@ public class TripFragment
       do
       {
         return;
-        localRewardInfo = P.g();
+        localRewardInfo = Z.g();
       } while ((localRewardInfo == null) || (localRewardInfo.getBalance() == null));
       d1 = localRewardInfo.getBalance().getRewardsToCurrencyRatio();
-      paramhms = paramhms.a();
-    } while (paramhms == null);
-    aG = hcx.a(paramhms, d1);
+      paramjhb = paramjhb.a();
+    } while (paramjhb == null);
+    bb = iub.a(paramjhb, d1);
   }
   
-  @cho
-  public void onGetCreditBalanceResponseEvent(eip parameip)
+  @chu
+  public void onGetCreditBalanceResponseEvent(eqx parameqx)
   {
-    if (!parameip.i()) {
-      d().a_(getString(2131166328));
+    if (!parameqx.i()) {
+      b().b_(getString(2131166561));
     }
     City localCity;
     do
@@ -2218,76 +2397,93 @@ public class TripFragment
       do
       {
         return;
-        parameip = (RiderBalance)parameip.g();
-      } while (parameip == null);
-      localCity = l.b();
+        parameqx = (RiderBalance)parameqx.g();
+      } while (parameqx == null);
+      localCity = q.b();
     } while (localCity == null);
-    if (eqm.a(localCity.getCurrencyCode(), parameip.getCreditBalanceStrings()) != null) {}
+    if (eyp.a(localCity.getCurrencyCode(), parameqx.getCreditBalanceStrings()) != null) {}
     for (boolean bool = true;; bool = false)
     {
-      P.a(bool);
-      al.f();
+      Z.a(bool);
+      ay.f();
       return;
     }
   }
   
-  @cho
-  public void onGetFareEstimateEvent(hmt paramhmt)
+  @chu
+  public void onGetFareEstimateEvent(jhc paramjhc)
   {
-    if (o.a(dux.cm, true)) {
-      C.f();
+    if (u.a(eaj.cY, true)) {
+      L.j();
     }
-    a(T.i(), A.c());
+    mvt localmvt;
+    long l1;
+    if (u.a(mvs.j, true))
+    {
+      paramjhc = E.b();
+      localmvt = L;
+      l1 = kcj.b();
+      if (paramjhc == null) {
+        break label102;
+      }
+    }
+    label102:
+    for (paramjhc = paramjhc.getUberLatLng();; paramjhc = null)
+    {
+      localmvt.a(l1, paramjhc, "request_pending", ad.m());
+      a(ad.i(), I.c());
+      return;
+    }
   }
   
-  @cho
-  public void onGetMultiFareEstimateEvent(hmu paramhmu)
+  @chu
+  public void onGetMultiFareEstimateEvent(jhd paramjhd)
   {
-    ag();
-    d.a(p.ju);
+    ae();
+    d.a(x.mZ);
   }
   
-  @cho
-  public void onItemCountChange(gvg paramgvg)
+  @chu
+  public void onItemCountChange(igm paramigm)
   {
-    au.a(paramgvg);
+    aJ.a(paramigm);
   }
   
-  @cho
-  public void onMapClickCurrentLocationEvent(hmx paramhmx)
+  @chu
+  public void onMapClickCurrentLocationEvent(jhg paramjhg)
   {
-    aq.d();
-    ak.g();
-    an.l();
+    aF.d();
+    aw.g();
+    aA.l();
   }
   
-  @cho
-  public void onMobileMessageConfirmActionEvent(fpg paramfpg)
+  @chu
+  public void onMobileMessageConfirmActionEvent(ghd paramghd)
   {
-    paramfpg = paramfpg.a();
-    if (paramfpg.getDisplayProps() == null) {}
+    paramghd = paramghd.a();
+    if (paramghd.getDisplayProps() == null) {}
     do
     {
       return;
-      paramfpg = paramfpg.getDisplayProps().getShowAfterRequestingVehicleViewId();
-    } while ((T.g() != 0) || (!iac.a(paramfpg, T.n())));
+      paramghd = paramghd.getDisplayProps().getShowAfterRequestingVehicleViewId();
+    } while ((ad.g() != 0) || (!kcm.a(paramghd, ad.m())));
     c(false);
   }
   
-  @cho
-  public void onMobileMessageForLookingEvent(fph paramfph)
+  @chu
+  public void onMobileMessageForLookingEvent(ghe paramghe)
   {
-    if (T.c()) {}
-    while (!hha.e(T.g())) {
+    if (ad.c()) {}
+    while (!izk.g(ad.g())) {
       return;
     }
-    a(paramfph.a());
+    a(paramghe.a());
   }
   
-  @cho
-  public void onMultiFareEstimateEvent(hmy paramhmy)
+  @chu
+  public void onMultiFareEstimateEvent(jhh paramjhh)
   {
-    al.a(paramhmy);
+    ay.j();
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -2303,82 +2499,135 @@ public class TripFragment
     case 16908332: 
       getActivity().onBackPressed();
       return true;
-    case 2131626164: 
-      ae();
+    case 2131626921: 
+      d.a(z.dR);
+      startActivity(ShareContactsActivity.a(getActivity()));
+      return true;
+    case 2131626919: 
+      d.a(z.km);
+      gqa.a(getContext(), q, af, "nav_icon");
+      return true;
+    case 2131626920: 
+      aT.a();
+      return true;
+    case 2131626922: 
+      ay();
       return true;
     }
-    as.a(getActivity());
+    aH.a(getActivity());
     return true;
   }
   
-  @cho
+  @chu
   public void onPanelSlideEvent(PanelSlideEvent paramPanelSlideEvent)
   {
-    ak.a(paramPanelSlideEvent);
+    aw.a(paramPanelSlideEvent);
+    if (i.a(eaj.dO)) {
+      aV.a(paramPanelSlideEvent);
+    }
+    if (i.a(eaj.eh)) {
+      as.a(paramPanelSlideEvent);
+    }
   }
   
   public void onPause()
   {
     super.onPause();
-    ac.v();
-    h.a(false);
-    ae.b(aQ);
-    ae.b(this);
-    k.a();
-    q.b();
-    q.b(az);
-    s.d();
-    x.d();
-    A.g();
-    L.b();
-    P.s();
-    W.c();
-    r.b();
-    aA.f();
-    al.b();
-    ap.b();
-    X.c();
-    if (aF != null) {
-      aF.c();
+    an.y();
+    k.a(false);
+    ap.b(bl);
+    ap.b(this);
+    o.a();
+    v.b();
+    v.b(aP);
+    y.d();
+    D.d();
+    I.g();
+    U.b();
+    Z.A();
+    ag.c();
+    x.b();
+    aQ.g();
+    ay.b();
+    aE.b();
+    ah.b();
+    ax.b();
+    p.b();
+    if (l.g()) {
+      l.o();
     }
-    if (aK != null) {
-      aK.c();
+    if (F.e()) {
+      F.d();
     }
-    if (aL != null) {
-      aL.c();
+    if (u.c(eaj.ii)) {
+      ab.b(this);
     }
-    if ((o.b(dux.gr)) && (o.a(dux.ft, true))) {
-      R.b(this);
+    if (ba != null) {
+      ba.af_();
     }
-    if (o.a(dux.cw, true)) {
-      ay.b(this);
+    if (be != null) {
+      be.af_();
+    }
+    if (bf != null) {
+      bf.af_();
+    }
+    mvt localmvt;
+    long l1;
+    if (!bg.w_()) {
+      if (u.a(mvs.j, true))
+      {
+        localObject = E.b();
+        localmvt = L;
+        l1 = kcj.b();
+        if (localObject == null) {
+          break label451;
+        }
+      }
+    }
+    label451:
+    for (Object localObject = ((RiderLocation)localObject).getUberLatLng();; localObject = null)
+    {
+      localmvt.a(l1, (UberLatLng)localObject, "request_canceled", ad.m());
+      if (u.a(eaj.iN, true)) {
+        ay.u();
+      }
+      x.a(false);
+      bg.af_();
+      if (u.a(eaj.dc, true)) {
+        aM.b(this);
+      }
+      if (Q.j()) {
+        t.a();
+      }
+      if (i.a(eaj.eb)) {
+        l();
+      }
+      if (i.a(eaj.dO)) {
+        aV.b();
+      }
+      return;
     }
   }
   
-  @cho
-  @Deprecated
-  public void onPickupCancelClientResponseEvent(ejc paramejc)
+  @chu
+  public void onPinLocationEvent(dzs paramdzs)
   {
-    e();
+    aw.j();
+    aJ.g();
+    aF.a(paramdzs);
+    J.b();
+    x.a(paramdzs);
+    switch (TripFragment.3.a[aa.c().ordinal()])
+    {
+    default: 
+      return;
+    }
+    aC.a();
+    ezm.a(bh);
   }
-  
-  @cho
-  public void onPinLocationEvent(dud paramdud)
-  {
-    ak.j();
-    au.g();
-    al.a(paramdud);
-    aq.a(paramdud);
-    B.b();
-  }
-  
-  @cho
-  @Deprecated
-  public void onPingEvent(due paramdue) {}
   
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
-    boolean bool2 = false;
     if ((paramMenu == null) || (getActivity() == null)) {
       return;
     }
@@ -2387,506 +2636,498 @@ public class TripFragment
       getActivity().supportInvalidateOptionsMenu();
       return;
     }
-    boolean bool3 = hha.d(T.g());
-    boolean bool1 = bool2;
-    if (l.f() != null)
-    {
-      bool1 = bool2;
-      if (bool3)
-      {
-        bool1 = bool2;
-        if (e.a(AppConfigKey.i, false))
-        {
-          bool1 = bool2;
-          if (!ezs.a(o)) {
-            bool1 = true;
-          }
-        }
-      }
-    }
-    paramMenu.findItem(2131626164).setVisible(bool1);
+    b(paramMenu);
+    a(paramMenu);
+    c(paramMenu);
+    d(paramMenu);
   }
   
-  @cho
-  public void onProductGroupSelected(hnb paramhnb)
+  @chu
+  public void onProductGroupSelected(jhk paramjhk)
   {
-    if (!hha.b(paramhnb.a())) {}
+    if (!izk.b(paramjhk.a())) {}
     do
     {
       return;
-      String str = paramhnb.c();
-      MobileMessage localMobileMessage = w.b(str);
+      String str = paramjhk.c();
+      MobileMessage localMobileMessage = C.b(str);
       if (localMobileMessage != null)
       {
-        paramhnb = localMobileMessage;
+        paramjhk = localMobileMessage;
         if (localMobileMessage.getDisplayProps().getShowAsModalOverRequestView().booleanValue()) {}
       }
       else
       {
-        paramhnb = w.e(str);
+        paramjhk = C.e(str);
       }
-    } while (paramhnb == null);
-    g.c(new fph(paramhnb));
+    } while (paramjhk == null);
+    h.c(new ghe(paramjhk));
   }
   
-  @cho
-  public void onPromoCodeAcceptedConfirmedEvent(glt paramglt)
+  @chu
+  public void onPromoCodeAcceptedConfirmedEvent(hpe paramhpe)
   {
-    paramglt = (PromoFragment)getChildFragmentManager().findFragmentByTag(PromoFragment.a);
-    if (paramglt != null) {
-      paramglt.dismiss();
+    paramhpe = (PromoFragment)getChildFragmentManager().findFragmentByTag(PromoFragment.a);
+    if (paramhpe != null) {
+      paramhpe.dismiss();
     }
-    if (o.b(dux.fv)) {
-      Y();
+    if (u.c(eaj.iR)) {
+      ar();
     }
   }
   
-  @cho
-  public void onReminderCallFailureEvent(gvh paramgvh)
+  @chu
+  public void onReminderCallFailureEvent(ign paramign)
   {
-    au.a(paramgvh);
+    aJ.a(paramign);
   }
   
   public void onResume()
   {
-    a(egd.x);
-    a(egd.y);
+    a(enz.x);
+    a(enz.y);
     super.onResume();
-    b(egd.y);
-    ai.a(getActivity().getIntent());
-    ae.a(aQ);
-    ae.a(this);
-    if ((!t.i()) || (aQ.r() >= 14.0F)) {
-      q.a();
-    }
-    ac.u();
-    if (eyh.a(o)) {
-      k.h();
-    }
-    if (o.b(dux.gw)) {
-      k.a(getActivity().getIntent());
-    }
-    s.c();
-    q.a(az);
-    x.c();
-    A.f();
-    L.a();
-    P.r();
-    aA.e();
-    W.b();
-    r.a();
-    al.a();
-    ap.a();
-    X.b();
-    aF = m.i().a(kld.a(m.a(), m.b(), m.d(), m.f(), m.g(), m.h(), new hew((byte)0)), new TripFragment.6(this)).a(kls.a()).c(new hev(this, (byte)0));
-    if (!T.v()) {
-      J.a().b(eri.a());
-    }
-    g.c(new hnj());
-    h.a(true);
-    v.b();
-    b(egd.x);
-    if (o.b(dux.gr))
+    b(enz.y);
+    if (bm)
     {
-      if (o.a(dux.ft, true)) {
-        R.a(this);
-      }
-      if (R.a()) {
-        R.c();
-      }
+      bm = false;
+      au.a(getActivity().getIntent());
     }
-    if (o.a(dux.cw, true)) {
-      ay.a(this);
+    ap.a(bl);
+    ap.a(this);
+    if ((!z.j()) || (bl.n() >= 14.0F)) {
+      v.a();
     }
+    an.x();
+    if (flf.a(u)) {
+      o.h();
+    }
+    if (u.c(eaj.ks)) {
+      o.a(getActivity().getIntent());
+    }
+    if (l.g()) {
+      l.n();
+    }
+    if (F.e()) {
+      F.c();
+    }
+    if (Q.j()) {
+      t.c();
+    }
+    if (Y.a()) {
+      Y.c();
+    }
+    y.c();
+    v.a(aP);
+    D.c();
+    I.f();
+    U.a();
+    Z.z();
+    aQ.f();
+    ag.b();
+    x.a();
+    ay.a();
+    aE.a();
+    ah.a(b());
+    ax.a();
+    ba = r.j().a(odr.a(r.a(), r.b(), r.d(), r.f(), r.g(), r.h(), new ith()), new TripFragment.7(this)).a(oeh.a()).c(new iws(this, (byte)0));
+    if (!ad.A()) {
+      S.a().b(ezm.a());
+    }
+    h.c(new jhs());
+    k.a(true);
+    A.b();
+    b(enz.x);
+    if (u.c(eaj.ii)) {
+      ab.a(this);
+    }
+    if (ab.a()) {
+      ab.c();
+    }
+    if (u.a(eaj.dc, true)) {
+      aM.a(this);
+    }
+    if (i.a(eaj.dO)) {
+      aV.a();
+    }
+    p.a();
   }
   
-  @cho
-  public void onSafetyNetSharedTripStatusUpdateEvent(gri paramgri)
+  @chu
+  public void onSafetyNetSharedTripStatusUpdateEvent(iax paramiax)
   {
-    if ((o.b(dux.hu)) && (paramgri.a())) {
-      am();
+    if ((u.c(eaj.mo)) && (paramiax.a())) {
+      aD();
     }
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putBoolean("com.ubercab.BUNDLE_GMM_IS_INTENT_CONSUMED", aN);
-    paramBundle.putParcelable("com.ubercab.BUNDLE_GMM_SURGE_DISPLAYED", aO);
-    paramBundle.putLong("com.ubercab.CONFIRMATION_SURGE_FARE_ID", C.a());
-    paramBundle.putParcelable("com.ubercab.LOCATION_PREVIOUS_PICKUP", aH);
-    if ((aC != null) && (aC.isShowing())) {
-      paramBundle.putString("com.ubercab.BUNDLE_MOBILE_MESSAGE_MSG_ID", aC.b());
+    paramBundle.putBoolean("com.ubercab.BUNDLE_GMM_IS_INTENT_CONSUMED", bi);
+    paramBundle.putParcelable("com.ubercab.BUNDLE_GMM_SURGE_DISPLAYED", bj);
+    paramBundle.putLong("com.ubercab.CONFIRMATION_SURGE_FARE_ID", L.a());
+    paramBundle.putString("com.ubercab.CONFIRMATION_SURGE_FARE_UUID", L.b());
+    paramBundle.putParcelable("com.ubercab.LOCATION_PREVIOUS_PICKUP", bc);
+    if ((aX != null) && (aX.isShowing())) {
+      paramBundle.putString("com.ubercab.BUNDLE_MOBILE_MESSAGE_MSG_ID", aX.b());
     }
   }
   
-  @cho
-  public void onShowFareDetailsEvent(hnf paramhnf)
+  @chu
+  public void onShowFareDetailsEvent(jho paramjho)
   {
-    an();
+    aE();
   }
   
-  @cho
-  public void onShowFareQuoteEvent(hng paramhng)
+  @chu
+  public void onShowFareQuoteEvent(jhp paramjhp)
   {
-    FareInfo localFareInfo = A.c();
-    if (localFareInfo != null)
+    FareInfo localFareInfo = I.c();
+    String str = ad.m();
+    paramjhp = str;
+    if (u.c(eaj.dD))
     {
-      paramhng = localFareInfo.getFareDetail();
-      if ((!o.b(dux.bV)) || (paramhng == null)) {
-        break label77;
+      paramjhp = str;
+      if (ar.a(localFareInfo))
+      {
+        paramjhp = str;
+        if (localFareInfo.getVehicleViewId() != null) {
+          paramjhp = localFareInfo.getVehicleViewId();
+        }
       }
-      d.a(p.jh);
-      paramhng = PoolSurgeDialogFragment.a(UpfrontFareDetail.create(paramhng));
-      paramhng.show(getChildFragmentManager(), paramhng.getClass().getName());
     }
-    label77:
+    paramjhp = C.d(paramjhp);
+    if ((paramjhp != null) && (C.f(paramjhp.getId()))) {
+      a(paramjhp);
+    }
     do
     {
       return;
-      paramhng = null;
-      break;
-      String str = T.n();
-      paramhng = str;
-      if (o.b(dux.cF))
+      if ((Z.e()) && (!TextUtils.isEmpty(bb)))
       {
-        paramhng = str;
-        if (ag.a(localFareInfo))
-        {
-          paramhng = str;
-          if (localFareInfo.getVehicleViewId() != null) {
-            paramhng = localFareInfo.getVehicleViewId();
-          }
-        }
-      }
-      paramhng = w.d(paramhng);
-      if ((paramhng != null) && (w.f(paramhng.getId())))
-      {
-        a(paramhng);
-        return;
-      }
-      if ((P.e()) && (!TextUtils.isEmpty(aG)))
-      {
-        paramhng = RewardPointsFareEstimateFragment.a(aG);
-        paramhng.show(getChildFragmentManager(), paramhng.getClass().getName());
+        paramjhp = RewardPointsFareEstimateFragment.a(bb);
+        paramjhp.show(getChildFragmentManager(), paramjhp.getClass().getName());
         return;
       }
     } while (getActivity() == null);
     if (localFareInfo == null) {}
-    for (paramhng = getString(2131165851);; paramhng = getString(2131165871))
+    for (paramjhp = getString(2131165944);; paramjhp = getString(2131165966))
     {
-      new AlertDialog.Builder(getActivity()).setMessage(paramhng).setPositiveButton(getString(2131166126), null).create().show();
+      new AlertDialog.Builder(getActivity()).setMessage(paramjhp).setPositiveButton(getString(2131166260), null).create().show();
       return;
     }
   }
   
-  @cho
-  public void onShowProfilePickerEvent(gjc paramgjc)
+  @chu
+  public void onShowProfilePickerEvent(hkt paramhkt)
   {
-    paramgjc = ProfilePickerDialogFragment.d();
-    paramgjc.show(getChildFragmentManager(), paramgjc.getClass().getName());
+    paramhkt = ProfilePickerDialogFragment.d();
+    paramhkt.show(getChildFragmentManager(), paramhkt.getClass().getName());
   }
   
   public void onStart()
   {
     super.onStart();
     AnalyticsEvent localAnalyticsEvent;
-    if (V.ar() != null)
+    if (af.aP() != null)
     {
-      localAnalyticsEvent = AnalyticsEvent.create("impression").setName(p.ma).setValue(V.ar());
+      localAnalyticsEvent = AnalyticsEvent.create("impression").setName(x.qa).setValue(af.aP());
       d.a(localAnalyticsEvent);
-      V.y(null);
+      af.B(null);
     }
-    if (V.as() != null)
+    if (af.aQ() != null)
     {
-      localAnalyticsEvent = AnalyticsEvent.create("impression").setName(p.lJ).setValue(V.as());
+      localAnalyticsEvent = AnalyticsEvent.create("impression").setName(x.pG).setValue(af.aQ());
       d.a(localAnalyticsEvent);
-      V.z(null);
+      af.C(null);
     }
   }
   
-  @cho
-  public void onStoreChargesUpdateFailEvent(gvj paramgvj)
+  @chu
+  public void onStoreChargesUpdateFailEvent(igp paramigp)
   {
-    au.a(paramgvj);
+    aJ.a(paramigp);
   }
   
-  @cho
-  public void onStoreChargesUpdateSuccessEvent(gvk paramgvk)
+  @chu
+  public void onStoreChargesUpdateSuccessEvent(igq paramigq)
   {
-    au.a(paramgvk);
+    aJ.a(paramigq);
   }
   
-  @cho
-  public void onStoreUpdated(gvl paramgvl)
+  @chu
+  public void onStoreUpdated(igr paramigr)
   {
-    au.a(paramgvl);
+    aJ.a(paramigr);
   }
   
-  @cho
-  public void onTripUiStateChangedEvent(hnk paramhnk)
+  @chu
+  public void onTripUiStateChangedEvent(jht paramjht)
   {
-    int i1 = paramhnk.b();
+    int i1 = paramjht.b();
     c(i1);
-    C.a(String.format(Locale.ENGLISH, "tripState: %s", new Object[] { Integer.valueOf(i1) }));
-    ckc localckc;
-    AnalyticsEvent localAnalyticsEvent;
+    M.a(String.format(Locale.ENGLISH, "TFrag.tripState: %s", new Object[] { Integer.valueOf(i1) }));
     if (i1 == 0)
     {
-      if (o.a(dux.cn, true)) {
-        C.f();
+      if ((!izk.b(paramjht.a())) || (!u.a(mvs.i, true))) {
+        break label448;
+      }
+      L.g();
+      if (u.c(eaj.cV)) {
+        L.g();
       }
     }
-    else if (i1 == 5)
+    ckt localckt;
+    AnalyticsEvent localAnalyticsEvent;
+    if (i1 == 5)
     {
-      localckc = d;
-      localAnalyticsEvent = AnalyticsEvent.create("impression").setName(p.bq);
-      if (!T.k()) {
-        break label341;
+      localckt = d;
+      localAnalyticsEvent = AnalyticsEvent.create("impression").setName(x.bS);
+      if (!ad.j()) {
+        break label513;
       }
     }
-    label341:
+    label448:
+    label513:
     for (String str = "yes";; str = "no")
     {
-      localckc.a(localAnalyticsEvent.setValue(str));
+      localckt.a(localAnalyticsEvent.setValue(str));
       if (i1 == 4)
       {
-        if ((W.h()) && (W.p()) && (!V.am()))
+        if ((ag.u()) && (!af.aK()))
         {
-          V.al();
-          at();
+          af.aJ();
+          aN();
         }
-        Z();
+        as();
       }
       if (i1 == 0)
       {
-        V.e(false);
-        V.i(false);
+        af.i(false);
+        af.o(false);
       }
-      aa.b();
-      ac.a(paramhnk);
-      ad.b();
-      ak.a(paramhnk);
-      n.b();
-      al.a(paramhnk);
-      ao.a();
-      ar.a();
-      aj.a(paramhnk);
-      Z.a(paramhnk);
-      at.a(paramhnk);
-      aq.a(paramhnk);
-      au.a(paramhnk);
-      aA.g();
-      r.c();
-      an.m();
-      B.b();
-      aj();
+      if ((i.a(eaj.ei)) && (i1 == 7)) {
+        aP();
+      }
+      al.b();
+      an.a(paramjht);
+      ao.b();
+      aw.a(paramjht);
+      s.b();
+      ay.a(paramjht);
+      aD.a();
+      aG.a();
+      av.a(paramjht);
+      ak.a(paramjht);
+      aI.a(paramjht);
+      aF.a(paramjht);
+      aJ.a(paramjht);
+      aQ.h();
+      x.a(paramjht);
+      aA.m();
+      J.b();
+      ah.a(paramjht);
+      k.a(paramjht);
+      aO.a();
+      if (i.a(eaj.dO)) {
+        aV.a(paramjht);
+      }
+      if (i.a(eaj.eh)) {
+        as.a(paramjht);
+      }
+      if (i.a(eaj.ei)) {
+        ar.a(paramjht);
+      }
+      aA();
       return;
-      if (!o.b(dux.cj)) {
+      if (!u.a(eaj.cZ, true)) {
         break;
       }
-      C.c();
+      if (i.b(eaj.ab))
+      {
+        if (i.a(eaj.ei, flr.c)) {
+          break;
+        }
+        L.j();
+        break;
+      }
+      L.j();
       break;
     }
   }
   
-  @cho
-  public void onUpdateMapPadding(hnl paramhnl)
+  @chu
+  public void onUpdateMapPadding(jhu paramjhu)
   {
-    ai();
+    az();
   }
   
-  @cho
-  public void onUpdatePinUiEvent(hnm paramhnm)
+  @chu
+  public void onUpdatePinUiEvent(jhv paramjhv)
   {
-    ac.q();
-    ad.d();
-    ao.b();
+    an.t();
+    ao.d();
+    aD.b();
   }
   
-  @cho
-  public void onVehicleViewSelectedEvent(hnn paramhnn)
+  @chu
+  public void onVehicleViewSelectedEvent(jhy paramjhy)
   {
-    ad.e();
-    aA.k();
-    al.i();
-    aq.b();
-    r.a(paramhnn);
-    ac.p();
+    ao.e();
+    aQ.k();
+    ay.i();
+    aF.b();
+    x.a(paramjhy);
+    an.s();
+    aj.a(paramjhy);
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
     setHasOptionsMenu(true);
-    aQ = ((MapFragment)getChildFragmentManager().findFragmentById(2131625748));
-    aQ.a(this);
-    aQ.a(this);
-    paramBundle = (ViewGroup)paramView.findViewById(2131625757);
-    Z.a(paramBundle);
-    Z.a(this);
-    ai.a(this);
-    az.a(paramBundle);
-    az.a(ac);
-    az.a(this);
-    am.a(paramBundle);
-    am.a(this);
-    aa.a(paramBundle);
-    n.a(paramBundle);
-    ab.a(paramBundle);
-    aw.a(paramBundle);
-    aj.a(paramBundle);
-    aj.a(this);
+    bl = ((MapFragment)getChildFragmentManager().findFragmentById(2131626408));
+    bl.a(this);
+    bl.a(this);
+    paramBundle = (ViewGroup)paramView.findViewById(2131626420);
     ak.a(paramBundle);
     ak.a(this);
-    an.a(paramBundle);
-    paramBundle = (ViewGroup)paramView.findViewById(2131625753);
-    ac.a(paramBundle);
-    ac.a(this);
-    ad.a(mViewHeader);
-    ad.a(this);
-    paramBundle = (ViewGroup)paramView.findViewById(2131625755);
-    ar.a(paramBundle);
-    al.a(mViewFooter);
-    al.a(this);
-    v.a(mBackgroundLayout);
-    ao.a(mBackgroundLayout);
-    paramBundle = (ViewGroup)paramView.findViewById(2131625751);
-    au.a(paramBundle);
     au.a(this);
-    at.a(paramBundle);
-    at.a(this);
-    aq.a(mPinView);
-    aq.a(this);
-    aq.a(aQ);
-    ae.a(aq(), mViewHeader, mViewFooter);
-    ap.a(aQ.getView(), mPinView, aq(), mViewHeader);
-    if (o.b(dux.aV))
-    {
-      af.a(this);
-      af.a();
+    aP.a(paramBundle);
+    aP.a(an);
+    aP.a(this);
+    az.a(paramBundle);
+    az.a(this);
+    al.a(paramBundle);
+    s.a(paramBundle);
+    am.a(paramBundle);
+    aL.a(paramBundle);
+    av.a(paramBundle);
+    av.a(this);
+    aw.a(paramBundle);
+    aw.a(this);
+    aA.a(paramBundle);
+    aN.a(paramBundle);
+    ViewGroup localViewGroup = (ViewGroup)paramView.findViewById(2131626416);
+    an.a(localViewGroup);
+    an.a(this);
+    ao.a(mViewHeader);
+    ao.a(this);
+    aB.a((ViewGroup)paramView.findViewById(2131626414));
+    aC.a((ViewGroup)paramView.findViewById(2131626415));
+    if (B.i()) {
+      aC.a();
     }
-    aA.a(mPinView);
-    W.a(this);
-    r.a(av);
-    av.a((ViewGroup)paramView.findViewById(2131625754));
-    paramView.addOnAttachStateChangeListener(new TripFragment.5(this));
-    Z();
-    h.a(this);
+    for (;;)
+    {
+      localViewGroup = (ViewGroup)paramView.findViewById(2131626418);
+      aG.a(localViewGroup);
+      if (i.a(mvs.e)) {
+        aO.a(localViewGroup);
+      }
+      ay.a(mViewFooter);
+      ay.a(this);
+      A.a(mBackgroundLayout);
+      aD.a(mBackgroundLayout);
+      localViewGroup = (ViewGroup)paramView.findViewById(2131626411);
+      aJ.a(localViewGroup);
+      aJ.a(this);
+      aI.a(localViewGroup);
+      aI.a(this);
+      aF.a(mPinView);
+      aF.a(this);
+      aF.a(bl);
+      ap.a(aH(), mViewHeader, mViewFooter);
+      aE.a(bl.getView(), mPinView, aH(), mViewHeader);
+      if (fke.c(u))
+      {
+        aq.a(this);
+        aq.a();
+      }
+      aQ.a(mPinView);
+      ag.a(this);
+      x.a(aK);
+      x.a(this);
+      aK.a((ViewGroup)paramView.findViewById(2131626417));
+      aU.a(paramBundle);
+      paramView.addOnAttachStateChangeListener(new TripFragment.6(this));
+      as();
+      k.a(this);
+      if (i.a(eaj.eb)) {
+        aS.a(this);
+      }
+      if ((i.a(eaj.eh)) && (as.a())) {
+        as.a(mViewFooter);
+      }
+      aV.a((ViewGroup)paramView.findViewById(2131626418));
+      return;
+      if (i.a(eaj.gK, eaq.c))
+      {
+        aC.b();
+        bh = B.h().a(oeh.a()).k(new TripFragment.5(this)).c(new TripFragment.4(this));
+      }
+      else
+      {
+        aC.a();
+      }
+    }
   }
   
   public final void p()
   {
-    ai();
-    ak.k();
+    d.a(z.bT);
+    fpx.a(getActivity(), d, q.c(), u, af, false);
   }
   
   public final void q()
   {
-    P.c(false);
-    aj();
+    ad.c(true);
+    c(false);
   }
   
   public final void r()
   {
-    P.c(true);
-    aj();
+    h.c(new jgu());
   }
   
   public final void s()
   {
-    onShowFareQuoteEvent(null);
+    h.c(new jhr());
   }
   
   public final void t()
   {
-    Object localObject1 = l.b();
-    if (localObject1 == null) {}
-    FragmentActivity localFragmentActivity;
-    Object localObject2;
-    do
-    {
-      do
-      {
-        do
-        {
-          return;
-          localObject1 = ((City)localObject1).findVehicleViewById(T.n());
-        } while (localObject1 == null);
-        localFragmentActivity = getActivity();
-      } while (localFragmentActivity == null);
-      localObject2 = y.b();
-    } while (localObject2 == null);
-    if ((((VehicleView)localObject1).getAllowFareEstimate()) && (((VehicleView)localObject1).isDestinationEnabled()))
-    {
-      if (o.b(dux.dR)) {}
-      for (localObject1 = new Intent(localFragmentActivity, FareEstimateActivityV2.class);; localObject1 = new Intent(localFragmentActivity, FareEstimateActivity.class))
-      {
-        ((Intent)localObject1).putExtra("com.ubercab.FARE_ID", C.a());
-        ((Intent)localObject1).putExtra("com.ubercab.LOCATION_DESTINATION", T.i());
-        ((Intent)localObject1).putExtra("com.ubercab.LOCATION_PICKUP", (Parcelable)localObject2);
-        localObject2 = P.j();
-        if (localObject2 != null) {
-          ((Intent)localObject1).putExtra("com.ubercab.CURRENCY_TO_POINTS_RATIO", ((Balance)localObject2).getRewardsToCurrencyRatio());
-        }
-        startActivityForResult((Intent)localObject1, 5001);
-        return;
-      }
-    }
-    new AlertDialog.Builder(localFragmentActivity).setMessage(getString(2131165852, new Object[] { ((VehicleView)localObject1).getDescription() })).setPositiveButton(getString(2131165357), null).create().show();
-  }
-  
-  public final void u()
-  {
-    T.a(false, null);
+    gqa.a(getActivity(), q, af, "deep_link");
+    d.a(x.nO);
   }
   
   public final void v()
   {
-    a(r.gc, Q.i());
-    if ((ag.a(getContext(), T.n(), V.y())) && (d() != null))
-    {
-      ag.a(d());
-      return;
-    }
-    av();
+    az();
+    aw.k();
   }
   
   public final void w()
   {
-    PromoFragment.a(d());
+    Z.c(false);
+    aA();
   }
   
   public final void x()
   {
-    ag();
+    Z.c(true);
+    aA();
   }
   
   public final void y()
   {
-    at();
+    d(1002);
   }
   
   public final void z()
   {
-    if (o.b(dux.dm))
-    {
-      if (o.b(dux.dq)) {}
-      for (RiderLocation localRiderLocation = RiderLocation.create(r.i());; localRiderLocation = RiderLocation.create(r.i().getUberLatLng()))
-      {
-        T.a(localRiderLocation);
-        c(false);
-        return;
-      }
-    }
-    if (r.g() != null)
-    {
-      a(r.bI, r.g().getUuid());
-      if (!aw()) {
-        d.a(AnalyticsEvent.create("tap").setName(r.bI).setValue(r.g().getUuid()));
-      }
-    }
-    av();
+    onShowFareQuoteEvent(null);
   }
 }
 

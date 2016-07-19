@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import kul;
+import opc;
 
 public class NowBroadcastReceiver
   extends BroadcastReceiver
@@ -14,10 +14,10 @@ public class NowBroadcastReceiver
     String str = paramIntent.getStringExtra("method");
     if (str == null)
     {
-      kul.d("Method is required", new Object[0]);
+      opc.d("Method is required", new Object[0]);
       return null;
     }
-    kul.b("Received Broadcast Intent: %s", new Object[] { str });
+    opc.b("Received Broadcast Intent: %s", new Object[] { str });
     int i = -1;
     switch (str.hashCode())
     {
@@ -53,39 +53,39 @@ public class NowBroadcastReceiver
     switch (i)
     {
     default: 
-      kul.d("Error occurred while checking credentials: %d", new Object[] { Integer.valueOf(i) });
+      opc.d("Error occurred while checking credentials: %d", new Object[] { Integer.valueOf(i) });
       return null;
     case 204: 
-      kul.b("Server has valid credentials.", new Object[0]);
+      opc.b("Server has valid credentials.", new Object[0]);
       return null;
     }
-    kul.d("Server credentials invalid. Getting new auth code...", new Object[0]);
+    opc.d("Server credentials invalid. Getting new auth code...", new Object[0]);
     return NowAuthIntentService.b(paramContext);
     str = paramIntent.getStringExtra("authCode");
     paramIntent = paramIntent.getStringExtra("accessToken");
     if (paramIntent != null)
     {
-      kul.b("Already have existing token. Revoking existing access token: " + paramIntent, new Object[0]);
+      opc.b("Already have existing token. Revoking existing access token: " + paramIntent, new Object[0]);
       return NowAuthIntentService.a(paramContext, paramIntent);
     }
     if (str != null) {
       return NowAuthIntentService.b(paramContext, str);
     }
-    kul.d("Unexpected error occurred while getting the auth code.", new Object[0]);
+    opc.d("Unexpected error occurred while getting the auth code.", new Object[0]);
     return null;
     if (paramIntent.getIntExtra("statusCode", 0) == 202)
     {
-      kul.b("Successfully posted credentials to the server.", new Object[0]);
+      opc.b("Successfully posted credentials to the server.", new Object[0]);
       return null;
     }
-    kul.d("An error occurred posting user credentials.", new Object[0]);
+    opc.d("An error occurred posting user credentials.", new Object[0]);
     return null;
     if (paramIntent.getIntExtra("statusCode", 0) == 200)
     {
-      kul.b("Token revoked successfully. Getting new auth code...", new Object[0]);
+      opc.b("Token revoked successfully. Getting new auth code...", new Object[0]);
       return NowAuthIntentService.b(paramContext);
     }
-    kul.d("There was an error revoking the token.", new Object[0]);
+    opc.d("There was an error revoking the token.", new Object[0]);
     return null;
   }
   

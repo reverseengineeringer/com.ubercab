@@ -312,7 +312,7 @@ public class NestedScrollView
   
   private void initScrollView()
   {
-    mScroller = new ScrollerCompat(getContext(), null);
+    mScroller = ScrollerCompat.create(getContext(), null);
     setFocusable(true);
     setDescendantFocusability(262144);
     setWillNotDraw(false);
@@ -992,6 +992,7 @@ public class NestedScrollView
                 mActivePointerId = MotionEventCompat.getPointerId(paramMotionEvent, 0);
                 initOrResetVelocityTracker();
                 mVelocityTracker.addMovement(paramMotionEvent);
+                mScroller.computeScrollOffset();
                 if (!mScroller.isFinished()) {
                   bool = true;
                 }
@@ -1085,10 +1086,13 @@ public class NestedScrollView
   
   public boolean onNestedPreFling(View paramView, float paramFloat1, float paramFloat2)
   {
-    return false;
+    return dispatchNestedPreFling(paramFloat1, paramFloat2);
   }
   
-  public void onNestedPreScroll(View paramView, int paramInt1, int paramInt2, int[] paramArrayOfInt) {}
+  public void onNestedPreScroll(View paramView, int paramInt1, int paramInt2, int[] paramArrayOfInt)
+  {
+    dispatchNestedPreScroll(paramInt1, paramInt2, paramArrayOfInt, null);
+  }
   
   public void onNestedScroll(View paramView, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
@@ -1144,6 +1148,11 @@ public class NestedScrollView
   
   protected void onRestoreInstanceState(Parcelable paramParcelable)
   {
+    if (!(paramParcelable instanceof NestedScrollView.SavedState))
+    {
+      super.onRestoreInstanceState(paramParcelable);
+      return;
+    }
     paramParcelable = (NestedScrollView.SavedState)paramParcelable;
     super.onRestoreInstanceState(paramParcelable.getSuperState());
     mSavedState = paramParcelable;

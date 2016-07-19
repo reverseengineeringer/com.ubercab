@@ -3,7 +3,7 @@ package android.support.v4.text;
 import android.os.Build.VERSION;
 import java.util.Locale;
 
-public class TextUtilsCompat
+public final class TextUtilsCompat
 {
   private static String ARAB_SCRIPT_SUBTAG;
   private static String HEBR_SCRIPT_SUBTAG;

@@ -1,113 +1,55 @@
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import com.ubercab.android.location.UberLocation;
 
 public final class cmr
-  implements cmx
 {
-  private final long a;
-  private final cmv b;
-  private final ConnectivityManager c;
-  private final cmy d;
-  private final cms e;
+  private final cmi a;
+  private final UberLocation b;
+  private int c = -1;
   
-  public cmr(Context paramContext, cmy paramcmy)
+  public cmr(cmi paramcmi)
   {
-    this(paramcmy, new cmv(paramContext), (ConnectivityManager)paramContext.getSystemService("connectivity"));
+    this(null, paramcmi);
   }
   
-  private cmr(cmy paramcmy, cmv paramcmv, ConnectivityManager paramConnectivityManager)
+  public cmr(UberLocation paramUberLocation, int paramInt)
   {
-    d = paramcmy;
-    a = 500L;
-    b = paramcmv;
-    c = paramConnectivityManager;
-    e = new cms(this, (byte)0);
+    this(paramUberLocation, null);
   }
   
-  private boolean d()
+  private cmr(UberLocation paramUberLocation, cmi paramcmi)
   {
-    NetworkInfo localNetworkInfo = c.getActiveNetworkInfo();
-    return (localNetworkInfo != null) && (localNetworkInfo.isConnected());
+    a = paramcmi;
+    b = paramUberLocation;
   }
   
-  public final void a()
+  public final int a()
   {
-    try
-    {
-      e.a();
-      return;
-    }
-    finally
-    {
-      localObject = finally;
-      throw ((Throwable)localObject);
-    }
+    return c;
   }
   
-  public final void b()
+  public final boolean b()
   {
-    try
-    {
-      e.b();
-      d.b();
-      return;
-    }
-    finally
-    {
-      localObject = finally;
-      throw ((Throwable)localObject);
-    }
+    return c != -1;
   }
   
-  /* Error */
-  public final long c()
+  public final boolean c()
   {
-    // Byte code:
-    //   0: aload_0
-    //   1: monitorenter
-    //   2: aload_0
-    //   3: invokespecial 79	cmr:d	()Z
-    //   6: istore_1
-    //   7: iload_1
-    //   8: ifne +9 -> 17
-    //   11: lconst_0
-    //   12: lstore_2
-    //   13: aload_0
-    //   14: monitorexit
-    //   15: lload_2
-    //   16: lreturn
-    //   17: aload_0
-    //   18: getfield 42	cmr:d	Lcmy;
-    //   21: invokeinterface 82 1 0
-    //   26: iconst_2
-    //   27: if_icmplt +16 -> 43
-    //   30: aload_0
-    //   31: getfield 42	cmr:d	Lcmy;
-    //   34: invokeinterface 84 1 0
-    //   39: lstore_2
-    //   40: goto -27 -> 13
-    //   43: aload_0
-    //   44: getfield 48	cmr:b	Lcmv;
-    //   47: invokevirtual 86	cmv:c	()J
-    //   50: lstore_2
-    //   51: goto -38 -> 13
-    //   54: astore 4
-    //   56: aload_0
-    //   57: monitorexit
-    //   58: aload 4
-    //   60: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	61	0	this	cmr
-    //   6	2	1	bool	boolean
-    //   12	39	2	l	long
-    //   54	5	4	localObject	Object
-    // Exception table:
-    //   from	to	target	type
-    //   2	7	54	finally
-    //   17	40	54	finally
-    //   43	51	54	finally
+    return b != null;
+  }
+  
+  public final boolean d()
+  {
+    return !c();
+  }
+  
+  public final cmi e()
+  {
+    return a;
+  }
+  
+  public final UberLocation f()
+  {
+    return b;
   }
 }
 

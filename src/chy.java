@@ -1,31 +1,46 @@
-import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.net.Uri;
-import java.io.InputStream;
+import java.util.List;
 
-class chy
-  extends cjh
+final class chy
+  extends cjn
 {
-  final Context a;
+  private static final int a = 22;
+  private final AssetManager b;
   
-  chy(Context paramContext)
+  public chy(Context paramContext)
   {
-    a = paramContext;
+    b = paramContext.getAssets();
   }
   
-  public boolean a(cje paramcje)
+  private static String c(cjk paramcjk)
   {
-    return "content".equals(d.getScheme());
+    return d.toString().substring(a);
   }
   
-  public cji b(cje paramcje)
+  public final boolean a(cjk paramcjk)
   {
-    return new cji(c(paramcje), ciy.b);
+    boolean bool2 = false;
+    paramcjk = d;
+    boolean bool1 = bool2;
+    if ("file".equals(paramcjk.getScheme()))
+    {
+      bool1 = bool2;
+      if (!paramcjk.getPathSegments().isEmpty())
+      {
+        bool1 = bool2;
+        if ("android_asset".equals(paramcjk.getPathSegments().get(0))) {
+          bool1 = true;
+        }
+      }
+    }
+    return bool1;
   }
   
-  final InputStream c(cje paramcje)
+  public final cjo b(cjk paramcjk)
   {
-    return a.getContentResolver().openInputStream(d);
+    return new cjo(b.open(c(paramcjk)), cje.b);
   }
 }
 

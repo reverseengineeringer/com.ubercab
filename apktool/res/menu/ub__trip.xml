@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@id/ub__trip_menuitem_sos" android:title="@string/sos_entry" android:showAsAction="always" app:showAsAction="always" />
+    <item android:icon="@drawable/ub__r2d_wheel_appbar" android:id="@id/ub__trip_menuitem_ride_driver_onboarding" android:visible="false" android:showAsAction="always" app:showAsAction="always" />
+    <item android:id="@id/ub__trip_menuitem_reserve" android:visible="false" android:title="@string/reserved_ride_toolbar_icon" android:showAsAction="always" />
+    <item android:icon="@drawable/ub__giftbox_present_icon" android:id="@id/ub__trip_menu_item_share_contacts" android:visible="true" android:title="@string/free_rides" android:showAsAction="always" app:showAsAction="always" />
+    <item android:icon="@drawable/ub__ic_on_trip_eyeball" android:id="@id/ub__trip_menu_item_trip_tracker" android:visible="true" android:title="@string/trip_tracker" android:showAsAction="always" app:showAsAction="always" />
 </menu>

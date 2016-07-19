@@ -1,107 +1,113 @@
-import java.nio.ByteBuffer;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import android.os.IBinder;
+import android.os.Parcel;
 
-public final class afi
+final class afi
+  implements afg
 {
-  private final afh a;
-  private final SecureRandom b;
+  private IBinder a;
   
-  public afi(afh paramafh)
+  afi(IBinder paramIBinder)
   {
-    a = paramafh;
-    b = null;
+    a = paramIBinder;
   }
   
-  private static void a(byte[] paramArrayOfByte)
+  public final acp a()
   {
-    int i = 0;
-    while (i < 16)
-    {
-      paramArrayOfByte[i] = ((byte)(paramArrayOfByte[i] ^ 0x44));
-      i += 1;
-    }
-  }
-  
-  public final byte[] a(String paramString)
-  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
     try
     {
-      paramString = a.a(paramString);
-      if (paramString.length != 32) {
-        throw new afj(this);
-      }
+      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAdImage");
+      a.transact(1, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      acp localacp = acq.a(localParcel2.readStrongBinder());
+      return localacp;
     }
-    catch (IllegalArgumentException paramString)
+    finally
     {
-      throw new afj(this, paramString);
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
-    paramString = ByteBuffer.wrap(paramString, 4, 16);
-    byte[] arrayOfByte = new byte[16];
-    paramString.get(arrayOfByte);
-    a(arrayOfByte);
-    return arrayOfByte;
   }
   
-  public final byte[] a(byte[] paramArrayOfByte, String paramString)
+  public final IBinder asBinder()
   {
-    if (paramArrayOfByte.length != 16) {
-      throw new afj(this);
-    }
+    return a;
+  }
+  
+  /* Error */
+  public final android.net.Uri b()
+  {
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_0
+    //   15: getfield 15	afi:a	Landroid/os/IBinder;
+    //   18: iconst_2
+    //   19: aload_2
+    //   20: aload_3
+    //   21: iconst_0
+    //   22: invokeinterface 35 5 0
+    //   27: pop
+    //   28: aload_3
+    //   29: invokevirtual 38	android/os/Parcel:readException	()V
+    //   32: aload_3
+    //   33: invokevirtual 57	android/os/Parcel:readInt	()I
+    //   36: ifeq +26 -> 62
+    //   39: getstatic 63	android/net/Uri:CREATOR	Landroid/os/Parcelable$Creator;
+    //   42: aload_3
+    //   43: invokeinterface 69 2 0
+    //   48: checkcast 59	android/net/Uri
+    //   51: astore_1
+    //   52: aload_3
+    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   56: aload_2
+    //   57: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   60: aload_1
+    //   61: areturn
+    //   62: aconst_null
+    //   63: astore_1
+    //   64: goto -12 -> 52
+    //   67: astore_1
+    //   68: aload_3
+    //   69: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   72: aload_2
+    //   73: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   76: aload_1
+    //   77: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	78	0	this	afi
+    //   51	13	1	localUri	android.net.Uri
+    //   67	10	1	localObject	Object
+    //   3	70	2	localParcel1	Parcel
+    //   7	62	3	localParcel2	Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	52	67	finally
+  }
+  
+  public final double c()
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
     try
     {
-      arrayOfByte = a.a(paramString);
-      if (arrayOfByte.length <= 16) {
-        throw new afj(this);
-      }
+      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAdImage");
+      a.transact(3, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      double d = localParcel2.readDouble();
+      return d;
     }
-    catch (NoSuchAlgorithmException paramArrayOfByte)
+    finally
     {
-      throw new afj(this, paramArrayOfByte);
-      Object localObject = ByteBuffer.allocate(arrayOfByte.length);
-      ((ByteBuffer)localObject).put(arrayOfByte);
-      ((ByteBuffer)localObject).flip();
-      paramString = new byte[16];
-      byte[] arrayOfByte = new byte[arrayOfByte.length - 16];
-      ((ByteBuffer)localObject).get(paramString);
-      ((ByteBuffer)localObject).get(arrayOfByte);
-      paramArrayOfByte = new SecretKeySpec(paramArrayOfByte, "AES");
-      localObject = Cipher.getInstance("AES/CBC/PKCS5Padding");
-      ((Cipher)localObject).init(2, paramArrayOfByte, new IvParameterSpec(paramString));
-      paramArrayOfByte = ((Cipher)localObject).doFinal(arrayOfByte);
-      return paramArrayOfByte;
-    }
-    catch (InvalidKeyException paramArrayOfByte)
-    {
-      throw new afj(this, paramArrayOfByte);
-    }
-    catch (IllegalBlockSizeException paramArrayOfByte)
-    {
-      throw new afj(this, paramArrayOfByte);
-    }
-    catch (NoSuchPaddingException paramArrayOfByte)
-    {
-      throw new afj(this, paramArrayOfByte);
-    }
-    catch (BadPaddingException paramArrayOfByte)
-    {
-      throw new afj(this, paramArrayOfByte);
-    }
-    catch (InvalidAlgorithmParameterException paramArrayOfByte)
-    {
-      throw new afj(this, paramArrayOfByte);
-    }
-    catch (IllegalArgumentException paramArrayOfByte)
-    {
-      throw new afj(this, paramArrayOfByte);
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
   }
 }

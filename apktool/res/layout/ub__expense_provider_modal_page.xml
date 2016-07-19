@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/ub__profiles_expense_provider_page_container" android:padding="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.collection.RecyclerView android:layout_gravity="center" android:id="@id/ub__profiles_expense_provider_listview_sections" android:background="@color/ub__white" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</FrameLayout>

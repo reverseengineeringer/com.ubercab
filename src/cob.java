@@ -1,27 +1,9 @@
-import android.app.Application;
-import android.content.Context;
-import java.util.concurrent.CountDownLatch;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
-public final class cob
-  implements com
+abstract interface cob
 {
-  private static crv a;
-  
-  public final con a(Application paramApplication)
-  {
-    if (a == null) {
-      a = new crv(paramApplication);
-    }
-    return a;
-  }
-  
-  public final cqc a(Context paramContext, coo paramcoo)
-  {
-    if (a != null) {}
-    for (CountDownLatch localCountDownLatch = a.a();; localCountDownLatch = null) {
-      return new cry(paramContext, paramcoo, localCountDownLatch);
-    }
-  }
+  public abstract Response a(Request paramRequest);
 }
 
 /* Location:

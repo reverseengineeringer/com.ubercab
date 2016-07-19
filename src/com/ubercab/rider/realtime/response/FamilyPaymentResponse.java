@@ -3,12 +3,17 @@ package com.ubercab.rider.realtime.response;
 import com.ubercab.rider.realtime.model.FamilyPayment;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class FamilyPaymentResponse
 {
+  public static FamilyPaymentResponse create()
+  {
+    return new Shape_FamilyPaymentResponse();
+  }
+  
   public abstract FamilyPayment getDefaultPaymentProfile();
   
   public abstract FamilyPaymentResponse setDefaultPaymentProfile(FamilyPayment paramFamilyPayment);

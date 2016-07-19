@@ -1,52 +1,72 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.server.converter.StringToIntConverter.Entry;
+import android.os.SystemClock;
+import android.support.v4.util.SimpleArrayMap;
+import android.util.Log;
 
 public final class abx
-  implements Parcelable.Creator<StringToIntConverter.Entry>
 {
-  private static StringToIntConverter.Entry a(Parcel paramParcel)
+  private final long a;
+  private final int b;
+  private final SimpleArrayMap<String, Long> c;
+  
+  public abx()
   {
-    int j = 0;
-    int k = zm.b(paramParcel);
-    String str = null;
-    int i = 0;
-    while (paramParcel.dataPosition() < k)
+    a = 60000L;
+    b = 10;
+    c = new SimpleArrayMap(10);
+  }
+  
+  public abx(long paramLong)
+  {
+    a = paramLong;
+    b = 1024;
+    c = new SimpleArrayMap();
+  }
+  
+  private void a(long paramLong1, long paramLong2)
+  {
+    int i = c.size() - 1;
+    while (i >= 0)
     {
-      int m = zm.a(paramParcel);
-      switch (zm.a(m))
-      {
-      default: 
-        zm.a(paramParcel, m);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, m);
-        break;
-      case 2: 
-        str = zm.n(paramParcel, m);
-        break;
-      case 3: 
-        j = zm.e(paramParcel, m);
+      if (paramLong2 - ((Long)c.valueAt(i)).longValue() > paramLong1) {
+        c.removeAt(i);
       }
+      i -= 1;
     }
-    if (paramParcel.dataPosition() != k) {
-      throw new zn("Overread allowed size end=" + k, paramParcel);
-    }
-    return new StringToIntConverter.Entry(i, str, j);
   }
   
-  public static void a(StringToIntConverter.Entry paramEntry, Parcel paramParcel)
+  public final Long a(String paramString)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, b, false);
-    zo.a(paramParcel, 3, c);
-    zo.a(paramParcel, i);
+    long l2 = SystemClock.elapsedRealtime();
+    long l1 = a;
+    try
+    {
+      while (c.size() >= b)
+      {
+        a(l1, l2);
+        l1 /= 2L;
+        Log.w("ConnectionTracker", "The max capacity " + b + " is not enough. Current durationThreshold is: " + l1);
+      }
+      paramString = (Long)c.put(paramString, Long.valueOf(l2));
+    }
+    finally {}
+    return paramString;
   }
   
-  private static StringToIntConverter.Entry[] a(int paramInt)
+  public final boolean b(String paramString)
   {
-    return new StringToIntConverter.Entry[paramInt];
+    for (;;)
+    {
+      try
+      {
+        if (c.remove(paramString) != null)
+        {
+          bool = true;
+          return bool;
+        }
+      }
+      finally {}
+      boolean bool = false;
+    }
   }
 }
 

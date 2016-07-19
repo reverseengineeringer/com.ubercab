@@ -1,42 +1,46 @@
-public final class clx
+import com.ubercab.android.location.UberLatLng;
+import com.ubercab.android.location.UberLocation;
+import com.ubercab.shape.Shape;
+
+@Shape
+public abstract class clx
 {
-  private cma a;
-  private cnk b;
-  private cnr c;
-  
-  public final clw a()
+  private static clx j()
   {
-    cnq localcnq = null;
-    if (a == null) {
-      throw new IllegalStateException("M4: Pipeline is required by M4.");
-    }
-    clz localclz = a.a();
-    if (b != null) {}
-    for (cnj localcnj = b.a(localclz.c()).a();; localcnj = null)
-    {
-      if (c != null) {
-        localcnq = c.a(localclz.c()).a();
-      }
-      return new clw(localclz, localcnj, localcnq, (byte)0);
-    }
+    return new clv();
   }
   
-  public final clx a(cma paramcma)
-  {
-    a = paramcma;
-    return this;
-  }
+  public abstract float a();
   
-  public final clx a(cnk paramcnk)
-  {
-    b = paramcnk;
-    return this;
-  }
+  public abstract clx a(double paramDouble);
   
-  public final clx a(cnr paramcnr)
+  public abstract clx a(float paramFloat);
+  
+  public abstract clx a(long paramLong);
+  
+  public abstract clx a(UberLatLng paramUberLatLng);
+  
+  public abstract clx a(String paramString);
+  
+  public abstract float b();
+  
+  public abstract clx b(float paramFloat);
+  
+  public abstract float c();
+  
+  public abstract clx c(float paramFloat);
+  
+  public abstract double d();
+  
+  public abstract long e();
+  
+  public abstract String f();
+  
+  public abstract UberLatLng g();
+  
+  public final UberLocation h()
   {
-    c = paramcnr;
-    return this;
+    return UberLocation.a(a(), d(), b(), c(), e(), g(), f());
   }
 }
 

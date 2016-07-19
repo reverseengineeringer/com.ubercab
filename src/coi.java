@@ -1,8 +1,21 @@
-import com.ubercab.android.map.Marker;
+import com.ubercab.android.m4.pipeline.model.Metric;
 
-public abstract interface coi
+public abstract class coi
+  implements cmu
 {
-  public abstract void a(Marker paramMarker);
+  private coj a;
+  
+  final void a(coj paramcoj)
+  {
+    a = paramcoj;
+  }
+  
+  protected final void a(Metric paramMetric)
+  {
+    if (a != null) {
+      a.a(paramMetric);
+    }
+  }
 }
 
 /* Location:

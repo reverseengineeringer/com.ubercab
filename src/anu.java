@@ -1,60 +1,30 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import android.os.Bundle;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.wallet.FullWallet;
+import com.google.android.gms.wallet.MaskedWallet;
+import com.google.android.gms.wallet.firstparty.GetBuyFlowInitializationTokenResponse;
+import com.google.android.gms.wallet.firstparty.GetInstrumentsResponse;
 
-public abstract class anu
-  extends Binder
-  implements ant
+class anu
+  extends anq
 {
-  public anu()
-  {
-    attachInterface(this, "com.google.android.gms.ads.internal.purchase.client.IInAppPurchase");
-  }
+  public void a(int paramInt, Bundle paramBundle) {}
   
-  public static ant a(IBinder paramIBinder)
-  {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchase");
-    if ((localIInterface != null) && ((localIInterface instanceof ant))) {
-      return (ant)localIInterface;
-    }
-    return new anv(paramIBinder);
-  }
+  public void a(int paramInt, FullWallet paramFullWallet, Bundle paramBundle) {}
   
-  public IBinder asBinder()
-  {
-    return this;
-  }
+  public void a(int paramInt, MaskedWallet paramMaskedWallet, Bundle paramBundle) {}
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.ads.internal.purchase.client.IInAppPurchase");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchase");
-      paramParcel1 = a();
-      paramParcel2.writeNoException();
-      paramParcel2.writeString(paramParcel1);
-      return true;
-    case 2: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchase");
-      a(paramParcel1.readInt());
-      paramParcel2.writeNoException();
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchase");
-    b(paramParcel1.readInt());
-    paramParcel2.writeNoException();
-    return true;
-  }
+  public void a(int paramInt, boolean paramBoolean, Bundle paramBundle) {}
+  
+  public final void a(Status paramStatus, Bundle paramBundle) {}
+  
+  public final void a(Status paramStatus, GetBuyFlowInitializationTokenResponse paramGetBuyFlowInitializationTokenResponse, Bundle paramBundle) {}
+  
+  public final void a(Status paramStatus, GetInstrumentsResponse paramGetInstrumentsResponse, Bundle paramBundle) {}
+  
+  public void a(Status paramStatus, boolean paramBoolean, Bundle paramBundle) {}
+  
+  public void b(int paramInt, boolean paramBoolean, Bundle paramBundle) {}
 }
 
 /* Location:

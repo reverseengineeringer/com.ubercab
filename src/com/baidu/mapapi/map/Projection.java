@@ -30,7 +30,7 @@ public final class Projection
     if (paramFloat <= 0.0F) {
       return 0.0F;
     }
-    return (float)(paramFloat / a.z());
+    return (float)(paramFloat / a.D());
   }
   
   public final PointF toOpenGLLocation(LatLng paramLatLng, MapStatus paramMapStatus)

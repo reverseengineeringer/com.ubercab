@@ -1,60 +1,22 @@
-import android.os.IInterface;
-import com.google.android.gms.maps.model.LatLng;
-
-public abstract interface bhk
-  extends IInterface
+final class bhk
+  extends bhj
 {
-  public abstract void a();
+  static final bhk o = new bhk();
   
-  public abstract void a(float paramFloat);
+  private bhk()
+  {
+    super("CharMatcher.none()");
+  }
   
-  public abstract void a(float paramFloat1, float paramFloat2);
+  public final String a(CharSequence paramCharSequence)
+  {
+    return paramCharSequence.toString();
+  }
   
-  public abstract void a(add paramadd);
-  
-  public abstract void a(LatLng paramLatLng);
-  
-  public abstract void a(String paramString);
-  
-  public abstract void a(boolean paramBoolean);
-  
-  public abstract boolean a(bhk parambhk);
-  
-  public abstract String b();
-  
-  public abstract void b(float paramFloat);
-  
-  public abstract void b(float paramFloat1, float paramFloat2);
-  
-  public abstract void b(String paramString);
-  
-  public abstract void b(boolean paramBoolean);
-  
-  public abstract LatLng c();
-  
-  public abstract void c(boolean paramBoolean);
-  
-  public abstract String d();
-  
-  public abstract String e();
-  
-  public abstract boolean f();
-  
-  public abstract void g();
-  
-  public abstract void h();
-  
-  public abstract boolean i();
-  
-  public abstract boolean j();
-  
-  public abstract int k();
-  
-  public abstract boolean l();
-  
-  public abstract float m();
-  
-  public abstract float n();
+  public final boolean b(char paramChar)
+  {
+    return false;
+  }
 }
 
 /* Location:

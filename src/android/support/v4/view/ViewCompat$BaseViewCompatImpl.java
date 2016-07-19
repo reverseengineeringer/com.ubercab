@@ -440,6 +440,16 @@ class ViewCompat$BaseViewCompatImpl
   
   public void jumpDrawablesToCurrentState(View paramView) {}
   
+  public void offsetLeftAndRight(View paramView, int paramInt)
+  {
+    ViewCompatBase.offsetLeftAndRight(paramView, paramInt);
+  }
+  
+  public void offsetTopAndBottom(View paramView, int paramInt)
+  {
+    ViewCompatBase.offsetTopAndBottom(paramView, paramInt);
+  }
+  
   public WindowInsetsCompat onApplyWindowInsets(View paramView, WindowInsetsCompat paramWindowInsetsCompat)
   {
     return paramWindowInsetsCompat;

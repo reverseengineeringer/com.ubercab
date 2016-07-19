@@ -1,52 +1,22 @@
-import com.ubercab.android.location.UberLatLng;
-
-public final class coc
+final class coc
 {
-  private final cpw a;
+  private final byte[] b;
+  private final cog c;
   
-  public coc(cpw paramcpw)
+  coc(coa paramcoa, byte[] paramArrayOfByte, cog paramcog)
   {
-    a = paramcpw;
+    b = paramArrayOfByte;
+    c = paramcog;
   }
   
-  public final double a()
+  final byte[] a()
   {
-    return a.a();
+    return b;
   }
   
-  public final void a(float paramFloat)
+  final cog b()
   {
-    a.a(paramFloat);
-  }
-  
-  public final void a(int paramInt1, int paramInt2)
-  {
-    a.a(paramInt1, paramInt2);
-  }
-  
-  public final void a(UberLatLng paramUberLatLng)
-  {
-    a.a(paramUberLatLng);
-  }
-  
-  public final void a(boolean paramBoolean)
-  {
-    a.a(paramBoolean);
-  }
-  
-  public final float b()
-  {
-    return a.b();
-  }
-  
-  public final boolean c()
-  {
-    return a.c();
-  }
-  
-  public final void d()
-  {
-    a.d();
+    return c;
   }
 }
 

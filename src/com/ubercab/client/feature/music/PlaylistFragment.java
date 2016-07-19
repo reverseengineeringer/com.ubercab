@@ -8,36 +8,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnItemClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.rider.realtime.model.Playlist;
 import com.ubercab.rider.realtime.model.Track;
-import dsh;
-import ebj;
-import efr;
-import eje;
-import eqg;
-import frk;
-import frl;
-import fth;
-import fuh;
-import p;
-import r;
+import dxm;
+import eib;
+import enk;
+import eri;
+import eyh;
+import gjl;
+import gjm;
+import gly;
+import gna;
+import x;
+import z;
 
 public class PlaylistFragment
-  extends dsh<fth>
+  extends dxm<gly>
 {
-  public ckc c;
-  public chh d;
+  public ckt c;
+  public chn d;
   private View e;
-  @InjectView(2131624689)
-  ListView mListViewTracks;
+  @BindView
+  public ListView mListViewTracks;
   
   static PlaylistFragment a(String paramString)
   {
@@ -53,21 +52,21 @@ public class PlaylistFragment
     mListViewTracks.post(new PlaylistFragment.1(this));
   }
   
-  private void a(fth paramfth)
+  private void a(gly paramgly)
   {
-    paramfth.a(this);
+    paramgly.a(this);
   }
   
-  private fth b(ebj paramebj)
+  private gly b(eib parameib)
   {
-    return frk.a().a(new efr(this)).a(paramebj).a();
+    return gjl.a().a(new enk(this)).a(parameib).a();
   }
   
-  private boolean b()
+  private boolean f()
   {
     View localView = g();
     if (localView != null) {}
-    for (localView = localView.findViewById(2131624661); (localView != null) && (localView.getVisibility() == 0); localView = null) {
+    for (localView = localView.findViewById(2131624993); (localView != null) && (localView.getVisibility() == 0); localView = null) {
       return true;
     }
     return false;
@@ -75,50 +74,44 @@ public class PlaylistFragment
   
   private View g()
   {
-    Fragment localFragment = getFragmentManager().findFragmentById(2131624655);
+    Fragment localFragment = getFragmentManager().findFragmentById(2131624987);
     if (localFragment != null) {
       return localFragment.getView();
     }
     return null;
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return dsh.a;
+    return dxm.a;
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramViewGroup = paramLayoutInflater.inflate(2130903297, paramViewGroup, false);
-    ButterKnife.inject(this, paramViewGroup);
-    e = paramLayoutInflater.inflate(2130903308, mListViewTracks, false);
+    paramViewGroup = paramLayoutInflater.inflate(2130903392, paramViewGroup, false);
+    a(paramViewGroup);
+    e = paramLayoutInflater.inflate(2130903403, mListViewTracks, false);
     e.setVisibility(4);
     return paramViewGroup;
   }
   
-  public void onDestroy()
-  {
-    super.onDestroy();
-    ButterKnife.reset(this);
-  }
-  
-  @cho
-  public void onPlaylistResponseEvent(eje parameje)
+  @chu
+  public void onPlaylistResponseEvent(eri parameri)
   {
     RiderActivity localRiderActivity = (RiderActivity)getActivity();
     if (localRiderActivity == null) {
       return;
     }
-    if (parameje.i())
+    if (parameri.i())
     {
-      parameje = (Playlist)parameje.g();
-      mListViewTracks.setAdapter(new TrackAdapter(localRiderActivity, parameje.getTracks()));
+      parameri = (Playlist)parameri.g();
+      mListViewTracks.setAdapter(new TrackAdapter(localRiderActivity, parameri.getTracks()));
     }
     for (;;)
     {
       a();
       return;
-      eqg.a(localRiderActivity, p.iJ, 0, null, parameje.a(), getString(2131165357));
+      eyh.a(localRiderActivity, x.lT, 0, null, parameri.a(), getString(2131165405));
     }
   }
   
@@ -128,13 +121,13 @@ public class PlaylistFragment
     a();
   }
   
-  @OnItemClick({2131624689})
+  @OnItemClick
   public void onTrackClicked(int paramInt)
   {
-    c.a(r.dr);
+    c.a(z.fo);
     String str = getArguments().getString("playlist_uri");
     Track localTrack = (Track)mListViewTracks.getAdapter().getItem(paramInt);
-    d.c(new fuh(str, localTrack));
+    d.c(new gna(str, localTrack));
   }
 }
 

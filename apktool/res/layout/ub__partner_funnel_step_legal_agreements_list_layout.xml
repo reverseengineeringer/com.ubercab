@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.ubercab.ui.collection.RecyclerView android:scrollbarStyle="outsideOverlay" android:id="@id/ub__partner_funnel_step_recyclerview" android:background="@color/ub__uber_white_20" android:scrollbars="vertical" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" />
+    <com.ubercab.ui.collection.RecyclerView android:scrollbarStyle="outsideOverlay" android:id="@id/ub__partner_funnel_step_recyclerview" android:background="@color/ub__uber_white_20" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:scrollbars="vertical" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0" />
     <com.ubercab.ui.TextView android:id="@id/ub__partner_funnel_legal_agreement_footer_textview" android:padding="@dimen/ui__spacing_unit_2x" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0" style="@style/Uber.Partner.Funnel.TextAppearance.Legal.Description" />
     <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0" layout="@layout/ub__partner_funnel_step_standard_footer" />
 </LinearLayout>

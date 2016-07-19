@@ -7,9 +7,9 @@ import com.ubercab.rider.realtime.model.TripVehicle;
 import com.ubercab.rider.realtime.model.VehicleView;
 import java.util.ArrayList;
 import java.util.List;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class TripPendingRating
   implements com.ubercab.rider.realtime.model.TripPendingRating
 {
@@ -27,6 +27,7 @@ public class TripPendingRating
   List<FeedbackType> feedbackTypes;
   Integer feedbackUIVersion;
   String id;
+  String infoMessage;
   List<Item> items;
   String marketplace;
   String paymentProfileId;
@@ -123,6 +124,15 @@ public class TripPendingRating
       }
       else {
         while (id != null) {
+          return false;
+        }
+      }
+      if (infoMessage != null)
+      {
+        if (infoMessage.equals(infoMessage)) {}
+      }
+      else {
+        while (infoMessage != null) {
           return false;
         }
       }
@@ -296,6 +306,11 @@ public class TripPendingRating
     return id;
   }
   
+  public String getInfoMessage()
+  {
+    return infoMessage;
+  }
+  
   public List<Item> getItems()
   {
     if (items != null) {
@@ -339,7 +354,7 @@ public class TripPendingRating
   
   public int hashCode()
   {
-    int i13 = 0;
+    int i14 = 0;
     int i;
     int j;
     label33:
@@ -370,96 +385,103 @@ public class TripPendingRating
     int i10;
     label240:
     int i11;
+    label256:
+    int i12;
     if (dropoffEpoch != null)
     {
       i = dropoffEpoch.hashCode();
       if (fareValue == null) {
-        break label397;
+        break label419;
       }
       j = fareValue.hashCode();
       if (feedbackUIVersion == null) {
-        break label402;
+        break label424;
       }
       k = feedbackUIVersion.hashCode();
       if (showLostItemsDriverContact == null) {
-        break label407;
+        break label429;
       }
       m = showLostItemsDriverContact.hashCode();
       if (dropoffTimestamp == null) {
-        break label413;
+        break label435;
       }
       n = dropoffTimestamp.hashCode();
       if (fareBilledToCardString == null) {
-        break label419;
+        break label441;
       }
       i1 = fareBilledToCardString.hashCode();
       if (fareString == null) {
-        break label425;
+        break label447;
       }
       i2 = fareString.hashCode();
       if (fareSummaryPromoTagline == null) {
-        break label431;
+        break label453;
       }
       i3 = fareSummaryPromoTagline.hashCode();
       if (id == null) {
-        break label437;
+        break label459;
       }
       i4 = id.hashCode();
+      if (infoMessage == null) {
+        break label465;
+      }
+      i5 = infoMessage.hashCode();
       if (paymentProfileId == null) {
-        break label443;
+        break label471;
       }
-      i5 = paymentProfileId.hashCode();
+      i6 = paymentProfileId.hashCode();
       if (paymentProfileUUID == null) {
-        break label449;
+        break label477;
       }
-      i6 = paymentProfileUUID.hashCode();
+      i7 = paymentProfileUUID.hashCode();
       if (driver == null) {
-        break label455;
+        break label483;
       }
-      i7 = driver.hashCode();
+      i8 = driver.hashCode();
       if (dropoffLocation == null) {
-        break label461;
+        break label489;
       }
-      i8 = dropoffLocation.hashCode();
+      i9 = dropoffLocation.hashCode();
       if (begintripLocation == null) {
-        break label467;
+        break label495;
       }
-      i9 = begintripLocation.hashCode();
+      i10 = begintripLocation.hashCode();
       if (extraPaymentData == null) {
-        break label473;
+        break label501;
       }
-      i10 = extraPaymentData.hashCode();
+      i11 = extraPaymentData.hashCode();
       if (vehicle == null) {
-        break label479;
+        break label507;
       }
-      i11 = vehicle.hashCode();
-      label256:
+      i12 = vehicle.hashCode();
+      label272:
       if (vehicleView == null) {
-        break label485;
+        break label513;
       }
     }
-    label397:
-    label402:
-    label407:
-    label413:
     label419:
-    label425:
-    label431:
-    label437:
-    label443:
-    label449:
-    label455:
-    label461:
-    label467:
-    label473:
-    label479:
-    label485:
-    for (int i12 = vehicleView.hashCode();; i12 = 0)
+    label424:
+    label429:
+    label435:
+    label441:
+    label447:
+    label453:
+    label459:
+    label465:
+    label471:
+    label477:
+    label483:
+    label489:
+    label495:
+    label501:
+    label507:
+    label513:
+    for (int i13 = vehicleView.hashCode();; i13 = 0)
     {
       if (feedbackTypes != null) {
-        i13 = feedbackTypes.hashCode();
+        i14 = feedbackTypes.hashCode();
       }
-      return (i12 + (i11 + (i10 + (i9 + (i8 + (i7 + (i6 + (i5 + (i4 + (i3 + (i2 + (i1 + (n + (m + (k + (j + i * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i13;
+      return (i13 + (i12 + (i11 + (i10 + (i9 + (i8 + (i7 + (i6 + (i5 + (i4 + (i3 + (i2 + (i1 + (n + (m + (k + (j + i * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i14;
       i = 0;
       break;
       j = 0;
@@ -492,6 +514,8 @@ public class TripPendingRating
       break label240;
       i11 = 0;
       break label256;
+      i12 = 0;
+      break label272;
     }
   }
   
@@ -543,6 +567,11 @@ public class TripPendingRating
   public void setId(String paramString)
   {
     id = paramString;
+  }
+  
+  public void setInfoMessage(String paramString)
+  {
+    infoMessage = paramString;
   }
   
   public void setItems(List<Item> paramList)

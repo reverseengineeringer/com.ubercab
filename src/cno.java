@@ -1,228 +1,261 @@
+import com.ubercab.android.m4.pipeline.model.CountMetric;
+import com.ubercab.android.m4.pipeline.model.GaugeMetric;
+import com.ubercab.android.m4.pipeline.model.Metric;
+import com.ubercab.android.m4.pipeline.model.MetricTag;
+import com.ubercab.android.m4.pipeline.model.TimerMetric;
+import com.ubercab.android.m4.pipeline.model.TraceMetric;
 import com.ubercab.android.m4.pipeline.model.TraceSpan;
 import com.ubercab.android.m4.pipeline.model.TraceSpanAttribute;
-import com.ubercab.shape.Shape;
+import com.ubercab.android.m4.pipeline.model.TraceSpanEvent;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftCount;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftGauge;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftMetric;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftMetricBatch;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftMetricTag;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftMetricValue;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftTimer;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftTrace;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftTraceSpan;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftTraceSpanAttribute;
+import com.ubercab.android.m4.pipeline.model.thrift.ThriftTraceSpanEvent;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import org.apache.thrift.TSerializer;
+import org.apache.thrift.protocol.TCompactProtocol.Factory;
 
-@Shape
-public abstract class cno
+public final class cno
+  extends cni
 {
-  static cno a(String paramString, cns paramcns)
+  private long a;
+  private final cmx<cnh> b;
+  private cnc c = new cnc()
   {
-    return new cnm().b(new HashMap()).a(paramcns).a(new ArrayList()).a(paramString).b(new ArrayList()).a(new HashMap());
+    public final boolean a(Metric paramAnonymousMetric)
+    {
+      long l = paramAnonymousMetric.contentSizeBytes();
+      if (cno.a(cno.this) + l <= a())
+      {
+        cno.a(cno.this, l + cno.a(cno.this));
+        return true;
+      }
+      return false;
+    }
+  };
+  
+  public cno(long paramLong, cmx<cnh> paramcmx)
+  {
+    super(paramLong);
+    b = paramcmx;
   }
   
-  private boolean p()
+  private static void a(ThriftMetric paramThriftMetric, CountMetric paramCountMetric)
   {
-    try
+    paramThriftMetric.setValue(new ThriftMetricValue());
+    if (paramThriftMetric.getValue() != null)
     {
-      boolean bool = c();
-      return bool;
-    }
-    finally
-    {
-      localObject = finally;
-      throw ((Throwable)localObject);
-    }
-  }
-  
-  abstract cno a(long paramLong);
-  
-  abstract cno a(cns paramcns);
-  
-  abstract cno a(String paramString);
-  
-  abstract cno a(List<cnl> paramList);
-  
-  abstract cno a(Map<String, cno> paramMap);
-  
-  abstract cno a(boolean paramBoolean);
-  
-  abstract boolean a();
-  
-  abstract cno b();
-  
-  abstract cno b(long paramLong);
-  
-  abstract cno b(List<cno> paramList);
-  
-  abstract cno b(Map<String, String> paramMap);
-  
-  abstract boolean c();
-  
-  abstract long d();
-  
-  abstract long e();
-  
-  abstract String f();
-  
-  abstract cns g();
-  
-  abstract List<cnl> h();
-  
-  abstract List<cno> i();
-  
-  abstract Map<String, cno> j();
-  
-  abstract Map<String, String> k();
-  
-  public final boolean l()
-  {
-    try
-    {
-      boolean bool = a();
-      return bool;
-    }
-    finally
-    {
-      localObject = finally;
-      throw ((Throwable)localObject);
+      paramThriftMetric.getValue().setCount(new ThriftCount());
+      paramThriftMetric.getValue().getCount().setDeltaValue(paramCountMetric.getDeltaValue());
     }
   }
   
-  /* Error */
-  public final void m()
+  private static void a(ThriftMetric paramThriftMetric, GaugeMetric paramGaugeMetric)
   {
-    // Byte code:
-    //   0: aload_0
-    //   1: monitorenter
-    //   2: aload_0
-    //   3: invokevirtual 43	cno:c	()Z
-    //   6: ifne +12 -> 18
-    //   9: aload_0
-    //   10: invokevirtual 62	cno:a	()Z
-    //   13: istore_1
-    //   14: iload_1
-    //   15: ifeq +6 -> 21
-    //   18: aload_0
-    //   19: monitorexit
-    //   20: return
-    //   21: aload_0
-    //   22: iconst_1
-    //   23: invokevirtual 65	cno:a	(Z)Lcno;
-    //   26: pop
-    //   27: aload_0
-    //   28: invokestatic 69	cns:b	()J
-    //   31: invokevirtual 71	cno:a	(J)Lcno;
-    //   34: pop
-    //   35: goto -17 -> 18
-    //   38: astore_2
-    //   39: aload_0
-    //   40: monitorexit
-    //   41: aload_2
-    //   42: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	43	0	this	cno
-    //   13	2	1	bool	boolean
-    //   38	4	2	localObject	Object
-    // Exception table:
-    //   from	to	target	type
-    //   2	14	38	finally
-    //   21	35	38	finally
-  }
-  
-  /* Error */
-  public final void n()
-  {
-    // Byte code:
-    //   0: aload_0
-    //   1: monitorenter
-    //   2: aload_0
-    //   3: invokespecial 74	cno:p	()Z
-    //   6: istore_1
-    //   7: iload_1
-    //   8: ifne +6 -> 14
-    //   11: aload_0
-    //   12: monitorexit
-    //   13: return
-    //   14: aload_0
-    //   15: invokevirtual 76	cno:b	()Lcno;
-    //   18: pop
-    //   19: aload_0
-    //   20: iconst_0
-    //   21: invokevirtual 65	cno:a	(Z)Lcno;
-    //   24: pop
-    //   25: aload_0
-    //   26: invokestatic 69	cns:b	()J
-    //   29: invokevirtual 78	cno:b	(J)Lcno;
-    //   32: pop
-    //   33: aload_0
-    //   34: invokevirtual 80	cno:i	()Ljava/util/List;
-    //   37: invokeinterface 86 1 0
-    //   42: astore_2
-    //   43: aload_2
-    //   44: invokeinterface 91 1 0
-    //   49: ifeq -38 -> 11
-    //   52: aload_2
-    //   53: invokeinterface 95 1 0
-    //   58: checkcast 2	cno
-    //   61: invokevirtual 97	cno:n	()V
-    //   64: goto -21 -> 43
-    //   67: astore_2
-    //   68: aload_0
-    //   69: monitorexit
-    //   70: aload_2
-    //   71: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	72	0	this	cno
-    //   6	2	1	bool	boolean
-    //   42	11	2	localIterator	Iterator
-    //   67	4	2	localObject	Object
-    // Exception table:
-    //   from	to	target	type
-    //   2	7	67	finally
-    //   14	43	67	finally
-    //   43	64	67	finally
-  }
-  
-  final TraceSpan o()
-  {
-    for (;;)
+    paramThriftMetric.setValue(new ThriftMetricValue());
+    if (paramThriftMetric.getValue() != null)
     {
-      ArrayList localArrayList1;
-      ArrayList localArrayList2;
+      paramThriftMetric.getValue().setGauge(new ThriftGauge());
+      paramThriftMetric.getValue().getGauge().setAbsoluteValue(paramGaugeMetric.getAbsoluteValue());
+    }
+  }
+  
+  private static void a(ThriftMetric paramThriftMetric, TimerMetric paramTimerMetric)
+  {
+    paramThriftMetric.setValue(new ThriftMetricValue());
+    if (paramThriftMetric.getValue() != null)
+    {
+      paramThriftMetric.getValue().setTimer(new ThriftTimer());
+      paramThriftMetric.getValue().getTimer().setMillisecondsValue(paramTimerMetric.getMillisecondsValue());
+    }
+  }
+  
+  private void a(ThriftMetric paramThriftMetric, TraceMetric paramTraceMetric)
+  {
+    paramThriftMetric.setValue(new ThriftMetricValue());
+    if (paramThriftMetric.getValue() != null)
+    {
+      paramThriftMetric.getValue().setTrace(new ThriftTrace());
+      Object localObject1 = paramTraceMetric.getAttributes().iterator();
       Object localObject2;
-      try
+      Object localObject3;
+      while (((Iterator)localObject1).hasNext())
       {
-        boolean bool = l();
-        if (!bool)
-        {
-          localObject1 = null;
-          return (TraceSpan)localObject1;
-        }
-        Object localObject1 = new ArrayList();
-        localArrayList1 = new ArrayList();
-        localArrayList2 = new ArrayList();
-        localIterator = k().entrySet().iterator();
-        if (localIterator.hasNext())
-        {
-          localObject2 = (Map.Entry)localIterator.next();
-          ((List)localObject1).add(TraceSpanAttribute.create((String)((Map.Entry)localObject2).getKey(), (String)((Map.Entry)localObject2).getValue()));
-          continue;
-        }
-        localIterator = h().iterator();
+        localObject2 = (TraceSpanAttribute)((Iterator)localObject1).next();
+        localObject3 = new ThriftMetricTag();
+        ((ThriftMetricTag)localObject3).setName(((TraceSpanAttribute)localObject2).getName());
+        ((ThriftMetricTag)localObject3).setValue(((TraceSpanAttribute)localObject2).getValue());
+        paramThriftMetric.addToTags((ThriftMetricTag)localObject3);
       }
-      finally {}
-      while (localIterator.hasNext()) {
-        localArrayList1.add(((cnl)localIterator.next()).c());
-      }
-      Iterator localIterator = i().iterator();
-      while (localIterator.hasNext())
+      localObject1 = paramTraceMetric.getSpans();
+      paramTraceMetric = new ArrayList();
+      localObject1 = ((List)localObject1).iterator();
+      while (((Iterator)localObject1).hasNext())
       {
-        localObject2 = (cno)localIterator.next();
-        if (((cno)localObject2).l()) {
-          localArrayList2.add(((cno)localObject2).o());
-        }
+        localObject2 = (TraceSpan)((Iterator)localObject1).next();
+        localObject3 = new ThriftTraceSpan();
+        a((ThriftTraceSpan)localObject3, (TraceSpan)localObject2);
+        paramTraceMetric.add(localObject3);
       }
-      TraceSpan localTraceSpan = TraceSpan.create(f(), d(), e(), localArrayList2, localList, localArrayList1);
+      paramThriftMetric.getValue().getTrace().setSpans(paramTraceMetric);
     }
+  }
+  
+  private void a(ThriftTraceSpan paramThriftTraceSpan, TraceSpan paramTraceSpan)
+  {
+    paramThriftTraceSpan.setName(paramTraceSpan.getName());
+    paramThriftTraceSpan.setBeginTimestampMicroseconds(paramTraceSpan.getBeginTimestampMicroseconds());
+    paramThriftTraceSpan.setEndTimestampMicroseconds(paramTraceSpan.getEndTimestampMicroseconds());
+    Object localObject2 = paramTraceSpan.getSpans();
+    Object localObject3;
+    Object localObject4;
+    if (localObject2 != null)
+    {
+      localObject1 = new ArrayList();
+      localObject2 = ((List)localObject2).iterator();
+      while (((Iterator)localObject2).hasNext())
+      {
+        localObject3 = (TraceSpan)((Iterator)localObject2).next();
+        localObject4 = new ThriftTraceSpan();
+        a((ThriftTraceSpan)localObject4, (TraceSpan)localObject3);
+        ((List)localObject1).add(localObject4);
+      }
+      paramThriftTraceSpan.setSpans((List)localObject1);
+    }
+    localObject2 = paramTraceSpan.getAttributes();
+    if (localObject2 != null)
+    {
+      localObject1 = new ArrayList();
+      localObject2 = ((List)localObject2).iterator();
+      while (((Iterator)localObject2).hasNext())
+      {
+        localObject3 = (TraceSpanAttribute)((Iterator)localObject2).next();
+        localObject4 = new ThriftTraceSpanAttribute();
+        ((ThriftTraceSpanAttribute)localObject4).setName(((TraceSpanAttribute)localObject3).getName());
+        ((ThriftTraceSpanAttribute)localObject4).setValue(((TraceSpanAttribute)localObject3).getValue());
+        ((List)localObject1).add(localObject4);
+      }
+      paramThriftTraceSpan.setAttributes((List)localObject1);
+    }
+    Object localObject1 = paramTraceSpan.getEvents();
+    if (localObject1 != null)
+    {
+      paramTraceSpan = new ArrayList();
+      localObject1 = ((List)localObject1).iterator();
+      while (((Iterator)localObject1).hasNext())
+      {
+        localObject2 = (TraceSpanEvent)((Iterator)localObject1).next();
+        localObject3 = new ThriftTraceSpanEvent();
+        ((ThriftTraceSpanEvent)localObject3).setName(((TraceSpanEvent)localObject2).getName());
+        ((ThriftTraceSpanEvent)localObject3).setTimestampMicroseconds(((TraceSpanEvent)localObject2).getTimestampMicroseconds());
+        paramTraceSpan.add(localObject3);
+      }
+      paramThriftTraceSpan.setEvents(paramTraceSpan);
+    }
+  }
+  
+  final cnl a(cnb paramcnb)
+  {
+    paramcnb = paramcnb.a(c);
+    if (paramcnb.isEmpty()) {
+      return cnl.a(paramcnb, new byte[0]);
+    }
+    HashSet localHashSet = new HashSet();
+    Object localObject1 = ((cnh)b.a()).e().entrySet().iterator();
+    while (((Iterator)localObject1).hasNext())
+    {
+      localObject2 = (Map.Entry)((Iterator)localObject1).next();
+      localObject3 = new ThriftMetricTag();
+      ((ThriftMetricTag)localObject3).setName((String)((Map.Entry)localObject2).getKey());
+      ((ThriftMetricTag)localObject3).setValue((String)((Map.Entry)localObject2).getValue());
+      localHashSet.add(localObject3);
+    }
+    localObject1 = new ArrayList(paramcnb.size());
+    Object localObject2 = paramcnb.iterator();
+    if (((Iterator)localObject2).hasNext())
+    {
+      localObject3 = (Metric)((Iterator)localObject2).next();
+      ThriftMetric localThriftMetric = new ThriftMetric();
+      localThriftMetric.setName(((Metric)localObject3).getName());
+      localThriftMetric.setUrl(((Metric)localObject3).getUrl());
+      localThriftMetric.setTimestampMilliseconds(((Metric)localObject3).getTimestampMilliseconds());
+      Object localObject5 = ((Metric)localObject3).getTags();
+      if (localObject5 != null)
+      {
+        localObject4 = new HashSet(((Set)localObject5).size());
+        localObject5 = ((Set)localObject5).iterator();
+        while (((Iterator)localObject5).hasNext())
+        {
+          MetricTag localMetricTag = (MetricTag)((Iterator)localObject5).next();
+          ThriftMetricTag localThriftMetricTag = new ThriftMetricTag();
+          localThriftMetricTag.setName(localMetricTag.getName());
+          localThriftMetricTag.setValue(localMetricTag.getValue());
+          ((Set)localObject4).add(localThriftMetricTag);
+        }
+        localThriftMetric.setTags((Set)localObject4);
+      }
+      Object localObject4 = ((Metric)localObject3).getType();
+      int i = -1;
+      switch (((String)localObject4).hashCode())
+      {
+      }
+      for (;;)
+      {
+        switch (i)
+        {
+        default: 
+          throw new IllegalStateException("Metric type is not supported: " + ((Metric)localObject3).getType());
+          if (((String)localObject4).equals("count"))
+          {
+            i = 0;
+            continue;
+            if (((String)localObject4).equals("gauge"))
+            {
+              i = 1;
+              continue;
+              if (((String)localObject4).equals("timer"))
+              {
+                i = 2;
+                continue;
+                if (((String)localObject4).equals("trace")) {
+                  i = 3;
+                }
+              }
+            }
+          }
+          break;
+        }
+      }
+      a(localThriftMetric, (CountMetric)localObject3);
+      for (;;)
+      {
+        ((List)localObject1).add(localThriftMetric);
+        break;
+        a(localThriftMetric, (GaugeMetric)localObject3);
+        continue;
+        a(localThriftMetric, (TimerMetric)localObject3);
+        continue;
+        a(localThriftMetric, (TraceMetric)localObject3);
+      }
+    }
+    localObject2 = new TSerializer(new TCompactProtocol.Factory());
+    Object localObject3 = new ThriftMetricBatch();
+    ((ThriftMetricBatch)localObject3).setCommonTags(localHashSet);
+    ((ThriftMetricBatch)localObject3).setMetrics((List)localObject1);
+    return cnl.a(paramcnb, ((TSerializer)localObject2).a((nwk)localObject3));
   }
 }
 

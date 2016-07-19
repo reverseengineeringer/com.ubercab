@@ -5,7 +5,7 @@
         <include layout="@layout/ub__trip_pickup_dropoff" />
         <include layout="@layout/ub__divider_thin" />
     </LinearLayout>
-    <ImageView android:id="@id/ub__trip_details_map" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/ub__trip_details_footer" android:layout_below="@id/ub__trip_details_header" />
+    <ImageView android:id="@id/ub__trip_details_map" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="fitXY" android:layout_above="@id/ub__trip_details_footer" android:layout_below="@id/ub__trip_details_header" />
     <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/ub__trip_details_footer">
         <include layout="@layout/ub__divider_thin" />
         <View android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="@dimen/ub__rds__spacing_unit_large" />

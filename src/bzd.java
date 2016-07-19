@@ -1,43 +1,33 @@
-import java.util.Locale;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 
 public final class bzd
-  extends bwl
+  extends bzf<bzd>
 {
-  private final boolean c;
-  private final int d;
+  private final Collection<String> a = new HashSet();
+  private final Map<String, bza> b = new HashMap();
+  private boolean c;
   
-  public bzd(bwy parambwy, int paramInt1, boolean paramBoolean, int paramInt2)
+  private bzd e()
   {
-    super(paramInt1, parambwy);
-    c = paramBoolean;
-    d = paramInt2;
+    return this;
   }
   
-  protected final String a()
+  public final void a(String paramString)
   {
-    int j = d;
-    StringBuilder localStringBuilder = new StringBuilder();
-    int i = 0;
-    while (i < j)
-    {
-      if (i != 0) {
-        localStringBuilder.append(",\n");
-      }
-      String str = new String(new char[4]).replace("\000", String.valueOf(i)).substring(0, 4);
-      localStringBuilder.append(String.format(Locale.US, "    {\n        \"type\":\"sms_otp\",\n        \"token_identifier\":\"mock_token_id_%s\",\n        \"token_identifier_display\":\"xxx-xxx-%s\"\n    }\n", new Object[] { Integer.valueOf(i), str }));
-      i += 1;
-    }
-    return String.format(Locale.US, "{\n    \"nonce\":\"mock-login-nonce\",\n    \"error\":\"2fa_required\",\n    \"error_description\":\"Unable to authenticate the user. 2fa flow completion is necessary for successful login.\",\n    \"visitor_id\":\"mock-visitor_id\",\n    \"2fa_enabled\":\"true\",\n    \"2fa_token_identifier\":[\n%s    ]\n}", new Object[] { localStringBuilder.toString() });
+    a.add(paramString);
   }
   
-  protected final int b()
+  public final void a(String paramString, bza parambza)
   {
-    return 401;
+    b.put(paramString, parambza);
   }
   
-  protected final boolean c(bwx parambwx)
+  public final void b()
   {
-    return (c) && ((parambwx instanceof byv)) && (!((byv)parambwx).u());
+    c = true;
   }
 }
 

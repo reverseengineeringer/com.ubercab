@@ -4,7 +4,7 @@ import android.os.Build.VERSION;
 import android.view.View;
 import android.widget.PopupWindow;
 
-public class PopupWindowCompat
+public final class PopupWindowCompat
 {
   static final PopupWindowCompat.PopupWindowImpl IMPL = new PopupWindowCompat.BasePopupWindowImpl();
   

@@ -1,16 +1,16 @@
 package com.google.android.gms.ads.internal.reward.client;
 
+import aih;
 import android.os.Parcel;
-import apl;
 import com.google.android.gms.ads.internal.client.AdRequestParcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import sj;
+import tz;
 
-@apl
+@aih
 public final class RewardedVideoAdRequestParcel
   implements SafeParcelable
 {
-  public static final sj CREATOR = new sj();
+  public static final tz CREATOR = new tz();
   public final int a;
   public final AdRequestParcel b;
   public final String c;
@@ -29,7 +29,7 @@ public final class RewardedVideoAdRequestParcel
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    sj.a(this, paramParcel, paramInt);
+    tz.a(this, paramParcel, paramInt);
   }
 }
 

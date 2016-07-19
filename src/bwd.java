@@ -1,18 +1,15 @@
-import android.os.Build.VERSION;
-import java.util.HashMap;
+import com.paypal.android.sdk.g;
+import java.util.Locale;
 
-final class bwd
-  extends HashMap
+public abstract interface bwd
 {
-  bwd()
-  {
-    put(Integer.valueOf(2), "ANDROIDCDMA_PHONE");
-    put(Integer.valueOf(1), "ANDROIDGSM_PHONE");
-    if (Build.VERSION.SDK_INT >= 11) {
-      put(Integer.valueOf(3), "ANDROIDGSM_UNDEFINED");
-    }
-    put(Integer.valueOf(0), "ANDROIDGSM_UNDEFINED");
-  }
+  public abstract String a(String paramString);
+  
+  public abstract Locale b();
+  
+  public abstract g c();
+  
+  public abstract g d();
 }
 
 /* Location:

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="@dimen/ub__partner_funnel_base_padding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:id="@id/ub__form_field_date_label" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.Partner.Funnel.TextAppearance.Byline.AllCaps" />
+    <com.ubercab.ui.EditText android:id="@id/ub__form_field_date_edit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:inputType="date" android:imeOptions="actionNext" style="@style/Uber.Widget.EditText" />
+</LinearLayout>

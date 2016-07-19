@@ -1,221 +1,231 @@
-public final class avl
-  extends axq
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+
+public abstract class avl
+  extends Binder
+  implements avk
 {
-  public Integer a;
-  public Boolean b;
-  public String c;
-  public String d;
-  public String e;
-  
-  public avl()
+  public static avk a(IBinder paramIBinder)
   {
-    e();
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+    if ((localIInterface != null) && ((localIInterface instanceof avk))) {
+      return (avk)localIInterface;
+    }
+    return new avm(paramIBinder);
   }
   
-  private avl b(axh paramaxh)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    for (;;)
-    {
-      int i = paramaxh.a();
-      switch (i)
-      {
-      default: 
-        if (axt.a(paramaxh, i)) {}
-        break;
-      case 0: 
-        return this;
-      case 8: 
-        i = paramaxh.e();
-        switch (i)
-        {
-        default: 
-          break;
-        case 0: 
-        case 1: 
-        case 2: 
-        case 3: 
-        case 4: 
-          a = Integer.valueOf(i);
-        }
-        break;
-      case 16: 
-        b = Boolean.valueOf(paramaxh.f());
-        break;
-      case 26: 
-        c = paramaxh.g();
-        break;
-      case 34: 
-        d = paramaxh.g();
-        break;
-      case 42: 
-        e = paramaxh.g();
-      }
-    }
-  }
-  
-  private avl e()
-  {
-    a = null;
-    b = null;
-    c = null;
-    d = null;
-    e = null;
-    S = -1;
-    return this;
-  }
-  
-  protected final int a()
-  {
-    int j = super.a();
-    int i = j;
-    if (a != null) {
-      i = j + axi.b(1, a.intValue());
-    }
-    j = i;
-    if (b != null)
-    {
-      b.booleanValue();
-      j = i + axi.b(2);
-    }
-    i = j;
-    if (c != null) {
-      i = j + axi.b(3, c);
-    }
-    j = i;
-    if (d != null) {
-      j = i + axi.b(4, d);
-    }
-    i = j;
-    if (e != null) {
-      i = j + axi.b(5, e);
-    }
-    return i;
-  }
-  
-  public final void a(axi paramaxi)
-  {
-    if (a != null) {
-      paramaxi.a(1, a.intValue());
-    }
-    if (b != null) {
-      paramaxi.a(2, b.booleanValue());
-    }
-    if (c != null) {
-      paramaxi.a(3, c);
-    }
-    if (d != null) {
-      paramaxi.a(4, d);
-    }
-    if (e != null) {
-      paramaxi.a(5, e);
-    }
-    super.a(paramaxi);
-  }
-  
-  public final boolean equals(Object paramObject)
-  {
-    if (paramObject == this) {}
-    do
-    {
-      do
-      {
-        return true;
-        if (!(paramObject instanceof avl)) {
-          return false;
-        }
-        paramObject = (avl)paramObject;
-        if (a == null)
-        {
-          if (a != null) {
-            return false;
-          }
-        }
-        else if (!a.equals(a)) {
-          return false;
-        }
-        if (b == null)
-        {
-          if (b != null) {
-            return false;
-          }
-        }
-        else if (!b.equals(b)) {
-          return false;
-        }
-        if (c == null)
-        {
-          if (c != null) {
-            return false;
-          }
-        }
-        else if (!c.equals(c)) {
-          return false;
-        }
-        if (d == null)
-        {
-          if (d != null) {
-            return false;
-          }
-        }
-        else if (!d.equals(d)) {
-          return false;
-        }
-        if (e != null) {
-          break;
-        }
-      } while (e == null);
-      return false;
-    } while (e.equals(e));
-    return false;
-  }
-  
-  public final int hashCode()
-  {
+    boolean bool2 = false;
+    boolean bool3 = false;
+    boolean bool4 = false;
+    boolean bool5 = false;
+    boolean bool6 = false;
+    boolean bool7 = false;
+    boolean bool8 = false;
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    int m = 0;
     int n = 0;
-    int i1 = getClass().getName().hashCode();
-    int i;
-    int j;
-    label33:
-    int k;
-    label42:
-    int m;
-    if (a == null)
+    int i1 = 0;
+    int i2 = 0;
+    boolean bool9 = false;
+    int i3 = 0;
+    boolean bool10 = false;
+    int i4 = 0;
+    boolean bool1 = false;
+    switch (paramInt1)
     {
-      i = 0;
-      if (b != null) {
-        break label104;
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
       }
-      j = 0;
-      if (c != null) {
-        break label115;
+      a(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = bool2;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
       }
-      k = 0;
-      if (d != null) {
-        break label126;
+      b(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = bool3;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
       }
-      m = 0;
-      label52:
-      if (e != null) {
-        break label138;
+      c(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = bool4;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
       }
+      d(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = bool5;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      e(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = bool6;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      f(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 7: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = bool7;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      g(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 8: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = bool8;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      h(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 9: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = a();
+      paramParcel2.writeNoException();
+      paramInt1 = i;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 10: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = b();
+      paramParcel2.writeNoException();
+      paramInt1 = j;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 11: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = c();
+      paramParcel2.writeNoException();
+      paramInt1 = k;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 12: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = d();
+      paramParcel2.writeNoException();
+      paramInt1 = m;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 13: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = e();
+      paramParcel2.writeNoException();
+      paramInt1 = n;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 14: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = f();
+      paramParcel2.writeNoException();
+      paramInt1 = i1;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 15: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = g();
+      paramParcel2.writeNoException();
+      paramInt1 = i2;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 16: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = bool9;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      i(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 17: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = h();
+      paramParcel2.writeNoException();
+      paramInt1 = i3;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 18: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      bool1 = bool10;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      j(bool1);
+      paramParcel2.writeNoException();
+      return true;
     }
-    for (;;)
-    {
-      return (m + (k + (j + (i + (i1 + 527) * 31) * 31) * 31) * 31) * 31 + n;
-      i = a.intValue();
-      break;
-      label104:
-      j = b.hashCode();
-      break label33;
-      label115:
-      k = c.hashCode();
-      break label42;
-      label126:
-      m = d.hashCode();
-      break label52;
-      label138:
-      n = e.hashCode();
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+    bool1 = i();
+    paramParcel2.writeNoException();
+    paramInt1 = i4;
+    if (bool1) {
+      paramInt1 = 1;
     }
+    paramParcel2.writeInt(paramInt1);
+    return true;
   }
 }
 

@@ -15,7 +15,7 @@ public class Tile
     data = paramArrayOfByte;
   }
   
-  Bundle a()
+  public Bundle toBundle()
   {
     Bundle localBundle = new Bundle();
     localBundle.putInt("image_width", width);

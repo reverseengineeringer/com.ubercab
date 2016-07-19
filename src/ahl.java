@@ -1,18 +1,4 @@
-import android.os.IInterface;
-
-public abstract interface ahl
-  extends IInterface
-{
-  public abstract String a();
-  
-  public abstract void a(add paramadd);
-  
-  public abstract String b();
-  
-  public abstract void c();
-  
-  public abstract void d();
-}
+public abstract interface ahl {}
 
 /* Location:
  * Qualified Name:     ahl

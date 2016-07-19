@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputFilter.AllCaps;
@@ -20,16 +21,15 @@ import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.GridLayout.LayoutParams;
 import android.widget.LinearLayout;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnTouch;
-import chh;
-import cho;
-import ciu;
-import cjg;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import cja;
+import cjm;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.ui.RiderGridView;
 import com.ubercab.rider.realtime.model.Image;
@@ -39,59 +39,60 @@ import com.ubercab.rider.realtime.model.ProfileThemeOption;
 import com.ubercab.ui.EditText;
 import com.ubercab.ui.FloatingLabelEditText;
 import com.ubercab.ui.TextView;
-import dps;
-import dsh;
-import dux;
-import ebj;
-import efr;
-import eql;
-import erf;
-import ggi;
-import ggj;
-import ghc;
-import ghd;
-import gif;
-import gik;
-import gis;
-import git;
-import ian;
-import ife;
+import dua;
+import duq;
+import dxm;
+import eib;
+import enk;
+import eyo;
+import ezj;
+import ezz;
+import hhd;
+import hhe;
+import hhz;
+import hia;
+import hjm;
+import hju;
+import hkl;
+import hkm;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import r;
+import kcx;
+import kia;
+import z;
 
 public class EditBadgeFragment
-  extends dsh<ghc>
+  extends dxm<hhz>
   implements View.OnClickListener
 {
-  public ckc c;
-  public chh d;
-  public ife e;
-  public ciu f;
-  public gif g;
+  public ckt c;
+  public chn d;
+  public kia e;
+  public cja f;
+  public hjm g;
   private EditBadgeColorAdapter h;
   private Image i;
   private String j;
   private String k;
   private int l;
   private View m;
-  @InjectView(2131624287)
-  BadgeView mBadgeViewLogo;
-  @InjectView(2131624289)
-  RiderGridView mColorGridView;
-  @InjectView(2131624282)
-  LinearLayout mGrabFocusLayout;
-  @InjectView(2131624284)
-  GridLayout mIconGridLayout;
-  @InjectView(2131624285)
-  FrameLayout mInitialsContainer;
-  @InjectView(2131624286)
-  EditText mInitialsEditText;
-  @InjectView(2131624283)
-  FloatingLabelEditText mProfileName;
-  @InjectView(2131624288)
-  TextView mTextViewIconLabel;
+  @BindView
+  public BadgeView mBadgeViewLogo;
+  @BindView
+  public RiderGridView mColorGridView;
+  @BindView
+  public LinearLayout mGrabFocusLayout;
+  @BindView
+  public GridLayout mIconGridLayout;
+  @BindView
+  public FrameLayout mInitialsContainer;
+  @BindView
+  public EditText mInitialsEditText;
+  @BindView
+  public FloatingLabelEditText mProfileName;
+  @BindView
+  public TextView mTextViewIconLabel;
   private Profile n;
   private int o;
   private ProfileThemeOption p;
@@ -111,19 +112,12 @@ public class EditBadgeFragment
     m = null;
   }
   
-  private void a(View paramView)
-  {
-    paramView.clearFocus();
-    mGrabFocusLayout.requestFocus();
-    dps.b(getActivity(), paramView);
-  }
-  
   private void a(View paramView, String paramString)
   {
     a(m, false);
     a(paramView, true);
     m = paramView;
-    b();
+    f();
     h.a(paramString);
   }
   
@@ -132,7 +126,7 @@ public class EditBadgeFragment
     BadgeView localBadgeView;
     if (paramView != null)
     {
-      localBadgeView = (BadgeView)paramView.findViewById(2131624290);
+      localBadgeView = (BadgeView)paramView.findViewById(2131624476);
       if (!paramBoolean) {
         break label34;
       }
@@ -146,9 +140,9 @@ public class EditBadgeFragment
     }
   }
   
-  private void a(ghc paramghc)
+  private void a(hhz paramhhz)
   {
-    paramghc.a(this);
+    paramhhz.a(this);
   }
   
   private void a(boolean paramBoolean)
@@ -170,15 +164,22 @@ public class EditBadgeFragment
     }
   }
   
-  private ghc b(ebj paramebj)
+  private hhz b(eib parameib)
   {
-    return ggi.a().a(new efr(this)).a(paramebj).a();
+    return hhd.a().a(new enk(this)).a(parameib).a();
   }
   
-  private void b()
+  private void b(View paramView)
+  {
+    paramView.clearFocus();
+    mGrabFocusLayout.requestFocus();
+    duq.b(getActivity(), paramView);
+  }
+  
+  private void f()
   {
     mInitialsContainer.setSelected(false);
-    a(mInitialsEditText);
+    b(mInitialsEditText);
   }
   
   private void g()
@@ -190,26 +191,22 @@ public class EditBadgeFragment
     if (mProfileName.i() == null)
     {
       str3 = "";
-      if (!g.k()) {
-        break label218;
-      }
       if (!mInitialsContainer.isSelected()) {
-        break label123;
+        break label113;
       }
-      if (!q()) {
-        break label107;
+      if (!r()) {
+        break label97;
       }
       localMap = p.getLogos();
-      o = eql.a(j);
+      o = eyo.a(j);
       str1 = null;
-      label66:
-      d.c(new git(str3, o, str2, str1, localMap));
     }
-    label107:
-    label123:
-    label218:
-    do
+    for (;;)
     {
+      label56:
+      d.c(new hkm(str3, o, str2, str1, localMap));
+      label97:
+      label113:
       do
       {
         return;
@@ -217,39 +214,26 @@ public class EditBadgeFragment
         break;
         str1 = mInitialsEditText.getText().toString();
         localMap = null;
-        break label66;
+        break label56;
         if (h.a() != null)
         {
           str2 = h.a();
           str1 = null;
           localMap = null;
-          break label66;
+          break label56;
         }
-        str1 = eql.a(o);
+        str1 = eyo.a(o);
       } while ((TextUtils.isEmpty(str1)) || (n.getThemeFromChildAttributes() == null) || (!str1.equals(n.getThemeFromChildAttributes().getColor())));
       str2 = n.getThemeFromChildAttributes().getIcon();
       str1 = null;
       localMap = null;
-      break label66;
-      if (mInitialsContainer.isSelected())
-      {
-        d.c(new git(str3, o, null, mInitialsEditText.getText().toString(), null));
-        return;
-      }
-      if (h.a() != null)
-      {
-        d.c(new git(str3, o, h.a(), null, null));
-        return;
-      }
-      str1 = eql.a(o);
-    } while ((TextUtils.isEmpty(str1)) || (n.getThemeFromChildAttributes() == null) || (!str1.equals(n.getThemeFromChildAttributes().getColor())));
-    d.c(new git(str3, o, n.getThemeFromChildAttributes().getIcon(), null, null));
+    }
   }
   
   private void h()
   {
-    int i3 = getResources().getInteger(2131427355);
-    int i4 = getResources().getInteger(2131427353);
+    int i3 = getResources().getInteger(2131427362);
+    int i4 = getResources().getInteger(2131427357);
     int i2 = mIconGridLayout.getMeasuredWidth() / i3;
     if (p.getIcons() == null) {}
     int i5;
@@ -259,20 +243,20 @@ public class EditBadgeFragment
       i5 = (int)Math.ceil((((List)localObject1).size() + i4) / i3);
       mIconGridLayout.setColumnCount(i3);
       mIconGridLayout.setRowCount(i5);
-      localObject2 = new ghd(this, getActivity(), (List)localObject1);
+      localObject2 = new hia(this, getActivity(), (List)localObject1);
       GridLayout.LayoutParams localLayoutParams = (GridLayout.LayoutParams)mIconGridLayout.getChildAt(0).getLayoutParams();
       width = (i2 * 2);
       height = (i2 * 2);
       columnSpec = GridLayout.spec(0, i4 / 2);
       rowSpec = GridLayout.spec(0, i4 / 2);
       i1 = 0;
-      while (i1 < ((ghd)localObject2).getCount())
+      while (i1 < ((hia)localObject2).getCount())
       {
         localLayoutParams = new GridLayout.LayoutParams();
         width = i2;
         height = i2;
         localLayoutParams.setGravity(17);
-        View localView = ((ghd)localObject2).getView(i1, null, null);
+        View localView = ((hia)localObject2).getView(i1, null, null);
         localView.setOnClickListener(this);
         mIconGridLayout.addView(localView, localLayoutParams);
         i1 += 1;
@@ -281,7 +265,7 @@ public class EditBadgeFragment
     int i1 = i5 * i3 - i4 - ((List)localObject1).size();
     if (i1 > 0)
     {
-      localObject1 = LayoutInflater.from(getActivity()).inflate(2130903154, null, false);
+      localObject1 = LayoutInflater.from(getActivity()).inflate(2130903219, null, false);
       localObject2 = new GridLayout.LayoutParams();
       columnSpec = GridLayout.spec(Integer.MIN_VALUE, i1);
       height = i2;
@@ -299,7 +283,7 @@ public class EditBadgeFragment
       {
         localObject = (List)((Map)localObject).get("Large");
         if (localObject != null) {
-          return (Image)ian.a((Iterable)localObject, null);
+          return (Image)kcx.a((Iterable)localObject, null);
         }
       }
     }
@@ -314,45 +298,47 @@ public class EditBadgeFragment
     return null;
   }
   
-  private void k()
+  private boolean k()
   {
-    c.a(r.lz);
-    l();
-    g();
+    return (!g.n()) || (n != null);
   }
   
   private void l()
   {
-    mInitialsContainer.setSelected(true);
-    mInitialsEditText.setSelection(mInitialsEditText.getText().length());
-    a();
-    if (!q()) {
-      h.b(mInitialsEditText.getText().toString());
-    }
+    c.a(z.pg);
+    m();
+    g();
   }
   
   private void m()
   {
-    if (g.k())
-    {
-      i = i();
-      j = j();
+    mInitialsContainer.setSelected(true);
+    mInitialsEditText.setSelection(mInitialsEditText.getText().length());
+    a();
+    if (!r()) {
+      h.b(mInitialsEditText.getText().toString());
     }
   }
   
   private void n()
   {
-    String str = erf.a(n, getActivity());
-    mProfileName.d(str);
-    mProfileName.b(str.length());
+    i = i();
+    j = j();
   }
   
   private void o()
   {
+    String str = ezj.a(n, getActivity());
+    mProfileName.d(str);
+    mProfileName.b(str.length());
+  }
+  
+  private void p()
+  {
     if (p.getColors() == null) {}
-    for (List localList = Collections.emptyList();; localList = eql.a(p.getColors()))
+    for (List localList = Collections.emptyList();; localList = eyo.a(p.getColors()))
     {
-      if ((g.t()) && (localList.isEmpty()) && (getView() != null)) {
+      if ((localList.isEmpty()) && (getView() != null)) {
         mTextViewIconLabel.setVisibility(8);
       }
       h = new EditBadgeColorAdapter(getActivity(), localList, n, f, d);
@@ -361,16 +347,16 @@ public class EditBadgeFragment
     }
   }
   
-  private void p()
+  private void q()
   {
-    if (q()) {
-      r();
+    if (r()) {
+      s();
     }
     for (;;)
     {
-      if ((g.k()) && (q()) && (k == null))
+      if ((r()) && (k == null))
       {
-        l();
+        m();
         mColorGridView.setVisibility(8);
         mTextViewIconLabel.setVisibility(8);
         mColorGridView.setAlpha(0.0F);
@@ -378,29 +364,20 @@ public class EditBadgeFragment
       }
       mIconGridLayout.addOnLayoutChangeListener(new EditBadgeFragment.5(this));
       return;
-      String str;
-      if (n.getThemeFromChildAttributes() == null) {
-        str = "";
-      }
-      for (;;)
+      if (n.getThemeFromChildAttributes() == null) {}
+      for (String str = "";; str = n.getThemeFromChildAttributes().getInitials())
       {
-        if (!TextUtils.isEmpty(str))
-        {
-          mInitialsEditText.setText(str);
-          if (g.k())
-          {
-            l();
-            break;
-            str = n.getThemeFromChildAttributes().getInitials();
-            continue;
-          }
-          onInitialsContainerClick();
-          break;
+        if (TextUtils.isEmpty(str)) {
+          break label134;
         }
+        mInitialsEditText.setText(str);
+        m();
+        break;
       }
+      label134:
       if (TextUtils.isEmpty(p.getInitials()))
       {
-        str = erf.a(n, getActivity());
+        str = ezj.a(n, getActivity());
         if (!TextUtils.isEmpty(str)) {
           mInitialsEditText.setText(str.toCharArray(), 0, 1);
         }
@@ -412,37 +389,37 @@ public class EditBadgeFragment
     }
   }
   
-  private boolean q()
+  private boolean r()
   {
     return (i != null) && (j != null);
   }
   
-  private void r()
+  private void s()
   {
     mInitialsEditText.setVisibility(8);
     mBadgeViewLogo.setVisibility(0);
-    f.a(i.getUrl()).a(mBadgeViewLogo);
-    mBadgeViewLogo.setBackgroundColor(eql.a(j));
+    ezz.a(f, i.getUrl()).a(mBadgeViewLogo);
+    mBadgeViewLogo.setBackgroundColor(eyo.a(j));
   }
   
-  public final ckr f()
+  public final cli e()
   {
     return RiderActivity.a;
   }
   
-  @cho
-  public void onBadgeColorSelectedEvent(gis paramgis)
+  @chu
+  public void onBadgeColorSelectedEvent(hkl paramhkl)
   {
-    c.a(r.lw);
-    o = paramgis.a();
+    c.a(z.pd);
+    o = paramhkl.a();
     h.a(o);
     g();
   }
   
   public void onClick(View paramView)
   {
-    c.a(r.lx);
-    if (q()) {
+    c.a(z.pe);
+    if (r()) {
       a(true);
     }
     a(paramView, (String)paramView.getTag());
@@ -453,7 +430,13 @@ public class EditBadgeFragment
   {
     super.onCreate(paramBundle);
     n = g.a(getArguments().getString("EXTRA_TROY_PROFILE_UUID"));
-    p = g.b(n);
+    if ((g.n()) && (n == null))
+    {
+      dua.a(getActivity(), 2131167537);
+      getActivity().finish();
+      return;
+    }
+    p = g.c(n);
     ProfileTheme localProfileTheme = n.getThemeFromChildAttributes();
     if (localProfileTheme == null) {}
     for (paramBundle = "";; paramBundle = localProfileTheme.getInitials())
@@ -461,48 +444,42 @@ public class EditBadgeFragment
       if ((TextUtils.isEmpty(paramBundle)) && (localProfileTheme != null)) {
         k = localProfileTheme.getIcon();
       }
-      o = gik.a(getActivity(), n);
+      o = hju.a(getActivity(), n);
       return;
     }
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903153, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903218, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
   }
   
-  public void onDestroyView()
+  @OnClick
+  public void onInitialsContainerClick()
   {
-    super.onDestroyView();
-    ButterKnife.reset(this);
-  }
-  
-  @OnClick({2131624285})
-  void onInitialsContainerClick()
-  {
-    if (q())
+    if (r())
     {
-      c.a(r.lC);
+      c.a(z.pk);
       a(false);
-      o = eql.a(j);
+      o = eyo.a(j);
     }
     for (;;)
     {
-      l();
+      m();
       g();
       return;
-      c.a(r.ly);
-      dps.a(getActivity(), mInitialsEditText);
+      c.a(z.pf);
+      duq.a(getActivity(), mInitialsEditText);
     }
   }
   
-  @OnTouch({2131624286})
-  boolean onInitialsEditTextTouch(MotionEvent paramMotionEvent)
+  @OnTouch
+  public boolean onInitialsEditTextTouch(MotionEvent paramMotionEvent)
   {
     if (1 == paramMotionEvent.getAction()) {
-      k();
+      l();
     }
     return false;
   }
@@ -510,16 +487,16 @@ public class EditBadgeFragment
   public void onPause()
   {
     super.onPause();
-    if ((g.k()) && (getActivity() != null)) {
-      dps.a(getActivity());
+    if (getActivity() != null) {
+      duq.a(getActivity());
     }
   }
   
-  @OnTouch({2131624283})
-  boolean onProfileNameEditTextTouch(MotionEvent paramMotionEvent)
+  @OnTouch
+  public boolean onProfileNameEditTextTouch(MotionEvent paramMotionEvent)
   {
-    if ((e.a(dux.bx, true)) && (1 == paramMotionEvent.getAction())) {
-      c.a(r.lA);
+    if (1 == paramMotionEvent.getAction()) {
+      c.a(z.pi);
     }
     return false;
   }
@@ -527,12 +504,15 @@ public class EditBadgeFragment
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
-    l = getResources().getColor(2131558569);
+    if (!k()) {
+      return;
+    }
+    l = getResources().getColor(2131558673);
     mGrabFocusLayout.requestFocus();
-    n();
     o();
-    m();
     p();
+    n();
+    q();
     paramView = new EditBadgeFragment.1(this);
     mProfileName.a(paramView);
     mInitialsEditText.setOnEditorActionListener(paramView);

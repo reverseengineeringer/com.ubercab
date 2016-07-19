@@ -1,46 +1,43 @@
-public final class axt
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+
+public abstract class axt
+  extends Binder
+  implements axs
 {
-  public static final int[] a = new int[0];
-  public static final long[] b = new long[0];
-  public static final float[] c = new float[0];
-  public static final double[] d = new double[0];
-  public static final boolean[] e = new boolean[0];
-  public static final String[] f = new String[0];
-  public static final byte[][] g = new byte[0][];
-  public static final byte[] h = new byte[0];
-  
-  static int a(int paramInt)
+  public static axs a(IBinder paramIBinder)
   {
-    return paramInt & 0x7;
-  }
-  
-  static int a(int paramInt1, int paramInt2)
-  {
-    return paramInt1 << 3 | paramInt2;
-  }
-  
-  public static boolean a(axh paramaxh, int paramInt)
-  {
-    return paramaxh.a(paramInt);
-  }
-  
-  public static int b(int paramInt)
-  {
-    return paramInt >>> 3;
-  }
-  
-  public static final int b(axh paramaxh, int paramInt)
-  {
-    int i = 1;
-    int j = paramaxh.l();
-    paramaxh.a(paramInt);
-    while (paramaxh.a() == paramInt)
-    {
-      paramaxh.a(paramInt);
-      i += 1;
+    if (paramIBinder == null) {
+      return null;
     }
-    paramaxh.d(j);
-    return i;
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnMyLocationButtonClickListener");
+    if ((localIInterface != null) && ((localIInterface instanceof axs))) {
+      return (axs)localIInterface;
+    }
+    return new axu(paramIBinder);
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnMyLocationButtonClickListener");
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMyLocationButtonClickListener");
+    boolean bool = a();
+    paramParcel2.writeNoException();
+    if (bool) {}
+    for (paramInt1 = 1;; paramInt1 = 0)
+    {
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    }
   }
 }
 

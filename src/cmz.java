@@ -1,38 +1,66 @@
-import android.net.TrafficStats;
-import android.os.Build.VERSION;
-import android.os.Process;
-
-final class cmz
+public final class cmz
 {
-  private final int a = Process.myUid();
+  private cna a;
+  private cna b;
+  private cmx<cnh> c;
+  private cnk d;
+  private cnw e;
+  private cof f;
   
-  public static cmz a()
+  public final cmy a()
   {
-    return new cmz();
-  }
-  
-  private static boolean c()
-  {
-    return Build.VERSION.SDK_INT >= 18;
-  }
-  
-  public final long b()
-  {
-    long l1;
-    if (c())
-    {
-      l1 = TrafficStats.getTotalTxBytes();
-      if (l1 != -1L) {}
+    if (a == null) {
+      throw new IllegalStateException("Pipeline: Buffer cannot be null.");
     }
-    long l2;
-    do
-    {
-      return 0L;
-      return l1;
-      l1 = TrafficStats.getUidTcpTxBytes(a);
-      l2 = TrafficStats.getUidUdpTxBytes(a);
-    } while ((l1 == -1L) || (l2 == -1L));
-    return l1 + l2;
+    if (c == null) {
+      throw new IllegalStateException("Pipeline: CommonTagsProvider cannot be null");
+    }
+    if (d == null) {
+      throw new IllegalStateException("Pipeline: FrameFactory cannot be null.");
+    }
+    if (e == null) {
+      throw new IllegalStateException("Pipeline: Limiter cannot be null.");
+    }
+    if (f == null) {
+      throw new IllegalStateException("Pipeline: Transport cannot be null.");
+    }
+    return new cmy(a, b, c, d, e, f, (byte)0);
+  }
+  
+  public final cmz a(cmx<cnh> paramcmx)
+  {
+    c = paramcmx;
+    return this;
+  }
+  
+  public final cmz a(cna paramcna)
+  {
+    a = paramcna;
+    return this;
+  }
+  
+  public final cmz a(cnk paramcnk)
+  {
+    d = paramcnk;
+    return this;
+  }
+  
+  public final cmz a(cnw paramcnw)
+  {
+    e = paramcnw;
+    return this;
+  }
+  
+  public final cmz a(cof paramcof)
+  {
+    f = paramcof;
+    return this;
+  }
+  
+  public final cmz b(cna paramcna)
+  {
+    b = paramcna;
+    return this;
   }
 }
 

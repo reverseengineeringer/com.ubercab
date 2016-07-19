@@ -4,7 +4,7 @@
     <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
         <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x">
-                <ImageView android:id="@id/ub__trip_receipt_map" android:layout_width="fill_parent" android:layout_height="@dimen/ub__rds__auto_size" />
+                <ImageView android:id="@id/ub__trip_receipt_map" android:layout_width="fill_parent" android:layout_height="@dimen/ub__rds__auto_size" android:scaleType="fitXY" />
                 <LinearLayout android:orientation="horizontal" android:id="@id/ub__trip_receipt_status_viewgroup" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/ub__trip_receipt_map">
                     <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="@dimen/ub__rds__auto_size" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_weight="1.0">
                         <com.ubercab.ui.TextView android:textColor="@color/ub__black" android:id="@id/ub__trip_receipt_status_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__rds__spacing_unit_micro" android:lineSpacingMultiplier="1.0" style="@style/Uber.TextAppearance.H3" />

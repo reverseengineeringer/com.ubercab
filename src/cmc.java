@@ -1,11 +1,22 @@
-import com.ubercab.android.m4.pipeline.model.Metric;
-import java.util.List;
+import android.content.Context;
 
-public abstract interface cmc
+public final class cmc
+  extends cms
 {
-  public abstract int a();
+  public cmc(Context paramContext)
+  {
+    super(paramContext);
+  }
   
-  public abstract List<Metric> a(cmd paramcmd);
+  public final cmf a(cmg paramcmg)
+  {
+    return new cmb(a, new cmj(600000L, 3600000L, 0));
+  }
+  
+  final cmf a(cmj paramcmj)
+  {
+    return new cmb(a, paramcmj);
+  }
 }
 
 /* Location:

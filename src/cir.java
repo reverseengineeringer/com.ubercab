@@ -1,66 +1,122 @@
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.net.NetworkInfo;
-import android.net.Uri;
-import java.io.InputStream;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map.Entry;
+import java.util.Set;
 
-final class cir
-  extends cjh
+public final class cir
+  implements cia
 {
-  private final cie a;
-  private final cjk b;
+  final LinkedHashMap<String, Bitmap> b;
+  private final int c;
+  private int d;
+  private int e;
+  private int f;
+  private int g;
+  private int h;
   
-  public cir(cie paramcie, cjk paramcjk)
+  private cir(int paramInt)
   {
-    a = paramcie;
-    b = paramcjk;
-  }
-  
-  final int a()
-  {
-    return 2;
-  }
-  
-  final boolean a(NetworkInfo paramNetworkInfo)
-  {
-    return (paramNetworkInfo == null) || (paramNetworkInfo.isConnected());
-  }
-  
-  public final boolean a(cje paramcje)
-  {
-    paramcje = d.getScheme();
-    return ("http".equals(paramcje)) || ("https".equals(paramcje));
-  }
-  
-  public final cji b(cje paramcje)
-  {
-    cif localcif = a.a(d, c);
-    if (c) {}
-    for (paramcje = ciy.b;; paramcje = ciy.c)
-    {
-      localObject = localcif.b();
-      if (localObject == null) {
-        break;
-      }
-      return new cji((Bitmap)localObject, paramcje);
+    if (paramInt <= 0) {
+      throw new IllegalArgumentException("Max size must be positive.");
     }
-    Object localObject = localcif.a();
-    if (localObject == null) {
+    c = paramInt;
+    b = new LinkedHashMap(0, 0.75F, true);
+  }
+  
+  public cir(Context paramContext)
+  {
+    this(cka.c(paramContext));
+  }
+  
+  private void a(int paramInt)
+  {
+    try
+    {
+      if ((d < 0) || ((b.isEmpty()) && (d != 0))) {
+        throw new IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
+      }
+    }
+    finally
+    {
+      throw ((Throwable)localObject1);
+      if ((d <= paramInt) || (b.isEmpty())) {
+        return;
+      }
+      Object localObject2 = (Map.Entry)b.entrySet().iterator().next();
+      String str = (String)((Map.Entry)localObject2).getKey();
+      localObject2 = (Bitmap)((Map.Entry)localObject2).getValue();
+      b.remove(str);
+      d -= cka.a((Bitmap)localObject2);
+      f += 1;
+    }
+  }
+  
+  public final int a()
+  {
+    try
+    {
+      int i = d;
+      return i;
+    }
+    finally
+    {
+      localObject = finally;
+      throw ((Throwable)localObject);
+    }
+  }
+  
+  public final Bitmap a(String paramString)
+  {
+    if (paramString == null) {
+      throw new NullPointerException("key == null");
+    }
+    try
+    {
+      paramString = (Bitmap)b.get(paramString);
+      if (paramString != null)
+      {
+        g += 1;
+        return paramString;
+      }
+      h += 1;
       return null;
     }
-    if ((paramcje == ciy.b) && (localcif.c() == 0L))
-    {
-      cjs.a((InputStream)localObject);
-      throw new cis("Received response with 0 content-length header.");
-    }
-    if ((paramcje == ciy.c) && (localcif.c() > 0L)) {
-      b.a(localcif.c());
-    }
-    return new cji((InputStream)localObject, paramcje);
+    finally {}
   }
   
-  final boolean b()
+  public final void a(String paramString, Bitmap paramBitmap)
   {
-    return true;
+    if ((paramString == null) || (paramBitmap == null)) {
+      throw new NullPointerException("key == null || bitmap == null");
+    }
+    try
+    {
+      e += 1;
+      d += cka.a(paramBitmap);
+      paramString = (Bitmap)b.put(paramString, paramBitmap);
+      if (paramString != null) {
+        d -= cka.a(paramString);
+      }
+      a(c);
+      return;
+    }
+    finally {}
+  }
+  
+  public final int b()
+  {
+    try
+    {
+      int i = c;
+      return i;
+    }
+    finally
+    {
+      localObject = finally;
+      throw ((Throwable)localObject);
+    }
   }
 }
 

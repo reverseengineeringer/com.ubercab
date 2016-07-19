@@ -1,15 +1,24 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.LoginActivity;
+import android.content.Intent;
+import com.paypal.android.sdk.payments.PayPalPayment;
+import com.paypal.android.sdk.payments.bA;
 
 public final class cbx
-  implements DialogInterface.OnClickListener
 {
-  public cbx(LoginActivity paramLoginActivity) {}
+  private Intent a;
   
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  public cbx(Intent paramIntent)
   {
-    LoginActivity.m(a);
+    a = paramIntent;
+  }
+  
+  public final PayPalPayment a()
+  {
+    return (PayPalPayment)a.getParcelableExtra("com.paypal.android.sdk.payment");
+  }
+  
+  public final bA b()
+  {
+    return (bA)a.getParcelableExtra("com.paypal.android.sdk.payments.PaymentConfirmActivity.EXTRA_PAYMENT_INFO");
   }
 }
 

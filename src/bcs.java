@@ -1,81 +1,30 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.VisibleRegion;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 
-public abstract class bcs
-  extends Binder
-  implements bcr
+final class bcs<V>
+  extends FutureTask<V>
 {
-  public static bcr a(IBinder paramIBinder)
+  private final String b;
+  
+  bcs(bcr parambcr, Runnable paramRunnable, String paramString)
   {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IProjectionDelegate");
-    if ((localIInterface != null) && ((localIInterface instanceof bcr))) {
-      return (bcr)localIInterface;
-    }
-    return new bct(paramIBinder);
+    super(paramRunnable, null);
+    abe.a(paramString);
+    b = paramString;
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  bcs(Callable<V> paramCallable, String paramString)
   {
-    Object localObject1 = null;
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IProjectionDelegate");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IProjectionDelegate");
-      paramParcel1 = a(ade.a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      if (paramParcel1 != null)
-      {
-        paramParcel2.writeInt(1);
-        paramParcel1.writeToParcel(paramParcel2, 1);
-      }
-      for (;;)
-      {
-        return true;
-        paramParcel2.writeInt(0);
-      }
-    case 2: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IProjectionDelegate");
-      Object localObject2;
-      if (paramParcel1.readInt() != 0) {
-        localObject2 = LatLng.CREATOR;
-      }
-      for (paramParcel1 = bia.a(paramParcel1);; paramParcel1 = null)
-      {
-        localObject2 = a(paramParcel1);
-        paramParcel2.writeNoException();
-        paramParcel1 = (Parcel)localObject1;
-        if (localObject2 != null) {
-          paramParcel1 = ((add)localObject2).asBinder();
-        }
-        paramParcel2.writeStrongBinder(paramParcel1);
-        return true;
-      }
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IProjectionDelegate");
-    paramParcel1 = a();
-    paramParcel2.writeNoException();
-    if (paramParcel1 != null)
-    {
-      paramParcel2.writeInt(1);
-      paramParcel1.writeToParcel(paramParcel2, 1);
-    }
-    for (;;)
-    {
-      return true;
-      paramParcel2.writeInt(0);
-    }
+    super(paramString);
+    Object localObject;
+    abe.a(localObject);
+    b = ((String)localObject);
+  }
+  
+  protected final void setException(Throwable paramThrowable)
+  {
+    a.s().b().a(b, paramThrowable);
+    super.setException(paramThrowable);
   }
 }
 

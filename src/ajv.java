@@ -1,158 +1,59 @@
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningAppProcessInfo;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.net.Uri.Builder;
-import android.text.TextUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import android.content.MutableContextWrapper;
 
+@aih
 public final class ajv
+  extends MutableContextWrapper
 {
-  private final asq a;
+  private Activity a;
+  private Context b;
+  private Context c;
   
-  public ajv(asq paramasq)
+  public ajv(Context paramContext)
   {
-    a = paramasq;
+    super(paramContext);
+    setBaseContext(paramContext);
   }
   
-  private static Intent a(Intent paramIntent, ResolveInfo paramResolveInfo)
+  public final Activity a()
   {
-    paramIntent = new Intent(paramIntent);
-    paramIntent.setClassName(activityInfo.packageName, activityInfo.name);
-    return paramIntent;
+    return a;
   }
   
-  private static Intent a(Uri paramUri)
+  public final Context b()
   {
-    if (paramUri == null) {
-      return null;
-    }
-    Intent localIntent = new Intent("android.intent.action.VIEW");
-    localIntent.addFlags(268435456);
-    localIntent.setData(paramUri);
-    localIntent.setAction("android.intent.action.VIEW");
-    return localIntent;
+    return c;
   }
   
-  private static ResolveInfo a(Context paramContext, Intent paramIntent)
+  public final Object getSystemService(String paramString)
   {
-    return a(paramContext, paramIntent, new ArrayList());
+    return c.getSystemService(paramString);
   }
   
-  private static ResolveInfo a(Context paramContext, Intent paramIntent, ArrayList<ResolveInfo> paramArrayList)
+  public final void setBaseContext(Context paramContext)
   {
-    paramContext = paramContext.getPackageManager();
-    if (paramContext == null) {
-      return null;
-    }
-    List localList = paramContext.queryIntentActivities(paramIntent, 65536);
-    paramContext = paramContext.resolveActivity(paramIntent, 65536);
-    int i;
-    if ((localList != null) && (paramContext != null))
+    b = paramContext.getApplicationContext();
+    if ((paramContext instanceof Activity)) {}
+    for (Activity localActivity = (Activity)paramContext;; localActivity = null)
     {
-      i = 0;
-      if (i < localList.size())
-      {
-        paramIntent = (ResolveInfo)localList.get(i);
-        if ((paramContext == null) || (!activityInfo.name.equals(activityInfo.name))) {}
-      }
-    }
-    for (;;)
-    {
-      paramArrayList.addAll(localList);
-      return paramContext;
-      i += 1;
-      break;
-      paramContext = null;
+      a = localActivity;
+      c = paramContext;
+      super.setBaseContext(b);
+      return;
     }
   }
   
-  public final Intent a(Context paramContext, Map<String, String> paramMap)
+  public final void startActivity(Intent paramIntent)
   {
-    Object localObject1 = null;
-    Object localObject3 = (ActivityManager)paramContext.getSystemService("activity");
-    Object localObject2 = (String)paramMap.get("u");
-    if (TextUtils.isEmpty((CharSequence)localObject2))
+    if ((a != null) && (!all.h()))
     {
-      paramMap = (Map<String, String>)localObject1;
-      return paramMap;
+      a.startActivity(paramIntent);
+      return;
     }
-    localObject1 = localObject2;
-    if (a != null)
-    {
-      tp.e();
-      localObject1 = aqz.a(a, (String)localObject2);
-    }
-    localObject1 = Uri.parse((String)localObject1);
-    boolean bool1 = Boolean.parseBoolean((String)paramMap.get("use_first_package"));
-    boolean bool2 = Boolean.parseBoolean((String)paramMap.get("use_running_process"));
-    if ("http".equalsIgnoreCase(((Uri)localObject1).getScheme())) {
-      paramMap = ((Uri)localObject1).buildUpon().scheme("https").build();
-    }
-    for (;;)
-    {
-      localObject2 = new ArrayList();
-      Intent localIntent = a((Uri)localObject1);
-      paramMap = a(paramMap);
-      localObject1 = a(paramContext, localIntent, (ArrayList)localObject2);
-      if (localObject1 != null)
-      {
-        return a(localIntent, (ResolveInfo)localObject1);
-        if ("https".equalsIgnoreCase(((Uri)localObject1).getScheme())) {
-          paramMap = ((Uri)localObject1).buildUpon().scheme("http").build();
-        }
-      }
-      else
-      {
-        if (paramMap != null)
-        {
-          paramMap = a(paramContext, paramMap);
-          if (paramMap != null)
-          {
-            localObject1 = a(localIntent, paramMap);
-            paramMap = (Map<String, String>)localObject1;
-            if (a(paramContext, (Intent)localObject1) != null) {
-              break;
-            }
-          }
-        }
-        if (((ArrayList)localObject2).size() == 0) {
-          return localIntent;
-        }
-        if ((bool2) && (localObject3 != null))
-        {
-          paramContext = ((ActivityManager)localObject3).getRunningAppProcesses();
-          if (paramContext != null)
-          {
-            do
-            {
-              paramMap = ((ArrayList)localObject2).iterator();
-              while (!((Iterator)localObject3).hasNext())
-              {
-                if (!paramMap.hasNext()) {
-                  break;
-                }
-                localObject1 = (ResolveInfo)paramMap.next();
-                localObject3 = paramContext.iterator();
-              }
-            } while (!nextprocessName.equals(activityInfo.packageName));
-            return a(localIntent, (ResolveInfo)localObject1);
-          }
-        }
-        if (bool1) {
-          return a(localIntent, (ResolveInfo)((ArrayList)localObject2).get(0));
-        }
-        return localIntent;
-      }
-      paramMap = null;
-    }
+    paramIntent.setFlags(268435456);
+    b.startActivity(paramIntent);
   }
 }
 

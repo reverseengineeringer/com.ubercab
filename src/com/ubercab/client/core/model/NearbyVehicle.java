@@ -4,9 +4,9 @@ import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.VehiclePathPoint;
 import java.util.List;
 import java.util.Map;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class NearbyVehicle
   implements com.ubercab.rider.realtime.model.NearbyVehicle
 {

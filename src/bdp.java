@@ -1,84 +1,57 @@
-import android.content.Context;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.util.Log;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.plus.internal.model.people.PersonEntity.ImageEntity;
+import java.util.HashSet;
+import java.util.Set;
 
-public class bdp
+public final class bdp
+  implements Parcelable.Creator<PersonEntity.ImageEntity>
 {
-  private static Context a;
-  private static bdt b;
-  
-  public static bdt a(Context paramContext)
+  private static PersonEntity.ImageEntity a(Parcel paramParcel)
   {
-    abs.a(paramContext);
-    if (b != null) {
-      return b;
-    }
-    b(paramContext);
-    b = c(paramContext);
-    try
+    int j = zd.b(paramParcel);
+    HashSet localHashSet = new HashSet();
+    int i = 0;
+    String str = null;
+    while (paramParcel.dataPosition() < j)
     {
-      b.a(adg.a(d(paramContext).getResources()), wd.a);
-      return b;
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        localHashSet.add(Integer.valueOf(1));
+        break;
+      case 2: 
+        str = zd.n(paramParcel, k);
+        localHashSet.add(Integer.valueOf(2));
+      }
     }
-    catch (RemoteException paramContext)
-    {
-      throw new bgs(paramContext);
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
+    return new PersonEntity.ImageEntity(localHashSet, i, str);
   }
   
-  private static <T> T a(Class<?> paramClass)
+  public static void a(PersonEntity.ImageEntity paramImageEntity, Parcel paramParcel)
   {
-    try
-    {
-      Object localObject = paramClass.newInstance();
-      return (T)localObject;
+    int i = zf.a(paramParcel);
+    Set localSet = a;
+    if (localSet.contains(Integer.valueOf(1))) {
+      zf.a(paramParcel, 1, b);
     }
-    catch (InstantiationException localInstantiationException)
-    {
-      throw new IllegalStateException("Unable to instantiate the dynamic class " + paramClass.getName());
+    if (localSet.contains(Integer.valueOf(2))) {
+      zf.a(paramParcel, 2, c, true);
     }
-    catch (IllegalAccessException localIllegalAccessException)
-    {
-      throw new IllegalStateException("Unable to call the default constructor of " + paramClass.getName());
-    }
+    zf.a(paramParcel, i);
   }
   
-  private static <T> T a(ClassLoader paramClassLoader, String paramString)
+  private static PersonEntity.ImageEntity[] a(int paramInt)
   {
-    try
-    {
-      paramClassLoader = a(((ClassLoader)abs.a(paramClassLoader)).loadClass(paramString));
-      return paramClassLoader;
-    }
-    catch (ClassNotFoundException paramClassLoader)
-    {
-      throw new IllegalStateException("Unable to find dynamic class " + paramString);
-    }
-  }
-  
-  private static void b(Context paramContext)
-  {
-    int i = wd.a(paramContext);
-    switch (i)
-    {
-    default: 
-      throw new wb(i);
-    }
-  }
-  
-  private static bdt c(Context paramContext)
-  {
-    Log.i(bdp.class.getSimpleName(), "Making Creator dynamically");
-    return bdu.a((IBinder)a(d(paramContext).getClassLoader(), "com.google.android.gms.maps.internal.CreatorImpl"));
-  }
-  
-  private static Context d(Context paramContext)
-  {
-    if (a == null) {
-      a = wd.b(paramContext);
-    }
-    return a;
+    return new PersonEntity.ImageEntity[paramInt];
   }
 }
 

@@ -1,16 +1,6 @@
-import android.annotation.TargetApi;
-
-@apl
-@TargetApi(17)
-public final class ata
-{
-  private final asq a;
-  
-  public ata(asq paramasq)
-  {
-    a = paramasq;
-  }
-}
+public abstract class ata<A extends wc>
+  extends atb<aqr, A>
+{}
 
 /* Location:
  * Qualified Name:     ata

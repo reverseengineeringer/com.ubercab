@@ -9,34 +9,38 @@ import android.net.Uri;
 import android.net.Uri.Builder;
 import android.os.Bundle;
 import android.text.TextUtils;
-import cho;
-import ckr;
+import chu;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
-import eav;
-import ebj;
-import eqy;
-import esu;
-import esv;
-import esy;
-import etb;
-import iab;
+import eaj;
+import ehn;
+import eib;
+import ezd;
+import fba;
+import fbb;
+import fbe;
+import fbj;
+import kcl;
+import khv;
 
 public class FacebookAuthorizationActivity
-  extends RiderActivity<esy>
+  extends RiderActivity<fbe>
 {
-  private void a(esy paramesy)
+  public khv g;
+  
+  private void a(fbe paramfbe)
   {
-    paramesy.a(this);
+    paramfbe.a(this);
   }
   
-  private esy b(ebj paramebj)
+  private fbe b(eib parameib)
   {
-    return esu.a().a(new eav(this)).a(paramebj).a();
+    return fba.a().a(new ehn(this)).a(parameib).a();
   }
   
   private String f()
   {
-    return getResources().getString(2131167537);
+    return getResources().getString(2131168061);
   }
   
   private boolean g()
@@ -53,13 +57,13 @@ public class FacebookAuthorizationActivity
   private void h()
   {
     if (a(FacebookAuthorizationFragment.class) == null) {
-      a(2131624130, FacebookAuthorizationFragment.a(j()), false);
+      a(2131624207, FacebookAuthorizationFragment.a(j()), false);
     }
   }
   
   private static String i()
   {
-    return iab.a(",").a("email", "public_profile", new Object[] { "user_friends" });
+    return kcl.a(",").a("email", "public_profile", new Object[] { "user_friends" });
   }
   
   private String j()
@@ -69,9 +73,16 @@ public class FacebookAuthorizationActivity
   
   protected final void b(Bundle paramBundle)
   {
+    int i = 1;
     super.b(paramBundle);
-    setContentView(2130903099);
-    if ((paramBundle != null) || (g())) {
+    setContentView(2130903127);
+    if (paramBundle == null) {
+      if ((!g()) || (!g.c(eaj.at))) {
+        break label78;
+      }
+    }
+    while (i != 0)
+    {
       try
       {
         startActivityForResult(new Intent().setClassName("com.facebook.katana", "com.facebook.katana.ProxyAuth").putExtra("client_id", f()).putExtra("scope", i()), 1);
@@ -79,9 +90,11 @@ public class FacebookAuthorizationActivity
       }
       catch (ActivityNotFoundException paramBundle)
       {
+        label78:
         h();
         return;
       }
+      i = 0;
     }
     h();
   }
@@ -99,26 +112,26 @@ public class FacebookAuthorizationActivity
       if (TextUtils.isEmpty(str)) {
         break label77;
       }
-      onFacebookTokenEvent(new etb(str, eqy.a(paramIntent.getStringExtra("expires_in"), 0L)));
+      onFacebookTokenEvent(new fbj(str, ezd.a(paramIntent.getStringExtra("expires_in"), 0L)));
     }
     label77:
     for (paramInt1 = i;; paramInt1 = 0)
     {
       if (paramInt1 == 0) {
-        onFacebookTokenEvent(new etb());
+        onFacebookTokenEvent(new fbj());
       }
       return;
     }
   }
   
-  @cho
-  public void onFacebookTokenEvent(etb parametb)
+  @chu
+  public void onFacebookTokenEvent(fbj paramfbj)
   {
-    setResult(-1, new Intent().putExtra("token", parametb.a()).putExtra("tokenExpiry", parametb.b()));
+    setResult(-1, new Intent().putExtra("token", paramfbj.a()).putExtra("tokenExpiry", paramfbj.b()));
     finish();
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

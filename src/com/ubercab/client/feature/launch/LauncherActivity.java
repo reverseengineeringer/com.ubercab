@@ -1,203 +1,214 @@
 package com.ubercab.client.feature.launch;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.res.ResourcesCompat;
-import android.widget.ImageView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import ckc;
-import ckr;
+import ckt;
+import cli;
 import com.adjust.sdk.Adjust;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.android.location.UberLatLng;
 import com.ubercab.android.location.UberLocation;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.location.RiderLocation;
+import com.ubercab.client.feature.trip.TripActivity;
 import com.ubercab.rider.realtime.request.param.Location;
 import com.ubercab.rider.realtime.response.BootstrapRider;
-import com.ubercab.ui.TextView;
-import dsl;
-import dtx;
-import dty;
-import dux;
-import dwu;
-import eav;
-import ebj;
-import egd;
-import egl;
-import ekx;
-import eri;
-import fmc;
-import fmd;
-import fmg;
-import fmh;
-import fmi;
-import fmj;
-import fmk;
-import fml;
-import fmz;
-import fnf;
-import fng;
-import fos;
-import idk;
-import ife;
-import ijv;
-import ijw;
-import ijz;
+import dxw;
+import dzm;
+import dzn;
+import eaj;
+import ecr;
+import ehn;
+import eib;
+import eny;
+import enz;
+import eor;
+import esp;
+import ezm;
+import gco;
+import gcp;
+import gcs;
+import gct;
+import gcu;
+import gcv;
+import gcw;
+import gcx;
+import gcy;
+import gcz;
+import gda;
+import gdp;
+import gdu;
+import gdv;
+import ggk;
 import java.util.List;
-import joi;
-import jsj;
-import kax;
-import kld;
-import klo;
-import kls;
-import ksq;
-import kul;
-import p;
+import kgc;
+import kia;
+import knv;
+import kof;
+import kog;
+import koj;
+import mmg;
+import mxp;
+import nho;
+import odr;
+import oed;
+import oeh;
+import onq;
+import x;
 
 public class LauncherActivity
-  extends RiderActivity<fml>
+  extends RiderActivity<gda>
 {
-  kld<UberLocation> A;
-  klo B;
-  ijw C = ijw.a();
-  private long D = -1L;
-  public jsj g;
-  public ckc h;
-  public ekx i;
-  public fmz j;
-  public ife k;
-  public fnf l;
-  public joi<Location> m;
-  @InjectView(2131624552)
-  ImageView mImageViewSplash;
-  @InjectView(2131624553)
-  TextView mTextViewSlogan;
-  public fmh n;
-  public kax<fng> o;
-  public dwu p;
-  public fmg q;
-  public fos r;
-  public kld<UberLocation> s;
-  public idk t;
-  public dtx u;
-  public dsl v;
-  public dty w;
-  public egl x;
-  public ijv y;
-  kld<BootstrapRider> z;
+  public knv A;
+  odr<BootstrapRider> B;
+  odr<UberLocation> C;
+  oed D;
+  kog E = kog.a();
+  private long F = -1L;
+  public mxp g;
+  public ckt h;
+  public esp i;
+  public gdp j;
+  public kia k;
+  public gdu l;
+  public mmg<Location> m;
+  public gct n;
+  public nho<gdv> o;
+  public ecr p;
+  public gcs q;
+  public ggk r;
+  public odr<UberLocation> s;
+  public kgc t;
+  public dzm u;
+  public dxw v;
+  public dzn w;
+  public eor x;
+  public List<kof> y;
+  public eny z;
   
-  public static Intent a(Context paramContext, Intent paramIntent)
+  public static Intent a(Context paramContext, String paramString, Bundle paramBundle)
   {
+    paramBundle = new Intent(paramContext, TripActivity.class).setAction(paramString).putExtras(paramBundle);
+    paramBundle.setFlags(268435456);
+    paramString = PendingIntent.getActivity(paramContext, "extra_intent_to_relaunch".concat(paramString).hashCode(), paramBundle, 0);
     paramContext = new Intent(paramContext, LauncherActivity.class);
-    paramContext.putExtra("extra_intent_to_relaunch", paramIntent);
+    paramContext.putExtra("extra_intent_to_relaunch", paramString);
     paramContext.addFlags(268435456);
     paramContext.addFlags(32768);
-    return paramContext;
-  }
-  
-  public static Intent a(Context paramContext, Intent paramIntent, ife paramife)
-  {
-    paramContext = new Intent(paramContext, LauncherActivity.class);
-    paramContext.putExtra("extra_intent_to_relaunch", paramIntent);
-    paramContext.addFlags(268435456);
-    paramContext.addFlags(32768);
-    if ((paramife.a(dux.ap, true)) && (paramIntent.hasExtra("com.ubercab.client.EXTRA_MESSAGE_IDENTIFIER"))) {
-      paramContext.putExtra("com.ubercab.client.EXTRA_MESSAGE_IDENTIFIER", paramIntent.getStringExtra("com.ubercab.client.EXTRA_MESSAGE_IDENTIFIER"));
+    if (paramBundle.hasExtra("com.ubercab.client.EXTRA_MESSAGE_IDENTIFIER")) {
+      paramContext.putExtra("com.ubercab.client.EXTRA_MESSAGE_IDENTIFIER", paramBundle.getStringExtra("com.ubercab.client.EXTRA_MESSAGE_IDENTIFIER"));
     }
     return paramContext;
   }
   
-  private void a(fml paramfml)
+  private void a(gda paramgda)
   {
-    paramfml.a(this);
+    paramgda.a(this);
   }
   
-  private static boolean a(ife paramife, egl paramegl)
+  private static boolean a(kia paramkia, eor parameor)
   {
-    return (paramife.b(dux.ak)) && (paramegl.a(LauncherActivity.class));
+    return (paramkia.c(eaj.ai)) && (parameor.a(LauncherActivity.class));
   }
   
-  private fml b(ebj paramebj)
+  private gda b(eib parameib)
   {
-    return fmc.a().a(new eav(this)).a(paramebj).a();
+    return gco.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void f()
   {
-    if (!v.s())
+    if (!v.r())
     {
       Adjust.onResume(this);
-      Adjust.setOnFinishedListener(new fmi(v, (byte)0));
+      Adjust.setOnFinishedListener(new gcv(v, (byte)0));
     }
   }
   
   private void g()
   {
-    if (w.u())
-    {
-      h();
-      return;
-    }
-    C.a(egd.values());
-    i();
+    A.a(this);
   }
   
   private void h()
   {
-    kld localkld1 = k().c(new LauncherActivity.5(this)).b(new LauncherActivity.4(this));
-    kld localkld2 = k().c(new LauncherActivity.7(this)).b(new LauncherActivity.6(this));
-    localkld1.b(eri.a());
-    B = localkld2.c(new LauncherActivity.9(this)).a(kls.a()).b(new LauncherActivity.8(this));
+    if (w.J())
+    {
+      i();
+      return;
+    }
+    E.a(enz.values());
+    j();
   }
   
   private void i()
   {
-    B = k().a(kls.a()).b(new LauncherActivity.10(this));
+    odr localodr1 = l().c(new LauncherActivity.4(this)).b(new LauncherActivity.3(this));
+    odr localodr2 = l().c(new LauncherActivity.6(this)).b(new LauncherActivity.5(this));
+    localodr1.b(ezm.a());
+    D = localodr2.c(new LauncherActivity.8(this)).a(oeh.a()).b(new LauncherActivity.7(this));
   }
   
-  private Intent j()
+  private void j()
   {
-    Intent localIntent = n.a();
-    startActivity(localIntent);
-    finish();
-    if (j.e()) {
-      overridePendingTransition(0, 0);
-    }
-    return localIntent;
+    D = l().a(oeh.a()).b(new LauncherActivity.9(this));
   }
   
-  private kld<UberLocation> k()
+  private boolean k()
   {
-    if (A == null) {
-      A = s.n().b(new LauncherActivity.3(this)).a(new LauncherActivity.2(this)).a(kls.a()).b(new LauncherActivity.11(this)).j().r();
+    try
+    {
+      bool = n.a(this);
+      finish();
+      if (j.d()) {
+        overridePendingTransition(0, 0);
+      }
+      return bool;
     }
-    return A;
+    catch (gcu localgcu)
+    {
+      for (;;)
+      {
+        setResult(localgcu.b(), localgcu.a());
+        boolean bool = false;
+      }
+    }
   }
   
-  private kld<BootstrapRider> l()
+  private odr<UberLocation> l()
+  {
+    if (C == null) {
+      C = s.u().b(new LauncherActivity.2(this)).a(new LauncherActivity.10(this)).a(oeh.a()).n().b();
+    }
+    return C;
+  }
+  
+  private odr<BootstrapRider> m()
   {
     Object localObject1;
     RiderLocation localRiderLocation;
     Object localObject2;
-    if (z == null)
+    if (B == null)
     {
       localObject1 = u.b();
       localRiderLocation = u.c();
       localObject2 = null;
       if ((localObject1 == null) || (((RiderLocation)localObject1).getUberLatLng() == null)) {
-        break label141;
+        break label210;
       }
       localObject1 = ((RiderLocation)localObject1).getUberLatLng();
       localObject1 = Location.create(((UberLatLng)localObject1).a(), ((UberLatLng)localObject1).b());
     }
     for (;;)
     {
-      z = i.a(r.b(), (Location)localObject1, m).b(new fmk(k, p, x, C, (byte)0)).a(new fmj(getApplication(), p, C, y, (byte)0)).j().r();
-      return z;
-      label141:
+      if (k.c(eaj.gU)) {
+        i.a(new gcw(z, (byte)0));
+      }
+      B = i.a(r.b(), (Location)localObject1, m).b(new gcy(z, (byte)0)).b(new gcz(k, p, x, E, (byte)0)).a(new gcx(getApplication(), p, E, (kof[])y.toArray(new kof[y.size()]), (byte)0)).n().b();
+      return B;
+      label210:
       localObject1 = localObject2;
       if (localRiderLocation != null)
       {
@@ -211,100 +222,83 @@ public class LauncherActivity
     }
   }
   
-  private boolean m()
+  private boolean n()
   {
     return a(k, x);
   }
   
-  private boolean n()
+  private boolean o()
   {
-    return (!k.b(dux.ej)) && (k.b(dux.dT));
+    return (!k.c(eaj.gH)) && (k.c(eaj.gp));
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    if ((m()) && (D >= 0L)) {
-      h.a(AnalyticsEvent.create("impression").setName(p.kC).setValue(Long.valueOf(D)));
+    if ((n()) && (F >= 0L)) {
+      h.a(AnalyticsEvent.create("impression").setName(x.oy).setValue(Long.valueOf(F)));
     }
     l.a();
-    if (!m())
-    {
-      C.a(egd.values());
-      q.a();
-      w.A();
-      if (!j.d()) {
-        break label208;
-      }
-      ((fng)o.a()).a(this);
-      ((fng)o.a()).a();
+    if (!n()) {
+      E.a(enz.values());
     }
     for (;;)
     {
-      if (!idk.a(this, "android.permission.ACCESS_FINE_LOCATION")) {
-        C.a(egd.values());
+      q.a(this);
+      w.P();
+      ((gdv)o.a()).a(this);
+      ((gdv)o.a()).a();
+      if (!kgc.a(this, "android.permission.ACCESS_FINE_LOCATION")) {
+        E.a(enz.values());
       }
-      if (idk.a(this, "android.permission.ACCESS_FINE_LOCATION")) {
-        break label261;
+      if (kgc.a(this, "android.permission.ACCESS_FINE_LOCATION")) {
+        break;
       }
       t.a(this, 143, new LauncherActivity.1(this), new String[] { "android.permission.ACCESS_FINE_LOCATION" });
       return;
-      C.b(egd.i);
-      break;
-      label208:
-      setContentView(2130903246);
-      ButterKnife.inject(this);
-      try
-      {
-        mImageViewSplash.setImageDrawable(ResourcesCompat.getDrawable(getResources(), 2130837677, getTheme()));
-      }
-      catch (OutOfMemoryError paramBundle)
-      {
-        System.gc();
-        kul.c(paramBundle, "OOM loading background in LauncherActivity", new Object[0]);
-      }
+      E.b(enz.i);
     }
-    label261:
-    g();
-  }
-  
-  protected final void e()
-  {
-    super.e();
-    List localList = C.b(egd.d);
-    if (!localList.isEmpty()) {
-      D = ((Long)localList.get(0)).longValue();
-    }
-    C.a(ijz.a, egd.g);
-    C.a(ijz.a, egd.h);
-    C.a(ijz.a, egd.i);
+    h();
   }
   
   protected void onDestroy()
   {
     super.onDestroy();
-    if (B != null)
+    if (D != null)
     {
-      B.c();
-      B = null;
+      D.af_();
+      D = null;
     }
-    ((fng)o.a()).b();
+    ((gdv)o.a()).b();
   }
   
   public void onResume()
   {
     super.onResume();
     f();
-    if (m())
+    g();
+    if (n())
     {
-      C.b(egd.h);
-      C.a(ijz.a, egd.l);
+      E.b(enz.h);
+      E.a(koj.a, enz.l);
     }
   }
   
-  public final ckr u()
+  protected final void t()
   {
-    return p.mY;
+    super.t();
+    List localList = E.b(enz.d);
+    if (!localList.isEmpty()) {
+      F = ((Long)localList.get(0)).longValue();
+    }
+    E.a(koj.a, enz.g);
+    E.a(koj.a, enz.h);
+    E.a(koj.a, enz.i);
+  }
+  
+  public final cli v()
+  {
+    return x.rb;
   }
 }
 

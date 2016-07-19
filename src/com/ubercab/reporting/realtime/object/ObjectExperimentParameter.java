@@ -1,11 +1,11 @@
 package com.ubercab.reporting.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jqt;
+import mpc;
 
 @Shape
 public abstract class ObjectExperimentParameter
-  implements jqt
+  implements mpc
 {
   static ObjectExperimentParameter create()
   {

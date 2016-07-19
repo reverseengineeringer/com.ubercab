@@ -1,6 +1,12 @@
-public abstract interface asi<T>
+import android.os.IInterface;
+import com.google.android.gms.location.places.personalized.PlaceAliasResult;
+
+public abstract interface asi
+  extends IInterface
 {
-  public abstract void a(T paramT);
+  public abstract void a(PlaceAliasResult paramPlaceAliasResult);
+  
+  public abstract void b(PlaceAliasResult paramPlaceAliasResult);
 }
 
 /* Location:

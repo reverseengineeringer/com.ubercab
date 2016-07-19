@@ -1,87 +1,191 @@
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
 import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.location.internal.ParcelableGeofence;
+import com.google.android.gms.maps.model.LatLng;
 
-public final class azv
-  implements Parcelable.Creator<ParcelableGeofence>
+public abstract class azv
+  extends Binder
+  implements azu
 {
-  private static ParcelableGeofence a(Parcel paramParcel)
+  public static azu a(IBinder paramIBinder)
   {
-    int n = zm.b(paramParcel);
-    int m = 0;
-    String str = null;
-    int k = 0;
-    short s = 0;
-    double d2 = 0.0D;
-    double d1 = 0.0D;
-    float f = 0.0F;
-    long l = 0L;
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+    if ((localIInterface != null) && ((localIInterface instanceof azu))) {
+      return (azu)localIInterface;
+    }
+    return new azw(paramIBinder);
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    int i = 0;
+    boolean bool2 = false;
     int j = 0;
-    int i = -1;
-    while (paramParcel.dataPosition() < n)
+    int k = 0;
+    boolean bool3 = false;
+    int m = 0;
+    boolean bool1 = false;
+    float f;
+    switch (paramInt1)
     {
-      int i1 = zm.a(paramParcel);
-      switch (zm.a(i1))
-      {
-      default: 
-        zm.a(paramParcel, i1);
-        break;
-      case 1: 
-        str = zm.n(paramParcel, i1);
-        break;
-      case 1000: 
-        m = zm.e(paramParcel, i1);
-        break;
-      case 2: 
-        l = zm.g(paramParcel, i1);
-        break;
-      case 3: 
-        s = zm.d(paramParcel, i1);
-        break;
-      case 4: 
-        d2 = zm.l(paramParcel, i1);
-        break;
-      case 5: 
-        d1 = zm.l(paramParcel, i1);
-        break;
-      case 6: 
-        f = zm.j(paramParcel, i1);
-        break;
-      case 7: 
-        k = zm.e(paramParcel, i1);
-        break;
-      case 8: 
-        j = zm.e(paramParcel, i1);
-        break;
-      case 9: 
-        i = zm.e(paramParcel, i1);
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      a();
+      paramParcel2.writeNoException();
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      paramParcel1 = b();
+      paramParcel2.writeNoException();
+      paramParcel2.writeString(paramParcel1);
+      return true;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      a(paramParcel1.createTypedArrayList(LatLng.CREATOR));
+      paramParcel2.writeNoException();
+      return true;
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      paramParcel1 = c();
+      paramParcel2.writeNoException();
+      paramParcel2.writeTypedList(paramParcel1);
+      return true;
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      b(paramParcel1.readArrayList(getClass().getClassLoader()));
+      paramParcel2.writeNoException();
+      return true;
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      paramParcel1 = d();
+      paramParcel2.writeNoException();
+      paramParcel2.writeList(paramParcel1);
+      return true;
+    case 7: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      a(paramParcel1.readFloat());
+      paramParcel2.writeNoException();
+      return true;
+    case 8: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      f = e();
+      paramParcel2.writeNoException();
+      paramParcel2.writeFloat(f);
+      return true;
+    case 9: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      a(paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      return true;
+    case 10: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      paramInt1 = f();
+      paramParcel2.writeNoException();
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 11: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      b(paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      return true;
+    case 12: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      paramInt1 = g();
+      paramParcel2.writeNoException();
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 13: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      b(paramParcel1.readFloat());
+      paramParcel2.writeNoException();
+      return true;
+    case 14: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      f = h();
+      paramParcel2.writeNoException();
+      paramParcel2.writeFloat(f);
+      return true;
+    case 15: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
       }
+      a(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 16: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      bool1 = i();
+      paramParcel2.writeNoException();
+      paramInt1 = i;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 17: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      bool1 = bool2;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      b(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 18: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      bool1 = j();
+      paramParcel2.writeNoException();
+      paramInt1 = j;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 19: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      bool1 = a(a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      paramInt1 = k;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 20: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      paramInt1 = k();
+      paramParcel2.writeNoException();
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 21: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+      bool1 = bool3;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      c(bool1);
+      paramParcel2.writeNoException();
+      return true;
     }
-    if (paramParcel.dataPosition() != n) {
-      throw new zn("Overread allowed size end=" + n, paramParcel);
+    paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+    bool1 = l();
+    paramParcel2.writeNoException();
+    paramInt1 = m;
+    if (bool1) {
+      paramInt1 = 1;
     }
-    return new ParcelableGeofence(m, str, k, s, d2, d1, f, l, j, i);
-  }
-  
-  public static void a(ParcelableGeofence paramParcelableGeofence, Parcel paramParcel)
-  {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramParcelableGeofence.f(), false);
-    zo.a(paramParcel, 1000, paramParcelableGeofence.a());
-    zo.a(paramParcel, 2, paramParcelableGeofence.g());
-    zo.a(paramParcel, paramParcelableGeofence.b());
-    zo.a(paramParcel, 4, paramParcelableGeofence.c());
-    zo.a(paramParcel, 5, paramParcelableGeofence.d());
-    zo.a(paramParcel, 6, paramParcelableGeofence.e());
-    zo.a(paramParcel, 7, paramParcelableGeofence.h());
-    zo.a(paramParcel, 8, paramParcelableGeofence.i());
-    zo.a(paramParcel, 9, paramParcelableGeofence.j());
-    zo.a(paramParcel, i);
-  }
-  
-  private static ParcelableGeofence[] a(int paramInt)
-  {
-    return new ParcelableGeofence[paramInt];
+    paramParcel2.writeInt(paramInt1);
+    return true;
   }
 }
 

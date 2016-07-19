@@ -1,17 +1,30 @@
 package com.ubercab.client.core.app;
 
-import com.ubercab.network.uspout.UspoutClient;
-import com.ubercab.network.uspout.model.Message;
-import dul;
+import android.content.Intent;
+import com.ubercab.client.core.motion.MotionStashService;
+import com.ubercab.rider.realtime.model.Client;
+import eaj;
+import kia;
+import ofa;
 
 final class RiderApplication$5
-  implements dul
+  implements ofa<Client>
 {
   RiderApplication$5(RiderApplication paramRiderApplication) {}
   
-  public final void a(String paramString, long paramLong1, long paramLong2, long paramLong3)
+  private void a(Client paramClient)
   {
-    a.P.a(new Message[] { RiderApplication.a(paramString, paramLong1, paramLong2, paramLong3) });
+    if ((paramClient.getIsAdmin()) && (a.l.c(eaj.li))) {}
+    for (int i = 1;; i = 0)
+    {
+      paramClient = new Intent(a, MotionStashService.class);
+      if (i == 0) {
+        break;
+      }
+      a.startService(paramClient);
+      return;
+    }
+    a.stopService(paramClient);
   }
 }
 

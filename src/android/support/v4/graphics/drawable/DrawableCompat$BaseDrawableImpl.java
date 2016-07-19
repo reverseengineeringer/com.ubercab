@@ -1,15 +1,42 @@
 package android.support.v4.graphics.drawable;
 
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.content.res.Resources.Theme;
+import android.graphics.ColorFilter;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
+import org.xmlpull.v1.XmlPullParser;
 
 class DrawableCompat$BaseDrawableImpl
   implements DrawableCompat.DrawableImpl
 {
+  public void applyTheme(Drawable paramDrawable, Resources.Theme paramTheme) {}
+  
+  public boolean canApplyTheme(Drawable paramDrawable)
+  {
+    return false;
+  }
+  
+  public int getAlpha(Drawable paramDrawable)
+  {
+    return 0;
+  }
+  
+  public ColorFilter getColorFilter(Drawable paramDrawable)
+  {
+    return null;
+  }
+  
   public int getLayoutDirection(Drawable paramDrawable)
   {
     return 0;
+  }
+  
+  public void inflate(Drawable paramDrawable, Resources paramResources, XmlPullParser paramXmlPullParser, AttributeSet paramAttributeSet, Resources.Theme paramTheme)
+  {
+    DrawableCompatBase.inflate(paramDrawable, paramResources, paramXmlPullParser, paramAttributeSet, paramTheme);
   }
   
   public boolean isAutoMirrored(Drawable paramDrawable)

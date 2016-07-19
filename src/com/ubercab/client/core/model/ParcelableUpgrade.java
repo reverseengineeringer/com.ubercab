@@ -4,13 +4,13 @@ import android.os.Parcelable;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.Upgrade;
 import com.ubercab.shape.Shape;
-import jdh;
-import jve;
+import lzo;
+import nao;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class ParcelableUpgrade
-  implements Parcelable, jve
+  implements Parcelable, nao
 {
   public static ParcelableUpgrade create(Upgrade paramUpgrade)
   {

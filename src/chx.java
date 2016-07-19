@@ -1,15 +1,15 @@
-import android.annotation.TargetApi;
-import android.content.ContentResolver;
-import android.net.Uri;
-import android.provider.ContactsContract.Contacts;
-import java.io.InputStream;
+import java.lang.ref.ReferenceQueue;
+import java.lang.ref.WeakReference;
 
-@TargetApi(14)
-final class chx
+final class chx<M>
+  extends WeakReference<M>
 {
-  static InputStream a(ContentResolver paramContentResolver, Uri paramUri)
+  final chw a;
+  
+  public chx(chw paramchw, M paramM, ReferenceQueue<? super M> paramReferenceQueue)
   {
-    return ContactsContract.Contacts.openContactPhotoInputStream(paramContentResolver, paramUri, true);
+    super(paramM, paramReferenceQueue);
+    a = paramchw;
   }
 }
 

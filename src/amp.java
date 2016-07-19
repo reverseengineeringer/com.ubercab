@@ -1,291 +1,123 @@
-import android.os.RemoteException;
-
-@apl
 public final class amp
-  implements tw, ty, ua
+  extends aoi
 {
-  private final ama a;
-  private ub b;
+  public amq[] a;
   
-  public amp(ama paramama)
+  public amp()
   {
-    a = paramama;
+    e();
   }
   
-  public final void a()
+  private amp b(anz paramanz)
   {
-    abs.b("onAdLoaded must be called on the main UI thread.");
-    sq.a("Adapter called onAdLoaded.");
-    try
+    for (;;)
     {
-      a.e();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdLoaded.", localRemoteException);
-    }
-  }
-  
-  public final void a(int paramInt)
-  {
-    abs.b("onAdFailedToLoad must be called on the main UI thread.");
-    sq.a("Adapter called onAdFailedToLoad with error. " + paramInt);
-    try
-    {
-      a.a(paramInt);
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdFailedToLoad.", localRemoteException);
-    }
-  }
-  
-  public final void a(ub paramub)
-  {
-    abs.b("onAdLoaded must be called on the main UI thread.");
-    sq.a("Adapter called onAdLoaded.");
-    b = paramub;
-    try
-    {
-      a.e();
-      return;
-    }
-    catch (RemoteException paramub)
-    {
-      sq.d("Could not call onAdLoaded.", paramub);
+      int i = paramanz.a();
+      switch (i)
+      {
+      default: 
+        if (aol.a(paramanz, i)) {}
+        break;
+      case 0: 
+        return this;
+      case 10: 
+        int j = aol.b(paramanz, 10);
+        if (a == null) {}
+        amq[] arrayOfamq;
+        for (i = 0;; i = a.length)
+        {
+          arrayOfamq = new amq[j + i];
+          j = i;
+          if (i != 0)
+          {
+            System.arraycopy(a, 0, arrayOfamq, 0, i);
+            j = i;
+          }
+          while (j < arrayOfamq.length - 1)
+          {
+            arrayOfamq[j] = new amq();
+            paramanz.a(arrayOfamq[j]);
+            paramanz.a();
+            j += 1;
+          }
+        }
+        arrayOfamq[j] = new amq();
+        paramanz.a(arrayOfamq[j]);
+        a = arrayOfamq;
+      }
     }
   }
   
-  public final void b()
+  private amp e()
   {
-    abs.b("onAdOpened must be called on the main UI thread.");
-    sq.a("Adapter called onAdOpened.");
-    try
-    {
-      a.d();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdOpened.", localRemoteException);
-    }
+    a = amq.j_();
+    B = -1;
+    return this;
   }
   
-  public final void b(int paramInt)
+  public final void a(aoa paramaoa)
   {
-    abs.b("onAdFailedToLoad must be called on the main UI thread.");
-    sq.a("Adapter called onAdFailedToLoad with error " + paramInt + ".");
-    try
+    if ((a != null) && (a.length > 0))
     {
-      a.a(paramInt);
-      return;
+      int i = 0;
+      while (i < a.length)
+      {
+        amq localamq = a[i];
+        if (localamq != null) {
+          paramaoa.a(1, localamq);
+        }
+        i += 1;
+      }
     }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdFailedToLoad.", localRemoteException);
-    }
+    super.a(paramaoa);
   }
   
-  public final void c()
+  protected final int b()
   {
-    abs.b("onAdClosed must be called on the main UI thread.");
-    sq.a("Adapter called onAdClosed.");
-    try
+    int i = super.b();
+    int k = i;
+    if (a != null)
     {
-      a.b();
-      return;
+      k = i;
+      if (a.length > 0)
+      {
+        int j = 0;
+        for (;;)
+        {
+          k = i;
+          if (j >= a.length) {
+            break;
+          }
+          amq localamq = a[j];
+          k = i;
+          if (localamq != null) {
+            k = i + aoa.c(1, localamq);
+          }
+          j += 1;
+          i = k;
+        }
+      }
     }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdClosed.", localRemoteException);
-    }
+    return k;
   }
   
-  public final void c(int paramInt)
+  public final boolean equals(Object paramObject)
   {
-    abs.b("onAdFailedToLoad must be called on the main UI thread.");
-    sq.a("Adapter called onAdFailedToLoad with error " + paramInt + ".");
-    try
+    if (paramObject == this) {}
+    do
     {
-      a.a(paramInt);
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdFailedToLoad.", localRemoteException);
-    }
+      return true;
+      if (!(paramObject instanceof amp)) {
+        return false;
+      }
+      paramObject = (amp)paramObject;
+    } while (aog.a(a, a));
+    return false;
   }
   
-  public final void d()
+  public final int hashCode()
   {
-    abs.b("onAdLeftApplication must be called on the main UI thread.");
-    sq.a("Adapter called onAdLeftApplication.");
-    try
-    {
-      a.c();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdLeftApplication.", localRemoteException);
-    }
-  }
-  
-  public final void e()
-  {
-    abs.b("onAdClicked must be called on the main UI thread.");
-    sq.a("Adapter called onAdClicked.");
-    try
-    {
-      a.a();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdClicked.", localRemoteException);
-    }
-  }
-  
-  public final void f()
-  {
-    abs.b("onAdLoaded must be called on the main UI thread.");
-    sq.a("Adapter called onAdLoaded.");
-    try
-    {
-      a.e();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdLoaded.", localRemoteException);
-    }
-  }
-  
-  public final void g()
-  {
-    abs.b("onAdOpened must be called on the main UI thread.");
-    sq.a("Adapter called onAdOpened.");
-    try
-    {
-      a.d();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdOpened.", localRemoteException);
-    }
-  }
-  
-  public final void h()
-  {
-    abs.b("onAdClosed must be called on the main UI thread.");
-    sq.a("Adapter called onAdClosed.");
-    try
-    {
-      a.b();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdClosed.", localRemoteException);
-    }
-  }
-  
-  public final void i()
-  {
-    abs.b("onAdLeftApplication must be called on the main UI thread.");
-    sq.a("Adapter called onAdLeftApplication.");
-    try
-    {
-      a.c();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdLeftApplication.", localRemoteException);
-    }
-  }
-  
-  public final void j()
-  {
-    abs.b("onAdClicked must be called on the main UI thread.");
-    sq.a("Adapter called onAdClicked.");
-    try
-    {
-      a.a();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdClicked.", localRemoteException);
-    }
-  }
-  
-  public final void k()
-  {
-    abs.b("onAdOpened must be called on the main UI thread.");
-    sq.a("Adapter called onAdOpened.");
-    try
-    {
-      a.d();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdOpened.", localRemoteException);
-    }
-  }
-  
-  public final void l()
-  {
-    abs.b("onAdClosed must be called on the main UI thread.");
-    sq.a("Adapter called onAdClosed.");
-    try
-    {
-      a.b();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdClosed.", localRemoteException);
-    }
-  }
-  
-  public final void m()
-  {
-    abs.b("onAdLeftApplication must be called on the main UI thread.");
-    sq.a("Adapter called onAdLeftApplication.");
-    try
-    {
-      a.c();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdLeftApplication.", localRemoteException);
-    }
-  }
-  
-  public final void n()
-  {
-    abs.b("onAdClicked must be called on the main UI thread.");
-    sq.a("Adapter called onAdClicked.");
-    try
-    {
-      a.a();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.d("Could not call onAdClicked.", localRemoteException);
-    }
-  }
-  
-  public final ub o()
-  {
-    return b;
+    return (getClass().getName().hashCode() + 527) * 31 + aog.a(a);
   }
 }
 

@@ -12,7 +12,7 @@ final class DrawerLayout$ChildAccessibilityDelegate
   public final void onInitializeAccessibilityNodeInfo(View paramView, AccessibilityNodeInfoCompat paramAccessibilityNodeInfoCompat)
   {
     super.onInitializeAccessibilityNodeInfo(paramView, paramAccessibilityNodeInfoCompat);
-    if (!DrawerLayout.access$400(paramView)) {
+    if (!DrawerLayout.access$700(paramView)) {
       paramAccessibilityNodeInfoCompat.setParent(null);
     }
   }

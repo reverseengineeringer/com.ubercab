@@ -1,53 +1,52 @@
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.location.places.AutocompleteFilter;
-import java.util.ArrayList;
+import com.google.android.gms.maps.model.StreetViewPanoramaLink;
 
 public final class ban
-  implements Parcelable.Creator<AutocompleteFilter>
+  implements Parcelable.Creator<StreetViewPanoramaLink>
 {
-  private static AutocompleteFilter a(Parcel paramParcel)
+  private static StreetViewPanoramaLink a(Parcel paramParcel)
   {
-    boolean bool = false;
-    int j = zm.b(paramParcel);
-    ArrayList localArrayList = null;
+    int j = zd.b(paramParcel);
     int i = 0;
+    String str = null;
+    float f = 0.0F;
     while (paramParcel.dataPosition() < j)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
       default: 
-        zm.a(paramParcel, k);
+        zd.a(paramParcel, k);
         break;
       case 1: 
-        bool = zm.b(paramParcel, k);
-        break;
-      case 1000: 
-        i = zm.e(paramParcel, k);
+        i = zd.e(paramParcel, k);
         break;
       case 2: 
-        localArrayList = zm.A(paramParcel, k);
+        str = zd.n(paramParcel, k);
+        break;
+      case 3: 
+        f = zd.j(paramParcel, k);
       }
     }
     if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new AutocompleteFilter(i, bool, localArrayList);
+    return new StreetViewPanoramaLink(i, str, f);
   }
   
-  public static void a(AutocompleteFilter paramAutocompleteFilter, Parcel paramParcel)
+  public static void a(StreetViewPanoramaLink paramStreetViewPanoramaLink, Parcel paramParcel)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, b);
-    zo.a(paramParcel, 1000, a);
-    zo.a(paramParcel, 2, c);
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramStreetViewPanoramaLink.a());
+    zf.a(paramParcel, 2, a, false);
+    zf.a(paramParcel, 3, b);
+    zf.a(paramParcel, i);
   }
   
-  private static AutocompleteFilter[] a(int paramInt)
+  private static StreetViewPanoramaLink[] a(int paramInt)
   {
-    return new AutocompleteFilter[paramInt];
+    return new StreetViewPanoramaLink[paramInt];
   }
 }
 

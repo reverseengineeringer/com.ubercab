@@ -1,26 +1,13 @@
-import java.util.Map;
+import android.os.Handler;
+import android.os.HandlerThread;
 
-@apl
+@aih
 public final class ajd
-  implements aji
 {
-  private final aje a;
-  
-  public ajd(aje paramaje)
-  {
-    a = paramaje;
-  }
-  
-  public final void a(asq paramasq, Map<String, String> paramMap)
-  {
-    paramasq = (String)paramMap.get("name");
-    if (paramasq == null)
-    {
-      aqt.d("App event with no name parameter.");
-      return;
-    }
-    a.a(paramasq, (String)paramMap.get("info"));
-  }
+  private HandlerThread a = null;
+  private Handler b = null;
+  private int c = 0;
+  private final Object d = new Object();
 }
 
 /* Location:

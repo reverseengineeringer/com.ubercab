@@ -1,61 +1,32 @@
-final class bpv
-  implements bpx
+public final class bpv
 {
-  private final brp<?> a;
-  private final boolean b;
-  private final Class<?> c;
-  private final bpr<?> d;
-  private final bpi<?> e;
+  public static final int[] a = new int[0];
+  public static final long[] b = new long[0];
+  public static final float[] c = new float[0];
+  public static final double[] d = new double[0];
+  public static final boolean[] e = new boolean[0];
+  public static final String[] f = new String[0];
+  public static final byte[][] g = new byte[0][];
+  public static final byte[] h = new byte[0];
   
-  private bpv(Object paramObject, brp<?> parambrp, boolean paramBoolean)
+  static int a(int paramInt)
   {
-    bpr localbpr;
-    if ((paramObject instanceof bpr))
-    {
-      localbpr = (bpr)paramObject;
-      d = localbpr;
-      if (!(paramObject instanceof bpi)) {
-        break label84;
-      }
-      paramObject = (bpi)paramObject;
-      label35:
-      e = ((bpi)paramObject);
-      if ((d == null) && (e == null)) {
-        break label89;
-      }
-    }
-    label84:
-    label89:
-    for (boolean bool = true;; bool = false)
-    {
-      bqd.a(bool);
-      a = parambrp;
-      b = paramBoolean;
-      c = null;
-      return;
-      localbpr = null;
-      break;
-      paramObject = null;
-      break label35;
-    }
+    return paramInt & 0x7;
   }
   
-  public final <T> bpw<T> create(bpc parambpc, brp<T> parambrp)
+  static int a(int paramInt1, int paramInt2)
   {
-    boolean bool;
-    if (a != null) {
-      if ((a.equals(parambrp)) || ((b) && (a.getType() == parambrp.getRawType()))) {
-        bool = true;
-      }
-    }
-    while (bool)
-    {
-      return new bpu(d, e, parambpc, parambrp, this, (byte)0);
-      bool = false;
-      continue;
-      bool = c.isAssignableFrom(parambrp.getRawType());
-    }
-    return null;
+    return paramInt1 << 3 | paramInt2;
+  }
+  
+  public static boolean a(bpo parambpo, int paramInt)
+  {
+    return parambpo.a(paramInt);
+  }
+  
+  public static int b(int paramInt)
+  {
+    return paramInt >>> 3;
   }
 }
 

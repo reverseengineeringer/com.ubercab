@@ -9,10 +9,13 @@ import android.view.ViewGroup.MarginLayoutParams;
 public class DrawerLayout$LayoutParams
   extends ViewGroup.MarginLayoutParams
 {
+  private static final int FLAG_IS_CLOSING = 4;
+  private static final int FLAG_IS_OPENED = 1;
+  private static final int FLAG_IS_OPENING = 2;
   public int gravity = 0;
-  boolean isPeeking;
-  boolean knownOpen;
-  float onScreen;
+  private boolean isPeeking;
+  private float onScreen;
+  private int openState;
   
   public DrawerLayout$LayoutParams(int paramInt1, int paramInt2)
   {
@@ -27,7 +30,7 @@ public class DrawerLayout$LayoutParams
   public DrawerLayout$LayoutParams(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, DrawerLayout.access$100());
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, DrawerLayout.access$400());
     gravity = paramContext.getInt(0, 0);
     paramContext.recycle();
   }

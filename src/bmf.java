@@ -1,36 +1,16 @@
-import android.content.Context;
-import android.os.IBinder;
-import android.view.View;
-
 public final class bmf
-  extends adi<blx>
+  extends bmd
 {
-  private static final bmf a = new bmf();
+  public static final bmf a = new bmf();
   
-  private bmf()
+  public final boolean equals(Object paramObject)
   {
-    super("com.google.android.gms.plus.plusone.PlusOneButtonCreatorImpl");
+    return (this == paramObject) || ((paramObject instanceof bmf));
   }
   
-  public static View a(Context paramContext, int paramInt1, int paramInt2, String paramString, int paramInt3)
+  public final int hashCode()
   {
-    if (paramString == null) {
-      try
-      {
-        throw new NullPointerException();
-      }
-      catch (Exception paramString)
-      {
-        return new bld(paramContext, paramInt1);
-      }
-    }
-    paramString = (View)adg.a(((blx)a.a(paramContext)).a(adg.a(paramContext), paramInt1, paramInt2, paramString, paramInt3));
-    return paramString;
-  }
-  
-  private static blx b(IBinder paramIBinder)
-  {
-    return bly.a(paramIBinder);
+    return bmf.class.hashCode();
   }
 }
 

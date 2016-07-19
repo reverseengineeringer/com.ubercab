@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import juj;
+import mzr;
 
 @Shape
 abstract class ObjectSession
-  implements juj
+  implements mzr
 {}
 
 /* Location:

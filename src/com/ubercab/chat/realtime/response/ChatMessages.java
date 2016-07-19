@@ -3,19 +3,15 @@ package com.ubercab.chat.realtime.response;
 import com.ubercab.chat.realtime.internal.validator.ChatRealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.List;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=ChatRealtimeValidatorFactory.class)
+@lzo(a=ChatRealtimeValidatorFactory.class)
 public abstract class ChatMessages
 {
   public abstract List<ChatMessage> getMessages();
   
-  public abstract String getThreadId();
-  
   abstract ChatMessages setMessages(List<ChatMessage> paramList);
-  
-  abstract ChatMessages setThreadId(String paramString);
 }
 
 /* Location:

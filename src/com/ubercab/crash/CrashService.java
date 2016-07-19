@@ -6,27 +6,27 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.Process;
 import com.ubercab.crash.model.ProcessedCrash;
-import idr;
-import ids;
-import idt;
-import idv;
-import idw;
-import idy;
-import ifa;
+import kgj;
+import kgk;
+import kgl;
+import kgn;
+import kgo;
+import kgq;
+import kht;
 
 public class CrashService
   extends Service
 {
-  private ids a;
-  private ifa b;
+  private kgk a;
+  private kht b;
   private String c;
-  private idv d;
+  private kgn d;
   
   public CrashService() {}
   
-  CrashService(idv paramidv)
+  CrashService(kgn paramkgn)
   {
-    d = paramidv;
+    d = paramkgn;
   }
   
   public static Intent a(ProcessedCrash paramProcessedCrash, Application paramApplication)
@@ -69,7 +69,7 @@ public class CrashService
   {
     try
     {
-      a.a(paramProcessedCrash, new idt()
+      a.a(paramProcessedCrash, new kgl()
       {
         public final void a()
         {
@@ -105,7 +105,7 @@ public class CrashService
   {
     super.onCreate();
     if (d == null) {
-      d = ((idw)getApplication()).n();
+      d = ((kgo)getApplication()).r();
     }
     a = d.b();
     c = d.c().a();

@@ -1,7 +1,7 @@
 package com.google.android.gms.plus.internal.model.people;
 
 import android.os.Parcel;
-import blt;
+import bdt;
 import com.google.android.gms.common.server.converter.StringToIntConverter;
 import com.google.android.gms.common.server.response.FastJsonResponse.Field;
 import com.google.android.gms.common.server.response.FastSafeParcelableJsonResponse;
@@ -14,7 +14,7 @@ import java.util.Set;
 public final class PersonEntity$UrlsEntity
   extends FastSafeParcelableJsonResponse
 {
-  public static final blt CREATOR = new blt();
+  public static final bdt CREATOR = new bdt();
   private static final HashMap<String, FastJsonResponse.Field<?, ?>> f;
   public final Set<Integer> a;
   public final int b;
@@ -137,7 +137,7 @@ public final class PersonEntity$UrlsEntity
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    blt.a(this, paramParcel);
+    bdt.a(this, paramParcel);
   }
 }
 

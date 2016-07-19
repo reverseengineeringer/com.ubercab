@@ -3,13 +3,21 @@ package com.ubercab.rider.realtime.response;
 import com.ubercab.rider.realtime.model.Contact;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
+import java.util.Collections;
 import java.util.List;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class NomineesResponse
 {
+  public static NomineesResponse create()
+  {
+    Shape_NomineesResponse localShape_NomineesResponse = new Shape_NomineesResponse();
+    localShape_NomineesResponse.setNominees(Collections.emptyList());
+    return localShape_NomineesResponse;
+  }
+  
   public abstract List<Contact> getNominees();
   
   public abstract long getResponseId();

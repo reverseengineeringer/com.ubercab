@@ -1,0 +1,27 @@
+package com.ubercab.rider.realtime.response;
+
+import com.ubercab.rider.realtime.model.SimpleLeg;
+import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
+import com.ubercab.shape.Shape;
+import java.util.List;
+import lzo;
+
+@Shape
+@lzo(a=RealtimeValidatorFactory.class)
+public abstract class SimpleRouteResponse
+{
+  public static SimpleRouteResponse create()
+  {
+    return new Shape_SimpleRouteResponse();
+  }
+  
+  public abstract List<SimpleLeg> getLegs();
+  
+  public abstract SimpleRouteResponse setLegs(List<SimpleLeg> paramList);
+}
+
+/* Location:
+ * Qualified Name:     com.ubercab.rider.realtime.response.SimpleRouteResponse
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

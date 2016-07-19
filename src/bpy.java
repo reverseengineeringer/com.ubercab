@@ -1,15 +1,19 @@
-import java.lang.annotation.Annotation;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-@Retention(RetentionPolicy.RUNTIME)
-@Target({java.lang.annotation.ElementType.FIELD})
-public @interface bpy
+public abstract class bpy<T, R>
+  extends odr<R>
+  implements ofa<T>
 {
-  boolean a() default true;
+  protected bpy(ods<R> paramods)
+  {
+    super(paramods);
+  }
   
-  boolean b() default true;
+  public final bqe<T, R> c()
+  {
+    if (getClass() == bqe.class) {
+      return (bqe)this;
+    }
+    return new bqe(this);
+  }
 }
 
 /* Location:

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/ub__white" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="?android:actionBarSize" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__ill_error_alert" />
+        <com.ubercab.ui.TextView android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_3x" android:layout_marginBottom="@dimen/ui__spacing_unit_3x" android:text="@string/upgrade_google_play_services_text" style="@style/Uber.TextAppearance.H1" />
+        <com.ubercab.ui.TextView android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/update_google_play_services_text_byline" style="@style/Uber.TextAppearance.P" />
+    </LinearLayout>
+    <com.ubercab.ui.Button android:id="@id/ub__update_google_play_services_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_3x" android:text="@string/update_google_play_services_button" android:layout_weight="0.0" style="@style/Uber.Widget.Button.Primary" />
+</LinearLayout>

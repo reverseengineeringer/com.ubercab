@@ -1,34 +1,15 @@
-import android.content.Context;
-import android.content.Intent;
-import com.paypal.android.sdk.payments.PayPalService;
-import java.util.Iterator;
-import java.util.List;
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.PaymentConfirmActivity;
 
 public final class ccd
-  implements Runnable
+  implements View.OnClickListener
 {
-  public ccd(Context paramContext) {}
+  public ccd(PaymentConfirmActivity paramPaymentConfirmActivity) {}
   
-  public final void run()
+  public final void onClick(View paramView)
   {
-    PayPalService.y();
-    Object localObject = a;
-    new cfi();
-    localObject = new bvl((Context)localObject, "AndroidBasePrefs");
-    bvz.a((bvl)localObject);
-    bwc.a((bvl)localObject);
-    Iterator localIterator = new cce().iterator();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      bvm localbvm = new bvm((bvl)localObject, str);
-      localbvm.b();
-      localbvm.c();
-      bxf.b(str);
-    }
-    localObject = new Intent("com.paypal.android.sdk.clearAllUserData");
-    cbe.a(a).a((Intent)localObject);
-    PayPalService.y();
+    a.onBackPressed();
   }
 }
 

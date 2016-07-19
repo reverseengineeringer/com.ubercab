@@ -1,17 +1,18 @@
-public abstract class acm
+import android.os.Bundle;
+
+public abstract interface acm
 {
-  public abstract long a();
+  public abstract void a();
   
-  public abstract int b();
+  public abstract void a(Bundle paramBundle);
   
-  public abstract long i();
+  public abstract void b();
   
-  public abstract String l();
+  public abstract void b(Bundle paramBundle);
   
-  public String toString()
-  {
-    return a() + "\t" + b() + "\t" + i() + l();
-  }
+  public abstract void c();
+  
+  public abstract void d();
 }
 
 /* Location:

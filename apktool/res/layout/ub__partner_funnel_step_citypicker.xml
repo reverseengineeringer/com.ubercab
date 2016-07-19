@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="horizontal" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.android.partner.funnel.ipo.onboarding.steps.upgrade.SearchProgressIconView android:layout_gravity="center|left" android:id="@id/ub__partner_funnel_step_city_picker_search_icon" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="@dimen/ub__partner_funnel_city_picker_search_icon_width" android:layout_height="wrap_content" />
+            <com.ubercab.ui.EditText android:ellipsize="none" android:layout_gravity="center|left" android:id="@id/ub__partner_funnel_step_city_picker_edittext_search" android:background="@null" android:paddingTop="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:fadingEdge="horizontal" android:fadingEdgeLength="@dimen/ui__spacing_unit_2x" android:saveEnabled="false" android:layout_width="0.0dip" android:layout_height="wrap_content" android:hint="@string/ub__partner_funnel_citypicker_seach_hint" android:singleLine="true" android:layout_weight="1.0" android:inputType="textNoSuggestions" android:imeOptions="actionSearch" android:requiresFadingEdge="horizontal" />
+            <ImageButton android:layout_gravity="end|center" android:id="@id/ub__partner_funnel_step_city_picker_imagebutton_clear" android:background="@null" android:paddingRight="@dimen/ui__spacing_unit_2x" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/ub__partner_funnel_x" />
+        </LinearLayout>
+        <View android:background="@color/ub__uber_white_60" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <com.ubercab.ui.collection.RecyclerView android:id="@id/ub__partner_funnel_step_city_picker_recycler_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </LinearLayout>
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Funnel.TextAppearance.H1" android:layout_gravity="center" android:id="@id/ub__partner_funnel_step__city_picker_error" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__partner_funnel_citypicker_error" />
+</merge>

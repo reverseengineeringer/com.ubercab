@@ -1,26 +1,21 @@
 package com.google.android.gms.ads.internal.client;
 
+import aih;
 import android.os.Parcel;
-import apl;
-import zo;
+import zf;
 
-@apl
+@aih
 public class ThinAdSizeParcel
   extends AdSizeParcel
 {
-  public ThinAdSizeParcel(AdSizeParcel paramAdSizeParcel)
-  {
-    super(a, b, c, d, e, f, g, h, i, j, k);
-  }
-  
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramInt = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, b, false);
-    zo.a(paramParcel, 3, c);
-    zo.a(paramParcel, 6, f);
-    zo.a(paramParcel, paramInt);
+    paramInt = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, b, false);
+    zf.a(paramParcel, 3, c);
+    zf.a(paramParcel, 6, f);
+    zf.a(paramParcel, paramInt);
   }
 }
 

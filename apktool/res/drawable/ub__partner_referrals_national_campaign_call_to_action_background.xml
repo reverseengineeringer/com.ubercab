@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/ub__uber_white_120" />
+        </shape>
+    </item>
+    <item android:top="@dimen/ub__partner_referrals_border_width">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/ub__uber_white_10" />
+        </shape>
+    </item>
+</layer-list>

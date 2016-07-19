@@ -1,604 +1,153 @@
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.ResolveInfo;
-import android.content.pm.ServiceInfo;
-import android.os.Build.VERSION;
-import android.os.Bundle;
-import android.os.ConditionVariable;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.Process;
-import android.os.RemoteException;
-import android.os.SystemClock;
-import android.util.Log;
-import com.google.android.gms.iid.InstanceIDListenerService;
-import com.google.android.gms.iid.MessengerCompat;
-import java.io.IOException;
-import java.security.KeyPair;
-import java.security.PublicKey;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
+import android.os.IBinder;
+import android.os.Parcel;
 
-public final class aed
+final class aed
+  implements aeb
 {
-  static String a = null;
-  static int b = 0;
-  static int c = 0;
-  static int d = 0;
-  Context e;
-  Map<String, Object> f = new HashMap();
-  Messenger g;
-  Messenger h;
-  MessengerCompat i;
-  PendingIntent j;
-  long k;
-  long l;
-  int m;
-  int n;
-  long o;
+  private IBinder a;
   
-  public aed(Context paramContext)
+  aed(IBinder paramIBinder)
   {
-    e = paramContext;
+    a = paramIBinder;
   }
   
-  public static String a()
+  public final String a()
   {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
     try
     {
-      int i1 = d;
-      d = i1 + 1;
-      String str = Integer.toString(i1);
+      localParcel1.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
+      a.transact(1, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      String str = localParcel2.readString();
       return str;
     }
     finally
     {
-      localObject = finally;
-      throw ((Throwable)localObject);
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
   }
   
-  public static String a(Context paramContext)
+  public final String a(String paramString)
   {
-    if (a != null) {
-      return a;
-    }
-    b = Process.myUid();
-    paramContext = paramContext.getPackageManager();
-    Object localObject1 = paramContext.queryIntentServices(new Intent("com.google.android.c2dm.intent.REGISTER"), 0).iterator();
-    while (((Iterator)localObject1).hasNext())
-    {
-      Object localObject2 = (ResolveInfo)((Iterator)localObject1).next();
-      if (paramContext.checkPermission("com.google.android.c2dm.permission.RECEIVE", serviceInfo.packageName) == 0) {
-        try
-        {
-          ApplicationInfo localApplicationInfo = paramContext.getApplicationInfo(serviceInfo.packageName, 0);
-          Log.w("InstanceID/Rpc", "Found " + uid);
-          c = uid;
-          localObject2 = serviceInfo.packageName;
-          a = (String)localObject2;
-          return (String)localObject2;
-        }
-        catch (PackageManager.NameNotFoundException localNameNotFoundException2) {}
-      } else {
-        Log.w("InstanceID/Rpc", "Possible malicious package " + serviceInfo.packageName + " declares com.google.android.c2dm.intent.REGISTER without permission");
-      }
-    }
-    Log.w("InstanceID/Rpc", "Failed to resolve REGISTER intent, falling back");
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
     try
     {
-      localObject1 = paramContext.getApplicationInfo("com.google.android.gms", 0);
-      a = packageName;
-      c = uid;
-      localObject1 = a;
-      return (String)localObject1;
+      localParcel1.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
+      localParcel1.writeString(paramString);
+      a.transact(3, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      paramString = localParcel2.readString();
+      return paramString;
     }
-    catch (PackageManager.NameNotFoundException localNameNotFoundException1)
+    finally
     {
-      try
-      {
-        paramContext = paramContext.getApplicationInfo("com.google.android.gsf", 0);
-        a = packageName;
-        c = uid;
-        paramContext = a;
-        return paramContext;
-      }
-      catch (PackageManager.NameNotFoundException paramContext)
-      {
-        Log.w("InstanceID/Rpc", "Both Google Play Services and legacy GSF package are missing");
-      }
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
-    return null;
   }
   
-  static String a(Intent paramIntent)
+  public final void a(String paramString, boolean paramBoolean)
   {
-    if (paramIntent == null) {
-      throw new IOException("SERVICE_NOT_AVAILABLE");
-    }
-    String str2 = paramIntent.getStringExtra("registration_id");
-    String str1 = str2;
-    if (str2 == null) {
-      str1 = paramIntent.getStringExtra("unregistered");
-    }
-    paramIntent.getLongExtra("Retry-After", 0L);
-    if (str1 == null)
+    int i = 0;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
     {
-      str1 = paramIntent.getStringExtra("error");
-      if (str1 != null) {
-        throw new IOException(str1);
+      localParcel1.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
+      localParcel1.writeString(paramString);
+      if (paramBoolean) {
+        i = 1;
       }
-      Log.w("InstanceID/Rpc", "Unexpected response from GCM " + paramIntent.getExtras(), new Throwable());
-      throw new IOException("SERVICE_NOT_AVAILABLE");
+      localParcel1.writeInt(i);
+      a.transact(4, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
     }
-    return str1;
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
   }
   
   /* Error */
-  private static String a(KeyPair paramKeyPair, String... paramVarArgs)
+  public final boolean a(boolean paramBoolean)
   {
     // Byte code:
-    //   0: ldc -49
-    //   2: aload_1
-    //   3: invokestatic 213	android/text/TextUtils:join	(Ljava/lang/CharSequence;[Ljava/lang/Object;)Ljava/lang/String;
-    //   6: ldc -41
-    //   8: invokevirtual 221	java/lang/String:getBytes	(Ljava/lang/String;)[B
-    //   11: astore_1
-    //   12: aload_0
-    //   13: invokevirtual 227	java/security/KeyPair:getPrivate	()Ljava/security/PrivateKey;
-    //   16: astore_2
-    //   17: aload_2
-    //   18: instanceof 229
-    //   21: ifeq +44 -> 65
-    //   24: ldc -25
-    //   26: astore_0
-    //   27: aload_0
-    //   28: invokestatic 237	java/security/Signature:getInstance	(Ljava/lang/String;)Ljava/security/Signature;
-    //   31: astore_0
-    //   32: aload_0
-    //   33: aload_2
-    //   34: invokevirtual 241	java/security/Signature:initSign	(Ljava/security/PrivateKey;)V
-    //   37: aload_0
-    //   38: aload_1
-    //   39: invokevirtual 245	java/security/Signature:update	([B)V
-    //   42: aload_0
-    //   43: invokevirtual 249	java/security/Signature:sign	()[B
-    //   46: invokestatic 254	ady:a	([B)Ljava/lang/String;
-    //   49: astore_0
-    //   50: aload_0
-    //   51: areturn
-    //   52: astore_0
-    //   53: ldc 126
-    //   55: ldc_w 256
-    //   58: aload_0
-    //   59: invokestatic 258	android/util/Log:e	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    //   62: pop
-    //   63: aconst_null
-    //   64: areturn
-    //   65: ldc_w 260
-    //   68: astore_0
-    //   69: goto -42 -> 27
-    //   72: astore_0
-    //   73: ldc 126
-    //   75: ldc_w 262
-    //   78: aload_0
-    //   79: invokestatic 258	android/util/Log:e	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    //   82: pop
-    //   83: aconst_null
-    //   84: areturn
+    //   0: iconst_1
+    //   1: istore_3
+    //   2: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   5: astore 4
+    //   7: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   10: astore 5
+    //   12: aload 4
+    //   14: ldc 25
+    //   16: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   19: iload_1
+    //   20: ifeq +56 -> 76
+    //   23: iconst_1
+    //   24: istore_2
+    //   25: aload 4
+    //   27: iload_2
+    //   28: invokevirtual 53	android/os/Parcel:writeInt	(I)V
+    //   31: aload_0
+    //   32: getfield 15	aed:a	Landroid/os/IBinder;
+    //   35: iconst_2
+    //   36: aload 4
+    //   38: aload 5
+    //   40: iconst_0
+    //   41: invokeinterface 35 5 0
+    //   46: pop
+    //   47: aload 5
+    //   49: invokevirtual 38	android/os/Parcel:readException	()V
+    //   52: aload 5
+    //   54: invokevirtual 58	android/os/Parcel:readInt	()I
+    //   57: istore_2
+    //   58: iload_2
+    //   59: ifeq +22 -> 81
+    //   62: iload_3
+    //   63: istore_1
+    //   64: aload 5
+    //   66: invokevirtual 44	android/os/Parcel:recycle	()V
+    //   69: aload 4
+    //   71: invokevirtual 44	android/os/Parcel:recycle	()V
+    //   74: iload_1
+    //   75: ireturn
+    //   76: iconst_0
+    //   77: istore_2
+    //   78: goto -53 -> 25
+    //   81: iconst_0
+    //   82: istore_1
+    //   83: goto -19 -> 64
+    //   86: astore 6
+    //   88: aload 5
+    //   90: invokevirtual 44	android/os/Parcel:recycle	()V
+    //   93: aload 4
+    //   95: invokevirtual 44	android/os/Parcel:recycle	()V
+    //   98: aload 6
+    //   100: athrow
     // Local variable table:
     //   start	length	slot	name	signature
-    //   0	85	0	paramKeyPair	KeyPair
-    //   0	85	1	paramVarArgs	String[]
-    //   16	18	2	localPrivateKey	java.security.PrivateKey
+    //   0	101	0	this	aed
+    //   0	101	1	paramBoolean	boolean
+    //   24	54	2	i	int
+    //   1	62	3	bool	boolean
+    //   5	89	4	localParcel1	Parcel
+    //   10	79	5	localParcel2	Parcel
+    //   86	13	6	localObject	Object
     // Exception table:
     //   from	to	target	type
-    //   0	12	52	java/io/UnsupportedEncodingException
-    //   12	24	72	java/security/GeneralSecurityException
-    //   27	50	72	java/security/GeneralSecurityException
+    //   12	19	86	finally
+    //   25	58	86	finally
   }
   
-  private void a(Intent paramIntent, String paramString)
+  public final IBinder asBinder()
   {
-    k = SystemClock.elapsedRealtime();
-    paramIntent.putExtra("kid", "|ID|" + paramString + "|");
-    paramIntent.putExtra("X-kid", "|ID|" + paramString + "|");
-    boolean bool = "com.google.android.gsf".equals(a);
-    paramString = paramIntent.getStringExtra("useGsf");
-    if (paramString != null) {
-      bool = "1".equals(paramString);
-    }
-    if (Log.isLoggable("InstanceID/Rpc", 3)) {
-      Log.d("InstanceID/Rpc", "Sending " + paramIntent.getExtras());
-    }
-    if (h != null)
-    {
-      paramIntent.putExtra("google.messenger", g);
-      paramString = Message.obtain();
-      obj = paramIntent;
-      try
-      {
-        h.send(paramString);
-        return;
-      }
-      catch (RemoteException paramString)
-      {
-        if (Log.isLoggable("InstanceID/Rpc", 3)) {
-          Log.d("InstanceID/Rpc", "Messenger failed, fallback to startService");
-        }
-      }
-    }
-    if (bool)
-    {
-      paramString = new Intent("com.google.android.gms.iid.InstanceID");
-      paramString.setPackage(e.getPackageName());
-      paramString.putExtra("GSF", paramIntent);
-      e.startService(paramString);
-      return;
-    }
-    paramIntent.putExtra("google.messenger", g);
-    paramIntent.putExtra("messenger2", "1");
-    if (i != null)
-    {
-      paramString = Message.obtain();
-      obj = paramIntent;
-      try
-      {
-        i.a(paramString);
-        return;
-      }
-      catch (RemoteException paramString)
-      {
-        if (Log.isLoggable("InstanceID/Rpc", 3)) {
-          Log.d("InstanceID/Rpc", "Messenger failed, fallback to startService");
-        }
-      }
-    }
-    e.startService(paramIntent);
-  }
-  
-  private void a(Bundle paramBundle, KeyPair paramKeyPair, String paramString)
-  {
-    long l1 = SystemClock.elapsedRealtime();
-    if ((o != 0L) && (l1 <= o))
-    {
-      Log.w("InstanceID/Rpc", "Backoff mode, next request attempt: " + (o - l1) + " interval: " + n);
-      throw new IOException("RETRY_LATER");
-    }
-    b();
-    if (a == null) {
-      throw new IOException("MISSING_INSTANCEID_SERVICE");
-    }
-    k = SystemClock.elapsedRealtime();
-    Intent localIntent = new Intent("com.google.android.c2dm.intent.REGISTER");
-    localIntent.setPackage(a);
-    paramBundle.putString("gmsv", Integer.toString(adq.b(e)));
-    paramBundle.putString("osv", Integer.toString(Build.VERSION.SDK_INT));
-    paramBundle.putString("app_ver", Integer.toString(ady.a(e)));
-    paramBundle.putString("cliv", "1");
-    paramBundle.putString("appid", ady.a(paramKeyPair));
-    String str = ady.a(paramKeyPair.getPublic().getEncoded());
-    paramBundle.putString("pub2", str);
-    paramBundle.putString("sig", a(paramKeyPair, new String[] { e.getPackageName(), str }));
-    localIntent.putExtras(paramBundle);
-    c(localIntent);
-    a(localIntent, paramString);
-  }
-  
-  private void a(Object paramObject)
-  {
-    synchronized (getClass())
-    {
-      Iterator localIterator = f.keySet().iterator();
-      if (localIterator.hasNext())
-      {
-        String str = (String)localIterator.next();
-        Object localObject = f.get(str);
-        f.put(str, paramObject);
-        a(localObject, paramObject);
-      }
-    }
-  }
-  
-  private static void a(Object paramObject1, Object paramObject2)
-  {
-    if ((paramObject1 instanceof ConditionVariable)) {
-      ((ConditionVariable)paramObject1).open();
-    }
-    Message localMessage;
-    if ((paramObject1 instanceof Messenger))
-    {
-      paramObject1 = (Messenger)paramObject1;
-      localMessage = Message.obtain();
-      obj = paramObject2;
-    }
-    try
-    {
-      ((Messenger)paramObject1).send(localMessage);
-      return;
-    }
-    catch (RemoteException paramObject1)
-    {
-      Log.w("InstanceID/Rpc", "Failed to send response " + paramObject1);
-    }
-  }
-  
-  private void a(String paramString)
-  {
-    if (!"com.google.android.gsf".equals(a)) {}
-    do
-    {
-      return;
-      m += 1;
-    } while (m < 3);
-    if (m == 3) {
-      n = (new Random().nextInt(1000) + 1000);
-    }
-    n *= 2;
-    o = (SystemClock.elapsedRealtime() + n);
-    Log.w("InstanceID/Rpc", "Backoff due to " + paramString + " for " + n);
-  }
-  
-  private void a(String paramString, Object paramObject)
-  {
-    synchronized (getClass())
-    {
-      Object localObject = f.get(paramString);
-      f.put(paramString, paramObject);
-      a(localObject, paramObject);
-      return;
-    }
-  }
-  
-  private Intent b(Bundle arg1, KeyPair paramKeyPair)
-  {
-    ConditionVariable localConditionVariable = new ConditionVariable();
-    String str = a();
-    synchronized (getClass())
-    {
-      f.put(str, localConditionVariable);
-      a(???, paramKeyPair, str);
-      localConditionVariable.block(30000L);
-    }
-    synchronized (getClass())
-    {
-      paramKeyPair = f.remove(str);
-      if ((paramKeyPair instanceof Intent))
-      {
-        paramKeyPair = (Intent)paramKeyPair;
-        return paramKeyPair;
-        ??? = finally;
-        throw ???;
-      }
-      if ((paramKeyPair instanceof String)) {
-        throw new IOException((String)paramKeyPair);
-      }
-    }
-    Log.w("InstanceID/Rpc", "No response " + paramKeyPair);
-    throw new IOException("TIMEOUT");
-  }
-  
-  private void b()
-  {
-    if (g != null) {
-      return;
-    }
-    a(e);
-    g = new Messenger(new Handler(Looper.getMainLooper())
-    {
-      public final void handleMessage(Message paramAnonymousMessage)
-      {
-        a(paramAnonymousMessage);
-      }
-    });
-  }
-  
-  private void c(Intent paramIntent)
-  {
-    try
-    {
-      if (j == null)
-      {
-        Intent localIntent = new Intent();
-        localIntent.setPackage("com.google.example.invalidpackage");
-        j = PendingIntent.getBroadcast(e, 0, localIntent, 0);
-      }
-      paramIntent.putExtra("app", j);
-      return;
-    }
-    finally {}
-  }
-  
-  private void d(Intent paramIntent)
-  {
-    String str = paramIntent.getStringExtra("error");
-    if (str == null) {
-      Log.w("InstanceID/Rpc", "Unexpected response, no error or registration id " + paramIntent.getExtras());
-    }
-    Object localObject1;
-    label294:
-    label305:
-    do
-    {
-      return;
-      if (Log.isLoggable("InstanceID/Rpc", 3)) {
-        Log.d("InstanceID/Rpc", "Received InstanceID error " + str);
-      }
-      Object localObject2 = null;
-      Object localObject3 = null;
-      localObject1 = str;
-      if (str.startsWith("|"))
-      {
-        localObject1 = str.split("\\|");
-        if (!"ID".equals(localObject1[1])) {
-          Log.w("InstanceID/Rpc", "Unexpected structured response " + str);
-        }
-        if (localObject1.length > 2)
-        {
-          localObject3 = localObject1[2];
-          str = localObject1[3];
-          localObject2 = localObject3;
-          localObject1 = str;
-          if (str.startsWith(":"))
-          {
-            localObject1 = str.substring(1);
-            localObject2 = localObject3;
-          }
-          paramIntent.putExtra("error", (String)localObject1);
-        }
-      }
-      else
-      {
-        if (localObject2 != null) {
-          break label294;
-        }
-        a(localObject1);
-      }
-      for (;;)
-      {
-        long l1 = paramIntent.getLongExtra("Retry-After", 0L);
-        if (l1 <= 0L) {
-          break label305;
-        }
-        l = SystemClock.elapsedRealtime();
-        n = ((int)l1 * 1000);
-        o = (SystemClock.elapsedRealtime() + n);
-        Log.w("InstanceID/Rpc", "Explicit request from server to backoff: " + n);
-        return;
-        localObject1 = "UNKNOWN";
-        localObject2 = localObject3;
-        break;
-        a((String)localObject2, localObject1);
-      }
-    } while ((!"SERVICE_NOT_AVAILABLE".equals(localObject1)) && (!"AUTHENTICATION_FAILED".equals(localObject1)));
-    a((String)localObject1);
-  }
-  
-  final Intent a(Bundle paramBundle, KeyPair paramKeyPair)
-  {
-    Intent localIntent2 = b(paramBundle, paramKeyPair);
-    Intent localIntent1 = localIntent2;
-    if (localIntent2 != null)
-    {
-      localIntent1 = localIntent2;
-      if (localIntent2.hasExtra("google.messenger")) {
-        localIntent1 = b(paramBundle, paramKeyPair);
-      }
-    }
-    return localIntent1;
-  }
-  
-  public final void a(Message paramMessage)
-  {
-    if (paramMessage == null) {
-      return;
-    }
-    if ((obj instanceof Intent))
-    {
-      Object localObject = (Intent)obj;
-      ((Intent)localObject).setExtrasClassLoader(MessengerCompat.class.getClassLoader());
-      if (((Intent)localObject).hasExtra("google.messenger"))
-      {
-        localObject = ((Intent)localObject).getParcelableExtra("google.messenger");
-        if ((localObject instanceof MessengerCompat)) {
-          i = ((MessengerCompat)localObject);
-        }
-        if ((localObject instanceof Messenger)) {
-          h = ((Messenger)localObject);
-        }
-      }
-      b((Intent)obj);
-      return;
-    }
-    Log.w("InstanceID/Rpc", "Dropping invalid message");
-  }
-  
-  public final void b(Intent paramIntent)
-  {
-    if (paramIntent == null) {
-      if (Log.isLoggable("InstanceID/Rpc", 3)) {
-        Log.d("InstanceID/Rpc", "Unexpected response: null");
-      }
-    }
-    do
-    {
-      return;
-      localObject1 = paramIntent.getAction();
-      if (("com.google.android.c2dm.intent.REGISTRATION".equals(localObject1)) || ("com.google.android.gms.iid.InstanceID".equals(localObject1))) {
-        break;
-      }
-    } while (!Log.isLoggable("InstanceID/Rpc", 3));
-    Log.d("InstanceID/Rpc", "Unexpected response " + paramIntent.getAction());
-    return;
-    Object localObject1 = paramIntent.getStringExtra("registration_id");
-    if (localObject1 == null) {
-      localObject1 = paramIntent.getStringExtra("unregistered");
-    }
-    for (;;)
-    {
-      if (localObject1 == null)
-      {
-        d(paramIntent);
-        return;
-      }
-      k = SystemClock.elapsedRealtime();
-      o = 0L;
-      m = 0;
-      n = 0;
-      if (Log.isLoggable("InstanceID/Rpc", 3)) {
-        Log.d("InstanceID/Rpc", "AppIDResponse: " + (String)localObject1 + " " + paramIntent.getExtras());
-      }
-      String str = null;
-      Object localObject2;
-      if (((String)localObject1).startsWith("|"))
-      {
-        localObject2 = ((String)localObject1).split("\\|");
-        if (!"ID".equals(localObject2[1])) {
-          Log.w("InstanceID/Rpc", "Unexpected structured response " + (String)localObject1);
-        }
-        str = localObject2[2];
-        if (localObject2.length > 4)
-        {
-          if (!"SYNC".equals(localObject2[3])) {
-            break label317;
-          }
-          InstanceIDListenerService.a(e);
-        }
-      }
-      label317:
-      while (!"RST".equals(localObject2[3]))
-      {
-        localObject2 = localObject2[(localObject2.length - 1)];
-        localObject1 = localObject2;
-        if (((String)localObject2).startsWith(":")) {
-          localObject1 = ((String)localObject2).substring(1);
-        }
-        paramIntent.putExtra("registration_id", (String)localObject1);
-        if (str != null) {
-          break;
-        }
-        a(paramIntent);
-        return;
-      }
-      localObject1 = e;
-      ady.b(e);
-      InstanceIDListenerService.a((Context)localObject1, ady.b());
-      paramIntent.removeExtra("registration_id");
-      a(str, paramIntent);
-      return;
-      a(str, paramIntent);
-      return;
-    }
+    return a;
   }
 }
 

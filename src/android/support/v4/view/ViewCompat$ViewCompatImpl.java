@@ -134,6 +134,10 @@ abstract interface ViewCompat$ViewCompatImpl
   
   public abstract void jumpDrawablesToCurrentState(View paramView);
   
+  public abstract void offsetLeftAndRight(View paramView, int paramInt);
+  
+  public abstract void offsetTopAndBottom(View paramView, int paramInt);
+  
   public abstract WindowInsetsCompat onApplyWindowInsets(View paramView, WindowInsetsCompat paramWindowInsetsCompat);
   
   public abstract void onInitializeAccessibilityEvent(View paramView, AccessibilityEvent paramAccessibilityEvent);

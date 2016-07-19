@@ -3,7 +3,6 @@ package com.ubercab.rds.feature.model;
 import com.ubercab.shape.Shape;
 import com.ubercab.ui.collection.model.DividerViewModel;
 import com.ubercab.ui.collection.model.ViewModel;
-import jfa;
 
 @Shape
 public abstract class TripContextViewModel
@@ -30,7 +29,7 @@ public abstract class TripContextViewModel
   
   public abstract boolean getHideDriverPicture();
   
-  public abstract jfa getRdsImageLoader();
+  public abstract Object getImageLoadTag();
   
   public abstract String getStatus();
   
@@ -50,7 +49,7 @@ public abstract class TripContextViewModel
   
   public abstract TripContextViewModel setHideDriverPicture(boolean paramBoolean);
   
-  public abstract TripContextViewModel setRdsImageLoader(jfa paramjfa);
+  public abstract TripContextViewModel setImageLoadTag(Object paramObject);
   
   public abstract TripContextViewModel setStatus(String paramString);
 }

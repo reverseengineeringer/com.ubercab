@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsm;
+import mxs;
 
 @Shape
 abstract class ObjectBalance
-  implements jsm
+  implements mxs
 {}
 
 /* Location:

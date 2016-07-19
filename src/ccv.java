@@ -1,16 +1,14 @@
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.paypal.android.sdk.payments.PaymentConfirmActivity;
+import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
+import java.util.TimerTask;
 
-public final class ccv
-  implements View.OnClickListener
+final class ccv
+  extends TimerTask
 {
-  public ccv(PaymentConfirmActivity paramPaymentConfirmActivity) {}
+  ccv(ccu paramccu) {}
   
-  public final void onClick(View paramView)
+  public final void run()
   {
-    paramView.setEnabled(false);
-    PaymentConfirmActivity.a(a);
+    PayPalFuturePaymentActivity.e(a.a);
   }
 }
 

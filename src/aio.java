@@ -1,48 +1,28 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
-public abstract class aio
-  extends Binder
-  implements ain
+@aih
+public final class aio
+  extends Handler
 {
-  public aio()
+  public aio(Looper paramLooper)
   {
-    attachInterface(this, "com.google.android.gms.ads.internal.formats.client.IOnAppInstallAdLoadedListener");
+    super(paramLooper);
   }
   
-  public static ain a(IBinder paramIBinder)
+  public final void handleMessage(Message paramMessage)
   {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.formats.client.IOnAppInstallAdLoadedListener");
-    if ((localIInterface != null) && ((localIInterface instanceof ain))) {
-      return (ain)localIInterface;
-    }
-    return new aip(paramIBinder);
-  }
-  
-  public IBinder asBinder()
-  {
-    return this;
-  }
-  
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
+    try
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.ads.internal.formats.client.IOnAppInstallAdLoadedListener");
-      return true;
+      super.handleMessage(paramMessage);
+      return;
     }
-    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.IOnAppInstallAdLoadedListener");
-    a(aid.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    return true;
+    catch (Exception paramMessage)
+    {
+      ul.f().a(paramMessage, false);
+      throw paramMessage;
+    }
   }
 }
 

@@ -1,8 +1,13 @@
-import android.content.Intent;
-
-public abstract interface blc
+final class blc
 {
-  public abstract void a(Intent paramIntent);
+  final boolean a;
+  final Throwable b;
+  
+  blc(boolean paramBoolean, Throwable paramThrowable)
+  {
+    a = paramBoolean;
+    b = paramThrowable;
+  }
 }
 
 /* Location:

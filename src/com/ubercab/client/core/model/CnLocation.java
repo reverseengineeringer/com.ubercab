@@ -6,10 +6,10 @@ import com.ubercab.rider.realtime.model.AddressComponent;
 import com.ubercab.rider.realtime.model.Location;
 import com.ubercab.rider.realtime.model.ValidatedAddress;
 import java.util.List;
-import jdh;
-import kul;
+import lzo;
+import opc;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class CnLocation
   implements Location
 {
@@ -17,6 +17,7 @@ public class CnLocation
   private List<AddressComponent> addressComponents;
   @Deprecated
   private List<AddressComponent> address_components;
+  private List<String> categories;
   private Long distance;
   private String formattedAddress;
   @Deprecated
@@ -215,6 +216,15 @@ public class CnLocation
           return false;
         }
       }
+      if (categories != null)
+      {
+        if (categories.equals(categories)) {}
+      }
+      else {
+        while (categories != null) {
+          return false;
+        }
+      }
       if (address_components == null) {
         break;
       }
@@ -234,10 +244,15 @@ public class CnLocation
   {
     if (address_components != null)
     {
-      kul.e("Oh snap! address_components property sent from rtapi json. Expecting addressComponents.", new Object[0]);
+      opc.e("Oh snap! address_components property sent from rtapi json. Expecting addressComponents.", new Object[0]);
       return address_components;
     }
     return addressComponents;
+  }
+  
+  public List<String> getCategories()
+  {
+    return categories;
   }
   
   public long getDistance()
@@ -252,7 +267,7 @@ public class CnLocation
   {
     if (formatted_address != null)
     {
-      kul.e("Oh snap! formatted_address property sent from rtapi json. Expecting formattedAddress.", new Object[0]);
+      opc.e("Oh snap! formatted_address property sent from rtapi json. Expecting formattedAddress.", new Object[0]);
       return formatted_address;
     }
     return formattedAddress;
@@ -331,7 +346,7 @@ public class CnLocation
   
   public int hashCode()
   {
-    int i14 = 0;
+    int i15 = 0;
     int i;
     int j;
     label33:
@@ -364,84 +379,86 @@ public class CnLocation
     int i11;
     label256:
     int i12;
+    label272:
+    int i13;
     if (latitude != null)
     {
       i = latitude.hashCode();
       if (longitude == null) {
-        break label421;
+        break label445;
       }
       j = longitude.hashCode();
       if (distance == null) {
-        break label426;
+        break label450;
       }
       k = distance.hashCode();
       if (id == null) {
-        break label431;
+        break label455;
       }
       m = id.hashCode();
       if (uuid == null) {
-        break label437;
+        break label461;
       }
       n = uuid.hashCode();
       if (type == null) {
-        break label443;
+        break label467;
       }
       i1 = type.hashCode();
       if (nickname == null) {
-        break label449;
+        break label473;
       }
       i2 = nickname.hashCode();
       if (address == null) {
-        break label455;
+        break label479;
       }
       i3 = address.hashCode();
       if (reference == null) {
-        break label461;
+        break label485;
       }
       i4 = reference.hashCode();
       if (relevance == null) {
-        break label467;
+        break label491;
       }
       i5 = relevance.hashCode();
       if (referenceType == null) {
-        break label473;
+        break label497;
       }
       i6 = referenceType.hashCode();
       if (subtitle == null) {
-        break label479;
+        break label503;
       }
       i7 = subtitle.hashCode();
       if (title == null) {
-        break label485;
+        break label509;
       }
       i8 = title.hashCode();
       if (formatted_address == null) {
-        break label491;
+        break label515;
       }
       i9 = formatted_address.hashCode();
       if (formattedAddress == null) {
-        break label497;
+        break label521;
       }
       i10 = formattedAddress.hashCode();
       if (language == null) {
-        break label503;
+        break label527;
       }
       i11 = language.hashCode();
       if (validatedAddress == null) {
-        break label509;
+        break label533;
       }
       i12 = validatedAddress.hashCode();
-      label272:
       if (addressComponents == null) {
-        break label515;
+        break label539;
+      }
+      i13 = addressComponents.hashCode();
+      label290:
+      if (categories == null) {
+        break label545;
       }
     }
-    label421:
-    label426:
-    label431:
-    label437:
-    label443:
-    label449:
+    label445:
+    label450:
     label455:
     label461:
     label467:
@@ -453,12 +470,17 @@ public class CnLocation
     label503:
     label509:
     label515:
-    for (int i13 = addressComponents.hashCode();; i13 = 0)
+    label521:
+    label527:
+    label533:
+    label539:
+    label545:
+    for (int i14 = categories.hashCode();; i14 = 0)
     {
       if (address_components != null) {
-        i14 = address_components.hashCode();
+        i15 = address_components.hashCode();
       }
-      return (i13 + (i12 + (i11 + (i10 + (i9 + (i8 + (i7 + (i6 + (i5 + (i4 + (i3 + (i2 + (i1 + (n + (m + (k + (j + i * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i14;
+      return (i14 + (i13 + (i12 + (i11 + (i10 + (i9 + (i8 + (i7 + (i6 + (i5 + (i4 + (i3 + (i2 + (i1 + (n + (m + (k + (j + i * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i15;
       i = 0;
       break;
       j = 0;
@@ -493,6 +515,8 @@ public class CnLocation
       break label256;
       i12 = 0;
       break label272;
+      i13 = 0;
+      break label290;
     }
   }
   
@@ -504,6 +528,11 @@ public class CnLocation
   public void setAddressComponents(List<AddressComponent> paramList)
   {
     addressComponents = paramList;
+  }
+  
+  public void setCategories(List<String> paramList)
+  {
+    categories = paramList;
   }
   
   public void setFormattedAddress(String paramString)
@@ -549,6 +578,11 @@ public class CnLocation
   public void setRelevance(String paramString)
   {
     relevance = paramString;
+  }
+  
+  public void setSubtitle(String paramString)
+  {
+    subtitle = paramString;
   }
   
   public void setTitle(String paramString)

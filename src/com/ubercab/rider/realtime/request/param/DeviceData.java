@@ -37,7 +37,9 @@ public abstract class DeviceData
   
   public abstract String getDeviceModel();
   
-  public abstract String getDeviceOs();
+  public abstract String getDeviceOsName();
+  
+  public abstract String getDeviceOsVersion();
   
   public abstract float getHorizontalAccuracy();
   
@@ -93,7 +95,9 @@ public abstract class DeviceData
   
   public abstract DeviceData setDeviceModel(String paramString);
   
-  public abstract DeviceData setDeviceOs(String paramString);
+  public abstract DeviceData setDeviceOsName(String paramString);
+  
+  public abstract DeviceData setDeviceOsVersion(String paramString);
   
   public abstract DeviceData setEmulator(boolean paramBoolean);
   

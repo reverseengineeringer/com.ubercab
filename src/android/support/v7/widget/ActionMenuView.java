@@ -14,34 +14,34 @@ import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup.LayoutParams;
 import android.view.accessibility.AccessibilityEvent;
-import di;
-import dj;
-import dk;
-import dm;
-import dx;
-import dy;
-import ep;
-import eq;
-import er;
-import es;
+import hv;
+import hw;
+import hx;
+import hz;
+import ik;
+import il;
 import jc;
+import jd;
+import je;
+import jf;
+import nq;
 
 public class ActionMenuView
   extends LinearLayoutCompat
-  implements dk, dy
+  implements hx, il
 {
-  private di a;
+  private hv a;
   private Context b;
   private int c;
   private boolean d;
   private ActionMenuPresenter e;
-  private dx f;
-  private dj g;
+  private ik f;
+  private hw g;
   private boolean h;
   private int i;
   private int j;
   private int k;
-  private es l;
+  private jf l;
   
   public ActionMenuView(Context paramContext)
   {
@@ -480,7 +480,7 @@ public class ActionMenuView
     return localLayoutParams;
   }
   
-  private boolean c(int paramInt)
+  private boolean d(int paramInt)
   {
     boolean bool2 = false;
     if (paramInt == 0) {
@@ -492,12 +492,12 @@ public class ActionMenuView
     if (paramInt < getChildCount())
     {
       bool1 = bool2;
-      if ((localView1 instanceof ep)) {
-        bool1 = ((ep)localView1).e() | false;
+      if ((localView1 instanceof jc)) {
+        bool1 = ((jc)localView1).e() | false;
       }
     }
-    if ((paramInt > 0) && ((localView2 instanceof ep))) {
-      return ((ep)localView2).d() | bool1;
+    if ((paramInt > 0) && ((localView2 instanceof jc))) {
+      return ((jc)localView2).d() | bool1;
     }
     return bool1;
   }
@@ -512,7 +512,7 @@ public class ActionMenuView
   public final Drawable a()
   {
     d();
-    return e.f();
+    return e.h();
   }
   
   public final void a(int paramInt)
@@ -537,20 +537,20 @@ public class ActionMenuView
     e.a(this);
   }
   
-  public final void a(di paramdi)
+  public final void a(hv paramhv)
   {
-    a = paramdi;
+    a = paramhv;
   }
   
-  public final void a(dx paramdx, dj paramdj)
+  public final void a(ik paramik, hw paramhw)
   {
-    f = paramdx;
-    g = paramdj;
+    f = paramik;
+    g = paramhw;
   }
   
-  public final void a(es parames)
+  public final void a(jf paramjf)
   {
-    l = parames;
+    l = paramjf;
   }
   
   public final void a(boolean paramBoolean)
@@ -558,9 +558,9 @@ public class ActionMenuView
     d = paramBoolean;
   }
   
-  public final boolean a(dm paramdm)
+  public final boolean a(hz paramhz)
   {
-    return a.a(paramdm, 0);
+    return a.a(paramhz, 0);
   }
   
   public final boolean b()
@@ -579,19 +579,19 @@ public class ActionMenuView
     if (a == null)
     {
       localObject = getContext();
-      a = new di((Context)localObject);
-      a.a(new er(this, (byte)0));
+      a = new hv((Context)localObject);
+      a.a(new je(this, (byte)0));
       e = new ActionMenuPresenter((Context)localObject);
-      e.d();
+      e.f();
       localActionMenuPresenter = e;
       if (f == null) {
         break label109;
       }
     }
     label109:
-    for (Object localObject = f;; localObject = new eq(this, (byte)0))
+    for (Object localObject = f;; localObject = new jd(this, (byte)0))
     {
-      localActionMenuPresenter.a((dx)localObject);
+      localActionMenuPresenter.a((ik)localObject);
       a.a(e, b);
       e.a(this);
       return a;
@@ -603,41 +603,41 @@ public class ActionMenuView
     return false;
   }
   
-  public final di e()
+  public final hv e()
   {
     return a;
   }
   
   public final boolean f()
   {
-    return (e != null) && (e.g());
+    return (e != null) && (e.i());
   }
   
   public final boolean g()
   {
-    return (e != null) && (e.h());
+    return (e != null) && (e.j());
   }
   
   public final boolean h()
   {
-    return (e != null) && (e.k());
+    return (e != null) && (e.m());
   }
   
   public final boolean i()
   {
-    return (e != null) && (e.l());
+    return (e != null) && (e.n());
   }
   
   public final void j()
   {
     if (e != null) {
-      e.i();
+      e.k();
     }
   }
   
   public final void k()
   {
-    e.e();
+    e.g();
   }
   
   public void onConfigurationChanged(Configuration paramConfiguration)
@@ -648,10 +648,10 @@ public class ActionMenuView
     if (e != null)
     {
       e.a(false);
-      if (e.k())
+      if (e.m())
       {
-        e.h();
-        e.g();
+        e.j();
+        e.i();
       }
     }
   }
@@ -675,7 +675,7 @@ public class ActionMenuView
     paramInt2 = 0;
     paramInt4 = paramInt3 - paramInt1 - getPaddingRight() - getPaddingLeft();
     int n = 0;
-    paramBoolean = jc.a(this);
+    paramBoolean = nq.a(this);
     int m = 0;
     label68:
     View localView;
@@ -693,7 +693,7 @@ public class ActionMenuView
       {
         i1 = localView.getMeasuredWidth();
         n = i1;
-        if (c(m)) {
+        if (d(m)) {
           n = i1 + i5;
         }
         int i6 = localView.getMeasuredHeight();
@@ -726,7 +726,7 @@ public class ActionMenuView
       i1 = localView.getMeasuredWidth();
       i2 = leftMargin;
       paramInt4 -= rightMargin + (i1 + i2);
-      c(m);
+      d(m);
       i1 = paramInt2 + 1;
       paramInt2 = paramInt4;
       paramInt4 = i1;
@@ -832,7 +832,7 @@ public class ActionMenuView
       if ((h) && (a != null) && (m != i))
       {
         i = m;
-        a.b(true);
+        a.a(true);
       }
       n = getChildCount();
       if ((!h) || (n <= 0)) {

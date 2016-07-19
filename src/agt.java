@@ -1,18 +1,6 @@
-import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
-import java.util.Collections;
-import java.util.List;
-
-@apl
-public final class agt
-  implements agu
+public abstract interface agt
 {
-  public final List<String> a(AdRequestInfoParcel paramAdRequestInfoParcel)
-  {
-    if (x == null) {
-      return Collections.emptyList();
-    }
-    return x;
-  }
+  public abstract aij a(aka<?> paramaka);
 }
 
 /* Location:

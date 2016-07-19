@@ -1,485 +1,291 @@
-import android.os.IBinder;
-import android.os.Parcel;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
 
-final class bce
-  implements bcc
+public final class bce
+  extends bcz
 {
-  private IBinder a;
+  private final String a = bbm.a();
+  private final char b;
+  private final long c = bbm.M();
+  private final bcf d;
+  private final bcf e;
+  private final bcf f;
+  private final bcf g;
+  private final bcf h;
+  private final bcf i;
+  private final bcf j;
+  private final bcf k;
+  private final bcf l;
   
-  bce(IBinder paramIBinder)
+  bce(bcv parambcv)
   {
-    a = paramIBinder;
-  }
-  
-  public final add a()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
+    super(parambcv);
+    if (u().O())
     {
-      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
-      a.transact(1, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      add localadd = ade.a(localParcel2.readStrongBinder());
-      return localadd;
+      if (bbm.N()) {}
+      for (c1 = 'P';; c1 = 'C')
+      {
+        b = c1;
+        d = new bcf(this, 6, false, false);
+        e = new bcf(this, 6, true, false);
+        f = new bcf(this, 6, false, true);
+        g = new bcf(this, 5, false, false);
+        h = new bcf(this, 5, true, false);
+        i = new bcf(this, 5, false, true);
+        j = new bcf(this, 4, false, false);
+        k = new bcf(this, 3, false, false);
+        l = new bcf(this, 2, false, false);
+        return;
+      }
     }
-    finally
+    if (bbm.N()) {}
+    for (char c1 = 'p';; c1 = 'c')
     {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final add a(float paramFloat)
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
-      localParcel1.writeFloat(paramFloat);
-      a.transact(4, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      add localadd = ade.a(localParcel2.readStrongBinder());
-      return localadd;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
+      b = c1;
+      break;
     }
   }
   
-  public final add a(float paramFloat1, float paramFloat2)
+  private static String a(String paramString)
   {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
-      localParcel1.writeFloat(paramFloat1);
-      localParcel1.writeFloat(paramFloat2);
-      a.transact(3, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      add localadd = ade.a(localParcel2.readStrongBinder());
-      return localadd;
+    String str;
+    if (TextUtils.isEmpty(paramString)) {
+      str = "";
     }
-    finally
+    int m;
+    do
     {
-      localParcel2.recycle();
-      localParcel1.recycle();
+      return str;
+      m = paramString.lastIndexOf('.');
+      str = paramString;
+    } while (m == -1);
+    return paramString.substring(0, m);
+  }
+  
+  private static String a(boolean paramBoolean, Object paramObject)
+  {
+    if (paramObject == null) {
+      return "";
     }
-  }
-  
-  public final add a(float paramFloat, int paramInt1, int paramInt2)
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
-      localParcel1.writeFloat(paramFloat);
-      localParcel1.writeInt(paramInt1);
-      localParcel1.writeInt(paramInt2);
-      a.transact(6, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      add localadd = ade.a(localParcel2.readStrongBinder());
-      return localadd;
+    if ((paramObject instanceof Integer)) {
+      paramObject = Long.valueOf(((Integer)paramObject).intValue());
     }
-    finally
+    for (;;)
     {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  /* Error */
-  public final add a(com.google.android.gms.maps.model.CameraPosition paramCameraPosition)
-  {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +51 -> 66
-    //   18: aload_2
-    //   19: iconst_1
-    //   20: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   23: aload_1
-    //   24: aload_2
-    //   25: iconst_0
-    //   26: invokevirtual 68	com/google/android/gms/maps/model/CameraPosition:writeToParcel	(Landroid/os/Parcel;I)V
-    //   29: aload_0
-    //   30: getfield 15	bce:a	Landroid/os/IBinder;
-    //   33: bipush 7
-    //   35: aload_2
-    //   36: aload_3
-    //   37: iconst_0
-    //   38: invokeinterface 35 5 0
-    //   43: pop
-    //   44: aload_3
-    //   45: invokevirtual 38	android/os/Parcel:readException	()V
-    //   48: aload_3
-    //   49: invokevirtual 42	android/os/Parcel:readStrongBinder	()Landroid/os/IBinder;
-    //   52: invokestatic 47	ade:a	(Landroid/os/IBinder;)Ladd;
-    //   55: astore_1
-    //   56: aload_3
-    //   57: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   60: aload_2
-    //   61: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   64: aload_1
-    //   65: areturn
-    //   66: aload_2
-    //   67: iconst_0
-    //   68: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   71: goto -42 -> 29
-    //   74: astore_1
-    //   75: aload_3
-    //   76: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   79: aload_2
-    //   80: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   83: aload_1
-    //   84: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	85	0	this	bce
-    //   0	85	1	paramCameraPosition	com.google.android.gms.maps.model.CameraPosition
-    //   3	77	2	localParcel1	Parcel
-    //   7	69	3	localParcel2	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	74	finally
-    //   18	29	74	finally
-    //   29	56	74	finally
-    //   66	71	74	finally
-  }
-  
-  /* Error */
-  public final add a(com.google.android.gms.maps.model.LatLng paramLatLng)
-  {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +51 -> 66
-    //   18: aload_2
-    //   19: iconst_1
-    //   20: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   23: aload_1
-    //   24: aload_2
-    //   25: iconst_0
-    //   26: invokevirtual 72	com/google/android/gms/maps/model/LatLng:writeToParcel	(Landroid/os/Parcel;I)V
-    //   29: aload_0
-    //   30: getfield 15	bce:a	Landroid/os/IBinder;
-    //   33: bipush 8
-    //   35: aload_2
-    //   36: aload_3
-    //   37: iconst_0
-    //   38: invokeinterface 35 5 0
-    //   43: pop
-    //   44: aload_3
-    //   45: invokevirtual 38	android/os/Parcel:readException	()V
-    //   48: aload_3
-    //   49: invokevirtual 42	android/os/Parcel:readStrongBinder	()Landroid/os/IBinder;
-    //   52: invokestatic 47	ade:a	(Landroid/os/IBinder;)Ladd;
-    //   55: astore_1
-    //   56: aload_3
-    //   57: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   60: aload_2
-    //   61: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   64: aload_1
-    //   65: areturn
-    //   66: aload_2
-    //   67: iconst_0
-    //   68: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   71: goto -42 -> 29
-    //   74: astore_1
-    //   75: aload_3
-    //   76: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   79: aload_2
-    //   80: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   83: aload_1
-    //   84: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	85	0	this	bce
-    //   0	85	1	paramLatLng	com.google.android.gms.maps.model.LatLng
-    //   3	77	2	localParcel1	Parcel
-    //   7	69	3	localParcel2	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	74	finally
-    //   18	29	74	finally
-    //   29	56	74	finally
-    //   66	71	74	finally
-  }
-  
-  /* Error */
-  public final add a(com.google.android.gms.maps.model.LatLng paramLatLng, float paramFloat)
-  {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_3
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore 4
-    //   9: aload_3
-    //   10: ldc 25
-    //   12: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   15: aload_1
-    //   16: ifnull +60 -> 76
-    //   19: aload_3
-    //   20: iconst_1
-    //   21: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   24: aload_1
-    //   25: aload_3
-    //   26: iconst_0
-    //   27: invokevirtual 72	com/google/android/gms/maps/model/LatLng:writeToParcel	(Landroid/os/Parcel;I)V
-    //   30: aload_3
-    //   31: fload_2
-    //   32: invokevirtual 55	android/os/Parcel:writeFloat	(F)V
-    //   35: aload_0
-    //   36: getfield 15	bce:a	Landroid/os/IBinder;
-    //   39: bipush 9
-    //   41: aload_3
-    //   42: aload 4
-    //   44: iconst_0
-    //   45: invokeinterface 35 5 0
-    //   50: pop
-    //   51: aload 4
-    //   53: invokevirtual 38	android/os/Parcel:readException	()V
-    //   56: aload 4
-    //   58: invokevirtual 42	android/os/Parcel:readStrongBinder	()Landroid/os/IBinder;
-    //   61: invokestatic 47	ade:a	(Landroid/os/IBinder;)Ladd;
-    //   64: astore_1
-    //   65: aload 4
-    //   67: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   70: aload_3
-    //   71: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   74: aload_1
-    //   75: areturn
-    //   76: aload_3
-    //   77: iconst_0
-    //   78: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   81: goto -51 -> 30
-    //   84: astore_1
-    //   85: aload 4
-    //   87: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   90: aload_3
-    //   91: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   94: aload_1
-    //   95: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	96	0	this	bce
-    //   0	96	1	paramLatLng	com.google.android.gms.maps.model.LatLng
-    //   0	96	2	paramFloat	float
-    //   3	88	3	localParcel1	Parcel
-    //   7	79	4	localParcel2	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   9	15	84	finally
-    //   19	30	84	finally
-    //   30	65	84	finally
-    //   76	81	84	finally
-  }
-  
-  /* Error */
-  public final add a(com.google.android.gms.maps.model.LatLngBounds paramLatLngBounds, int paramInt)
-  {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_3
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore 4
-    //   9: aload_3
-    //   10: ldc 25
-    //   12: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   15: aload_1
-    //   16: ifnull +60 -> 76
-    //   19: aload_3
-    //   20: iconst_1
-    //   21: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   24: aload_1
-    //   25: aload_3
-    //   26: iconst_0
-    //   27: invokevirtual 77	com/google/android/gms/maps/model/LatLngBounds:writeToParcel	(Landroid/os/Parcel;I)V
-    //   30: aload_3
-    //   31: iload_2
-    //   32: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   35: aload_0
-    //   36: getfield 15	bce:a	Landroid/os/IBinder;
-    //   39: bipush 10
-    //   41: aload_3
-    //   42: aload 4
-    //   44: iconst_0
-    //   45: invokeinterface 35 5 0
-    //   50: pop
-    //   51: aload 4
-    //   53: invokevirtual 38	android/os/Parcel:readException	()V
-    //   56: aload 4
-    //   58: invokevirtual 42	android/os/Parcel:readStrongBinder	()Landroid/os/IBinder;
-    //   61: invokestatic 47	ade:a	(Landroid/os/IBinder;)Ladd;
-    //   64: astore_1
-    //   65: aload 4
-    //   67: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   70: aload_3
-    //   71: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   74: aload_1
-    //   75: areturn
-    //   76: aload_3
-    //   77: iconst_0
-    //   78: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   81: goto -51 -> 30
-    //   84: astore_1
-    //   85: aload 4
-    //   87: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   90: aload_3
-    //   91: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   94: aload_1
-    //   95: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	96	0	this	bce
-    //   0	96	1	paramLatLngBounds	com.google.android.gms.maps.model.LatLngBounds
-    //   0	96	2	paramInt	int
-    //   3	88	3	localParcel1	Parcel
-    //   7	79	4	localParcel2	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   9	15	84	finally
-    //   19	30	84	finally
-    //   30	65	84	finally
-    //   76	81	84	finally
-  }
-  
-  /* Error */
-  public final add a(com.google.android.gms.maps.model.LatLngBounds paramLatLngBounds, int paramInt1, int paramInt2, int paramInt3)
-  {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore 5
-    //   5: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   8: astore 6
-    //   10: aload 5
-    //   12: ldc 25
-    //   14: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   17: aload_1
-    //   18: ifnull +78 -> 96
-    //   21: aload 5
-    //   23: iconst_1
-    //   24: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   27: aload_1
-    //   28: aload 5
-    //   30: iconst_0
-    //   31: invokevirtual 77	com/google/android/gms/maps/model/LatLngBounds:writeToParcel	(Landroid/os/Parcel;I)V
-    //   34: aload 5
-    //   36: iload_2
-    //   37: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   40: aload 5
-    //   42: iload_3
-    //   43: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   46: aload 5
-    //   48: iload 4
-    //   50: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   53: aload_0
-    //   54: getfield 15	bce:a	Landroid/os/IBinder;
-    //   57: bipush 11
-    //   59: aload 5
-    //   61: aload 6
-    //   63: iconst_0
-    //   64: invokeinterface 35 5 0
-    //   69: pop
-    //   70: aload 6
-    //   72: invokevirtual 38	android/os/Parcel:readException	()V
-    //   75: aload 6
-    //   77: invokevirtual 42	android/os/Parcel:readStrongBinder	()Landroid/os/IBinder;
-    //   80: invokestatic 47	ade:a	(Landroid/os/IBinder;)Ladd;
-    //   83: astore_1
-    //   84: aload 6
-    //   86: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   89: aload 5
-    //   91: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   94: aload_1
-    //   95: areturn
-    //   96: aload 5
-    //   98: iconst_0
-    //   99: invokevirtual 61	android/os/Parcel:writeInt	(I)V
-    //   102: goto -68 -> 34
-    //   105: astore_1
-    //   106: aload 6
-    //   108: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   111: aload 5
-    //   113: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   116: aload_1
-    //   117: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	118	0	this	bce
-    //   0	118	1	paramLatLngBounds	com.google.android.gms.maps.model.LatLngBounds
-    //   0	118	2	paramInt1	int
-    //   0	118	3	paramInt2	int
-    //   0	118	4	paramInt3	int
-    //   3	109	5	localParcel1	Parcel
-    //   8	99	6	localParcel2	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   10	17	105	finally
-    //   21	34	105	finally
-    //   34	84	105	finally
-    //   96	102	105	finally
-  }
-  
-  public final IBinder asBinder()
-  {
-    return a;
-  }
-  
-  public final add b()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
-      a.transact(2, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      add localadd = ade.a(localParcel2.readStrongBinder());
-      return localadd;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
+      String str1;
+      if ((paramObject instanceof Long))
+      {
+        if (!paramBoolean) {
+          return String.valueOf(paramObject);
+        }
+        if (Math.abs(((Long)paramObject).longValue()) < 100L) {
+          return String.valueOf(paramObject);
+        }
+        if (String.valueOf(paramObject).charAt(0) == '-') {}
+        for (str1 = "-";; str1 = "")
+        {
+          paramObject = String.valueOf(Math.abs(((Long)paramObject).longValue()));
+          return str1 + Math.round(Math.pow(10.0D, ((String)paramObject).length() - 1)) + "..." + str1 + Math.round(Math.pow(10.0D, ((String)paramObject).length()) - 1.0D);
+        }
+      }
+      if ((paramObject instanceof Boolean)) {
+        return String.valueOf(paramObject);
+      }
+      if ((paramObject instanceof Throwable))
+      {
+        Object localObject1 = (Throwable)paramObject;
+        paramObject = new StringBuilder(((Throwable)localObject1).toString());
+        str1 = a(bav.class.getCanonicalName());
+        String str2 = a(bcv.class.getCanonicalName());
+        localObject1 = ((Throwable)localObject1).getStackTrace();
+        int n = localObject1.length;
+        int m = 0;
+        for (;;)
+        {
+          if (m < n)
+          {
+            Object localObject2 = localObject1[m];
+            if (!((StackTraceElement)localObject2).isNativeMethod())
+            {
+              String str3 = ((StackTraceElement)localObject2).getClassName();
+              if (str3 != null)
+              {
+                str3 = a(str3);
+                if ((str3.equals(str1)) || (str3.equals(str2)))
+                {
+                  ((StringBuilder)paramObject).append(": ");
+                  ((StringBuilder)paramObject).append(localObject2);
+                }
+              }
+            }
+          }
+          else
+          {
+            return ((StringBuilder)paramObject).toString();
+          }
+          m += 1;
+        }
+      }
+      if (paramBoolean) {
+        return "-";
+      }
+      return String.valueOf(paramObject);
     }
   }
   
-  public final add b(float paramFloat)
+  private static String a(boolean paramBoolean, String paramString, Object paramObject1, Object paramObject2, Object paramObject3)
   {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
-      localParcel1.writeFloat(paramFloat);
-      a.transact(5, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      add localadd = ade.a(localParcel2.readStrongBinder());
-      return localadd;
+    String str1 = paramString;
+    if (paramString == null) {
+      str1 = "";
     }
-    finally
+    String str2 = a(paramBoolean, paramObject1);
+    paramObject2 = a(paramBoolean, paramObject2);
+    paramObject3 = a(paramBoolean, paramObject3);
+    StringBuilder localStringBuilder = new StringBuilder();
+    paramString = "";
+    if (!TextUtils.isEmpty(str1))
     {
-      localParcel2.recycle();
-      localParcel1.recycle();
+      localStringBuilder.append(str1);
+      paramString = ": ";
     }
+    paramObject1 = paramString;
+    if (!TextUtils.isEmpty(str2))
+    {
+      localStringBuilder.append(paramString);
+      localStringBuilder.append(str2);
+      paramObject1 = ", ";
+    }
+    paramString = (String)paramObject1;
+    if (!TextUtils.isEmpty((CharSequence)paramObject2))
+    {
+      localStringBuilder.append((String)paramObject1);
+      localStringBuilder.append((String)paramObject2);
+      paramString = ", ";
+    }
+    if (!TextUtils.isEmpty((CharSequence)paramObject3))
+    {
+      localStringBuilder.append(paramString);
+      localStringBuilder.append((String)paramObject3);
+    }
+    return localStringBuilder.toString();
+  }
+  
+  private void a(int paramInt, String paramString, final Object paramObject1, Object paramObject2, Object paramObject3)
+  {
+    abe.a(paramString);
+    bcr localbcr = n.k();
+    if (localbcr == null)
+    {
+      a(6, "Scheduler not set. Not logging error/warn.");
+      return;
+    }
+    if (!localbcr.C())
+    {
+      a(6, "Scheduler not initialized. Not logging error/warn.");
+      return;
+    }
+    if (localbcr.D())
+    {
+      a(6, "Scheduler shutdown. Not logging error/warn.");
+      return;
+    }
+    if (paramInt < 0) {
+      paramInt = 0;
+    }
+    for (;;)
+    {
+      int m = paramInt;
+      if (paramInt >= 9) {
+        m = 8;
+      }
+      paramObject2 = "1" + "01VDIWEA?".charAt(m) + b + c + ":" + a(true, paramString, paramObject1, paramObject2, paramObject3);
+      paramObject1 = paramObject2;
+      if (((String)paramObject2).length() > 1024) {
+        paramObject1 = paramString.substring(0, 1024);
+      }
+      localbcr.a(new Runnable()
+      {
+        public final void run()
+        {
+          bcm localbcm = n.e();
+          if ((!localbcm.C()) || (localbcm.D()))
+          {
+            a(6, "Persisted config not initialized . Not logging error/warn.");
+            return;
+          }
+          b.a(paramObject1);
+        }
+      });
+      return;
+    }
+  }
+  
+  public final String A()
+  {
+    Pair localPair = tb.a();
+    if (localPair == null) {
+      return null;
+    }
+    return String.valueOf(second) + ":" + (String)first;
+  }
+  
+  protected final void a() {}
+  
+  protected final void a(int paramInt, String paramString)
+  {
+    Log.println(paramInt, a, paramString);
+  }
+  
+  protected final void a(int paramInt, boolean paramBoolean1, boolean paramBoolean2, String paramString, Object paramObject1, Object paramObject2, Object paramObject3)
+  {
+    if ((!paramBoolean1) && (a(paramInt))) {
+      a(paramInt, a(false, paramString, paramObject1, paramObject2, paramObject3));
+    }
+    if ((!paramBoolean2) && (paramInt >= 5)) {
+      a(paramInt, paramString, paramObject1, paramObject2, paramObject3);
+    }
+  }
+  
+  protected final boolean a(int paramInt)
+  {
+    return Log.isLoggable(a, paramInt);
+  }
+  
+  public final bcf b()
+  {
+    return d;
+  }
+  
+  public final bcf c()
+  {
+    return g;
+  }
+  
+  public final bcf v()
+  {
+    return h;
+  }
+  
+  public final bcf w()
+  {
+    return i;
+  }
+  
+  public final bcf x()
+  {
+    return j;
+  }
+  
+  public final bcf y()
+  {
+    return k;
+  }
+  
+  public final bcf z()
+  {
+    return l;
   }
 }
 

@@ -5,39 +5,39 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-import bpj;
-import bpm;
-import chh;
+import bmd;
+import bmg;
 import chn;
-import cho;
+import cht;
+import chu;
 import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.core.app.CoreService;
 import com.ubercab.rider.realtime.model.Track;
-import dsn;
-import dux;
-import fqo;
-import fqp;
-import fsc;
-import fse;
-import ftn;
-import fto;
-import ftu;
-import fty;
-import fug;
-import fuh;
-import ife;
+import dya;
+import eaj;
+import gip;
+import giq;
+import gkf;
+import gkh;
+import gmf;
+import gmg;
+import gmn;
+import gmr;
+import gmz;
+import gna;
 import java.util.concurrent.atomic.AtomicReference;
+import kia;
 
 public class MusicControlChannelService
   extends CoreService
-  implements dsn<fsc>, fto
+  implements dya<gkf>, gmg
 {
   private static final String[] d = { "client-dPlaying", "client-dState", "client-dStateAck", "client-dTrack" };
   private static final AtomicReference<String> e = new AtomicReference();
   private static final AtomicReference<String> f = new AtomicReference();
-  public chh a;
-  public ife b;
-  public ftn c;
+  public chn a;
+  public kia b;
+  public gmf c;
   private Integer g;
   private boolean h;
   private boolean i;
@@ -47,7 +47,7 @@ public class MusicControlChannelService
   private boolean m;
   private String n;
   private String o;
-  private dsn<fsc> p;
+  private dya<gkf> p;
   
   public static Intent a(Application paramApplication)
   {
@@ -65,32 +65,32 @@ public class MusicControlChannelService
     return a(paramApplication).putExtra("access_token", paramString1).putExtra("provider_id", paramString3).putExtra("tripId", paramString2);
   }
   
-  private void a(bpm parambpm)
+  private void a(bmg parambmg)
   {
-    bpj localbpj = parambpm.b("nextAvailable");
-    if ((localbpj != null) && (!localbpj.j())) {
-      j = localbpj.f();
+    bmd localbmd = parambmg.b("nextAvailable");
+    if ((localbmd != null) && (!localbmd.j())) {
+      j = localbmd.f();
     }
-    localbpj = parambpm.b("previousAvailable");
-    if ((localbpj != null) && (!localbpj.j())) {
-      l = localbpj.f();
+    localbmd = parambmg.b("previousAvailable");
+    if ((localbmd != null) && (!localbmd.j())) {
+      l = localbmd.f();
     }
-    localbpj = parambpm.b("isBuffering");
-    if ((localbpj != null) && (!localbpj.j())) {
-      h = localbpj.f();
+    localbmd = parambmg.b("isBuffering");
+    if ((localbmd != null) && (!localbmd.j())) {
+      h = localbmd.f();
     }
-    if (b.a(dux.eu, true))
+    if (b.a(eaj.hb, true))
     {
-      parambpm = parambpm.b("disableExternalControl");
-      if ((parambpm != null) && (!parambpm.j())) {
-        i = parambpm.f();
+      parambmg = parambmg.b("disableExternalControl");
+      if ((parambmg != null) && (!parambmg.j())) {
+        i = parambmg.f();
       }
     }
   }
   
-  private void a(fsc paramfsc)
+  private void a(gkf paramgkf)
   {
-    paramfsc.a(this);
+    paramgkf.a(this);
   }
   
   private void a(String paramString)
@@ -112,7 +112,7 @@ public class MusicControlChannelService
     n = paramString;
     g = Integer.valueOf(paramTrack.getIndexInPlaylist());
     o = paramTrack.getName();
-    paramString = new bpm();
+    paramString = new bmg();
     paramString.a("value", n);
     paramString.a("index", g);
     b("client-rPlayURI", paramString);
@@ -122,7 +122,7 @@ public class MusicControlChannelService
   {
     n = paramString1;
     o = paramString2;
-    paramString1 = new bpm();
+    paramString1 = new bmg();
     paramString1.a("value", n);
     b("client-rPlayURI", paramString1);
   }
@@ -137,30 +137,30 @@ public class MusicControlChannelService
   
   private void a(boolean paramBoolean)
   {
-    bpm localbpm = new bpm();
-    localbpm.a("value", Boolean.valueOf(paramBoolean));
-    b("client-rSetPlaying", localbpm);
+    bmg localbmg = new bmg();
+    localbmg.a("value", Boolean.valueOf(paramBoolean));
+    b("client-rSetPlaying", localbmg);
   }
   
-  private fsc b()
+  private gkf b()
   {
-    return fqo.a().a(fse.a()).a(((RiderApplication)getApplication()).b()).a();
+    return gip.a().a(gkh.a()).a(((RiderApplication)getApplication()).b()).a();
   }
   
-  private static String b(bpm parambpm)
+  private static String b(bmg parambmg)
   {
-    if (parambpm == null) {}
+    if (parambmg == null) {}
     do
     {
       return null;
-      parambpm = parambpm.b("name");
-    } while ((parambpm == null) || (parambpm.j()));
-    return parambpm.b();
+      parambmg = parambmg.b("name");
+    } while ((parambmg == null) || (parambmg.j()));
+    return parambmg.b();
   }
   
-  private void b(String paramString, bpm parambpm)
+  private void b(String paramString, bmg parambmg)
   {
-    c.a(paramString, parambpm);
+    c.a(paramString, parambmg);
   }
   
   private void d()
@@ -186,35 +186,35 @@ public class MusicControlChannelService
     for (boolean bool = true;; bool = false)
     {
       m = bool;
-      bpm localbpm = new bpm();
-      localbpm.a("value", Boolean.valueOf(m));
-      b("client-rSetShuffle", localbpm);
+      bmg localbmg = new bmg();
+      localbmg.a("value", Boolean.valueOf(m));
+      b("client-rSetShuffle", localbmg);
       return m;
     }
   }
   
   public final void a()
   {
-    bpm localbpm = new bpm();
+    bmg localbmg = new bmg();
     if ((!TextUtils.isEmpty((CharSequence)f.get())) && (!TextUtils.isEmpty((CharSequence)e.get())))
     {
-      localbpm.a("token", (String)f.get());
-      localbpm.a("providerID", (String)e.get());
+      localbmg.a("token", (String)f.get());
+      localbmg.a("providerID", (String)e.get());
     }
     if (!TextUtils.isEmpty(n)) {
-      localbpm.a("playbackURI", n);
+      localbmg.a("playbackURI", n);
     }
     if (g != null) {
-      localbpm.a("playbackIndex", g);
+      localbmg.a("playbackIndex", g);
     }
-    b("client-rState", localbpm);
+    b("client-rState", localbmg);
   }
   
-  public final void a(String paramString, bpm parambpm)
+  public final void a(String paramString, bmg parambmg)
   {
     boolean bool2 = true;
     boolean bool1 = true;
-    if (parambpm == null) {
+    if (parambmg == null) {
       return;
     }
     int i1 = -1;
@@ -250,19 +250,19 @@ public class MusicControlChannelService
       }
       i1 = 3;
       break;
-      paramString = parambpm.b("value");
+      paramString = parambmg.b("value");
       if ((paramString != null) && (!paramString.j()) && (paramString.f())) {}
       for (;;)
       {
         k = bool1;
-        a(parambpm);
+        a(parambmg);
         break;
         bool1 = false;
       }
-      o = b(parambpm.c("track"));
-      a(parambpm);
+      o = b(parambmg.c("track"));
+      a(parambmg);
       continue;
-      paramString = new bpm();
+      paramString = new bmg();
       paramString.a("token", (String)f.get());
       paramString.a("providerID", (String)e.get());
       if (!TextUtils.isEmpty(n)) {
@@ -273,27 +273,27 @@ public class MusicControlChannelService
       }
       b("client-rStateAck", paramString);
     }
-    paramString = parambpm.c("currentTrack");
+    paramString = parambmg.c("currentTrack");
     if (paramString != null)
     {
       paramString = paramString.c("track");
       label337:
       o = b(paramString);
-      paramString = parambpm.b("playing");
+      paramString = parambmg.b("playing");
       if ((paramString == null) || (paramString.j()) || (!paramString.f())) {
         break label460;
       }
       bool1 = true;
       label374:
       k = bool1;
-      paramString = parambpm.b("shuffling");
+      paramString = parambmg.b("shuffling");
       if ((paramString == null) || (paramString.j()) || (!paramString.f())) {
         break label466;
       }
       bool1 = bool2;
       label410:
       m = bool1;
-      paramString = parambpm.b("providerID");
+      paramString = parambmg.b("providerID");
       if (paramString == null) {
         break label472;
       }
@@ -303,7 +303,7 @@ public class MusicControlChannelService
     label472:
     for (paramString = paramString.b();; paramString = "spotify")
     {
-      a(parambpm);
+      a(parambmg);
       if (!k) {
         break;
       }
@@ -326,9 +326,9 @@ public class MusicControlChannelService
   public void onCreate()
   {
     if (p == null) {}
-    for (fsc localfsc = b();; localfsc = (fsc)p.c())
+    for (gkf localgkf = b();; localgkf = (gkf)p.c())
     {
-      localfsc.a(this);
+      localgkf.a(this);
       super.onCreate();
       a.a(this);
       return;
@@ -345,10 +345,10 @@ public class MusicControlChannelService
     super.onDestroy();
   }
   
-  @cho
-  public void onMusicControlEvent(ftu paramftu)
+  @chu
+  public void onMusicControlEvent(gmn paramgmn)
   {
-    switch (1.a[(paramftu.a() - 1)])
+    switch (1.a[(paramgmn.a() - 1)])
     {
     default: 
       return;
@@ -379,31 +379,31 @@ public class MusicControlChannelService
     return 2;
   }
   
-  @cho
-  public void onStationClickedEvent(fug paramfug)
+  @chu
+  public void onStationClickedEvent(gmz paramgmz)
   {
-    a(paramfug.b(), paramfug.a());
+    a(paramgmz.b(), paramgmz.a());
   }
   
-  @cho
-  public void onTrackClickedEvent(fuh paramfuh)
+  @chu
+  public void onTrackClickedEvent(gna paramgna)
   {
-    a(paramfuh.a(), paramfuh.b());
+    a(paramgna.a(), paramgna.b());
   }
   
-  @chn
-  public fty produceMusicUpdateEvent()
+  @cht
+  public gmr produceMusicUpdateEvent()
   {
     boolean bool2 = true;
     boolean bool1;
-    if (b.b(dux.ev))
+    if (b.c(eaj.hc))
     {
       bool1 = j;
       bool2 = l;
     }
     for (;;)
     {
-      return new fty(o, (String)e.get(), h, i, k, m, bool1, bool2);
+      return new gmr(o, (String)e.get(), h, i, k, m, bool1, bool2);
       bool1 = true;
     }
   }

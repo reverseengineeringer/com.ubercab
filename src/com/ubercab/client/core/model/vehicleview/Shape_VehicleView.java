@@ -9,12 +9,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import jvr;
+import nbb;
 
 public final class Shape_VehicleView
   extends VehicleView
 {
-  private static final Set<jvr<VehicleView>> SHAPE_PROPERTIES = Collections.unmodifiableSet(new HashSet(Arrays.asList(new Shape_VehicleView.Property[] { Shape_VehicleView.Property.ALLOW_CREDITS, Shape_VehicleView.Property.ALLOW_FARE_ESTIMATE, Shape_VehicleView.Property.ALLOW_HOP, Shape_VehicleView.Property.ALLOW_RIDEPOOL, Shape_VehicleView.Property.INCLUDE_COMMUTERS, Shape_VehicleView.Property.IS_CASH_ONLY, Shape_VehicleView.Property.IS_INSPECTING, Shape_VehicleView.Property.CAPACITY, Shape_VehicleView.Property.MAX_FARE_SPLITS, Shape_VehicleView.Property.ALLOW_CREDITS_ERROR, Shape_VehicleView.Property.CONFIRM_PICKUP_BUTTON_STRING, Shape_VehicleView.Property.DESCRIPTION, Shape_VehicleView.Property.DESTINATION_ENTRY, Shape_VehicleView.Property.DISPLAY_NAME, Shape_VehicleView.Property.FARE_DETAILS_URL, Shape_VehicleView.Property.FARE_MESSAGE, Shape_VehicleView.Property.GROUP_DISPLAY_NAME, Shape_VehicleView.Property.GROUP_ID, Shape_VehicleView.Property.ID, Shape_VehicleView.Property.MIN_FARE_TITLE, Shape_VehicleView.Property.NONE_AVAILABLE_STRING, Shape_VehicleView.Property.PARENT_ID, Shape_VehicleView.Property.PERMITTED_PAYMENT_METHODS_ERROR, Shape_VehicleView.Property.PICKUP_BUTTON_STRING, Shape_VehicleView.Property.PICKUP_ETA_STRING, Shape_VehicleView.Property.REQUEST_PICKUP_BUTTON_STRING, Shape_VehicleView.Property.RIDE_POOL_OPTION, Shape_VehicleView.Property.SET_PICKUP_LOCATION_STRING, Shape_VehicleView.Property.SURGE_TITLE, Shape_VehicleView.Property.UUID, Shape_VehicleView.Property.MAP_IMAGES, Shape_VehicleView.Property.MONO_IMAGES, Shape_VehicleView.Property.FARE, Shape_VehicleView.Property.TAGLINE, Shape_VehicleView.Property.POOL_DISPATCHING_TIP_MESSAGE, Shape_VehicleView.Property.CAPACITY_TAGLINE, Shape_VehicleView.Property.CONFIRMATION_TYPE, Shape_VehicleView.Property.LINKED_VEHICLE_VIEW_ID, Shape_VehicleView.Property.LINKED_VEHICLE_VIEW_ID_MAP, Shape_VehicleView.Property.HIJACK_VEHICLE_VIEW_ID, Shape_VehicleView.Property.PRODUCT_GROUP_UUID, Shape_VehicleView.Property.SHARING_TAGLINE, Shape_VehicleView.Property.HIJACK_SAVING_TAGLINE, Shape_VehicleView.Property.HIJACK_SHARING_TAGLINE, Shape_VehicleView.Property.HIJACK_TIP_TAGLINE, Shape_VehicleView.Property.ENABLE_VEHICLE_INVENTORY_VIEW, Shape_VehicleView.Property.IS_DESTINATION_REQUIRED, Shape_VehicleView.Property.SUPPRESS_SURGE_U_I })));
+  private static final Set<nbb<VehicleView>> SHAPE_PROPERTIES = Collections.unmodifiableSet(new HashSet(Arrays.asList(new Shape_VehicleView.Property[] { Shape_VehicleView.Property.POOL_DISPATCHING_TIP_TITLE, Shape_VehicleView.Property.PROMO_TAGLINE, Shape_VehicleView.Property.ALLOW_CREDITS, Shape_VehicleView.Property.ALLOW_FARE_ESTIMATE, Shape_VehicleView.Property.ALLOW_HOP, Shape_VehicleView.Property.ALLOW_RIDEPOOL, Shape_VehicleView.Property.DEFAULT_TO_COMMUTER_PAYMENT_PROFILE, Shape_VehicleView.Property.DESTINATION_ON_LOOKING, Shape_VehicleView.Property.INCLUDE_COMMUTERS, Shape_VehicleView.Property.IS_CASH_ONLY, Shape_VehicleView.Property.IS_INSPECTING, Shape_VehicleView.Property.IS_SCHEDULABLE, Shape_VehicleView.Property.HOP_VERSION, Shape_VehicleView.Property.CAPACITY, Shape_VehicleView.Property.MAX_FARE_SPLITS, Shape_VehicleView.Property.ALLOW_CREDITS_ERROR, Shape_VehicleView.Property.CONFIRM_PICKUP_BUTTON_STRING, Shape_VehicleView.Property.DESCRIPTION, Shape_VehicleView.Property.DESTINATION_ENTRY, Shape_VehicleView.Property.DISPLAY_NAME, Shape_VehicleView.Property.FARE_DETAILS_URL, Shape_VehicleView.Property.FARE_MESSAGE, Shape_VehicleView.Property.GROUP_DISPLAY_NAME, Shape_VehicleView.Property.GROUP_ID, Shape_VehicleView.Property.HOP_SET_PICKUP_AREA, Shape_VehicleView.Property.HOP_SET_PICKUP_AREA_NOT_AVAILABLE, Shape_VehicleView.Property.ID, Shape_VehicleView.Property.MIN_FARE_TITLE, Shape_VehicleView.Property.NONE_AVAILABLE_STRING, Shape_VehicleView.Property.PARENT_ID, Shape_VehicleView.Property.PERMITTED_PAYMENT_METHODS_ERROR, Shape_VehicleView.Property.PICKUP_BUTTON_STRING, Shape_VehicleView.Property.PICKUP_ETA_STRING, Shape_VehicleView.Property.REQUEST_PICKUP_BUTTON_STRING, Shape_VehicleView.Property.RIDE_POOL_OPTION, Shape_VehicleView.Property.SCHEDULE_TIME_WINDOW_M_S, Shape_VehicleView.Property.SET_PICKUP_LOCATION_STRING, Shape_VehicleView.Property.SHOULD_FETCH_UPFRONT_FARE, Shape_VehicleView.Property.SURGE_TITLE, Shape_VehicleView.Property.UUID, Shape_VehicleView.Property.MAP_IMAGES, Shape_VehicleView.Property.MONO_IMAGES, Shape_VehicleView.Property.FARE, Shape_VehicleView.Property.TAGLINE, Shape_VehicleView.Property.POOL_DISPATCHING_TIP_MESSAGE, Shape_VehicleView.Property.PREDICTED_ETA, Shape_VehicleView.Property.OVER_CAPACITY_TAGLINE, Shape_VehicleView.Property.CAPACITY_TAGLINE, Shape_VehicleView.Property.CONFIRMATION_TYPE, Shape_VehicleView.Property.LINKED_VEHICLE_VIEW_ID, Shape_VehicleView.Property.LINKED_VEHICLE_VIEW_ID_MAP, Shape_VehicleView.Property.PRODUCT_GROUP_UUID, Shape_VehicleView.Property.SHARING_TAGLINE, Shape_VehicleView.Property.ENABLE_VEHICLE_INVENTORY_VIEW, Shape_VehicleView.Property.IS_DESTINATION_REQUIRED, Shape_VehicleView.Property.SUPPRESS_SURGE_U_I })));
   private boolean allowCredits;
   private String allowCreditsError;
   private boolean allowFareEstimate;
@@ -24,8 +24,10 @@ public final class Shape_VehicleView
   private String capacityTagline;
   private String confirmPickupButtonString;
   private String confirmationType;
+  private boolean defaultToCommuterPaymentProfile;
   private String description;
   private String destinationEntry;
+  private boolean destinationOnLooking;
   private String displayName;
   private boolean enableVehicleInventoryView;
   private Fare fare;
@@ -33,15 +35,15 @@ public final class Shape_VehicleView
   private String fareMessage;
   private String groupDisplayName;
   private String groupId;
-  private String hijackSavingTagline;
-  private String hijackSharingTagline;
-  private String hijackTipTagline;
-  private String hijackVehicleViewId;
+  private String hopSetPickupArea;
+  private String hopSetPickupAreaNotAvailable;
+  private Integer hopVersion;
   private String id;
   private boolean includeCommuters;
   private boolean isCashOnly;
   private boolean isDestinationRequired;
   private boolean isInspecting;
+  private boolean isSchedulable;
   private String linkedVehicleViewId;
   private Map<String, String> linkedVehicleViewIdMap;
   private List<Image> mapImages;
@@ -49,16 +51,22 @@ public final class Shape_VehicleView
   private String minFareTitle;
   private List<Image> monoImages;
   private String noneAvailableString;
+  private String overCapacityTagline;
   private String parentId;
   private String permittedPaymentMethodsError;
   private String pickupButtonString;
   private String pickupEtaString;
   private String poolDispatchingTipMessage;
+  private String poolDispatchingTipTitle;
+  private Integer predictedEta;
   private String productGroupUuid;
+  private String promoTagline;
   private String requestPickupButtonString;
   private String ridePoolOption;
+  private Integer scheduleTimeWindowMS;
   private String setPickupLocationString;
   private String sharingTagline;
+  private boolean shouldFetchUpfrontFare;
   private boolean suppressSurgeUI;
   private String surgeTitle;
   private Tagline tagline;
@@ -74,6 +82,24 @@ public final class Shape_VehicleView
         return false;
       }
       paramObject = (VehicleView)paramObject;
+      if (((VehicleView)paramObject).getPoolDispatchingTipTitle() != null)
+      {
+        if (((VehicleView)paramObject).getPoolDispatchingTipTitle().equals(getPoolDispatchingTipTitle())) {}
+      }
+      else {
+        while (getPoolDispatchingTipTitle() != null) {
+          return false;
+        }
+      }
+      if (((VehicleView)paramObject).getPromoTagline() != null)
+      {
+        if (((VehicleView)paramObject).getPromoTagline().equals(getPromoTagline())) {}
+      }
+      else {
+        while (getPromoTagline() != null) {
+          return false;
+        }
+      }
       if (((VehicleView)paramObject).getAllowCredits() != getAllowCredits()) {
         return false;
       }
@@ -86,6 +112,12 @@ public final class Shape_VehicleView
       if (((VehicleView)paramObject).getAllowRidepool() != getAllowRidepool()) {
         return false;
       }
+      if (((VehicleView)paramObject).getDefaultToCommuterPaymentProfile() != getDefaultToCommuterPaymentProfile()) {
+        return false;
+      }
+      if (((VehicleView)paramObject).getDestinationOnLooking() != getDestinationOnLooking()) {
+        return false;
+      }
       if (((VehicleView)paramObject).getIncludeCommuters() != getIncludeCommuters()) {
         return false;
       }
@@ -94,6 +126,18 @@ public final class Shape_VehicleView
       }
       if (((VehicleView)paramObject).getIsInspecting() != getIsInspecting()) {
         return false;
+      }
+      if (((VehicleView)paramObject).getIsSchedulable() != getIsSchedulable()) {
+        return false;
+      }
+      if (((VehicleView)paramObject).getHopVersion() != null)
+      {
+        if (((VehicleView)paramObject).getHopVersion().equals(getHopVersion())) {}
+      }
+      else {
+        while (getHopVersion() != null) {
+          return false;
+        }
       }
       if (((VehicleView)paramObject).getCapacity() != getCapacity()) {
         return false;
@@ -182,6 +226,24 @@ public final class Shape_VehicleView
           return false;
         }
       }
+      if (((VehicleView)paramObject).getHopSetPickupArea() != null)
+      {
+        if (((VehicleView)paramObject).getHopSetPickupArea().equals(getHopSetPickupArea())) {}
+      }
+      else {
+        while (getHopSetPickupArea() != null) {
+          return false;
+        }
+      }
+      if (((VehicleView)paramObject).getHopSetPickupAreaNotAvailable() != null)
+      {
+        if (((VehicleView)paramObject).getHopSetPickupAreaNotAvailable().equals(getHopSetPickupAreaNotAvailable())) {}
+      }
+      else {
+        while (getHopSetPickupAreaNotAvailable() != null) {
+          return false;
+        }
+      }
       if (((VehicleView)paramObject).getId() != null)
       {
         if (((VehicleView)paramObject).getId().equals(getId())) {}
@@ -263,6 +325,15 @@ public final class Shape_VehicleView
           return false;
         }
       }
+      if (((VehicleView)paramObject).getScheduleTimeWindowMS() != null)
+      {
+        if (((VehicleView)paramObject).getScheduleTimeWindowMS().equals(getScheduleTimeWindowMS())) {}
+      }
+      else {
+        while (getScheduleTimeWindowMS() != null) {
+          return false;
+        }
+      }
       if (((VehicleView)paramObject).getSetPickupLocationString() != null)
       {
         if (((VehicleView)paramObject).getSetPickupLocationString().equals(getSetPickupLocationString())) {}
@@ -271,6 +342,9 @@ public final class Shape_VehicleView
         while (getSetPickupLocationString() != null) {
           return false;
         }
+      }
+      if (((VehicleView)paramObject).getShouldFetchUpfrontFare() != getShouldFetchUpfrontFare()) {
+        return false;
       }
       if (((VehicleView)paramObject).getSurgeTitle() != null)
       {
@@ -335,6 +409,24 @@ public final class Shape_VehicleView
           return false;
         }
       }
+      if (((VehicleView)paramObject).getPredictedEta() != null)
+      {
+        if (((VehicleView)paramObject).getPredictedEta().equals(getPredictedEta())) {}
+      }
+      else {
+        while (getPredictedEta() != null) {
+          return false;
+        }
+      }
+      if (((VehicleView)paramObject).getOverCapacityTagline() != null)
+      {
+        if (((VehicleView)paramObject).getOverCapacityTagline().equals(getOverCapacityTagline())) {}
+      }
+      else {
+        while (getOverCapacityTagline() != null) {
+          return false;
+        }
+      }
       if (((VehicleView)paramObject).getCapacityTagline() != null)
       {
         if (((VehicleView)paramObject).getCapacityTagline().equals(getCapacityTagline())) {}
@@ -371,15 +463,6 @@ public final class Shape_VehicleView
           return false;
         }
       }
-      if (((VehicleView)paramObject).getHijackVehicleViewId() != null)
-      {
-        if (((VehicleView)paramObject).getHijackVehicleViewId().equals(getHijackVehicleViewId())) {}
-      }
-      else {
-        while (getHijackVehicleViewId() != null) {
-          return false;
-        }
-      }
       if (((VehicleView)paramObject).getProductGroupUuid() != null)
       {
         if (((VehicleView)paramObject).getProductGroupUuid().equals(getProductGroupUuid())) {}
@@ -395,33 +478,6 @@ public final class Shape_VehicleView
       }
       else {
         while (getSharingTagline() != null) {
-          return false;
-        }
-      }
-      if (((VehicleView)paramObject).getHijackSavingTagline() != null)
-      {
-        if (((VehicleView)paramObject).getHijackSavingTagline().equals(getHijackSavingTagline())) {}
-      }
-      else {
-        while (getHijackSavingTagline() != null) {
-          return false;
-        }
-      }
-      if (((VehicleView)paramObject).getHijackSharingTagline() != null)
-      {
-        if (((VehicleView)paramObject).getHijackSharingTagline().equals(getHijackSharingTagline())) {}
-      }
-      else {
-        while (getHijackSharingTagline() != null) {
-          return false;
-        }
-      }
-      if (((VehicleView)paramObject).getHijackTipTagline() != null)
-      {
-        if (((VehicleView)paramObject).getHijackTipTagline().equals(getHijackTipTagline())) {}
-      }
-      else {
-        while (getHijackTipTagline() != null) {
           return false;
         }
       }
@@ -480,6 +536,11 @@ public final class Shape_VehicleView
     return (String)onGet(Shape_VehicleView.Property.CONFIRMATION_TYPE, confirmationType);
   }
   
+  public final boolean getDefaultToCommuterPaymentProfile()
+  {
+    return ((Boolean)onGet(Shape_VehicleView.Property.DEFAULT_TO_COMMUTER_PAYMENT_PROFILE, Boolean.valueOf(defaultToCommuterPaymentProfile))).booleanValue();
+  }
+  
   public final String getDescription()
   {
     return (String)onGet(Shape_VehicleView.Property.DESCRIPTION, description);
@@ -488,6 +549,11 @@ public final class Shape_VehicleView
   public final String getDestinationEntry()
   {
     return (String)onGet(Shape_VehicleView.Property.DESTINATION_ENTRY, destinationEntry);
+  }
+  
+  public final boolean getDestinationOnLooking()
+  {
+    return ((Boolean)onGet(Shape_VehicleView.Property.DESTINATION_ON_LOOKING, Boolean.valueOf(destinationOnLooking))).booleanValue();
   }
   
   public final String getDisplayName()
@@ -525,24 +591,19 @@ public final class Shape_VehicleView
     return (String)onGet(Shape_VehicleView.Property.GROUP_ID, groupId);
   }
   
-  public final String getHijackSavingTagline()
+  public final String getHopSetPickupArea()
   {
-    return (String)onGet(Shape_VehicleView.Property.HIJACK_SAVING_TAGLINE, hijackSavingTagline);
+    return (String)onGet(Shape_VehicleView.Property.HOP_SET_PICKUP_AREA, hopSetPickupArea);
   }
   
-  public final String getHijackSharingTagline()
+  public final String getHopSetPickupAreaNotAvailable()
   {
-    return (String)onGet(Shape_VehicleView.Property.HIJACK_SHARING_TAGLINE, hijackSharingTagline);
+    return (String)onGet(Shape_VehicleView.Property.HOP_SET_PICKUP_AREA_NOT_AVAILABLE, hopSetPickupAreaNotAvailable);
   }
   
-  public final String getHijackTipTagline()
+  public final Integer getHopVersion()
   {
-    return (String)onGet(Shape_VehicleView.Property.HIJACK_TIP_TAGLINE, hijackTipTagline);
-  }
-  
-  public final String getHijackVehicleViewId()
-  {
-    return (String)onGet(Shape_VehicleView.Property.HIJACK_VEHICLE_VIEW_ID, hijackVehicleViewId);
+    return (Integer)onGet(Shape_VehicleView.Property.HOP_VERSION, hopVersion);
   }
   
   public final String getId()
@@ -568,6 +629,11 @@ public final class Shape_VehicleView
   public final boolean getIsInspecting()
   {
     return ((Boolean)onGet(Shape_VehicleView.Property.IS_INSPECTING, Boolean.valueOf(isInspecting))).booleanValue();
+  }
+  
+  public final boolean getIsSchedulable()
+  {
+    return ((Boolean)onGet(Shape_VehicleView.Property.IS_SCHEDULABLE, Boolean.valueOf(isSchedulable))).booleanValue();
   }
   
   public final String getLinkedVehicleViewId()
@@ -605,6 +671,11 @@ public final class Shape_VehicleView
     return (String)onGet(Shape_VehicleView.Property.NONE_AVAILABLE_STRING, noneAvailableString);
   }
   
+  public final String getOverCapacityTagline()
+  {
+    return (String)onGet(Shape_VehicleView.Property.OVER_CAPACITY_TAGLINE, overCapacityTagline);
+  }
+  
   public final String getParentId()
   {
     return (String)onGet(Shape_VehicleView.Property.PARENT_ID, parentId);
@@ -630,9 +701,24 @@ public final class Shape_VehicleView
     return (String)onGet(Shape_VehicleView.Property.POOL_DISPATCHING_TIP_MESSAGE, poolDispatchingTipMessage);
   }
   
+  public final String getPoolDispatchingTipTitle()
+  {
+    return (String)onGet(Shape_VehicleView.Property.POOL_DISPATCHING_TIP_TITLE, poolDispatchingTipTitle);
+  }
+  
+  public final Integer getPredictedEta()
+  {
+    return (Integer)onGet(Shape_VehicleView.Property.PREDICTED_ETA, predictedEta);
+  }
+  
   public final String getProductGroupUuid()
   {
     return (String)onGet(Shape_VehicleView.Property.PRODUCT_GROUP_UUID, productGroupUuid);
+  }
+  
+  public final String getPromoTagline()
+  {
+    return (String)onGet(Shape_VehicleView.Property.PROMO_TAGLINE, promoTagline);
   }
   
   public final String getRequestPickupButtonString()
@@ -645,6 +731,11 @@ public final class Shape_VehicleView
     return (String)onGet(Shape_VehicleView.Property.RIDE_POOL_OPTION, ridePoolOption);
   }
   
+  public final Integer getScheduleTimeWindowMS()
+  {
+    return (Integer)onGet(Shape_VehicleView.Property.SCHEDULE_TIME_WINDOW_M_S, scheduleTimeWindowMS);
+  }
+  
   public final String getSetPickupLocationString()
   {
     return (String)onGet(Shape_VehicleView.Property.SET_PICKUP_LOCATION_STRING, setPickupLocationString);
@@ -653,6 +744,11 @@ public final class Shape_VehicleView
   public final String getSharingTagline()
   {
     return (String)onGet(Shape_VehicleView.Property.SHARING_TAGLINE, sharingTagline);
+  }
+  
+  public final boolean getShouldFetchUpfrontFare()
+  {
+    return ((Boolean)onGet(Shape_VehicleView.Property.SHOULD_FETCH_UPFRONT_FARE, Boolean.valueOf(shouldFetchUpfrontFare))).booleanValue();
   }
   
   @Deprecated
@@ -678,421 +774,493 @@ public final class Shape_VehicleView
   
   public final int hashCode()
   {
-    int i41 = 1231;
-    int i38 = 0;
+    int i49 = 1231;
+    int i46 = 0;
     int i;
     int j;
-    label30:
+    label26:
     int k;
-    label41:
+    label37:
     int m;
-    label53:
+    label49:
     int n;
-    label65:
+    label61:
     int i1;
-    label77:
+    label73:
     int i2;
-    label89:
-    int i42;
-    int i43;
+    label85:
     int i3;
-    label111:
+    label97:
     int i4;
-    label121:
+    label109:
     int i5;
-    label131:
+    label121:
     int i6;
-    label141:
+    label133:
     int i7;
-    label151:
+    label145:
     int i8;
-    label161:
+    label155:
+    int i50;
+    int i51;
     int i9;
-    label171:
+    label177:
     int i10;
-    label181:
+    label187:
     int i11;
-    label191:
+    label197:
     int i12;
-    label201:
+    label207:
     int i13;
-    label211:
+    label217:
     int i14;
-    label221:
+    label227:
     int i15;
-    label231:
+    label237:
     int i16;
-    label241:
+    label247:
     int i17;
-    label251:
+    label257:
     int i18;
-    label261:
+    label267:
     int i19;
-    label271:
+    label277:
     int i20;
-    label281:
+    label287:
     int i21;
-    label291:
+    label297:
     int i22;
-    label301:
+    label307:
     int i23;
-    label311:
+    label317:
     int i24;
-    label321:
+    label327:
     int i25;
-    label331:
+    label337:
     int i26;
-    label341:
+    label347:
     int i27;
-    label351:
+    label357:
     int i28;
-    label361:
+    label367:
     int i29;
-    label371:
+    label377:
     int i30;
-    label381:
+    label387:
     int i31;
-    label391:
+    label399:
     int i32;
-    label401:
+    label409:
     int i33;
-    label411:
+    label419:
     int i34;
-    label421:
+    label429:
     int i35;
-    label431:
+    label439:
     int i36;
-    label441:
+    label449:
     int i37;
-    label451:
-    label458:
+    label459:
+    int i38;
+    label469:
     int i39;
-    label470:
+    label479:
     int i40;
-    if (allowCredits)
+    label489:
+    int i41;
+    label499:
+    int i42;
+    label509:
+    int i43;
+    label519:
+    int i44;
+    label529:
+    int i45;
+    label539:
+    label546:
+    int i47;
+    label558:
+    int i48;
+    if (poolDispatchingTipTitle == null)
     {
-      i = 1231;
-      if (!allowFareEstimate) {
-        break label829;
+      i = 0;
+      if (promoTagline != null) {
+        break label977;
       }
-      j = 1231;
-      if (!allowHop) {
-        break label836;
+      j = 0;
+      if (!allowCredits) {
+        break label988;
       }
       k = 1231;
-      if (!allowRidepool) {
-        break label843;
-      }
-      m = 1231;
-      if (!includeCommuters) {
-        break label851;
-      }
-      n = 1231;
-      if (!isCashOnly) {
-        break label859;
-      }
-      i1 = 1231;
-      if (!isInspecting) {
-        break label867;
-      }
-      i2 = 1231;
-      i42 = capacity;
-      i43 = maxFareSplits;
-      if (allowCreditsError != null) {
-        break label875;
-      }
-      i3 = 0;
-      if (confirmPickupButtonString != null) {
-        break label887;
-      }
-      i4 = 0;
-      if (description != null) {
-        break label899;
-      }
-      i5 = 0;
-      if (destinationEntry != null) {
-        break label911;
-      }
-      i6 = 0;
-      if (displayName != null) {
-        break label923;
-      }
-      i7 = 0;
-      if (fareDetailsUrl != null) {
-        break label935;
-      }
-      i8 = 0;
-      if (fareMessage != null) {
-        break label947;
-      }
-      i9 = 0;
-      if (groupDisplayName != null) {
-        break label959;
-      }
-      i10 = 0;
-      if (groupId != null) {
-        break label971;
-      }
-      i11 = 0;
-      if (id != null) {
-        break label983;
-      }
-      i12 = 0;
-      if (minFareTitle != null) {
+      if (!allowFareEstimate) {
         break label995;
       }
-      i13 = 0;
-      if (noneAvailableString != null) {
-        break label1007;
+      m = 1231;
+      if (!allowHop) {
+        break label1003;
       }
-      i14 = 0;
-      if (parentId != null) {
+      n = 1231;
+      if (!allowRidepool) {
+        break label1011;
+      }
+      i1 = 1231;
+      if (!defaultToCommuterPaymentProfile) {
         break label1019;
       }
-      i15 = 0;
-      if (permittedPaymentMethodsError != null) {
-        break label1031;
+      i2 = 1231;
+      if (!destinationOnLooking) {
+        break label1027;
       }
-      i16 = 0;
-      if (pickupButtonString != null) {
+      i3 = 1231;
+      if (!includeCommuters) {
+        break label1035;
+      }
+      i4 = 1231;
+      if (!isCashOnly) {
         break label1043;
       }
-      i17 = 0;
-      if (pickupEtaString != null) {
-        break label1055;
+      i5 = 1231;
+      if (!isInspecting) {
+        break label1051;
       }
-      i18 = 0;
-      if (requestPickupButtonString != null) {
+      i6 = 1231;
+      if (!isSchedulable) {
+        break label1059;
+      }
+      i7 = 1231;
+      if (hopVersion != null) {
         break label1067;
       }
-      i19 = 0;
-      if (ridePoolOption != null) {
+      i8 = 0;
+      i50 = capacity;
+      i51 = maxFareSplits;
+      if (allowCreditsError != null) {
         break label1079;
       }
-      i20 = 0;
-      if (setPickupLocationString != null) {
+      i9 = 0;
+      if (confirmPickupButtonString != null) {
         break label1091;
       }
-      i21 = 0;
-      if (surgeTitle != null) {
+      i10 = 0;
+      if (description != null) {
         break label1103;
       }
-      i22 = 0;
-      if (uuid != null) {
+      i11 = 0;
+      if (destinationEntry != null) {
         break label1115;
       }
-      i23 = 0;
-      if (mapImages != null) {
+      i12 = 0;
+      if (displayName != null) {
         break label1127;
       }
+      i13 = 0;
+      if (fareDetailsUrl != null) {
+        break label1139;
+      }
+      i14 = 0;
+      if (fareMessage != null) {
+        break label1151;
+      }
+      i15 = 0;
+      if (groupDisplayName != null) {
+        break label1163;
+      }
+      i16 = 0;
+      if (groupId != null) {
+        break label1175;
+      }
+      i17 = 0;
+      if (hopSetPickupArea != null) {
+        break label1187;
+      }
+      i18 = 0;
+      if (hopSetPickupAreaNotAvailable != null) {
+        break label1199;
+      }
+      i19 = 0;
+      if (id != null) {
+        break label1211;
+      }
+      i20 = 0;
+      if (minFareTitle != null) {
+        break label1223;
+      }
+      i21 = 0;
+      if (noneAvailableString != null) {
+        break label1235;
+      }
+      i22 = 0;
+      if (parentId != null) {
+        break label1247;
+      }
+      i23 = 0;
+      if (permittedPaymentMethodsError != null) {
+        break label1259;
+      }
       i24 = 0;
-      if (monoImages != null) {
-        break label1141;
+      if (pickupButtonString != null) {
+        break label1271;
       }
       i25 = 0;
-      if (fare != null) {
-        break label1155;
+      if (pickupEtaString != null) {
+        break label1283;
       }
       i26 = 0;
-      if (tagline != null) {
-        break label1167;
+      if (requestPickupButtonString != null) {
+        break label1295;
       }
       i27 = 0;
-      if (poolDispatchingTipMessage != null) {
-        break label1179;
+      if (ridePoolOption != null) {
+        break label1307;
       }
       i28 = 0;
-      if (capacityTagline != null) {
-        break label1191;
+      if (scheduleTimeWindowMS != null) {
+        break label1319;
       }
       i29 = 0;
-      if (confirmationType != null) {
-        break label1203;
+      if (setPickupLocationString != null) {
+        break label1331;
       }
       i30 = 0;
-      if (linkedVehicleViewId != null) {
-        break label1215;
+      if (!shouldFetchUpfrontFare) {
+        break label1343;
       }
-      i31 = 0;
-      if (linkedVehicleViewIdMap != null) {
-        break label1227;
+      i31 = 1231;
+      if (surgeTitle != null) {
+        break label1351;
       }
       i32 = 0;
-      if (hijackVehicleViewId != null) {
-        break label1241;
+      if (uuid != null) {
+        break label1363;
       }
       i33 = 0;
-      if (productGroupUuid != null) {
-        break label1253;
+      if (mapImages != null) {
+        break label1375;
       }
       i34 = 0;
-      if (sharingTagline != null) {
-        break label1265;
+      if (monoImages != null) {
+        break label1389;
       }
       i35 = 0;
-      if (hijackSavingTagline != null) {
-        break label1277;
+      if (fare != null) {
+        break label1403;
       }
       i36 = 0;
-      if (hijackSharingTagline != null) {
-        break label1289;
+      if (tagline != null) {
+        break label1415;
       }
       i37 = 0;
-      if (hijackTipTagline != null) {
-        break label1301;
+      if (poolDispatchingTipMessage != null) {
+        break label1427;
+      }
+      i38 = 0;
+      if (predictedEta != null) {
+        break label1439;
+      }
+      i39 = 0;
+      if (overCapacityTagline != null) {
+        break label1451;
+      }
+      i40 = 0;
+      if (capacityTagline != null) {
+        break label1463;
+      }
+      i41 = 0;
+      if (confirmationType != null) {
+        break label1475;
+      }
+      i42 = 0;
+      if (linkedVehicleViewId != null) {
+        break label1487;
+      }
+      i43 = 0;
+      if (linkedVehicleViewIdMap != null) {
+        break label1499;
+      }
+      i44 = 0;
+      if (productGroupUuid != null) {
+        break label1513;
+      }
+      i45 = 0;
+      if (sharingTagline != null) {
+        break label1525;
       }
       if (!enableVehicleInventoryView) {
-        break label1313;
+        break label1537;
       }
-      i39 = 1231;
+      i47 = 1231;
       if (!isDestinationRequired) {
-        break label1321;
+        break label1545;
       }
-      i40 = 1231;
-      label482:
+      i48 = 1231;
+      label570:
       if (!suppressSurgeUI) {
-        break label1329;
+        break label1553;
       }
     }
     for (;;)
     {
-      return (i40 ^ (i39 ^ ((i37 ^ (i36 ^ (i35 ^ (i34 ^ (i33 ^ (i32 ^ (i31 ^ (i30 ^ (i29 ^ (i28 ^ (i27 ^ (i26 ^ (i25 ^ (i24 ^ (i23 ^ (i22 ^ (i21 ^ (i20 ^ (i19 ^ (i18 ^ (i17 ^ (i16 ^ (i15 ^ (i14 ^ (i13 ^ (i12 ^ (i11 ^ (i10 ^ (i9 ^ (i8 ^ (i7 ^ (i6 ^ (i5 ^ (i4 ^ (i3 ^ (((i2 ^ (i1 ^ (n ^ (m ^ (k ^ (j ^ (i ^ 0xF4243) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003 ^ i42) * 1000003 ^ i43) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003 ^ i38) * 1000003) * 1000003) * 1000003 ^ i41;
-      i = 1237;
+      return (i48 ^ (i47 ^ ((i45 ^ (i44 ^ (i43 ^ (i42 ^ (i41 ^ (i40 ^ (i39 ^ (i38 ^ (i37 ^ (i36 ^ (i35 ^ (i34 ^ (i33 ^ (i32 ^ (i31 ^ (i30 ^ (i29 ^ (i28 ^ (i27 ^ (i26 ^ (i25 ^ (i24 ^ (i23 ^ (i22 ^ (i21 ^ (i20 ^ (i19 ^ (i18 ^ (i17 ^ (i16 ^ (i15 ^ (i14 ^ (i13 ^ (i12 ^ (i11 ^ (i10 ^ (i9 ^ (((i8 ^ (i7 ^ (i6 ^ (i5 ^ (i4 ^ (i3 ^ (i2 ^ (i1 ^ (n ^ (m ^ (k ^ (j ^ (i ^ 0xF4243) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003 ^ i50) * 1000003 ^ i51) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003 ^ i46) * 1000003) * 1000003) * 1000003 ^ i49;
+      i = poolDispatchingTipTitle.hashCode();
       break;
-      label829:
-      j = 1237;
-      break label30;
-      label836:
+      label977:
+      j = promoTagline.hashCode();
+      break label26;
+      label988:
       k = 1237;
-      break label41;
-      label843:
-      m = 1237;
-      break label53;
-      label851:
-      n = 1237;
-      break label65;
-      label859:
-      i1 = 1237;
-      break label77;
-      label867:
-      i2 = 1237;
-      break label89;
-      label875:
-      i3 = allowCreditsError.hashCode();
-      break label111;
-      label887:
-      i4 = confirmPickupButtonString.hashCode();
-      break label121;
-      label899:
-      i5 = description.hashCode();
-      break label131;
-      label911:
-      i6 = destinationEntry.hashCode();
-      break label141;
-      label923:
-      i7 = displayName.hashCode();
-      break label151;
-      label935:
-      i8 = fareDetailsUrl.hashCode();
-      break label161;
-      label947:
-      i9 = fareMessage.hashCode();
-      break label171;
-      label959:
-      i10 = groupDisplayName.hashCode();
-      break label181;
-      label971:
-      i11 = groupId.hashCode();
-      break label191;
-      label983:
-      i12 = id.hashCode();
-      break label201;
+      break label37;
       label995:
-      i13 = minFareTitle.hashCode();
-      break label211;
-      label1007:
-      i14 = noneAvailableString.hashCode();
-      break label221;
+      m = 1237;
+      break label49;
+      label1003:
+      n = 1237;
+      break label61;
+      label1011:
+      i1 = 1237;
+      break label73;
       label1019:
-      i15 = parentId.hashCode();
-      break label231;
-      label1031:
-      i16 = permittedPaymentMethodsError.hashCode();
-      break label241;
+      i2 = 1237;
+      break label85;
+      label1027:
+      i3 = 1237;
+      break label97;
+      label1035:
+      i4 = 1237;
+      break label109;
       label1043:
-      i17 = pickupButtonString.hashCode();
-      break label251;
-      label1055:
-      i18 = pickupEtaString.hashCode();
-      break label261;
+      i5 = 1237;
+      break label121;
+      label1051:
+      i6 = 1237;
+      break label133;
+      label1059:
+      i7 = 1237;
+      break label145;
       label1067:
-      i19 = requestPickupButtonString.hashCode();
-      break label271;
+      i8 = hopVersion.hashCode();
+      break label155;
       label1079:
-      i20 = ridePoolOption.hashCode();
-      break label281;
+      i9 = allowCreditsError.hashCode();
+      break label177;
       label1091:
-      i21 = setPickupLocationString.hashCode();
-      break label291;
+      i10 = confirmPickupButtonString.hashCode();
+      break label187;
       label1103:
-      i22 = surgeTitle.hashCode();
-      break label301;
+      i11 = description.hashCode();
+      break label197;
       label1115:
-      i23 = uuid.hashCode();
-      break label311;
+      i12 = destinationEntry.hashCode();
+      break label207;
       label1127:
-      i24 = mapImages.hashCode();
-      break label321;
-      label1141:
-      i25 = monoImages.hashCode();
-      break label331;
-      label1155:
-      i26 = fare.hashCode();
-      break label341;
-      label1167:
-      i27 = tagline.hashCode();
-      break label351;
-      label1179:
-      i28 = poolDispatchingTipMessage.hashCode();
-      break label361;
-      label1191:
-      i29 = capacityTagline.hashCode();
-      break label371;
-      label1203:
-      i30 = confirmationType.hashCode();
-      break label381;
-      label1215:
-      i31 = linkedVehicleViewId.hashCode();
-      break label391;
-      label1227:
-      i32 = linkedVehicleViewIdMap.hashCode();
-      break label401;
-      label1241:
-      i33 = hijackVehicleViewId.hashCode();
-      break label411;
-      label1253:
-      i34 = productGroupUuid.hashCode();
-      break label421;
-      label1265:
-      i35 = sharingTagline.hashCode();
-      break label431;
-      label1277:
-      i36 = hijackSavingTagline.hashCode();
-      break label441;
-      label1289:
-      i37 = hijackSharingTagline.hashCode();
-      break label451;
-      label1301:
-      i38 = hijackTipTagline.hashCode();
-      break label458;
-      label1313:
-      i39 = 1237;
-      break label470;
-      label1321:
-      i40 = 1237;
-      break label482;
-      label1329:
-      i41 = 1237;
+      i13 = displayName.hashCode();
+      break label217;
+      label1139:
+      i14 = fareDetailsUrl.hashCode();
+      break label227;
+      label1151:
+      i15 = fareMessage.hashCode();
+      break label237;
+      label1163:
+      i16 = groupDisplayName.hashCode();
+      break label247;
+      label1175:
+      i17 = groupId.hashCode();
+      break label257;
+      label1187:
+      i18 = hopSetPickupArea.hashCode();
+      break label267;
+      label1199:
+      i19 = hopSetPickupAreaNotAvailable.hashCode();
+      break label277;
+      label1211:
+      i20 = id.hashCode();
+      break label287;
+      label1223:
+      i21 = minFareTitle.hashCode();
+      break label297;
+      label1235:
+      i22 = noneAvailableString.hashCode();
+      break label307;
+      label1247:
+      i23 = parentId.hashCode();
+      break label317;
+      label1259:
+      i24 = permittedPaymentMethodsError.hashCode();
+      break label327;
+      label1271:
+      i25 = pickupButtonString.hashCode();
+      break label337;
+      label1283:
+      i26 = pickupEtaString.hashCode();
+      break label347;
+      label1295:
+      i27 = requestPickupButtonString.hashCode();
+      break label357;
+      label1307:
+      i28 = ridePoolOption.hashCode();
+      break label367;
+      label1319:
+      i29 = scheduleTimeWindowMS.hashCode();
+      break label377;
+      label1331:
+      i30 = setPickupLocationString.hashCode();
+      break label387;
+      label1343:
+      i31 = 1237;
+      break label399;
+      label1351:
+      i32 = surgeTitle.hashCode();
+      break label409;
+      label1363:
+      i33 = uuid.hashCode();
+      break label419;
+      label1375:
+      i34 = mapImages.hashCode();
+      break label429;
+      label1389:
+      i35 = monoImages.hashCode();
+      break label439;
+      label1403:
+      i36 = fare.hashCode();
+      break label449;
+      label1415:
+      i37 = tagline.hashCode();
+      break label459;
+      label1427:
+      i38 = poolDispatchingTipMessage.hashCode();
+      break label469;
+      label1439:
+      i39 = predictedEta.hashCode();
+      break label479;
+      label1451:
+      i40 = overCapacityTagline.hashCode();
+      break label489;
+      label1463:
+      i41 = capacityTagline.hashCode();
+      break label499;
+      label1475:
+      i42 = confirmationType.hashCode();
+      break label509;
+      label1487:
+      i43 = linkedVehicleViewId.hashCode();
+      break label519;
+      label1499:
+      i44 = linkedVehicleViewIdMap.hashCode();
+      break label529;
+      label1513:
+      i45 = productGroupUuid.hashCode();
+      break label539;
+      label1525:
+      i46 = sharingTagline.hashCode();
+      break label546;
+      label1537:
+      i47 = 1237;
+      break label558;
+      label1545:
+      i48 = 1237;
+      break label570;
+      label1553:
+      i49 = 1237;
     }
   }
   
@@ -1168,6 +1336,14 @@ public final class Shape_VehicleView
     return this;
   }
   
+  public final VehicleView setDefaultToCommuterPaymentProfile(boolean paramBoolean)
+  {
+    boolean bool = defaultToCommuterPaymentProfile;
+    defaultToCommuterPaymentProfile = ((Boolean)beforeSet(Shape_VehicleView.Property.DEFAULT_TO_COMMUTER_PAYMENT_PROFILE, Boolean.valueOf(bool), Boolean.valueOf(paramBoolean))).booleanValue();
+    afterSet(Shape_VehicleView.Property.DEFAULT_TO_COMMUTER_PAYMENT_PROFILE, Boolean.valueOf(bool), Boolean.valueOf(paramBoolean));
+    return this;
+  }
+  
   public final VehicleView setDescription(String paramString)
   {
     String str = description;
@@ -1181,6 +1357,14 @@ public final class Shape_VehicleView
     String str = destinationEntry;
     destinationEntry = ((String)beforeSet(Shape_VehicleView.Property.DESTINATION_ENTRY, str, paramString));
     afterSet(Shape_VehicleView.Property.DESTINATION_ENTRY, str, paramString);
+    return this;
+  }
+  
+  public final VehicleView setDestinationOnLooking(boolean paramBoolean)
+  {
+    boolean bool = destinationOnLooking;
+    destinationOnLooking = ((Boolean)beforeSet(Shape_VehicleView.Property.DESTINATION_ON_LOOKING, Boolean.valueOf(bool), Boolean.valueOf(paramBoolean))).booleanValue();
+    afterSet(Shape_VehicleView.Property.DESTINATION_ON_LOOKING, Boolean.valueOf(bool), Boolean.valueOf(paramBoolean));
     return this;
   }
   
@@ -1240,35 +1424,27 @@ public final class Shape_VehicleView
     return this;
   }
   
-  public final VehicleView setHijackSavingTagline(String paramString)
+  public final VehicleView setHopSetPickupArea(String paramString)
   {
-    String str = hijackSavingTagline;
-    hijackSavingTagline = ((String)beforeSet(Shape_VehicleView.Property.HIJACK_SAVING_TAGLINE, str, paramString));
-    afterSet(Shape_VehicleView.Property.HIJACK_SAVING_TAGLINE, str, paramString);
+    String str = hopSetPickupArea;
+    hopSetPickupArea = ((String)beforeSet(Shape_VehicleView.Property.HOP_SET_PICKUP_AREA, str, paramString));
+    afterSet(Shape_VehicleView.Property.HOP_SET_PICKUP_AREA, str, paramString);
     return this;
   }
   
-  public final VehicleView setHijackSharingTagline(String paramString)
+  public final VehicleView setHopSetPickupAreaNotAvailable(String paramString)
   {
-    String str = hijackSharingTagline;
-    hijackSharingTagline = ((String)beforeSet(Shape_VehicleView.Property.HIJACK_SHARING_TAGLINE, str, paramString));
-    afterSet(Shape_VehicleView.Property.HIJACK_SHARING_TAGLINE, str, paramString);
+    String str = hopSetPickupAreaNotAvailable;
+    hopSetPickupAreaNotAvailable = ((String)beforeSet(Shape_VehicleView.Property.HOP_SET_PICKUP_AREA_NOT_AVAILABLE, str, paramString));
+    afterSet(Shape_VehicleView.Property.HOP_SET_PICKUP_AREA_NOT_AVAILABLE, str, paramString);
     return this;
   }
   
-  public final VehicleView setHijackTipTagline(String paramString)
+  public final VehicleView setHopVersion(Integer paramInteger)
   {
-    String str = hijackTipTagline;
-    hijackTipTagline = ((String)beforeSet(Shape_VehicleView.Property.HIJACK_TIP_TAGLINE, str, paramString));
-    afterSet(Shape_VehicleView.Property.HIJACK_TIP_TAGLINE, str, paramString);
-    return this;
-  }
-  
-  public final VehicleView setHijackVehicleViewId(String paramString)
-  {
-    String str = hijackVehicleViewId;
-    hijackVehicleViewId = ((String)beforeSet(Shape_VehicleView.Property.HIJACK_VEHICLE_VIEW_ID, str, paramString));
-    afterSet(Shape_VehicleView.Property.HIJACK_VEHICLE_VIEW_ID, str, paramString);
+    Integer localInteger = hopVersion;
+    hopVersion = ((Integer)beforeSet(Shape_VehicleView.Property.HOP_VERSION, localInteger, paramInteger));
+    afterSet(Shape_VehicleView.Property.HOP_VERSION, localInteger, paramInteger);
     return this;
   }
   
@@ -1309,6 +1485,14 @@ public final class Shape_VehicleView
     boolean bool = isInspecting;
     isInspecting = ((Boolean)beforeSet(Shape_VehicleView.Property.IS_INSPECTING, Boolean.valueOf(bool), Boolean.valueOf(paramBoolean))).booleanValue();
     afterSet(Shape_VehicleView.Property.IS_INSPECTING, Boolean.valueOf(bool), Boolean.valueOf(paramBoolean));
+    return this;
+  }
+  
+  public final VehicleView setIsSchedulable(boolean paramBoolean)
+  {
+    boolean bool = isSchedulable;
+    isSchedulable = ((Boolean)beforeSet(Shape_VehicleView.Property.IS_SCHEDULABLE, Boolean.valueOf(bool), Boolean.valueOf(paramBoolean))).booleanValue();
+    afterSet(Shape_VehicleView.Property.IS_SCHEDULABLE, Boolean.valueOf(bool), Boolean.valueOf(paramBoolean));
     return this;
   }
   
@@ -1368,6 +1552,14 @@ public final class Shape_VehicleView
     return this;
   }
   
+  public final VehicleView setOverCapacityTagline(String paramString)
+  {
+    String str = overCapacityTagline;
+    overCapacityTagline = ((String)beforeSet(Shape_VehicleView.Property.OVER_CAPACITY_TAGLINE, str, paramString));
+    afterSet(Shape_VehicleView.Property.OVER_CAPACITY_TAGLINE, str, paramString);
+    return this;
+  }
+  
   public final VehicleView setParentId(String paramString)
   {
     String str = parentId;
@@ -1408,11 +1600,35 @@ public final class Shape_VehicleView
     return this;
   }
   
+  public final VehicleView setPoolDispatchingTipTitle(String paramString)
+  {
+    String str = poolDispatchingTipTitle;
+    poolDispatchingTipTitle = ((String)beforeSet(Shape_VehicleView.Property.POOL_DISPATCHING_TIP_TITLE, str, paramString));
+    afterSet(Shape_VehicleView.Property.POOL_DISPATCHING_TIP_TITLE, str, paramString);
+    return this;
+  }
+  
+  public final VehicleView setPredictedEta(Integer paramInteger)
+  {
+    Integer localInteger = predictedEta;
+    predictedEta = ((Integer)beforeSet(Shape_VehicleView.Property.PREDICTED_ETA, localInteger, paramInteger));
+    afterSet(Shape_VehicleView.Property.PREDICTED_ETA, localInteger, paramInteger);
+    return this;
+  }
+  
   public final VehicleView setProductGroupUuid(String paramString)
   {
     String str = productGroupUuid;
     productGroupUuid = ((String)beforeSet(Shape_VehicleView.Property.PRODUCT_GROUP_UUID, str, paramString));
     afterSet(Shape_VehicleView.Property.PRODUCT_GROUP_UUID, str, paramString);
+    return this;
+  }
+  
+  public final VehicleView setPromoTagline(String paramString)
+  {
+    String str = promoTagline;
+    promoTagline = ((String)beforeSet(Shape_VehicleView.Property.PROMO_TAGLINE, str, paramString));
+    afterSet(Shape_VehicleView.Property.PROMO_TAGLINE, str, paramString);
     return this;
   }
   
@@ -1432,6 +1648,14 @@ public final class Shape_VehicleView
     return this;
   }
   
+  public final VehicleView setScheduleTimeWindowMS(Integer paramInteger)
+  {
+    Integer localInteger = scheduleTimeWindowMS;
+    scheduleTimeWindowMS = ((Integer)beforeSet(Shape_VehicleView.Property.SCHEDULE_TIME_WINDOW_M_S, localInteger, paramInteger));
+    afterSet(Shape_VehicleView.Property.SCHEDULE_TIME_WINDOW_M_S, localInteger, paramInteger);
+    return this;
+  }
+  
   public final VehicleView setSetPickupLocationString(String paramString)
   {
     String str = setPickupLocationString;
@@ -1445,6 +1669,14 @@ public final class Shape_VehicleView
     String str = sharingTagline;
     sharingTagline = ((String)beforeSet(Shape_VehicleView.Property.SHARING_TAGLINE, str, paramString));
     afterSet(Shape_VehicleView.Property.SHARING_TAGLINE, str, paramString);
+    return this;
+  }
+  
+  public final VehicleView setShouldFetchUpfrontFare(boolean paramBoolean)
+  {
+    boolean bool = shouldFetchUpfrontFare;
+    shouldFetchUpfrontFare = ((Boolean)beforeSet(Shape_VehicleView.Property.SHOULD_FETCH_UPFRONT_FARE, Boolean.valueOf(bool), Boolean.valueOf(paramBoolean))).booleanValue();
+    afterSet(Shape_VehicleView.Property.SHOULD_FETCH_UPFRONT_FARE, Boolean.valueOf(bool), Boolean.valueOf(paramBoolean));
     return this;
   }
   
@@ -1482,7 +1714,7 @@ public final class Shape_VehicleView
   
   public final String toString()
   {
-    return "com.ubercab.client.core.model.vehicleview.VehicleView{allowCredits=" + allowCredits + ", allowFareEstimate=" + allowFareEstimate + ", allowHop=" + allowHop + ", allowRidepool=" + allowRidepool + ", includeCommuters=" + includeCommuters + ", isCashOnly=" + isCashOnly + ", isInspecting=" + isInspecting + ", capacity=" + capacity + ", maxFareSplits=" + maxFareSplits + ", allowCreditsError=" + allowCreditsError + ", confirmPickupButtonString=" + confirmPickupButtonString + ", description=" + description + ", destinationEntry=" + destinationEntry + ", displayName=" + displayName + ", fareDetailsUrl=" + fareDetailsUrl + ", fareMessage=" + fareMessage + ", groupDisplayName=" + groupDisplayName + ", groupId=" + groupId + ", id=" + id + ", minFareTitle=" + minFareTitle + ", noneAvailableString=" + noneAvailableString + ", parentId=" + parentId + ", permittedPaymentMethodsError=" + permittedPaymentMethodsError + ", pickupButtonString=" + pickupButtonString + ", pickupEtaString=" + pickupEtaString + ", requestPickupButtonString=" + requestPickupButtonString + ", ridePoolOption=" + ridePoolOption + ", setPickupLocationString=" + setPickupLocationString + ", surgeTitle=" + surgeTitle + ", uuid=" + uuid + ", mapImages=" + mapImages + ", monoImages=" + monoImages + ", fare=" + fare + ", tagline=" + tagline + ", poolDispatchingTipMessage=" + poolDispatchingTipMessage + ", capacityTagline=" + capacityTagline + ", confirmationType=" + confirmationType + ", linkedVehicleViewId=" + linkedVehicleViewId + ", linkedVehicleViewIdMap=" + linkedVehicleViewIdMap + ", hijackVehicleViewId=" + hijackVehicleViewId + ", productGroupUuid=" + productGroupUuid + ", sharingTagline=" + sharingTagline + ", hijackSavingTagline=" + hijackSavingTagline + ", hijackSharingTagline=" + hijackSharingTagline + ", hijackTipTagline=" + hijackTipTagline + ", enableVehicleInventoryView=" + enableVehicleInventoryView + ", isDestinationRequired=" + isDestinationRequired + ", suppressSurgeUI=" + suppressSurgeUI + "}";
+    return "com.ubercab.client.core.model.vehicleview.VehicleView{poolDispatchingTipTitle=" + poolDispatchingTipTitle + ", promoTagline=" + promoTagline + ", allowCredits=" + allowCredits + ", allowFareEstimate=" + allowFareEstimate + ", allowHop=" + allowHop + ", allowRidepool=" + allowRidepool + ", defaultToCommuterPaymentProfile=" + defaultToCommuterPaymentProfile + ", destinationOnLooking=" + destinationOnLooking + ", includeCommuters=" + includeCommuters + ", isCashOnly=" + isCashOnly + ", isInspecting=" + isInspecting + ", isSchedulable=" + isSchedulable + ", hopVersion=" + hopVersion + ", capacity=" + capacity + ", maxFareSplits=" + maxFareSplits + ", allowCreditsError=" + allowCreditsError + ", confirmPickupButtonString=" + confirmPickupButtonString + ", description=" + description + ", destinationEntry=" + destinationEntry + ", displayName=" + displayName + ", fareDetailsUrl=" + fareDetailsUrl + ", fareMessage=" + fareMessage + ", groupDisplayName=" + groupDisplayName + ", groupId=" + groupId + ", hopSetPickupArea=" + hopSetPickupArea + ", hopSetPickupAreaNotAvailable=" + hopSetPickupAreaNotAvailable + ", id=" + id + ", minFareTitle=" + minFareTitle + ", noneAvailableString=" + noneAvailableString + ", parentId=" + parentId + ", permittedPaymentMethodsError=" + permittedPaymentMethodsError + ", pickupButtonString=" + pickupButtonString + ", pickupEtaString=" + pickupEtaString + ", requestPickupButtonString=" + requestPickupButtonString + ", ridePoolOption=" + ridePoolOption + ", scheduleTimeWindowMS=" + scheduleTimeWindowMS + ", setPickupLocationString=" + setPickupLocationString + ", shouldFetchUpfrontFare=" + shouldFetchUpfrontFare + ", surgeTitle=" + surgeTitle + ", uuid=" + uuid + ", mapImages=" + mapImages + ", monoImages=" + monoImages + ", fare=" + fare + ", tagline=" + tagline + ", poolDispatchingTipMessage=" + poolDispatchingTipMessage + ", predictedEta=" + predictedEta + ", overCapacityTagline=" + overCapacityTagline + ", capacityTagline=" + capacityTagline + ", confirmationType=" + confirmationType + ", linkedVehicleViewId=" + linkedVehicleViewId + ", linkedVehicleViewIdMap=" + linkedVehicleViewIdMap + ", productGroupUuid=" + productGroupUuid + ", sharingTagline=" + sharingTagline + ", enableVehicleInventoryView=" + enableVehicleInventoryView + ", isDestinationRequired=" + isDestinationRequired + ", suppressSurgeUI=" + suppressSurgeUI + "}";
   }
 }
 

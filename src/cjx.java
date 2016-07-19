@@ -1,12 +1,10 @@
-import java.util.concurrent.ThreadFactory;
+import android.graphics.Bitmap;
 
-final class cjx
-  implements ThreadFactory
+public abstract interface cjx
 {
-  public final Thread newThread(Runnable paramRunnable)
-  {
-    return new cjw(paramRunnable);
-  }
+  public abstract Bitmap a(Bitmap paramBitmap);
+  
+  public abstract String a();
 }
 
 /* Location:

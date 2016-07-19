@@ -27,36 +27,36 @@ class b
   
   public void a(Bitmap paramBitmap)
   {
-    if (BaiduMap.k(a) != null) {
-      BaiduMap.k(a).onSnapshotReady(paramBitmap);
+    if (BaiduMap.l(a) != null) {
+      BaiduMap.l(a).onSnapshotReady(paramBitmap);
     }
   }
   
   public void a(MotionEvent paramMotionEvent)
   {
-    if (BaiduMap.f(a) != null) {
-      BaiduMap.f(a).onTouch(paramMotionEvent);
+    if (BaiduMap.g(a) != null) {
+      BaiduMap.g(a).onTouch(paramMotionEvent);
     }
   }
   
   public void a(GeoPoint paramGeoPoint)
   {
-    if (BaiduMap.g(a) != null)
+    if (BaiduMap.h(a) != null)
     {
       paramGeoPoint = CoordUtil.mc2ll(paramGeoPoint);
-      BaiduMap.g(a).onMapClick(paramGeoPoint);
+      BaiduMap.h(a).onMapClick(paramGeoPoint);
     }
   }
   
   public void a(B paramB)
   {
-    if (BaiduMap.d(a) != null) {
-      BaiduMap.d(a).setVisibility(4);
+    if (BaiduMap.e(a) != null) {
+      BaiduMap.e(a).setVisibility(4);
     }
-    if (BaiduMap.e(a) != null)
+    if (BaiduMap.f(a) != null)
     {
       paramB = MapStatus.a(paramB);
-      BaiduMap.e(a).onMapStatusChangeStart(paramB);
+      BaiduMap.f(a).onMapStatusChangeStart(paramB);
     }
   }
   
@@ -70,20 +70,20 @@ class b
       i = paramString.optInt("ty");
       if (i == 17)
       {
-        if (BaiduMap.g(a) == null) {
+        if (BaiduMap.h(a) == null) {
           return;
         }
         localObject1 = new MapPoi();
         ((MapPoi)localObject1).a(paramString);
-        BaiduMap.g(a).onMapPoiClick((MapPoi)localObject1);
+        BaiduMap.h(a).onMapPoiClick((MapPoi)localObject1);
         return;
       }
       if (i == 18)
       {
-        if (BaiduMap.l(a) == null) {
+        if (BaiduMap.m(a) == null) {
           return;
         }
-        BaiduMap.l(a).onMyLocationClick();
+        BaiduMap.m(a).onMyLocationClick();
         return;
       }
     }
@@ -96,7 +96,7 @@ class b
     {
       if (BaiduMap.b(a) != null)
       {
-        paramString = BaiduMap.b(a).v();
+        paramString = BaiduMap.b(a).y();
         c = 0;
         b = 0;
         BaiduMap.b(a).a(paramString, 300);
@@ -108,9 +108,9 @@ class b
       if (i == 90909)
       {
         localObject1 = paramString.optString("marker_id");
-        if ((BaiduMap.m(a) != null) && (((String)localObject1).equals(na).p)))
+        if ((BaiduMap.n(a) != null) && (((String)localObject1).equals(oa).p)))
         {
-          paramString = ma).d;
+          paramString = na).d;
           if (paramString != null) {
             paramString.onInfoWindowClick();
           }
@@ -124,8 +124,8 @@ class b
               break;
             }
             paramString = (Overlay)((Iterator)localObject2).next();
-          } while ((!(paramString instanceof Marker)) || (!p.equals(localObject1)) || (BaiduMap.o(a) == null));
-          localObject1 = BaiduMap.o(a).iterator();
+          } while ((!(paramString instanceof Marker)) || (!p.equals(localObject1)) || (BaiduMap.p(a) == null));
+          localObject1 = BaiduMap.p(a).iterator();
           while (((Iterator)localObject1).hasNext()) {
             ((BaiduMap.OnMarkerClickListener)((Iterator)localObject1).next()).onMarkerClick((Marker)paramString);
           }
@@ -138,9 +138,9 @@ class b
         while (((Iterator)localObject1).hasNext())
         {
           localObject2 = (Overlay)((Iterator)localObject1).next();
-          if (((localObject2 instanceof Polyline)) && (p.equals(paramString)) && (BaiduMap.p(a) != null))
+          if (((localObject2 instanceof Polyline)) && (p.equals(paramString)) && (BaiduMap.q(a) != null))
           {
-            Iterator localIterator = BaiduMap.p(a).iterator();
+            Iterator localIterator = BaiduMap.q(a).iterator();
             while (localIterator.hasNext()) {
               ((BaiduMap.OnPolylineClickListener)localIterator.next()).onPolylineClick((Polyline)localObject2);
             }
@@ -152,10 +152,10 @@ class b
   
   public void a(GL10 paramGL10, B paramB)
   {
-    if (BaiduMap.v(a) != null)
+    if (BaiduMap.w(a) != null)
     {
       paramB = MapStatus.a(paramB);
-      BaiduMap.v(a).onMapDrawFrame(paramGL10, paramB);
+      BaiduMap.w(a).onMapDrawFrame(paramGL10, paramB);
     }
   }
   
@@ -163,26 +163,26 @@ class b
   {
     BaiduMap.a(a, new Projection(BaiduMap.b(a)));
     BaiduMap.a(a, true);
-    if (BaiduMap.j(a) != null) {
-      BaiduMap.j(a).onMapLoaded();
+    if (BaiduMap.k(a) != null) {
+      BaiduMap.k(a).onMapLoaded();
     }
   }
   
   public void b(GeoPoint paramGeoPoint)
   {
-    if (BaiduMap.h(a) != null)
+    if (BaiduMap.i(a) != null)
     {
       paramGeoPoint = CoordUtil.mc2ll(paramGeoPoint);
-      BaiduMap.h(a).onMapDoubleClick(paramGeoPoint);
+      BaiduMap.i(a).onMapDoubleClick(paramGeoPoint);
     }
   }
   
   public void b(B paramB)
   {
-    if (BaiduMap.e(a) != null)
+    if (BaiduMap.f(a) != null)
     {
       paramB = MapStatus.a(paramB);
-      BaiduMap.e(a).onMapStatusChange(paramB);
+      BaiduMap.f(a).onMapStatusChange(paramB);
     }
   }
   
@@ -194,7 +194,7 @@ class b
       if (paramString.optInt("ty") == 90909)
       {
         paramString = paramString.optString("marker_id");
-        if ((BaiduMap.n(a) == null) || (!paramString.equals(na).p)))
+        if ((BaiduMap.o(a) == null) || (!paramString.equals(oa).p)))
         {
           Iterator localIterator = BaiduMap.a(a).iterator();
           while (localIterator.hasNext())
@@ -206,12 +206,12 @@ class b
               if (f)
               {
                 BaiduMap.a(a, paramString);
-                paramString = BaiduMap.r(a).toScreenLocation(qa).a);
+                paramString = BaiduMap.s(a).toScreenLocation(ra).a);
                 paramString = new Point(x, y - 60);
-                paramString = BaiduMap.r(a).fromScreenLocation(paramString);
-                BaiduMap.q(a).setPosition(paramString);
-                if (BaiduMap.s(a) != null) {
-                  BaiduMap.s(a).onMarkerDragStart(BaiduMap.q(a));
+                paramString = BaiduMap.s(a).fromScreenLocation(paramString);
+                BaiduMap.r(a).setPosition(paramString);
+                if (BaiduMap.t(a) != null) {
+                  BaiduMap.t(a).onMarkerDragStart(BaiduMap.r(a));
                 }
                 return true;
               }
@@ -230,70 +230,70 @@ class b
   
   public void c()
   {
-    BaiduMap.t(a).lock();
+    BaiduMap.u(a).lock();
     try
     {
-      if (BaiduMap.u(a) != null) {
-        BaiduMap.u(a).a();
+      if (BaiduMap.v(a) != null) {
+        BaiduMap.v(a).a();
       }
       return;
     }
     finally
     {
-      BaiduMap.t(a).unlock();
+      BaiduMap.u(a).unlock();
     }
   }
   
   public void c(GeoPoint paramGeoPoint)
   {
-    if (BaiduMap.i(a) != null)
+    if (BaiduMap.j(a) != null)
     {
       paramGeoPoint = CoordUtil.mc2ll(paramGeoPoint);
-      BaiduMap.i(a).onMapLongClick(paramGeoPoint);
+      BaiduMap.j(a).onMapLongClick(paramGeoPoint);
     }
   }
   
   public void c(B paramB)
   {
-    if (BaiduMap.d(a) != null) {
-      BaiduMap.d(a).setVisibility(0);
+    if (BaiduMap.e(a) != null) {
+      BaiduMap.e(a).setVisibility(0);
     }
-    if (BaiduMap.e(a) != null)
+    if (BaiduMap.f(a) != null)
     {
       paramB = MapStatus.a(paramB);
-      BaiduMap.e(a).onMapStatusChangeFinish(paramB);
+      BaiduMap.f(a).onMapStatusChangeFinish(paramB);
     }
   }
   
   public void d()
   {
-    BaiduMap.t(a).lock();
+    BaiduMap.u(a).lock();
     try
     {
-      if (BaiduMap.u(a) != null)
+      if (BaiduMap.v(a) != null)
       {
-        BaiduMap.u(a).a();
-        BaiduMap.b(a).l();
+        BaiduMap.v(a).a();
+        BaiduMap.b(a).n();
       }
       return;
     }
     finally
     {
-      BaiduMap.t(a).unlock();
+      BaiduMap.u(a).unlock();
     }
   }
   
   public void d(GeoPoint paramGeoPoint)
   {
-    if ((BaiduMap.q(a) != null) && (qa).f))
+    if ((BaiduMap.r(a) != null) && (ra).f))
     {
       paramGeoPoint = CoordUtil.mc2ll(paramGeoPoint);
-      paramGeoPoint = BaiduMap.r(a).toScreenLocation(paramGeoPoint);
+      paramGeoPoint = BaiduMap.s(a).toScreenLocation(paramGeoPoint);
       paramGeoPoint = new Point(x, y - 60);
-      paramGeoPoint = BaiduMap.r(a).fromScreenLocation(paramGeoPoint);
-      BaiduMap.q(a).setPosition(paramGeoPoint);
-      if ((BaiduMap.s(a) != null) && (qa).f)) {
-        BaiduMap.s(a).onMarkerDrag(BaiduMap.q(a));
+      paramGeoPoint = BaiduMap.s(a).fromScreenLocation(paramGeoPoint);
+      BaiduMap.r(a).setPosition(paramGeoPoint);
+      if ((BaiduMap.t(a) != null) && (ra).f)) {
+        BaiduMap.t(a).onMarkerDrag(BaiduMap.r(a));
       }
     }
   }
@@ -301,31 +301,31 @@ class b
   public void e()
   {
     BaiduMap.b(a).b(false);
-    BaiduMap.t(a).lock();
+    BaiduMap.u(a).lock();
     try
     {
-      if (BaiduMap.u(a) != null) {
-        a.a(BaiduMap.u(a));
+      if (BaiduMap.v(a) != null) {
+        a.a(BaiduMap.v(a));
       }
       return;
     }
     finally
     {
-      BaiduMap.t(a).unlock();
+      BaiduMap.u(a).unlock();
     }
   }
   
   public void e(GeoPoint paramGeoPoint)
   {
-    if ((BaiduMap.q(a) != null) && (qa).f))
+    if ((BaiduMap.r(a) != null) && (ra).f))
     {
       paramGeoPoint = CoordUtil.mc2ll(paramGeoPoint);
-      paramGeoPoint = BaiduMap.r(a).toScreenLocation(paramGeoPoint);
+      paramGeoPoint = BaiduMap.s(a).toScreenLocation(paramGeoPoint);
       paramGeoPoint = new Point(x, y - 60);
-      paramGeoPoint = BaiduMap.r(a).fromScreenLocation(paramGeoPoint);
-      BaiduMap.q(a).setPosition(paramGeoPoint);
-      if ((BaiduMap.s(a) != null) && (qa).f)) {
-        BaiduMap.s(a).onMarkerDragEnd(BaiduMap.q(a));
+      paramGeoPoint = BaiduMap.s(a).fromScreenLocation(paramGeoPoint);
+      BaiduMap.r(a).setPosition(paramGeoPoint);
+      if ((BaiduMap.t(a) != null) && (ra).f)) {
+        BaiduMap.t(a).onMarkerDragEnd(BaiduMap.r(a));
       }
       BaiduMap.a(a, null);
     }

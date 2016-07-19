@@ -2,14 +2,14 @@ package com.ubercab.experiment.model;
 
 import android.os.Parcelable;
 import com.ubercab.shape.Shape;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class TreatmentGroupDefinition
-  extends jvq<TreatmentGroupDefinition>
+  extends nba<TreatmentGroupDefinition>
   implements Parcelable
 {
   public static TreatmentGroupDefinition create(String paramString1, String paramString2)
@@ -17,10 +17,12 @@ public abstract class TreatmentGroupDefinition
     return new Shape_TreatmentGroupDefinition().setName(paramString1).setDescription(paramString2);
   }
   
-  public static TreatmentGroupDefinition create(String paramString1, String paramString2, String paramString3, Map<String, Object> paramMap)
+  public static TreatmentGroupDefinition create(String paramString1, String paramString2, String paramString3, Map<String, String> paramMap)
   {
     return new Shape_TreatmentGroupDefinition().setName(paramString1).setId(paramString2).setDescription(paramString3).setParameters(paramMap);
   }
+  
+  abstract String getBucketBy();
   
   public abstract String getDescription();
   
@@ -28,26 +30,28 @@ public abstract class TreatmentGroupDefinition
   
   public abstract String getName();
   
-  public abstract Map<String, Object> getParameters();
+  public abstract Map<String, String> getParameters();
   
   abstract String getSegmentUuid();
   
-  protected Object onGet(jvr<TreatmentGroupDefinition> paramjvr, Object paramObject)
+  protected Object onGet(nbb<TreatmentGroupDefinition> paramnbb, Object paramObject)
   {
-    switch (TreatmentGroupDefinition.1.$SwitchMap$com$ubercab$experiment$model$Shape_TreatmentGroupDefinition$Property[((Shape_TreatmentGroupDefinition.Property)paramjvr).ordinal()])
+    switch (TreatmentGroupDefinition.1.$SwitchMap$com$ubercab$experiment$model$Shape_TreatmentGroupDefinition$Property[((Shape_TreatmentGroupDefinition.Property)paramnbb).ordinal()])
     {
     default: 
-      paramjvr = super.onGet(paramjvr, paramObject);
+      paramnbb = super.onGet(paramnbb, paramObject);
     }
     do
     {
-      return paramjvr;
-      paramjvr = (jvr<TreatmentGroupDefinition>)paramObject;
+      return paramnbb;
+      paramnbb = (nbb<TreatmentGroupDefinition>)paramObject;
     } while (paramObject != null);
-    paramjvr = new HashMap();
-    setParameters(paramjvr);
-    return paramjvr;
+    paramnbb = Collections.emptyMap();
+    setParameters(paramnbb);
+    return paramnbb;
   }
+  
+  abstract TreatmentGroupDefinition setBucketBy(String paramString);
   
   abstract TreatmentGroupDefinition setDescription(String paramString);
   
@@ -55,7 +59,7 @@ public abstract class TreatmentGroupDefinition
   
   abstract TreatmentGroupDefinition setName(String paramString);
   
-  abstract TreatmentGroupDefinition setParameters(Map<String, Object> paramMap);
+  abstract TreatmentGroupDefinition setParameters(Map<String, String> paramMap);
   
   abstract TreatmentGroupDefinition setSegmentUuid(String paramString);
 }

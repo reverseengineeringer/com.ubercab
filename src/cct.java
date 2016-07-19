@@ -1,30 +1,13 @@
-import android.content.Intent;
-import com.paypal.android.sdk.payments.PayPalConfiguration;
-import com.paypal.android.sdk.payments.PayPalPayment;
-import com.paypal.android.sdk.payments.PaymentActivity;
+import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
 
-public final class cct
-  extends cbd
+final class cct
+  implements cbp
 {
-  public cct(Intent paramIntent, PayPalConfiguration paramPayPalConfiguration)
-  {
-    super(paramIntent, paramPayPalConfiguration);
-  }
+  cct(ccs paramccs) {}
   
-  protected final String a()
+  public final void a()
   {
-    return PaymentActivity.class.getSimpleName();
-  }
-  
-  public final boolean e()
-  {
-    ccu localccu = new ccu(b());
-    if ((localccu.a() != null) && (localccu.a().a())) {}
-    for (boolean bool = true;; bool = false)
-    {
-      a(bool, "PaymentActivity.EXTRA_PAYMENT");
-      return bool;
-    }
+    PayPalFuturePaymentActivity.c(a.a);
   }
 }
 

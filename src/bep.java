@@ -1,39 +1,33 @@
-import android.os.Binder;
-import android.os.IBinder;
+import android.accounts.Account;
 import android.os.IInterface;
-import android.os.Parcel;
+import com.google.android.gms.common.internal.AuthAccountRequest;
+import com.google.android.gms.common.internal.ResolveAccountRequest;
+import com.google.android.gms.signin.internal.CheckServerAuthResult;
+import com.google.android.gms.signin.internal.RecordConsentRequest;
+import com.google.android.gms.signin.internal.SignInRequest;
 
-public abstract class bep
-  extends Binder
-  implements beo
+public abstract interface bep
+  extends IInterface
 {
-  public static beo a(IBinder paramIBinder)
-  {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnInfoWindowLongClickListener");
-    if ((localIInterface != null) && ((localIInterface instanceof beo))) {
-      return (beo)localIInterface;
-    }
-    return new beq(paramIBinder);
-  }
+  public abstract void a(int paramInt);
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnInfoWindowLongClickListener");
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnInfoWindowLongClickListener");
-    a(bhl.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    return true;
-  }
+  public abstract void a(int paramInt, Account paramAccount, bem parambem);
+  
+  public abstract void a(aam paramaam, int paramInt, boolean paramBoolean);
+  
+  public abstract void a(bem parambem);
+  
+  public abstract void a(AuthAccountRequest paramAuthAccountRequest, bem parambem);
+  
+  public abstract void a(ResolveAccountRequest paramResolveAccountRequest, aay paramaay);
+  
+  public abstract void a(CheckServerAuthResult paramCheckServerAuthResult);
+  
+  public abstract void a(RecordConsentRequest paramRecordConsentRequest, bem parambem);
+  
+  public abstract void a(SignInRequest paramSignInRequest, bem parambem);
+  
+  public abstract void a(boolean paramBoolean);
 }
 
 /* Location:

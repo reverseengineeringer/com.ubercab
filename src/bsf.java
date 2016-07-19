@@ -1,85 +1,34 @@
-import java.io.Externalizable;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public final class bsf
-  implements Externalizable
+final class bsf
+  extends TimerTask
 {
-  private static final long serialVersionUID = 1L;
-  private boolean a;
-  private String b = "";
-  private boolean c;
-  private String d = "";
-  private boolean e;
-  private String f = "";
+  bsf(bre parambre) {}
   
-  private bsf a(String paramString)
+  public final void run()
   {
-    a = true;
-    b = paramString;
-    return this;
-  }
-  
-  private bsf b(String paramString)
-  {
-    c = true;
-    d = paramString;
-    return this;
-  }
-  
-  private bsf c(String paramString)
-  {
-    e = true;
-    f = paramString;
-    return this;
-  }
-  
-  public final String a()
-  {
-    return b;
-  }
-  
-  public final String b()
-  {
-    return d;
-  }
-  
-  public final boolean c()
-  {
-    return e;
-  }
-  
-  public final String d()
-  {
-    return f;
-  }
-  
-  public final void readExternal(ObjectInput paramObjectInput)
-  {
-    if (paramObjectInput.readBoolean()) {
-      a(paramObjectInput.readUTF());
+    bre.a(a);
+    bre.h();
+    new StringBuilder("****** LogRiskMetadataTask #").append(bre.b(a));
+    bsz.b();
+    if (bre.c(a))
+    {
+      bre.h();
+      new StringBuilder("No host activity in the last ").append(bre.d(a) / 1000L).append(" seconds. Stopping update interval.");
+      bsz.b();
+      bre.e(a).cancel();
+      return;
     }
-    if (paramObjectInput.readBoolean()) {
-      b(paramObjectInput.readUTF());
+    try
+    {
+      bre.f(a);
+      return;
     }
-    if (paramObjectInput.readBoolean()) {
-      c(paramObjectInput.readUTF());
-    }
-  }
-  
-  public final void writeExternal(ObjectOutput paramObjectOutput)
-  {
-    paramObjectOutput.writeBoolean(a);
-    if (a) {
-      paramObjectOutput.writeUTF(b);
-    }
-    paramObjectOutput.writeBoolean(c);
-    if (c) {
-      paramObjectOutput.writeUTF(d);
-    }
-    paramObjectOutput.writeBoolean(e);
-    if (e) {
-      paramObjectOutput.writeUTF(f);
+    catch (Exception localException)
+    {
+      bre.h();
+      bsz.a();
     }
   }
 }

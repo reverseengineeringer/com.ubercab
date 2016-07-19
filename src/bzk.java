@@ -1,37 +1,13 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.security.Provider;
 
-public final class bzk
-  implements bzw
+class bzk
+  extends Provider
 {
-  private static Map a = new HashMap();
-  private static Map b = new HashMap();
-  
   public bzk()
   {
-    a.put(bzv.a, "İptal");
-    a.put(bzv.b, "American Express");
-    a.put(bzv.c, "Discover");
-    a.put(bzv.d, "JCB");
-    a.put(bzv.e, "MasterCard");
-    a.put(bzv.f, "Visa");
-    a.put(bzv.g, "Bitti");
-    a.put(bzv.h, "CVV");
-    a.put(bzv.i, "Posta Kodu");
-    a.put(bzv.j, "Son kullanma tarihi");
-    a.put(bzv.k, "AA/YY");
-    a.put(bzv.l, "Kartınızı buraya tutun.\nOtomatik olarak taranacaktır.");
-    a.put(bzv.m, "Klavye…");
-    a.put(bzv.n, "Kart Numarası");
-    a.put(bzv.o, "Kart Ayrıntıları");
-    a.put(bzv.p, "Bu cihazın kamerası kart rakamlarını okuyamaz.");
-    a.put(bzv.q, "Cihaz kamerası kullanılamıyor.");
-    a.put(bzv.r, "Cihaz kamerayı açarken beklenmedik bir hata verdi.");
-  }
-  
-  public final String a()
-  {
-    return "tr";
+    super("LinuxPRNG", 1.0D, "A Linux-specific random number provider that uses /dev/urandom");
+    put("SecureRandom.SHA1PRNG", bzj.class.getName());
+    put("SecureRandom.SHA1PRNG ImplementedIn", "Software");
   }
 }
 

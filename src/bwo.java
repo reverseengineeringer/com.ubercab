@@ -1,18 +1,54 @@
-import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-final class bwo
-  implements Runnable
+public final class bwo
+  extends bwq
 {
-  bwo(bwn parambwn, bwx parambwx, String paramString) {}
+  private final String a;
+  private final String b;
   
-  public final void run()
+  public bwo(bus parambus, bva parambva, String paramString1, String paramString2, String paramString3, String paramString4)
   {
+    super(bux.e, parambus, parambva, c(paramString1, paramString2));
+    a = paramString3;
+    b = paramString4;
+  }
+  
+  public final String b()
+  {
+    HashMap localHashMap = new HashMap();
+    localHashMap.put("authn_schemes", "2fa_pre_login");
+    localHashMap.put("nonce", a);
+    JSONObject localJSONObject = new JSONObject();
+    localJSONObject.accumulate("authn_scheme", "security_key_sms_token");
+    localJSONObject.accumulate("token_identifier", b);
+    localHashMap.put("2fa_token_identifiers", a(localJSONObject));
+    return bwy.a(localHashMap);
+  }
+  
+  public final void c()
+  {
+    JSONObject localJSONObject = n();
     try
     {
-      bwn.a(c, a, b, bwn.e(c), new bws(c, a, (byte)0));
+      g = localJSONObject.getString("nonce");
       return;
     }
-    catch (UnsupportedEncodingException localUnsupportedEncodingException) {}
+    catch (JSONException localJSONException)
+    {
+      b(localJSONObject);
+    }
+  }
+  
+  public final void d()
+  {
+    b(n());
+  }
+  
+  public final String e()
+  {
+    return "{\"nonce\": \"mock-login-challenge-nonce\"}";
   }
 }
 

@@ -2,7 +2,7 @@ package android.support.v4.database;
 
 import android.text.TextUtils;
 
-public class DatabaseUtilsCompat
+public final class DatabaseUtilsCompat
 {
   public static String[] appendSelectionArgs(String[] paramArrayOfString1, String[] paramArrayOfString2)
   {

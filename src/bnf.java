@@ -1,16 +1,64 @@
-import com.google.android.gms.wallet.FullWalletRequest;
-import com.google.android.gms.wallet.MaskedWalletRequest;
+import java.math.BigDecimal;
 
-public abstract interface bnf
+public final class bnf
+  extends Number
 {
-  @Deprecated
-  public abstract void a(ws paramws);
+  private final String a;
   
-  public abstract void a(ws paramws, FullWalletRequest paramFullWalletRequest);
+  public bnf(String paramString)
+  {
+    a = paramString;
+  }
   
-  public abstract void a(ws paramws, MaskedWalletRequest paramMaskedWalletRequest);
+  private Object writeReplace()
+  {
+    return new BigDecimal(a);
+  }
   
-  public abstract void a(ws paramws, String paramString1, String paramString2);
+  public final double doubleValue()
+  {
+    return Double.parseDouble(a);
+  }
+  
+  public final float floatValue()
+  {
+    return Float.parseFloat(a);
+  }
+  
+  public final int intValue()
+  {
+    try
+    {
+      int i = Integer.parseInt(a);
+      return i;
+    }
+    catch (NumberFormatException localNumberFormatException1)
+    {
+      try
+      {
+        long l = Long.parseLong(a);
+        return (int)l;
+      }
+      catch (NumberFormatException localNumberFormatException2) {}
+    }
+    return new BigDecimal(a).intValue();
+  }
+  
+  public final long longValue()
+  {
+    try
+    {
+      long l = Long.parseLong(a);
+      return l;
+    }
+    catch (NumberFormatException localNumberFormatException) {}
+    return new BigDecimal(a).longValue();
+  }
+  
+  public final String toString()
+  {
+    return a;
+  }
 }
 
 /* Location:

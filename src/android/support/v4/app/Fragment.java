@@ -71,7 +71,6 @@ public class Fragment
   Object mReenterTransition = USE_DEFAULT_TRANSITION;
   boolean mRemoving;
   boolean mRestored;
-  boolean mResumed;
   boolean mRetainInstance;
   boolean mRetaining;
   Object mReturnTransition = USE_DEFAULT_TRANSITION;
@@ -168,8 +167,6 @@ public class Fragment
     paramPrintWriter.print(mAdded);
     paramPrintWriter.print(" mRemoving=");
     paramPrintWriter.print(mRemoving);
-    paramPrintWriter.print(" mResumed=");
-    paramPrintWriter.print(mResumed);
     paramPrintWriter.print(" mFromLayout=");
     paramPrintWriter.print(mFromLayout);
     paramPrintWriter.print(" mInLayout=");
@@ -510,7 +507,6 @@ public class Fragment
     mWho = null;
     mAdded = false;
     mRemoving = false;
-    mResumed = false;
     mFromLayout = false;
     mInLayout = false;
     mRestored = false;
@@ -586,7 +582,7 @@ public class Fragment
   
   public final boolean isResumed()
   {
-    return mResumed;
+    return mState >= 5;
   }
   
   public final boolean isVisible()
@@ -764,6 +760,7 @@ public class Fragment
     if (mChildFragmentManager != null) {
       mChildFragmentManager.noteStateNotSaved();
     }
+    mState = 2;
     mCalled = false;
     onActivityCreated(paramBundle);
     if (!mCalled) {
@@ -799,6 +796,7 @@ public class Fragment
     if (mChildFragmentManager != null) {
       mChildFragmentManager.noteStateNotSaved();
     }
+    mState = 1;
     mCalled = false;
     onCreate(paramBundle);
     if (!mCalled) {
@@ -855,6 +853,7 @@ public class Fragment
     if (mChildFragmentManager != null) {
       mChildFragmentManager.dispatchDestroy();
     }
+    mState = 0;
     mCalled = false;
     onDestroy();
     if (!mCalled) {
@@ -867,6 +866,7 @@ public class Fragment
     if (mChildFragmentManager != null) {
       mChildFragmentManager.dispatchDestroyView();
     }
+    mState = 1;
     mCalled = false;
     onDestroyView();
     if (!mCalled) {
@@ -915,6 +915,7 @@ public class Fragment
     if (mChildFragmentManager != null) {
       mChildFragmentManager.dispatchPause();
     }
+    mState = 4;
     mCalled = false;
     onPause();
     if (!mCalled) {
@@ -951,6 +952,7 @@ public class Fragment
     if (mChildFragmentManager != null) {
       mChildFragmentManager.dispatchReallyStop();
     }
+    mState = 2;
     if (mLoadersStarted)
     {
       mLoadersStarted = false;
@@ -962,13 +964,13 @@ public class Fragment
       if (mLoaderManager != null)
       {
         if (!mHost.getRetainLoaders()) {
-          break label83;
+          break label88;
         }
         mLoaderManager.doRetain();
       }
     }
     return;
-    label83:
+    label88:
     mLoaderManager.doStop();
   }
   
@@ -979,6 +981,7 @@ public class Fragment
       mChildFragmentManager.noteStateNotSaved();
       mChildFragmentManager.execPendingActions();
     }
+    mState = 5;
     mCalled = false;
     onResume();
     if (!mCalled) {
@@ -1010,6 +1013,7 @@ public class Fragment
       mChildFragmentManager.noteStateNotSaved();
       mChildFragmentManager.execPendingActions();
     }
+    mState = 4;
     mCalled = false;
     onStart();
     if (!mCalled) {
@@ -1028,6 +1032,7 @@ public class Fragment
     if (mChildFragmentManager != null) {
       mChildFragmentManager.dispatchStop();
     }
+    mState = 3;
     mCalled = false;
     onStop();
     if (!mCalled) {
@@ -1204,18 +1209,28 @@ public class Fragment
   
   public void startActivity(Intent paramIntent)
   {
-    if (mHost == null) {
-      throw new IllegalStateException("Fragment " + this + " not attached to Activity");
-    }
-    mHost.onStartActivityFromFragment(this, paramIntent, -1);
+    startActivity(paramIntent, null);
   }
   
-  public void startActivityForResult(Intent paramIntent, int paramInt)
+  public void startActivity(Intent paramIntent, Bundle paramBundle)
   {
     if (mHost == null) {
       throw new IllegalStateException("Fragment " + this + " not attached to Activity");
     }
-    mHost.onStartActivityFromFragment(this, paramIntent, paramInt);
+    mHost.onStartActivityFromFragment(this, paramIntent, -1, paramBundle);
+  }
+  
+  public void startActivityForResult(Intent paramIntent, int paramInt)
+  {
+    startActivityForResult(paramIntent, paramInt, null);
+  }
+  
+  public void startActivityForResult(Intent paramIntent, int paramInt, Bundle paramBundle)
+  {
+    if (mHost == null) {
+      throw new IllegalStateException("Fragment " + this + " not attached to Activity");
+    }
+    mHost.onStartActivityFromFragment(this, paramIntent, paramInt, paramBundle);
   }
   
   public String toString()

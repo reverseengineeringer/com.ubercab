@@ -7,7 +7,7 @@ import android.view.GestureDetector.OnDoubleTapListener;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 
-public class GestureDetectorCompat
+public final class GestureDetectorCompat
 {
   private final GestureDetectorCompat.GestureDetectorCompatImpl mImpl;
   
@@ -26,22 +26,22 @@ public class GestureDetectorCompat
     mImpl = new GestureDetectorCompat.GestureDetectorCompatImplBase(paramContext, paramOnGestureListener, paramHandler);
   }
   
-  public boolean isLongpressEnabled()
+  public final boolean isLongpressEnabled()
   {
     return mImpl.isLongpressEnabled();
   }
   
-  public boolean onTouchEvent(MotionEvent paramMotionEvent)
+  public final boolean onTouchEvent(MotionEvent paramMotionEvent)
   {
     return mImpl.onTouchEvent(paramMotionEvent);
   }
   
-  public void setIsLongpressEnabled(boolean paramBoolean)
+  public final void setIsLongpressEnabled(boolean paramBoolean)
   {
     mImpl.setIsLongpressEnabled(paramBoolean);
   }
   
-  public void setOnDoubleTapListener(GestureDetector.OnDoubleTapListener paramOnDoubleTapListener)
+  public final void setOnDoubleTapListener(GestureDetector.OnDoubleTapListener paramOnDoubleTapListener)
   {
     mImpl.setOnDoubleTapListener(paramOnDoubleTapListener);
   }

@@ -1,16 +1,19 @@
 package com.ubercab.analytics.model;
 
 import android.support.v4.util.ArrayMap;
-import bpc;
-import ckp;
+import blw;
+import clg;
+import com.ubercab.analytics.internal.AnalyticsValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.Locale;
 import java.util.Map;
+import lzo;
 
 @Shape
+@lzo(a=AnalyticsValidatorFactory.class)
 public abstract class AnalyticsEvent
 {
-  private static final bpc GSON = new bpc();
+  private static final blw GSON = new blw();
   
   public static AnalyticsEvent create(String paramString)
   {
@@ -31,7 +34,7 @@ public abstract class AnalyticsEvent
   
   public abstract AnalyticsLocation getLocation();
   
-  public abstract ckp getName();
+  public abstract clg getName();
   
   public abstract String getReferrer();
   
@@ -51,7 +54,7 @@ public abstract class AnalyticsEvent
   
   public abstract AnalyticsEvent setLocation(AnalyticsLocation paramAnalyticsLocation);
   
-  public abstract AnalyticsEvent setName(ckp paramckp);
+  public abstract AnalyticsEvent setName(clg paramclg);
   
   public abstract AnalyticsEvent setReferrer(String paramString);
   
@@ -63,7 +66,7 @@ public abstract class AnalyticsEvent
   
   public AnalyticsEvent setValue(Object paramObject)
   {
-    setValue(GSON.a(paramObject));
+    setValue(GSON.b(paramObject));
     return this;
   }
   

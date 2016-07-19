@@ -4,10 +4,10 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class FamilyMember
   implements Parcelable
 {
@@ -19,6 +19,8 @@ public abstract class FamilyMember
   public abstract Long getConfirmedAt();
   
   public abstract Long getCreatedAt();
+  
+  public abstract Long getDateOfBirth();
   
   public abstract String getFamilyName();
   
@@ -48,11 +50,22 @@ public abstract class FamilyMember
   
   public abstract String getMemberUUID();
   
+  public abstract ObservableTrip getObservableTrip();
+  
+  public abstract String getOriginalPhoneNumber();
+  
   public abstract String getPhoneNumber();
+  
+  public boolean isOnTrip()
+  {
+    return getObservableTrip() != null;
+  }
   
   public abstract FamilyMember setConfirmedAt(Long paramLong);
   
   public abstract FamilyMember setCreatedAt(Long paramLong);
+  
+  public abstract FamilyMember setDateOfBirth(Long paramLong);
   
   public abstract FamilyMember setFamilyName(String paramString);
   
@@ -65,6 +78,10 @@ public abstract class FamilyMember
   public abstract FamilyMember setLastInvitedAt(Long paramLong);
   
   public abstract FamilyMember setMemberUUID(String paramString);
+  
+  public abstract FamilyMember setObservableTrip(ObservableTrip paramObservableTrip);
+  
+  public abstract FamilyMember setOriginalPhoneNumber(String paramString);
   
   public abstract FamilyMember setPhoneNumber(String paramString);
 }

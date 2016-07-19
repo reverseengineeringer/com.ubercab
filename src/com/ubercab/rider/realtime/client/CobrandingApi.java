@@ -1,14 +1,14 @@
 package com.ubercab.rider.realtime.client;
 
 import com.ubercab.rider.realtime.response.CobrandingResponse;
-import kld;
+import odr;
 import retrofit.http.GET;
 import retrofit.http.Path;
 
 public abstract interface CobrandingApi
 {
   @GET("/rt/cobrand/{clientId}")
-  public abstract kld<CobrandingResponse> getCobrand(@Path("clientId") String paramString);
+  public abstract odr<CobrandingResponse> getCobrand(@Path("clientId") String paramString);
 }
 
 /* Location:

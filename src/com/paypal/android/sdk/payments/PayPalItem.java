@@ -4,15 +4,15 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import android.util.Log;
-import bwa;
-import bze;
-import cdt;
+import btu;
+import bwy;
+import ccw;
 import java.math.BigDecimal;
 
 public final class PayPalItem
   implements Parcelable
 {
-  public static final Parcelable.Creator CREATOR = new cdt();
+  public static final Parcelable.Creator CREATOR = new ccw();
   private String a;
   private Integer b;
   private BigDecimal c;
@@ -78,17 +78,17 @@ public final class PayPalItem
       Log.e("paypal.sdk", "item.quantity must be a positive integer.");
       return false;
     }
-    if (!bwa.a(d))
+    if (!btu.a(d))
     {
       Log.e("paypal.sdk", "item.currency field is required, and must be a supported currency.");
       return false;
     }
-    if (bze.c(a))
+    if (bwy.c(a))
     {
       Log.e("paypal.sdk", "item.name field is required.");
       return false;
     }
-    if (!bwa.a(c, d, false))
+    if (!btu.a(c, d, false))
     {
       Log.e("paypal.sdk", "item.price field is required.");
       return false;

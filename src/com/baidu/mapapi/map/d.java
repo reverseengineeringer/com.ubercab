@@ -12,15 +12,15 @@ class d
   
   public Bundle a(int paramInt1, int paramInt2, int paramInt3, Context paramContext)
   {
-    BaiduMap.w(a).lock();
+    BaiduMap.x(a).lock();
     try
     {
-      if (BaiduMap.x(a) != null)
+      if (BaiduMap.y(a) != null)
       {
-        paramContext = BaiduMap.x(a).a(paramInt1, paramInt2, paramInt3);
+        paramContext = BaiduMap.y(a).a(paramInt1, paramInt2, paramInt3);
         if (paramContext != null)
         {
-          paramContext = paramContext.a();
+          paramContext = paramContext.toBundle();
           return paramContext;
         }
       }
@@ -28,7 +28,7 @@ class d
     }
     finally
     {
-      BaiduMap.w(a).unlock();
+      BaiduMap.x(a).unlock();
     }
   }
 }

@@ -4,17 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import android.telephony.PhoneNumberUtils;
+import bty;
+import bwc;
+import bwd;
 import bwe;
-import byi;
-import byj;
-import byk;
 import java.util.HashMap;
 import java.util.Locale;
 
 public class ce
   implements Parcelable
 {
-  public static final Parcelable.Creator CREATOR = new byk();
+  public static final Parcelable.Creator CREATOR = new bwe();
   private static HashMap c;
   private g a;
   private String b;
@@ -86,23 +86,23 @@ public class ce
     b = paramParcel.readString();
   }
   
-  public ce(byj parambyj, g paramg, String paramString)
+  public ce(bwd parambwd, g paramg, String paramString)
   {
-    a(paramg, parambyj.a(byi.e(paramString)));
+    a(paramg, parambwd.a(bwc.e(paramString)));
   }
   
-  public ce(byj parambyj, String paramString)
+  public ce(bwd parambwd, String paramString)
   {
-    a(parambyj.d(), parambyj.a(byi.e(paramString)));
+    a(parambwd.d(), parambwd.a(bwc.e(paramString)));
   }
   
-  public static ce a(byj parambyj, String paramString)
+  public static ce a(bwd parambwd, String paramString)
   {
     paramString = paramString.split("[|]");
     if (paramString.length != 2) {
-      throw new bwe("");
+      throw new bty("");
     }
-    return new ce(parambyj, new g(paramString[0]), paramString[1]);
+    return new ce(parambwd, new g(paramString[0]), paramString[1]);
   }
   
   private void a(g paramg, String paramString)
@@ -116,9 +116,9 @@ public class ce
     return b;
   }
   
-  public final String a(byj parambyj)
+  public final String a(bwd parambwd)
   {
-    if (parambyj.b().equals(Locale.US)) {
+    if (parambwd.b().equals(Locale.US)) {
       return PhoneNumberUtils.formatNumber(b);
     }
     return b;

@@ -1,21 +1,19 @@
 package com.baidu.mapapi.map;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.baidu.platform.comapi.map.B;
-import com.baidu.platform.comapi.map.c;
-import com.baidu.platform.comapi.map.g;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
 
-class h
-  implements View.OnClickListener
+final class h
+  implements Parcelable.Creator<MapStatus>
 {
-  h(MapView paramMapView) {}
-  
-  public void onClick(View paramView)
+  public final MapStatus a(Parcel paramParcel)
   {
-    paramView = MapView.a(a).a().v();
-    a -= 1.0F;
-    MapView.a(a).a().a(paramView, 300);
+    return new MapStatus(paramParcel);
+  }
+  
+  public final MapStatus[] a(int paramInt)
+  {
+    return new MapStatus[paramInt];
   }
 }
 

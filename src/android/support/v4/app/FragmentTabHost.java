@@ -202,6 +202,11 @@ public class FragmentTabHost
   
   protected void onRestoreInstanceState(Parcelable paramParcelable)
   {
+    if (!(paramParcelable instanceof FragmentTabHost.SavedState))
+    {
+      super.onRestoreInstanceState(paramParcelable);
+      return;
+    }
     paramParcelable = (FragmentTabHost.SavedState)paramParcelable;
     super.onRestoreInstanceState(paramParcelable.getSuperState());
     setCurrentTabByTag(curTab);

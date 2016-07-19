@@ -1,14 +1,14 @@
 package com.ubercab.rider.realtime.client;
 
 import com.ubercab.rider.realtime.model.City;
-import kld;
+import odr;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
 public abstract interface ProductApi
 {
   @GET("/rt/product/city/rider-view")
-  public abstract kld<City> getCityRiderView(@Query("latitude") double paramDouble1, @Query("longitude") double paramDouble2);
+  public abstract odr<City> getCityRiderView(@Query("latitude") double paramDouble1, @Query("longitude") double paramDouble2);
 }
 
 /* Location:

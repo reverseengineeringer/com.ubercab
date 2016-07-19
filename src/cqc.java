@@ -1,26 +1,22 @@
-import android.os.Bundle;
-import android.view.View;
-
-public abstract interface cqc
+@Deprecated
+final class cqc
 {
-  @Deprecated
-  public abstract cpz a();
+  private String a;
   
-  public abstract void a(Bundle paramBundle);
+  public final String a()
+  {
+    return a;
+  }
   
-  public abstract void a(cqf paramcqf);
+  public final void a(String paramString)
+  {
+    a = paramString;
+  }
   
-  public abstract View b();
-  
-  public abstract void b(Bundle paramBundle);
-  
-  public abstract void c();
-  
-  public abstract void d();
-  
-  public abstract void e();
-  
-  public abstract void f();
+  public final void b()
+  {
+    a = null;
+  }
 }
 
 /* Location:

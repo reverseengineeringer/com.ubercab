@@ -5,11 +5,11 @@ import com.ubercab.rider.realtime.model.VenueZone;
 import com.ubercab.rider.realtime.model.VenueZoneCollection;
 import com.ubercab.shape.Shape;
 import java.util.List;
-import jvi;
+import nas;
 
 @Shape
 abstract class ObjectVenue
-  implements jvi
+  implements nas
 {
   public int getChirality()
   {

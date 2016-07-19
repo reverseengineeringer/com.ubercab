@@ -1,29 +1,37 @@
-import com.paypal.android.sdk.bI;
-import com.paypal.android.sdk.payments.PayPalService;
 import java.util.HashMap;
 import java.util.Map;
 
 public final class bxf
+  implements bxq
 {
-  private static final String a = PayPalService.class.getSimpleName();
+  private static Map a = new HashMap();
   private static Map b = new HashMap();
   
-  public static bI a(String paramString)
+  public bxf()
   {
-    bI localbI = (bI)b.get(paramString);
-    new StringBuilder("getLoginAccessToken(").append(paramString).append(") returns String:").append(localbI);
-    return localbI;
+    a.put(bxp.a, "取消");
+    a.put(bxp.b, "American Express");
+    a.put(bxp.c, "Discover");
+    a.put(bxp.d, "JCB");
+    a.put(bxp.e, "MasterCard");
+    a.put(bxp.f, "Visa");
+    a.put(bxp.g, "完成");
+    a.put(bxp.h, "CVV");
+    a.put(bxp.i, "邮政编码");
+    a.put(bxp.j, "失效日期：");
+    a.put(bxp.k, "MM/YY");
+    a.put(bxp.l, "持卡置于此处。\n设备会自动扫描卡。");
+    a.put(bxp.m, "键盘…");
+    a.put(bxp.n, "卡号");
+    a.put(bxp.o, "卡详细信息");
+    a.put(bxp.p, "此设备无法使用摄像头读取卡号。");
+    a.put(bxp.q, "设备摄像头不可用。");
+    a.put(bxp.r, "设备打开摄像头时出现意外错误。");
   }
   
-  public static void a(bI parambI, String paramString)
+  public final String a()
   {
-    b.put(paramString, parambI);
-    new StringBuilder("setLoginAccessToken(").append(parambI).append(",").append(paramString).append(")");
-  }
-  
-  public static void b(String paramString)
-  {
-    b.remove(paramString);
+    return "zh-Hans";
   }
 }
 

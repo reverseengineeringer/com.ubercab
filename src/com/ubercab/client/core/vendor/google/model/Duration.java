@@ -1,10 +1,10 @@
 package com.ubercab.client.core.vendor.google.model;
 
-import bqa;
+import bmu;
 
 public class Duration
 {
-  @bqa(a="value")
+  @bmu(a="value")
   private int mValue;
   
   public boolean equals(Object paramObject)

@@ -1,11 +1,11 @@
 package com.ubercab.reporting.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jqu;
+import mpd;
 
 @Shape
 public abstract class ObjectLocation
-  implements jqu
+  implements mpd
 {
   static ObjectLocation create()
   {

@@ -1,43 +1,96 @@
 package android.support.v7.widget;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.View.MeasureSpec;
 import android.widget.FrameLayout;
-import cd;
-import ce;
-import fn;
-import fo;
-import fp;
-import fq;
-import fr;
+import gp;
+import gr;
+import gs;
+import kf;
+import kg;
+import kh;
+import ki;
+import kj;
 
 public class CardView
   extends FrameLayout
-  implements fo
 {
-  private static final fq a;
-  private boolean b;
+  private static final int[] a = { 16842801 };
+  private static final ki b;
   private boolean c;
-  private final Rect d = new Rect();
-  private final Rect e = new Rect();
+  private boolean d;
+  private int e;
+  private int f;
+  private final Rect g = new Rect();
+  private final Rect h = new Rect();
+  private final kg i = new kg()
+  {
+    private Drawable b;
+    
+    public final void a(int paramAnonymousInt1, int paramAnonymousInt2)
+    {
+      if (paramAnonymousInt1 > CardView.c(CardView.this)) {
+        CardView.a(CardView.this, paramAnonymousInt1);
+      }
+      if (paramAnonymousInt2 > CardView.d(CardView.this)) {
+        CardView.b(CardView.this, paramAnonymousInt2);
+      }
+    }
+    
+    public final void a(int paramAnonymousInt1, int paramAnonymousInt2, int paramAnonymousInt3, int paramAnonymousInt4)
+    {
+      CardView.a(CardView.this).set(paramAnonymousInt1, paramAnonymousInt2, paramAnonymousInt3, paramAnonymousInt4);
+      CardView.a(CardView.this, bleft + paramAnonymousInt1, btop + paramAnonymousInt2, bright + paramAnonymousInt3, bbottom + paramAnonymousInt4);
+    }
+    
+    public final void a(Drawable paramAnonymousDrawable)
+    {
+      b = paramAnonymousDrawable;
+      setBackgroundDrawable(paramAnonymousDrawable);
+    }
+    
+    public final boolean a()
+    {
+      return CardView.this.a();
+    }
+    
+    public final boolean b()
+    {
+      return f();
+    }
+    
+    public final Drawable c()
+    {
+      return b;
+    }
+    
+    public final View d()
+    {
+      return CardView.this;
+    }
+  };
   
   static
   {
     if (Build.VERSION.SDK_INT >= 21) {
-      a = new fn();
+      b = new kf();
     }
     for (;;)
     {
-      a.a();
+      b.a();
       return;
       if (Build.VERSION.SDK_INT >= 17) {
-        a = new fr();
+        b = new kj();
       } else {
-        a = new fp();
+        b = new kh();
       }
     }
   }
@@ -62,81 +115,90 @@ public class CardView
   
   private void a(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
-    paramAttributeSet = paramContext.obtainStyledAttributes(paramAttributeSet, ce.CardView, paramInt, cd.CardView_Light);
-    paramInt = paramAttributeSet.getColor(ce.CardView_cardBackgroundColor, 0);
-    float f4 = paramAttributeSet.getDimension(ce.CardView_cardCornerRadius, 0.0F);
-    float f2 = paramAttributeSet.getDimension(ce.CardView_cardElevation, 0.0F);
-    float f3 = paramAttributeSet.getDimension(ce.CardView_cardMaxElevation, 0.0F);
-    b = paramAttributeSet.getBoolean(ce.CardView_cardUseCompatPadding, false);
-    c = paramAttributeSet.getBoolean(ce.CardView_cardPreventCornerOverlap, true);
-    int i = paramAttributeSet.getDimensionPixelSize(ce.CardView_contentPadding, 0);
-    d.left = paramAttributeSet.getDimensionPixelSize(ce.CardView_contentPaddingLeft, i);
-    d.top = paramAttributeSet.getDimensionPixelSize(ce.CardView_contentPaddingTop, i);
-    d.right = paramAttributeSet.getDimensionPixelSize(ce.CardView_contentPaddingRight, i);
-    d.bottom = paramAttributeSet.getDimensionPixelSize(ce.CardView_contentPaddingBottom, i);
-    float f1 = f3;
-    if (f2 > f3) {
-      f1 = f2;
+    paramAttributeSet = paramContext.obtainStyledAttributes(paramAttributeSet, gs.CardView, paramInt, gr.CardView);
+    if (paramAttributeSet.hasValue(gs.CardView_cardBackgroundColor))
+    {
+      paramInt = paramAttributeSet.getColor(gs.CardView_cardBackgroundColor, 0);
+      float f4 = paramAttributeSet.getDimension(gs.CardView_cardCornerRadius, 0.0F);
+      float f2 = paramAttributeSet.getDimension(gs.CardView_cardElevation, 0.0F);
+      float f3 = paramAttributeSet.getDimension(gs.CardView_cardMaxElevation, 0.0F);
+      c = paramAttributeSet.getBoolean(gs.CardView_cardUseCompatPadding, false);
+      d = paramAttributeSet.getBoolean(gs.CardView_cardPreventCornerOverlap, true);
+      int j = paramAttributeSet.getDimensionPixelSize(gs.CardView_contentPadding, 0);
+      g.left = paramAttributeSet.getDimensionPixelSize(gs.CardView_contentPaddingLeft, j);
+      g.top = paramAttributeSet.getDimensionPixelSize(gs.CardView_contentPaddingTop, j);
+      g.right = paramAttributeSet.getDimensionPixelSize(gs.CardView_contentPaddingRight, j);
+      g.bottom = paramAttributeSet.getDimensionPixelSize(gs.CardView_contentPaddingBottom, j);
+      float f1 = f3;
+      if (f2 > f3) {
+        f1 = f2;
+      }
+      e = paramAttributeSet.getDimensionPixelSize(gs.CardView_android_minWidth, 0);
+      f = paramAttributeSet.getDimensionPixelSize(gs.CardView_android_minHeight, 0);
+      paramAttributeSet.recycle();
+      b.a(i, paramContext, paramInt, f4, f2, f1);
+      return;
     }
-    paramAttributeSet.recycle();
-    a.a(this, paramContext, paramInt, f4, f2, f1);
+    Object localObject = getContext().obtainStyledAttributes(a);
+    paramInt = ((TypedArray)localObject).getColor(0, 0);
+    ((TypedArray)localObject).recycle();
+    localObject = new float[3];
+    Color.colorToHSV(paramInt, (float[])localObject);
+    if (localObject[2] > 0.5F) {}
+    for (paramInt = getResources().getColor(gp.cardview_light_background);; paramInt = getResources().getColor(gp.cardview_dark_background)) {
+      break;
+    }
   }
   
   public final void a(int paramInt)
   {
-    a.a(this, paramInt);
-  }
-  
-  public final void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
-  {
-    e.set(paramInt1, paramInt2, paramInt3, paramInt4);
-    super.setPadding(d.left + paramInt1, d.top + paramInt2, d.right + paramInt3, d.bottom + paramInt4);
+    b.a(i, paramInt);
   }
   
   public final boolean a()
   {
-    return b;
+    return c;
   }
   
   public void b()
   {
-    if (!b) {
-      return;
+    if (c)
+    {
+      c = false;
+      b.e(i);
     }
-    b = false;
-    a.e(this);
   }
   
   public final void c()
   {
-    a.a(this);
+    b.a(i);
   }
   
   public void d()
   {
-    a.d(this);
+    b.d(i);
   }
   
   public void e()
   {
-    a.a(this, 0.0F);
+    b.a(i, 0.0F);
   }
   
   public final boolean f()
   {
-    return c;
+    return d;
   }
   
   protected void onMeasure(int paramInt1, int paramInt2)
   {
-    if (!(a instanceof fn))
+    if (!(b instanceof kf))
     {
-      int i = View.MeasureSpec.getMode(paramInt1);
-      switch (i)
+      int j = View.MeasureSpec.getMode(paramInt1);
+      switch (j)
       {
       default: 
-        i = View.MeasureSpec.getMode(paramInt2);
-        switch (i)
+        j = View.MeasureSpec.getMode(paramInt2);
+        switch (j)
         {
         }
         break;
@@ -145,12 +207,24 @@ public class CardView
       {
         super.onMeasure(paramInt1, paramInt2);
         return;
-        paramInt1 = View.MeasureSpec.makeMeasureSpec(Math.max((int)Math.ceil(a.b(this)), View.MeasureSpec.getSize(paramInt1)), i);
+        paramInt1 = View.MeasureSpec.makeMeasureSpec(Math.max((int)Math.ceil(b.b(i)), View.MeasureSpec.getSize(paramInt1)), j);
         break;
-        paramInt2 = View.MeasureSpec.makeMeasureSpec(Math.max((int)Math.ceil(a.c(this)), View.MeasureSpec.getSize(paramInt2)), i);
+        paramInt2 = View.MeasureSpec.makeMeasureSpec(Math.max((int)Math.ceil(b.c(i)), View.MeasureSpec.getSize(paramInt2)), j);
       }
     }
     super.onMeasure(paramInt1, paramInt2);
+  }
+  
+  public void setMinimumHeight(int paramInt)
+  {
+    f = paramInt;
+    super.setMinimumHeight(paramInt);
+  }
+  
+  public void setMinimumWidth(int paramInt)
+  {
+    e = paramInt;
+    super.setMinimumWidth(paramInt);
   }
   
   public void setPadding(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {}

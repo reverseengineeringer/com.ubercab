@@ -1,28 +1,21 @@
-public final class agq
+import android.os.IInterface;
+
+public abstract interface agq
+  extends IInterface
 {
-  final long a;
-  final String b;
-  final int c;
+  public abstract void a();
   
-  agq(long paramLong, String paramString, int paramInt)
-  {
-    a = paramLong;
-    b = paramString;
-    c = paramInt;
-  }
+  public abstract void a(int paramInt);
   
-  public final boolean equals(Object paramObject)
-  {
-    if ((paramObject == null) || (!(paramObject instanceof agq))) {
-      return false;
-    }
-    return (a == a) && (c == c);
-  }
+  public abstract void a(agu paramagu);
   
-  public final int hashCode()
-  {
-    return (int)a;
-  }
+  public abstract void b();
+  
+  public abstract void c();
+  
+  public abstract void d();
+  
+  public abstract void e();
 }
 
 /* Location:

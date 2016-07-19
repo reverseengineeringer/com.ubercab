@@ -1,6 +1,12 @@
-public final class awc
-  implements bmk
-{}
+import android.os.IInterface;
+
+public abstract interface awc
+  extends IInterface
+{
+  public abstract acp a(azr paramazr);
+  
+  public abstract acp b(azr paramazr);
+}
 
 /* Location:
  * Qualified Name:     awc

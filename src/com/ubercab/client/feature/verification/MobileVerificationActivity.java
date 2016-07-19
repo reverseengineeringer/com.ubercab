@@ -9,67 +9,67 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.feature.signup.PhoneNumber;
-import dta;
-import dtf;
-import dty;
-import dux;
-import eav;
-import ebj;
-import ego;
-import ejg;
-import ens;
-import eri;
-import hye;
-import hyf;
-import hyq;
-import hyr;
-import hys;
-import hyt;
-import hza;
-import hzf;
-import hzt;
-import hzu;
-import hzv;
-import hzx;
-import idk;
-import ife;
+import dyn;
+import dys;
+import dzn;
+import eaj;
+import ehn;
+import eib;
+import eoz;
+import erj;
+import evr;
+import ezm;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import jry;
-import jse;
-import jsj;
-import jzx;
-import kld;
-import klo;
-import kls;
-import p;
-import r;
+import kaf;
+import kag;
+import kar;
+import kas;
+import kat;
+import kau;
+import kbd;
+import kbj;
+import kcd;
+import kce;
+import kcf;
+import kch;
+import kgc;
+import kia;
+import mxd;
+import mxk;
+import mxp;
+import ngo;
+import odr;
+import oed;
+import oeh;
+import x;
+import z;
 
 public class MobileVerificationActivity
-  extends RiderActivity<hyr>
+  extends RiderActivity<kas>
 {
-  public ego g;
-  public ckc h;
-  public jsj i;
-  public ife j;
-  public hza k;
-  public dta l;
-  public jry m;
-  public dty n;
-  public ens o;
-  public idk p;
-  public jse q;
+  public eoz g;
+  public ckt h;
+  public mxp i;
+  public kia j;
+  public kbd k;
+  public dyn l;
+  public mxd m;
+  public dzn n;
+  public evr o;
+  public kgc p;
+  public mxk q;
   private String r;
-  private klo s;
-  private klo t;
+  private oed s;
+  private oed t;
   private Drawable u;
   
   private void a(int paramInt)
@@ -79,45 +79,45 @@ public class MobileVerificationActivity
     default: 
       return;
     case 1: 
-      b().a(u);
+      b().b(u);
       return;
     }
     b().b(0);
   }
   
-  private void a(hyr paramhyr)
+  private void a(kas paramkas)
   {
-    paramhyr.a(this);
+    paramkas.a(this);
   }
   
   private void a(boolean paramBoolean)
   {
-    a(hys.b);
+    a(kat.b);
     if (paramBoolean) {}
-    for (MobileVerificationWaitFragment localMobileVerificationWaitFragment = MobileVerificationWaitFragment.b();; localMobileVerificationWaitFragment = MobileVerificationWaitFragment.a())
+    for (MobileVerificationWaitFragment localMobileVerificationWaitFragment = MobileVerificationWaitFragment.f();; localMobileVerificationWaitFragment = MobileVerificationWaitFragment.a())
     {
-      a(2131624971, localMobileVerificationWaitFragment, true);
+      a(2131625451, localMobileVerificationWaitFragment, true);
       return;
     }
   }
   
-  private hyr b(ebj paramebj)
+  private kas b(eib parameib)
   {
-    return hye.a().a(new eav(this)).a(paramebj).a();
+    return kaf.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void f()
   {
-    g.c(n.y());
+    g.b(n.N());
     a(true);
   }
   
   private void g()
   {
-    o.a("com.uber.SMS_RECEIVER", hzf.a);
-    s = q.c("default_verification", Locale.getDefault().getCountry()).a(kls.a()).b(new hyt(this, (byte)0));
+    o.a("com.uber.SMS_RECEIVER", kbj.a);
+    s = q.c("default_verification", Locale.getDefault().getCountry()).a(oeh.a()).b(new kau(this, (byte)0));
     i();
-    a(getString(2131166325), null);
+    a(getString(2131166506), null);
   }
   
   private void h()
@@ -126,29 +126,33 @@ public class MobileVerificationActivity
     {
       PhoneNumber localPhoneNumber = k.l();
       if (localPhoneNumber != null) {
-        a(2131624971, MobileVerificationChangeNumberFragment.a(localPhoneNumber.a(), localPhoneNumber.b()));
+        a(2131625451, MobileVerificationChangeNumberFragment.a(localPhoneNumber.a(), localPhoneNumber.b()));
       }
     }
     else
     {
       return;
     }
-    a(2131624971, MobileVerificationChangeNumberFragment.a(null, null));
+    a(2131625451, MobileVerificationChangeNumberFragment.a(null, null));
   }
   
   private void i()
   {
     if (a(MobileVerificationTokenFragment.class) == null)
     {
-      a(hys.b);
-      a(2131624971, MobileVerificationTokenFragment.a(), true);
+      a(kat.b);
+      a(2131625451, MobileVerificationTokenFragment.a(), true);
     }
   }
   
   private boolean j()
   {
     int i2 = k();
-    a(hys.b);
+    a(kat.b);
+    MobileVerificationWaitFragment localMobileVerificationWaitFragment = (MobileVerificationWaitFragment)a(MobileVerificationWaitFragment.class);
+    if ((localMobileVerificationWaitFragment != null) && (i2 == 1)) {
+      localMobileVerificationWaitFragment.h();
+    }
     if (a(MobileVerificationChangeNumberFragment.class) != null) {}
     for (int i1 = 1; (i1 != 0) && (i2 == 1); i1 = 0)
     {
@@ -188,37 +192,33 @@ public class MobileVerificationActivity
   
   private void l()
   {
-    u = getResources().getDrawable(2130837784);
-    jzx.a(u, getResources().getColor(2131558549));
+    u = getResources().getDrawable(2130837863);
+    ngo.a(u, getResources().getColor(2131558648));
   }
   
   private boolean m()
   {
-    return idk.a(this, "android.permission.RECEIVE_SMS");
+    return kgc.a(this, "android.permission.RECEIVE_SMS");
   }
   
   @Deprecated
   private void n()
   {
     if (a(MobileVerificationSmsFragment.class) == null) {
-      a(2131624971, MobileVerificationSmsFragment.a(), true);
+      a(2131625451, MobileVerificationSmsFragment.a(), true);
     }
   }
   
   public final void a(int paramInt1, int paramInt2, Bundle paramBundle)
   {
     super.a(paramInt1, paramInt2, paramBundle);
-    if (j.b(dux.cB)) {
-      if (paramInt1 == 9011)
+    if ((j.c(eaj.dw)) && (paramInt1 == 9011)) {
+      if (paramInt2 == -1)
       {
-        if (paramInt2 != -1) {
-          break label49;
-        }
-        h.a(p.cU);
+        h.a(x.ex);
         f();
       }
     }
-    label49:
     do
     {
       do
@@ -227,31 +227,31 @@ public class MobileVerificationActivity
         {
           return;
         } while (paramInt2 != 0);
-        h.a(p.cT);
+        h.a(x.ew);
         return;
       } while (paramInt1 != 1);
       if (paramInt2 == 101)
       {
-        h.a(r.oa);
-        a(hys.a);
+        h.a(z.rN);
+        a(kat.a);
         h();
       }
       if (paramInt2 == 102)
       {
-        h.a(r.of);
+        h.a(z.rU);
         g();
       }
     } while (paramInt2 != 100);
-    h.a(r.nZ);
+    h.a(z.rM);
     f();
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903733);
+    setContentView(2130903971);
     l();
-    a(hys.b);
+    a(kat.b);
     r = getIntent().getAction();
     int i1;
     if (r != null)
@@ -269,7 +269,7 @@ public class MobileVerificationActivity
     }
     for (;;)
     {
-      if ((j.b(dux.cB)) && (getIntent().getBooleanExtra("com.ubercab.MOBILE_VOICE_VERIFICATION", false))) {
+      if ((j.c(eaj.dw)) && (getIntent().getBooleanExtra("com.ubercab.MOBILE_VOICE_VERIFICATION", false))) {
         f();
       }
       k.i();
@@ -330,25 +330,25 @@ public class MobileVerificationActivity
   public void onPause()
   {
     super.onPause();
-    t.c();
+    t.af_();
     if (s != null) {
-      s.c();
+      s.af_();
     }
     k.b();
   }
   
-  @cho
-  public void onPhoneNumberChangedSuccessEvent(hzt paramhzt)
+  @chu
+  public void onPhoneNumberChangedSuccessEvent(kcd paramkcd)
   {
-    C();
+    E();
     i();
-    if ((j.b(dux.aP)) && (m())) {
+    if ((j.c(eaj.bb)) && (m())) {
       a(false);
     }
   }
   
-  @cho
-  public void onRequestMobileVerificationResponseEvent(ejg paramejg)
+  @chu
+  public void onRequestMobileVerificationResponseEvent(erj paramerj)
   {
     new Handler().postDelayed(new MobileVerificationActivity.1(this), 1000L);
   }
@@ -362,10 +362,10 @@ public class MobileVerificationActivity
   public void onResume()
   {
     super.onResume();
-    t = i.d().c(new hyq(this, (byte)0));
+    t = i.d().c(new kar(this, (byte)0));
     k.a();
-    if (j.b(dux.aP)) {
-      m.a().b(eri.a());
+    if (j.c(eaj.bb)) {
+      m.a().b(ezm.a());
     }
   }
   
@@ -375,32 +375,32 @@ public class MobileVerificationActivity
     paramBundle.putString("com.ubercab.ACTION", r);
   }
   
-  @cho
-  public void onSelectCallAgainEvent(hzu paramhzu)
+  @chu
+  public void onSelectCallAgainEvent(kce paramkce)
   {
     f();
   }
   
-  @cho
+  @chu
   @Deprecated
-  public void onSelectPhoneNumberChangeEvent(hzv paramhzv)
+  public void onSelectPhoneNumberChangeEvent(kcf paramkcf)
   {
-    a(hys.a);
+    a(kat.a);
     h();
   }
   
-  @cho
-  public void onVerificationTimeoutEvent(hzx paramhzx)
+  @chu
+  public void onVerificationTimeoutEvent(kch paramkch)
   {
     i();
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
     return Collections.singleton(l);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

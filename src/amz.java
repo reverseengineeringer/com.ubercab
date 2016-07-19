@@ -1,103 +1,33 @@
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.app.DownloadManager;
-import android.app.DownloadManager.Request;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.net.Uri;
-import android.os.Environment;
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import java.util.Map;
+import android.os.Looper;
+import com.google.android.gms.common.api.Scope;
 
-@apl
 public final class amz
-  extends and
 {
-  private final Map<String, String> a;
-  private final Context b;
-  
-  public amz(asq paramasq, Map<String, String> paramMap)
+  public static final wd<beu> a = new wd();
+  public static final wd<beu> b = new wd();
+  public static final wb<beu, and> c = new wb()
   {
-    super(paramasq, "storePicture");
-    a = paramMap;
-    b = paramasq.f();
-  }
-  
-  static DownloadManager.Request a(String paramString1, String paramString2)
-  {
-    paramString1 = new DownloadManager.Request(Uri.parse(paramString1));
-    paramString1.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, paramString2);
-    tp.g().a(paramString1);
-    return paramString1;
-  }
-  
-  private static String d(String paramString)
-  {
-    return Uri.parse(paramString).getLastPathSegment();
-  }
-  
-  public final void a()
-  {
-    if (b == null)
+    private static beu a(Context paramAnonymousContext, Looper paramAnonymousLooper, zq paramAnonymouszq, and paramAnonymousand, wl paramAnonymouswl, wm paramAnonymouswm)
     {
-      a("Activity context is not available");
-      return;
-    }
-    tp.e();
-    if (!aqz.e(b).c())
-    {
-      a("Feature is not supported by the device.");
-      return;
-    }
-    final String str1 = (String)a.get("iurl");
-    if (TextUtils.isEmpty(str1))
-    {
-      a("Image url cannot be empty.");
-      return;
-    }
-    if (!URLUtil.isValidUrl(str1))
-    {
-      a("Invalid image url: " + str1);
-      return;
-    }
-    final String str2 = d(str1);
-    tp.e();
-    if (!aqz.c(str2))
-    {
-      a("Image type not recognized: " + str2);
-      return;
-    }
-    tp.e();
-    AlertDialog.Builder localBuilder = aqz.d(b);
-    localBuilder.setTitle(tp.h().a(lw.store_picture_title, "Save image"));
-    localBuilder.setMessage(tp.h().a(lw.store_picture_message, "Allow Ad to store image in Picture gallery?"));
-    localBuilder.setPositiveButton(tp.h().a(lw.accept, "Accept"), new DialogInterface.OnClickListener()
-    {
-      public final void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
-      {
-        paramAnonymousDialogInterface = (DownloadManager)amz.a(amz.this).getSystemService("download");
-        try
-        {
-          paramAnonymousDialogInterface.enqueue(amz.a(str1, str2));
-          return;
-        }
-        catch (IllegalStateException paramAnonymousDialogInterface)
-        {
-          a("Could not store picture.");
-        }
+      if (paramAnonymousand == null) {
+        paramAnonymousand = and.a;
       }
-    });
-    localBuilder.setNegativeButton(tp.h().a(lw.decline, "Decline"), new DialogInterface.OnClickListener()
+      return new beu(paramAnonymousContext, paramAnonymousLooper, paramAnonymouszq, paramAnonymouswl, paramAnonymouswm);
+    }
+  };
+  static final wb<beu, ana> d = new wb()
+  {
+    private static beu a(Context paramAnonymousContext, Looper paramAnonymousLooper, zq paramAnonymouszq, ana paramAnonymousana, wl paramAnonymouswl, wm paramAnonymouswm)
     {
-      public final void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
-      {
-        a("User canceled the download.");
-      }
-    });
-    localBuilder.create().show();
-  }
+      return new beu(paramAnonymousContext, paramAnonymousLooper, false, paramAnonymouszq, paramAnonymousana.a(), paramAnonymouswl, paramAnonymouswm);
+    }
+  };
+  public static final Scope e = new Scope("profile");
+  public static final Scope f = new Scope("email");
+  public static final vw<and> g = new vw("SignIn.API", c, a);
+  public static final vw<ana> h = new vw("SignIn.INTERNAL_API", d, b);
+  public static final anb i = new bet();
 }
 
 /* Location:

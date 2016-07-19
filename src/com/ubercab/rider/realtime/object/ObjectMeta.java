@@ -2,11 +2,11 @@ package com.ubercab.rider.realtime.object;
 
 import com.ubercab.rider.realtime.model.Meta;
 import com.ubercab.shape.Shape;
-import jtt;
+import mzb;
 
 @Shape
 public abstract class ObjectMeta
-  implements Meta, jtt
+  implements Meta, mzb
 {
   public static ObjectMeta create()
   {

@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import juu;
+import nad;
 
 @Shape
 abstract class ObjectTripExtraPaymentData
-  implements juu
+  implements nad
 {}
 
 /* Location:

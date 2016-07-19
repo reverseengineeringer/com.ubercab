@@ -9,6 +9,10 @@ public abstract class Display
 {
   public abstract String getImageUrl();
   
+  public abstract String getImageUrlV2();
+  
+  public abstract String getIncentiveText();
+  
   public abstract String getLegalConsent();
   
   public abstract String getMainTitle();
@@ -20,6 +24,10 @@ public abstract class Display
   public abstract String getStepTitle();
   
   abstract Display setImageUrl(String paramString);
+  
+  abstract Display setImageUrlV2(String paramString);
+  
+  abstract Display setIncentiveText(String paramString);
   
   abstract Display setLegalConsent(String paramString);
   

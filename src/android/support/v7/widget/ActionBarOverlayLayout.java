@@ -22,19 +22,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window.Callback;
-import bp;
-import bu;
-import dx;
-import ei;
-import fw;
-import fx;
-import jc;
+import gd;
+import gi;
+import ik;
+import iv;
+import ko;
+import kp;
+import nq;
 
 public class ActionBarOverlayLayout
   extends ViewGroup
-  implements NestedScrollingParent, fw
+  implements NestedScrollingParent, ko
 {
-  static final int[] a = { bp.actionBarSize, 16842841 };
+  static final int[] a = { gd.actionBarSize, 16842841 };
   private final Runnable A = new Runnable()
   {
     public final void run()
@@ -48,7 +48,7 @@ public class ActionBarOverlayLayout
   private int c = 0;
   private ContentFrameLayout d;
   private ActionBarContainer e;
-  private fx f;
+  private kp f;
   private Drawable g;
   private boolean h;
   private boolean i;
@@ -63,7 +63,7 @@ public class ActionBarOverlayLayout
   private final Rect r = new Rect();
   private final Rect s = new Rect();
   private final Rect t = new Rect();
-  private ei u;
+  private iv u;
   private final int v = 600;
   private ScrollerCompat w;
   private ViewPropertyAnimatorCompat x;
@@ -107,13 +107,13 @@ public class ActionBarOverlayLayout
     return new ActionBarOverlayLayout.LayoutParams(getContext(), paramAttributeSet);
   }
   
-  private static fx a(View paramView)
+  private static kp a(View paramView)
   {
-    if ((paramView instanceof fx)) {
-      return (fx)paramView;
+    if ((paramView instanceof kp)) {
+      return (kp)paramView;
     }
     if ((paramView instanceof Toolbar)) {
-      return ((Toolbar)paramView).q();
+      return ((Toolbar)paramView).s();
     }
     throw new IllegalStateException("Can't make a decor toolbar out of " + paramView.getClass().getSimpleName());
   }
@@ -190,7 +190,7 @@ public class ActionBarOverlayLayout
     ViewCompat.setTranslationY(e, -paramInt);
   }
   
-  private void j()
+  private void k()
   {
     boolean bool = true;
     i = true;
@@ -203,27 +203,19 @@ public class ActionBarOverlayLayout
     }
   }
   
-  private static ActionBarOverlayLayout.LayoutParams k()
+  private static ActionBarOverlayLayout.LayoutParams l()
   {
     return new ActionBarOverlayLayout.LayoutParams();
   }
   
-  private void l()
+  private void m()
   {
     if (d == null)
     {
-      d = ((ContentFrameLayout)findViewById(bu.action_bar_activity_content));
-      e = ((ActionBarContainer)findViewById(bu.action_bar_container));
-      f = a(findViewById(bu.action_bar));
+      d = ((ContentFrameLayout)findViewById(gi.action_bar_activity_content));
+      e = ((ActionBarContainer)findViewById(gi.action_bar_container));
+      f = a(findViewById(gi.action_bar));
     }
-  }
-  
-  private int m()
-  {
-    if (e != null) {
-      return -(int)ViewCompat.getTranslationY(e);
-    }
-    return 0;
   }
   
   private void n()
@@ -261,36 +253,36 @@ public class ActionBarOverlayLayout
   
   public final void a(int paramInt)
   {
-    l();
+    m();
     switch (paramInt)
     {
     default: 
       return;
     case 2: 
-      f.e();
-      return;
-    case 5: 
       f.f();
       return;
+    case 5: 
+      f.g();
+      return;
     }
-    j();
+    k();
   }
   
-  public final void a(Menu paramMenu, dx paramdx)
+  public final void a(Menu paramMenu, ik paramik)
   {
-    l();
-    f.a(paramMenu, paramdx);
+    m();
+    f.a(paramMenu, paramik);
   }
   
   public final void a(Window.Callback paramCallback)
   {
-    l();
+    m();
     f.a(paramCallback);
   }
   
-  public final void a(ei paramei)
+  public final void a(iv paramiv)
   {
-    u = paramei;
+    u = paramiv;
     if (getWindowToken() != null)
     {
       u.d(c);
@@ -304,7 +296,7 @@ public class ActionBarOverlayLayout
   
   public final void a(CharSequence paramCharSequence)
   {
-    l();
+    m();
     f.a(paramCharSequence);
   }
   
@@ -331,10 +323,12 @@ public class ActionBarOverlayLayout
     }
   }
   
-  public final boolean c()
+  public final int c()
   {
-    l();
-    return f.h();
+    if (e != null) {
+      return -(int)ViewCompat.getTranslationY(e);
+    }
+    return 0;
   }
   
   protected boolean checkLayoutParams(ViewGroup.LayoutParams paramLayoutParams)
@@ -344,7 +338,7 @@ public class ActionBarOverlayLayout
   
   public final boolean d()
   {
-    l();
+    m();
     return f.i();
   }
   
@@ -367,23 +361,23 @@ public class ActionBarOverlayLayout
   
   public final boolean e()
   {
-    l();
+    m();
     return f.j();
   }
   
   public final boolean f()
   {
-    l();
+    m();
     return f.k();
   }
   
   protected boolean fitSystemWindows(Rect paramRect)
   {
-    l();
+    m();
     ViewCompat.getWindowSystemUiVisibility(this);
     boolean bool = a(e, paramRect, false);
     r.set(paramRect);
-    jc.a(this, r, o);
+    nq.a(this, r, o);
     if (!p.equals(o))
     {
       p.set(o);
@@ -397,7 +391,7 @@ public class ActionBarOverlayLayout
   
   public final boolean g()
   {
-    l();
+    m();
     return f.l();
   }
   
@@ -411,16 +405,22 @@ public class ActionBarOverlayLayout
     return B.getNestedScrollAxes();
   }
   
-  public final void h()
+  public final boolean h()
   {
-    l();
-    f.m();
+    m();
+    return f.m();
   }
   
   public final void i()
   {
-    l();
+    m();
     f.n();
+  }
+  
+  public final void j()
+  {
+    m();
+    f.o();
   }
   
   protected void onConfigurationChanged(Configuration paramConfiguration)
@@ -464,14 +464,14 @@ public class ActionBarOverlayLayout
   
   protected void onMeasure(int paramInt1, int paramInt2)
   {
-    l();
+    m();
     measureChildWithMargins(e, paramInt1, 0, paramInt2, 0);
     Object localObject = (ActionBarOverlayLayout.LayoutParams)e.getLayoutParams();
     int i6 = Math.max(0, e.getMeasuredWidth() + leftMargin + rightMargin);
     int i1 = e.getMeasuredHeight();
     int i2 = topMargin;
     int i5 = Math.max(0, bottomMargin + (i1 + i2));
-    int i4 = jc.a(0, ViewCompat.getMeasuredState(e));
+    int i4 = nq.a(0, ViewCompat.getMeasuredState(e));
     int i3;
     if ((ViewCompat.getWindowSystemUiVisibility(this) & 0x100) != 0)
     {
@@ -514,7 +514,7 @@ public class ActionBarOverlayLayout
         i2 = d.getMeasuredHeight();
         i3 = topMargin;
         i2 = Math.max(i5, bottomMargin + (i2 + i3));
-        i3 = jc.a(i4, ViewCompat.getMeasuredState(d));
+        i3 = nq.a(i4, ViewCompat.getMeasuredState(d));
         i4 = getPaddingLeft();
         i5 = getPaddingRight();
         i2 = Math.max(i2 + (getPaddingTop() + getPaddingBottom()), getSuggestedMinimumHeight());
@@ -569,10 +569,10 @@ public class ActionBarOverlayLayout
   public void onNestedScrollAccepted(View paramView1, View paramView2, int paramInt)
   {
     B.onNestedScrollAccepted(paramView1, paramView2, paramInt);
-    m = m();
+    m = c();
     n();
     if (u != null) {
-      u.m();
+      u.s();
     }
   }
   
@@ -604,7 +604,7 @@ public class ActionBarOverlayLayout
     if (Build.VERSION.SDK_INT >= 16) {
       super.onWindowSystemUiVisibilityChanged(paramInt);
     }
-    l();
+    m();
     int i3 = n;
     n = paramInt;
     int i1;
@@ -619,16 +619,16 @@ public class ActionBarOverlayLayout
       label49:
       if (u != null)
       {
-        ei localei = u;
+        iv localiv = u;
         if (i2 != 0) {
           break label125;
         }
         label66:
-        localei.h(bool);
+        localiv.h(bool);
         if ((i1 == 0) && (i2 != 0)) {
           break label131;
         }
-        u.k();
+        u.q();
       }
     }
     for (;;)
@@ -646,7 +646,7 @@ public class ActionBarOverlayLayout
       bool = false;
       break label66;
       label131:
-      u.l();
+      u.r();
     }
   }
   

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/ub__ratings_comment_static_info" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:id="@id/ub__ratings_text_view_support_recipient" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ratings_comment_support_recipient" style="@style/Style.Rider.TextAppearance.Octane.RatingsDialog.CommentSupport" />
+        <View android:background="@color/ub__uber_white_80" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_divider" />
+        <com.ubercab.ui.TextView android:id="@id/ub__ratings_text_view_support_subject" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Style.Rider.TextAppearance.Octane.RatingsDialog.CommentSupport" />
+        <View android:background="@color/ub__uber_white_80" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_divider" />
+    </LinearLayout>
+    <com.ubercab.ui.EditText android:id="@id/ub__ratings_edit_text_support_comment" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/what_went_wrong_prompt" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.EditText" />
+</LinearLayout>

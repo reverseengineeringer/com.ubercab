@@ -3,11 +3,11 @@ package com.ubercab.rider.realtime.request.param;
 import com.ubercab.rider.realtime.model.Profile;
 import com.ubercab.rider.realtime.model.ProfileTheme;
 import com.ubercab.shape.Shape;
-import jub;
+import mzj;
 
 @Shape
 public abstract class UpdateProfile
-  implements jub
+  implements mzj
 {
   public static UpdateProfile create(Profile paramProfile)
   {

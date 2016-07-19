@@ -1,121 +1,88 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.plus.internal.model.people.PersonEntity.OrganizationsEntity;
-import java.util.HashSet;
-import java.util.Set;
+import java.lang.reflect.Type;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.TimeZone;
 
-public final class blr
-  implements Parcelable.Creator<PersonEntity.OrganizationsEntity>
+final class blr
+  implements bmc<java.util.Date>, bml<java.util.Date>
 {
-  private static PersonEntity.OrganizationsEntity a(Parcel paramParcel)
+  private final DateFormat a;
+  private final DateFormat b;
+  private final DateFormat c;
+  
+  blr()
   {
-    int i = 0;
-    String str1 = null;
-    int k = zm.b(paramParcel);
-    HashSet localHashSet = new HashSet();
-    String str2 = null;
-    boolean bool = false;
-    String str3 = null;
-    String str4 = null;
-    String str5 = null;
-    String str6 = null;
-    String str7 = null;
-    int j = 0;
-    while (paramParcel.dataPosition() < k)
+    this(DateFormat.getDateTimeInstance(2, 2, Locale.US), DateFormat.getDateTimeInstance(2, 2));
+  }
+  
+  public blr(int paramInt1, int paramInt2)
+  {
+    this(DateFormat.getDateTimeInstance(paramInt1, paramInt2, Locale.US), DateFormat.getDateTimeInstance(paramInt1, paramInt2));
+  }
+  
+  blr(String paramString)
+  {
+    this(new SimpleDateFormat(paramString, Locale.US), new SimpleDateFormat(paramString));
+  }
+  
+  private blr(DateFormat paramDateFormat1, DateFormat paramDateFormat2)
+  {
+    a = paramDateFormat1;
+    b = paramDateFormat2;
+    c = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
+    c.setTimeZone(TimeZone.getTimeZone("UTC"));
+  }
+  
+  private bmd a(java.util.Date paramDate)
+  {
+    synchronized (b)
     {
-      int m = zm.a(paramParcel);
-      switch (zm.a(m))
+      paramDate = new bmj(a.format(paramDate));
+      return paramDate;
+    }
+  }
+  
+  private java.util.Date a(bmd parambmd)
+  {
+    java.util.Date localDate2;
+    synchronized (b)
+    {
+      try
       {
-      default: 
-        zm.a(paramParcel, m);
-        break;
-      case 1: 
-        j = zm.e(paramParcel, m);
-        localHashSet.add(Integer.valueOf(1));
-        break;
-      case 2: 
-        str7 = zm.n(paramParcel, m);
-        localHashSet.add(Integer.valueOf(2));
-        break;
-      case 3: 
-        str6 = zm.n(paramParcel, m);
-        localHashSet.add(Integer.valueOf(3));
-        break;
-      case 4: 
-        str5 = zm.n(paramParcel, m);
-        localHashSet.add(Integer.valueOf(4));
-        break;
-      case 5: 
-        str4 = zm.n(paramParcel, m);
-        localHashSet.add(Integer.valueOf(5));
-        break;
-      case 6: 
-        str3 = zm.n(paramParcel, m);
-        localHashSet.add(Integer.valueOf(6));
-        break;
-      case 7: 
-        bool = zm.b(paramParcel, m);
-        localHashSet.add(Integer.valueOf(7));
-        break;
-      case 8: 
-        str2 = zm.n(paramParcel, m);
-        localHashSet.add(Integer.valueOf(8));
-        break;
-      case 9: 
-        str1 = zm.n(paramParcel, m);
-        localHashSet.add(Integer.valueOf(9));
-        break;
-      case 10: 
-        i = zm.e(paramParcel, m);
-        localHashSet.add(Integer.valueOf(10));
+        java.util.Date localDate1 = b.parse(parambmd.b());
+        return localDate1;
       }
+      catch (ParseException localParseException1) {}
     }
-    if (paramParcel.dataPosition() != k) {
-      throw new zn("Overread allowed size end=" + k, paramParcel);
-    }
-    return new PersonEntity.OrganizationsEntity(localHashSet, j, str7, str6, str5, str4, str3, bool, str2, str1, i);
   }
   
-  public static void a(PersonEntity.OrganizationsEntity paramOrganizationsEntity, Parcel paramParcel)
+  private java.util.Date a(bmd parambmd, Type paramType)
   {
-    int i = zo.a(paramParcel);
-    Set localSet = a;
-    if (localSet.contains(Integer.valueOf(1))) {
-      zo.a(paramParcel, 1, b);
+    if (!(parambmd instanceof bmj)) {
+      throw new bmh("The date should be a string value");
     }
-    if (localSet.contains(Integer.valueOf(2))) {
-      zo.a(paramParcel, 2, c, true);
+    parambmd = a(parambmd);
+    if (paramType == java.util.Date.class) {
+      return parambmd;
     }
-    if (localSet.contains(Integer.valueOf(3))) {
-      zo.a(paramParcel, 3, d, true);
+    if (paramType == Timestamp.class) {
+      return new Timestamp(parambmd.getTime());
     }
-    if (localSet.contains(Integer.valueOf(4))) {
-      zo.a(paramParcel, 4, e, true);
+    if (paramType == java.sql.Date.class) {
+      return new java.sql.Date(parambmd.getTime());
     }
-    if (localSet.contains(Integer.valueOf(5))) {
-      zo.a(paramParcel, 5, f, true);
-    }
-    if (localSet.contains(Integer.valueOf(6))) {
-      zo.a(paramParcel, 6, g, true);
-    }
-    if (localSet.contains(Integer.valueOf(7))) {
-      zo.a(paramParcel, 7, h);
-    }
-    if (localSet.contains(Integer.valueOf(8))) {
-      zo.a(paramParcel, 8, paramOrganizationsEntity.i, true);
-    }
-    if (localSet.contains(Integer.valueOf(9))) {
-      zo.a(paramParcel, 9, j, true);
-    }
-    if (localSet.contains(Integer.valueOf(10))) {
-      zo.a(paramParcel, 10, k);
-    }
-    zo.a(paramParcel, i);
+    throw new IllegalArgumentException(getClass() + " cannot deserialize to " + paramType);
   }
   
-  private static PersonEntity.OrganizationsEntity[] a(int paramInt)
+  public final String toString()
   {
-    return new PersonEntity.OrganizationsEntity[paramInt];
+    StringBuilder localStringBuilder = new StringBuilder();
+    localStringBuilder.append(blr.class.getSimpleName());
+    localStringBuilder.append('(').append(b.getClass().getSimpleName()).append(')');
+    return localStringBuilder.toString();
   }
 }
 

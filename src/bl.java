@@ -1,38 +1,26 @@
-import android.view.Menu;
-import android.view.View;
-import android.view.Window.Callback;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 
-final class bl
-  extends cz
+abstract class bl
+  extends Animation
 {
-  public bl(bh parambh, Window.Callback paramCallback)
+  private float b;
+  private float c;
+  
+  private bl(bk parambk) {}
+  
+  protected abstract float a();
+  
+  protected void applyTransformation(float paramFloat, Transformation paramTransformation)
   {
-    super(paramCallback);
+    a.a.b(b + c * paramFloat);
   }
   
-  public final View onCreatePanelView(int paramInt)
+  public void reset()
   {
-    switch (paramInt)
-    {
-    }
-    Menu localMenu;
-    do
-    {
-      return super.onCreatePanelView(paramInt);
-      localMenu = bh.c(a).r();
-    } while ((!onPreparePanel(paramInt, null, localMenu)) || (!onMenuOpened(paramInt, localMenu)));
-    return bh.a(a, localMenu);
-  }
-  
-  public final boolean onPreparePanel(int paramInt, View paramView, Menu paramMenu)
-  {
-    boolean bool = super.onPreparePanel(paramInt, paramView, paramMenu);
-    if ((bool) && (!bh.b(a)))
-    {
-      bh.c(a).m();
-      bh.d(a);
-    }
-    return bool;
+    super.reset();
+    b = a.a.a();
+    c = (a() - b);
   }
 }
 

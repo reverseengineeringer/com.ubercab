@@ -1,13 +1,37 @@
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.os.IInterface;
+import java.util.List;
 
-@apl
-public final class agx
+public abstract interface agx
+  extends IInterface
 {
-  public static SharedPreferences a(Context paramContext)
-  {
-    return paramContext.getSharedPreferences("google_ads_flags", 1);
-  }
+  public abstract String a();
+  
+  public abstract void a(acp paramacp);
+  
+  public abstract List b();
+  
+  public abstract void b(acp paramacp);
+  
+  public abstract String c();
+  
+  public abstract afg d();
+  
+  public abstract String e();
+  
+  public abstract double f();
+  
+  public abstract String g();
+  
+  public abstract String h();
+  
+  public abstract void i();
+  
+  public abstract boolean j();
+  
+  public abstract boolean k();
+  
+  public abstract Bundle l();
 }
 
 /* Location:

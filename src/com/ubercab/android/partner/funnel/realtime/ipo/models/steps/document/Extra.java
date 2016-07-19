@@ -7,7 +7,6 @@ import com.ubercab.shape.Shape;
 public abstract class Extra
   implements Parcelable
 {
-  public static final String PROPERTY_REQUIRED_DOCUMENT_ID = "requiredRocumentId";
   public static final String PROPERTY_REQUIRED_DOCUMENT_UUID = "requiredDocumentUuid";
   
   public static Extra create()
@@ -15,15 +14,23 @@ public abstract class Extra
     return new Shape_Extra();
   }
   
+  public abstract boolean getRejected();
+  
   public abstract Integer getRequiredDocumentId();
   
   public abstract String getRequiredDocumentUuid();
   
+  public abstract boolean getShowGetYourOwnInspection();
+  
   public abstract String getVehicleUuid();
+  
+  public abstract Extra setRejected(boolean paramBoolean);
   
   public abstract Extra setRequiredDocumentId(Integer paramInteger);
   
   public abstract Extra setRequiredDocumentUuid(String paramString);
+  
+  abstract Extra setShowGetYourOwnInspection(boolean paramBoolean);
   
   public abstract Extra setVehicleUuid(String paramString);
 }

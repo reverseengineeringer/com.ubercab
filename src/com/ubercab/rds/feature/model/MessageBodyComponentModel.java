@@ -1,5 +1,6 @@
 package com.ubercab.rds.feature.model;
 
+import android.view.View.OnClickListener;
 import com.ubercab.shape.Shape;
 
 @Shape
@@ -10,9 +11,13 @@ public abstract class MessageBodyComponentModel
     return new Shape_MessageBodyComponentModel();
   }
   
+  public abstract View.OnClickListener getClickListener();
+  
   public abstract String getData();
   
   public abstract String getType();
+  
+  public abstract MessageBodyComponentModel setClickListener(View.OnClickListener paramOnClickListener);
   
   public abstract MessageBodyComponentModel setData(String paramString);
   

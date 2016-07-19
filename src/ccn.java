@@ -1,52 +1,23 @@
-import com.paypal.android.sdk.payments.PayPalService;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
+import com.paypal.android.sdk.payments.LoginActivity;
 
-final class ccn
+public final class ccn
+  implements cbk
 {
-  private PayPalService a;
-  private String b;
+  public ccn(LoginActivity paramLoginActivity) {}
   
-  public ccn(PayPalService paramPayPalService)
+  public final void a(cbn paramcbn)
   {
-    a = paramPayPalService;
-    b = Integer.toString(new GregorianCalendar().getTimeZone().getRawOffset() / 1000 / 60);
+    if (paramcbn.b())
+    {
+      LoginActivity.j(a);
+      return;
+    }
+    LoginActivity.a(a, b);
   }
   
-  public final bxe a()
+  public final void a(Object paramObject)
   {
-    return a.c();
-  }
-  
-  public final void a(btn parambtn)
-  {
-    a.a(parambtn);
-  }
-  
-  public final String b()
-  {
-    return a.f();
-  }
-  
-  public final bvj c()
-  {
-    return a.b();
-  }
-  
-  public final String d()
-  {
-    return a.e();
-  }
-  
-  public final String e()
-  {
-    return b;
-  }
-  
-  public final String f()
-  {
-    return a.v();
+    LoginActivity.i(a);
   }
 }
 

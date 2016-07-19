@@ -6,115 +6,120 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.rider.realtime.model.Trip;
 import com.ubercab.rider.realtime.model.TripDriver;
 import com.ubercab.ui.Button;
-import dsf;
-import ebj;
-import efm;
-import emx;
-import hha;
-import hir;
-import hit;
-import hiw;
-import hix;
-import hnk;
-import idk;
-import ife;
-import jsg;
-import p;
-import r;
+import dxk;
+import eib;
+import enf;
+import eun;
+import izk;
+import jby;
+import jca;
+import jcd;
+import jce;
+import jht;
+import kgb;
+import kgc;
+import kia;
+import mxm;
+import x;
+import z;
 
 public class ContactDriverFragment
-  extends dsf<hir>
+  extends dxk<jby>
 {
-  public ckc a;
-  public emx b;
-  public jsg d;
-  public ife e;
-  public idk f;
-  private String g;
-  @InjectView(2131624213)
-  Button mCallButton;
-  @InjectView(2131624214)
-  Button mSmsButton;
-  @InjectView(2131624102)
-  TextView mTextViewDeafDriver;
-  @InjectView(2131624212)
-  View mViewDeafDriver;
+  public ckt a;
+  public eun b;
+  public mxm d;
+  public kia e;
+  public kgc f;
+  kgb g;
+  private String h;
+  @BindView
+  public Button mCallButton;
+  @BindView
+  public Button mSmsButton;
+  @BindView
+  public TextView mTextViewDeafDriver;
+  @BindView
+  public View mViewDeafDriver;
   
   public static void a(RiderActivity paramRiderActivity)
   {
     new ContactDriverFragment().show(paramRiderActivity.getSupportFragmentManager(), ContactDriverFragment.class.getName());
   }
   
-  private void a(hir paramhir)
+  private void a(jby paramjby)
   {
-    paramhir.a(this);
+    paramjby.a(this);
   }
   
-  private hir b(ebj paramebj)
+  private jby b(eib parameib)
   {
-    return hiw.a().a(new efm(this)).a(paramebj).a();
+    return jcd.a().a(new enf(this)).a(parameib).a();
   }
   
-  public final ckr a()
+  public final cli a()
   {
-    return p.bb;
+    return x.bC;
   }
   
-  @OnClick({2131624213})
+  @OnClick
   public void onClickButtonCall()
   {
-    a.a(r.ak);
+    a.a(z.aE);
     RiderActivity localRiderActivity = b();
-    if ((localRiderActivity == null) || (idk.a(getContext(), "android.permission.CALL_PHONE")))
+    if ((localRiderActivity == null) || (kgc.a(getContext(), "android.permission.CALL_PHONE")))
     {
-      hit.a(getActivity(), g);
+      jca.a(getActivity(), h);
       dismiss();
       return;
     }
-    f.a(localRiderActivity, 109, new ContactDriverFragment.1(this), new String[] { "android.permission.CALL_PHONE" });
+    g = f.a(localRiderActivity, 109, new ContactDriverFragment.1(this), new String[] { "android.permission.CALL_PHONE" });
   }
   
-  @OnClick({2131624214})
+  @OnClick
   public void onClickButtonMessage()
   {
-    hit.c(getActivity(), g);
-    a.a(r.aj);
+    jca.c(getActivity(), h);
+    a.a(z.aD);
     dismiss();
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setStyle(1, 2131362220);
+    setStyle(1, 2131362293);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903127, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903190, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
   }
   
   public void onDestroyView()
   {
-    super.onDestroy();
-    ButterKnife.reset(this);
+    if (g != null)
+    {
+      g.a();
+      g = null;
+    }
+    super.onDestroyView();
   }
   
-  @cho
-  public void onTripUiStateChangedEvent(hnk paramhnk)
+  @chu
+  public void onTripUiStateChangedEvent(jht paramjht)
   {
-    if (!hha.d(paramhnk.b())) {
+    if (!izk.f(paramjht.b())) {
       dismiss();
     }
   }
@@ -130,10 +135,10 @@ public class ContactDriverFragment
       dismiss();
       return;
     }
-    g = paramView.getMobile();
-    boolean bool1 = hit.a(b, e, paramView);
-    boolean bool2 = hit.a(b);
-    boolean bool3 = hit.a(e, paramView);
+    h = paramView.getMobile();
+    boolean bool1 = jca.a(b, e, paramView);
+    boolean bool2 = jca.a(b);
+    boolean bool3 = jca.a(e, paramView);
     paramBundle = mCallButton;
     if (bool1)
     {
@@ -142,10 +147,10 @@ public class ContactDriverFragment
       paramBundle.setVisibility(i);
       paramBundle = mSmsButton;
       if (!bool2) {
-        break label181;
+        break label180;
       }
     }
-    label181:
+    label180:
     for (int i = 0;; i = 8)
     {
       paramBundle.setVisibility(i);
@@ -158,7 +163,7 @@ public class ContactDriverFragment
       if (!bool3) {
         break;
       }
-      mTextViewDeafDriver.setText(getString(2131165679, new Object[] { paramView.getName() }));
+      mTextViewDeafDriver.setText(getString(2131165738, new Object[] { paramView.getName() }));
       return;
       i = 8;
       break label100;

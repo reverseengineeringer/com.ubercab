@@ -1,6 +1,6 @@
 package android.support.v4.content;
 
-public class SharedPreferencesCompat {}
+public final class SharedPreferencesCompat {}
 
 /* Location:
  * Qualified Name:     android.support.v4.content.SharedPreferencesCompat

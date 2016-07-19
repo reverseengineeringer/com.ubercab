@@ -2,14 +2,16 @@ package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import java.util.List;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface Location
 {
   public abstract String getAddress();
   
   public abstract List<AddressComponent> getAddressComponents();
+  
+  public abstract List<String> getCategories();
   
   public abstract String getFormattedAddress();
   

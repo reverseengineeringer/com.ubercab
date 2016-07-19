@@ -124,17 +124,16 @@ final class BackStackRecord
     {
       localOp = next;
       break;
-      setLastIn(paramSparseArray2, fragment);
+      setLastIn(paramSparseArray1, paramSparseArray2, fragment);
       continue;
       Object localObject1 = fragment;
-      Object localObject2;
       if (mManager.mAdded != null)
       {
         int i = 0;
-        localObject2 = localObject1;
         if (i < mManager.mAdded.size())
         {
           Fragment localFragment = (Fragment)mManager.mAdded.get(i);
+          Object localObject2;
           if (localObject1 != null)
           {
             localObject2 = localObject1;
@@ -143,34 +142,33 @@ final class BackStackRecord
           else
           {
             if (localFragment != localObject1) {
-              break label191;
+              break label197;
             }
+            localObject2 = null;
+            paramSparseArray2.remove(mContainerId);
           }
-          for (localObject2 = null;; localObject2 = localObject1)
+          for (;;)
           {
             i += 1;
             localObject1 = localObject2;
             break;
-            label191:
-            setFirstOut(paramSparseArray1, localFragment);
+            label197:
+            setFirstOut(paramSparseArray1, paramSparseArray2, localFragment);
+            localObject2 = localObject1;
           }
         }
       }
-      else
-      {
-        localObject2 = localObject1;
-      }
-      setLastIn(paramSparseArray2, (Fragment)localObject2);
+      setLastIn(paramSparseArray1, paramSparseArray2, fragment);
       continue;
-      setFirstOut(paramSparseArray1, fragment);
+      setFirstOut(paramSparseArray1, paramSparseArray2, fragment);
       continue;
-      setFirstOut(paramSparseArray1, fragment);
+      setFirstOut(paramSparseArray1, paramSparseArray2, fragment);
       continue;
-      setLastIn(paramSparseArray2, fragment);
+      setLastIn(paramSparseArray1, paramSparseArray2, fragment);
       continue;
-      setFirstOut(paramSparseArray1, fragment);
+      setFirstOut(paramSparseArray1, paramSparseArray2, fragment);
       continue;
-      setLastIn(paramSparseArray2, fragment);
+      setLastIn(paramSparseArray1, paramSparseArray2, fragment);
     }
   }
   
@@ -543,24 +541,41 @@ final class BackStackRecord
     }
   }
   
-  private static void setFirstOut(SparseArray<Fragment> paramSparseArray, Fragment paramFragment)
+  private static void setFirstOut(SparseArray<Fragment> paramSparseArray1, SparseArray<Fragment> paramSparseArray2, Fragment paramFragment)
   {
     if (paramFragment != null)
     {
       int i = mContainerId;
-      if ((i != 0) && (!paramFragment.isHidden()) && (paramFragment.isAdded()) && (paramFragment.getView() != null) && (paramSparseArray.get(i) == null)) {
-        paramSparseArray.put(i, paramFragment);
+      if ((i != 0) && (!paramFragment.isHidden()))
+      {
+        if ((paramFragment.isAdded()) && (paramFragment.getView() != null) && (paramSparseArray1.get(i) == null)) {
+          paramSparseArray1.put(i, paramFragment);
+        }
+        if (paramSparseArray2.get(i) == paramFragment) {
+          paramSparseArray2.remove(i);
+        }
       }
     }
   }
   
-  private void setLastIn(SparseArray<Fragment> paramSparseArray, Fragment paramFragment)
+  private void setLastIn(SparseArray<Fragment> paramSparseArray1, SparseArray<Fragment> paramSparseArray2, Fragment paramFragment)
   {
     if (paramFragment != null)
     {
       int i = mContainerId;
-      if (i != 0) {
-        paramSparseArray.put(i, paramFragment);
+      if (i != 0)
+      {
+        if (!paramFragment.isAdded()) {
+          paramSparseArray2.put(i, paramFragment);
+        }
+        if (paramSparseArray1.get(i) == paramFragment) {
+          paramSparseArray1.remove(i);
+        }
+      }
+      if ((mState <= 0) && (mManager.mCurState > 0))
+      {
+        mManager.makeActive(paramFragment);
+        mManager.moveToState(paramFragment, 1, 0, 0, false);
       }
     }
   }
@@ -739,37 +754,37 @@ final class BackStackRecord
     do
     {
       return;
-      localOp = mHead;
+      localOp = mTail;
     } while (localOp == null);
     switch (cmd)
     {
     }
     for (;;)
     {
-      localOp = next;
+      localOp = prev;
       break;
-      setFirstOut(paramSparseArray1, fragment);
+      setFirstOut(paramSparseArray1, paramSparseArray2, fragment);
       continue;
       if (removed != null)
       {
         int i = removed.size() - 1;
         while (i >= 0)
         {
-          setLastIn(paramSparseArray2, (Fragment)removed.get(i));
+          setLastIn(paramSparseArray1, paramSparseArray2, (Fragment)removed.get(i));
           i -= 1;
         }
       }
-      setFirstOut(paramSparseArray1, fragment);
+      setFirstOut(paramSparseArray1, paramSparseArray2, fragment);
       continue;
-      setLastIn(paramSparseArray2, fragment);
+      setLastIn(paramSparseArray1, paramSparseArray2, fragment);
       continue;
-      setLastIn(paramSparseArray2, fragment);
+      setLastIn(paramSparseArray1, paramSparseArray2, fragment);
       continue;
-      setFirstOut(paramSparseArray1, fragment);
+      setFirstOut(paramSparseArray1, paramSparseArray2, fragment);
       continue;
-      setLastIn(paramSparseArray2, fragment);
+      setLastIn(paramSparseArray1, paramSparseArray2, fragment);
       continue;
-      setFirstOut(paramSparseArray1, fragment);
+      setFirstOut(paramSparseArray1, paramSparseArray2, fragment);
     }
   }
   
@@ -1043,50 +1058,54 @@ final class BackStackRecord
     BackStackRecord.TransitionState localTransitionState = paramTransitionState;
     if (SUPPORTS_TRANSITIONS)
     {
-      if (paramTransitionState != null) {
-        break label216;
-      }
-      if (paramSparseArray1.size() == 0)
+      localTransitionState = paramTransitionState;
+      if (mManager.mCurState > 0)
       {
-        localTransitionState = paramTransitionState;
-        if (paramSparseArray2.size() == 0) {}
-      }
-      else
-      {
-        localTransitionState = beginTransition(paramSparseArray1, paramSparseArray2, true);
+        if (paramTransitionState != null) {
+          break label228;
+        }
+        if (paramSparseArray1.size() == 0)
+        {
+          localTransitionState = paramTransitionState;
+          if (paramSparseArray2.size() == 0) {}
+        }
+        else
+        {
+          localTransitionState = beginTransition(paramSparseArray1, paramSparseArray2, true);
+        }
       }
     }
-    label95:
+    label108:
     bumpBackStackNesting(-1);
     int i;
-    label108:
+    label121:
     int j;
-    label116:
+    label129:
     int k;
     if (localTransitionState != null)
     {
       i = 0;
       if (localTransitionState == null) {
-        break label250;
+        break label262;
       }
       j = 0;
       paramTransitionState = mTail;
       if (paramTransitionState == null) {
-        break label539;
+        break label551;
       }
       if (localTransitionState == null) {
-        break label259;
+        break label271;
       }
       k = 0;
-      label133:
+      label146:
       if (localTransitionState == null) {
-        break label268;
+        break label280;
       }
     }
-    label216:
-    label250:
-    label259:
-    label268:
+    label228:
+    label262:
+    label271:
+    label280:
     for (int m = 0;; m = popExitAnim) {
       switch (cmd)
       {
@@ -1094,17 +1113,17 @@ final class BackStackRecord
         throw new IllegalArgumentException("Unknown cmd: " + cmd);
         localTransitionState = paramTransitionState;
         if (paramBoolean) {
-          break label95;
+          break label108;
         }
         setNameOverrides(paramTransitionState, mSharedElementTargetNames, mSharedElementSourceNames);
         localTransitionState = paramTransitionState;
-        break label95;
-        i = mTransitionStyle;
         break label108;
+        i = mTransitionStyle;
+        break label121;
         j = mTransition;
-        break label116;
+        break label129;
         k = popEnterAnim;
-        break label133;
+        break label146;
       }
     }
     paramSparseArray1 = fragment;
@@ -1151,7 +1170,7 @@ final class BackStackRecord
         mManager.detachFragment(paramSparseArray1, FragmentManagerImpl.reverseTransit(j), i);
       }
     }
-    label539:
+    label551:
     if (paramBoolean)
     {
       mManager.moveToState(mManager.mCurState, FragmentManagerImpl.reverseTransit(j), i, true);
@@ -1198,7 +1217,7 @@ final class BackStackRecord
     }
     bumpBackStackNesting(1);
     Object localObject1;
-    if (SUPPORTS_TRANSITIONS)
+    if ((SUPPORTS_TRANSITIONS) && (mManager.mCurState > 0))
     {
       localObject1 = new SparseArray();
       localObject2 = new SparseArray();
@@ -1207,45 +1226,45 @@ final class BackStackRecord
     for (Object localObject2 = beginTransition((SparseArray)localObject1, (SparseArray)localObject2, false);; localObject2 = null)
     {
       int i;
-      label109:
+      label119:
       int j;
-      label116:
+      label126:
       BackStackRecord.Op localOp;
       int k;
       if (localObject2 != null)
       {
         i = 0;
         if (localObject2 == null) {
-          break label225;
+          break label237;
         }
         j = 0;
         localOp = mHead;
         if (localOp == null) {
-          break label717;
+          break label718;
         }
         if (localObject2 == null) {
-          break label233;
+          break label245;
         }
         k = 0;
-        label134:
+        label144:
         if (localObject2 == null) {
-          break label242;
+          break label254;
         }
       }
-      label225:
-      label233:
-      label242:
+      label237:
+      label245:
+      label254:
       for (int m = 0;; m = exitAnim) {
         switch (cmd)
         {
         default: 
           throw new IllegalArgumentException("Unknown cmd: " + cmd);
           i = mTransitionStyle;
-          break label109;
+          break label119;
           j = mTransition;
-          break label116;
+          break label126;
           k = enterAnim;
-          break label134;
+          break label144;
         }
       }
       localObject1 = fragment;
@@ -1257,52 +1276,43 @@ final class BackStackRecord
         break;
         localObject1 = fragment;
         int i1 = mContainerId;
-        Object localObject3;
+        Object localObject3 = localObject1;
         if (mManager.mAdded != null)
         {
-          int n = 0;
+          int n = mManager.mAdded.size() - 1;
           localObject3 = localObject1;
-          if (n < mManager.mAdded.size())
+          if (n >= 0)
           {
-            Fragment localFragment = (Fragment)mManager.mAdded.get(n);
+            localObject3 = (Fragment)mManager.mAdded.get(n);
             if (FragmentManagerImpl.DEBUG) {
-              Log.v("FragmentManager", "OP_REPLACE: adding=" + localObject1 + " old=" + localFragment);
+              Log.v("FragmentManager", "OP_REPLACE: adding=" + localObject1 + " old=" + localObject3);
             }
-            localObject3 = localObject1;
-            if (mContainerId == i1)
-            {
-              if (localFragment != localObject1) {
-                break label432;
+            if (mContainerId == i1) {
+              if (localObject3 == localObject1)
+              {
+                localObject1 = null;
+                fragment = null;
               }
-              localObject3 = null;
-              fragment = null;
             }
             for (;;)
             {
-              n += 1;
-              localObject1 = localObject3;
+              n -= 1;
               break;
-              label432:
               if (removed == null) {
                 removed = new ArrayList();
               }
-              removed.add(localFragment);
+              removed.add(localObject3);
               mNextAnim = m;
               if (mAddToBackStack)
               {
                 mBackStackNesting += 1;
                 if (FragmentManagerImpl.DEBUG) {
-                  Log.v("FragmentManager", "Bump nesting of " + localFragment + " to " + mBackStackNesting);
+                  Log.v("FragmentManager", "Bump nesting of " + localObject3 + " to " + mBackStackNesting);
                 }
               }
-              mManager.removeFragment(localFragment, j, i);
-              localObject3 = localObject1;
+              mManager.removeFragment((Fragment)localObject3, j, i);
             }
           }
-        }
-        else
-        {
-          localObject3 = localObject1;
         }
         if (localObject3 != null)
         {
@@ -1330,7 +1340,7 @@ final class BackStackRecord
           mManager.attachFragment((Fragment)localObject1, j, i);
         }
       }
-      label717:
+      label718:
       mManager.moveToState(mManager.mCurState, j, i, true);
       if (mAddToBackStack) {
         mManager.addBackStackState(this);

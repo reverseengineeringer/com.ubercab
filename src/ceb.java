@@ -1,22 +1,8 @@
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.paypal.android.sdk.payments.PaymentConfirmActivity;
-import java.util.ArrayList;
+import android.os.Parcelable.Creator;
 
 public final class ceb
-  implements View.OnClickListener
-{
-  public ceb(PaymentConfirmActivity paramPaymentConfirmActivity, bxr parambxr, ArrayList paramArrayList) {}
-  
-  public final void onClick(View paramView)
-  {
-    paramView = new AlertDialog.Builder(paramView.getContext());
-    paramView.setTitle(bxl.a(bxn.aC)).setAdapter(a, new cec(this));
-    paramView.create().show();
-  }
-}
+  implements Parcelable.Creator
+{}
 
 /* Location:
  * Qualified Name:     ceb

@@ -1,7 +1,6 @@
 package com.baidu.android.bbalbs.common.util;
 
 import android.content.Context;
-import android.text.TextUtils;
 
 public class CommonParam
 {
@@ -9,19 +8,7 @@ public class CommonParam
   
   public static String a(Context paramContext)
   {
-    String str2 = b(paramContext);
-    String str1 = a.b(paramContext);
-    paramContext = str1;
-    if (TextUtils.isEmpty(str1)) {
-      paramContext = "0";
-    }
-    paramContext = new StringBuffer(paramContext).reverse().toString();
-    return str2 + "|" + paramContext;
-  }
-  
-  private static String b(Context paramContext)
-  {
-    return a.a(paramContext);
+    return b.a(paramContext);
   }
 }
 

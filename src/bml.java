@@ -1,4 +1,7 @@
-public abstract interface bml {}
+public abstract interface bml<T>
+{
+  public abstract bmd a(T paramT);
+}
 
 /* Location:
  * Qualified Name:     bml

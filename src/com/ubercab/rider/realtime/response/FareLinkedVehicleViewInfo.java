@@ -1,15 +1,18 @@
 package com.ubercab.rider.realtime.response;
 
+import com.ubercab.rider.realtime.model.EtdInfo;
 import com.ubercab.rider.realtime.model.FareInfo;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class FareLinkedVehicleViewInfo
   implements com.ubercab.rider.realtime.model.FareLinkedVehicleViewInfo
 {
+  abstract FareLinkedVehicleViewInfo setEtdInfo(EtdInfo paramEtdInfo);
+  
   abstract FareLinkedVehicleViewInfo setFareInfo(FareInfo paramFareInfo);
   
   abstract FareLinkedVehicleViewInfo setLinkedVehicleViewId(String paramString);

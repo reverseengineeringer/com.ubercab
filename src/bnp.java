@@ -1,52 +1,21 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.firstparty.GetInstrumentsResponse;
-
-public final class bnp
-  implements Parcelable.Creator<GetInstrumentsResponse>
+final class bnp
+  implements CharSequence
 {
-  private static GetInstrumentsResponse a(Parcel paramParcel)
+  char[] a;
+  
+  public final char charAt(int paramInt)
   {
-    byte[][] arrayOfByte = null;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    String[] arrayOfString = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        arrayOfString = zm.z(paramParcel, k);
-        break;
-      case 3: 
-        arrayOfByte = zm.r(paramParcel, k);
-      }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new GetInstrumentsResponse(i, arrayOfString, arrayOfByte);
+    return a[paramInt];
   }
   
-  public static void a(GetInstrumentsResponse paramGetInstrumentsResponse, Parcel paramParcel)
+  public final int length()
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramGetInstrumentsResponse.a());
-    zo.a(paramParcel, 2, a);
-    zo.a(paramParcel, 3, b);
-    zo.a(paramParcel, i);
+    return a.length;
   }
   
-  private static GetInstrumentsResponse[] a(int paramInt)
+  public final CharSequence subSequence(int paramInt1, int paramInt2)
   {
-    return new GetInstrumentsResponse[paramInt];
+    return new String(a, paramInt1, paramInt2 - paramInt1);
   }
 }
 

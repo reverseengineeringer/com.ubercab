@@ -1,8 +1,6 @@
 public abstract interface cof
 {
-  public abstract void a();
-  
-  public abstract void b();
+  public abstract void a(byte[] paramArrayOfByte, cog paramcog);
 }
 
 /* Location:

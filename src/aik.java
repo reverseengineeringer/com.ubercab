@@ -1,20 +1,87 @@
-import android.os.IInterface;
-import java.util.List;
+import android.content.Context;
+import android.content.res.Resources;
+import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 
-public abstract interface aik
-  extends IInterface
+@aih
+public final class aik
 {
-  public abstract String a(String paramString);
+  private final Object a = new Object();
+  private final String b = aiq.a();
+  private final ail c = new ail(b);
+  private BigInteger d = BigInteger.ONE;
+  private final HashSet<Object> e = new HashSet();
+  private final HashMap<String, Object> f = new HashMap();
+  private boolean g = false;
+  private boolean h = true;
+  private int i = 0;
+  private boolean j = false;
+  private Context k;
+  private VersionInfoParcel l;
+  private aey m = null;
+  private boolean n = true;
+  private aei o = null;
+  private aej p = null;
+  private aeh q = null;
+  private final LinkedList<Thread> r = new LinkedList();
+  private final aig s = null;
+  private Boolean t = null;
+  private String u;
+  private boolean v = false;
+  private boolean w = false;
   
-  public abstract List<String> a();
+  public final aey a()
+  {
+    synchronized (a)
+    {
+      aey localaey = m;
+      return localaey;
+    }
+  }
   
-  public abstract ahs b(String paramString);
+  public final String a(int paramInt, String paramString)
+  {
+    if (l.e) {}
+    for (Resources localResources = k.getResources(); localResources == null; localResources = ack.g(k)) {
+      return paramString;
+    }
+    return localResources.getString(paramInt);
+  }
   
-  public abstract void b();
+  public final void a(Boolean paramBoolean)
+  {
+    synchronized (a)
+    {
+      t = paramBoolean;
+      return;
+    }
+  }
   
-  public abstract void c(String paramString);
+  public final void a(Throwable paramThrowable, boolean paramBoolean)
+  {
+    new aig(k, l).a(paramThrowable, paramBoolean);
+  }
   
-  public abstract String k();
+  public final String b()
+  {
+    synchronized (a)
+    {
+      String str = u;
+      return str;
+    }
+  }
+  
+  public final Boolean c()
+  {
+    synchronized (a)
+    {
+      Boolean localBoolean = t;
+      return localBoolean;
+    }
+  }
 }
 
 /* Location:

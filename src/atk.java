@@ -1,95 +1,61 @@
-import android.util.Log;
-import com.google.android.gms.clearcut.LogEventParcelable;
-import com.google.android.gms.common.api.Status;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.location.LocationAvailability;
+import com.google.android.gms.location.LocationResult;
 
-public final class atk
-  implements vw
+public abstract class atk
+  extends Binder
+  implements atj
 {
-  private static final Object a = new Object();
-  private static final atp b = new atp((byte)0);
-  private static final long c = TimeUnit.MILLISECONDS.convert(2L, TimeUnit.MINUTES);
-  private final auj d;
-  private final atl e;
-  private final Object f = new Object();
-  private long g = 0L;
-  private final long h;
-  private ScheduledFuture<?> i = null;
-  private ws j = null;
-  private final Runnable k = new Runnable()
+  public static atj a(IBinder paramIBinder)
   {
-    public final void run()
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.location.ILocationCallback");
+    if ((localIInterface != null) && ((localIInterface instanceof atj))) {
+      return (atj)localIInterface;
+    }
+    return new atl(paramIBinder);
+  }
+  
+  public IBinder asBinder()
+  {
+    return this;
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    Object localObject2 = null;
+    Object localObject1 = null;
+    switch (paramInt1)
     {
-      synchronized (atk.a(atk.this))
-      {
-        if ((atk.b(atk.this) <= atk.c(atk.this).b()) && (atk.d(atk.this) != null))
-        {
-          Log.i("ClearcutLoggerApiImpl", "disconnect managed GoogleApiClient");
-          atk.d(atk.this).c();
-          atk.e(atk.this);
-        }
-        return;
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.location.ILocationCallback");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.location.ILocationCallback");
+      paramParcel2 = (Parcel)localObject1;
+      if (paramParcel1.readInt() != 0) {
+        paramParcel2 = (LocationResult)LocationResult.CREATOR.createFromParcel(paramParcel1);
       }
+      a(paramParcel2);
+      return true;
     }
-  };
-  
-  public atk()
-  {
-    this(new aul(), c, new atm());
-  }
-  
-  private atk(auj paramauj, long paramLong, atl paramatl)
-  {
-    d = paramauj;
-    h = paramLong;
-    e = paramatl;
-  }
-  
-  private ato b(ws paramws, LogEventParcelable paramLogEventParcelable)
-  {
-    b.a();
-    paramws = new ato(this, paramLogEventParcelable, paramws);
-    paramws.a(new wy()
+    paramParcel1.enforceInterface("com.google.android.gms.location.ILocationCallback");
+    paramParcel2 = (Parcel)localObject2;
+    if (paramParcel1.readInt() != 0)
     {
-      public final void a()
-      {
-        atk.a().b();
-      }
-    });
-    return paramws;
-  }
-  
-  private static void b(LogEventParcelable paramLogEventParcelable)
-  {
-    if ((f != null) && (e.k.length == 0)) {
-      e.k = f.a();
+      paramParcel2 = LocationAvailability.CREATOR;
+      paramParcel2 = aph.a(paramParcel1);
     }
-    if ((g != null) && (e.r.length == 0)) {
-      e.r = g.a();
-    }
-    c = axq.a(e);
-  }
-  
-  public final wx<Status> a(ws paramws, LogEventParcelable paramLogEventParcelable)
-  {
-    b(paramLogEventParcelable);
-    return paramws.a(b(paramws, paramLogEventParcelable));
-  }
-  
-  public final boolean a(TimeUnit paramTimeUnit)
-  {
-    try
-    {
-      boolean bool = b.a(paramTimeUnit);
-      return bool;
-    }
-    catch (InterruptedException paramTimeUnit)
-    {
-      Log.e("ClearcutLoggerApiImpl", "flush interrupted");
-      Thread.currentThread().interrupt();
-    }
-    return false;
+    a(paramParcel2);
+    return true;
   }
 }
 

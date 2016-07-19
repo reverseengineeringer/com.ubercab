@@ -1,70 +1,43 @@
-import android.content.Intent;
-import java.util.UUID;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.ubercab.analytics.app.AnalyticsEventListActivity;
+import java.util.Map;
 
 public final class clc
-  extends ckz
-  implements ckn
+  extends BaseAdapter
 {
-  private clb a;
-  private long b;
-  private String c;
-  private long d;
+  private clc(AnalyticsEventListActivity paramAnalyticsEventListActivity) {}
   
-  public clc(ckm paramckm, clb paramclb)
+  private Map<String, Object> a(int paramInt)
   {
-    a = paramclb;
-    d = a.c();
-    c = a.d();
-    if (a(System.currentTimeMillis(), d)) {
-      b(System.currentTimeMillis());
+    return (Map)AnalyticsEventListActivity.a(a)[paramInt];
+  }
+  
+  public final int getCount()
+  {
+    return AnalyticsEventListActivity.a(a).length;
+  }
+  
+  public final long getItemId(int paramInt)
+  {
+    return 0L;
+  }
+  
+  public final View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  {
+    View localView = paramView;
+    if (paramView == null) {
+      localView = a.getLayoutInflater().inflate(17367044, paramViewGroup, false);
     }
-    paramckm.a(this);
-  }
-  
-  private void a(long paramLong)
-  {
-    if ((b != 0L) && (a(paramLong, b))) {
-      b(paramLong);
-    }
-  }
-  
-  private static boolean a(long paramLong1, long paramLong2)
-  {
-    return paramLong1 - paramLong2 >= 1800000L;
-  }
-  
-  private void b(long paramLong)
-  {
-    d();
-    c = UUID.randomUUID().toString();
-    d = paramLong;
-    a.a(c);
-    a.a(d);
-  }
-  
-  public final void a()
-  {
-    b = System.currentTimeMillis();
-  }
-  
-  public final void a(Intent paramIntent)
-  {
-    a(System.currentTimeMillis());
-  }
-  
-  public final String b()
-  {
-    return c;
-  }
-  
-  public final long c()
-  {
-    return d;
-  }
-  
-  public final void e()
-  {
-    b(System.currentTimeMillis());
+    paramView = (TextView)localView.findViewById(16908308);
+    paramViewGroup = (TextView)localView.findViewById(16908309);
+    Map localMap = a(paramInt);
+    paramView.setText(localMap.get("name").toString());
+    paramViewGroup.setText(localMap.get("type").toString());
+    return localView;
   }
 }
 

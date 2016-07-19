@@ -1,6 +1,13 @@
+import android.annotation.TargetApi;
+import android.app.ActivityManager;
+
+@TargetApi(11)
 final class ckb
 {
-  private static final cka a = new cka((byte)0);
+  static int a(ActivityManager paramActivityManager)
+  {
+    return paramActivityManager.getLargeMemoryClass();
+  }
 }
 
 /* Location:

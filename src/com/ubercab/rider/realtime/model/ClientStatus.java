@@ -1,9 +1,9 @@
 package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface ClientStatus
   extends Model
 {
@@ -18,7 +18,11 @@ public abstract interface ClientStatus
   
   public abstract String getStatus();
   
+  public abstract int getTotalCompletedRidersTripsCount();
+  
   public abstract TripPendingRating getTripPendingRating();
+  
+  public abstract TripPendingRouteToDestination getTripPendingRouteToDestination();
 }
 
 /* Location:

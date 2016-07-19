@@ -1,49 +1,10 @@
-import com.google.android.gms.wallet.MaskedWalletRequest;
+import com.google.gson.stream.JsonReader;
 
-public final class bne
+public abstract class bne
 {
-  private bne(MaskedWalletRequest paramMaskedWalletRequest) {}
+  public static bne INSTANCE;
   
-  public final bne a()
-  {
-    a.b = false;
-    return this;
-  }
-  
-  public final bne a(String paramString)
-  {
-    a.e = paramString;
-    return this;
-  }
-  
-  public final bne b()
-  {
-    a.c = false;
-    return this;
-  }
-  
-  public final bne b(String paramString)
-  {
-    a.f = paramString;
-    return this;
-  }
-  
-  public final bne c()
-  {
-    a.l = false;
-    return this;
-  }
-  
-  public final bne c(String paramString)
-  {
-    a.g = paramString;
-    return this;
-  }
-  
-  public final MaskedWalletRequest d()
-  {
-    return a;
-  }
+  public abstract void promoteNameToValue(JsonReader paramJsonReader);
 }
 
 /* Location:

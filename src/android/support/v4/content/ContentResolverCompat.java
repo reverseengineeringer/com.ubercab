@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Build.VERSION;
 import android.support.v4.os.CancellationSignal;
 
-public class ContentResolverCompat
+public final class ContentResolverCompat
 {
   private static final ContentResolverCompat.ContentResolverCompatImpl IMPL = new ContentResolverCompat.ContentResolverCompatImplBase();
   

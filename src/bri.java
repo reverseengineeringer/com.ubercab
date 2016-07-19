@@ -1,90 +1,23 @@
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonToken;
-import com.google.gson.stream.JsonWriter;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
+import android.os.Build;
+import android.os.Build.VERSION;
+import java.util.Locale;
 
-public final class bri<T>
-  extends bpw<T>
+public class bri
 {
-  private final bqr<T> a;
-  private final Map<String, brj> b;
+  private static final String a = bri.class.getSimpleName();
+  private static String b = null;
   
-  private bri(bqr<T> parambqr, Map<String, brj> paramMap)
+  public static String a(bva parambva)
   {
-    a = parambqr;
-    b = paramMap;
-  }
-  
-  public final T a(JsonReader paramJsonReader)
-  {
-    if (paramJsonReader.peek() == JsonToken.NULL)
+    if (b == null)
     {
-      paramJsonReader.nextNull();
-      return null;
+      String str = Locale.getDefault().toString().replace("_", "-");
+      StringBuilder localStringBuilder = new StringBuilder("Mozilla/5.0 (Linux; U; ");
+      new bwy();
+      b = new StringBuilder("Android ").append(Build.VERSION.RELEASE).toString() + "; " + str + "; " + Build.MODEL + " " + Build.DISPLAY + ") mpl/" + parambva.a();
+      new StringBuilder("UserAgent: ").append(b);
     }
-    Object localObject1 = a.a();
-    try
-    {
-      paramJsonReader.beginObject();
-      for (;;)
-      {
-        if (!paramJsonReader.hasNext()) {
-          break label103;
-        }
-        localObject2 = paramJsonReader.nextName();
-        localObject2 = (brj)b.get(localObject2);
-        if ((localObject2 != null) && (i)) {
-          break;
-        }
-        paramJsonReader.skipValue();
-      }
-    }
-    catch (IllegalStateException paramJsonReader)
-    {
-      for (;;)
-      {
-        Object localObject2;
-        throw new bps(paramJsonReader);
-        ((brj)localObject2).a(paramJsonReader, localObject1);
-      }
-    }
-    catch (IllegalAccessException paramJsonReader)
-    {
-      throw new AssertionError(paramJsonReader);
-    }
-    label103:
-    paramJsonReader.endObject();
-    return (T)localObject1;
-  }
-  
-  public final void a(JsonWriter paramJsonWriter, T paramT)
-  {
-    if (paramT == null)
-    {
-      paramJsonWriter.nullValue();
-      return;
-    }
-    paramJsonWriter.beginObject();
-    try
-    {
-      Iterator localIterator = b.values().iterator();
-      while (localIterator.hasNext())
-      {
-        brj localbrj = (brj)localIterator.next();
-        if (localbrj.a(paramT))
-        {
-          paramJsonWriter.name(g);
-          localbrj.a(paramJsonWriter, paramT);
-        }
-      }
-      paramJsonWriter.endObject();
-    }
-    catch (IllegalAccessException paramJsonWriter)
-    {
-      throw new AssertionError();
-    }
+    return b;
   }
 }
 

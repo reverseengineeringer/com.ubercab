@@ -1,20 +1,52 @@
-import java.util.Arrays;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.server.FavaDiagnosticsEntity;
 
 public final class abq
+  implements Parcelable.Creator<FavaDiagnosticsEntity>
 {
-  public static int a(Object... paramVarArgs)
+  public static FavaDiagnosticsEntity a(Parcel paramParcel)
   {
-    return Arrays.hashCode(paramVarArgs);
+    int j = 0;
+    int k = zd.b(paramParcel);
+    String str = null;
+    int i = 0;
+    while (paramParcel.dataPosition() < k)
+    {
+      int m = zd.a(paramParcel);
+      switch (zd.a(m))
+      {
+      default: 
+        zd.a(paramParcel, m);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, m);
+        break;
+      case 2: 
+        str = zd.n(paramParcel, m);
+        break;
+      case 3: 
+        j = zd.e(paramParcel, m);
+      }
+    }
+    if (paramParcel.dataPosition() != k) {
+      throw new ze("Overread allowed size end=" + k, paramParcel);
+    }
+    return new FavaDiagnosticsEntity(i, str, j);
   }
   
-  public static abr a(Object paramObject)
+  public static void a(FavaDiagnosticsEntity paramFavaDiagnosticsEntity, Parcel paramParcel)
   {
-    return new abr(paramObject, (byte)0);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, b, false);
+    zf.a(paramParcel, 3, c);
+    zf.a(paramParcel, i);
   }
   
-  public static boolean a(Object paramObject1, Object paramObject2)
+  private static FavaDiagnosticsEntity[] a(int paramInt)
   {
-    return (paramObject1 == paramObject2) || ((paramObject1 != null) && (paramObject1.equals(paramObject2)));
+    return new FavaDiagnosticsEntity[paramInt];
   }
 }
 

@@ -1,7 +1,7 @@
-import java.util.Comparator;
+import android.os.Parcelable.Creator;
 
-final class bwb
-  implements Comparator
+public final class bwb
+  implements Parcelable.Creator
 {}
 
 /* Location:

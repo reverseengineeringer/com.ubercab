@@ -1,14 +1,4 @@
-import android.os.IInterface;
-
-public abstract interface bfj
-  extends IInterface
-{
-  public abstract void a(bhk parambhk);
-  
-  public abstract void b(bhk parambhk);
-  
-  public abstract void c(bhk parambhk);
-}
+public abstract interface bfj {}
 
 /* Location:
  * Qualified Name:     bfj

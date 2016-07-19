@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.widget.Toolbar android:theme="@style/ThemeOverlay.AppCompat.ActionBar" android:id="@id/ub__life_profile_toolbar" android:background="@color/ub__transparent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/ub__life_detail_actions" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+    <View android:background="@color/ub__uber_white_80" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_above="@id/ub__life_detail_actions" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/ub__life_detail_actions" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:id="@id/ub__life_detail_body" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </ScrollView>
+</RelativeLayout>

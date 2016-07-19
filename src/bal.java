@@ -1,26 +1,79 @@
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PolylineOptions;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-public abstract class bal
+public final class bal
+  implements Parcelable.Creator<PolylineOptions>
 {
-  public static <E> Set<E> a(List<E> paramList)
+  public static PolylineOptions a(Parcel paramParcel)
   {
-    if ((paramList == null) || (paramList.isEmpty())) {
-      return Collections.emptySet();
+    float f1 = 0.0F;
+    boolean bool1 = false;
+    int k = zd.b(paramParcel);
+    ArrayList localArrayList = null;
+    boolean bool2 = false;
+    boolean bool3 = false;
+    int i = 0;
+    float f2 = 0.0F;
+    int j = 0;
+    while (paramParcel.dataPosition() < k)
+    {
+      int m = zd.a(paramParcel);
+      switch (zd.a(m))
+      {
+      default: 
+        zd.a(paramParcel, m);
+        break;
+      case 1: 
+        j = zd.e(paramParcel, m);
+        break;
+      case 2: 
+        localArrayList = zd.c(paramParcel, m, LatLng.CREATOR);
+        break;
+      case 3: 
+        f2 = zd.j(paramParcel, m);
+        break;
+      case 4: 
+        i = zd.e(paramParcel, m);
+        break;
+      case 5: 
+        f1 = zd.j(paramParcel, m);
+        break;
+      case 6: 
+        bool3 = zd.b(paramParcel, m);
+        break;
+      case 7: 
+        bool2 = zd.b(paramParcel, m);
+        break;
+      case 8: 
+        bool1 = zd.b(paramParcel, m);
+      }
     }
-    return Collections.unmodifiableSet(new HashSet(paramList));
+    if (paramParcel.dataPosition() != k) {
+      throw new ze("Overread allowed size end=" + k, paramParcel);
+    }
+    return new PolylineOptions(j, localArrayList, f2, i, f1, bool3, bool2, bool1);
   }
   
-  public static <E> List<E> c(Collection<E> paramCollection)
+  public static void a(PolylineOptions paramPolylineOptions, Parcel paramParcel)
   {
-    if ((paramCollection == null) || (paramCollection.isEmpty())) {
-      return Collections.emptyList();
-    }
-    return new ArrayList(paramCollection);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramPolylineOptions.a());
+    zf.b(paramParcel, 2, paramPolylineOptions.b(), false);
+    zf.a(paramParcel, 3, paramPolylineOptions.c());
+    zf.a(paramParcel, 4, paramPolylineOptions.d());
+    zf.a(paramParcel, 5, paramPolylineOptions.e());
+    zf.a(paramParcel, 6, paramPolylineOptions.f());
+    zf.a(paramParcel, 7, paramPolylineOptions.g());
+    zf.a(paramParcel, 8, paramPolylineOptions.h());
+    zf.a(paramParcel, i);
+  }
+  
+  private static PolylineOptions[] a(int paramInt)
+  {
+    return new PolylineOptions[paramInt];
   }
 }
 

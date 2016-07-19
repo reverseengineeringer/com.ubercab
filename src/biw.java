@@ -1,173 +1,37 @@
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
+import java.util.Arrays;
 
-public final class biw
-  extends bks
+public final class biw<K, V>
+  extends bjf<K, V>
 {
-  private Handler a;
-  private long b;
-  private final Runnable c = new Runnable()
+  private biv<K, V> b()
   {
-    public final void run()
+    switch (c)
     {
-      r().a(new Runnable()
+    default: 
+      if (a != null)
       {
-        public final void run()
-        {
-          v();
+        if (d) {
+          b = ((bjh[])bjz.b(b, c));
         }
-      });
-    }
-  };
-  private final bjk d = new bjk(n)
-  {
-    public final void a()
-    {
-      biw.a(biw.this);
-    }
-  };
-  private final bjk e = new bjk(n)
-  {
-    public final void a()
-    {
-      biw.b(biw.this);
-    }
-  };
-  
-  biw(bko parambko)
-  {
-    super(parambko);
-  }
-  
-  private void a(long paramLong)
-  {
-    f();
-    w();
-    d.c();
-    e.c();
-    s().z().a("Activity resumed, time", Long.valueOf(paramLong));
-    b = paramLong;
-    if (l().a() - ti.a() > tk.a())
-    {
-      tj.a(true);
-      tl.a(0L);
-    }
-    if (tj.a())
-    {
-      d.a(Math.max(0L, th.a() - tl.a()));
-      return;
-    }
-    e.a(Math.max(0L, 3600000L - tl.a()));
-  }
-  
-  private void b(long paramLong)
-  {
-    f();
-    w();
-    d.c();
-    e.c();
-    s().z().a("Activity paused, time", Long.valueOf(paramLong));
-    if (b != 0L) {
-      tl.a(tl.a() + (paramLong - b));
-    }
-    tk.a(l().a());
-    try
-    {
-      if (!tj.a()) {
-        a.postDelayed(c, 1000L);
+        Arrays.sort(b, 0, c, bka.a(a).a(bjx.a()));
       }
-      return;
-    }
-    finally {}
-  }
-  
-  private void w()
-  {
-    try
-    {
-      if (a == null) {
-        a = new Handler(Looper.getMainLooper());
+      if (c != b.length) {
+        break;
       }
-      return;
     }
-    finally {}
-  }
-  
-  private void x()
-  {
-    f();
-    long l = l().b();
-    s().z().a("Session started, time", Long.valueOf(l));
-    tj.a(false);
-    h().a("auto", "_s", new Bundle());
-  }
-  
-  private void y()
-  {
-    f();
-    long l1 = l().b();
-    if (b == 0L) {
-      b = (l1 - 3600000L);
-    }
-    long l2 = tl.a() + (l1 - b);
-    tl.a(l2);
-    s().z().a("Recording user engagement, ms", Long.valueOf(l2));
-    Bundle localBundle = new Bundle();
-    localBundle.putLong("_et", l2);
-    h().a("auto", "_e", localBundle);
-    tl.a(0L);
-    b = l1;
-    e.a(Math.max(0L, 3600000L - tl.a()));
-  }
-  
-  protected final void a() {}
-  
-  protected final void b()
-  {
-    try
+    for (boolean bool = true;; bool = false)
     {
-      w();
-      a.removeCallbacks(c);
-      final long l = l().b();
-      r().a(new Runnable()
-      {
-        public final void run()
-        {
-          biw.a(biw.this, l);
-        }
-      });
-      return;
+      d = bool;
+      return bkd.a(c, b);
+      return biv.a();
+      return biv.a(b[0].getKey(), b[0].getValue());
     }
-    finally {}
   }
   
-  protected final void c()
+  private biw<K, V> b(K paramK, V paramV)
   {
-    final long l = l().b();
-    r().a(new Runnable()
-    {
-      public final void run()
-      {
-        biw.b(biw.this, l);
-      }
-    });
-  }
-  
-  public final void v()
-  {
-    f();
-    s().y().a("Application backgrounded. Logging engagement");
-    long l = tl.a();
-    if (l > 0L)
-    {
-      Bundle localBundle = new Bundle();
-      localBundle.putLong("_et", l);
-      h().a("auto", "_e", localBundle);
-      tl.a(0L);
-      return;
-    }
-    s().c().a("Not logging non-positive engagement time", Long.valueOf(l));
+    super.a(paramK, paramV);
+    return this;
   }
 }
 

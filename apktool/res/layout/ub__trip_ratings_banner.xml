@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/ub__ratings_banner" android:background="@color/ub__uber_white_10" android:padding="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_ratings_banner_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <com.ubercab.ui.CircleImageView android:id="@id/ub__ratings_banner_driver_photo" android:layout_width="@dimen/ui__avatar_small" android:layout_height="@dimen/ui__avatar_small" android:src="@drawable/ub__account_picture_placeholder" uber:circleImageBorderColor="@color/ub__uber_white_10" uber:circleImageBorderWidth="@dimen/ub__octane_receipt_circle_driver_photo_padding" />
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_weight="1.0">
+        <com.ubercab.ui.TextView android:textStyle="bold" android:id="@id/ub__ratings_banner_rate_trip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/rating_banner_last_trip" android:textAllCaps="true" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.Title" />
+        <com.ubercab.ui.TextView android:id="@id/ub__ratings_banner_trip_time" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.SubTitle" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="center" android:id="@id/ub__ratings_banner_close" android:padding="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__x_normal" />
+</LinearLayout>

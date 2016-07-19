@@ -1,16 +1,16 @@
 package com.ubercab.android.partner.funnel.onboarding.documents;
 
-import kml;
-import kuc;
+import ofa;
+import oot;
 
 final class DocumentsUploadService$5
-  implements kml<Throwable>
+  implements ofa<Throwable>
 {
   DocumentsUploadService$5(DocumentsUploadService paramDocumentsUploadService) {}
   
   private void a()
   {
-    if (DocumentsUploadService.b(a).b()) {
+    if (DocumentsUploadService.b(a).d()) {
       a.a(false);
     }
   }

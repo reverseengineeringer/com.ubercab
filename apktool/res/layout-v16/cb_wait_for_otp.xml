@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/cb_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/cb_border" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/linear_layout_waiting_for_otp" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="42.0dip">
+            <TextView android:textSize="@dimen/cb_sixteenScaled" android:textColor="@color/cb_textColor" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cb_eight" android:layout_marginBottom="@dimen/cb_eight" android:drawableTop="@drawable/cb_slider" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/cb_twentyfour">
+                <include android:id="@id/progress" layout="@layout/cb_progressdialog" />
+                <TextView android:textSize="18.0sp" android:textStyle="normal" android:textColor="@color/cb_dark_grey" android:id="@id/timer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cb_four" android:fontFamily="sans-serif-light" />
+                <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="18.0sp" android:textStyle="normal" android:textColor="@color/cb_dark_grey" android:id="@id/waiting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cb_eight" android:layout_marginBottom="@dimen/cb_eight" android:text="@string/cb_waiting_for_otp" android:fontFamily="sans-serif-light" />
+                <TextView android:textSize="18.0sp" android:textColor="@color/cb_otpReceivedColor" android:id="@id/otp_recieved" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cb_twentyfour" android:text="@string/cb_otp_received" android:fontFamily="sans-serif-light" />
+                <EditText android:textSize="25.0sp" android:textColor="@color/cb_otpColor" android:gravity="center" android:id="@id/otp_sms" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/cb_eight" android:hint="@string/cb_enter_otp_c" android:ems="5" android:maxLength="8" android:inputType="number" android:fontFamily="sans-serif-light" style="@style/cb_edit_text">
+                    <requestFocus />
+                </EditText>
+                <Button android:textSize="17.0sp" android:id="@id/approve" android:background="@drawable/cb_approve_otp_button" android:clickable="false" android:layout_width="180.0dip" android:layout_height="36.0dip" android:layout_marginTop="@dimen/cb_four" android:layout_marginBottom="@dimen/cb_twentyfour" android:text="@string/cb_approve_otp" android:alpha="0.3" style="@style/cb_approve_otp" />
+                <TextView android:textSize="18.0sp" android:textColor="@color/cb_dark_grey" android:id="@id/retry_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cb_eight" android:layout_marginBottom="@dimen/cb_twelve" android:text="@string/cb_regenerate_otp_text" android:fontFamily="sans-serif-light" />
+                <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/regenerate_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/cb_twentyfour">
+                    <LinearLayout android:gravity="center" android:id="@id/pin_layout_gone" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <Button android:textSize="12.0sp" android:textStyle="bold" android:id="@id/pin" android:background="@drawable/cb_approve_otp_button" android:paddingLeft="@dimen/cb_eight" android:paddingRight="@dimen/cb_eight" android:layout_width="150.0dip" android:layout_height="36.0dip" android:text="@string/cb_password_value" style="@style/cb_approve_otp" />
+                    </LinearLayout>
+                    <LinearLayout android:gravity="center" android:id="@id/Enter_manually_gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <Button android:textSize="12.0sp" android:textStyle="bold" android:id="@id/enter_manually" android:background="@drawable/cb_approve_otp_button" android:paddingLeft="@dimen/cb_eight" android:paddingRight="@dimen/cb_eight" android:layout_width="150.0dip" android:layout_height="36.0dip" android:text="@string/cb_enter_manually" style="@style/cb_approve_otp" />
+                    </LinearLayout>
+                    <LinearLayout android:gravity="center" android:id="@id/Regenerate_layout_gone" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <Button android:textSize="12.0sp" android:textStyle="bold" android:id="@id/retry" android:background="@drawable/cb_approve_otp_button" android:paddingLeft="@dimen/cb_eight" android:paddingRight="@dimen/cb_eight" android:layout_width="150.0dip" android:layout_height="36.0dip" android:text="@string/cb_regenerate_otp" style="@style/cb_approve_otp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <RelativeLayout android:gravity="bottom" android:layout_gravity="bottom" android:orientation="horizontal" android:background="@drawable/cb_rectangle_box" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="left" android:orientation="horizontal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="30.0dip" android:layout_alignParentLeft="true">
+                    <TextView android:textSize="@dimen/cb_twelveScaled" android:textStyle="bold" android:textColor="@color/cb_textColor" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginLeft="5.0dip" android:drawableRight="@drawable/cb_trusticon" android:drawablePadding="@dimen/cb_four" />
+                    <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/cb_textColor" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginLeft="@dimen/cb_four" android:text="@string/cb_powered_by" android:drawablePadding="@dimen/cb_four" />
+                    <TextView android:textSize="@dimen/cb_twelveScaled" android:textStyle="bold" android:textColor="@color/cb_textColor" android:gravity="center" android:layout_width="wrap_content" android:layout_height="20.0dip" android:layout_marginLeft="@dimen/cb_four" android:drawablePadding="@dimen/cb_four" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_alignParentRight="true">
+                    <ImageView android:layout_gravity="center|right" android:id="@id/bank_logo" android:paddingRight="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/cb_powered_by" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

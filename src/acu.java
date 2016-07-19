@@ -1,49 +1,47 @@
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
+import android.content.Context;
+import android.os.IBinder;
 
-abstract class acu
+public abstract class acu<T>
 {
-  private int a;
+  private final String a;
+  private T b;
   
-  protected acu(byte[] paramArrayOfByte)
+  protected acu(String paramString)
   {
-    if (paramArrayOfByte.length == 25) {}
-    for (boolean bool = true;; bool = false)
-    {
-      abs.b(bool, "cert hash data has incorrect length");
-      a = Arrays.hashCode(paramArrayOfByte);
-      return;
-    }
+    a = paramString;
   }
   
-  protected static byte[] a(String paramString)
+  protected final T a(Context paramContext)
   {
+    if (b == null)
+    {
+      abe.a(paramContext);
+      paramContext = ack.h(paramContext);
+      if (paramContext == null) {
+        throw new acv("Could not get remote context.");
+      }
+      paramContext = paramContext.getClassLoader();
+    }
     try
     {
-      paramString = paramString.getBytes("ISO-8859-1");
-      return paramString;
+      b = a((IBinder)paramContext.loadClass(a).newInstance());
+      return (T)b;
     }
-    catch (UnsupportedEncodingException paramString)
+    catch (ClassNotFoundException paramContext)
     {
-      throw new AssertionError(paramString);
+      throw new acv("Could not load creator class.", paramContext);
+    }
+    catch (InstantiationException paramContext)
+    {
+      throw new acv("Could not instantiate creator.", paramContext);
+    }
+    catch (IllegalAccessException paramContext)
+    {
+      throw new acv("Could not access creator.", paramContext);
     }
   }
   
-  abstract byte[] a();
-  
-  public boolean equals(Object paramObject)
-  {
-    if ((paramObject == null) || (!(paramObject instanceof acu))) {
-      return false;
-    }
-    paramObject = (acu)paramObject;
-    return Arrays.equals(a(), ((acu)paramObject).a());
-  }
-  
-  public int hashCode()
-  {
-    return a;
-  }
+  protected abstract T a(IBinder paramIBinder);
 }
 
 /* Location:

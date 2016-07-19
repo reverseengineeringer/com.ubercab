@@ -1,16 +1,17 @@
-public final class bpl
-  extends bpj
+public abstract class bpl
 {
-  public static final bpl a = new bpl();
+  protected volatile int F = -1;
   
-  public final boolean equals(Object paramObject)
+  private bpl a()
   {
-    return (this == paramObject) || ((paramObject instanceof bpl));
+    return (bpl)super.clone();
   }
   
-  public final int hashCode()
+  public abstract bpl a(bpi parambpi);
+  
+  public String toString()
   {
-    return bpl.class.hashCode();
+    return bpm.a(this);
   }
 }
 

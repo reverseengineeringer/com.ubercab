@@ -2,9 +2,9 @@ package com.ubercab.rider.realtime.model;
 
 import android.os.Parcelable;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface DynamicFare
   extends Parcelable, Fare
 {
@@ -15,6 +15,7 @@ public abstract interface DynamicFare
   
   public abstract long getExpirationTime();
   
+  @Deprecated
   public abstract long getFareId();
   
   public abstract String getFareUuid();

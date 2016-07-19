@@ -1,26 +1,25 @@
-@apl
+import com.google.android.gms.common.api.Scope;
+import java.util.Set;
+
 public final class alo
 {
-  public final int a;
-  public final alj b;
-  public final alx c;
-  public final String d;
-  public final alm e;
-  public final ame f;
-  
-  public alo(int paramInt)
+  public static String[] a(Set<Scope> paramSet)
   {
-    this(null, null, null, null, paramInt, null);
+    abe.a(paramSet, "scopes can't be null.");
+    return a((Scope[])paramSet.toArray(new Scope[paramSet.size()]));
   }
   
-  public alo(alj paramalj, alx paramalx, String paramString, alm paramalm, int paramInt, ame paramame)
+  private static String[] a(Scope[] paramArrayOfScope)
   {
-    b = paramalj;
-    c = paramalx;
-    d = paramString;
-    e = paramalm;
-    a = paramInt;
-    f = paramame;
+    abe.a(paramArrayOfScope, "scopes can't be null.");
+    String[] arrayOfString = new String[paramArrayOfScope.length];
+    int i = 0;
+    while (i < paramArrayOfScope.length)
+    {
+      arrayOfString[i] = paramArrayOfScope[i].a();
+      i += 1;
+    }
+    return arrayOfString;
   }
 }
 

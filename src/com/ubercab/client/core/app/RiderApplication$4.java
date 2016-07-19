@@ -1,16 +1,16 @@
 package com.ubercab.client.core.app;
 
-import ekm;
-import kml;
+import ese;
+import ofa;
 
 final class RiderApplication$4
-  implements kml<ekm>
+  implements ofa<ese>
 {
   RiderApplication$4(RiderApplication paramRiderApplication) {}
   
-  private static void a(ekm paramekm)
+  private static void a(ese paramese)
   {
-    paramekm.a();
+    paramese.a();
   }
 }
 

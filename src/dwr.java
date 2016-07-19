@@ -1,115 +1,45 @@
-import android.util.Log;
-import com.ubercab.crash.model.ConsoleLog;
-import java.util.ArrayList;
-import java.util.List;
+import com.ubercab.client.core.app.RiderLoginService;
 
 public final class dwr
-  implements ieb, kun
+  implements dxo
 {
-  private final hzz a = new hzz();
-  private final iai<ConsoleLog> b = iai.a(30);
+  private nvk<khv> b;
+  private nvk<mxm> c;
+  private nhp<RiderLoginService> d;
   
-  private void a(int paramInt, String paramString)
+  static
   {
-    try
+    if (!dwr.class.desiredAssertionStatus()) {}
+    for (boolean bool = true;; bool = false)
     {
-      paramString = ConsoleLog.create(hzz.a(), paramInt, paramString);
-      b.add(paramString);
+      a = bool;
       return;
     }
-    finally
-    {
-      paramString = finally;
-      throw paramString;
+  }
+  
+  private dwr(dws paramdws)
+  {
+    if ((!a) && (paramdws == null)) {
+      throw new AssertionError();
     }
+    a(paramdws);
   }
   
-  private void a(int paramInt, String paramString, Throwable paramThrowable)
+  public static dws a()
   {
-    String str;
-    if ((paramString == null) || (paramString.length() == 0))
-    {
-      if (paramThrowable == null) {
-        return;
-      }
-      str = Log.getStackTraceString(paramThrowable);
-    }
-    for (;;)
-    {
-      a(paramInt, str);
-      return;
-      str = paramString;
-      if (paramThrowable != null) {
-        str = paramString + "\n" + Log.getStackTraceString(paramThrowable);
-      }
-    }
+    return new dws((byte)0);
   }
   
-  private static String f(String paramString, Object... paramVarArgs)
+  private void a(dws paramdws)
   {
-    String str;
-    if ((paramString == null) || (paramVarArgs == null)) {
-      str = null;
-    }
-    do
-    {
-      return str;
-      str = paramString;
-    } while (paramVarArgs.length == 0);
-    return String.format(paramString, paramVarArgs);
+    b = new dwr.1(this, paramdws);
+    c = new dwr.2(this, paramdws);
+    d = dxp.a(nhs.a(), b, c);
   }
   
-  public final List<ConsoleLog> a()
+  public final void a(RiderLoginService paramRiderLoginService)
   {
-    try
-    {
-      ArrayList localArrayList = new ArrayList(b);
-      return localArrayList;
-    }
-    finally
-    {
-      localObject = finally;
-      throw ((Throwable)localObject);
-    }
-  }
-  
-  public final void a(String paramString) {}
-  
-  public final void a(String paramString, Object... paramVarArgs)
-  {
-    a(4, f(paramString, paramVarArgs), null);
-  }
-  
-  public final void a(Throwable paramThrowable, String paramString, Object... paramVarArgs)
-  {
-    a(4, f(paramString, paramVarArgs), paramThrowable);
-  }
-  
-  public final void b(String paramString, Object... paramVarArgs)
-  {
-    a(6, f(paramString, paramVarArgs), null);
-  }
-  
-  public final void b(Throwable paramThrowable, String paramString, Object... paramVarArgs)
-  {
-    a(6, f(paramString, paramVarArgs), paramThrowable);
-  }
-  
-  public final void c(String paramString, Object... paramVarArgs) {}
-  
-  public final void c(Throwable paramThrowable, String paramString, Object... paramVarArgs)
-  {
-    a(5, f(paramString, paramVarArgs), paramThrowable);
-  }
-  
-  public final void d(String paramString, Object... paramVarArgs)
-  {
-    a(3, f(paramString, paramVarArgs), null);
-  }
-  
-  public final void e(String paramString, Object... paramVarArgs)
-  {
-    a(5, f(paramString, paramVarArgs), null);
+    d.injectMembers(paramRiderLoginService);
   }
 }
 

@@ -1,112 +1,226 @@
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonToken;
-import com.google.gson.stream.MalformedJsonException;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.StringReader;
-
 public final class bpo
 {
-  /* Error */
-  private static bpj a(JsonReader paramJsonReader)
+  private final byte[] a;
+  private int b;
+  private int c;
+  private int d;
+  private int e;
+  private int f = Integer.MAX_VALUE;
+  private int g = 64;
+  private int h = 67108864;
+  
+  private bpo(byte[] paramArrayOfByte, int paramInt)
   {
-    // Byte code:
-    //   0: aload_0
-    //   1: invokevirtual 21	com/google/gson/stream/JsonReader:isLenient	()Z
-    //   4: istore_1
-    //   5: aload_0
-    //   6: iconst_1
-    //   7: invokevirtual 25	com/google/gson/stream/JsonReader:setLenient	(Z)V
-    //   10: aload_0
-    //   11: invokestatic 29	bqt:a	(Lcom/google/gson/stream/JsonReader;)Lbpj;
-    //   14: astore_2
-    //   15: aload_0
-    //   16: iload_1
-    //   17: invokevirtual 25	com/google/gson/stream/JsonReader:setLenient	(Z)V
-    //   20: aload_2
-    //   21: areturn
-    //   22: astore_2
-    //   23: new 31	bpn
-    //   26: dup
-    //   27: new 33	java/lang/StringBuilder
-    //   30: dup
-    //   31: ldc 35
-    //   33: invokespecial 38	java/lang/StringBuilder:<init>	(Ljava/lang/String;)V
-    //   36: aload_0
-    //   37: invokevirtual 42	java/lang/StringBuilder:append	(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   40: ldc 44
-    //   42: invokevirtual 47	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   45: invokevirtual 51	java/lang/StringBuilder:toString	()Ljava/lang/String;
-    //   48: aload_2
-    //   49: invokespecial 54	bpn:<init>	(Ljava/lang/String;Ljava/lang/Throwable;)V
-    //   52: athrow
-    //   53: astore_2
-    //   54: aload_0
-    //   55: iload_1
-    //   56: invokevirtual 25	com/google/gson/stream/JsonReader:setLenient	(Z)V
-    //   59: aload_2
-    //   60: athrow
-    //   61: astore_2
-    //   62: new 31	bpn
-    //   65: dup
-    //   66: new 33	java/lang/StringBuilder
-    //   69: dup
-    //   70: ldc 35
-    //   72: invokespecial 38	java/lang/StringBuilder:<init>	(Ljava/lang/String;)V
-    //   75: aload_0
-    //   76: invokevirtual 42	java/lang/StringBuilder:append	(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    //   79: ldc 44
-    //   81: invokevirtual 47	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   84: invokevirtual 51	java/lang/StringBuilder:toString	()Ljava/lang/String;
-    //   87: aload_2
-    //   88: invokespecial 54	bpn:<init>	(Ljava/lang/String;Ljava/lang/Throwable;)V
-    //   91: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	92	0	paramJsonReader	JsonReader
-    //   4	52	1	bool	boolean
-    //   14	7	2	localbpj	bpj
-    //   22	27	2	localStackOverflowError	StackOverflowError
-    //   53	7	2	localObject	Object
-    //   61	27	2	localOutOfMemoryError	OutOfMemoryError
-    // Exception table:
-    //   from	to	target	type
-    //   10	15	22	java/lang/StackOverflowError
-    //   10	15	53	finally
-    //   23	53	53	finally
-    //   62	92	53	finally
-    //   10	15	61	java/lang/OutOfMemoryError
+    a = paramArrayOfByte;
+    b = 0;
+    c = (paramInt + 0);
+    d = 0;
   }
   
-  private static bpj a(Reader paramReader)
+  public static bpo a(byte[] paramArrayOfByte)
   {
-    bpj localbpj;
-    try
+    return a(paramArrayOfByte, paramArrayOfByte.length);
+  }
+  
+  private static bpo a(byte[] paramArrayOfByte, int paramInt)
+  {
+    return new bpo(paramArrayOfByte, paramInt);
+  }
+  
+  private void b(int paramInt)
+  {
+    if (e != paramInt) {
+      throw bps.e();
+    }
+  }
+  
+  private byte[] c(int paramInt)
+  {
+    if (paramInt < 0) {
+      throw bps.b();
+    }
+    if (d + paramInt > f)
     {
-      paramReader = new JsonReader(paramReader);
-      localbpj = a(paramReader);
-      if ((!localbpj.j()) && (paramReader.peek() != JsonToken.END_DOCUMENT)) {
-        throw new bps("Did not consume the entire document.");
+      d(f - d);
+      throw bps.a();
+    }
+    if (paramInt <= c - d)
+    {
+      byte[] arrayOfByte = new byte[paramInt];
+      System.arraycopy(a, d, arrayOfByte, 0, paramInt);
+      d += paramInt;
+      return arrayOfByte;
+    }
+    throw bps.a();
+  }
+  
+  private void d()
+  {
+    int i;
+    do
+    {
+      i = a();
+    } while ((i != 0) && (a(i)));
+  }
+  
+  private void d(int paramInt)
+  {
+    if (paramInt < 0) {
+      throw bps.b();
+    }
+    if (d + paramInt > f)
+    {
+      d(f - d);
+      throw bps.a();
+    }
+    if (paramInt <= c - d)
+    {
+      d += paramInt;
+      return;
+    }
+    throw bps.a();
+  }
+  
+  private int e()
+  {
+    return f();
+  }
+  
+  private int f()
+  {
+    int i = j();
+    if (i >= 0) {}
+    int k;
+    do
+    {
+      return i;
+      i &= 0x7F;
+      j = j();
+      if (j >= 0) {
+        return i | j << 7;
       }
-    }
-    catch (MalformedJsonException paramReader)
+      i |= (j & 0x7F) << 7;
+      j = j();
+      if (j >= 0) {
+        return i | j << 14;
+      }
+      i |= (j & 0x7F) << 14;
+      k = j();
+      if (k >= 0) {
+        return i | k << 21;
+      }
+      j = j();
+      k = i | (k & 0x7F) << 21 | j << 28;
+      i = k;
+    } while (j >= 0);
+    int j = 0;
+    for (;;)
     {
-      throw new bps(paramReader);
+      if (j >= 5) {
+        break label133;
+      }
+      i = k;
+      if (j() >= 0) {
+        break;
+      }
+      j += 1;
     }
-    catch (IOException paramReader)
-    {
-      throw new bpk(paramReader);
-    }
-    catch (NumberFormatException paramReader)
-    {
-      throw new bps(paramReader);
-    }
-    return localbpj;
+    label133:
+    throw bps.c();
   }
   
-  public static bpj a(String paramString)
+  private int g()
   {
-    return a(new StringReader(paramString));
+    return j() & 0xFF | (j() & 0xFF) << 8 | (j() & 0xFF) << 16 | (j() & 0xFF) << 24;
+  }
+  
+  private long h()
+  {
+    int i = j();
+    int j = j();
+    int k = j();
+    int m = j();
+    int n = j();
+    int i1 = j();
+    int i2 = j();
+    int i3 = j();
+    long l = i;
+    return (j & 0xFF) << 8 | l & 0xFF | (k & 0xFF) << 16 | (m & 0xFF) << 24 | (n & 0xFF) << 32 | (i1 & 0xFF) << 40 | (i2 & 0xFF) << 48 | (i3 & 0xFF) << 56;
+  }
+  
+  private boolean i()
+  {
+    return d == c;
+  }
+  
+  private byte j()
+  {
+    if (d == c) {
+      throw bps.a();
+    }
+    byte[] arrayOfByte = a;
+    int i = d;
+    d = (i + 1);
+    return arrayOfByte[i];
+  }
+  
+  public final int a()
+  {
+    if (i())
+    {
+      e = 0;
+      return 0;
+    }
+    e = f();
+    if (e == 0) {
+      throw bps.d();
+    }
+    return e;
+  }
+  
+  public final boolean a(int paramInt)
+  {
+    switch (bpv.a(paramInt))
+    {
+    default: 
+      throw bps.f();
+    case 0: 
+      e();
+      return true;
+    case 1: 
+      h();
+      return true;
+    case 2: 
+      d(f());
+      return true;
+    case 3: 
+      d();
+      b(bpv.a(bpv.b(paramInt), 4));
+      return true;
+    case 4: 
+      return false;
+    }
+    g();
+    return true;
+  }
+  
+  public final String b()
+  {
+    int i = f();
+    if ((i <= c - d) && (i > 0))
+    {
+      String str = new String(a, d, i, bpr.a);
+      d = (i + d);
+      return str;
+    }
+    return new String(c(i), bpr.a);
+  }
+  
+  public final int c()
+  {
+    int i = h;
+    h = Integer.MAX_VALUE;
+    return i;
   }
 }
 

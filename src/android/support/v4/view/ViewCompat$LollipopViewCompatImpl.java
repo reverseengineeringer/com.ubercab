@@ -77,6 +77,16 @@ class ViewCompat$LollipopViewCompatImpl
     return ViewCompatLollipop.isNestedScrollingEnabled(paramView);
   }
   
+  public void offsetLeftAndRight(View paramView, int paramInt)
+  {
+    ViewCompatLollipop.offsetLeftAndRight(paramView, paramInt);
+  }
+  
+  public void offsetTopAndBottom(View paramView, int paramInt)
+  {
+    ViewCompatLollipop.offsetTopAndBottom(paramView, paramInt);
+  }
+  
   public WindowInsetsCompat onApplyWindowInsets(View paramView, WindowInsetsCompat paramWindowInsetsCompat)
   {
     return ViewCompatLollipop.onApplyWindowInsets(paramView, paramWindowInsetsCompat);

@@ -3,7 +3,7 @@ package android.support.v4.view;
 import android.graphics.Rect;
 import android.os.Build.VERSION;
 
-public class GravityCompat
+public final class GravityCompat
 {
   public static final int END = 8388613;
   static final GravityCompat.GravityCompatImpl IMPL = new GravityCompat.GravityCompatImplBase();

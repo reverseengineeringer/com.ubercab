@@ -2,14 +2,14 @@ package com.ubercab.experiment.model;
 
 import android.os.Parcelable;
 import com.ubercab.shape.Shape;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class ExperimentDefinition
-  extends jvq<ExperimentDefinition>
+  extends nba<ExperimentDefinition>
   implements Parcelable
 {
   public static ExperimentDefinition create(String paramString1, String paramString2, boolean paramBoolean, List<TreatmentGroupDefinition> paramList)
@@ -37,19 +37,21 @@ public abstract class ExperimentDefinition
     return getIsFeatureFlag();
   }
   
-  protected Object onGet(jvr<ExperimentDefinition> paramjvr, Object paramObject)
+  protected Object onGet(nbb<ExperimentDefinition> paramnbb, Object paramObject)
   {
-    if (paramObject != null) {
-      return paramObject;
-    }
-    switch (ExperimentDefinition.1.$SwitchMap$com$ubercab$experiment$model$Shape_ExperimentDefinition$Property[((Shape_ExperimentDefinition.Property)paramjvr).ordinal()])
+    switch (ExperimentDefinition.1.$SwitchMap$com$ubercab$experiment$model$Shape_ExperimentDefinition$Property[((Shape_ExperimentDefinition.Property)paramnbb).ordinal()])
     {
     default: 
-      return super.onGet(paramjvr, paramObject);
+      paramnbb = super.onGet(paramnbb, paramObject);
     }
-    paramjvr = new ArrayList();
-    setTreatmentGroups(paramjvr);
-    return paramjvr;
+    do
+    {
+      return paramnbb;
+      paramnbb = (nbb<ExperimentDefinition>)paramObject;
+    } while (paramObject != null);
+    paramnbb = Collections.emptyList();
+    setTreatmentGroups(paramnbb);
+    return paramnbb;
   }
   
   abstract ExperimentDefinition setDescription(String paramString);

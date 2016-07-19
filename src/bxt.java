@@ -1,126 +1,37 @@
-import android.util.Log;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 
-final class bxt
-  implements Iterable
+public final class bxt
+  implements bxq
 {
-  private List a = new ArrayList();
-  private int b;
+  private static Map a = new HashMap();
+  private static Map b = new HashMap();
   
-  static
+  public bxt()
   {
-    bxt.class.getSimpleName();
-  }
-  
-  public bxt(JSONArray paramJSONArray, JSONObject paramJSONObject)
-  {
-    int i = 0;
-    for (;;)
-    {
-      if (i < paramJSONArray.length()) {
-        try
-        {
-          bxs localbxs = bxs.a(paramJSONArray.getJSONObject(i));
-          if (localbxs != null) {
-            a.add(localbxs);
-          }
-          i += 1;
-        }
-        catch (JSONException localJSONException)
-        {
-          for (;;)
-          {
-            Log.w("paypal.sdk", "Error extracting funding source: " + localJSONException.getMessage());
-            Object localObject = null;
-          }
-        }
-      }
-    }
-    if (paramJSONObject != null) {}
-    try
-    {
-      paramJSONArray = bxs.a(paramJSONObject);
-      if (paramJSONArray != null) {
-        a.add(paramJSONArray);
-      }
-      b = g();
-      return;
-    }
-    catch (JSONException paramJSONArray)
-    {
-      for (;;)
-      {
-        Log.w("paypal.sdk", "Error parsing backup funding instrument: " + paramJSONArray.getMessage());
-        paramJSONArray = null;
-      }
-    }
-  }
-  
-  private int g()
-  {
-    Object localObject1 = Double.valueOf(0.0D);
-    int j = 0;
-    int i = 0;
-    while (i < a.size())
-    {
-      Object localObject2 = localObject1;
-      if (((bxs)a.get(i)).d().doubleValue() > ((Double)localObject1).doubleValue())
-      {
-        localObject2 = ((bxs)a.get(i)).d();
-        j = i;
-      }
-      i += 1;
-      localObject1 = localObject2;
-    }
-    return j;
+    a.put(bxp.a, "Abbrechen");
+    a.put(bxp.b, "American Express");
+    a.put(bxp.c, "Discover");
+    a.put(bxp.d, "JCB");
+    a.put(bxp.e, "MasterCard");
+    a.put(bxp.f, "Visa");
+    a.put(bxp.g, "Fertig");
+    a.put(bxp.h, "Kartenprüfnr.");
+    a.put(bxp.i, "PLZ");
+    a.put(bxp.j, "Gültig bis");
+    a.put(bxp.k, "MM/JJ");
+    a.put(bxp.l, "Kreditkarte hierhin halten.\nSie wird automatisch gelesen.");
+    a.put(bxp.m, "Tastatur…");
+    a.put(bxp.n, "Kartennummer");
+    a.put(bxp.o, "Kreditkartendetails");
+    a.put(bxp.p, "Dieses Gerät kann mit der Kamera keine Kreditkartennummern lesen.");
+    a.put(bxp.q, "Die Kamera ist nicht verfügbar.");
+    a.put(bxp.r, "Beim Öffnen der Kamera ist ein unerwarteter Fehler aufgetreten.");
   }
   
   public final String a()
   {
-    return ((bxs)a.get(b)).a();
-  }
-  
-  public final boolean b()
-  {
-    String str = ((bxs)a.get(b)).f();
-    if (bze.d(str)) {
-      return str.toUpperCase().equals("DELAYED_TRANSFER");
-    }
-    return false;
-  }
-  
-  public final String c()
-  {
-    if (a.size() == 1) {
-      return ((bxs)a.get(0)).b();
-    }
-    return bxl.a(bxn.b);
-  }
-  
-  public final String d()
-  {
-    return ((bxs)a.get(b)).e();
-  }
-  
-  public final bxs e()
-  {
-    a.size();
-    return (bxs)a.get(0);
-  }
-  
-  public final int f()
-  {
-    return a.size();
-  }
-  
-  public final Iterator iterator()
-  {
-    return a.iterator();
+    return "de";
   }
 }
 

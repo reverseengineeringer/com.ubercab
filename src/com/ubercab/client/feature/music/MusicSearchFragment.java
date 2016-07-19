@@ -9,57 +9,57 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
 import butterknife.OnTouch;
-import chh;
-import cho;
-import ciu;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import cja;
+import ckt;
+import cli;
 import com.ubercab.client.core.model.TunesProvider;
 import com.ubercab.client.feature.search.LocationSearchEditText;
 import com.ubercab.rider.realtime.model.City;
 import com.ubercab.rider.realtime.model.Group;
 import com.ubercab.rider.realtime.model.Playlist;
 import com.ubercab.rider.realtime.model.Track;
-import dps;
-import dsh;
-import ebj;
-import efr;
-import eht;
-import frg;
-import frh;
-import fta;
-import ftx;
-import fuc;
-import fug;
-import fuh;
+import duq;
+import dxm;
+import eib;
+import enk;
+import eqf;
+import gjh;
+import gji;
+import glm;
+import gmq;
+import gmv;
+import gmz;
+import gna;
 import java.util.List;
-import jsg;
-import r;
+import mxm;
+import z;
 
 public class MusicSearchFragment
-  extends dsh<fta>
+  extends dxm<glm>
 {
-  public ckc c;
-  public chh d;
-  public jsg e;
-  public ciu f;
-  public eht g;
+  public ckt c;
+  public chn d;
+  public mxm e;
+  public cja f;
+  public eqf g;
   private MusicSearchAdapter h;
   private TextWatcher i;
   private TunesProvider j;
-  @InjectView(2131624677)
-  ImageButton mClearButton;
-  @InjectView(2131624676)
-  LocationSearchEditText mEditTextSearch;
-  @InjectView(2131624679)
-  ListView mListViewSearchResults;
-  @InjectView(2131624678)
-  ViewGroup mViewGroupContent;
+  @BindView
+  public ImageButton mClearButton;
+  @BindView
+  public LocationSearchEditText mEditTextSearch;
+  @BindView
+  public ListView mListViewSearchResults;
+  @BindView
+  public ViewGroup mViewGroupContent;
   
   public static MusicSearchFragment a(TunesProvider paramTunesProvider)
   {
@@ -75,28 +75,28 @@ public class MusicSearchFragment
     return mEditTextSearch.getText().toString().trim();
   }
   
-  private void a(fta paramfta)
+  private void a(glm paramglm)
   {
-    paramfta.a(this);
+    paramglm.a(this);
   }
   
   private void a(String paramString, boolean paramBoolean)
   {
-    if ((b()) || (TextUtils.isEmpty(j.getId())) || (e.b() == null) || (TextUtils.isEmpty(e.b().getCityName())) || (TextUtils.isEmpty(e.b().getCountryIso2()))) {}
+    if ((f()) || (TextUtils.isEmpty(j.getId())) || (e.b() == null) || (TextUtils.isEmpty(e.b().getCityName())) || (TextUtils.isEmpty(e.b().getCountryIso2()))) {}
     do
     {
       return;
       g.b(j.getId(), e.b().getCityName(), e.b().getCountryIso2(), paramString);
     } while (!paramBoolean);
-    dps.b(getContext(), mEditTextSearch);
+    duq.b(getContext(), mEditTextSearch);
   }
   
-  private fta b(ebj paramebj)
+  private glm b(eib parameib)
   {
-    return frg.a().a(new efr(this)).a(paramebj).a();
+    return gjh.a().a(new enk(this)).a(parameib).a();
   }
   
-  private boolean b()
+  private boolean f()
   {
     return (TextUtils.isEmpty(a().trim())) || (mEditTextSearch.getTag() != null);
   }
@@ -112,12 +112,12 @@ public class MusicSearchFragment
     mClearButton.setVisibility(8);
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return dsh.a;
+    return dxm.a;
   }
   
-  @OnClick({2131624677})
+  @OnClick
   public void onClearButtonClick(View paramView)
   {
     mEditTextSearch.setText("");
@@ -132,60 +132,60 @@ public class MusicSearchFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903292, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903387, paramViewGroup, false);
+    ButterKnife.a(this, paramLayoutInflater);
     return paramLayoutInflater;
   }
   
-  @OnItemClick({2131624679})
+  @OnItemClick
   public void onListItemClick(int paramInt)
   {
     if (h.a(paramInt) == Playlist.class)
     {
-      c.a(r.dn);
+      c.a(z.fj);
       localObject = (Playlist)h.getItem(paramInt);
-      d.c(new fug(((Playlist)localObject).getName(), ((Playlist)localObject).getPlaybackUri()));
+      d.c(new gmz(((Playlist)localObject).getName(), ((Playlist)localObject).getPlaybackUri()));
       return;
     }
-    c.a(r.do);
+    c.a(z.fk);
     Object localObject = (Track)h.getItem(paramInt);
     ((Track)localObject).setIndexInPlaylist(0);
-    d.c(new fuh(((Track)localObject).getPlaybackUri(), (Track)localObject));
+    d.c(new gna(((Track)localObject).getPlaybackUri(), (Track)localObject));
   }
   
-  @cho
-  public void onMusicSearchResponseEvent(ftx paramftx)
+  @chu
+  public void onMusicSearchResponseEvent(gmq paramgmq)
   {
-    if ((paramftx.i()) && (paramftx.a().equals(a())))
+    if ((paramgmq.i()) && (paramgmq.a().equals(a())))
     {
-      Object localObject = (Group)paramftx.g();
+      Object localObject = (Group)paramgmq.g();
       if (localObject != null)
       {
-        paramftx = ((Group)localObject).getPlaylists();
+        paramgmq = ((Group)localObject).getPlaylists();
         localObject = ((Group)localObject).getTracks();
-        h.a(paramftx, (List)localObject);
+        h.a(paramgmq, (List)localObject);
       }
     }
   }
   
-  @cho
-  public void onOpenSearchEvent(fuc paramfuc)
+  @chu
+  public void onOpenSearchEvent(gmv paramgmv)
   {
     if (TextUtils.isEmpty(a())) {
-      dps.a(getContext(), mEditTextSearch);
+      duq.a(getContext(), mEditTextSearch);
     }
   }
   
   public void onPause()
   {
     super.onPause();
-    dps.a(getActivity());
+    duq.a(getActivity());
   }
   
-  @OnTouch({2131624679})
+  @OnTouch
   public boolean onTouch(View paramView, MotionEvent paramMotionEvent)
   {
-    dps.b(getContext(), mEditTextSearch);
+    duq.b(getContext(), mEditTextSearch);
     return false;
   }
   

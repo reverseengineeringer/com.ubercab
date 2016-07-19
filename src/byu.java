@@ -1,54 +1,71 @@
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import com.paypal.android.sdk.onetouch.core.Request;
+import com.paypal.android.sdk.onetouch.core.Result;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 public final class byu
-  extends byw
 {
-  private final String a;
-  private final String b;
+  private static byv a;
+  private static bzc b;
+  private static bzt c;
   
-  public byu(bwy parambwy, bxg parambxg, String paramString1, String paramString2, String paramString3, String paramString4)
+  public static Result a(Context paramContext, Request paramRequest, Intent paramIntent)
   {
-    super(bxd.e, parambwy, parambxg, c(paramString1, paramString2));
-    a = paramString3;
-    b = paramString4;
-  }
-  
-  public final String b()
-  {
-    HashMap localHashMap = new HashMap();
-    localHashMap.put("authn_schemes", "2fa_pre_login");
-    localHashMap.put("nonce", a);
-    JSONObject localJSONObject = new JSONObject();
-    localJSONObject.accumulate("authn_scheme", "security_key_sms_token");
-    localJSONObject.accumulate("token_identifier", b);
-    localHashMap.put("2fa_token_identifiers", a(localJSONObject));
-    return bze.a(localHashMap);
-  }
-  
-  public final void c()
-  {
-    JSONObject localJSONObject = n();
-    try
-    {
-      g = localJSONObject.getString("nonce");
-      return;
+    c(paramContext);
+    if ((paramIntent != null) && (paramIntent.getData() != null)) {
+      return cab.a(a, paramRequest, paramIntent.getData());
     }
-    catch (JSONException localJSONException)
-    {
-      b(localJSONObject);
+    if ((paramIntent != null) && (paramIntent.getExtras() != null) && (!paramIntent.getExtras().isEmpty())) {
+      return caa.a(a, paramRequest, paramIntent);
     }
+    paramRequest.a(paramContext, bzv.h);
+    return new Result();
   }
   
-  public final void d()
+  public static boolean a(Context paramContext)
   {
-    b(n());
+    c(paramContext);
+    Iterator localIterator = b.b().a().iterator();
+    while (localIterator.hasNext())
+    {
+      bzd localbzd = (bzd)localIterator.next();
+      if ((localbzd.c() == bzm.b) && (localbzd.a(paramContext)))
+      {
+        c.a(bzv.a, "", Collections.emptyMap(), localbzd.d());
+        return true;
+      }
+      c.a(bzv.b, "", Collections.emptyMap(), localbzd.d());
+    }
+    return false;
   }
   
-  public final String e()
+  public static bzt b(Context paramContext)
   {
-    return "{\"nonce\": \"mock-login-challenge-nonce\"}";
+    c(paramContext);
+    return c;
+  }
+  
+  private static void c(Context paramContext)
+  {
+    if ((b == null) || (c == null))
+    {
+      bzz localbzz = (bzz)new bzz().c("https://api-m.paypal.com/v1/");
+      b = new bzc(d(paramContext), localbzz);
+      c = new bzt(d(paramContext), localbzz);
+    }
+    b.a();
+  }
+  
+  private static byv d(Context paramContext)
+  {
+    if (a == null) {
+      a = new byv(paramContext);
+    }
+    return a;
   }
 }
 

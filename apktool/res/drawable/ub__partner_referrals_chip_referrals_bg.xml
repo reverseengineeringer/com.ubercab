@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <padding android:left="@dimen/ui__spacing_unit_1x" android:top="@dimen/ub__partner_referrals_chip_padding_y" android:right="@dimen/ui__spacing_unit_1x" android:bottom="@dimen/ub__partner_referrals_chip_padding_y" />
+    <corners android:radius="20.0dip" />
+    <solid android:color="#ffe7e7e7" />
+</shape>

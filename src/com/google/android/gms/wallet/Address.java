@@ -2,14 +2,14 @@ package com.google.android.gms.wallet;
 
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import bof;
+import bgd;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 
 @Deprecated
 public final class Address
   implements SafeParcelable
 {
-  public static final Parcelable.Creator<Address> CREATOR = new bof();
+  public static final Parcelable.Creator<Address> CREATOR = new bgd();
   public String a;
   public String b;
   public String c;
@@ -66,7 +66,7 @@ public final class Address
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    bof.a(this, paramParcel);
+    bgd.a(this, paramParcel);
   }
 }
 

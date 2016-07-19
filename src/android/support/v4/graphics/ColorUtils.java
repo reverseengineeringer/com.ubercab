@@ -2,10 +2,16 @@ package android.support.v4.graphics;
 
 import android.graphics.Color;
 
-public class ColorUtils
+public final class ColorUtils
 {
   private static final int MIN_ALPHA_SEARCH_MAX_ITERATIONS = 10;
   private static final int MIN_ALPHA_SEARCH_PRECISION = 1;
+  private static final ThreadLocal<double[]> TEMP_ARRAY = new ThreadLocal();
+  private static final double XYZ_EPSILON = 0.008856D;
+  private static final double XYZ_KAPPA = 903.3D;
+  private static final double XYZ_WHITE_REFERENCE_X = 95.047D;
+  private static final double XYZ_WHITE_REFERENCE_Y = 100.0D;
+  private static final double XYZ_WHITE_REFERENCE_Z = 108.883D;
   
   public static int HSLToColor(float[] paramArrayOfFloat)
   {
@@ -54,6 +60,47 @@ public class ColorUtils
     }
   }
   
+  public static int LABToColor(double paramDouble1, double paramDouble2, double paramDouble3)
+  {
+    double[] arrayOfDouble = getTempDouble3Array();
+    LABToXYZ(paramDouble1, paramDouble2, paramDouble3, arrayOfDouble);
+    return XYZToColor(arrayOfDouble[0], arrayOfDouble[1], arrayOfDouble[2]);
+  }
+  
+  public static void LABToXYZ(double paramDouble1, double paramDouble2, double paramDouble3, double[] paramArrayOfDouble)
+  {
+    double d2 = (16.0D + paramDouble1) / 116.0D;
+    double d3 = paramDouble2 / 500.0D + d2;
+    double d1 = d2 - paramDouble3 / 200.0D;
+    paramDouble2 = Math.pow(d3, 3.0D);
+    if (paramDouble2 > 0.008856D)
+    {
+      if (paramDouble1 <= 7.9996247999999985D) {
+        break label132;
+      }
+      paramDouble1 = Math.pow(d2, 3.0D);
+      label66:
+      paramDouble3 = Math.pow(d1, 3.0D);
+      if (paramDouble3 <= 0.008856D) {
+        break label141;
+      }
+    }
+    for (;;)
+    {
+      paramArrayOfDouble[0] = (paramDouble2 * 95.047D);
+      paramArrayOfDouble[1] = (paramDouble1 * 100.0D);
+      paramArrayOfDouble[2] = (paramDouble3 * 108.883D);
+      return;
+      paramDouble2 = (116.0D * d3 - 16.0D) / 903.3D;
+      break;
+      label132:
+      paramDouble1 /= 903.3D;
+      break label66;
+      label141:
+      paramDouble3 = (116.0D * d1 - 16.0D) / 903.3D;
+    }
+  }
+  
   public static void RGBToHSL(int paramInt1, int paramInt2, int paramInt3, float[] paramArrayOfFloat)
   {
     float f1 = paramInt1 / 255.0F;
@@ -94,6 +141,127 @@ public class ColorUtils
     }
   }
   
+  public static void RGBToLAB(int paramInt1, int paramInt2, int paramInt3, double[] paramArrayOfDouble)
+  {
+    RGBToXYZ(paramInt1, paramInt2, paramInt3, paramArrayOfDouble);
+    XYZToLAB(paramArrayOfDouble[0], paramArrayOfDouble[1], paramArrayOfDouble[2], paramArrayOfDouble);
+  }
+  
+  public static void RGBToXYZ(int paramInt1, int paramInt2, int paramInt3, double[] paramArrayOfDouble)
+  {
+    if (paramArrayOfDouble.length != 3) {
+      throw new IllegalArgumentException("outXyz must have a length of 3.");
+    }
+    double d1 = paramInt1 / 255.0D;
+    double d2;
+    label66:
+    double d3;
+    if (d1 < 0.04045D)
+    {
+      d1 /= 12.92D;
+      d2 = paramInt2 / 255.0D;
+      if (d2 >= 0.04045D) {
+        break label194;
+      }
+      d2 /= 12.92D;
+      d3 = paramInt3 / 255.0D;
+      if (d3 >= 0.04045D) {
+        break label215;
+      }
+    }
+    label194:
+    label215:
+    for (d3 /= 12.92D;; d3 = Math.pow((d3 + 0.055D) / 1.055D, 2.4D))
+    {
+      paramArrayOfDouble[0] = (100.0D * (0.4124D * d1 + 0.3576D * d2 + 0.1805D * d3));
+      paramArrayOfDouble[1] = (100.0D * (0.2126D * d1 + 0.7152D * d2 + 0.0722D * d3));
+      paramArrayOfDouble[2] = ((d3 * 0.9505D + (d2 * 0.1192D + d1 * 0.0193D)) * 100.0D);
+      return;
+      d1 = Math.pow((d1 + 0.055D) / 1.055D, 2.4D);
+      break;
+      d2 = Math.pow((d2 + 0.055D) / 1.055D, 2.4D);
+      break label66;
+    }
+  }
+  
+  public static int XYZToColor(double paramDouble1, double paramDouble2, double paramDouble3)
+  {
+    double d2 = (3.2406D * paramDouble1 + -1.5372D * paramDouble2 + -0.4986D * paramDouble3) / 100.0D;
+    double d1 = (-0.9689D * paramDouble1 + 1.8758D * paramDouble2 + 0.0415D * paramDouble3) / 100.0D;
+    paramDouble3 = (0.0557D * paramDouble1 + -0.204D * paramDouble2 + 1.057D * paramDouble3) / 100.0D;
+    if (d2 > 0.0031308D)
+    {
+      paramDouble1 = Math.pow(d2, 0.4166666666666667D) * 1.055D - 0.055D;
+      if (d1 <= 0.0031308D) {
+        break label214;
+      }
+      paramDouble2 = 1.055D * Math.pow(d1, 0.4166666666666667D) - 0.055D;
+      label124:
+      if (paramDouble3 <= 0.0031308D) {
+        break label224;
+      }
+    }
+    label214:
+    label224:
+    for (paramDouble3 = 1.055D * Math.pow(paramDouble3, 0.4166666666666667D) - 0.055D;; paramDouble3 = 12.92D * paramDouble3)
+    {
+      return Color.rgb(constrain((int)Math.round(paramDouble1 * 255.0D), 0, 255), constrain((int)Math.round(paramDouble2 * 255.0D), 0, 255), constrain((int)Math.round(paramDouble3 * 255.0D), 0, 255));
+      paramDouble1 = d2 * 12.92D;
+      break;
+      paramDouble2 = 12.92D * d1;
+      break label124;
+    }
+  }
+  
+  public static void XYZToLAB(double paramDouble1, double paramDouble2, double paramDouble3, double[] paramArrayOfDouble)
+  {
+    if (paramArrayOfDouble.length != 3) {
+      throw new IllegalArgumentException("outLab must have a length of 3.");
+    }
+    paramDouble1 = pivotXyzComponent(paramDouble1 / 95.047D);
+    paramDouble2 = pivotXyzComponent(paramDouble2 / 100.0D);
+    paramDouble3 = pivotXyzComponent(paramDouble3 / 108.883D);
+    paramArrayOfDouble[0] = Math.max(0.0D, 116.0D * paramDouble2 - 16.0D);
+    paramArrayOfDouble[1] = ((paramDouble1 - paramDouble2) * 500.0D);
+    paramArrayOfDouble[2] = ((paramDouble2 - paramDouble3) * 200.0D);
+  }
+  
+  public static int blendARGB(int paramInt1, int paramInt2, float paramFloat)
+  {
+    float f1 = 1.0F - paramFloat;
+    float f2 = Color.alpha(paramInt1);
+    float f3 = Color.alpha(paramInt2);
+    float f4 = Color.red(paramInt1);
+    float f5 = Color.red(paramInt2);
+    float f6 = Color.green(paramInt1);
+    float f7 = Color.green(paramInt2);
+    float f8 = Color.blue(paramInt1);
+    float f9 = Color.blue(paramInt2);
+    return Color.argb((int)(f2 * f1 + f3 * paramFloat), (int)(f4 * f1 + f5 * paramFloat), (int)(f6 * f1 + f7 * paramFloat), (int)(f1 * f8 + f9 * paramFloat));
+  }
+  
+  public static void blendHSL(float[] paramArrayOfFloat1, float[] paramArrayOfFloat2, float paramFloat, float[] paramArrayOfFloat3)
+  {
+    if (paramArrayOfFloat3.length != 3) {
+      throw new IllegalArgumentException("result must have a length of 3.");
+    }
+    float f = 1.0F - paramFloat;
+    paramArrayOfFloat3[0] = circularInterpolate(paramArrayOfFloat1[0], paramArrayOfFloat2[0], paramFloat);
+    paramArrayOfFloat3[1] = (paramArrayOfFloat1[1] * f + paramArrayOfFloat2[1] * paramFloat);
+    paramArrayOfFloat3[2] = (f * paramArrayOfFloat1[2] + paramArrayOfFloat2[2] * paramFloat);
+  }
+  
+  public static void blendLAB(double[] paramArrayOfDouble1, double[] paramArrayOfDouble2, double paramDouble, double[] paramArrayOfDouble3)
+  {
+    if (paramArrayOfDouble3.length != 3) {
+      throw new IllegalArgumentException("outResult must have a length of 3.");
+    }
+    double d = 1.0D - paramDouble;
+    paramArrayOfDouble3[0] = (paramArrayOfDouble1[0] * d + paramArrayOfDouble2[0] * paramDouble);
+    paramArrayOfDouble3[1] = (paramArrayOfDouble1[1] * d + paramArrayOfDouble2[1] * paramDouble);
+    paramArrayOfDouble3[2] = (d * paramArrayOfDouble1[2] + paramArrayOfDouble2[2] * paramDouble);
+  }
+  
   public static double calculateContrast(int paramInt1, int paramInt2)
   {
     if (Color.alpha(paramInt2) != 255) {
@@ -110,33 +278,9 @@ public class ColorUtils
   
   public static double calculateLuminance(int paramInt)
   {
-    double d1 = Color.red(paramInt) / 255.0D;
-    double d2;
-    label48:
-    double d3;
-    if (d1 < 0.03928D)
-    {
-      d1 /= 12.92D;
-      d2 = Color.green(paramInt) / 255.0D;
-      if (d2 >= 0.03928D) {
-        break label114;
-      }
-      d2 /= 12.92D;
-      d3 = Color.blue(paramInt) / 255.0D;
-      if (d3 >= 0.03928D) {
-        break label133;
-      }
-    }
-    label114:
-    label133:
-    for (d3 /= 12.92D;; d3 = Math.pow((d3 + 0.055D) / 1.055D, 2.4D))
-    {
-      return d1 * 0.2126D + d2 * 0.7152D + 0.0722D * d3;
-      d1 = Math.pow((d1 + 0.055D) / 1.055D, 2.4D);
-      break;
-      d2 = Math.pow((d2 + 0.055D) / 1.055D, 2.4D);
-      break label48;
-    }
+    double[] arrayOfDouble = getTempDouble3Array();
+    colorToXYZ(paramInt, arrayOfDouble);
+    return arrayOfDouble[1] / 100.0D;
   }
   
   public static int calculateMinimumAlpha(int paramInt1, int paramInt2, float paramFloat)
@@ -172,9 +316,40 @@ public class ColorUtils
     }
   }
   
+  static float circularInterpolate(float paramFloat1, float paramFloat2, float paramFloat3)
+  {
+    float f1 = paramFloat1;
+    float f2 = paramFloat2;
+    if (Math.abs(paramFloat2 - paramFloat1) > 180.0F)
+    {
+      if (paramFloat2 <= paramFloat1) {
+        break label44;
+      }
+      f1 = paramFloat1 + 360.0F;
+      f2 = paramFloat2;
+    }
+    for (;;)
+    {
+      return ((f2 - f1) * paramFloat3 + f1) % 360.0F;
+      label44:
+      f2 = paramFloat2 + 360.0F;
+      f1 = paramFloat1;
+    }
+  }
+  
   public static void colorToHSL(int paramInt, float[] paramArrayOfFloat)
   {
     RGBToHSL(Color.red(paramInt), Color.green(paramInt), Color.blue(paramInt), paramArrayOfFloat);
+  }
+  
+  public static void colorToLAB(int paramInt, double[] paramArrayOfDouble)
+  {
+    RGBToLAB(Color.red(paramInt), Color.green(paramInt), Color.blue(paramInt), paramArrayOfDouble);
+  }
+  
+  public static void colorToXYZ(int paramInt, double[] paramArrayOfDouble)
+  {
+    RGBToXYZ(Color.red(paramInt), Color.green(paramInt), Color.blue(paramInt), paramArrayOfDouble);
   }
   
   private static int compositeAlpha(int paramInt1, int paramInt2)
@@ -218,6 +393,31 @@ public class ColorUtils
       return paramInt3;
     }
     return paramInt1;
+  }
+  
+  public static double distanceEuclidean(double[] paramArrayOfDouble1, double[] paramArrayOfDouble2)
+  {
+    return Math.sqrt(Math.pow(paramArrayOfDouble1[0] - paramArrayOfDouble2[0], 2.0D) + Math.pow(paramArrayOfDouble1[1] - paramArrayOfDouble2[1], 2.0D) + Math.pow(paramArrayOfDouble1[2] - paramArrayOfDouble2[2], 2.0D));
+  }
+  
+  private static double[] getTempDouble3Array()
+  {
+    double[] arrayOfDouble2 = (double[])TEMP_ARRAY.get();
+    double[] arrayOfDouble1 = arrayOfDouble2;
+    if (arrayOfDouble2 == null)
+    {
+      arrayOfDouble1 = new double[3];
+      TEMP_ARRAY.set(arrayOfDouble1);
+    }
+    return arrayOfDouble1;
+  }
+  
+  private static double pivotXyzComponent(double paramDouble)
+  {
+    if (paramDouble > 0.008856D) {
+      return Math.pow(paramDouble, 0.3333333333333333D);
+    }
+    return (903.3D * paramDouble + 16.0D) / 116.0D;
   }
   
   public static int setAlphaComponent(int paramInt1, int paramInt2)

@@ -12,81 +12,80 @@ import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.ui.TextView;
-import dsh;
-import ebj;
-import efr;
-import ejg;
-import hyk;
-import hyl;
-import hzb;
-import hzc;
-import hzd;
-import hzv;
+import dxm;
+import eib;
+import enk;
+import erj;
 import java.util.Locale;
-import jse;
-import jsj;
-import kld;
-import klo;
-import kls;
-import p;
-import r;
+import kal;
+import kam;
+import kbf;
+import kbg;
+import kbh;
+import kcf;
+import mxk;
+import mxp;
+import odr;
+import oed;
+import oeh;
+import x;
+import z;
 
 public class MobileVerificationSmsFragment
-  extends dsh<hzc>
+  extends dxm<kbg>
 {
-  public ckc c;
-  public chh d;
-  public jsj e;
-  public jse f;
-  private klo g;
-  private klo h;
-  @InjectView(2131626094)
+  public ckt c;
+  public chn d;
+  public mxp e;
+  public mxk f;
+  private oed g;
+  private oed h;
+  @BindView
   public TextView mTextViewPhoneNumber;
-  @InjectView(2131626091)
-  TextView mTextViewReplyTitle;
+  @BindView
+  public TextView mTextViewReplyTitle;
   
   public static MobileVerificationSmsFragment a()
   {
     return new MobileVerificationSmsFragment();
   }
   
-  private void a(hzc paramhzc)
+  private void a(kbg paramkbg)
   {
-    paramhzc.a(this);
+    paramkbg.a(this);
   }
   
-  private hzc b(ebj paramebj)
+  private kbg b(eib parameib)
   {
-    return hyk.a().a(new efr(this)).a(paramebj).a();
+    return kal.a().a(new enk(this)).a(parameib).a();
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return p.pq;
+    return x.tV;
   }
   
-  @OnClick({2131626096})
+  @OnClick
   public void onClickButtonChangeNumber()
   {
-    d.c(new hzv());
-    c.a(r.oa);
+    d.c(new kcf());
+    c.a(z.rN);
   }
   
-  @OnClick({2131626095})
+  @OnClick
   public void onClickButtonResendSms()
   {
-    b(getString(2131166325));
-    g = f.c("default_verification", Locale.getDefault().getCountry()).a(kls.a()).b(new hzd(this, (byte)0));
-    c.a(r.of);
+    a_(getString(2131166506));
+    g = f.c("default_verification", Locale.getDefault().getCountry()).a(oeh.a()).b(new kbh(this, (byte)0));
+    c.a(z.rU);
   }
   
   public void onCreate(Bundle paramBundle)
@@ -97,28 +96,22 @@ public class MobileVerificationSmsFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903736, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903974, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public void onPause()
   {
     super.onPause();
-    h.c();
+    h.af_();
     if (g != null) {
-      g.c();
+      g.af_();
     }
   }
   
-  @cho
-  public void onRequestMobileVerificationResponseEvent(ejg paramejg)
+  @chu
+  public void onRequestMobileVerificationResponseEvent(erj paramerj)
   {
     new Handler().postDelayed(new MobileVerificationSmsFragment.1(this), 1000L);
   }
@@ -126,18 +119,18 @@ public class MobileVerificationSmsFragment
   public void onResume()
   {
     super.onResume();
-    d().b().a(getString(2131167197));
-    h = e.d().c(new hzb(this, (byte)0));
+    b().b().a(getString(2131167575));
+    h = e.d().c(new kbf(this, (byte)0));
   }
   
   @SuppressLint({"StringFormatInvalid"})
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
-    paramView = new SpannableString(getString(2131167621));
-    paramView.setSpan(new ForegroundColorSpan(getResources().getColor(2131558556)), 0, paramView.length(), 33);
+    paramView = new SpannableString(getString(2131168208));
+    paramView.setSpan(new ForegroundColorSpan(getResources().getColor(2131558656)), 0, paramView.length(), 33);
     paramView.setSpan(new StyleSpan(1), 0, paramView.length(), 33);
-    paramView = getString(2131167222, new Object[] { paramView });
+    paramView = getString(2131167601, new Object[] { paramView });
     mTextViewReplyTitle.setText(paramView);
   }
 }

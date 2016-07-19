@@ -1,42 +1,38 @@
-import com.ubercab.android.m4.pipeline.model.Metric;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
+@Deprecated
 public final class cmg
-  implements cmb
 {
-  private cmf<Metric> a = new cmf(100);
+  private final boolean a;
   
-  public final int a()
+  private cmg(cmh paramcmh)
   {
-    return a.a();
+    a = cmh.a(paramcmh);
   }
   
-  public final List<Metric> a(cmd paramcmd)
+  public final boolean a()
   {
-    ArrayList localArrayList = new ArrayList();
-    for (Metric localMetric = (Metric)a.d(); (localMetric != null) && (paramcmd.a(localMetric)); localMetric = (Metric)a.d()) {
-      localArrayList.add(a.b());
-    }
-    return localArrayList;
+    return a;
   }
   
-  public final boolean a(Metric paramMetric)
+  public final boolean equals(Object paramObject)
   {
-    a.a(paramMetric);
-    return true;
-  }
-  
-  public final boolean a(List<Metric> paramList)
-  {
-    paramList = paramList.iterator();
-    while (paramList.hasNext())
+    if (this == paramObject) {}
+    do
     {
-      Metric localMetric = (Metric)paramList.next();
-      a.a(localMetric);
+      return true;
+      if ((paramObject == null) || (getClass() != paramObject.getClass())) {
+        return false;
+      }
+      paramObject = (cmg)paramObject;
+    } while (a == a);
+    return false;
+  }
+  
+  public final int hashCode()
+  {
+    if (a) {
+      return 1;
     }
-    return true;
+    return 0;
   }
 }
 

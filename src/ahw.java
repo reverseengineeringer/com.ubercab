@@ -1,15 +1,14 @@
+import android.content.Intent;
 import android.os.IInterface;
 
 public abstract interface ahw
   extends IInterface
 {
-  public abstract add a(String paramString);
-  
   public abstract void a();
   
-  public abstract void a(add paramadd);
+  public abstract void a(int paramInt1, int paramInt2, Intent paramIntent);
   
-  public abstract void a(String paramString, add paramadd);
+  public abstract void b();
 }
 
 /* Location:

@@ -1,72 +1,47 @@
-import android.net.NetworkInfo;
-import java.util.concurrent.Future;
-import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import android.os.Handler;
+import android.os.Process;
+import java.lang.ref.ReferenceQueue;
 
 final class cjc
-  extends ThreadPoolExecutor
+  extends Thread
 {
-  cjc()
+  private final ReferenceQueue<?> a;
+  private final Handler b;
+  
+  cjc(ReferenceQueue<?> paramReferenceQueue, Handler paramHandler)
   {
-    super(3, 3, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new cjx());
+    a = paramReferenceQueue;
+    b = paramHandler;
+    setDaemon(true);
+    setName("Picasso-refQueue");
   }
   
-  private void a(int paramInt)
+  public final void run()
   {
-    setCorePoolSize(paramInt);
-    setMaximumPoolSize(paramInt);
-  }
-  
-  final void a(NetworkInfo paramNetworkInfo)
-  {
-    if ((paramNetworkInfo == null) || (!paramNetworkInfo.isConnectedOrConnecting()))
+    Process.setThreadPriority(10);
+    try
     {
-      a(3);
+      for (;;)
+      {
+        chx localchx = (chx)a.remove();
+        b.sendMessage(b.obtainMessage(3, a));
+      }
       return;
     }
-    switch (paramNetworkInfo.getType())
+    catch (InterruptedException localInterruptedException)
     {
-    default: 
-      a(3);
-      return;
-    case 1: 
-    case 6: 
-    case 9: 
-      a(4);
       return;
     }
-    switch (paramNetworkInfo.getSubtype())
+    catch (Exception localException)
     {
-    case 7: 
-    case 8: 
-    case 9: 
-    case 10: 
-    case 11: 
-    default: 
-      a(3);
-      return;
-    case 13: 
-    case 14: 
-    case 15: 
-      a(3);
-      return;
-    case 3: 
-    case 4: 
-    case 5: 
-    case 6: 
-    case 12: 
-      a(2);
-      return;
+      b.post(new Runnable()
+      {
+        public final void run()
+        {
+          throw new RuntimeException(localException);
+        }
+      });
     }
-    a(1);
-  }
-  
-  public final Future<?> submit(Runnable paramRunnable)
-  {
-    paramRunnable = new cjd((cht)paramRunnable);
-    execute(paramRunnable);
-    return paramRunnable;
   }
 }
 

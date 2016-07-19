@@ -10,65 +10,66 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
 import chn;
-import cho;
-import ckc;
-import ckr;
+import cht;
+import chu;
+import ckt;
+import cli;
+import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.feature.signup.PhoneNumber;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.TextView;
-import dsh;
-import dux;
-import ebj;
-import efr;
-import ens;
-import erc;
-import hyo;
-import hyp;
-import hza;
-import hzf;
-import hzm;
-import hzn;
-import hzo;
-import hzr;
-import hzs;
-import hzw;
-import hzx;
-import ife;
+import dxm;
+import eaj;
+import eib;
+import enk;
+import evr;
+import ezh;
 import java.util.concurrent.TimeUnit;
-import jsj;
-import kld;
-import klo;
-import p;
+import kap;
+import kaq;
+import kbd;
+import kbj;
+import kbv;
+import kbw;
+import kbx;
+import kcb;
+import kcc;
+import kcg;
+import kch;
+import kia;
+import mxp;
+import odr;
+import oed;
+import x;
+import z;
 
 public class MobileVerificationWaitFragment
-  extends dsh<hzm>
+  extends dxm<kbv>
 {
-  public ckc c;
-  public chh d;
-  public jsj e;
-  public ife f;
-  public hza g;
-  public ens h;
+  public ckt c;
+  public chn d;
+  public mxp e;
+  public kia f;
+  public kbd g;
+  public evr h;
   private Handler i = new Handler();
-  private Runnable j = new hzo(this);
-  private klo k;
+  private Runnable j = new kbx(this);
+  private oed k;
   private boolean l;
   private int m = 60;
-  @InjectView(2131626087)
+  @BindView
   public Button mButtonDialog;
-  @InjectView(2131626084)
+  @BindView
   public PhoneWavesProgressView mPhoneWavesProgressView;
-  @InjectView(2131626086)
+  @BindView
   public TextView mSubtitleTextView;
-  @InjectView(2131626083)
+  @BindView
   public ProgressBar mTimerProgressBar;
-  @InjectView(2131626085)
+  @BindView
   public TextView mTitleTextView;
   private int n;
   private int o;
@@ -82,12 +83,25 @@ public class MobileVerificationWaitFragment
     return new MobileVerificationWaitFragment();
   }
   
-  private void a(hzm paramhzm)
+  private void a(kbv paramkbv)
   {
-    paramhzm.a(this);
+    paramkbv.a(this);
   }
   
-  public static MobileVerificationWaitFragment b()
+  private static String b(boolean paramBoolean)
+  {
+    if (paramBoolean) {
+      return "voice";
+    }
+    return "sms";
+  }
+  
+  private kbv b(eib parameib)
+  {
+    return kap.a().a(new enk(this)).a(parameib).a();
+  }
+  
+  public static MobileVerificationWaitFragment f()
   {
     MobileVerificationWaitFragment localMobileVerificationWaitFragment = new MobileVerificationWaitFragment();
     Bundle localBundle = new Bundle();
@@ -96,20 +110,15 @@ public class MobileVerificationWaitFragment
     return localMobileVerificationWaitFragment;
   }
   
-  private hzm b(ebj paramebj)
+  public final cli e()
   {
-    return hyo.a().a(new efr(this)).a(paramebj).a();
-  }
-  
-  public final ckr f()
-  {
-    return p.pw;
+    return a;
   }
   
   public final void g()
   {
-    c.a(p.pu);
-    if (f.a(dux.aP))
+    c.a(x.tZ);
+    if (f.b(eaj.bb))
     {
       Intent localIntent = new Intent(getContext(), MobileVerificationActivity.class);
       localIntent.setAction("com.ubercab.ACTION_MOBILE_VERIFICATION_TOKEN");
@@ -121,28 +130,36 @@ public class MobileVerificationWaitFragment
     {
       mPhoneWavesProgressView.a(false);
       mTimerProgressBar.setProgress(0);
-      mTitleTextView.setText(2131167214);
-      mSubtitleTextView.setText(2131167213);
+      mTitleTextView.setText(2131167593);
+      mSubtitleTextView.setText(2131167592);
       return;
     }
-    d.c(new hzx());
+    d.c(new kch());
   }
   
-  @OnClick({2131626087})
+  final void h()
+  {
+    if (isAdded()) {
+      c.a(AnalyticsEvent.create("tap").setName(z.rR).setValue(b(l)));
+    }
+  }
+  
+  @OnClick
   public void onClick()
   {
     String str = "";
     PhoneNumber localPhoneNumber = g.l();
     if (localPhoneNumber != null) {
-      str = erc.b(localPhoneNumber.a(), localPhoneNumber.b());
+      str = ezh.b(localPhoneNumber.a(), localPhoneNumber.b());
     }
-    MobileVerificationDialogFragment.a(d(), str);
+    MobileVerificationDialogFragment.a(b(), str);
+    c.a(AnalyticsEvent.create("tap").setName(z.rS).setValue(b(l)));
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    h.a("com.uber.SMS_RECEIVER", hzf.a);
+    h.a("com.uber.SMS_RECEIVER", kbj.a);
     Bundle localBundle = getArguments();
     if (localBundle != null) {
       l = localBundle.getBoolean("MODE_CALL", false);
@@ -153,7 +170,7 @@ public class MobileVerificationWaitFragment
     for (;;)
     {
       if (!l) {
-        m = ((int)f.a(dux.aD, "timeout_s", 60L));
+        m = ((int)f.a(eaj.aJ, "timeout_s", 60L));
       }
       n = ((int)TimeUnit.SECONDS.toMillis(m));
       o = ((int)(n * 0.5F));
@@ -167,21 +184,15 @@ public class MobileVerificationWaitFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903734, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903972, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public void onPause()
   {
     super.onPause();
-    k.c();
+    k.af_();
     i.removeCallbacks(j);
     mPhoneWavesProgressView.a(false);
     g.h();
@@ -190,11 +201,12 @@ public class MobileVerificationWaitFragment
   public void onResume()
   {
     super.onResume();
-    d().b().a(getString(2131167197));
-    k = e.d().c(new hzn(this, (byte)0));
+    b().b().a(getString(2131167575));
+    k = e.d().c(new kbw(this, (byte)0));
     i.post(j);
     mPhoneWavesProgressView.a();
-    d.c(new hzs());
+    d.c(new kcc());
+    c.a(AnalyticsEvent.create("impression").setName(x.ub).setValue(b(l)));
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
@@ -205,17 +217,17 @@ public class MobileVerificationWaitFragment
     paramBundle.putBoolean("com.ubercab.success", r);
   }
   
-  @cho
-  public void onSmsReceived(hzw paramhzw)
+  @chu
+  public void onSmsReceived(kcg paramkcg)
   {
-    c.a(p.pv);
-    mSubtitleTextView.setText(2131167200);
+    c.a(x.ua);
+    mSubtitleTextView.setText(2131167578);
   }
   
   public void onStop()
   {
     super.onStop();
-    d.c(new hzr());
+    d.c(new kcb());
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)
@@ -223,14 +235,14 @@ public class MobileVerificationWaitFragment
     super.onViewCreated(paramView, paramBundle);
     mTimerProgressBar.setMax(p);
     if (l) {
-      mSubtitleTextView.setText(2131167206);
+      mSubtitleTextView.setText(2131167584);
     }
   }
   
-  @chn
-  public hzs produceForegroundEvent()
+  @cht
+  public kcc produceForegroundEvent()
   {
-    return new hzs();
+    return new kcc();
   }
 }
 

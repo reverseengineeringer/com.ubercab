@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@android:color/transparent" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:dots="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/magic_retry_parent" android:background="@android:color/white" android:paddingTop="15.0dip" android:paddingBottom="15.0dip" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip">
+        <TextView android:textSize="18.0sp" android:textColor="@android:color/black" android:layout_gravity="center_horizontal" android:id="@id/error_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/MR_Error_text" android:fontFamily="sans-serif-light" />
+        <TextView android:textSize="18.0sp" android:textColor="@android:color/black" android:layout_gravity="center_horizontal" android:id="@id/error_title2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/MR_Tap_retry_text" android:fontFamily="sans-serif-light" />
+        <ImageView android:layout_gravity="center" android:id="@id/retry_btn" android:background="@drawable/mr_ripple_drawable" android:padding="15.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mr_ic_refresh_black_36dp" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="30.0dip">
+            <TextView android:textSize="@dimen/mr_twelveScaled" android:textStyle="bold" android:textColor="@color/mr_textColor" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginLeft="5.0dip" android:drawableRight="@drawable/mr_trusticon" android:drawablePadding="@dimen/mr_four" />
+            <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/mr_textColor" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginLeft="@dimen/mr_four" android:text="Powered by" android:drawablePadding="@dimen/mr_four" />
+            <TextView android:textSize="@dimen/mr_twelveScaled" android:textStyle="bold" android:textColor="@color/mr_textColor" android:gravity="center" android:layout_width="wrap_content" android:layout_height="20.0dip" android:layout_marginLeft="@dimen/mr_four" android:drawableLeft="@drawable/mr_logo_payu" android:drawablePadding="@dimen/mr_four" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/waiting_dots_parent" android:background="@android:color/white" android:visibility="gone" android:layout_width="100.0dip" android:layout_height="100.0dip">
+        <ProgressBar android:gravity="center" android:id="@id/magic_reload_progress" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" style="?android:attr/android:progressBarStyleSmall" />
+    </LinearLayout>
+</LinearLayout>

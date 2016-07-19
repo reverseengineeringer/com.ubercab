@@ -54,8 +54,8 @@ public final class MapStatusUpdate
     case 4: 
       return new MapStatus(rotate, c, overlook, g, targetScreen, null);
     case 5: 
-      paramc.w();
-      paramc = paramc.b(paramc.w() / 2 + h, paramc.x() / 2 + i);
+      paramc.A();
+      paramc = paramc.b(paramc.A() / 2 + h, paramc.B() / 2 + i);
       localObject = CoordUtil.mc2ll(paramc);
       return new MapStatus(rotate, (LatLng)localObject, overlook, zoom, targetScreen, paramc.getLongitudeE6(), paramc.getLatitudeE6(), null);
     case 6: 

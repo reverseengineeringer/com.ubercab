@@ -4,12 +4,17 @@ import com.ubercab.rider.realtime.model.DynamicFare;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.Map;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class NewDynamicFare
 {
+  public boolean checkNewDynamicFare()
+  {
+    return (getNewDynamicFare() == null) || (getNewDynamicFare().size() <= 1);
+  }
+  
   public abstract Map<String, DynamicFare> getNewDynamicFare();
   
   abstract NewDynamicFare setNewDynamicFare(Map<String, DynamicFare> paramMap);

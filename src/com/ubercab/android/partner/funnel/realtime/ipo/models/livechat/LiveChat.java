@@ -7,6 +7,8 @@ import com.ubercab.shape.Shape;
 public abstract class LiveChat
   implements Parcelable
 {
+  public abstract String getChatUrl();
+  
   public abstract String getEmail();
   
   public abstract String getFirstName();
@@ -14,6 +16,8 @@ public abstract class LiveChat
   public abstract String getLastName();
   
   public abstract String getPhoneNumber();
+  
+  abstract LiveChat setChatUrl(String paramString);
   
   abstract LiveChat setEmail(String paramString);
   

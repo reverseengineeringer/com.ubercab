@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import jun;
+import mzv;
 
 @Shape
 abstract class ObjectTrip
-  implements jun
+  implements mzv
 {
   private static final String TYPE_DROPOFF = "Dropoff";
   private static final String TYPE_PICKUP = "Pickup";

@@ -1,96 +1,44 @@
-import android.content.Context;
-import com.google.android.gms.ads.internal.client.AdSizeParcel;
-import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
 
-@apl
+@aih
 public final class agd
-  extends afr
+  implements afs
 {
-  private alb d;
-  private boolean e;
-  
-  public agd(final Context paramContext, AdSizeParcel paramAdSizeParcel, aqj paramaqj, VersionInfoParcel paramVersionInfoParcel, age paramage, akx paramakx)
+  public final void a(ajm paramajm, Map<String, String> paramMap)
   {
-    super(paramContext, paramAdSizeParcel, paramaqj, paramVersionInfoParcel, paramage);
-    d = paramakx.b();
-    try
+    ul.k();
+    if (paramMap.containsKey("abort"))
     {
-      paramContext = a(paramage.c().a());
-      d.a(new asi()new asg
-      {
-        private void a()
-        {
-          a(paramContext);
-        }
-      }, new asg()
-      {
-        public final void a() {}
-      });
-      d.a(new asi()new asg
-      {
-        private void a(ald paramAnonymousald)
-        {
-          agd.a(agd.this);
-          agd.this.a(paramAnonymousald);
-          a();
-          b(false);
-        }
-      }, new asg()
-      {
-        public final void a()
-        {
-          b();
-        }
-      });
-      aqt.a("Tracking ad unit: " + b.d());
+      if (!agb.a(paramajm)) {
+        ain.d("Precache abort but no preload task running.");
+      }
       return;
     }
-    catch (RuntimeException paramContext)
+    String str = (String)paramMap.get("src");
+    if (str == null)
     {
-      for (;;)
-      {
-        aqt.b("Failure while processing active view data.", paramContext);
-      }
+      ain.d("Precache video action is missing the src parameter.");
+      return;
     }
-    catch (JSONException paramContext)
+    try
+    {
+      Integer.parseInt((String)paramMap.get("player"));
+      if (paramMap.containsKey("mimetype")) {
+        paramMap.get("mimetype");
+      }
+      if (agb.b(paramajm))
+      {
+        ain.d("Precache task already running.");
+        return;
+      }
+      zl.a(paramajm.g());
+      new aga(paramajm, ga.a(), str).b();
+      return;
+    }
+    catch (NumberFormatException localNumberFormatException)
     {
       for (;;) {}
     }
-  }
-  
-  protected final void b()
-  {
-    synchronized (a)
-    {
-      super.b();
-      d.a(new asi()new ash
-      {
-        private void a(ald paramAnonymousald)
-        {
-          b(paramAnonymousald);
-        }
-      }, new ash());
-      d.a();
-      return;
-    }
-  }
-  
-  protected final void b(final JSONObject paramJSONObject)
-  {
-    d.a(new asi()new ash
-    {
-      private void a(ald paramAnonymousald)
-      {
-        paramAnonymousald.a("AFMA_updateActiveView", paramJSONObject);
-      }
-    }, new ash());
-  }
-  
-  protected final boolean f()
-  {
-    return e;
   }
 }
 

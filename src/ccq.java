@@ -1,15 +1,8 @@
-import com.paypal.android.sdk.payments.PaymentActivity;
+import android.os.Parcelable.Creator;
 
-final class ccq
-  implements ccm
-{
-  ccq(ccp paramccp) {}
-  
-  public final void a()
-  {
-    PaymentActivity.c(a.a);
-  }
-}
+public final class ccq
+  implements Parcelable.Creator
+{}
 
 /* Location:
  * Qualified Name:     ccq

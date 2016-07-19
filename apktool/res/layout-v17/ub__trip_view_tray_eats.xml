@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.tray.TrayEatsLayout android:gravity="center" android:layout_gravity="center" android:id="@id/ub__eats_trip_tray_container" android:layout_height="@dimen/ub__trip_tray_collapsed_item_height_large" style="@style/Style.Rider.Trip.Section.TopBorder"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.widget.AppCompatImageView android:id="@id/ub__eats_trip_tray_image" android:layout_width="@dimen/ui__spacing_unit_3x" android:layout_height="@dimen/ui__spacing_unit_3x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:scaleType="centerInside" android:contentDescription="@string/ub__empty" android:layout_marginEnd="@dimen/ui__spacing_unit_1x" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H3" android:id="@id/ub__eats_trip_tray_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAllCaps="false" />
+</com.ubercab.client.feature.trip.tray.TrayEatsLayout>

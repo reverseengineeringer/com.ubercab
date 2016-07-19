@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jtq;
+import myy;
 
 @Shape
 abstract class ObjectItem
-  implements jtq
+  implements myy
 {}
 
 /* Location:

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/ub__trip_tray_promotion_border_radius" />
+    <solid android:color="@color/ub__uber_white_20" />
+    <stroke android:width="@dimen/ub__trip_tray_promotion_border_width" android:color="@color/ub__uber_black_40" />
+</shape>

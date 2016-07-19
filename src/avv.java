@@ -1,257 +1,84 @@
-public final class avv
-  extends axq
+import android.content.Context;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.util.Log;
+
+public class avv
 {
-  private static volatile avv[] f;
-  public avw[] a;
-  public String b;
-  public Long c;
-  public Long d;
-  public Integer e;
+  private static Context a;
+  private static avz b;
   
-  public avv()
+  public static avz a(Context paramContext)
   {
-    e();
-  }
-  
-  private avv e()
-  {
-    a = avw.o_();
-    b = null;
-    c = null;
-    d = null;
-    e = null;
-    S = -1;
-    return this;
-  }
-  
-  public static avv[] n_()
-  {
-    if (f == null) {}
-    synchronized (axo.a)
-    {
-      if (f == null) {
-        f = new avv[0];
-      }
-      return f;
-    }
-  }
-  
-  protected final int a()
-  {
-    int i = super.a();
-    int j = i;
-    if (a != null)
-    {
-      j = i;
-      if (a.length > 0)
-      {
-        int k = 0;
-        for (;;)
-        {
-          j = i;
-          if (k >= a.length) {
-            break;
-          }
-          avw localavw = a[k];
-          j = i;
-          if (localavw != null) {
-            j = i + axi.c(1, localavw);
-          }
-          k += 1;
-          i = j;
-        }
-      }
-    }
-    i = j;
+    abe.a(paramContext);
     if (b != null) {
-      i = j + axi.b(2, b);
+      return b;
     }
-    j = i;
-    if (c != null) {
-      j = i + axi.c(3, c.longValue());
-    }
-    i = j;
-    if (d != null) {
-      i = j + axi.c(4, d.longValue());
-    }
-    j = i;
-    if (e != null) {
-      j = i + axi.b(5, e.intValue());
-    }
-    return j;
-  }
-  
-  public final void a(axi paramaxi)
-  {
-    if ((a != null) && (a.length > 0))
+    b(paramContext);
+    b = c(paramContext);
+    try
     {
-      int i = 0;
-      while (i < a.length)
-      {
-        avw localavw = a[i];
-        if (localavw != null) {
-          paramaxi.a(1, localavw);
-        }
-        i += 1;
-      }
+      b.a(acs.a(d(paramContext).getResources()), vt.a);
+      return b;
     }
-    if (b != null) {
-      paramaxi.a(2, b);
-    }
-    if (c != null) {
-      paramaxi.b(3, c.longValue());
-    }
-    if (d != null) {
-      paramaxi.b(4, d.longValue());
-    }
-    if (e != null) {
-      paramaxi.a(5, e.intValue());
-    }
-    super.a(paramaxi);
-  }
-  
-  public final avv b(axh paramaxh)
-  {
-    for (;;)
+    catch (RemoteException paramContext)
     {
-      int i = paramaxh.a();
-      switch (i)
-      {
-      default: 
-        if (axt.a(paramaxh, i)) {}
-        break;
-      case 0: 
-        return this;
-      case 10: 
-        int j = axt.b(paramaxh, 10);
-        if (a == null) {}
-        avw[] arrayOfavw;
-        for (i = 0;; i = a.length)
-        {
-          arrayOfavw = new avw[j + i];
-          j = i;
-          if (i != 0)
-          {
-            System.arraycopy(a, 0, arrayOfavw, 0, i);
-            j = i;
-          }
-          while (j < arrayOfavw.length - 1)
-          {
-            arrayOfavw[j] = new avw();
-            paramaxh.a(arrayOfavw[j]);
-            paramaxh.a();
-            j += 1;
-          }
-        }
-        arrayOfavw[j] = new avw();
-        paramaxh.a(arrayOfavw[j]);
-        a = arrayOfavw;
-        break;
-      case 18: 
-        b = paramaxh.g();
-        break;
-      case 24: 
-        c = Long.valueOf(paramaxh.d());
-        break;
-      case 32: 
-        d = Long.valueOf(paramaxh.d());
-        break;
-      case 40: 
-        e = Integer.valueOf(paramaxh.e());
-      }
+      throw new ayz(paramContext);
     }
   }
   
-  public final boolean equals(Object paramObject)
+  private static <T> T a(Class<?> paramClass)
   {
-    if (paramObject == this) {}
-    do
+    try
     {
-      do
-      {
-        return true;
-        if (!(paramObject instanceof avv)) {
-          return false;
-        }
-        paramObject = (avv)paramObject;
-        if (!axo.a(a, a)) {
-          return false;
-        }
-        if (b == null)
-        {
-          if (b != null) {
-            return false;
-          }
-        }
-        else if (!b.equals(b)) {
-          return false;
-        }
-        if (c == null)
-        {
-          if (c != null) {
-            return false;
-          }
-        }
-        else if (!c.equals(c)) {
-          return false;
-        }
-        if (d == null)
-        {
-          if (d != null) {
-            return false;
-          }
-        }
-        else if (!d.equals(d)) {
-          return false;
-        }
-        if (e != null) {
-          break;
-        }
-      } while (e == null);
-      return false;
-    } while (e.equals(e));
-    return false;
+      Object localObject = paramClass.newInstance();
+      return (T)localObject;
+    }
+    catch (InstantiationException localInstantiationException)
+    {
+      throw new IllegalStateException("Unable to instantiate the dynamic class " + paramClass.getName());
+    }
+    catch (IllegalAccessException localIllegalAccessException)
+    {
+      throw new IllegalStateException("Unable to call the default constructor of " + paramClass.getName());
+    }
   }
   
-  public final int hashCode()
+  private static <T> T a(ClassLoader paramClassLoader, String paramString)
   {
-    int m = 0;
-    int n = getClass().getName().hashCode();
-    int i1 = axo.a(a);
-    int i;
-    int j;
-    label42:
-    int k;
-    if (b == null)
+    try
     {
-      i = 0;
-      if (c != null) {
-        break label103;
-      }
-      j = 0;
-      if (d != null) {
-        break label114;
-      }
-      k = 0;
-      label51:
-      if (e != null) {
-        break label125;
-      }
+      paramClassLoader = a(((ClassLoader)abe.a(paramClassLoader)).loadClass(paramString));
+      return paramClassLoader;
     }
-    for (;;)
+    catch (ClassNotFoundException paramClassLoader)
     {
-      return (k + (j + (i + ((n + 527) * 31 + i1) * 31) * 31) * 31) * 31 + m;
-      i = b.hashCode();
-      break;
-      label103:
-      j = c.hashCode();
-      break label42;
-      label114:
-      k = d.hashCode();
-      break label51;
-      label125:
-      m = e.hashCode();
+      throw new IllegalStateException("Unable to find dynamic class " + paramString);
     }
+  }
+  
+  private static void b(Context paramContext)
+  {
+    int i = vt.a(paramContext);
+    switch (i)
+    {
+    default: 
+      throw new vr(i);
+    }
+  }
+  
+  private static avz c(Context paramContext)
+  {
+    Log.i(avv.class.getSimpleName(), "Making Creator dynamically");
+    return awa.a((IBinder)a(d(paramContext).getClassLoader(), "com.google.android.gms.maps.internal.CreatorImpl"));
+  }
+  
+  private static Context d(Context paramContext)
+  {
+    if (a == null) {
+      a = vt.b(paramContext);
+    }
+    return a;
   }
 }
 

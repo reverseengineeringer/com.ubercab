@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import com.ubercab.crash.internal.validator.CrashValidatorFactory;
 import com.ubercab.shape.Shape;
-import idz;
-import jdh;
+import kgr;
+import lzo;
 
 @Shape
-@jdh(a=CrashValidatorFactory.class)
+@lzo(a=CrashValidatorFactory.class)
 public abstract class Crash
   implements Parcelable, ICrash
 {
@@ -29,12 +29,12 @@ public abstract class Crash
   
   public void addExperimentTreatment(String paramString, Boolean paramBoolean)
   {
-    setExperimentTreatments(idz.a(getExperimentTreatments(), paramString, paramBoolean));
+    setExperimentTreatments(kgr.a(getExperimentTreatments(), paramString, paramBoolean));
   }
   
   public boolean isExperimentOn(String paramString)
   {
-    return idz.a(getExperimentTreatments(), paramString);
+    return kgr.a(getExperimentTreatments(), paramString);
   }
 }
 

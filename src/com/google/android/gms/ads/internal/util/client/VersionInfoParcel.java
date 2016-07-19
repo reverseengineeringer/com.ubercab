@@ -1,25 +1,20 @@
 package com.google.android.gms.ads.internal.util.client;
 
+import aih;
 import android.os.Parcel;
-import apl;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import sr;
+import ug;
 
-@apl
+@aih
 public final class VersionInfoParcel
   implements SafeParcelable
 {
-  public static final sr CREATOR = new sr();
+  public static final ug CREATOR = new ug();
   public final int a;
   public String b;
   public int c;
   public int d;
   public boolean e;
-  
-  public VersionInfoParcel()
-  {
-    this(1, "afma-sdk-a-v8487000.8487000.0", 8487000, 8487000, true);
-  }
   
   public VersionInfoParcel(int paramInt1, String paramString, int paramInt2, int paramInt3, boolean paramBoolean)
   {
@@ -37,7 +32,7 @@ public final class VersionInfoParcel
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    sr.a(this, paramParcel);
+    ug.a(this, paramParcel);
   }
 }
 

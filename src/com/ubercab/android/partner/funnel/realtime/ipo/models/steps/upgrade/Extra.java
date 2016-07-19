@@ -7,11 +7,19 @@ import com.ubercab.shape.Shape;
 public abstract class Extra
   implements Parcelable
 {
-  public abstract Integer getDefaultCityFlowTypeId();
+  public abstract String getDefaultCityName();
+  
+  public abstract Integer getDefaultFlowTypeCityId();
+  
+  public abstract String getPromoCode();
   
   public abstract String getReferralCode();
   
-  abstract Extra setDefaultCityFlowTypeId(Integer paramInteger);
+  abstract Extra setDefaultCityName(String paramString);
+  
+  abstract Extra setDefaultFlowTypeCityId(Integer paramInteger);
+  
+  abstract Extra setPromoCode(String paramString);
   
   abstract Extra setReferralCode(String paramString);
 }

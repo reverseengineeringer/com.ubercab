@@ -1,21 +1,54 @@
-import android.util.Base64;
+import android.graphics.Point;
+import android.os.RemoteException;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.VisibleRegion;
 
 public final class auh
 {
-  public static String a(byte[] paramArrayOfByte)
+  private final auy a;
+  
+  auh(auy paramauy)
   {
-    if (paramArrayOfByte == null) {
-      return null;
-    }
-    return Base64.encodeToString(paramArrayOfByte, 0);
+    a = paramauy;
   }
   
-  public static String b(byte[] paramArrayOfByte)
+  public final Point a(LatLng paramLatLng)
   {
-    if (paramArrayOfByte == null) {
-      return null;
+    try
+    {
+      paramLatLng = (Point)acs.a(a.a(paramLatLng));
+      return paramLatLng;
     }
-    return Base64.encodeToString(paramArrayOfByte, 10);
+    catch (RemoteException paramLatLng)
+    {
+      throw new ayz(paramLatLng);
+    }
+  }
+  
+  public final LatLng a(Point paramPoint)
+  {
+    try
+    {
+      paramPoint = a.a(acs.a(paramPoint));
+      return paramPoint;
+    }
+    catch (RemoteException paramPoint)
+    {
+      throw new ayz(paramPoint);
+    }
+  }
+  
+  public final VisibleRegion a()
+  {
+    try
+    {
+      VisibleRegion localVisibleRegion = a.a();
+      return localVisibleRegion;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
   }
 }
 

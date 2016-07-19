@@ -1,10 +1,11 @@
-public enum ciy
+import java.io.IOException;
+
+final class ciy
+  extends IOException
 {
-  final int d;
-  
-  private ciy(int paramInt)
+  public ciy(String paramString)
   {
-    d = paramInt;
+    super(paramString);
   }
 }
 

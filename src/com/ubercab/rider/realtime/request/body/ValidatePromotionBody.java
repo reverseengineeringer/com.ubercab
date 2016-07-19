@@ -12,9 +12,25 @@ public abstract class ValidatePromotionBody
   
   public abstract boolean getConfirmed();
   
+  public abstract String getMcc();
+  
+  public abstract String getMnc();
+  
+  public abstract String getMobile();
+  
+  public abstract String getMobileCountryIso2();
+  
   public abstract String getPromotionCode();
   
   abstract ValidatePromotionBody setConfirmed(boolean paramBoolean);
+  
+  public abstract ValidatePromotionBody setMcc(String paramString);
+  
+  public abstract ValidatePromotionBody setMnc(String paramString);
+  
+  public abstract ValidatePromotionBody setMobile(String paramString);
+  
+  public abstract ValidatePromotionBody setMobileCountryIso2(String paramString);
   
   abstract ValidatePromotionBody setPromotionCode(String paramString);
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.reservation.view.PaymentContainerView android:gravity="center" android:orientation="horizontal" android:background="@drawable/ub__trip_tray_action_button_bg" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ub__reservation_payment_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="12.0dip" />
+    <com.ubercab.ui.TextView android:id="@id/ub__reservation_payment_text" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Style.Rider.Trip.Payment.Text" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ub__reservation_add_payment" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__add_icon" />
+        <com.ubercab.ui.TextView android:textColor="@color/ub__uber_blue_100" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/add_credit_card" android:textAllCaps="true" />
+    </LinearLayout>
+</com.ubercab.client.feature.reservation.view.PaymentContainerView>

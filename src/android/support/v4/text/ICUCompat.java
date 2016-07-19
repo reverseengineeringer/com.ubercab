@@ -3,7 +3,7 @@ package android.support.v4.text;
 import android.os.Build.VERSION;
 import java.util.Locale;
 
-public class ICUCompat
+public final class ICUCompat
 {
   private static final ICUCompat.ICUCompatImpl IMPL = new ICUCompat.ICUCompatImplBase();
   

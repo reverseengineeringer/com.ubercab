@@ -4,77 +4,84 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.text.TextUtils;
 import android.view.MenuItem;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
-import com.ubercab.client.core.model.ApiResponse;
-import com.ubercab.client.core.model.Ping;
 import com.ubercab.client.core.vendor.alipay.model.AlipayCredentials;
 import com.ubercab.client.core.vendor.google.GoogleWalletActivity;
 import com.ubercab.client.feature.payment.alipay.AddAlipayActivity;
 import com.ubercab.client.feature.payment.alipay.AlipayVerificationCodeReceiver;
+import com.ubercab.client.feature.signup.passwordless.AddPasswordActivity;
 import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.Profile;
-import dta;
-import dtf;
-import dux;
-import eav;
-import ebj;
-import ehl;
-import eim;
-import eld;
-import eqz;
-import erb;
-import ere;
-import fxy;
-import fxz;
-import fyh;
-import fyi;
-import fyo;
-import fyu;
-import fyv;
-import gax;
-import gbg;
-import gcj;
-import gcn;
-import gcs;
-import gif;
-import ife;
-import imp;
+import duw;
+import dyn;
+import dys;
+import dzn;
+import eaj;
+import ehn;
+import eib;
+import eze;
+import ezf;
+import ezg;
+import gsi;
+import gsj;
+import gss;
+import gst;
+import gte;
+import gtl;
+import gtm;
+import gvu;
+import gwf;
+import hcc;
+import hcg;
+import hcl;
+import hjm;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
+import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
-import jru;
-import jsg;
-import jvv;
-import kld;
-import klo;
-import kls;
-import kul;
-import p;
+import kia;
+import ldk;
+import mwx;
+import mxm;
+import nbd;
+import odr;
+import oed;
+import oeh;
 
 public class AddPaymentActivity
-  extends RiderActivity<fxy>
-  implements fyi, fyo
+  extends RiderActivity<gsi>
+  implements gst, gte
 {
-  private static final long r = TimeUnit.MINUTES.toMillis(30L);
-  public ckc g;
-  public chh h;
-  public jsg i;
-  public ife j;
-  public dta k;
-  public jru l;
-  public eld m;
-  @Deprecated
-  public ehl n;
-  public gif o;
-  public jvv p;
-  klo q;
-  private Profile s;
+  private static final long s = TimeUnit.MINUTES.toMillis(30L);
+  public ckt g;
+  public chn h;
+  public mxm i;
+  public kia j;
+  public dyn k;
+  public mwx l;
+  public hjm m;
+  public duw n;
+  public dzn o;
+  public nbd p;
+  oed q;
+  oed r;
+  private Profile t;
+  
+  public static Intent a(Context paramContext, ThirdPartyPaymentVisibilityConfig paramThirdPartyPaymentVisibilityConfig)
+  {
+    paramContext = new Intent(paramContext, AddPaymentActivity.class);
+    if (paramThirdPartyPaymentVisibilityConfig != null) {
+      paramContext.putExtra("com.ubercab.client.feature.payment.THIRD_PARTY_PAYMENT_CONFIG", paramThirdPartyPaymentVisibilityConfig);
+    }
+    return paramContext;
+  }
   
   public static Intent a(Context paramContext, Profile paramProfile)
   {
@@ -86,27 +93,59 @@ public class AddPaymentActivity
     return paramContext;
   }
   
-  private static String a(Ping paramPing)
-  {
-    if ((ere.a(paramPing)) && (paramPing.getApiResponse() != null))
-    {
-      paramPing = paramPing.getApiResponse().getData();
-      if ((paramPing != null) && (paramPing.containsKey("uuid"))) {
-        return String.valueOf(paramPing.get("uuid"));
-      }
-    }
-    return null;
-  }
-  
   private void a(AlipayCredentials paramAlipayCredentials)
   {
-    b(getString(2131165270), null);
-    q = l.a(paramAlipayCredentials.getAccountId(), paramAlipayCredentials.getMobile()).a(kls.a()).b(new fxz(this, (byte)0));
+    b(getString(2131165274), null);
+    q = l.a(paramAlipayCredentials.getAccountId(), paramAlipayCredentials.getMobile()).a(oeh.a()).b(new gsj(this, (byte)0));
   }
   
-  private void a(fxy paramfxy)
+  private void a(ThirdPartyPaymentVisibilityConfig paramThirdPartyPaymentVisibilityConfig)
   {
-    paramfxy.a(this);
+    if (a(AddPaymentFragment.class) != null) {
+      return;
+    }
+    a(2131625415, AddPaymentFragment.a(paramThirdPartyPaymentVisibilityConfig), true);
+  }
+  
+  private void a(Client paramClient)
+  {
+    if (paramClient != null) {}
+    ThirdPartyPaymentVisibilityConfig localThirdPartyPaymentVisibilityConfig;
+    for (paramClient = paramClient.getMobileCountryIso2();; paramClient = "")
+    {
+      localThirdPartyPaymentVisibilityConfig = (ThirdPartyPaymentVisibilityConfig)getIntent().getParcelableExtra("com.ubercab.client.feature.payment.THIRD_PARTY_PAYMENT_CONFIG");
+      if (!eze.a(j)) {
+        break;
+      }
+      c(localThirdPartyPaymentVisibilityConfig);
+      return;
+    }
+    if (eze.a(j, paramClient))
+    {
+      b(localThirdPartyPaymentVisibilityConfig);
+      return;
+    }
+    if (localThirdPartyPaymentVisibilityConfig != null)
+    {
+      a(localThirdPartyPaymentVisibilityConfig);
+      return;
+    }
+    if (eze.a(j, ezf.a, this, n, o, null))
+    {
+      boolean bool2 = getIntent().getBooleanExtra("com.ubercab.client.feature.payment.ADD_SHOW_GOOGLE_WALLET", false);
+      if (!f()) {}
+      for (boolean bool1 = true;; bool1 = false)
+      {
+        a(bool2, bool1);
+        return;
+      }
+    }
+    a(getIntent().getBooleanExtra("com.ubercab.client.feature.payment.ADD_SHOW_GOOGLE_WALLET", false));
+  }
+  
+  private void a(gsi paramgsi)
+  {
+    paramgsi.a(this);
   }
   
   private void a(String paramString1, String paramString2)
@@ -115,12 +154,12 @@ public class AddPaymentActivity
     if (paramString1 != null)
     {
       localIntent.putExtra("com.ubercab.PAYMENT_PROFILE_UUID", paramString1);
-      if ((o.p()) && (s != null)) {
-        localIntent.putExtra("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID", s.getUuid());
+      if ((m.o()) && (t != null)) {
+        localIntent.putExtra("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID", t.getUuid());
       }
     }
-    if (j.a(dux.E, true)) {
-      if (erb.a(paramString2)) {
+    if (j.a(eaj.M, true)) {
+      if (ezg.a(paramString2)) {
         localIntent.putExtra("com.ubercab.PAYMENT_TYPE_KEY", paramString2);
       }
     }
@@ -140,105 +179,18 @@ public class AddPaymentActivity
     if (a(AddPaymentFragment.class) != null) {
       return;
     }
-    a(2131624935, AddPaymentFragment.c(paramBoolean), true);
+    a(2131625415, AddPaymentFragment.c(paramBoolean), true);
   }
   
-  private fxy b(ebj paramebj)
+  private void a(boolean paramBoolean1, boolean paramBoolean2)
   {
-    return fyu.n().a(new eav(this)).a(new gbg()).a(paramebj).a();
-  }
-  
-  private void b(String paramString)
-  {
-    int i1 = -1;
-    switch (paramString.hashCode())
-    {
-    }
-    for (;;)
-    {
-      switch (i1)
-      {
-      default: 
-        kul.d("Can't send success event without valid token type.", new Object[0]);
-        return;
-        if (paramString.equals("alipay"))
-        {
-          i1 = 0;
-          continue;
-          if (paramString.equals("alipay2"))
-          {
-            i1 = 1;
-            continue;
-            if (paramString.equals("braintree"))
-            {
-              i1 = 2;
-              continue;
-              if (paramString.equals("paypal")) {
-                i1 = 3;
-              }
-            }
-          }
-        }
-        break;
-      }
-    }
-    paramString = p.hg;
-    for (;;)
-    {
-      g.a(paramString);
+    if (a(AddPaymentFragment.class) != null) {
       return;
-      paramString = p.hn;
-      continue;
-      paramString = p.hw;
     }
+    a(2131625415, AddPaymentFragment.a(paramBoolean1, paramBoolean2), true);
   }
   
-  private void c(String paramString)
-  {
-    int i1 = -1;
-    switch (paramString.hashCode())
-    {
-    }
-    for (;;)
-    {
-      switch (i1)
-      {
-      default: 
-        kul.d("Can't send failure event without valid token type.", new Object[0]);
-        return;
-        if (paramString.equals("alipay"))
-        {
-          i1 = 0;
-          continue;
-          if (paramString.equals("alipay2"))
-          {
-            i1 = 1;
-            continue;
-            if (paramString.equals("braintree"))
-            {
-              i1 = 2;
-              continue;
-              if (paramString.equals("paypal")) {
-                i1 = 3;
-              }
-            }
-          }
-        }
-        break;
-      }
-    }
-    paramString = p.hf;
-    for (;;)
-    {
-      g.a(paramString);
-      return;
-      paramString = p.hl;
-      continue;
-      paramString = p.hv;
-    }
-  }
-  
-  private com.ubercab.rider.realtime.model.PaymentProfile d(String paramString)
+  private com.ubercab.rider.realtime.model.PaymentProfile b(String paramString)
   {
     Object localObject = null;
     Client localClient = i.c();
@@ -253,31 +205,72 @@ public class AddPaymentActivity
     return (com.ubercab.rider.realtime.model.PaymentProfile)localObject;
   }
   
-  private void f()
+  private gsi b(eib parameib)
+  {
+    return gtl.m().a(new ehn(this)).a(new gwf()).a(parameib).a();
+  }
+  
+  private void b(ThirdPartyPaymentVisibilityConfig paramThirdPartyPaymentVisibilityConfig)
   {
     if (a(ChoosePaymentFragment.class) != null) {
       return;
     }
-    a(2131624935, ChoosePaymentFragment.a(), true);
+    if (paramThirdPartyPaymentVisibilityConfig == null) {}
+    for (paramThirdPartyPaymentVisibilityConfig = ChoosePaymentFragment.a();; paramThirdPartyPaymentVisibilityConfig = ChoosePaymentFragment.a(paramThirdPartyPaymentVisibilityConfig))
+    {
+      a(2131625415, paramThirdPartyPaymentVisibilityConfig, true);
+      return;
+    }
+  }
+  
+  private void c(ThirdPartyPaymentVisibilityConfig paramThirdPartyPaymentVisibilityConfig)
+  {
+    if (a(gss.class) != null) {
+      return;
+    }
+    if (paramThirdPartyPaymentVisibilityConfig == null) {}
+    for (paramThirdPartyPaymentVisibilityConfig = gss.a();; paramThirdPartyPaymentVisibilityConfig = gss.a(paramThirdPartyPaymentVisibilityConfig))
+    {
+      a(2131625415, paramThirdPartyPaymentVisibilityConfig, true);
+      return;
+    }
+  }
+  
+  private boolean f()
+  {
+    Object localObject = i.c();
+    if ((localObject == null) || (((Client)localObject).getPaymentProfiles() == null)) {
+      return false;
+    }
+    localObject = ((Client)localObject).getPaymentProfiles().iterator();
+    while (((Iterator)localObject).hasNext()) {
+      if ("android_pay".equals(((com.ubercab.rider.realtime.model.PaymentProfile)((Iterator)localObject).next()).getTokenType())) {
+        return true;
+      }
+    }
+    return false;
   }
   
   private void g()
   {
-    if (a(fyh.class) != null) {
-      return;
+    gvu localgvu = (gvu)a(AddPaymentFragment.class);
+    if (localgvu != null) {
+      localgvu.f();
     }
-    a(2131624935, fyh.a(), true);
+    localgvu = (gvu)a(gss.class);
+    if (localgvu != null) {
+      localgvu.f();
+    }
   }
   
   private void h()
   {
-    gax localgax = (gax)a(AddPaymentFragment.class);
-    if (localgax != null) {
-      localgax.b();
-    }
-    localgax = (gax)a(fyh.class);
-    if (localgax != null) {
-      localgax.b();
+    if (m.o())
+    {
+      String str = getIntent().getStringExtra("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID");
+      if (!TextUtils.isEmpty(str)) {
+        t = m.a(str);
+      }
     }
   }
   
@@ -302,11 +295,11 @@ public class AddPaymentActivity
     }
   }
   
-  public final void a(imp paramimp)
+  public final void a(ldk paramldk)
   {
-    paramimp = paramimp.a();
+    paramldk = paramldk.a();
     int i1 = -1;
-    switch (paramimp.hashCode())
+    switch (paramldk.hashCode())
     {
     }
     for (;;)
@@ -315,11 +308,11 @@ public class AddPaymentActivity
       {
       default: 
         return;
-        if (paramimp.equals("braintree"))
+        if (paramldk.equals("braintree"))
         {
           i1 = 0;
           continue;
-          if (paramimp.equals("alipay")) {
+          if (paramldk.equals("alipay")) {
             i1 = 1;
           }
         }
@@ -328,8 +321,8 @@ public class AddPaymentActivity
     }
     a(false);
     return;
-    if (j.b(dux.B)) {
-      p.a(AlipayVerificationCodeReceiver.class, r);
+    if (j.c(eaj.J)) {
+      p.a(AlipayVerificationCodeReceiver.class, s);
     }
     startActivityForResult(new Intent(this, AddAlipayActivity.class), 600);
   }
@@ -337,24 +330,22 @@ public class AddPaymentActivity
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    if (o.p()) {
-      s = o.a(getIntent().getStringExtra("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID"));
-    }
-    setContentView(2130903409);
+    h();
+    setContentView(2130903566);
     b().b(true);
     paramBundle = i.c();
-    if (paramBundle != null) {}
-    for (paramBundle = paramBundle.getMobileCountryIso2(); eqz.a(j); paramBundle = "")
+    if (j.c(eaj.fM))
     {
-      g();
-      return;
+      if (paramBundle == null) {
+        return;
+      }
+      if (paramBundle.getHasNoPassword())
+      {
+        startActivityForResult(new Intent(this, AddPasswordActivity.class), 701);
+        return;
+      }
     }
-    if (eqz.a(j, paramBundle))
-    {
-      f();
-      return;
-    }
-    a(getIntent().getBooleanExtra("com.ubercab.client.feature.payment.ADD_SHOW_GOOGLE_WALLET", false));
+    a(paramBundle);
   }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -363,47 +354,42 @@ public class AddPaymentActivity
     if ((paramInt1 == 600) && (paramInt2 == -1)) {
       a((AlipayCredentials)paramIntent.getParcelableExtra("alipay_credentials"));
     }
-    while ((paramInt1 != 700) || (paramInt2 != -1)) {
+    do
+    {
+      return;
+      if ((paramInt1 == 700) && (paramInt2 == -1))
+      {
+        paramIntent.putExtra("com.ubercab.PAYMENT_PROFILE_UUID", com.ubercab.client.core.model.PaymentProfile.GOOGLE_WALLET.getUuid());
+        setResult(-1, paramIntent);
+        finish();
+        return;
+      }
+    } while (paramInt1 != 701);
+    if (paramInt2 == -1)
+    {
+      a(i.c());
       return;
     }
-    paramIntent.putExtra("com.ubercab.PAYMENT_PROFILE_UUID", com.ubercab.client.core.model.PaymentProfile.GOOGLE_WALLET.getUuid());
-    setResult(-1, paramIntent);
     finish();
   }
   
   public void onBackPressed()
   {
-    h();
+    g();
     super.onBackPressed();
   }
   
-  @cho
-  public void onChooseInternationalCreditCardEvent(gcj paramgcj)
+  @chu
+  public void onChooseInternationalCreditCardEvent(hcc paramhcc)
   {
     a(false);
-  }
-  
-  @cho
-  @Deprecated
-  public void onCreatePaymentProfileResponseEvent(eim parameim)
-  {
-    w();
-    if (parameim.a())
-    {
-      String str = a((Ping)parameim.c());
-      b(parameim.f());
-      h.c(new gcn(str));
-      return;
-    }
-    c(parameim.f());
-    a_(parameim.a(this));
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
     if (paramMenuItem.getItemId() == 16908332)
     {
-      h();
+      g();
       setResult(0);
       finish();
       return true;
@@ -415,41 +401,44 @@ public class AddPaymentActivity
   {
     super.onPause();
     if (q != null) {
-      q.c();
+      q.af_();
+    }
+    if (r != null) {
+      r.af_();
     }
   }
   
-  @cho
-  public void onPaymentProfileAddedEvent(gcn paramgcn)
+  @chu
+  public void onPaymentProfileAddedEvent(hcg paramhcg)
   {
-    Object localObject = d(paramgcn.a());
+    Object localObject = b(paramhcg.a());
     if (localObject == null) {}
     for (localObject = null;; localObject = ((com.ubercab.rider.realtime.model.PaymentProfile)localObject).getUuid())
     {
-      a((String)localObject, paramgcn.b());
+      a((String)localObject, paramhcg.b());
       return;
     }
   }
   
-  @cho
-  public void onSelectGoogleWalletEvent(gcs paramgcs)
+  @chu
+  public void onSelectGoogleWalletEvent(hcl paramhcl)
   {
-    paramgcs = new Intent(this, GoogleWalletActivity.class);
-    paramgcs.setAction("com.ubercab.ACTION_LOAD_MASKED_WALLET");
-    startActivityForResult(paramgcs, 700);
+    paramhcl = new Intent(this, GoogleWalletActivity.class);
+    paramhcl.setAction("com.ubercab.ACTION_LOAD_MASKED_WALLET");
+    startActivityForResult(paramhcl, 700);
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
     return Collections.singleton(k);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }
   
-  protected final boolean v()
+  protected final boolean w()
   {
     return true;
   }

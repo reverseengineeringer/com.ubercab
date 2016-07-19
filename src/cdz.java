@@ -1,13 +1,13 @@
-import com.paypal.android.sdk.g;
+import com.paypal.android.sdk.payments.PaymentMethodActivity;
 
-public class cdz
+final class cdz
+  implements Runnable
 {
-  private static final String a = cdz.class.getSimpleName();
+  cdz(cdy paramcdy) {}
   
-  public static String a()
+  public final void run()
   {
-    String str = bxb.a().c().a();
-    return String.format("https://www.paypal.com/signup/account?country.x=%s&locale.x=%s", new Object[] { str, bxl.c(str) });
+    PaymentMethodActivity.f(a.a);
   }
 }
 

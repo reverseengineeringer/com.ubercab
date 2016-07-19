@@ -1,33 +1,35 @@
-import android.content.Intent;
-import android.os.Bundle;
+import java.util.Arrays;
 
-public class btb
-  extends bte
+public final class btb
 {
-  private static final String a = btb.class.getSimpleName();
-  
-  public static Intent a(String paramString1, btc parambtc, btd parambtd, String paramString2)
+  static
   {
-    paramString1 = b(paramString1, parambtc, parambtd, paramString2);
-    paramString1.putExtra("scope", "https://uri.paypal.com/services/payments/basic");
-    return paramString1;
+    Arrays.asList(new String[] { "live", "sandbox", "mock" });
   }
   
-  public static Intent b(String paramString1, btc parambtc, btd parambtd, String paramString2)
+  public static boolean a(String paramString)
   {
-    Intent localIntent = a("com.paypal.android.p2pmobile.Sdk", "com.paypal.android.lib.authenticator.activity.SdkActivity");
-    Bundle localBundle = new Bundle();
-    localBundle.putString("target_client_id", paramString1);
-    if (parambtc != null) {
-      localBundle.putString("token_request_type", parambtc.toString());
-    }
-    if (parambtd != null) {
-      localBundle.putString("response_type", parambtd.toString());
-    }
-    localBundle.putString("app_guid", paramString2);
-    new StringBuilder("launching authenticator with bundle:").append(localBundle);
-    localIntent.putExtras(localBundle);
-    return localIntent;
+    return paramString.equals("mock");
+  }
+  
+  public static boolean b(String paramString)
+  {
+    return paramString.startsWith("sandbox");
+  }
+  
+  public static boolean c(String paramString)
+  {
+    return paramString.equals("live");
+  }
+  
+  public static boolean d(String paramString)
+  {
+    return (!paramString.equals("live")) && (!paramString.startsWith("sandbox")) && (!paramString.equals("mock"));
+  }
+  
+  public static boolean e(String paramString)
+  {
+    return (paramString.startsWith("sandbox")) || (paramString.equals("mock"));
   }
 }
 

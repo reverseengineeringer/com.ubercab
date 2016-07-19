@@ -3,12 +3,12 @@ package com.paypal.android.sdk;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
-import bvt;
+import btn;
 
 public final class bK
   implements Parcelable
 {
-  public static final Parcelable.Creator CREATOR = new bvt();
+  public static final Parcelable.Creator CREATOR = new btn();
   private String a;
   private String b;
   

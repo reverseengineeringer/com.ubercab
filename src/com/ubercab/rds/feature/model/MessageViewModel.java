@@ -3,7 +3,6 @@ package com.ubercab.rds.feature.model;
 import com.ubercab.shape.Shape;
 import com.ubercab.ui.collection.model.ViewModel;
 import java.util.List;
-import jfa;
 
 @Shape
 public abstract class MessageViewModel
@@ -24,8 +23,6 @@ public abstract class MessageViewModel
   
   public abstract String getName();
   
-  public abstract jfa getRdsImageLoader();
-  
   public abstract String getTime();
   
   public abstract MessageViewModel setActionSummaries(List<String> paramList);
@@ -37,8 +34,6 @@ public abstract class MessageViewModel
   public abstract MessageViewModel setMessageBodyComponents(List<MessageBodyComponentModel> paramList);
   
   public abstract MessageViewModel setName(String paramString);
-  
-  public abstract MessageViewModel setRdsImageLoader(jfa paramjfa);
   
   public abstract MessageViewModel setTime(String paramString);
 }

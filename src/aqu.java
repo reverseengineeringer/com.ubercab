@@ -1,28 +1,37 @@
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.Context;
+import android.os.Bundle;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.data.DataHolder;
 
-@apl
 public final class aqu
-  extends Handler
+  extends yn<aqt>
+  implements wq
 {
-  public aqu(Looper paramLooper)
-  {
-    super(paramLooper);
-  }
+  private final Context b;
+  private final Status c;
+  private final String d;
   
-  public final void handleMessage(Message paramMessage)
+  public aqu(DataHolder paramDataHolder, Context paramContext)
   {
-    try
+    super(paramDataHolder);
+    b = paramContext;
+    c = are.b(paramDataHolder.e());
+    if ((paramDataHolder != null) && (paramDataHolder.f() != null))
     {
-      super.handleMessage(paramMessage);
+      d = paramDataHolder.f().getString("com.google.android.gms.location.places.PlaceBuffer.ATTRIBUTIONS_EXTRA_KEY");
       return;
     }
-    catch (Exception paramMessage)
-    {
-      tp.h().a(paramMessage, false);
-      throw paramMessage;
-    }
+    d = null;
+  }
+  
+  private aqt b(int paramInt)
+  {
+    return new ase(a, paramInt);
+  }
+  
+  public final Status a()
+  {
+    return c;
   }
 }
 

@@ -1,47 +1,54 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.firstparty.GetBuyFlowInitializationTokenResponse;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.google.gson.stream.MalformedJsonException;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.Writer;
 
 public final class bnn
-  implements Parcelable.Creator<GetBuyFlowInitializationTokenResponse>
 {
-  private static GetBuyFlowInitializationTokenResponse a(Parcel paramParcel)
+  public static bmd a(JsonReader paramJsonReader)
   {
-    int j = zm.b(paramParcel);
-    int i = 0;
-    byte[] arrayOfByte = null;
-    while (paramParcel.dataPosition() < j)
+    int i = 1;
+    try
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        arrayOfByte = zm.q(paramParcel, k);
+      paramJsonReader.peek();
+      i = 0;
+      paramJsonReader = (bmd)boh.P.read(paramJsonReader);
+      return paramJsonReader;
+    }
+    catch (EOFException paramJsonReader)
+    {
+      if (i != 0) {
+        return bmf.a;
       }
+      throw new bmm(paramJsonReader);
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    catch (MalformedJsonException paramJsonReader)
+    {
+      throw new bmm(paramJsonReader);
     }
-    return new GetBuyFlowInitializationTokenResponse(i, arrayOfByte);
+    catch (IOException paramJsonReader)
+    {
+      throw new bme(paramJsonReader);
+    }
+    catch (NumberFormatException paramJsonReader)
+    {
+      throw new bmm(paramJsonReader);
+    }
   }
   
-  public static void a(GetBuyFlowInitializationTokenResponse paramGetBuyFlowInitializationTokenResponse, Parcel paramParcel)
+  public static Writer a(Appendable paramAppendable)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramGetBuyFlowInitializationTokenResponse.a());
-    zo.a(paramParcel, 2, a);
-    zo.a(paramParcel, i);
+    if ((paramAppendable instanceof Writer)) {
+      return (Writer)paramAppendable;
+    }
+    return new bno(paramAppendable, (byte)0);
   }
   
-  private static GetBuyFlowInitializationTokenResponse[] a(int paramInt)
+  public static void a(bmd parambmd, JsonWriter paramJsonWriter)
   {
-    return new GetBuyFlowInitializationTokenResponse[paramInt];
+    boh.P.write(paramJsonWriter, parambmd);
   }
 }
 

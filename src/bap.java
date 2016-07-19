@@ -1,79 +1,52 @@
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.location.places.NearbyAlertFilter;
-import com.google.android.gms.location.places.NearbyAlertRequest;
-import com.google.android.gms.location.places.PlaceFilter;
+import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
 public final class bap
-  implements Parcelable.Creator<NearbyAlertRequest>
+  implements Parcelable.Creator<StreetViewPanoramaOrientation>
 {
-  private static NearbyAlertRequest a(Parcel paramParcel)
+  public static StreetViewPanoramaOrientation a(Parcel paramParcel)
   {
-    NearbyAlertFilter localNearbyAlertFilter = null;
+    float f2 = 0.0F;
+    int j = zd.b(paramParcel);
     int i = 0;
-    int i1 = zm.b(paramParcel);
-    int k = -1;
-    int j = 0;
-    boolean bool = false;
-    PlaceFilter localPlaceFilter = null;
-    int m = 0;
-    int n = 0;
-    while (paramParcel.dataPosition() < i1)
+    float f1 = 0.0F;
+    while (paramParcel.dataPosition() < j)
     {
-      int i2 = zm.a(paramParcel);
-      switch (zm.a(i2))
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
       default: 
-        zm.a(paramParcel, i2);
+        zd.a(paramParcel, k);
         break;
       case 1: 
-        m = zm.e(paramParcel, i2);
-        break;
-      case 1000: 
-        n = zm.e(paramParcel, i2);
+        i = zd.e(paramParcel, k);
         break;
       case 2: 
-        k = zm.e(paramParcel, i2);
+        f1 = zd.j(paramParcel, k);
         break;
       case 3: 
-        localPlaceFilter = (PlaceFilter)zm.a(paramParcel, i2, PlaceFilter.CREATOR);
-        break;
-      case 4: 
-        localNearbyAlertFilter = (NearbyAlertFilter)zm.a(paramParcel, i2, NearbyAlertFilter.CREATOR);
-        break;
-      case 5: 
-        bool = zm.b(paramParcel, i2);
-        break;
-      case 6: 
-        j = zm.e(paramParcel, i2);
-        break;
-      case 7: 
-        i = zm.e(paramParcel, i2);
+        f2 = zd.j(paramParcel, k);
       }
     }
-    if (paramParcel.dataPosition() != i1) {
-      throw new zn("Overread allowed size end=" + i1, paramParcel);
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new NearbyAlertRequest(n, m, k, localPlaceFilter, localNearbyAlertFilter, bool, j, i);
+    return new StreetViewPanoramaOrientation(i, f1, f2);
   }
   
-  public static void a(NearbyAlertRequest paramNearbyAlertRequest, Parcel paramParcel, int paramInt)
+  public static void a(StreetViewPanoramaOrientation paramStreetViewPanoramaOrientation, Parcel paramParcel)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramNearbyAlertRequest.b());
-    zo.a(paramParcel, 1000, paramNearbyAlertRequest.a());
-    zo.a(paramParcel, 2, paramNearbyAlertRequest.c());
-    zo.a(paramParcel, 3, NearbyAlertRequest.d(), paramInt, false);
-    zo.a(paramParcel, 4, paramNearbyAlertRequest.e(), paramInt, false);
-    zo.a(paramParcel, 5, paramNearbyAlertRequest.f());
-    zo.a(paramParcel, 6, paramNearbyAlertRequest.g());
-    zo.a(paramParcel, 7, paramNearbyAlertRequest.h());
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramStreetViewPanoramaOrientation.a());
+    zf.a(paramParcel, 2, a);
+    zf.a(paramParcel, 3, b);
+    zf.a(paramParcel, i);
   }
   
-  private static NearbyAlertRequest[] a(int paramInt)
+  private static StreetViewPanoramaOrientation[] a(int paramInt)
   {
-    return new NearbyAlertRequest[paramInt];
+    return new StreetViewPanoramaOrientation[paramInt];
   }
 }
 

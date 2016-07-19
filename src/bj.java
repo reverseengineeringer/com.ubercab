@@ -1,31 +1,9 @@
-import android.view.MenuItem;
-import android.view.Window.Callback;
+import android.support.design.widget.FloatingActionButton;
 
-final class bj
-  implements dj
+public final class bj
+  implements bv
 {
-  private bj(bh parambh) {}
-  
-  public final void a(di paramdi)
-  {
-    if (bh.a(a) != null)
-    {
-      if (!bh.c(a).i()) {
-        break label41;
-      }
-      bh.a(a).onPanelClosed(108, paramdi);
-    }
-    label41:
-    while (!bh.a(a).onPreparePanel(0, null, paramdi)) {
-      return;
-    }
-    bh.a(a).onMenuOpened(108, paramdi);
-  }
-  
-  public final boolean a(di paramdi, MenuItem paramMenuItem)
-  {
-    return false;
-  }
+  private bj(FloatingActionButton paramFloatingActionButton) {}
 }
 
 /* Location:

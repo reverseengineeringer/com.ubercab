@@ -4,11 +4,11 @@ import android.net.Uri;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.ubercab.shape.Shape;
-import jsv;
+import myb;
 
 @Shape
 public abstract class RichContact
-  implements Parcelable, jsv
+  implements Parcelable, myb
 {
   public static RichContact a()
   {

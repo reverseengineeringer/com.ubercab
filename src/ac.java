@@ -1,7 +1,4 @@
-public abstract interface ac
-{
-  public abstract ab s_();
-}
+public final class ac {}
 
 /* Location:
  * Qualified Name:     ac

@@ -1,88 +1,48 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.internal.FusedLocationProviderResult;
 
-@apl
-final class aps
+public final class aps
+  implements Parcelable.Creator<FusedLocationProviderResult>
 {
-  private final List<String> a;
-  private final List<String> b;
-  private final String c;
-  private final String d;
-  private final String e;
-  private final String f;
-  private final boolean g;
-  private final boolean h;
-  private final String i;
-  private String j;
-  private int k;
-  
-  public aps(int paramInt, Map<String, String> paramMap)
+  private static FusedLocationProviderResult a(Parcel paramParcel)
   {
-    j = ((String)paramMap.get("url"));
-    d = ((String)paramMap.get("base_uri"));
-    e = ((String)paramMap.get("post_parameters"));
-    g = b((String)paramMap.get("drt_include"));
-    h = b((String)paramMap.get("pan_include"));
-    c = ((String)paramMap.get("activation_overlay_url"));
-    b = c((String)paramMap.get("check_packages"));
-    i = ((String)paramMap.get("request_id"));
-    f = ((String)paramMap.get("type"));
-    a = c((String)paramMap.get("errors"));
-    k = paramInt;
-  }
-  
-  private static boolean b(String paramString)
-  {
-    return (paramString != null) && ((paramString.equals("1")) || (paramString.equals("true")));
-  }
-  
-  private static List<String> c(String paramString)
-  {
-    if (paramString == null) {
-      return null;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    Status localStatus = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        localStatus = (Status)zd.a(paramParcel, k, Status.CREATOR);
+        break;
+      case 1000: 
+        i = zd.e(paramParcel, k);
+      }
     }
-    return Arrays.asList(paramString.split(","));
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new FusedLocationProviderResult(i, localStatus);
   }
   
-  public final int a()
+  public static void a(FusedLocationProviderResult paramFusedLocationProviderResult, Parcel paramParcel, int paramInt)
   {
-    return k;
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramFusedLocationProviderResult.a(), paramInt, false);
+    zf.a(paramParcel, 1000, paramFusedLocationProviderResult.b());
+    zf.a(paramParcel, i);
   }
   
-  public final void a(String paramString)
+  private static FusedLocationProviderResult[] a(int paramInt)
   {
-    j = paramString;
-  }
-  
-  public final List<String> b()
-  {
-    return a;
-  }
-  
-  public final String c()
-  {
-    return e;
-  }
-  
-  public final String d()
-  {
-    return j;
-  }
-  
-  public final String e()
-  {
-    return f;
-  }
-  
-  public final boolean f()
-  {
-    return g;
-  }
-  
-  public final String g()
-  {
-    return i;
+    return new FusedLocationProviderResult[paramInt];
   }
 }
 

@@ -1,17 +1,8 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.PaymentConfirmActivity;
+import android.os.Parcelable.Creator;
 
 public final class ccw
-  implements DialogInterface.OnClickListener
-{
-  public ccw(PaymentConfirmActivity paramPaymentConfirmActivity) {}
-  
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
-  {
-    PaymentConfirmActivity.k(a);
-  }
-}
+  implements Parcelable.Creator
+{}
 
 /* Location:
  * Qualified Name:     ccw

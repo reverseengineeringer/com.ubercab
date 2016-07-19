@@ -1,8 +1,16 @@
-public abstract interface ane
+public final class ane
 {
-  public abstract void A();
+  private boolean a;
+  private boolean b;
+  private String c;
+  private boolean d;
+  private String e;
+  private boolean f;
   
-  public abstract void z();
+  public final and a()
+  {
+    return new and(a, b, c, d, e, f, (byte)0);
+  }
 }
 
 /* Location:

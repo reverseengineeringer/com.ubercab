@@ -7,7 +7,6 @@ import com.ubercab.shape.Shape;
 public abstract class DocumentStep
   extends BaseStep
 {
-  public static final String PROPERTY_STEP_ID = "stepId";
   public static final String TYPE = "document";
   
   public static DocumentStep create()

@@ -1,35 +1,18 @@
 package com.google.android.gms.measurement;
 
 import android.os.Handler;
-import bjf;
-import bjx;
-import bjy;
-import bko;
+import bce;
+import bcv;
 
 final class AppMeasurementService$1
   implements Runnable
 {
-  AppMeasurementService$1(AppMeasurementService paramAppMeasurementService, bko parambko, int paramInt, bjx parambjx) {}
+  AppMeasurementService$1(AppMeasurementService paramAppMeasurementService, bcv parambcv, int paramInt, bce parambce) {}
   
   public final void run()
   {
     a.y();
-    AppMeasurementService.a(d).post(new Runnable()
-    {
-      public final void run()
-      {
-        if (d.stopSelfResult(b))
-        {
-          if (bjf.N()) {
-            c.z().a("Device AppMeasurementService processed last upload request");
-          }
-        }
-        else {
-          return;
-        }
-        c.z().a("Local AppMeasurementService processed last upload request");
-      }
-    });
+    AppMeasurementService.a(d).post(new AppMeasurementService.1.1(this));
   }
 }
 

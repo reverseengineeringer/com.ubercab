@@ -2,14 +2,14 @@ package com.ubercab.experiment.model;
 
 import android.os.Parcelable;
 import com.ubercab.shape.Shape;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class Experiments
-  extends jvq<Experiments>
+  extends nba<Experiments>
   implements Parcelable
 {
   public static Experiments create()
@@ -17,21 +17,28 @@ public abstract class Experiments
     return new Shape_Experiments();
   }
   
+  public static Experiments create(List<Experiment> paramList)
+  {
+    return new Shape_Experiments();
+  }
+  
   public abstract List<Experiment> getExperiments();
   
-  protected Object onGet(jvr<Experiments> paramjvr, Object paramObject)
+  protected Object onGet(nbb<Experiments> paramnbb, Object paramObject)
   {
-    if (paramObject != null) {
-      return paramObject;
-    }
-    switch (Experiments.1.$SwitchMap$com$ubercab$experiment$model$Shape_Experiments$Property[((Shape_Experiments.Property)paramjvr).ordinal()])
+    switch (Experiments.1.$SwitchMap$com$ubercab$experiment$model$Shape_Experiments$Property[((Shape_Experiments.Property)paramnbb).ordinal()])
     {
     default: 
-      return super.onGet(paramjvr, paramObject);
+      paramnbb = super.onGet(paramnbb, paramObject);
     }
-    paramjvr = new ArrayList();
-    setExperiments(paramjvr);
-    return paramjvr;
+    do
+    {
+      return paramnbb;
+      paramnbb = (nbb<Experiments>)paramObject;
+    } while (paramObject != null);
+    paramnbb = Collections.emptyList();
+    setExperiments(paramnbb);
+    return paramnbb;
   }
   
   public abstract Experiments setExperiments(List<Experiment> paramList);

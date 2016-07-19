@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jvk;
+import nau;
 
 @Shape
 abstract class ObjectVenueLocationCollection
-  implements jvk
+  implements nau
 {}
 
 /* Location:

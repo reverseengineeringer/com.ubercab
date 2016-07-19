@@ -1,52 +1,91 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
+import java.lang.reflect.Method;
 
 public final class bii
-  implements Parcelable.Creator<StreetViewPanoramaOrientation>
 {
-  public static StreetViewPanoramaOrientation a(Parcel paramParcel)
+  private static final Object a;
+  private static final Method b;
+  private static final Method c;
+  
+  static
   {
-    float f2 = 0.0F;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    float f1 = 0.0F;
-    while (paramParcel.dataPosition() < j)
+    Object localObject2 = null;
+    Object localObject1 = a();
+    a = localObject1;
+    if (localObject1 == null)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        f1 = zm.j(paramParcel, k);
-        break;
-      case 3: 
-        f2 = zm.j(paramParcel, k);
+      localObject1 = null;
+      b = (Method)localObject1;
+      if (a != null) {
+        break label40;
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    label40:
+    for (localObject1 = localObject2;; localObject1 = c())
+    {
+      c = (Method)localObject1;
+      return;
+      localObject1 = b();
+      break;
     }
-    return new StreetViewPanoramaOrientation(i, f1, f2);
   }
   
-  public static void a(StreetViewPanoramaOrientation paramStreetViewPanoramaOrientation, Parcel paramParcel)
+  private static Object a()
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramStreetViewPanoramaOrientation.a());
-    zo.a(paramParcel, 2, a);
-    zo.a(paramParcel, 3, b);
-    zo.a(paramParcel, i);
+    try
+    {
+      Object localObject = Class.forName("sun.misc.SharedSecrets", false, null).getMethod("getJavaLangAccess", new Class[0]).invoke(null, new Object[0]);
+      return localObject;
+    }
+    catch (ThreadDeath localThreadDeath)
+    {
+      throw localThreadDeath;
+    }
+    catch (Throwable localThrowable) {}
+    return null;
   }
   
-  private static StreetViewPanoramaOrientation[] a(int paramInt)
+  public static RuntimeException a(Throwable paramThrowable)
   {
-    return new StreetViewPanoramaOrientation[paramInt];
+    b((Throwable)bhx.a(paramThrowable));
+    throw new RuntimeException(paramThrowable);
+  }
+  
+  private static Method a(String paramString, Class<?>... paramVarArgs)
+  {
+    try
+    {
+      paramString = Class.forName("sun.misc.JavaLangAccess", false, null).getMethod(paramString, paramVarArgs);
+      return paramString;
+    }
+    catch (ThreadDeath paramString)
+    {
+      throw paramString;
+    }
+    catch (Throwable paramString) {}
+    return null;
+  }
+  
+  private static <X extends Throwable> void a(Throwable paramThrowable, Class<X> paramClass)
+  {
+    if ((paramThrowable != null) && (paramClass.isInstance(paramThrowable))) {
+      throw ((Throwable)paramClass.cast(paramThrowable));
+    }
+  }
+  
+  private static Method b()
+  {
+    return a("getStackTraceElement", new Class[] { Throwable.class, Integer.TYPE });
+  }
+  
+  private static void b(Throwable paramThrowable)
+  {
+    a(paramThrowable, Error.class);
+    a(paramThrowable, RuntimeException.class);
+  }
+  
+  private static Method c()
+  {
+    return a("getStackTraceDepth", new Class[] { Throwable.class });
   }
 }
 

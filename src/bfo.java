@@ -1,75 +1,47 @@
-import android.os.IBinder;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.wallet.firstparty.InitializeBuyFlowRequest;
 
-final class bfo
-  implements bfm
+public final class bfo
+  implements Parcelable.Creator<InitializeBuyFlowRequest>
 {
-  private IBinder a;
-  
-  bfo(IBinder paramIBinder)
+  private static InitializeBuyFlowRequest a(Parcel paramParcel)
   {
-    a = paramIBinder;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    byte[][] arrayOfByte = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        arrayOfByte = zd.r(paramParcel, k);
+      }
+    }
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new InitializeBuyFlowRequest(i, arrayOfByte);
   }
   
-  /* Error */
-  public final boolean a()
+  public static void a(InitializeBuyFlowRequest paramInitializeBuyFlowRequest, Parcel paramParcel)
   {
-    // Byte code:
-    //   0: iconst_1
-    //   1: istore_2
-    //   2: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   5: astore_3
-    //   6: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   9: astore 4
-    //   11: aload_3
-    //   12: ldc 25
-    //   14: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   17: aload_0
-    //   18: getfield 15	bfo:a	Landroid/os/IBinder;
-    //   21: iconst_1
-    //   22: aload_3
-    //   23: aload 4
-    //   25: iconst_0
-    //   26: invokeinterface 35 5 0
-    //   31: pop
-    //   32: aload 4
-    //   34: invokevirtual 38	android/os/Parcel:readException	()V
-    //   37: aload 4
-    //   39: invokevirtual 42	android/os/Parcel:readInt	()I
-    //   42: istore_1
-    //   43: iload_1
-    //   44: ifeq +14 -> 58
-    //   47: aload 4
-    //   49: invokevirtual 45	android/os/Parcel:recycle	()V
-    //   52: aload_3
-    //   53: invokevirtual 45	android/os/Parcel:recycle	()V
-    //   56: iload_2
-    //   57: ireturn
-    //   58: iconst_0
-    //   59: istore_2
-    //   60: goto -13 -> 47
-    //   63: astore 5
-    //   65: aload 4
-    //   67: invokevirtual 45	android/os/Parcel:recycle	()V
-    //   70: aload_3
-    //   71: invokevirtual 45	android/os/Parcel:recycle	()V
-    //   74: aload 5
-    //   76: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	77	0	this	bfo
-    //   42	2	1	i	int
-    //   1	59	2	bool	boolean
-    //   5	66	3	localParcel1	android.os.Parcel
-    //   9	57	4	localParcel2	android.os.Parcel
-    //   63	12	5	localObject	Object
-    // Exception table:
-    //   from	to	target	type
-    //   11	43	63	finally
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramInitializeBuyFlowRequest.a());
+    zf.a(paramParcel, 2, a);
+    zf.a(paramParcel, i);
   }
   
-  public final IBinder asBinder()
+  private static InitializeBuyFlowRequest[] a(int paramInt)
   {
-    return a;
+    return new InitializeBuyFlowRequest[paramInt];
   }
 }
 

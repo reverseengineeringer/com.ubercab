@@ -1,72 +1,72 @@
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.location.LocationSettingsStates;
+import com.google.android.gms.measurement.internal.UserAttributeParcel;
 
 public final class bbh
-  implements Parcelable.Creator<LocationSettingsStates>
+  implements Parcelable.Creator<UserAttributeParcel>
 {
-  private static LocationSettingsStates a(Parcel paramParcel)
+  public static UserAttributeParcel a(Parcel paramParcel)
   {
-    boolean bool1 = false;
-    int j = zm.b(paramParcel);
-    boolean bool2 = false;
-    boolean bool3 = false;
-    boolean bool4 = false;
-    boolean bool5 = false;
-    boolean bool6 = false;
+    String str1 = null;
+    int j = zd.b(paramParcel);
     int i = 0;
+    long l = 0L;
+    String str2 = null;
+    Float localFloat = null;
+    Long localLong = null;
+    String str3 = null;
     while (paramParcel.dataPosition() < j)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
       default: 
-        zm.a(paramParcel, k);
+        zd.a(paramParcel, k);
         break;
       case 1: 
-        bool6 = zm.b(paramParcel, k);
-        break;
-      case 1000: 
-        i = zm.e(paramParcel, k);
+        i = zd.e(paramParcel, k);
         break;
       case 2: 
-        bool5 = zm.b(paramParcel, k);
+        str3 = zd.n(paramParcel, k);
         break;
       case 3: 
-        bool4 = zm.b(paramParcel, k);
+        l = zd.g(paramParcel, k);
         break;
       case 4: 
-        bool3 = zm.b(paramParcel, k);
+        localLong = zd.h(paramParcel, k);
         break;
       case 5: 
-        bool2 = zm.b(paramParcel, k);
+        localFloat = zd.k(paramParcel, k);
         break;
       case 6: 
-        bool1 = zm.b(paramParcel, k);
+        str2 = zd.n(paramParcel, k);
+        break;
+      case 7: 
+        str1 = zd.n(paramParcel, k);
       }
     }
     if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new LocationSettingsStates(i, bool6, bool5, bool4, bool3, bool2, bool1);
+    return new UserAttributeParcel(i, str3, l, localLong, localFloat, str2, str1);
   }
   
-  public static void a(LocationSettingsStates paramLocationSettingsStates, Parcel paramParcel)
+  public static void a(UserAttributeParcel paramUserAttributeParcel, Parcel paramParcel)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramLocationSettingsStates.b());
-    zo.a(paramParcel, 1000, paramLocationSettingsStates.a());
-    zo.a(paramParcel, 2, paramLocationSettingsStates.d());
-    zo.a(paramParcel, 3, paramLocationSettingsStates.f());
-    zo.a(paramParcel, 4, paramLocationSettingsStates.c());
-    zo.a(paramParcel, 5, paramLocationSettingsStates.e());
-    zo.a(paramParcel, 6, paramLocationSettingsStates.g());
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, b, false);
+    zf.a(paramParcel, 3, c);
+    zf.a(paramParcel, 4, d);
+    zf.a(paramParcel, e);
+    zf.a(paramParcel, 6, f, false);
+    zf.a(paramParcel, 7, g, false);
+    zf.a(paramParcel, i);
   }
   
-  private static LocationSettingsStates[] a(int paramInt)
+  private static UserAttributeParcel[] a(int paramInt)
   {
-    return new LocationSettingsStates[paramInt];
+    return new UserAttributeParcel[paramInt];
   }
 }
 

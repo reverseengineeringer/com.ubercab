@@ -5,20 +5,20 @@ import android.telephony.SmsMessage;
 import android.text.TextUtils;
 import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.sms.SmsReceiver;
-import ebj;
-import gdy;
+import eib;
+import hdt;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import jwa;
+import nbi;
 
 public class AlipayVerificationCodeReceiver
   extends SmsReceiver
 {
   private static final long b = TimeUnit.MINUTES.toMillis(30L);
-  public gdy a;
+  public hdt a;
   private boolean c;
-  private final jwa d = new jwa();
+  private final nbi d = new nbi();
   
   private String a(List<SmsMessage> paramList)
   {

@@ -6,14 +6,14 @@ import com.ubercab.shape.Shape;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import jdh;
-import jvq;
-import jvr;
+import lzo;
+import nba;
+import nbb;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class Group
-  extends jvq<Group>
+  extends nba<Group>
   implements Parcelable
 {
   public static Group create()
@@ -50,12 +50,12 @@ public abstract class Group
   
   public abstract String getType();
   
-  protected Object onGet(jvr<Group> paramjvr, Object paramObject)
+  protected Object onGet(nbb<Group> paramnbb, Object paramObject)
   {
     if (paramObject != null) {
       return paramObject;
     }
-    switch (Group.1.$SwitchMap$com$ubercab$rider$realtime$model$Shape_Group$Property[((Shape_Group.Property)paramjvr).ordinal()])
+    switch (Group.1.$SwitchMap$com$ubercab$rider$realtime$model$Shape_Group$Property[((Shape_Group.Property)paramnbb).ordinal()])
     {
     default: 
       return null;

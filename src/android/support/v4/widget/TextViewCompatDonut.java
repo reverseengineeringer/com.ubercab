@@ -89,6 +89,11 @@ class TextViewCompatDonut
     }
     return -1;
   }
+  
+  static void setTextAppearance(TextView paramTextView, int paramInt)
+  {
+    paramTextView.setTextAppearance(paramTextView.getContext(), paramInt);
+  }
 }
 
 /* Location:

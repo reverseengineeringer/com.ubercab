@@ -1,40 +1,54 @@
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-import java.lang.ref.WeakReference;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.personalized.PlaceAliasResult;
+import com.google.android.gms.location.places.personalized.PlaceUserData;
 
-@apl
-final class asm
-  extends aso
-  implements ViewTreeObserver.OnGlobalLayoutListener
+public final class asm
+  implements Parcelable.Creator<PlaceAliasResult>
 {
-  private final WeakReference<ViewTreeObserver.OnGlobalLayoutListener> a;
-  
-  public asm(View paramView, ViewTreeObserver.OnGlobalLayoutListener paramOnGlobalLayoutListener)
+  private static PlaceAliasResult a(Parcel paramParcel)
   {
-    super(paramView);
-    a = new WeakReference(paramOnGlobalLayoutListener);
-  }
-  
-  protected final void a(ViewTreeObserver paramViewTreeObserver)
-  {
-    paramViewTreeObserver.addOnGlobalLayoutListener(this);
-  }
-  
-  protected final void b(ViewTreeObserver paramViewTreeObserver)
-  {
-    tp.g().a(paramViewTreeObserver, this);
-  }
-  
-  public final void onGlobalLayout()
-  {
-    ViewTreeObserver.OnGlobalLayoutListener localOnGlobalLayoutListener = (ViewTreeObserver.OnGlobalLayoutListener)a.get();
-    if (localOnGlobalLayoutListener != null)
+    int j = zd.b(paramParcel);
+    Status localStatus = null;
+    int i = 0;
+    PlaceUserData localPlaceUserData = null;
+    while (paramParcel.dataPosition() < j)
     {
-      localOnGlobalLayoutListener.onGlobalLayout();
-      return;
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        localStatus = (Status)zd.a(paramParcel, k, Status.CREATOR);
+        break;
+      case 1000: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        localPlaceUserData = (PlaceUserData)zd.a(paramParcel, k, PlaceUserData.CREATOR);
+      }
     }
-    b();
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new PlaceAliasResult(i, localStatus, localPlaceUserData);
+  }
+  
+  public static void a(PlaceAliasResult paramPlaceAliasResult, Parcel paramParcel, int paramInt)
+  {
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramPlaceAliasResult.a(), paramInt, false);
+    zf.a(paramParcel, 1000, a);
+    zf.a(paramParcel, 2, paramPlaceAliasResult.b(), paramInt, false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static PlaceAliasResult[] a(int paramInt)
+  {
+    return new PlaceAliasResult[paramInt];
   }
 }
 

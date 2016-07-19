@@ -4,11 +4,11 @@ import com.ubercab.rider.realtime.model.FareSplitClient;
 import com.ubercab.shape.Shape;
 import java.util.Iterator;
 import java.util.List;
-import jtf;
+import mym;
 
 @Shape
 abstract class ObjectFareSplit
-  implements jtf
+  implements mym
 {
   public FareSplitClient getClientInitiator()
   {

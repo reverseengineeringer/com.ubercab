@@ -13,7 +13,10 @@ public abstract class ScheduleSurgeDropBody
     return new Shape_ScheduleSurgeDropBody().setNotificationName("SurgeDrop");
   }
   
+  @Deprecated
   public abstract long getFareId();
+  
+  public abstract String getFareUuid();
   
   public abstract String getNotificationName();
   
@@ -21,7 +24,11 @@ public abstract class ScheduleSurgeDropBody
   
   public abstract int getVehicleViewId();
   
+  @Deprecated
   public abstract ScheduleSurgeDropBody setFareId(long paramLong);
+  
+  @Deprecated
+  public abstract ScheduleSurgeDropBody setFareUuid(String paramString);
   
   abstract ScheduleSurgeDropBody setNotificationName(String paramString);
   

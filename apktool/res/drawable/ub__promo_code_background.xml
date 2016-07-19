@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/ub__pre_trip_promo_color" />
+    <corners android:radius="@dimen/ub__corner_radius_default" />
+    <padding android:left="@dimen/ub__pretrip_promo_payment_promo_padding_2x" android:top="@dimen/ub__pretrip_promo_payment_promo_padding_1x" android:right="@dimen/ub__pretrip_promo_payment_promo_padding_2x" android:bottom="@dimen/ub__pretrip_promo_payment_promo_padding_1x" />
+</shape>

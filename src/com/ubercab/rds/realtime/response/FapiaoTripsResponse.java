@@ -4,12 +4,12 @@ import com.ubercab.shape.Shape;
 import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class FapiaoTripsResponse
-  extends jvq<FapiaoTripsResponse>
+  extends nba<FapiaoTripsResponse>
 {
   public static FapiaoTripsResponse create()
   {
@@ -24,12 +24,12 @@ public abstract class FapiaoTripsResponse
   
   public abstract List<FapiaoTripResponse> getTrips();
   
-  protected Object onGet(jvr<FapiaoTripsResponse> paramjvr, Object paramObject)
+  protected Object onGet(nbb<FapiaoTripsResponse> paramnbb, Object paramObject)
   {
     if (paramObject != null) {
       return paramObject;
     }
-    switch (FapiaoTripsResponse.1.$SwitchMap$com$ubercab$rds$realtime$response$Shape_FapiaoTripsResponse$Property[((Shape_FapiaoTripsResponse.Property)paramjvr).ordinal()])
+    switch (FapiaoTripsResponse.1.$SwitchMap$com$ubercab$rds$realtime$response$Shape_FapiaoTripsResponse$Property[((Shape_FapiaoTripsResponse.Property)paramnbb).ordinal()])
     {
     default: 
       return null;

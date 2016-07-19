@@ -75,8 +75,8 @@ import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import kkq;
-import kkr;
+import odd;
+import ode;
 
 public class Kryo
 {
@@ -107,7 +107,7 @@ public class Kryo
   private ReferenceResolver referenceResolver;
   private boolean references;
   private boolean registrationRequired;
-  private kkr strategy = new Kryo.DefaultInstantiatorStrategy();
+  private ode strategy = new Kryo.DefaultInstantiatorStrategy();
   private StreamFactory streamFactory;
   private volatile Thread thread;
   
@@ -875,7 +875,7 @@ public class Kryo
     return graphContext;
   }
   
-  public kkr getInstantiatorStrategy()
+  public ode getInstantiatorStrategy()
   {
     return strategy;
   }
@@ -979,17 +979,17 @@ public class Kryo
   public <T> T newInstance(Class<T> paramClass)
   {
     Registration localRegistration = getRegistration(paramClass);
-    kkq localkkq2 = localRegistration.getInstantiator();
-    kkq localkkq1 = localkkq2;
-    if (localkkq2 == null)
+    odd localodd2 = localRegistration.getInstantiator();
+    odd localodd1 = localodd2;
+    if (localodd2 == null)
     {
-      localkkq1 = newInstantiator(paramClass);
-      localRegistration.setInstantiator(localkkq1);
+      localodd1 = newInstantiator(paramClass);
+      localRegistration.setInstantiator(localodd1);
     }
-    return (T)localkkq1.newInstance();
+    return (T)localodd1.newInstance();
   }
   
-  protected kkq newInstantiator(Class paramClass)
+  protected odd newInstantiator(Class paramClass)
   {
     return strategy.newInstantiatorOf(paramClass);
   }
@@ -2121,9 +2121,9 @@ public class Kryo
     defaultSerializer = new ReflectionSerializerFactory(paramClass);
   }
   
-  public void setInstantiatorStrategy(kkr paramkkr)
+  public void setInstantiatorStrategy(ode paramode)
   {
-    strategy = paramkkr;
+    strategy = paramode;
   }
   
   public void setMaxDepth(int paramInt)

@@ -1,66 +1,26 @@
+import android.content.Context;
+
 public final class cma
+  extends cms
 {
-  private cmb a;
-  private cmb b;
-  private cly<cmi> c;
-  private cml d;
-  private cmx e;
-  private cne f;
-  
-  public final clz a()
+  public cma(Context paramContext)
   {
-    if (a == null) {
-      throw new IllegalStateException("Pipeline: Buffer cannot be null.");
+    super(paramContext);
+    a(paramContext, true);
+  }
+  
+  public final cmf a(cmg paramcmg)
+  {
+    cmj localcmj = new cmj(600000L, 3600000L, 0);
+    if (paramcmg != null) {
+      localcmj.a(paramcmg.a());
     }
-    if (c == null) {
-      throw new IllegalStateException("Pipeline: CommonTagsProvider cannot be null");
-    }
-    if (d == null) {
-      throw new IllegalStateException("Pipeline: FrameFactory cannot be null.");
-    }
-    if (e == null) {
-      throw new IllegalStateException("Pipeline: Limiter cannot be null.");
-    }
-    if (f == null) {
-      throw new IllegalStateException("Pipeline: Transport cannot be null.");
-    }
-    return new clz(a, b, c, d, e, f, (byte)0);
+    return new cly(a, localcmj);
   }
   
-  public final cma a(cly<cmi> paramcly)
+  final cmf a(cmj paramcmj)
   {
-    c = paramcly;
-    return this;
-  }
-  
-  public final cma a(cmb paramcmb)
-  {
-    a = paramcmb;
-    return this;
-  }
-  
-  public final cma a(cml paramcml)
-  {
-    d = paramcml;
-    return this;
-  }
-  
-  public final cma a(cmx paramcmx)
-  {
-    e = paramcmx;
-    return this;
-  }
-  
-  public final cma a(cne paramcne)
-  {
-    f = paramcne;
-    return this;
-  }
-  
-  public final cma b(cmb paramcmb)
-  {
-    b = paramcmb;
-    return this;
+    return new cly(a, paramcmj);
   }
 }
 

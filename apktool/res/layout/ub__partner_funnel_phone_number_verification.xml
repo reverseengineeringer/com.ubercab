@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Funnel.TextAppearance.Step.Header" android:id="@id/ub__partner_funnel_phone_number_verification_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginTop="@dimen/ub__partner_funnel_step_standard_header_margin" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ub__partner_funnel_step_standard_footer_margin" android:text="@string/ub__partner_funnel_phone_number_verification" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ub__partner_funnel_phone_number_verification_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.EditText android:gravity="center_horizontal" android:id="@id/ub__partner_funnel_phone_number_verification_edittext_token" android:layout_width="@dimen/ub__partner_funnel_phone_number_verification_edit_text_width" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__partner_funnel_padding_list_cell" android:maxLines="1" android:singleLine="true" android:maxLength="6" android:inputType="number" style="@style/Uber.Partner.Funnel.EditText.VerifyToken">
+            <requestFocus />
+        </com.ubercab.ui.EditText>
+        <com.ubercab.ui.Button android:textColor="@color/ub__partner_funnel_button_resend" android:gravity="center_vertical" android:id="@id/ub__partner_funnel_phone_number_verification_resend_code" android:background="@null" android:paddingTop="@dimen/ub__padding_large" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__partner_funnel_phone_number_verification_resend_code" />
+    </LinearLayout>
+</LinearLayout>

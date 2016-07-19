@@ -1,24 +1,26 @@
-import android.content.Context;
-import android.os.Bundle;
-
-public class bio
+final class bio
 {
-  private final bko a;
-  
-  public bio(bko parambko)
+  static int a(int paramInt, String paramString)
   {
-    abs.a(parambko);
-    a = parambko;
+    if (paramInt < 0) {
+      throw new IllegalArgumentException(paramString + " cannot be negative but was: " + paramInt);
+    }
+    return paramInt;
   }
   
-  public static bio a(Context paramContext)
+  static void a()
   {
-    return bko.a(paramContext).m();
+    bhx.b(false, "no calls to next() since the last call to remove()");
   }
   
-  public final void a(String paramString1, String paramString2, Bundle paramBundle)
+  static void a(Object paramObject1, Object paramObject2)
   {
-    a.l().a(paramString1, paramString2, paramBundle);
+    if (paramObject1 == null) {
+      throw new NullPointerException("null key in entry: null=" + paramObject2);
+    }
+    if (paramObject2 == null) {
+      throw new NullPointerException("null value in entry: " + paramObject1 + "=null");
+    }
   }
 }
 

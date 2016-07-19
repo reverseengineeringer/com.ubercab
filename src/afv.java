@@ -1,31 +1,48 @@
-import android.view.View;
-import java.lang.ref.WeakReference;
+import java.util.Map;
 
+@aih
 public final class afv
-  implements age
+  implements afs
 {
-  private final WeakReference<View> a;
-  private final WeakReference<aqj> b;
+  static final Map<String, Integer> a = alb.a("resize", Integer.valueOf(1), "playVideo", Integer.valueOf(2), "storePicture", Integer.valueOf(3), "createCalendarEvent", Integer.valueOf(4), "setOrientationProperties", Integer.valueOf(5), "closeResizedAd", Integer.valueOf(6));
+  private final ui b;
+  private final ahe c;
   
-  public afv(View paramView, aqj paramaqj)
+  public afv(ui paramui, ahe paramahe)
   {
-    a = new WeakReference(paramView);
-    b = new WeakReference(paramaqj);
+    b = paramui;
+    c = paramahe;
   }
   
-  public final View a()
+  public final void a(ajm paramajm, Map<String, String> paramMap)
   {
-    return (View)a.get();
-  }
-  
-  public final boolean b()
-  {
-    return (a.get() == null) || (b.get() == null);
-  }
-  
-  public final age c()
-  {
-    return new afu((View)a.get(), (aqj)b.get());
+    String str = (String)paramMap.get("a");
+    int i = ((Integer)a.get(str)).intValue();
+    if ((i != 5) && (b != null) && (!b.a()))
+    {
+      ui.b();
+      return;
+    }
+    switch (i)
+    {
+    case 2: 
+    default: 
+      ain.c("Unknown MRAID command called.");
+      return;
+    case 1: 
+      c.a(paramMap);
+      return;
+    case 4: 
+      new ahd(paramajm, paramMap).a();
+      return;
+    case 3: 
+      new ahg(paramajm, paramMap).a();
+      return;
+    case 5: 
+      new ahf(paramajm, paramMap).a();
+      return;
+    }
+    c.a(true);
   }
 }
 

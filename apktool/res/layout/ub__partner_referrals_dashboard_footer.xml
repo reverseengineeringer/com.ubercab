@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.TextView android:textSize="@dimen/ub__partner_referrals_textsize_disclaimer" android:gravity="center" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:text="@string/ub__partner_referrals_driver_referral_consent_text" style="@style/Uber.Partner.Referrals.TextAppearance.Byline"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

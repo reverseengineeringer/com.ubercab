@@ -1,67 +1,182 @@
-import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
 
+@aih
 public final class aeg
-  extends ByteArrayOutputStream
 {
-  private final ayb a;
+  private final int a;
+  private final int b;
+  private final int c;
+  private final aem d;
+  private final Object e = new Object();
+  private ArrayList<String> f = new ArrayList();
+  private ArrayList<String> g = new ArrayList();
+  private int h = 0;
+  private int i = 0;
+  private int j = 0;
+  private int k;
+  private String l = "";
+  private String m = "";
   
-  public aeg(ayb paramayb, int paramInt)
+  public aeg(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    a = paramayb;
-    buf = a.a(Math.max(paramInt, 256));
+    a = paramInt1;
+    b = paramInt2;
+    c = paramInt3;
+    d = new aem(paramInt4);
   }
   
-  private void a(int paramInt)
+  private int a(int paramInt1, int paramInt2)
   {
-    if (count + paramInt <= buf.length) {
+    return a * paramInt1 + b * paramInt2;
+  }
+  
+  private static String a(ArrayList<String> paramArrayList)
+  {
+    if (paramArrayList.isEmpty()) {
+      paramArrayList = "";
+    }
+    Object localObject;
+    do
+    {
+      return paramArrayList;
+      localObject = new StringBuffer();
+      paramArrayList = paramArrayList.iterator();
+      do
+      {
+        if (!paramArrayList.hasNext()) {
+          break;
+        }
+        ((StringBuffer)localObject).append((String)paramArrayList.next());
+        ((StringBuffer)localObject).append(' ');
+      } while (((StringBuffer)localObject).length() <= 100);
+      ((StringBuffer)localObject).deleteCharAt(((StringBuffer)localObject).length() - 1);
+      localObject = ((StringBuffer)localObject).toString();
+      paramArrayList = (ArrayList<String>)localObject;
+    } while (((String)localObject).length() < 100);
+    return ((String)localObject).substring(0, 100);
+  }
+  
+  private void c(String paramString, boolean paramBoolean)
+  {
+    if ((paramString == null) || (paramString.length() < c)) {
       return;
     }
-    byte[] arrayOfByte = a.a((count + paramInt) * 2);
-    System.arraycopy(buf, 0, arrayOfByte, 0, count);
-    a.a(buf);
-    buf = arrayOfByte;
-  }
-  
-  public final void close()
-  {
-    a.a(buf);
-    buf = null;
-    super.close();
-  }
-  
-  public final void finalize()
-  {
-    a.a(buf);
-  }
-  
-  public final void write(int paramInt)
-  {
-    try
+    synchronized (e)
     {
-      a(1);
-      super.write(paramInt);
+      f.add(paramString);
+      h += paramString.length();
+      if (paramBoolean) {
+        g.add(paramString);
+      }
       return;
     }
-    finally
+  }
+  
+  public final void a(int paramInt)
+  {
+    i = paramInt;
+  }
+  
+  public final void a(String arg1, boolean paramBoolean)
+  {
+    c(???, paramBoolean);
+    synchronized (e)
     {
-      localObject = finally;
-      throw ((Throwable)localObject);
+      if (j < 0) {
+        ain.a("ActivityContent: negative number of WebViews.");
+      }
+      e();
+      return;
     }
   }
   
-  public final void write(byte[] paramArrayOfByte, int paramInt1, int paramInt2)
+  public final boolean a()
   {
-    try
+    for (;;)
     {
-      a(paramInt2);
-      super.write(paramArrayOfByte, paramInt1, paramInt2);
+      synchronized (e)
+      {
+        if (j == 0)
+        {
+          bool = true;
+          return bool;
+        }
+      }
+      boolean bool = false;
+    }
+  }
+  
+  public final String b()
+  {
+    return l;
+  }
+  
+  public final void b(String paramString, boolean paramBoolean)
+  {
+    c(paramString, paramBoolean);
+  }
+  
+  public final void c()
+  {
+    synchronized (e)
+    {
+      j -= 1;
       return;
     }
-    finally
+  }
+  
+  public final void d()
+  {
+    synchronized (e)
     {
-      paramArrayOfByte = finally;
-      throw paramArrayOfByte;
+      j += 1;
+      return;
     }
+  }
+  
+  public final void e()
+  {
+    synchronized (e)
+    {
+      int n = a(h, i);
+      if (n > k)
+      {
+        k = n;
+        l = d.a(f);
+        m = d.a(g);
+      }
+      return;
+    }
+  }
+  
+  public final boolean equals(Object paramObject)
+  {
+    if (!(paramObject instanceof aeg)) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+      paramObject = (aeg)paramObject;
+    } while ((((aeg)paramObject).b() == null) || (!((aeg)paramObject).b().equals(b())));
+    return true;
+  }
+  
+  final int f()
+  {
+    return h;
+  }
+  
+  public final int hashCode()
+  {
+    return b().hashCode();
+  }
+  
+  public final String toString()
+  {
+    return "ActivityContent fetchId: " + i + " score:" + k + " total_length:" + h + "\n text: " + a(f) + "\n viewableText" + a(g) + "\n signture: " + l + "\n viewableSignture: " + m;
   }
 }
 

@@ -10,8 +10,7 @@ class NotificationCompat$NotificationCompatImplBase
 {
   public Notification build(NotificationCompat.Builder paramBuilder, NotificationCompat.BuilderExtender paramBuilderExtender)
   {
-    paramBuilderExtender = mNotification;
-    paramBuilderExtender.setLatestEventInfo(mContext, mContentTitle, mContentText, mContentIntent);
+    paramBuilderExtender = NotificationCompatBase.add(mNotification, mContext, mContentTitle, mContentText, mContentIntent);
     if (mPriority > 0) {
       flags |= 0x80;
     }

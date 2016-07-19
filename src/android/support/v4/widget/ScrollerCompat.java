@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build.VERSION;
 import android.view.animation.Interpolator;
 
-public class ScrollerCompat
+public final class ScrollerCompat
 {
   static final int CHASE_FRAME_TIME = 16;
   private static final String TAG = "ScrollerCompat";
@@ -28,11 +28,6 @@ public class ScrollerCompat
     }
   }
   
-  ScrollerCompat(Context paramContext, Interpolator paramInterpolator)
-  {
-    this(Build.VERSION.SDK_INT, paramContext, paramInterpolator);
-  }
-  
   public static ScrollerCompat create(Context paramContext)
   {
     return create(paramContext, null);
@@ -40,85 +35,85 @@ public class ScrollerCompat
   
   public static ScrollerCompat create(Context paramContext, Interpolator paramInterpolator)
   {
-    return new ScrollerCompat(paramContext, paramInterpolator);
+    return new ScrollerCompat(Build.VERSION.SDK_INT, paramContext, paramInterpolator);
   }
   
-  public void abortAnimation()
+  public final void abortAnimation()
   {
     mImpl.abortAnimation(mScroller);
   }
   
-  public boolean computeScrollOffset()
+  public final boolean computeScrollOffset()
   {
     return mImpl.computeScrollOffset(mScroller);
   }
   
-  public void fling(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8)
+  public final void fling(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8)
   {
     mImpl.fling(mScroller, paramInt1, paramInt2, paramInt3, paramInt4, paramInt5, paramInt6, paramInt7, paramInt8);
   }
   
-  public void fling(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8, int paramInt9, int paramInt10)
+  public final void fling(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8, int paramInt9, int paramInt10)
   {
     mImpl.fling(mScroller, paramInt1, paramInt2, paramInt3, paramInt4, paramInt5, paramInt6, paramInt7, paramInt8, paramInt9, paramInt10);
   }
   
-  public float getCurrVelocity()
+  public final float getCurrVelocity()
   {
     return mImpl.getCurrVelocity(mScroller);
   }
   
-  public int getCurrX()
+  public final int getCurrX()
   {
     return mImpl.getCurrX(mScroller);
   }
   
-  public int getCurrY()
+  public final int getCurrY()
   {
     return mImpl.getCurrY(mScroller);
   }
   
-  public int getFinalX()
+  public final int getFinalX()
   {
     return mImpl.getFinalX(mScroller);
   }
   
-  public int getFinalY()
+  public final int getFinalY()
   {
     return mImpl.getFinalY(mScroller);
   }
   
-  public boolean isFinished()
+  public final boolean isFinished()
   {
     return mImpl.isFinished(mScroller);
   }
   
-  public boolean isOverScrolled()
+  public final boolean isOverScrolled()
   {
     return mImpl.isOverScrolled(mScroller);
   }
   
-  public void notifyHorizontalEdgeReached(int paramInt1, int paramInt2, int paramInt3)
+  public final void notifyHorizontalEdgeReached(int paramInt1, int paramInt2, int paramInt3)
   {
     mImpl.notifyHorizontalEdgeReached(mScroller, paramInt1, paramInt2, paramInt3);
   }
   
-  public void notifyVerticalEdgeReached(int paramInt1, int paramInt2, int paramInt3)
+  public final void notifyVerticalEdgeReached(int paramInt1, int paramInt2, int paramInt3)
   {
     mImpl.notifyVerticalEdgeReached(mScroller, paramInt1, paramInt2, paramInt3);
   }
   
-  public boolean springBack(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6)
+  public final boolean springBack(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6)
   {
     return mImpl.springBack(mScroller, paramInt1, paramInt2, paramInt3, paramInt4, paramInt5, paramInt6);
   }
   
-  public void startScroll(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+  public final void startScroll(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
     mImpl.startScroll(mScroller, paramInt1, paramInt2, paramInt3, paramInt4);
   }
   
-  public void startScroll(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5)
+  public final void startScroll(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5)
   {
     mImpl.startScroll(mScroller, paramInt1, paramInt2, paramInt3, paramInt4, paramInt5);
   }

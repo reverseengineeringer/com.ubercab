@@ -1,43 +1,45 @@
-public enum bxk
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
+public final class bxk
 {
-  private boolean A;
-  private String x;
-  private String y;
-  private boolean z;
+  private Context a;
   
-  private bxk(String paramString2, String paramString3, boolean paramBoolean1, boolean paramBoolean2)
+  public bxk(Context paramContext)
   {
-    x = paramString2;
-    y = paramString3;
-    z = paramBoolean1;
-    A = paramBoolean2;
+    a = paramContext;
   }
   
-  public final String a()
+  public final void a(Collection paramCollection)
   {
-    return x + "::" + y;
-  }
-  
-  public final String a(String paramString, boolean paramBoolean)
-  {
-    String str;
-    if (z) {
-      if (paramBoolean) {
-        str = "returnuser";
+    try
+    {
+      paramCollection = new HashSet(paramCollection);
+      ActivityInfo[] arrayOfActivityInfo = a.getPackageManager().getPackageInfo(a.getPackageName(), 1).activities;
+      if (arrayOfActivityInfo != null)
+      {
+        int j = arrayOfActivityInfo.length;
+        int i = 0;
+        while (i < j)
+        {
+          paramCollection.remove(name);
+          i += 1;
+        }
+      }
+      if (!paramCollection.isEmpty()) {
+        throw new RuntimeException("Missing required activities in manifest:" + paramCollection);
       }
     }
-    for (;;)
+    catch (PackageManager.NameNotFoundException paramCollection)
     {
-      return bxi.a + ":" + paramString + ":" + str;
-      str = "newuser";
-      continue;
-      str = "";
+      throw new RuntimeException("Exception loading manifest" + paramCollection.getMessage());
     }
-  }
-  
-  public final boolean b()
-  {
-    return A;
   }
 }
 

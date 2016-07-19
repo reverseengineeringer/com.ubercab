@@ -1,17 +1,17 @@
 package com.ubercab.form.model;
 
 import android.os.Parcelable;
-import bpj;
+import bmd;
 import com.ubercab.shape.Shape;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class Form
-  extends jvq<Form>
+  extends nba<Form>
   implements Parcelable
 {
   public static Form create()
@@ -27,22 +27,22 @@ public abstract class Form
   
   public abstract String getId();
   
-  public abstract Map<String, bpj> getOptions();
+  public abstract Map<String, bmd> getOptions();
   
   public abstract String getTitle();
   
-  protected Object onGet(jvr<Form> paramjvr, Object paramObject)
+  protected Object onGet(nbb<Form> paramnbb, Object paramObject)
   {
-    switch (Form.1.$SwitchMap$com$ubercab$form$model$Shape_Form$Property[((Shape_Form.Property)paramjvr).ordinal()])
+    switch (Form.1.$SwitchMap$com$ubercab$form$model$Shape_Form$Property[((Shape_Form.Property)paramnbb).ordinal()])
     {
     }
     do
     {
       return paramObject;
     } while (paramObject != null);
-    paramjvr = new ArrayList();
-    setComponents(paramjvr);
-    return paramjvr;
+    paramnbb = new ArrayList();
+    setComponents(paramnbb);
+    return paramnbb;
   }
   
   public abstract void setComponents(List<Component> paramList);
@@ -53,7 +53,7 @@ public abstract class Form
   
   protected abstract void setId(String paramString);
   
-  public abstract void setOptions(Map<String, bpj> paramMap);
+  public abstract void setOptions(Map<String, bmd> paramMap);
   
   protected abstract void setTitle(String paramString);
 }

@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import juh;
+import mzp;
 
 @Shape
 public abstract class ObjectSafetyNetContact
-  implements juh
+  implements mzp
 {
   public static ObjectSafetyNetContact create(String paramString1, String paramString2)
   {

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <gradient android:startColor="@color/ub__uber_white_60" android:endColor="@color/ub__uber_white_60" android:angle="270.0" android:centerY="1.0" android:centerColor="@color/ub__uber_white_60" />
+            <corners android:radius="4.0dip" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <gradient android:startColor="@color/ub__life_color_progress_bar" android:endColor="@color/ub__life_color_progress_bar" android:angle="270.0" android:centerY="1.0" android:centerColor="@color/ub__life_color_progress_bar" />
+                <corners android:radius="4.0dip" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

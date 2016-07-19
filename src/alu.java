@@ -1,11 +1,12 @@
-import android.os.IInterface;
-
-public abstract interface alu
-  extends IInterface
+public final class alu
+  extends amy
 {
-  public abstract alx a(String paramString);
+  public alu() {}
   
-  public abstract boolean b(String paramString);
+  public alu(aij paramaij)
+  {
+    super(paramaij);
+  }
 }
 
 /* Location:

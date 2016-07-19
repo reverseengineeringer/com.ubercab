@@ -1,70 +1,94 @@
-import android.content.Context;
-import android.os.RemoteException;
-import android.view.ViewGroup;
-import com.google.android.gms.maps.GoogleMapOptions;
-import java.util.ArrayList;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.google.android.gms.measurement.internal.EventParams;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Set;
 
 public final class bbt
-  extends adb<bbs>
 {
-  protected adh<bbs> a;
-  private final ViewGroup b;
-  private final Context c;
-  private final GoogleMapOptions d;
-  private final List<bbv> e = new ArrayList();
+  final String a;
+  final String b;
+  final String c;
+  final long d;
+  final long e;
+  final EventParams f;
   
-  public bbt(ViewGroup paramViewGroup, Context paramContext, GoogleMapOptions paramGoogleMapOptions)
+  private bbt(bcv parambcv, String paramString1, String paramString2, String paramString3, long paramLong1, long paramLong2, EventParams paramEventParams)
   {
-    b = paramViewGroup;
-    c = paramContext;
-    d = paramGoogleMapOptions;
+    abe.a(paramString2);
+    abe.a(paramString3);
+    abe.a(paramEventParams);
+    a = paramString2;
+    b = paramString3;
+    paramString2 = paramString1;
+    if (TextUtils.isEmpty(paramString1)) {
+      paramString2 = null;
+    }
+    c = paramString2;
+    d = paramLong1;
+    e = paramLong2;
+    if ((e != 0L) && (e > d)) {
+      parambcv.f().c().a("Event created with reverse previous/current timestamps");
+    }
+    f = paramEventParams;
   }
   
-  protected final void a(adh<bbs> paramadh)
+  bbt(bcv parambcv, String paramString1, String paramString2, String paramString3, long paramLong, Bundle paramBundle)
   {
-    a = paramadh;
-    f();
+    abe.a(paramString2);
+    abe.a(paramString3);
+    a = paramString2;
+    b = paramString3;
+    paramString2 = paramString1;
+    if (TextUtils.isEmpty(paramString1)) {
+      paramString2 = null;
+    }
+    c = paramString2;
+    d = paramLong;
+    e = 0L;
+    if ((e != 0L) && (e > d)) {
+      parambcv.f().c().a("Event created with reverse previous/current timestamps");
+    }
+    f = a(parambcv, paramBundle);
   }
   
-  public final void a(bbv parambbv)
+  private static EventParams a(bcv parambcv, Bundle paramBundle)
   {
-    if (a() != null)
+    if ((paramBundle != null) && (!paramBundle.isEmpty()))
     {
-      ((bbs)a()).a(parambbv);
-      return;
+      paramBundle = new Bundle(paramBundle);
+      Iterator localIterator = paramBundle.keySet().iterator();
+      while (localIterator.hasNext())
+      {
+        String str = (String)localIterator.next();
+        if (str == null)
+        {
+          localIterator.remove();
+        }
+        else
+        {
+          parambcv.n();
+          Object localObject = bbj.a(str, paramBundle.get(str));
+          if (localObject == null) {
+            localIterator.remove();
+          } else {
+            parambcv.n().a(paramBundle, str, localObject);
+          }
+        }
+      }
+      return new EventParams(paramBundle);
     }
-    e.add(parambbv);
+    return new EventParams(new Bundle());
   }
   
-  public final void f()
+  final bbt a(bcv parambcv, long paramLong)
   {
-    if ((a != null) && (a() == null)) {
-      try
-      {
-        bbu.a(c);
-        Object localObject = bdp.a(c).a(adg.a(c), d);
-        if (localObject == null) {
-          return;
-        }
-        a.a(new bbs(b, (bco)localObject));
-        localObject = e.iterator();
-        while (((Iterator)localObject).hasNext())
-        {
-          bbv localbbv = (bbv)((Iterator)localObject).next();
-          ((bbs)a()).a(localbbv);
-        }
-        return;
-      }
-      catch (RemoteException localRemoteException)
-      {
-        throw new bgs(localRemoteException);
-        e.clear();
-        return;
-      }
-      catch (wb localwb) {}
-    }
+    return new bbt(parambcv, c, a, b, d, paramLong, f);
+  }
+  
+  public final String toString()
+  {
+    return "Event{appId='" + a + '\'' + ", name='" + b + '\'' + ", params=" + f + '}';
   }
 }
 

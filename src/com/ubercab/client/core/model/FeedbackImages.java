@@ -5,9 +5,9 @@ import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.Image;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public final class FeedbackImages
   extends Image
   implements Parcelable
@@ -136,8 +136,8 @@ public final class FeedbackImages
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeInt(width.intValue());
-    paramParcel.writeInt(height.intValue());
+    paramParcel.writeValue(width);
+    paramParcel.writeValue(height);
     paramParcel.writeString(url);
   }
 }

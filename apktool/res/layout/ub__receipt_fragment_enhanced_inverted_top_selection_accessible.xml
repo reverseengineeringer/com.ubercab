@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ub__receipt_octane_inverted_top_selection" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.CircleImageView android:layout_gravity="center" android:id="@id/ub__receipt_octane_inverted_top_avatar" android:layout_width="@dimen/ui__avatar_small" android:layout_height="@dimen/ui__avatar_small" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__account_picture_placeholder" />
+    <com.ubercab.ui.TextView android:id="@id/ub__receipt_text_over_star_top" android:paddingTop="@dimen/ub__octane_receipt_ratingbar_padding" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/receipt_rate_your_trip_label" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.Comment" />
+    <com.ubercab.client.feature.receipt.AccessibleRatingBar android:layout_gravity="center_horizontal" android:id="@id/ub__receipt_octane_inverted_top_ratingbar" android:paddingTop="@dimen/ub__octane_receipt_ratingbar_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:max="5" android:numStars="5" android:stepSize="1.0" style="@style/Style.Rider.Octane.RatingBar" />
+</LinearLayout>

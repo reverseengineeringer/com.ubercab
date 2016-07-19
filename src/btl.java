@@ -1,15 +1,33 @@
 public enum btl
 {
-  private int e;
-  
-  private btl(int paramInt1)
+  public static btl a(String paramString)
   {
-    e = paramInt1;
-  }
-  
-  public final int a()
-  {
-    return e;
+    Object localObject;
+    if (paramString == null)
+    {
+      localObject = a;
+      return (btl)localObject;
+    }
+    btl[] arrayOfbtl = values();
+    int m = arrayOfbtl.length;
+    int k = 0;
+    for (;;)
+    {
+      if (k >= m) {
+        break label70;
+      }
+      btl localbtl = arrayOfbtl[k];
+      if ((localbtl != a) && (localbtl != i))
+      {
+        localObject = localbtl;
+        if (paramString.equalsIgnoreCase(localbtl.toString())) {
+          break;
+        }
+      }
+      k += 1;
+    }
+    label70:
+    return a;
   }
 }
 

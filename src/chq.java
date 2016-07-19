@@ -1,111 +1,85 @@
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import java.lang.ref.WeakReference;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
-abstract class chq<T>
+final class chq
 {
-  final ciu a;
-  final cje b;
-  final WeakReference<T> c;
-  final boolean d;
-  final int e;
-  final int f;
-  final int g;
-  final Drawable h;
-  final String i;
-  final Object j;
-  boolean k;
-  boolean l;
+  private final Object a;
+  private final Method b;
+  private final int c;
+  private boolean d = true;
   
-  chq(ciu paramciu, T paramT, cje paramcje, int paramInt1, int paramInt2, int paramInt3, Drawable paramDrawable, String paramString, Object paramObject, boolean paramBoolean)
+  chq(Object paramObject, Method paramMethod)
   {
-    a = paramciu;
-    b = paramcje;
-    if (paramT == null)
-    {
-      paramciu = null;
-      c = paramciu;
-      e = paramInt1;
-      f = paramInt2;
-      d = paramBoolean;
-      g = paramInt3;
-      h = paramDrawable;
-      i = paramString;
-      if (paramObject == null) {
-        break label90;
-      }
+    if (paramObject == null) {
+      throw new NullPointerException("EventHandler target cannot be null.");
     }
-    for (;;)
+    if (paramMethod == null) {
+      throw new NullPointerException("EventHandler method cannot be null.");
+    }
+    a = paramObject;
+    b = paramMethod;
+    paramMethod.setAccessible(true);
+    c = ((paramMethod.hashCode() + 31) * 31 + paramObject.hashCode());
+  }
+  
+  public final void a(Object paramObject)
+  {
+    if (!d) {
+      throw new IllegalStateException(toString() + " has been invalidated and can no longer handle events.");
+    }
+    try
     {
-      j = paramObject;
+      b.invoke(a, new Object[] { paramObject });
       return;
-      paramciu = new chr(this, paramT, i);
-      break;
-      label90:
-      paramObject = this;
+    }
+    catch (IllegalAccessException paramObject)
+    {
+      throw new AssertionError(paramObject);
+    }
+    catch (InvocationTargetException paramObject)
+    {
+      if ((((InvocationTargetException)paramObject).getCause() instanceof Error)) {
+        throw ((Error)((InvocationTargetException)paramObject).getCause());
+      }
+      throw ((Throwable)paramObject);
     }
   }
   
-  abstract void a();
-  
-  abstract void a(Bitmap paramBitmap, ciy paramciy);
-  
-  void b()
+  public final boolean a()
   {
-    l = true;
+    return d;
   }
   
-  final cje c()
+  public final void b()
   {
-    return b;
+    d = false;
   }
   
-  T d()
+  public final boolean equals(Object paramObject)
   {
-    if (c == null) {
-      return null;
-    }
-    return (T)c.get();
+    if (this == paramObject) {}
+    do
+    {
+      return true;
+      if (paramObject == null) {
+        return false;
+      }
+      if (getClass() != paramObject.getClass()) {
+        return false;
+      }
+      paramObject = (chq)paramObject;
+    } while ((b.equals(b)) && (a == a));
+    return false;
   }
   
-  final String e()
+  public final int hashCode()
   {
-    return i;
+    return c;
   }
   
-  final boolean f()
+  public final String toString()
   {
-    return l;
-  }
-  
-  final boolean g()
-  {
-    return k;
-  }
-  
-  final int h()
-  {
-    return e;
-  }
-  
-  final int i()
-  {
-    return f;
-  }
-  
-  final ciu j()
-  {
-    return a;
-  }
-  
-  final int k()
-  {
-    return b.r;
-  }
-  
-  final Object l()
-  {
-    return j;
+    return "[EventHandler " + b + "]";
   }
 }
 

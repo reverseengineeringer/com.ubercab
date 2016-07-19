@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.TabLayout android:id="@id/ub__partner_referrals_invites_tabs" android:background="@color/ub__uber_black_95" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/ub__partner_referrals_tabbed_invites_tab_height" android:elevation="@dimen/ub__partner_referrals_base_elevation" app:tabBackground="@drawable/ub__selectable_item_background_black" app:tabMode="fixed" app:tabTextAppearance="@style/Uber.Driver.Partner.Referrals.ContactPicker.Tabs" app:tabSelectedTextColor="@color/ub__white" />
+    <android.support.v4.view.ViewPager android:id="@id/ub__partner_referrals_invites_viewpager" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/ub__partner_referrals_invites_tabs" />
+</RelativeLayout>

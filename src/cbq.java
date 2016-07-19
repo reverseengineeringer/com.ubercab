@@ -1,16 +1,52 @@
-import android.os.SystemClock;
-import android.view.MotionEvent;
-import android.widget.EditText;
+import com.paypal.android.sdk.payments.PayPalService;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
-public final class cbq
-  implements Runnable
+final class cbq
 {
-  public cbq(EditText paramEditText) {}
+  private PayPalService a;
+  private String b;
   
-  public final void run()
+  public cbq(PayPalService paramPayPalService)
   {
-    a.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), 0, 9999.0F, 0.0F, 0));
-    a.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), 1, 9999.0F, 0.0F, 0));
+    a = paramPayPalService;
+    b = Integer.toString(new GregorianCalendar().getTimeZone().getRawOffset() / 1000 / 60);
+  }
+  
+  public final buy a()
+  {
+    return a.c();
+  }
+  
+  public final void a(brh parambrh)
+  {
+    a.a(parambrh);
+  }
+  
+  public final String b()
+  {
+    return a.f();
+  }
+  
+  public final btd c()
+  {
+    return a.b();
+  }
+  
+  public final String d()
+  {
+    return a.e();
+  }
+  
+  public final String e()
+  {
+    return b;
+  }
+  
+  public final String f()
+  {
+    return a.v();
   }
 }
 

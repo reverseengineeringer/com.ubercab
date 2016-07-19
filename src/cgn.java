@@ -1,6 +1,24 @@
-public enum cgn
+public final class cgn
+  extends RuntimeException
 {
-  private cgn() {}
+  private static final long serialVersionUID = -7208133561904200801L;
+  
+  public cgn() {}
+  
+  public cgn(Exception paramException)
+  {
+    super(paramException);
+  }
+  
+  public cgn(String paramString)
+  {
+    super(paramString);
+  }
+  
+  public cgn(String paramString, Exception paramException)
+  {
+    super(paramString, paramException);
+  }
 }
 
 /* Location:

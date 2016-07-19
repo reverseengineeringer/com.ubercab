@@ -4,10 +4,10 @@ import com.ubercab.chat.internal.validator.ChatValidatorFactory;
 import com.ubercab.chat.realtime.response.ChatMessage;
 import com.ubercab.shape.Shape;
 import java.util.Comparator;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=ChatValidatorFactory.class)
+@lzo(a=ChatValidatorFactory.class)
 public abstract class Message
 {
   public static final Comparator<Message> SEQUENCE_NUMBER_COMPARATOR = new Message.1();
@@ -21,7 +21,7 @@ public abstract class Message
   
   public static Message create(AbbrvMessage paramAbbrvMessage)
   {
-    Payload localPayload = new Shape_Payload().setDurationMs(paramAbbrvMessage.getD()).setEncodingFormat(paramAbbrvMessage.getF()).setStatus(Payload.Status.MISSING);
+    Payload localPayload = Payload.createFromAbbrvMessage(paramAbbrvMessage);
     return new Shape_Message().setThreadId(paramAbbrvMessage.getT()).setSenderId(paramAbbrvMessage.getS()).setMessageId(paramAbbrvMessage.getM()).setSequenceNumber(paramAbbrvMessage.getN()).setTimestamp(paramAbbrvMessage.getTs()).setMessageType(paramAbbrvMessage.getTp()).setPayload(localPayload).setStatus(Message.Status.SUCCESS);
   }
   
@@ -32,7 +32,7 @@ public abstract class Message
   
   public static Message create(ChatMessage paramChatMessage)
   {
-    return new Shape_Message().setClientMessageId(paramChatMessage.getClientMessageId()).setMessageId(paramChatMessage.getMessageId()).setMessageType(paramChatMessage.getMessageType()).setPayload(Payload.create(paramChatMessage.getPayload())).setSenderId(paramChatMessage.getSenderId()).setSequenceNumber(paramChatMessage.getSequenceNumber()).setStatus(Message.Status.SUCCESS).setThreadId(paramChatMessage.getThreadId()).setTimestamp(paramChatMessage.getTimestamp());
+    return new Shape_Message().setClientMessageId(paramChatMessage.getClientMessageId()).setMessageId(paramChatMessage.getMessageId()).setMessageType(paramChatMessage.getMessageType()).setPayload(Payload.createFromServerResponse(paramChatMessage.getPayload(), paramChatMessage.getMessageType())).setSenderId(paramChatMessage.getSenderId()).setSequenceNumber(paramChatMessage.getSequenceNumber()).setStatus(Message.Status.SUCCESS).setThreadId(paramChatMessage.getThreadId()).setTimestamp(paramChatMessage.getTimestamp());
   }
   
   public static Message create(String paramString1, String paramString2, Payload paramPayload, String paramString3, String paramString4)
@@ -62,9 +62,27 @@ public abstract class Message
   
   public abstract long getTimestamp();
   
+  public boolean isAudioMessage()
+  {
+    return ("voice".equals(getMessageType())) && ((getPayload() instanceof AudioPayload));
+  }
+  
   public boolean isPendingOutgoingMessage()
   {
     return getMessageId() == null;
+  }
+  
+  public boolean isReady()
+  {
+    if (isAudioMessage()) {
+      return ((AudioPayload)getPayload()).getStatus() == AudioPayload.Status.ON_DISK;
+    }
+    return true;
+  }
+  
+  public boolean isTextMessage()
+  {
+    return ("text".equals(getMessageType())) && ((getPayload() instanceof TextPayload));
   }
   
   abstract Message setClientMessageId(String paramString);

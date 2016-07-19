@@ -1,13 +1,111 @@
-import android.os.IInterface;
-import com.google.android.gms.location.LocationAvailability;
-import com.google.android.gms.location.LocationResult;
+import android.content.Context;
 
-public abstract interface bay
-  extends IInterface
+final class bay
 {
-  public abstract void a(LocationAvailability paramLocationAvailability);
+  final Context a;
   
-  public abstract void a(LocationResult paramLocationResult);
+  bay(Context paramContext)
+  {
+    abe.a(paramContext);
+    paramContext = paramContext.getApplicationContext();
+    abe.a(paramContext);
+    a = paramContext;
+  }
+  
+  static bbm a(bcv parambcv)
+  {
+    return new bbm(parambcv);
+  }
+  
+  static ala b()
+  {
+    return alc.c();
+  }
+  
+  static bcm b(bcv parambcv)
+  {
+    return new bcm(parambcv);
+  }
+  
+  static bce c(bcv parambcv)
+  {
+    return new bce(parambcv);
+  }
+  
+  static bcr d(bcv parambcv)
+  {
+    return new bcr(parambcv);
+  }
+  
+  static bbd e(bcv parambcv)
+  {
+    return new bbd(parambcv);
+  }
+  
+  static bcq f(bcv parambcv)
+  {
+    return new bcq(parambcv);
+  }
+  
+  static bav g(bcv parambcv)
+  {
+    return new bav(parambcv);
+  }
+  
+  static baz h(bcv parambcv)
+  {
+    return new baz(parambcv);
+  }
+  
+  static bbj i(bcv parambcv)
+  {
+    return new bbj(parambcv);
+  }
+  
+  static bbn j(bcv parambcv)
+  {
+    return new bbn(parambcv);
+  }
+  
+  static bcg k(bcv parambcv)
+  {
+    return new bcg(parambcv);
+  }
+  
+  static bbb l(bcv parambcv)
+  {
+    return new bbb(parambcv);
+  }
+  
+  static bbs m(bcv parambcv)
+  {
+    return new bbs(parambcv);
+  }
+  
+  static bcc n(bcv parambcv)
+  {
+    return new bcc(parambcv);
+  }
+  
+  static bck o(bcv parambcv)
+  {
+    return new bck(parambcv);
+  }
+  
+  static bbg p(bcv parambcv)
+  {
+    return new bbg(parambcv);
+  }
+  
+  static bbl q(bcv parambcv)
+  {
+    return new bbl(parambcv);
+  }
+  
+  public final bcv a()
+  {
+    return new bcv(this);
+  }
 }
 
 /* Location:

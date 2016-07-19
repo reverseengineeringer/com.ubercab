@@ -4,22 +4,20 @@ import com.ubercab.shape.Shape;
 
 @Shape
 public abstract class GiveGet
+  implements GiveGetInterface
 {
-  public abstract String getFinePrint();
+  public static GiveGet create()
+  {
+    return new Shape_GiveGet();
+  }
   
-  public abstract GiveGetGiverPromotion getGiverPromotion();
+  public abstract GiveGet setFinePrint(String paramString);
   
-  public abstract String getInviteCode();
+  public abstract GiveGet setGiverPromotion(GiveGetGiverPromotion paramGiveGetGiverPromotion);
   
-  public abstract GiveGetReceiverPromotion getReceiverPromotion();
+  public abstract GiveGet setInviteCode(String paramString);
   
-  abstract GiveGet setFinePrint(String paramString);
-  
-  abstract GiveGet setGiverPromotion(GiveGetGiverPromotion paramGiveGetGiverPromotion);
-  
-  abstract GiveGet setInviteCode(String paramString);
-  
-  abstract GiveGet setReceiverPromotion(GiveGetReceiverPromotion paramGiveGetReceiverPromotion);
+  public abstract GiveGet setReceiverPromotion(GiveGetReceiverPromotion paramGiveGetReceiverPromotion);
 }
 
 /* Location:

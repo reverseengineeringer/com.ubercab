@@ -2,7 +2,7 @@ package com.ubercab.client.core.location;
 
 import android.os.Parcelable;
 import android.text.TextUtils;
-import clh;
+import clx;
 import com.ubercab.android.location.UberLatLng;
 import com.ubercab.android.location.UberLocation;
 import com.ubercab.client.core.model.CnLocation;
@@ -11,12 +11,12 @@ import com.ubercab.rider.realtime.model.AddressComponent;
 import com.ubercab.rider.realtime.model.Location;
 import com.ubercab.rider.realtime.model.ReverseGeocode;
 import com.ubercab.shape.Shape;
-import iac;
-import iad;
-import ian;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import kcm;
+import kcn;
+import kcx;
 
 @Shape
 public abstract class RiderLocation
@@ -119,6 +119,14 @@ public abstract class RiderLocation
   public static RiderLocation updateWithReverseGeocode(RiderLocation paramRiderLocation, ReverseGeocode paramReverseGeocode)
   {
     paramRiderLocation = create("geocodmanual", paramRiderLocation);
+    paramRiderLocation.setId(paramReverseGeocode.getUuid()).setNickname(paramReverseGeocode.getNickname()).setShortAddress(paramReverseGeocode.getShortAddress()).setLongAddress(paramReverseGeocode.getLongAddress()).setAddress(paramReverseGeocode.getLongAddress()).setFormattedAddress(paramReverseGeocode.getLongAddress());
+    return paramRiderLocation;
+  }
+  
+  @Deprecated
+  public static RiderLocation updateWithReverseGeocodeDeprecated(RiderLocation paramRiderLocation, ReverseGeocode paramReverseGeocode)
+  {
+    paramRiderLocation = create("geocodmanual", paramRiderLocation);
     paramRiderLocation.setId(paramReverseGeocode.getUuid()).setNickname(paramReverseGeocode.getNickname()).setShortAddress(paramReverseGeocode.getShortAddress()).setLongAddress(paramReverseGeocode.getLongAddress());
     return paramRiderLocation;
   }
@@ -128,7 +136,7 @@ public abstract class RiderLocation
     if (getListAddressComponents() == null) {
       return null;
     }
-    return (RiderAddressComponent)ian.d(getListAddressComponents(), new RiderLocation.1(this, paramString)).d();
+    return (RiderAddressComponent)kcx.d(getListAddressComponents(), new RiderLocation.1(this, paramString)).d();
   }
   
   public float getAccuracy()
@@ -378,10 +386,10 @@ public abstract class RiderLocation
       if ((getUberLatLng() != null) && (getUberLatLng().b(paramRiderLocation.getUberLatLng()))) {
         return true;
       }
-      if ((getId() != null) && (iac.a(getId(), paramRiderLocation.getId()))) {
+      if ((getId() != null) && (kcm.a(getId(), paramRiderLocation.getId()))) {
         return true;
       }
-    } while ((getReference() == null) || (!iac.a(getReference(), paramRiderLocation.getReference())));
+    } while ((getReference() == null) || (!kcm.a(getReference(), paramRiderLocation.getReference())));
     return true;
   }
   
@@ -394,10 +402,10 @@ public abstract class RiderLocation
       if ((getUberLatLng() != null) && (getUberLatLng().b(paramLocationSearchResult.getUberLatLng()))) {
         return true;
       }
-      if ((getId() != null) && (iac.a(getId(), paramLocationSearchResult.getId()))) {
+      if ((getId() != null) && (kcm.a(getId(), paramLocationSearchResult.getId()))) {
         return true;
       }
-    } while ((getReference() == null) || (!iac.a(getReference(), paramLocationSearchResult.getReference())));
+    } while ((getReference() == null) || (!kcm.a(getReference(), paramLocationSearchResult.getReference())));
     return true;
   }
   

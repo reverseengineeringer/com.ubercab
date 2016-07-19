@@ -8,12 +8,12 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import butterknife.ButterKnife;
 import com.ubercab.client.core.app.RiderApplication;
-import grw;
+import ibo;
 
 @Deprecated
 public class LocationSearchIconView
   extends ImageView
-  implements grw
+  implements ibo
 {
   private int a;
   private Animation b;
@@ -31,7 +31,7 @@ public class LocationSearchIconView
   public LocationSearchIconView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    b = AnimationUtils.loadAnimation(paramContext, 2130968595);
+    b = AnimationUtils.loadAnimation(paramContext, 2130968608);
     b.setInterpolator(new LinearInterpolator());
   }
   
@@ -48,8 +48,8 @@ public class LocationSearchIconView
   
   public final void b()
   {
-    setImageResource(2130838127);
-    if (!((RiderApplication)getContext().getApplicationContext()).k()) {
+    setImageResource(2130838312);
+    if (!((RiderApplication)getContext().getApplicationContext()).n()) {
       setAnimation(b);
     }
   }
@@ -57,7 +57,7 @@ public class LocationSearchIconView
   public void onFinishInflate()
   {
     super.onFinishInflate();
-    ButterKnife.inject(this);
+    ButterKnife.a(this);
   }
 }
 

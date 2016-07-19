@@ -7,7 +7,7 @@ class DrawerLayout$ViewDragCallback$1
   
   public void run()
   {
-    DrawerLayout.ViewDragCallback.access$000(this$1);
+    DrawerLayout.ViewDragCallback.access$300(this$1);
   }
 }
 

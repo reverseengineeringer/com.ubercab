@@ -1,6 +1,6 @@
 package com.google.android.gms.gcm;
 
-import adu;
+import adg;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -15,7 +15,7 @@ public abstract class Task
   private final boolean d;
   private final int e;
   private final boolean f;
-  private final adu g;
+  private final adg g;
   private final Bundle h;
   
   @Deprecated
@@ -38,7 +38,7 @@ public abstract class Task
       d = bool1;
       e = 2;
       f = false;
-      g = adu.a;
+      g = adg.a;
       h = null;
       return;
       bool1 = false;

@@ -12,7 +12,7 @@ public abstract class PaymentProfile$PaymentProfileBuilder
   
   public PaymentProfile build()
   {
-    return new Shape_PaymentProfile().setAccountName(getAccountName()).setCardExpirationEpoch(getCardExpirationEpoch()).setBillingCountryIso2(getBillingCountryIso2()).setBillingZip(getBillingZip()).setCardNumber(getCardNumber()).setCardType(getCardType()).setRewardInfo(getRewardInfo()).setTokenDisplayName(getTokenDisplayName()).setTokenType(getTokenType()).setUseCase(getUseCase()).setUuid(getUuid()).setStatus(getStatus());
+    return new Shape_PaymentProfile().setAccountName(getAccountName()).setCardExpirationEpoch(getCardExpirationEpoch()).setBillingCountryIso2(getBillingCountryIso2()).setBillingZip(getBillingZip()).setCardNumber(getCardNumber()).setCardType(getCardType()).setIsCommuterBenefitsCard(getIsCommuterBenefitsCard()).setRewardInfo(getRewardInfo()).setTokenDisplayName(getTokenDisplayName()).setTokenType(getTokenType()).setUseCase(getUseCase()).setUuid(getUuid()).setStatus(getStatus());
   }
   
   abstract String getAccountName();
@@ -26,6 +26,8 @@ public abstract class PaymentProfile$PaymentProfileBuilder
   abstract String getCardNumber();
   
   abstract String getCardType();
+  
+  abstract boolean getIsCommuterBenefitsCard();
   
   abstract RewardInfo getRewardInfo();
   
@@ -50,6 +52,8 @@ public abstract class PaymentProfile$PaymentProfileBuilder
   public abstract PaymentProfileBuilder setCardNumber(String paramString);
   
   public abstract PaymentProfileBuilder setCardType(String paramString);
+  
+  public abstract PaymentProfileBuilder setIsCommuterBenefitsCard(boolean paramBoolean);
   
   public abstract PaymentProfileBuilder setRewardInfo(RewardInfo paramRewardInfo);
   

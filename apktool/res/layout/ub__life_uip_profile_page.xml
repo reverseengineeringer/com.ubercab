@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <android.support.v7.widget.Toolbar android:theme="@style/ThemeOverlay.AppCompat.ActionBar" android:id="@id/ub__life_profile_toolbar" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="?actionBarSize" app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            <ImageView android:layout_gravity="right" android:id="@id/ub__life_uip_profile_infoicon" android:layout_width="@dimen/ui__icon_small" android:layout_height="@dimen/ui__icon_small" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:src="@drawable/ub__life_help" android:scaleType="fitXY" android:adjustViewBounds="true" />
+        </android.support.v7.widget.Toolbar>
+        <android.support.design.widget.TabLayout android:id="@id/ub__life_uip_profile_tab" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <android.support.v4.view.ViewPager android:id="@id/ub__life_uip_profile_viewpager" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </LinearLayout>
+</FrameLayout>

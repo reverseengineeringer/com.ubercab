@@ -1,47 +1,35 @@
+import android.support.v4.util.ArrayMap;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
+
 public final class alb
-  extends asj<ald>
 {
-  private final Object d = new Object();
-  private final alc e;
-  private boolean f;
-  
-  public alb(alc paramalc)
+  public static <K, V> Map<K, V> a(K paramK1, V paramV1, K paramK2, V paramV2, K paramK3, V paramV3, K paramK4, V paramV4, K paramK5, V paramV5, K paramK6, V paramV6)
   {
-    e = paramalc;
+    ArrayMap localArrayMap = new ArrayMap(6);
+    localArrayMap.put(paramK1, paramV1);
+    localArrayMap.put(paramK2, paramV2);
+    localArrayMap.put(paramK3, paramV3);
+    localArrayMap.put(paramK4, paramV4);
+    localArrayMap.put(paramK5, paramV5);
+    localArrayMap.put(paramK6, paramV6);
+    return Collections.unmodifiableMap(localArrayMap);
   }
   
-  public final void a()
+  public static <T> Set<T> a(T paramT1, T paramT2, T paramT3)
   {
-    synchronized (d)
-    {
-      if (f) {
-        return;
-      }
-      f = true;
-      a(new asi()new ash
-      {
-        private static void a(ald paramAnonymousald)
-        {
-          aqt.e("Ending javascript session.");
-          ((ale)paramAnonymousald).a();
-        }
-      }, new ash());
-      a(new asi()new asg
-      {
-        private void a()
-        {
-          aqt.e("Releasing engine reference.");
-          alb.a(alb.this).b();
-        }
-      }, new asg()
-      {
-        public final void a()
-        {
-          alb.a(alb.this).b();
-        }
-      });
-      return;
-    }
+    akw localakw = new akw(3);
+    localakw.add(paramT1);
+    localakw.add(paramT2);
+    localakw.add(paramT3);
+    return Collections.unmodifiableSet(localakw);
+  }
+  
+  public static <T> Set<T> a(T... paramVarArgs)
+  {
+    return Collections.unmodifiableSet(new akw(Arrays.asList(paramVarArgs)));
   }
 }
 

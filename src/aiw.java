@@ -1,9 +1,13 @@
-import android.os.IInterface;
+import android.annotation.TargetApi;
 
-public abstract interface aiw
-  extends IInterface
+@TargetApi(18)
+public class aiw
+  extends aiv
 {
-  public abstract void a(aik paramaik);
+  public final int c()
+  {
+    return 14;
+  }
 }
 
 /* Location:

@@ -1,117 +1,166 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.identity.intents.model.UserAddress;
+import android.net.Uri;
+import android.net.Uri.Builder;
 
 public final class adw
-  implements Parcelable.Creator<UserAddress>
 {
-  private static UserAddress a(Parcel paramParcel)
+  private static final String[] c = { "/aclk", "/pcs/click" };
+  private String a;
+  private String[] b;
+  private adv d;
+  
+  private static Uri a(Uri paramUri, String paramString1, String paramString2)
   {
-    int j = zm.b(paramParcel);
-    int i = 0;
-    String str14 = null;
-    String str13 = null;
-    String str12 = null;
-    String str11 = null;
-    String str10 = null;
-    String str9 = null;
-    String str8 = null;
-    String str7 = null;
-    String str6 = null;
-    String str5 = null;
-    String str4 = null;
-    String str3 = null;
-    boolean bool = false;
-    String str2 = null;
-    String str1 = null;
-    while (paramParcel.dataPosition() < j)
+    String str = paramUri.toString();
+    int j = str.indexOf("&adurl");
+    int i = j;
+    if (j == -1) {
+      i = str.indexOf("?adurl");
+    }
+    if (i != -1) {
+      return Uri.parse(str.substring(0, i + 1) + paramString1 + "=" + paramString2 + "&" + str.substring(i + 1));
+    }
+    return paramUri.buildUpon().appendQueryParameter(paramString1, paramString2).build();
+  }
+  
+  private static Uri b(Uri paramUri, String paramString1, String paramString2)
+  {
+    String str = paramUri.toString();
+    int i = str.indexOf(";adurl");
+    if (i != -1) {
+      return Uri.parse(str.substring(0, i + 1) + paramString1 + "=" + paramString2 + ";" + str.substring(i + 1));
+    }
+    paramUri = paramUri.getEncodedPath();
+    i = str.indexOf(paramUri);
+    return Uri.parse(str.substring(0, paramUri.length() + i) + ";" + paramString1 + "=" + paramString2 + ";" + str.substring(paramUri.length() + i));
+  }
+  
+  public static void b() {}
+  
+  private boolean d(Uri paramUri)
+  {
+    if (paramUri == null) {
+      throw new NullPointerException();
+    }
+    try
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      boolean bool = paramUri.getHost().equals(a);
+      return bool;
+    }
+    catch (NullPointerException paramUri) {}
+    return false;
+  }
+  
+  private Uri e(Uri paramUri)
+  {
+    boolean bool;
+    try
+    {
+      bool = d(paramUri);
+      if (bool)
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str14 = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        str13 = zm.n(paramParcel, k);
-        break;
-      case 4: 
-        str12 = zm.n(paramParcel, k);
-        break;
-      case 5: 
-        str11 = zm.n(paramParcel, k);
-        break;
-      case 6: 
-        str10 = zm.n(paramParcel, k);
-        break;
-      case 7: 
-        str9 = zm.n(paramParcel, k);
-        break;
-      case 8: 
-        str8 = zm.n(paramParcel, k);
-        break;
-      case 9: 
-        str7 = zm.n(paramParcel, k);
-        break;
-      case 10: 
-        str6 = zm.n(paramParcel, k);
-        break;
-      case 11: 
-        str5 = zm.n(paramParcel, k);
-        break;
-      case 12: 
-        str4 = zm.n(paramParcel, k);
-        break;
-      case 13: 
-        str3 = zm.n(paramParcel, k);
-        break;
-      case 14: 
-        bool = zm.b(paramParcel, k);
-        break;
-      case 15: 
-        str2 = zm.n(paramParcel, k);
-        break;
-      case 16: 
-        str1 = zm.n(paramParcel, k);
+        if (!paramUri.toString().contains("dc_ms=")) {
+          break label62;
+        }
+        throw new adx("Parameter already exists: dc_ms");
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    catch (UnsupportedOperationException paramUri)
+    {
+      throw new adx("Provided Uri is not in a valid state");
     }
-    return new UserAddress(i, str14, str13, str12, str11, str10, str9, str8, str7, str6, str5, str4, str3, bool, str2, str1);
+    if (paramUri.getQueryParameter("ms") != null) {
+      throw new adx("Query parameter already exists: ms");
+    }
+    label62:
+    String str = d.a();
+    if (bool) {
+      return b(paramUri, "dc_ms", str);
+    }
+    paramUri = a(paramUri, "ms", str);
+    return paramUri;
   }
   
-  public static void a(UserAddress paramUserAddress, Parcel paramParcel)
+  public final adv a()
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramUserAddress.a());
-    zo.a(paramParcel, 2, a, false);
-    zo.a(paramParcel, 3, b, false);
-    zo.a(paramParcel, 4, c, false);
-    zo.a(paramParcel, 5, d, false);
-    zo.a(paramParcel, 6, e, false);
-    zo.a(paramParcel, 7, f, false);
-    zo.a(paramParcel, 8, g, false);
-    zo.a(paramParcel, 9, h, false);
-    zo.a(paramParcel, 10, paramUserAddress.i, false);
-    zo.a(paramParcel, 11, j, false);
-    zo.a(paramParcel, 12, k, false);
-    zo.a(paramParcel, 13, l, false);
-    zo.a(paramParcel, 14, m);
-    zo.a(paramParcel, 15, n, false);
-    zo.a(paramParcel, 16, o, false);
-    zo.a(paramParcel, i);
+    return d;
   }
   
-  private static UserAddress[] a(int paramInt)
+  public final boolean a(Uri paramUri)
   {
-    return new UserAddress[paramInt];
+    boolean bool2 = false;
+    if (paramUri == null) {
+      throw new NullPointerException();
+    }
+    try
+    {
+      paramUri = paramUri.getHost();
+      String[] arrayOfString = b;
+      int j = arrayOfString.length;
+      int i = 0;
+      for (;;)
+      {
+        boolean bool1 = bool2;
+        if (i < j)
+        {
+          bool1 = paramUri.endsWith(arrayOfString[i]);
+          if (bool1) {
+            bool1 = true;
+          }
+        }
+        else
+        {
+          return bool1;
+        }
+        i += 1;
+      }
+      return false;
+    }
+    catch (NullPointerException paramUri) {}
+  }
+  
+  public final Uri b(Uri paramUri)
+  {
+    try
+    {
+      paramUri.getQueryParameter("ai");
+      paramUri = e(paramUri);
+      return paramUri;
+    }
+    catch (UnsupportedOperationException paramUri)
+    {
+      throw new adx("Provided Uri is not in a valid state");
+    }
+  }
+  
+  public final boolean c(Uri paramUri)
+  {
+    boolean bool2 = false;
+    boolean bool1 = bool2;
+    String[] arrayOfString;
+    int j;
+    int i;
+    if (a(paramUri))
+    {
+      arrayOfString = c;
+      j = arrayOfString.length;
+      i = 0;
+    }
+    for (;;)
+    {
+      bool1 = bool2;
+      if (i < j)
+      {
+        String str = arrayOfString[i];
+        if (paramUri.getPath().endsWith(str)) {
+          bool1 = true;
+        }
+      }
+      else
+      {
+        return bool1;
+      }
+      i += 1;
+    }
   }
 }
 

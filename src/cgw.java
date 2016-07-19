@@ -1,6 +1,6 @@
 public abstract interface cgw
 {
-  public abstract void a(cgy paramcgy);
+  public abstract void a(String paramString1, String paramString2);
 }
 
 /* Location:

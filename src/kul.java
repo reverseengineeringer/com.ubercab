@@ -1,77 +1,54 @@
-import android.util.SparseBooleanArray;
+import com.ubercab.analytics.model.AnalyticsEvent;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
+@Deprecated
 public final class kul
 {
-  static final List<kuo> a = new CopyOnWriteArrayList();
-  static final SparseBooleanArray b = new SparseBooleanArray();
-  private static final kuo c = new kul.1();
+  private final ckt a;
+  private final boolean b;
   
-  public static kuo a(String paramString)
+  public kul(ckt paramckt, boolean paramBoolean)
   {
-    int j = b.size();
-    int i = 0;
-    while (i < j)
+    a = paramckt;
+    b = paramBoolean;
+  }
+  
+  private String c(kuo paramkuo)
+  {
+    ArrayList localArrayList = new ArrayList();
+    if (b) {}
+    for (String str = "byod";; str = "mdm")
     {
-      ((kun)a.get(b.keyAt(i))).a(paramString);
-      i += 1;
+      localArrayList.add(str);
+      localArrayList.add(bp);
+      localArrayList.add(de);
+      localArrayList.add(cg);
+      localArrayList.add(paramkuo.f());
+      if (paramkuo.g() != -1) {
+        localArrayList.add(paramkuo.g());
+      }
+      return kcl.a("|").a(localArrayList);
     }
-    return c;
   }
   
-  public static void a(String paramString, Object... paramVarArgs)
+  public final void a(kuo paramkuo)
   {
-    c.c(paramString, paramVarArgs);
+    kco.a(paramkuo);
+    paramkuo = AnalyticsEvent.create("impression").setName(i.j).setValue(c(paramkuo));
+    a.a(paramkuo);
   }
   
-  public static void a(Throwable paramThrowable, String paramString, Object... paramVarArgs)
+  public final void b(kuo paramkuo)
   {
-    c.a(paramThrowable, paramString, paramVarArgs);
-  }
-  
-  public static void a(kuo paramkuo)
-  {
-    if (paramkuo == null) {
-      throw new NullPointerException("tree == null");
+    kco.a(paramkuo);
+    if (paramkuo.e()) {}
+    for (j localj = j.u;; localj = j.r)
+    {
+      paramkuo = AnalyticsEvent.create("tap").setName(localj).setValue(c(paramkuo));
+      a.a(paramkuo);
+      return;
     }
-    if (paramkuo == c) {
-      throw new IllegalArgumentException("Cannot plant Timber into itself.");
-    }
-    if ((paramkuo instanceof kun)) {
-      b.append(a.size(), true);
-    }
-    a.add(paramkuo);
-  }
-  
-  public static void b(String paramString, Object... paramVarArgs)
-  {
-    c.d(paramString, paramVarArgs);
-  }
-  
-  public static void b(Throwable paramThrowable, String paramString, Object... paramVarArgs)
-  {
-    c.c(paramThrowable, paramString, paramVarArgs);
-  }
-  
-  public static void c(String paramString, Object... paramVarArgs)
-  {
-    c.a(paramString, paramVarArgs);
-  }
-  
-  public static void c(Throwable paramThrowable, String paramString, Object... paramVarArgs)
-  {
-    c.b(paramThrowable, paramString, paramVarArgs);
-  }
-  
-  public static void d(String paramString, Object... paramVarArgs)
-  {
-    c.e(paramString, paramVarArgs);
-  }
-  
-  public static void e(String paramString, Object... paramVarArgs)
-  {
-    c.b(paramString, paramVarArgs);
   }
 }
 

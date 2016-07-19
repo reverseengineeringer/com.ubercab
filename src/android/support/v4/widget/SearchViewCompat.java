@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Build.VERSION;
 import android.view.View;
 
-public class SearchViewCompat
+public final class SearchViewCompat
 {
   private static final SearchViewCompat.SearchViewCompatImpl IMPL = new SearchViewCompat.SearchViewCompatStubImpl();
   

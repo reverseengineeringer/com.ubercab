@@ -5,10 +5,10 @@ import com.ubercab.rider.realtime.model.Eyeball;
 import com.ubercab.rider.realtime.model.Trip;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class RiderCancel
 {
   public abstract ClientStatus getClientStatus();

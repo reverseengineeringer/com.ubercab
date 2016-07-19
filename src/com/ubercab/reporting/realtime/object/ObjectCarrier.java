@@ -1,11 +1,11 @@
 package com.ubercab.reporting.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jqp;
+import moy;
 
 @Shape
 public abstract class ObjectCarrier
-  implements jqp
+  implements moy
 {
   static ObjectCarrier create()
   {

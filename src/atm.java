@@ -1,6 +1,11 @@
-public final class atm
-  implements atl
-{}
+import android.location.Location;
+import android.os.IInterface;
+
+public abstract interface atm
+  extends IInterface
+{
+  public abstract void a(Location paramLocation);
+}
 
 /* Location:
  * Qualified Name:     atm

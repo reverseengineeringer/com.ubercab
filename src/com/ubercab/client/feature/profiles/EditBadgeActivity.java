@@ -5,37 +5,37 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import cho;
-import ckr;
+import chu;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.rider.realtime.model.Image;
 import com.ubercab.rider.realtime.model.Profile;
-import dta;
-import dtf;
-import eav;
-import ebj;
-import ejv;
-import epw;
-import eri;
-import ggg;
-import ggh;
-import gha;
-import gif;
-import git;
+import dua;
+import dyn;
+import dys;
+import ehn;
+import eib;
+import exw;
+import ezm;
+import hhb;
+import hhc;
+import hhv;
+import hjm;
+import hkm;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import kld;
-import klo;
-import kls;
-import p;
+import odr;
+import oed;
+import oeh;
+import x;
 
 public class EditBadgeActivity
-  extends RiderActivity<gha>
+  extends RiderActivity<hhv>
 {
-  public dta g;
-  public gif h;
+  public dyn g;
+  public hjm h;
   private int i;
   private boolean j;
   private Profile k;
@@ -44,7 +44,7 @@ public class EditBadgeActivity
   private Map<String, List<Image>> n;
   private String o;
   private ProgressDialog p;
-  private klo q;
+  private oed q;
   
   static Intent a(Context paramContext, Profile paramProfile)
   {
@@ -54,42 +54,55 @@ public class EditBadgeActivity
   private void a(Profile paramProfile)
   {
     if (a(EditBadgeFragment.class) == null) {
-      a(2131624279, EditBadgeFragment.a(paramProfile), true);
+      a(2131624465, EditBadgeFragment.a(paramProfile), true);
     }
   }
   
-  private void a(gha paramgha)
+  private void a(hhv paramhhv)
   {
-    paramgha.a(this);
+    paramhhv.a(this);
   }
   
-  private gha b(ebj paramebj)
+  private hhv b(eib parameib)
   {
-    return ggg.a().a(new eav(this)).a(paramebj).a();
+    return hhb.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void f()
   {
-    p = epw.a(this, getString(2131167175));
+    p = exw.b(this, getString(2131167548));
     p.show();
   }
   
   private void g()
   {
     f();
-    kld localkld = h.a(k, o, i, l, m, n);
-    if (h.t())
-    {
-      j = false;
-      q = localkld.a(kls.a()).b(new EditBadgeActivity.2(this));
-    }
+    odr localodr = h.a(k, o, i, l, m, n);
+    j = false;
+    q = localodr.a(oeh.a()).b(new EditBadgeActivity.1(this));
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903152);
-    k = h.a(getIntent().getStringExtra("EXTRA_TROY_PROFILE_UUID"));
+    setContentView(2130903217);
+    if (h.n())
+    {
+      String str = getIntent().getStringExtra("EXTRA_TROY_PROFILE_UUID");
+      if (paramBundle != null) {
+        str = paramBundle.getString("EXTRA_TROY_PROFILE_UUID");
+      }
+      k = h.a(str);
+      if (k == null)
+      {
+        dua.a(this, 2131167537);
+        finish();
+      }
+    }
+    else
+    {
+      k = h.a(getIntent().getStringExtra("EXTRA_TROY_PROFILE_UUID"));
+    }
     a(k);
   }
   
@@ -104,14 +117,14 @@ public class EditBadgeActivity
     super.finish();
   }
   
-  @cho
-  public void onBadgeUpdateEvent(git paramgit)
+  @chu
+  public void onBadgeUpdateEvent(hkm paramhkm)
   {
-    i = paramgit.a();
-    m = paramgit.c();
-    l = paramgit.b();
-    o = paramgit.e();
-    n = paramgit.d();
+    i = paramhkm.a();
+    m = paramhkm.c();
+    l = paramhkm.b();
+    o = paramhkm.e();
+    n = paramhkm.d();
     j = true;
   }
   
@@ -128,31 +141,27 @@ public class EditBadgeActivity
   public void onPause()
   {
     if (isFinishing()) {
-      eri.a(q);
+      ezm.a(q);
     }
     super.onPause();
   }
   
-  @cho
-  @Deprecated
-  public void onUpdateProfileResponseEvent(ejv paramejv)
+  protected void onSaveInstanceState(Bundle paramBundle)
   {
-    if (p == null) {
-      return;
+    if (h.n()) {
+      paramBundle.putString("EXTRA_TROY_PROFILE_UUID", getIntent().getStringExtra("EXTRA_TROY_PROFILE_UUID"));
     }
-    boolean bool = paramejv.k();
-    p.setOnDismissListener(new EditBadgeActivity.1(this, bool));
-    p.dismiss();
+    super.onSaveInstanceState(paramBundle);
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
     return Collections.singleton(g);
   }
   
-  public final ckr u()
+  public final cli v()
   {
-    return p.cc;
+    return x.cW;
   }
 }
 

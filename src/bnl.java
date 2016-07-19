@@ -1,4 +1,7 @@
-public abstract interface bnl {}
+public abstract interface bnl<T>
+{
+  public abstract T a();
+}
 
 /* Location:
  * Qualified Name:     bnl

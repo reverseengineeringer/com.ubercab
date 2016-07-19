@@ -1,30 +1,35 @@
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Parcel;
 
-public abstract class aar
+final class aar
+  implements aap
 {
-  private static final Object a = new Object();
-  private static aar b;
+  private IBinder a;
   
-  public static aar a(Context paramContext)
+  aar(IBinder paramIBinder)
   {
-    synchronized (a)
+    a = paramIBinder;
+  }
+  
+  public final void a()
+  {
+    Parcel localParcel = Parcel.obtain();
+    try
     {
-      if (b == null) {
-        b = new aas(paramContext.getApplicationContext());
-      }
-      return b;
+      localParcel.writeInterfaceToken("com.google.android.gms.common.internal.ICancelToken");
+      a.transact(2, localParcel, null, 1);
+      return;
+    }
+    finally
+    {
+      localParcel.recycle();
     }
   }
   
-  public abstract void a(ComponentName paramComponentName, ServiceConnection paramServiceConnection);
-  
-  public abstract void a(String paramString, ServiceConnection paramServiceConnection);
-  
-  public abstract boolean a(ComponentName paramComponentName, ServiceConnection paramServiceConnection, String paramString);
-  
-  public abstract boolean a(String paramString1, ServiceConnection paramServiceConnection, String paramString2);
+  public final IBinder asBinder()
+  {
+    return a;
+  }
 }
 
 /* Location:

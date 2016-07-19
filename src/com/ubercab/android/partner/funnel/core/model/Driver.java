@@ -2,12 +2,12 @@ package com.ubercab.android.partner.funnel.core.model;
 
 import android.os.Parcelable;
 import com.ubercab.shape.Shape;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class Driver
-  extends jvq<Driver>
+  extends nba<Driver>
   implements Parcelable
 {
   public static final String FLOWTYPE_COMMUTE = "commute";
@@ -23,17 +23,17 @@ public abstract class Driver
     return new Shape_Driver();
   }
   
-  protected Object beforeSet(jvr<Driver> paramjvr, Object paramObject1, Object paramObject2)
+  protected Object beforeSet(nbb<Driver> paramnbb, Object paramObject1, Object paramObject2)
   {
-    switch (Driver.1.$SwitchMap$com$ubercab$android$partner$funnel$core$model$Shape_Driver$Property[((Shape_Driver.Property)paramjvr).ordinal()])
+    switch (Driver.1.$SwitchMap$com$ubercab$android$partner$funnel$core$model$Shape_Driver$Property[((Shape_Driver.Property)paramnbb).ordinal()])
     {
     }
     do
     {
       return paramObject2;
-      paramjvr = (String)paramObject2;
-    } while (("accepted".equals(paramjvr)) || ("arrived".equals(paramjvr)) || ("dispatched".equals(paramjvr)) || ("offDuty".equals(paramjvr)) || ("onTrip".equals(paramjvr)) || ("open".equals(paramjvr)));
-    throw new IllegalArgumentException("Invalid Status: " + paramjvr);
+      paramnbb = (String)paramObject2;
+    } while (("accepted".equals(paramnbb)) || ("arrived".equals(paramnbb)) || ("dispatched".equals(paramnbb)) || ("offDuty".equals(paramnbb)) || ("onTrip".equals(paramnbb)) || ("open".equals(paramnbb)));
+    throw new IllegalArgumentException("Invalid Status: " + paramnbb);
   }
   
   public String getDisplayName()

@@ -1,39 +1,305 @@
-public final class arm
+import android.app.PendingIntent;
+import android.os.IBinder;
+import android.os.Parcel;
+import com.google.android.gms.location.places.NearbyAlertRequest;
+import com.google.android.gms.location.places.PlaceFilter;
+import com.google.android.gms.location.places.PlaceReport;
+import com.google.android.gms.location.places.PlaceRequest;
+import com.google.android.gms.location.places.internal.PlacesParams;
+
+final class arm
+  implements ark
 {
-  public final String a;
-  public final double b;
-  public final double c;
-  public final double d;
-  public final int e;
+  private IBinder a;
   
-  public arm(String paramString, double paramDouble1, double paramDouble2, double paramDouble3, int paramInt)
+  arm(IBinder paramIBinder)
   {
-    a = paramString;
-    c = paramDouble1;
-    b = paramDouble2;
-    d = paramDouble3;
-    e = paramInt;
+    a = paramIBinder;
   }
   
-  public final boolean equals(Object paramObject)
+  public final void a(NearbyAlertRequest paramNearbyAlertRequest, PlacesParams paramPlacesParams, PendingIntent paramPendingIntent, art paramart)
   {
-    if (!(paramObject instanceof arm)) {}
-    do
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    for (;;)
     {
-      return false;
-      paramObject = (arm)paramObject;
-    } while ((!abq.a(a, a)) || (b != b) || (c != c) || (e != e) || (Double.compare(d, d) != 0));
-    return true;
+      try
+      {
+        localParcel1.writeInterfaceToken("com.google.android.gms.location.places.internal.IGooglePlaceDetectionService");
+        if (paramNearbyAlertRequest != null)
+        {
+          localParcel1.writeInt(1);
+          paramNearbyAlertRequest.writeToParcel(localParcel1, 0);
+          if (paramPlacesParams != null)
+          {
+            localParcel1.writeInt(1);
+            paramPlacesParams.writeToParcel(localParcel1, 0);
+            if (paramPendingIntent == null) {
+              break label150;
+            }
+            localParcel1.writeInt(1);
+            paramPendingIntent.writeToParcel(localParcel1, 0);
+            if (paramart == null) {
+              break label159;
+            }
+            paramNearbyAlertRequest = paramart.asBinder();
+            localParcel1.writeStrongBinder(paramNearbyAlertRequest);
+            a.transact(4, localParcel1, localParcel2, 0);
+            localParcel2.readException();
+          }
+        }
+        else
+        {
+          localParcel1.writeInt(0);
+          continue;
+        }
+        localParcel1.writeInt(0);
+      }
+      finally
+      {
+        localParcel2.recycle();
+        localParcel1.recycle();
+      }
+      continue;
+      label150:
+      localParcel1.writeInt(0);
+      continue;
+      label159:
+      paramNearbyAlertRequest = null;
+    }
   }
   
-  public final int hashCode()
+  public final void a(PlaceFilter paramPlaceFilter, PlacesParams paramPlacesParams, art paramart)
   {
-    return abq.a(new Object[] { a, Double.valueOf(b), Double.valueOf(c), Double.valueOf(d), Integer.valueOf(e) });
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    for (;;)
+    {
+      try
+      {
+        localParcel1.writeInterfaceToken("com.google.android.gms.location.places.internal.IGooglePlaceDetectionService");
+        if (paramPlaceFilter != null)
+        {
+          localParcel1.writeInt(1);
+          paramPlaceFilter.writeToParcel(localParcel1, 0);
+          if (paramPlacesParams != null)
+          {
+            localParcel1.writeInt(1);
+            paramPlacesParams.writeToParcel(localParcel1, 0);
+            if (paramart == null) {
+              break label132;
+            }
+            paramPlaceFilter = paramart.asBinder();
+            localParcel1.writeStrongBinder(paramPlaceFilter);
+            a.transact(6, localParcel1, localParcel2, 0);
+            localParcel2.readException();
+          }
+        }
+        else
+        {
+          localParcel1.writeInt(0);
+          continue;
+        }
+        localParcel1.writeInt(0);
+      }
+      finally
+      {
+        localParcel2.recycle();
+        localParcel1.recycle();
+      }
+      continue;
+      label132:
+      paramPlaceFilter = null;
+    }
   }
   
-  public final String toString()
+  public final void a(PlaceReport paramPlaceReport, PlacesParams paramPlacesParams, art paramart)
   {
-    return abq.a(this).a("name", a).a("minBound", Double.valueOf(c)).a("maxBound", Double.valueOf(b)).a("percent", Double.valueOf(d)).a("count", Integer.valueOf(e)).toString();
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    for (;;)
+    {
+      try
+      {
+        localParcel1.writeInterfaceToken("com.google.android.gms.location.places.internal.IGooglePlaceDetectionService");
+        if (paramPlaceReport != null)
+        {
+          localParcel1.writeInt(1);
+          paramPlaceReport.writeToParcel(localParcel1, 0);
+          if (paramPlacesParams != null)
+          {
+            localParcel1.writeInt(1);
+            paramPlacesParams.writeToParcel(localParcel1, 0);
+            if (paramart == null) {
+              break label132;
+            }
+            paramPlaceReport = paramart.asBinder();
+            localParcel1.writeStrongBinder(paramPlaceReport);
+            a.transact(7, localParcel1, localParcel2, 0);
+            localParcel2.readException();
+          }
+        }
+        else
+        {
+          localParcel1.writeInt(0);
+          continue;
+        }
+        localParcel1.writeInt(0);
+      }
+      finally
+      {
+        localParcel2.recycle();
+        localParcel1.recycle();
+      }
+      continue;
+      label132:
+      paramPlaceReport = null;
+    }
+  }
+  
+  public final void a(PlaceRequest paramPlaceRequest, PlacesParams paramPlacesParams, PendingIntent paramPendingIntent, art paramart)
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    for (;;)
+    {
+      try
+      {
+        localParcel1.writeInterfaceToken("com.google.android.gms.location.places.internal.IGooglePlaceDetectionService");
+        if (paramPlaceRequest != null)
+        {
+          localParcel1.writeInt(1);
+          paramPlaceRequest.writeToParcel(localParcel1, 0);
+          if (paramPlacesParams != null)
+          {
+            localParcel1.writeInt(1);
+            paramPlacesParams.writeToParcel(localParcel1, 0);
+            if (paramPendingIntent == null) {
+              break label150;
+            }
+            localParcel1.writeInt(1);
+            paramPendingIntent.writeToParcel(localParcel1, 0);
+            if (paramart == null) {
+              break label159;
+            }
+            paramPlaceRequest = paramart.asBinder();
+            localParcel1.writeStrongBinder(paramPlaceRequest);
+            a.transact(2, localParcel1, localParcel2, 0);
+            localParcel2.readException();
+          }
+        }
+        else
+        {
+          localParcel1.writeInt(0);
+          continue;
+        }
+        localParcel1.writeInt(0);
+      }
+      finally
+      {
+        localParcel2.recycle();
+        localParcel1.recycle();
+      }
+      continue;
+      label150:
+      localParcel1.writeInt(0);
+      continue;
+      label159:
+      paramPlaceRequest = null;
+    }
+  }
+  
+  public final void a(PlacesParams paramPlacesParams, PendingIntent paramPendingIntent, art paramart)
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    for (;;)
+    {
+      try
+      {
+        localParcel1.writeInterfaceToken("com.google.android.gms.location.places.internal.IGooglePlaceDetectionService");
+        if (paramPlacesParams != null)
+        {
+          localParcel1.writeInt(1);
+          paramPlacesParams.writeToParcel(localParcel1, 0);
+          if (paramPendingIntent != null)
+          {
+            localParcel1.writeInt(1);
+            paramPendingIntent.writeToParcel(localParcel1, 0);
+            if (paramart == null) {
+              break label131;
+            }
+            paramPlacesParams = paramart.asBinder();
+            localParcel1.writeStrongBinder(paramPlacesParams);
+            a.transact(3, localParcel1, localParcel2, 0);
+            localParcel2.readException();
+          }
+        }
+        else
+        {
+          localParcel1.writeInt(0);
+          continue;
+        }
+        localParcel1.writeInt(0);
+      }
+      finally
+      {
+        localParcel2.recycle();
+        localParcel1.recycle();
+      }
+      continue;
+      label131:
+      paramPlacesParams = null;
+    }
+  }
+  
+  public final IBinder asBinder()
+  {
+    return a;
+  }
+  
+  public final void b(PlacesParams paramPlacesParams, PendingIntent paramPendingIntent, art paramart)
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    for (;;)
+    {
+      try
+      {
+        localParcel1.writeInterfaceToken("com.google.android.gms.location.places.internal.IGooglePlaceDetectionService");
+        if (paramPlacesParams != null)
+        {
+          localParcel1.writeInt(1);
+          paramPlacesParams.writeToParcel(localParcel1, 0);
+          if (paramPendingIntent != null)
+          {
+            localParcel1.writeInt(1);
+            paramPendingIntent.writeToParcel(localParcel1, 0);
+            if (paramart == null) {
+              break label131;
+            }
+            paramPlacesParams = paramart.asBinder();
+            localParcel1.writeStrongBinder(paramPlacesParams);
+            a.transact(5, localParcel1, localParcel2, 0);
+            localParcel2.readException();
+          }
+        }
+        else
+        {
+          localParcel1.writeInt(0);
+          continue;
+        }
+        localParcel1.writeInt(0);
+      }
+      finally
+      {
+        localParcel2.recycle();
+        localParcel1.recycle();
+      }
+      continue;
+      label131:
+      paramPlacesParams = null;
+    }
   }
 }
 

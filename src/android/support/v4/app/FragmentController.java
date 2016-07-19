@@ -143,6 +143,11 @@ public class FragmentController
     return mHost.mFragmentManager.execPendingActions();
   }
   
+  Fragment findFragmentByWho(String paramString)
+  {
+    return mHost.mFragmentManager.findFragmentByWho(paramString);
+  }
+  
   public List<Fragment> getActiveFragments(List<Fragment> paramList)
   {
     if (mHost.mFragmentManager.mActive == null) {

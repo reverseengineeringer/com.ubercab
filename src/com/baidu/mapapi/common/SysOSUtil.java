@@ -6,7 +6,7 @@ public class SysOSUtil
 {
   public static float getDensity()
   {
-    return f.C;
+    return f.z;
   }
   
   public static int getDensityDpi()

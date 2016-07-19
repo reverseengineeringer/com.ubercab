@@ -188,6 +188,10 @@ final class BackStackState
           j += 1;
         }
       }
+      mEnterAnim = enterAnim;
+      mExitAnim = exitAnim;
+      mPopEnterAnim = popEnterAnim;
+      mPopExitAnim = popExitAnim;
       localBackStackRecord.addOp(localOp);
       k += 1;
     }

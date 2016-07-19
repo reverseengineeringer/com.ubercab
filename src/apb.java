@@ -1,153 +1,155 @@
-import android.content.Context;
-import android.os.Handler;
-import com.google.ads.mediation.admob.AdMobAdapter;
-import com.google.android.gms.ads.internal.client.AdRequestParcel;
-import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
-import com.google.android.gms.ads.internal.request.AdResponseParcel;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSocketFactory;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.ProtocolVersion;
+import org.apache.http.entity.BasicHttpEntity;
+import org.apache.http.message.BasicHeader;
+import org.apache.http.message.BasicHttpResponse;
+import org.apache.http.message.BasicStatusLine;
 
-@apl
 public final class apb
-  extends aov
+  implements apa
 {
-  protected alo g;
-  private alu h;
-  private ali i;
-  private alk j;
-  private final ahi k;
-  private final asq l;
-  private boolean m;
+  private final apc a = null;
+  private final SSLSocketFactory b = null;
   
-  apb(Context paramContext, aqk paramaqk, alu paramalu, aoy paramaoy, ahi paramahi, asq paramasq)
+  public apb()
   {
-    super(paramContext, paramaqk, paramaoy);
-    h = paramalu;
-    j = c;
-    k = paramahi;
-    l = paramasq;
+    this((byte)0);
   }
   
-  private ali b(long paramLong)
+  private apb(byte paramByte)
   {
-    if (j.j != -1) {
-      return new alr(b, e.a, h, j, f.t, f.C, paramLong, ((Long)agz.ay.c()).longValue());
+    this('\000');
+  }
+  
+  private apb(char paramChar) {}
+  
+  private static HttpURLConnection a(URL paramURL)
+  {
+    return (HttpURLConnection)paramURL.openConnection();
+  }
+  
+  private HttpURLConnection a(URL paramURL, aka<?> paramaka)
+  {
+    HttpURLConnection localHttpURLConnection = a(paramURL);
+    int i = paramaka.j();
+    localHttpURLConnection.setConnectTimeout(i);
+    localHttpURLConnection.setReadTimeout(i);
+    localHttpURLConnection.setUseCaches(false);
+    localHttpURLConnection.setDoInput(true);
+    if (("https".equals(paramURL.getProtocol())) && (b != null)) {
+      ((HttpsURLConnection)localHttpURLConnection).setSSLSocketFactory(b);
     }
-    return new als(b, e.a, h, j, f.t, f.C, paramLong, ((Long)agz.ay.c()).longValue(), k);
+    return localHttpURLConnection;
   }
   
-  private void c()
+  private static HttpEntity a(HttpURLConnection paramHttpURLConnection)
   {
-    ??? = new CountDownLatch(1);
-    aqz.a.post(new Runnable()
-    {
-      public final void run()
-      {
-        synchronized (d)
-        {
-          apb.a(apb.this, tj.a(apb.a(apb.this), g, localObject1));
-          return;
-        }
-      }
-    });
+    BasicHttpEntity localBasicHttpEntity = new BasicHttpEntity();
     try
     {
-      ((CountDownLatch)???).await(10L, TimeUnit.SECONDS);
-      synchronized (d)
+      InputStream localInputStream1 = paramHttpURLConnection.getInputStream();
+      localBasicHttpEntity.setContent(localInputStream1);
+      localBasicHttpEntity.setContentLength(paramHttpURLConnection.getContentLength());
+      localBasicHttpEntity.setContentEncoding(paramHttpURLConnection.getContentEncoding());
+      localBasicHttpEntity.setContentType(paramHttpURLConnection.getContentType());
+      return localBasicHttpEntity;
+    }
+    catch (IOException localIOException)
+    {
+      for (;;)
       {
-        if (!m) {
-          throw new aow("View could not be prepared", 0);
-        }
+        InputStream localInputStream2 = paramHttpURLConnection.getErrorStream();
       }
-      if (!l.r()) {
-        break label115;
-      }
-    }
-    catch (InterruptedException localInterruptedException)
-    {
-      throw new aow("Interrupted while waiting for latch : " + localInterruptedException, 0);
-    }
-    throw new aow("Assets not loaded, web view is destroyed", 0);
-    label115:
-  }
-  
-  protected final aqj a(int paramInt)
-  {
-    Object localObject = e.a;
-    AdRequestParcel localAdRequestParcel = c;
-    asq localasq = l;
-    List localList1 = f.d;
-    List localList2 = f.f;
-    List localList3 = f.j;
-    int n = f.l;
-    long l1 = f.k;
-    String str2 = i;
-    boolean bool = f.h;
-    alx localalx;
-    label113:
-    String str1;
-    label129:
-    alk localalk;
-    if (g != null)
-    {
-      localObject = g.b;
-      if (g == null) {
-        break label270;
-      }
-      localalx = g.c;
-      if (g == null) {
-        break label276;
-      }
-      str1 = g.d;
-      localalk = j;
-      if (g == null) {
-        break label286;
-      }
-    }
-    label270:
-    label276:
-    label286:
-    for (alm localalm = g.e;; localalm = null)
-    {
-      return new aqj(localAdRequestParcel, localasq, localList1, paramInt, localList2, localList3, n, l1, str2, bool, (alj)localObject, localalx, str1, localalk, localalm, f.i, e.d, f.g, e.f, f.n, f.o, e.h, null, f.D, f.E, f.F, f.G);
-      localObject = null;
-      break;
-      localalx = null;
-      break label113;
-      str1 = AdMobAdapter.class.getName();
-      break label129;
     }
   }
   
-  protected final void a(long paramLong)
+  private static void a(HttpURLConnection paramHttpURLConnection, aka<?> paramaka)
   {
-    synchronized (d)
+    switch (paramaka.b())
     {
-      i = b(paramLong);
-      g = i.a(j.a);
-      switch (g.a)
-      {
-      default: 
-        throw new aow("Unexpected mediation result: " + g.a, 0);
-      }
-    }
-    throw new aow("No fill from any mediation ad networks.", 3);
-    if ((g.b != null) && (g.b.k != null)) {
-      c();
-    }
-  }
-  
-  public final void b()
-  {
-    synchronized (d)
-    {
-      super.b();
-      if (i != null) {
-        i.a();
-      }
+    default: 
+      throw new IllegalStateException("Unknown method type.");
+    case 0: 
+      paramHttpURLConnection.setRequestMethod("GET");
+    case -1: 
+      return;
+    case 3: 
+      paramHttpURLConnection.setRequestMethod("DELETE");
+      return;
+    case 1: 
+      paramHttpURLConnection.setRequestMethod("POST");
+      return;
+    case 2: 
+      paramHttpURLConnection.setRequestMethod("PUT");
+      return;
+    case 4: 
+      paramHttpURLConnection.setRequestMethod("HEAD");
+      return;
+    case 5: 
+      paramHttpURLConnection.setRequestMethod("OPTIONS");
+      return;
+    case 6: 
+      paramHttpURLConnection.setRequestMethod("TRACE");
       return;
     }
+    paramHttpURLConnection.setRequestMethod("PATCH");
+  }
+  
+  public final HttpResponse a(aka<?> paramaka, Map<String, String> paramMap)
+  {
+    Object localObject = paramaka.d();
+    HashMap localHashMap = new HashMap();
+    localHashMap.putAll(paramaka.a());
+    localHashMap.putAll(paramMap);
+    String str;
+    if (a != null)
+    {
+      str = a.a();
+      paramMap = str;
+      if (str == null) {
+        throw new IOException("URL blocked by rewriter: " + (String)localObject);
+      }
+    }
+    else
+    {
+      paramMap = (Map<String, String>)localObject;
+    }
+    paramMap = a(new URL(paramMap), paramaka);
+    localObject = localHashMap.keySet().iterator();
+    while (((Iterator)localObject).hasNext())
+    {
+      str = (String)((Iterator)localObject).next();
+      paramMap.addRequestProperty(str, (String)localHashMap.get(str));
+    }
+    a(paramMap, paramaka);
+    paramaka = new ProtocolVersion("HTTP", 1, 1);
+    if (paramMap.getResponseCode() == -1) {
+      throw new IOException("Could not retrieve response code from HttpUrlConnection.");
+    }
+    paramaka = new BasicHttpResponse(new BasicStatusLine(paramaka, paramMap.getResponseCode(), paramMap.getResponseMessage()));
+    paramaka.setEntity(a(paramMap));
+    paramMap = paramMap.getHeaderFields().entrySet().iterator();
+    while (paramMap.hasNext())
+    {
+      localObject = (Map.Entry)paramMap.next();
+      if (((Map.Entry)localObject).getKey() != null) {
+        paramaka.addHeader(new BasicHeader((String)((Map.Entry)localObject).getKey(), (String)((List)((Map.Entry)localObject).getValue()).get(0)));
+      }
+    }
+    return paramaka;
   }
 }
 

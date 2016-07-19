@@ -1,35 +1,11 @@
-import android.graphics.Bitmap;
+import java.lang.annotation.Annotation;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-public abstract interface chu
-{
-  public static final chu a = new chu()
-  {
-    public final int a()
-    {
-      return 0;
-    }
-    
-    public final Bitmap a(String paramAnonymousString)
-    {
-      return null;
-    }
-    
-    public final void a(String paramAnonymousString, Bitmap paramAnonymousBitmap) {}
-    
-    public final int b()
-    {
-      return 0;
-    }
-  };
-  
-  public abstract int a();
-  
-  public abstract Bitmap a(String paramString);
-  
-  public abstract void a(String paramString, Bitmap paramBitmap);
-  
-  public abstract int b();
-}
+@Retention(RetentionPolicy.RUNTIME)
+@Target({java.lang.annotation.ElementType.METHOD})
+public @interface chu {}
 
 /* Location:
  * Qualified Name:     chu

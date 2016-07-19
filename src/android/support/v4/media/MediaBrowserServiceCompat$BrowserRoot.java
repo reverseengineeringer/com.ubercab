@@ -4,6 +4,9 @@ import android.os.Bundle;
 
 public final class MediaBrowserServiceCompat$BrowserRoot
 {
+  public static final String EXTRA_OFFLINE = "android.service.media.extra.OFFLINE";
+  public static final String EXTRA_RECENT = "android.service.media.extra.RECENT";
+  public static final String EXTRA_SUGGESTED = "android.service.media.extra.SUGGESTED";
   private final Bundle mExtras;
   private final String mRootId;
   

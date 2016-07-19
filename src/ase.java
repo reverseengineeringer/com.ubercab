@@ -1,71 +1,14 @@
-import android.os.Handler;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.google.android.gms.common.data.DataHolder;
 
-@apl
-final class ase
+public final class ase
+  extends asg
+  implements aqt
 {
-  private final Object a = new Object();
-  private final List<Runnable> b = new ArrayList();
-  private final List<Runnable> c = new ArrayList();
-  private boolean d = false;
+  private final String c = a("place_id", "");
   
-  private static void c(Runnable paramRunnable)
+  public ase(DataHolder paramDataHolder, int paramInt)
   {
-    aqy.a(paramRunnable);
-  }
-  
-  private static void d(Runnable paramRunnable)
-  {
-    sp.a.post(paramRunnable);
-  }
-  
-  public final void a()
-  {
-    synchronized (a)
-    {
-      if (d) {
-        return;
-      }
-      Iterator localIterator1 = b.iterator();
-      if (localIterator1.hasNext()) {
-        c((Runnable)localIterator1.next());
-      }
-    }
-    Iterator localIterator2 = c.iterator();
-    while (localIterator2.hasNext()) {
-      d((Runnable)localIterator2.next());
-    }
-    b.clear();
-    c.clear();
-    d = true;
-  }
-  
-  public final void a(Runnable paramRunnable)
-  {
-    synchronized (a)
-    {
-      if (d)
-      {
-        c(paramRunnable);
-        return;
-      }
-      b.add(paramRunnable);
-    }
-  }
-  
-  public final void b(Runnable paramRunnable)
-  {
-    synchronized (a)
-    {
-      if (d)
-      {
-        d(paramRunnable);
-        return;
-      }
-      c.add(paramRunnable);
-    }
+    super(paramDataHolder, paramInt);
   }
 }
 

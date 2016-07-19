@@ -1,18 +1,8 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.PayPalService;
-import com.paypal.android.sdk.payments.PaymentActivity;
+import android.os.Parcelable.Creator;
 
 public final class cco
-  implements DialogInterface.OnClickListener
-{
-  public cco(PaymentActivity paramPaymentActivity) {}
-  
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
-  {
-    PaymentActivity.b(a).a(PaymentActivity.a(a), true);
-  }
-}
+  implements Parcelable.Creator
+{}
 
 /* Location:
  * Qualified Name:     cco

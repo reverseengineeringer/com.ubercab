@@ -1,33 +1,54 @@
-import android.os.Bundle;
-import android.os.IInterface;
-import android.os.ParcelFileDescriptor;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.common.data.DataHolder;
-import com.google.android.gms.common.server.response.SafeParcelResponse;
-import com.google.android.gms.plus.internal.model.people.PersonEntity;
+import java.lang.reflect.Field;
 
-public abstract interface blu
-  extends IInterface
+public enum blu
+  implements blv
 {
-  public abstract void a(int paramInt, Bundle paramBundle);
+  private blu() {}
   
-  public abstract void a(int paramInt, Bundle paramBundle1, Bundle paramBundle2);
+  private static String a(char paramChar, String paramString, int paramInt)
+  {
+    if (paramInt < paramString.length()) {
+      return paramChar + paramString.substring(paramInt);
+    }
+    return String.valueOf(paramChar);
+  }
   
-  public abstract void a(int paramInt, Bundle paramBundle, ParcelFileDescriptor paramParcelFileDescriptor);
+  private static String b(String paramString)
+  {
+    int i = 0;
+    StringBuilder localStringBuilder = new StringBuilder();
+    for (char c1 = paramString.charAt(0); (i < paramString.length() - 1) && (!Character.isLetter(c1)); c1 = paramString.charAt(i))
+    {
+      localStringBuilder.append(c1);
+      i += 1;
+    }
+    String str;
+    if (i == paramString.length()) {
+      str = localStringBuilder.toString();
+    }
+    do
+    {
+      return str;
+      str = paramString;
+    } while (Character.isUpperCase(c1));
+    return a(Character.toUpperCase(c1), paramString, i + 1);
+  }
   
-  public abstract void a(int paramInt, Bundle paramBundle, SafeParcelResponse paramSafeParcelResponse);
-  
-  public abstract void a(int paramInt, PersonEntity paramPersonEntity);
-  
-  public abstract void a(Status paramStatus);
-  
-  public abstract void a(DataHolder paramDataHolder, String paramString);
-  
-  public abstract void a(DataHolder paramDataHolder, String paramString1, String paramString2);
-  
-  public abstract void a(String paramString);
-  
-  public abstract void b(String paramString);
+  private static String b(String paramString1, String paramString2)
+  {
+    StringBuilder localStringBuilder = new StringBuilder();
+    int i = 0;
+    while (i < paramString1.length())
+    {
+      char c1 = paramString1.charAt(i);
+      if ((Character.isUpperCase(c1)) && (localStringBuilder.length() != 0)) {
+        localStringBuilder.append(paramString2);
+      }
+      localStringBuilder.append(c1);
+      i += 1;
+    }
+    return localStringBuilder.toString();
+  }
 }
 
 /* Location:

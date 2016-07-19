@@ -1,23 +1,29 @@
-import android.graphics.PorterDuff.Mode;
-import android.os.Build.VERSION;
+import android.support.design.widget.SwipeDismissBehavior;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.ViewDragHelper;
+import android.view.View;
 
 public final class cf
+  implements Runnable
 {
-  public static PorterDuff.Mode a(int paramInt)
+  private final View b;
+  private final boolean c;
+  
+  public cf(SwipeDismissBehavior paramSwipeDismissBehavior, View paramView, boolean paramBoolean)
   {
-    switch (paramInt)
-    {
+    b = paramView;
+    c = paramBoolean;
+  }
+  
+  public final void run()
+  {
+    if ((SwipeDismissBehavior.b(a) != null) && (SwipeDismissBehavior.b(a).continueSettling(true))) {
+      ViewCompat.postOnAnimation(b, this);
     }
-    do
-    {
-      return null;
-      return PorterDuff.Mode.SRC_OVER;
-      return PorterDuff.Mode.SRC_IN;
-      return PorterDuff.Mode.SRC_ATOP;
-      return PorterDuff.Mode.MULTIPLY;
-      return PorterDuff.Mode.SCREEN;
-    } while (Build.VERSION.SDK_INT < 11);
-    return PorterDuff.Mode.valueOf("ADD");
+    while ((!c) || (SwipeDismissBehavior.a(a) == null)) {
+      return;
+    }
+    SwipeDismissBehavior.a(a).a(b);
   }
 }
 

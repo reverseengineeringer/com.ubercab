@@ -1,14 +1,14 @@
 package com.ubercab.client.core.vendor.google.model;
 
-import bqa;
+import bmu;
 import java.util.List;
 
 public class DirectionsResponse
 {
   private static final String STATUS_OK = "OK";
-  @bqa(a="routes")
+  @bmu(a="routes")
   private List<Route> mRoutes;
-  @bqa(a="status")
+  @bmu(a="status")
   private String mStatus;
   
   public boolean equals(Object paramObject)

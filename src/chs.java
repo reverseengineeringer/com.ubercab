@@ -1,47 +1,24 @@
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.net.Uri;
-import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-final class chs
-  extends cjh
+abstract interface chs
 {
-  private static final int a = 22;
-  private final AssetManager b;
-  
-  public chs(Context paramContext)
+  public static final chs a = new chs()
   {
-    b = paramContext.getAssets();
-  }
-  
-  private static String c(cje paramcje)
-  {
-    return d.toString().substring(a);
-  }
-  
-  public final boolean a(cje paramcje)
-  {
-    boolean bool2 = false;
-    paramcje = d;
-    boolean bool1 = bool2;
-    if ("file".equals(paramcje.getScheme()))
+    public final Map<Class<?>, chr> a(Object paramAnonymousObject)
     {
-      bool1 = bool2;
-      if (!paramcje.getPathSegments().isEmpty())
-      {
-        bool1 = bool2;
-        if ("android_asset".equals(paramcje.getPathSegments().get(0))) {
-          bool1 = true;
-        }
-      }
+      return chm.a(paramAnonymousObject);
     }
-    return bool1;
-  }
+    
+    public final Map<Class<?>, Set<chq>> b(Object paramAnonymousObject)
+    {
+      return chm.b(paramAnonymousObject);
+    }
+  };
   
-  public final cji b(cje paramcje)
-  {
-    return new cji(b.open(c(paramcje)), ciy.b);
-  }
+  public abstract Map<Class<?>, chr> a(Object paramObject);
+  
+  public abstract Map<Class<?>, Set<chq>> b(Object paramObject);
 }
 
 /* Location:

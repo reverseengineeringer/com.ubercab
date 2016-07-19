@@ -4,13 +4,18 @@ import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
 import android.widget.TextView;
 
-public class TextViewCompat
+public final class TextViewCompat
 {
   static final TextViewCompat.TextViewCompatImpl IMPL = new TextViewCompat.BaseTextViewCompatImpl();
   
   static
   {
     int i = Build.VERSION.SDK_INT;
+    if (i >= 23)
+    {
+      IMPL = new TextViewCompat.Api23TextViewCompatImpl();
+      return;
+    }
     if (i >= 18)
     {
       IMPL = new TextViewCompat.JbMr2TextViewCompatImpl();
@@ -51,6 +56,11 @@ public class TextViewCompat
   public static void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView paramTextView, Drawable paramDrawable1, Drawable paramDrawable2, Drawable paramDrawable3, Drawable paramDrawable4)
   {
     IMPL.setCompoundDrawablesRelativeWithIntrinsicBounds(paramTextView, paramDrawable1, paramDrawable2, paramDrawable3, paramDrawable4);
+  }
+  
+  public static void setTextAppearance(TextView paramTextView, int paramInt)
+  {
+    IMPL.setTextAppearance(paramTextView, paramInt);
   }
 }
 

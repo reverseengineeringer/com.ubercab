@@ -6,33 +6,32 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckr;
+import chn;
+import chu;
+import cli;
 import com.ubercab.client.core.model.TunesProvider;
 import com.ubercab.rider.realtime.model.Trip;
 import com.ubercab.rider.realtime.model.TripDriver;
 import com.ubercab.rider.realtime.model.TripDriverCapabilities;
-import dsh;
-import ebj;
-import efr;
-import eht;
-import frc;
-import frd;
-import fsu;
-import ftw;
-import fuf;
-import jsg;
+import dxm;
+import eib;
+import enk;
+import eqf;
+import gjd;
+import gje;
+import gld;
+import gmp;
+import gmy;
+import mxm;
 
 public class MusicProviderOfferFragment
-  extends dsh<fsu>
+  extends dxm<gld>
   implements DialogInterface.OnDismissListener
 {
-  public chh c;
-  public jsg d;
-  public eht e;
+  public chn c;
+  public mxm d;
+  public eqf e;
   
   static MusicProviderOfferFragment a(String paramString1, String paramString2, String paramString3, String paramString4)
   {
@@ -46,25 +45,25 @@ public class MusicProviderOfferFragment
     return paramString1;
   }
   
-  private void a(fsu paramfsu)
+  private void a(gld paramgld)
   {
-    paramfsu.a(this);
+    paramgld.a(this);
   }
   
-  private fsu b(ebj paramebj)
+  private gld b(eib parameib)
   {
-    return frc.a().a(new efr(this)).a(paramebj).a();
+    return gjd.a().a(new enk(this)).a(parameib).a();
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return dsh.a;
+    return dxm.a;
   }
   
-  @OnClick({2131624705})
-  void onClickLinkProvider()
+  @OnClick
+  public void onClickLinkProvider()
   {
-    a(getString(2131166516), this);
+    a(getString(2131166765), this);
     Object localObject = getArguments();
     String str1 = ((Bundle)localObject).getString("provider_id");
     String str2 = ((Bundle)localObject).getString("eligible_trial");
@@ -72,31 +71,25 @@ public class MusicProviderOfferFragment
     e.b(str1, str2, (String)localObject);
   }
   
-  @OnClick({2131624706})
-  void onClickNoThanks()
+  @OnClick
+  public void onClickNoThanks()
   {
-    c.c(new ftw());
+    c.c(new gmp());
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903304, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903399, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public void onDismiss(DialogInterface paramDialogInterface) {}
   
-  @cho
-  public void onStartTrialResponseEvent(fuf paramfuf)
+  @chu
+  public void onStartTrialResponseEvent(gmy paramgmy)
   {
-    if (!paramfuf.i()) {}
+    if (!paramgmy.i()) {}
     do
     {
       return;
@@ -105,11 +98,11 @@ public class MusicProviderOfferFragment
     Object localObject = ((Trip)localObject).getUuid();
     Bundle localBundle = getArguments();
     String str = localBundle.getString("provider_id");
-    paramfuf = (TunesProvider)paramfuf.g();
-    if (paramfuf != null) {}
-    for (paramfuf = paramfuf.getAccessToken();; paramfuf = localBundle.getString("access_token"))
+    paramgmy = (TunesProvider)paramgmy.g();
+    if (paramgmy != null) {}
+    for (paramgmy = paramgmy.getAccessToken();; paramgmy = localBundle.getString("access_token"))
     {
-      e.a((String)localObject, str, paramfuf);
+      e.a((String)localObject, str, paramgmy);
       return;
     }
   }

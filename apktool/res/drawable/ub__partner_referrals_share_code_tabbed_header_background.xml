@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="2.0dip" />
+    <stroke android:width="0.30000007dip" android:color="@color/ub__uber_white_120" android:dashWidth="3.0dip" android:dashGap="3.0dip" />
+    <solid android:color="@color/ub__white" />
+</shape>

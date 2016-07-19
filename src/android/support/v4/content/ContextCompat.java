@@ -112,6 +112,14 @@ public class ContextCompat
     //   37	62	67	finally
   }
   
+  public static File getCodeCacheDir(Context paramContext)
+  {
+    if (Build.VERSION.SDK_INT >= 21) {
+      return ContextCompatApi21.getCodeCacheDir(paramContext);
+    }
+    return createFilesDir(new File(getApplicationInfodataDir, "code_cache"));
+  }
+  
   public static final int getColor(Context paramContext, int paramInt)
   {
     if (Build.VERSION.SDK_INT >= 23) {
@@ -191,14 +199,6 @@ public class ContextCompat
       return true;
     }
     return false;
-  }
-  
-  public final File getCodeCacheDir(Context paramContext)
-  {
-    if (Build.VERSION.SDK_INT >= 21) {
-      return ContextCompatApi21.getCodeCacheDir(paramContext);
-    }
-    return createFilesDir(new File(getApplicationInfodataDir, "code_cache"));
   }
   
   public final File getNoBackupFilesDir(Context paramContext)

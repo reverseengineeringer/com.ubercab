@@ -4,38 +4,33 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import chh;
-import cho;
-import ckr;
+import chn;
+import chu;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.model.TunesProvider;
-import eav;
-import ebj;
-import ehl;
-import eld;
-import epz;
-import eri;
-import fqe;
-import fqf;
-import fro;
-import frq;
-import ftu;
-import ftv;
-import jse;
-import kld;
-import kls;
-import p;
+import ehn;
+import eib;
+import eya;
+import ezm;
+import gif;
+import gig;
+import gjp;
+import gjr;
+import gmn;
+import gmo;
+import mxk;
+import odr;
+import oeh;
+import x;
 
 public class DisconnectMusicProviderActivity
-  extends RiderActivity<fro>
+  extends RiderActivity<gjp>
 {
-  public chh g;
-  public eld h;
-  @Deprecated
-  public ehl i;
-  public jse j;
-  private String k;
-  private String l;
+  public chn g;
+  public mxk h;
+  private String i;
+  private String j;
   
   public static Intent a(Context paramContext, TunesProvider paramTunesProvider)
   {
@@ -45,26 +40,26 @@ public class DisconnectMusicProviderActivity
   private void a(TunesProvider paramTunesProvider)
   {
     if (a(DisconnectMusicProviderFragment.class) == null) {
-      a(2131624671, DisconnectMusicProviderFragment.a(paramTunesProvider), true);
+      a(2131625003, DisconnectMusicProviderFragment.a(paramTunesProvider), true);
     }
   }
   
-  private void a(fro paramfro)
+  private void a(gjp paramgjp)
   {
-    paramfro.a(this);
+    paramgjp.a(this);
   }
   
-  private fro b(ebj paramebj)
+  private gjp b(eib parameib)
   {
-    return fqe.a().a(new eav(this)).a(paramebj).a();
+    return gif.a().a(new ehn(this)).a(parameib).a();
   }
   
   public final void a(int paramInt1, int paramInt2, Bundle paramBundle)
   {
     if ((paramInt1 == 1) && (paramInt2 == -1))
     {
-      j.a(k).a(kls.a()).b(eri.a());
-      g.c(new ftu(ftv.b));
+      h.a(i).a(oeh.a()).b(ezm.a());
+      g.c(new gmn(gmo.b));
       stopService(MusicControlChannelService.a(getApplication()));
       finish();
     }
@@ -73,28 +68,28 @@ public class DisconnectMusicProviderActivity
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903290);
+    setContentView(2130903385);
     paramBundle = (TunesProvider)getIntent().getParcelableExtra("com.ubercab.MUSIC_PROVIDER");
     if (paramBundle != null)
     {
-      l = paramBundle.getName();
-      k = paramBundle.getId();
-      b().a(l.toUpperCase());
+      j = paramBundle.getName();
+      i = paramBundle.getId();
+      b().a(j.toUpperCase());
       a(paramBundle);
     }
   }
   
-  @cho
-  public void onDisconnectMusicProviderEvent(frq paramfrq)
+  @chu
+  public void onDisconnectMusicProviderEvent(gjr paramgjr)
   {
-    paramfrq = getString(2131165713);
-    String str1 = getString(2131165712, new Object[] { l });
-    String str2 = getString(2131165711);
-    String str3 = getString(2131165320);
-    epz.a(this, p.bz, 1, paramfrq, str1, str2, str3);
+    paramgjr = getString(2131165773);
+    String str1 = getString(2131165772, new Object[] { j });
+    String str2 = getString(2131165771);
+    String str3 = getString(2131165344);
+    eya.a(this, x.cd, 1, paramgjr, str1, str2, str3);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

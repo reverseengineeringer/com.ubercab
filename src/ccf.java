@@ -1,21 +1,15 @@
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
-import com.paypal.android.sdk.payments.PayPalService;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import com.paypal.android.sdk.payments.LoginActivity;
 
 public final class ccf
-  extends BroadcastReceiver
+  implements DialogInterface.OnClickListener
 {
-  public ccf(PayPalService paramPayPalService) {}
+  public ccf(LoginActivity paramLoginActivity) {}
   
-  public final void onReceive(Context paramContext, Intent paramIntent)
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
   {
-    if (paramIntent.getAction().equals("com.paypal.android.sdk.clearAllUserData"))
-    {
-      a.g();
-      Log.w("paypal.sdk", "active service user data cleared");
-    }
+    a.onBackPressed();
   }
 }
 

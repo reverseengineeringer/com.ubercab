@@ -1,20 +1,16 @@
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.paypal.android.sdk.payments.LoginActivity;
-import java.util.List;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
 
 public final class cbr
-  implements View.OnClickListener
+  implements DialogInterface.OnClickListener
 {
-  public cbr(LoginActivity paramLoginActivity, bxy parambxy, List paramList) {}
+  public cbr(PaymentActivity paramPaymentActivity) {}
   
-  public final void onClick(View paramView)
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
   {
-    paramView = new AlertDialog.Builder(paramView.getContext());
-    paramView.setTitle(bxl.a(bxn.aX)).setAdapter(a, new cbs(this));
-    paramView.create().show();
+    PaymentActivity.b(a).a(PaymentActivity.a(a), true);
   }
 }
 

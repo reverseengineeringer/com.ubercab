@@ -2,10 +2,7 @@ package butterknife;
 
 import android.view.View;
 
-public abstract interface ButterKnife$Action<T extends View>
-{
-  public abstract void apply(T paramT, int paramInt);
-}
+public abstract interface ButterKnife$Action<T extends View> {}
 
 /* Location:
  * Qualified Name:     butterknife.ButterKnife.Action

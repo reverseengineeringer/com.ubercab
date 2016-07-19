@@ -4,7 +4,7 @@ import android.os.Build.VERSION;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
-public class ListPopupWindowCompat
+public final class ListPopupWindowCompat
 {
   static final ListPopupWindowCompat.ListPopupWindowImpl IMPL = new ListPopupWindowCompat.BaseListPopupWindowImpl();
   

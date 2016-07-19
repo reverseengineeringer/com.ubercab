@@ -1,9 +1,15 @@
-import java.util.concurrent.Future;
+import com.google.android.gms.common.data.DataHolder;
 
-public abstract interface asd<A>
-  extends Future<A>
+public final class asd
+  extends asg
+  implements aqz
 {
-  public abstract void a(Runnable paramRunnable);
+  private final String c = b("photo_fife_url");
+  
+  public asd(DataHolder paramDataHolder, int paramInt)
+  {
+    super(paramDataHolder, paramInt);
+  }
 }
 
 /* Location:

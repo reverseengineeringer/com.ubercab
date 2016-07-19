@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import bz;
+import gn;
 import java.lang.ref.WeakReference;
 
 public final class ViewStubCompat
@@ -27,10 +27,10 @@ public final class ViewStubCompat
   public ViewStubCompat(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, bz.ViewStubCompat, paramInt, 0);
-    b = paramContext.getResourceId(bz.ViewStubCompat_android_inflatedId, -1);
-    a = paramContext.getResourceId(bz.ViewStubCompat_android_layout, 0);
-    setId(paramContext.getResourceId(bz.ViewStubCompat_android_id, -1));
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, gn.ViewStubCompat, paramInt, 0);
+    b = paramContext.getResourceId(gn.ViewStubCompat_android_inflatedId, -1);
+    a = paramContext.getResourceId(gn.ViewStubCompat_android_layout, 0);
+    setId(paramContext.getResourceId(gn.ViewStubCompat_android_id, -1));
     paramContext.recycle();
     setVisibility(8);
     setWillNotDraw(true);

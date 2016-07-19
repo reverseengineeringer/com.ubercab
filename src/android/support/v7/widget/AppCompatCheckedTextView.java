@@ -3,16 +3,17 @@ package android.support.v7.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.CheckedTextView;
-import fl;
-import it;
-import iv;
+import jt;
+import kd;
+import nf;
+import ni;
 
 public class AppCompatCheckedTextView
   extends CheckedTextView
 {
   private static final int[] a = { 16843016 };
-  private it b;
-  private fl c = fl.a(this);
+  private jt b;
+  private kd c = kd.a(this);
   
   public AppCompatCheckedTextView(Context paramContext, AttributeSet paramAttributeSet)
   {
@@ -21,16 +22,13 @@ public class AppCompatCheckedTextView
   
   public AppCompatCheckedTextView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
-    super(paramContext, paramAttributeSet, paramInt);
+    super(nf.a(paramContext), paramAttributeSet, paramInt);
     c.a(paramAttributeSet, paramInt);
     c.a();
-    if (it.a)
-    {
-      paramContext = iv.a(getContext(), paramAttributeSet, a, paramInt);
-      setCheckMarkDrawable(paramContext.a(0));
-      paramContext.a();
-      b = paramContext.b();
-    }
+    b = jt.a();
+    paramContext = ni.a(getContext(), paramAttributeSet, a, paramInt);
+    setCheckMarkDrawable(paramContext.a(0));
+    paramContext.a();
   }
   
   protected void drawableStateChanged()
@@ -45,7 +43,7 @@ public class AppCompatCheckedTextView
   {
     if (b != null)
     {
-      setCheckMarkDrawable(b.a(paramInt));
+      setCheckMarkDrawable(b.a(getContext(), paramInt));
       return;
     }
     super.setCheckMarkDrawable(paramInt);

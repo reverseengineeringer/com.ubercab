@@ -1,74 +1,48 @@
-public abstract class axk<M extends axk<M>>
-  extends axq
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+
+public abstract class axk
+  extends Binder
+  implements axj
 {
-  protected axm a;
-  
-  private M e()
+  public axk()
   {
-    axk localaxk = (axk)super.b();
-    axo.a(this, localaxk);
-    return localaxk;
+    attachInterface(this, "com.google.android.gms.maps.internal.IOnMapReadyCallback");
   }
   
-  protected int a()
+  public static axj a(IBinder paramIBinder)
   {
-    int j = 0;
-    if (a != null)
-    {
-      int i = 0;
-      for (;;)
-      {
-        k = i;
-        if (j >= a.a()) {
-          break;
-        }
-        i += a.b(j).a();
-        j += 1;
-      }
+    if (paramIBinder == null) {
+      return null;
     }
-    int k = 0;
-    return k;
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnMapReadyCallback");
+    if ((localIInterface != null) && ((localIInterface instanceof axj))) {
+      return (axj)localIInterface;
+    }
+    return new axl(paramIBinder);
   }
   
-  public void a(axi paramaxi)
+  public IBinder asBinder()
   {
-    if (a == null) {}
-    for (;;)
-    {
-      return;
-      int i = 0;
-      while (i < a.a())
-      {
-        a.b(i).a(paramaxi);
-        i += 1;
-      }
-    }
+    return this;
   }
   
-  protected final boolean a(axh paramaxh, int paramInt)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    int i = paramaxh.l();
-    if (!paramaxh.a(paramInt)) {
-      return false;
-    }
-    int j = axt.b(paramInt);
-    axs localaxs = new axs(paramInt, paramaxh.a(i, paramaxh.l() - i));
-    paramaxh = null;
-    if (a == null) {
-      a = new axm();
-    }
-    for (;;)
+    switch (paramInt1)
     {
-      Object localObject = paramaxh;
-      if (paramaxh == null)
-      {
-        localObject = new axn();
-        a.a(j, (axn)localObject);
-      }
-      ((axn)localObject).a(localaxs);
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnMapReadyCallback");
       return true;
-      paramaxh = a.a(j);
     }
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMapReadyCallback");
+    a(aun.a(paramParcel1.readStrongBinder()));
+    paramParcel2.writeNoException();
+    return true;
   }
 }
 

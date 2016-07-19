@@ -10,8 +10,8 @@ class SwipeRefreshLayout$5
   
   public void onAnimationEnd(Animation paramAnimation)
   {
-    if (!SwipeRefreshLayout.access$600(this$0)) {
-      SwipeRefreshLayout.access$1000(this$0, null);
+    if (!SwipeRefreshLayout.access$800(this$0)) {
+      SwipeRefreshLayout.access$900(this$0, null);
     }
   }
   

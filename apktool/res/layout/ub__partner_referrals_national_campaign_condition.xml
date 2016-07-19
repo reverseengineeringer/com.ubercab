@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P.Gray" android:gravity="start" android:layout_gravity="bottom" android:id="@id/ub__partner_referrals_national_campaign_condition_title" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="0.5" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P.Large" android:gravity="end" android:layout_gravity="bottom" android:id="@id/ub__partner_referrals_national_campaign_condition_value" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="0.5" />
+    </LinearLayout>
+    <View android:background="@color/ub__partner_referrals_national_campaign_conditions_divider_color" android:layout_width="fill_parent" android:layout_height="@dimen/ub__partner_referrals_border_width" android:layout_marginTop="@dimen/ub__partner_referrals_border_width" android:layout_marginBottom="@dimen/ub__partner_referrals_border_width" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P.Gray.Tiny" android:layout_gravity="end" android:id="@id/ub__partner_referrals_national_campaign_condition_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__partner_referrals_national_campaign_condition_row_padding" />
+</LinearLayout>

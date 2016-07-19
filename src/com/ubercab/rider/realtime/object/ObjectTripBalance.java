@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import juo;
+import mzw;
 
 @Shape
 abstract class ObjectTripBalance
-  implements juo
+  implements mzw
 {}
 
 /* Location:

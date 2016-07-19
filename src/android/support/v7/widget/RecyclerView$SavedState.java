@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import android.view.View.BaseSavedState;
-import hh;
+import ma;
 
 public class RecyclerView$SavedState
   extends View.BaseSavedState
@@ -26,7 +26,7 @@ public class RecyclerView$SavedState
   RecyclerView$SavedState(Parcel paramParcel)
   {
     super(paramParcel);
-    a = paramParcel.readParcelable(hh.class.getClassLoader());
+    a = paramParcel.readParcelable(ma.class.getClassLoader());
   }
   
   RecyclerView$SavedState(Parcelable paramParcelable)

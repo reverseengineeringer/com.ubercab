@@ -1,17 +1,11 @@
-import android.content.Context;
-import android.os.Looper;
+import java.util.Comparator;
 
 final class bng$1
-  extends wl<axb, bnh>
+  implements Comparator<Comparable>
 {
-  private static axb a(Context paramContext, Looper paramLooper, aab paramaab, bnh parambnh, wu paramwu, wv paramwv)
+  private static int a(Comparable paramComparable1, Comparable paramComparable2)
   {
-    if (parambnh != null) {}
-    for (;;)
-    {
-      return new axb(paramContext, paramLooper, paramaab, paramwu, paramwv, a, b, bnh.a(parambnh));
-      parambnh = new bnh((byte)0);
-    }
+    return paramComparable1.compareTo(paramComparable2);
   }
 }
 

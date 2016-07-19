@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.hop.HopItineraryHeaderCollapsedView android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/ub__hop_itinerary_header_collapse_padding" android:paddingTop="@dimen/ub__hop_itinerary_header_collapse_padding" android:paddingBottom="@dimen/ub__hop_itinerary_header_collapse_padding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <com.ubercab.ui.TextView android:textSize="@dimen/ub__hop_itinerary_header_title_size" android:textStyle="bold" android:ellipsize="end" android:id="@id/ub__hop_itinerary_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:textSize="@dimen/ub__hop_itinerary_header_subtitle_size" android:ellipsize="end" android:id="@id/ub__hop_itinerary_header_left_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+            <View android:id="@id/ub__hop_itinerary_header_divider" android:background="@color/ub__black" android:layout_width="@dimen/ub__profiles_trip_navigation_drawer_footer_divider" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/ub__hop_itinerary_header_divider_margin" android:layout_marginRight="@dimen/ub__hop_itinerary_header_divider_margin" />
+            <com.ubercab.ui.TextView android:textSize="@dimen/ub__hop_itinerary_header_subtitle_size" android:ellipsize="end" android:id="@id/ub__hop_itinerary_header_right_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:id="@id/ub__hop_itinerary_header_expand" android:paddingLeft="@dimen/ub__hop_itinerary_button_margin_right" android:paddingRight="@dimen/ub__hop_itinerary_button_margin_right" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <ImageView android:layout_width="@dimen/ub__hop_itinerary_button_size" android:layout_height="@dimen/ub__hop_itinerary_button_size" android:src="@drawable/ub__trip_summary_info" />
+    </LinearLayout>
+</com.ubercab.client.feature.hop.HopItineraryHeaderCollapsedView>

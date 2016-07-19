@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jvf;
+import nap;
 
 @Shape
 abstract class ObjectValidatedAddress
-  implements jvf
+  implements nap
 {}
 
 /* Location:

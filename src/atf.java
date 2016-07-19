@@ -1,9 +1,17 @@
-import android.os.Bundle;
+import com.google.android.gms.common.api.Status;
 
-public abstract interface atf
-  extends tv
+public abstract class atf<A extends wc>
+  extends atb<Status, A>
 {
-  public abstract Bundle e();
+  public atf(wd<A> paramwd, wj paramwj)
+  {
+    super(paramwd, paramwj);
+  }
+  
+  private static Status d(Status paramStatus)
+  {
+    return paramStatus;
+  }
 }
 
 /* Location:

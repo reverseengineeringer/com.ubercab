@@ -1,14 +1,7 @@
 public abstract interface cgv
+  extends cgs
 {
-  public abstract void a();
-  
-  public abstract void a(cgx paramcgx, cgw paramcgw);
-  
-  public abstract cgx b();
-  
-  public abstract boolean b(cgx paramcgx, cgw paramcgw);
-  
-  public abstract String c();
+  public abstract void b();
 }
 
 /* Location:

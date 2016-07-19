@@ -3,7 +3,7 @@ package android.support.v4.view;
 import android.os.Build.VERSION;
 import android.view.LayoutInflater;
 
-public class LayoutInflaterCompat
+public final class LayoutInflaterCompat
 {
   static final LayoutInflaterCompat.LayoutInflaterCompatImpl IMPL = new LayoutInflaterCompat.LayoutInflaterCompatImplBase();
   
@@ -20,6 +20,11 @@ public class LayoutInflaterCompat
       IMPL = new LayoutInflaterCompat.LayoutInflaterCompatImplV11();
       return;
     }
+  }
+  
+  public static LayoutInflaterFactory getFactory(LayoutInflater paramLayoutInflater)
+  {
+    return IMPL.getFactory(paramLayoutInflater);
   }
   
   public static void setFactory(LayoutInflater paramLayoutInflater, LayoutInflaterFactory paramLayoutInflaterFactory)

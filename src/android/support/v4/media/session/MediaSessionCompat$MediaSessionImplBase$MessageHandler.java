@@ -38,22 +38,22 @@ class MediaSessionCompat$MediaSessionImplBase$MessageHandler
     super(paramLooper);
   }
   
-  private void onMediaButtonEvent(KeyEvent paramKeyEvent)
+  private void onMediaButtonEvent(KeyEvent paramKeyEvent, MediaSessionCompat.Callback paramCallback)
   {
     if ((paramKeyEvent == null) || (paramKeyEvent.getAction() != 0)) {}
     label25:
     int i;
     label139:
     int j;
-    label152:
-    label358:
-    label363:
-    label369:
+    label153:
+    label311:
+    label317:
+    label323:
     do
     {
       return;
       long l;
-      if (MediaSessionCompat.MediaSessionImplBase.access$2600(this$0) == null)
+      if (MediaSessionCompat.MediaSessionImplBase.access$2800(this$0) == null)
       {
         l = 0L;
         switch (paramKeyEvent.getKeyCode())
@@ -62,15 +62,15 @@ class MediaSessionCompat$MediaSessionImplBase$MessageHandler
           return;
         case 79: 
         case 85: 
-          if ((MediaSessionCompat.MediaSessionImplBase.access$2600(this$0) != null) && (MediaSessionCompat.MediaSessionImplBase.access$2600(this$0).getState() == 3))
+          if ((MediaSessionCompat.MediaSessionImplBase.access$2800(this$0) != null) && (MediaSessionCompat.MediaSessionImplBase.access$2800(this$0).getState() == 3))
           {
             i = 1;
             if ((0x204 & l) == 0L) {
-              break label358;
+              break label311;
             }
             j = 1;
             if ((l & 0x202) == 0L) {
-              break label363;
+              break label317;
             }
           }
           break;
@@ -79,59 +79,60 @@ class MediaSessionCompat$MediaSessionImplBase$MessageHandler
       for (int k = 1;; k = 0)
       {
         if ((i == 0) || (k == 0)) {
-          break label369;
+          break label323;
         }
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onPause();
+        paramCallback.onPause();
         return;
-        l = MediaSessionCompat.MediaSessionImplBase.access$2600(this$0).getActions();
+        l = MediaSessionCompat.MediaSessionImplBase.access$2800(this$0).getActions();
         break label25;
         if ((l & 0x4) == 0L) {
           break;
         }
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onPlay();
+        paramCallback.onPlay();
         return;
         if ((l & 0x2) == 0L) {
           break;
         }
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onPause();
+        paramCallback.onPause();
         return;
         if ((l & 0x20) == 0L) {
           break;
         }
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onSkipToNext();
+        paramCallback.onSkipToNext();
         return;
         if ((l & 0x10) == 0L) {
           break;
         }
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onSkipToPrevious();
+        paramCallback.onSkipToPrevious();
         return;
         if ((l & 1L) == 0L) {
           break;
         }
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onStop();
+        paramCallback.onStop();
         return;
         if ((l & 0x40) == 0L) {
           break;
         }
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onFastForward();
+        paramCallback.onFastForward();
         return;
         if ((l & 0x8) == 0L) {
           break;
         }
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onRewind();
+        paramCallback.onRewind();
         return;
         i = 0;
         break label139;
         j = 0;
-        break label152;
+        break label153;
       }
     } while ((i != 0) || (j == 0));
-    MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onPlay();
+    paramCallback.onPlay();
   }
   
   public void handleMessage(Message paramMessage)
   {
-    if (MediaSessionCompat.MediaSessionImplBase.access$2500(this$0) == null) {}
+    MediaSessionCompat.Callback localCallback = MediaSessionCompat.MediaSessionImplBase.access$2700(this$0);
+    if (localCallback == null) {}
     Intent localIntent;
     do
     {
@@ -141,57 +142,57 @@ class MediaSessionCompat$MediaSessionImplBase$MessageHandler
       default: 
         return;
       case 1: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onPlay();
+        localCallback.onPlay();
         return;
       case 2: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onPlayFromMediaId((String)obj, paramMessage.getData());
+        localCallback.onPlayFromMediaId((String)obj, paramMessage.getData());
         return;
       case 3: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onPlayFromSearch((String)obj, paramMessage.getData());
+        localCallback.onPlayFromSearch((String)obj, paramMessage.getData());
         return;
       case 18: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onPlayFromUri((Uri)obj, paramMessage.getData());
+        localCallback.onPlayFromUri((Uri)obj, paramMessage.getData());
         return;
       case 4: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onSkipToQueueItem(((Long)obj).longValue());
+        localCallback.onSkipToQueueItem(((Long)obj).longValue());
         return;
       case 5: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onPause();
+        localCallback.onPause();
         return;
       case 6: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onStop();
+        localCallback.onStop();
         return;
       case 7: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onSkipToNext();
+        localCallback.onSkipToNext();
         return;
       case 8: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onSkipToPrevious();
+        localCallback.onSkipToPrevious();
         return;
       case 9: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onFastForward();
+        localCallback.onFastForward();
         return;
       case 10: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onRewind();
+        localCallback.onRewind();
         return;
       case 11: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onSeekTo(((Long)obj).longValue());
+        localCallback.onSeekTo(((Long)obj).longValue());
         return;
       case 12: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onSetRating((RatingCompat)obj);
+        localCallback.onSetRating((RatingCompat)obj);
         return;
       case 13: 
-        MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onCustomAction((String)obj, paramMessage.getData());
+        localCallback.onCustomAction((String)obj, paramMessage.getData());
         return;
       case 14: 
         paramMessage = (KeyEvent)obj;
         localIntent = new Intent("android.intent.action.MEDIA_BUTTON");
         localIntent.putExtra("android.intent.extra.KEY_EVENT", paramMessage);
       }
-    } while (MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onMediaButtonEvent(localIntent));
-    onMediaButtonEvent(paramMessage);
+    } while (localCallback.onMediaButtonEvent(localIntent));
+    onMediaButtonEvent(paramMessage, localCallback);
     return;
     paramMessage = (MediaSessionCompat.MediaSessionImplBase.Command)obj;
-    MediaSessionCompat.MediaSessionImplBase.access$2500(this$0).onCommand(command, extras, stub);
+    localCallback.onCommand(command, extras, stub);
     return;
     MediaSessionCompat.MediaSessionImplBase.access$1700(this$0, ((Integer)obj).intValue(), 0);
     return;

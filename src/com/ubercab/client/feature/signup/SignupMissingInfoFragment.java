@@ -8,63 +8,62 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.locale.phone.PhoneNumberView;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.EditText;
-import dps;
-import dre;
-import dsh;
-import dux;
-import dvk;
-import ebj;
-import efr;
-import ehq;
-import ejy;
-import erj;
-import gxi;
-import gxj;
-import gyl;
-import gyx;
-import gzu;
-import iak;
-import ife;
-import ija;
-import p;
-import r;
+import duq;
+import dwd;
+import dxm;
+import eaj;
+import ebe;
+import eib;
+import enk;
+import eqc;
+import err;
+import ezn;
+import iiq;
+import iir;
+import ijx;
+import ikl;
+import ilo;
+import kcu;
+import kia;
+import kmz;
+import x;
+import z;
 
 public class SignupMissingInfoFragment
-  extends dsh<gyx>
-  implements gyl, ija
+  extends dxm<ikl>
+  implements ijx, kmz
 {
-  public ckc c;
-  public chh d;
-  public ife e;
-  public ehq f;
-  public dre g;
+  public ckt c;
+  public chn d;
+  public kia e;
+  public eqc f;
+  public dwd g;
   private SignupData h;
-  private erj i;
+  private ezn i;
   private boolean j;
-  @InjectView(2131625592)
-  Button mButtonLegal;
-  @InjectView(2131625575)
-  Button mButtonNext;
-  @InjectView(2131625572)
-  EditText mEditTextFirstName;
-  @InjectView(2131625573)
-  EditText mEditTextLastName;
-  @InjectView(2131625574)
-  PhoneNumberView mPhoneNumberView;
-  @InjectView(2131625614)
-  ViewGroup mViewGroupTos;
+  @BindView
+  public Button mButtonLegal;
+  @BindView
+  public Button mButtonNext;
+  @BindView
+  public EditText mEditTextFirstName;
+  @BindView
+  public EditText mEditTextLastName;
+  @BindView
+  public PhoneNumberView mPhoneNumberView;
+  @BindView
+  public ViewGroup mViewGroupTos;
   
   public static SignupMissingInfoFragment a(SignupData paramSignupData)
   {
@@ -75,30 +74,30 @@ public class SignupMissingInfoFragment
     return paramSignupData;
   }
   
-  private void a(gyx paramgyx)
+  private void a(ikl paramikl)
   {
-    paramgyx.a(this);
+    paramikl.a(this);
   }
   
-  private gyx b(ebj paramebj)
+  private ikl b(eib parameib)
   {
-    return gxi.a().a(new efr(this)).a(paramebj).a();
+    return iiq.a().a(new enk(this)).a(parameib).a();
   }
   
-  private void b()
+  private void f()
   {
-    dps.b(getActivity(), mEditTextFirstName);
+    duq.b(getActivity(), mEditTextFirstName);
     String str1 = mPhoneNumberView.g();
     String str2 = mPhoneNumberView.d();
-    b(getString(2131167227));
+    a_(getString(2131167606));
     f.a(h.a(), str1, str2, "thisisnotarealpassword1234567$");
   }
   
-  public final void G_() {}
+  public final void D_() {}
   
   public final void a()
   {
-    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap").setName(r.ja).setValue(h.p());
+    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap").setName(z.mp).setValue(h.r());
     c.a(localAnalyticsEvent);
   }
   
@@ -110,18 +109,18 @@ public class SignupMissingInfoFragment
   {
     if (paramInt == 6)
     {
-      b();
+      f();
       return true;
     }
     return false;
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return p.mj;
+    return x.qk;
   }
   
-  @OnClick({2131625592})
+  @OnClick
   public void onClickLegal()
   {
     startActivity(new Intent(getActivity(), LegalActivity.class));
@@ -135,65 +134,59 @@ public class SignupMissingInfoFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903587, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
-    i = new erj(new iak().a(new Pair("mobile", mPhoneNumberView)).a(new Pair("error", new SignupMissingInfoFragment.1(this))).a());
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903800, paramViewGroup, false);
+    a(paramLayoutInflater);
+    i = new ezn(new kcu().a(new Pair("mobile", mPhoneNumberView)).a(new Pair("error", new SignupMissingInfoFragment.1(this))).a());
     return paramLayoutInflater;
   }
   
-  public void onDestroy()
-  {
-    super.onDestroy();
-    ButterKnife.reset(this);
-  }
-  
-  @OnClick({2131625575})
+  @OnClick
   public void onNextClicked()
   {
-    b();
+    f();
   }
   
   public void onResume()
   {
     super.onResume();
-    ActionBar localActionBar = d().b();
+    ActionBar localActionBar = b().b();
     if (j) {}
-    for (int k = 2131167226;; k = 2131165666)
+    for (int k = 2131167605;; k = 2131165724)
     {
       localActionBar.a(getString(k));
       return;
     }
   }
   
-  @cho
-  public void onValidateAccountResponseEvent(ejy paramejy)
+  @chu
+  public void onValidateAccountResponseEvent(err paramerr)
   {
-    e();
-    if (paramejy.i())
+    M_();
+    if (paramerr.i())
     {
       h.e(mEditTextFirstName.getText().toString());
       h.f(mEditTextLastName.getText().toString());
       h.b(mPhoneNumberView.g());
       h.c(mPhoneNumberView.d());
-      d.c(new gzu(h));
+      d.c(new ilo(h));
     }
     do
     {
       return;
-      paramejy = paramejy.a();
-    } while (paramejy == null);
-    i.a(paramejy);
+      paramerr = paramerr.a();
+    } while (paramerr == null);
+    i.a(paramerr);
     i.a();
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
-    if (e.a(dux.aH, dvk.b))
+    if (e.a(eaj.aN, ebe.b))
     {
-      mButtonNext.setText(2131165718);
+      mButtonNext.setText(2131165779);
       mButtonLegal.setPaintFlags(mButtonLegal.getPaintFlags() | 0x8);
-      if (e.a(dux.aH)) {
+      if (e.b(eaj.aN)) {
         mViewGroupTos.setVisibility(8);
       }
       mPhoneNumberView.a(this);
@@ -212,7 +205,7 @@ public class SignupMissingInfoFragment
     {
       j = bool;
       return;
-      mButtonNext.setText(2131166073);
+      mButtonNext.setText(2131166201);
       break;
     }
   }

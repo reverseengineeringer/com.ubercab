@@ -1294,83 +1294,85 @@ final class FragmentManagerImpl
       }
     }
     int k;
-    label540:
-    label572:
+    label596:
+    label628:
     Object localObject2;
     if (mState < paramInt1)
     {
-      if ((mFromLayout) && (!mInLayout)) {
+      if ((mFromLayout) && (!mInLayout)) {}
+      do
+      {
         return;
-      }
-      if (mAnimatingAway != null)
-      {
-        mAnimatingAway = null;
-        moveToState(paramFragment, mStateAfterAnimating, 0, 0, true);
-      }
-      i = paramInt1;
-      k = paramInt1;
-      j = paramInt1;
-      switch (mState)
-      {
-      default: 
+        if (mAnimatingAway != null)
+        {
+          mAnimatingAway = null;
+          moveToState(paramFragment, mStateAfterAnimating, 0, 0, true);
+        }
         i = paramInt1;
-        mState = i;
-        return;
-      case 0: 
-        if (DEBUG) {
-          Log.v("FragmentManager", "moveto CREATED: " + paramFragment);
-        }
+        k = paramInt1;
         j = paramInt1;
-        if (mSavedFragmentState != null)
+        switch (mState)
         {
-          mSavedFragmentState.setClassLoader(mHost.getContext().getClassLoader());
-          mSavedViewState = mSavedFragmentState.getSparseParcelableArray("android:view_state");
-          mTarget = getFragment(mSavedFragmentState, "android:target_state");
-          if (mTarget != null) {
-            mTargetRequestCode = mSavedFragmentState.getInt("android:target_req_state", 0);
-          }
-          mUserVisibleHint = mSavedFragmentState.getBoolean("android:user_visible_hint", true);
+        default: 
+          i = paramInt1;
+        }
+      } while (mState == i);
+      Log.w("FragmentManager", "moveToState: Fragment state for " + paramFragment + " not updated inline; expected state " + i + " found " + mState);
+      mState = i;
+      return;
+      if (DEBUG) {
+        Log.v("FragmentManager", "moveto CREATED: " + paramFragment);
+      }
+      j = paramInt1;
+      if (mSavedFragmentState != null)
+      {
+        mSavedFragmentState.setClassLoader(mHost.getContext().getClassLoader());
+        mSavedViewState = mSavedFragmentState.getSparseParcelableArray("android:view_state");
+        mTarget = getFragment(mSavedFragmentState, "android:target_state");
+        if (mTarget != null) {
+          mTargetRequestCode = mSavedFragmentState.getInt("android:target_req_state", 0);
+        }
+        mUserVisibleHint = mSavedFragmentState.getBoolean("android:user_visible_hint", true);
+        j = paramInt1;
+        if (!mUserVisibleHint)
+        {
+          mDeferStart = true;
           j = paramInt1;
-          if (!mUserVisibleHint)
-          {
-            mDeferStart = true;
-            j = paramInt1;
-            if (paramInt1 > 3) {
-              j = 3;
-            }
+          if (paramInt1 > 3) {
+            j = 3;
           }
         }
-        mHost = mHost;
-        mParentFragment = mParent;
-        if (mParent != null) {}
-        for (localObject1 = mParent.mChildFragmentManager;; localObject1 = mHost.getFragmentManagerImpl())
+      }
+      mHost = mHost;
+      mParentFragment = mParent;
+      if (mParent != null) {}
+      for (localObject1 = mParent.mChildFragmentManager;; localObject1 = mHost.getFragmentManagerImpl())
+      {
+        mFragmentManager = ((FragmentManagerImpl)localObject1);
+        mCalled = false;
+        paramFragment.onAttach(mHost.getContext());
+        if (mCalled) {
+          break;
+        }
+        throw new SuperNotCalledException("Fragment " + paramFragment + " did not call through to super.onAttach()");
+      }
+      if (mParentFragment == null) {
+        mHost.onAttachFragment(paramFragment);
+      }
+      if (!mRetaining) {
+        paramFragment.performCreate(mSavedFragmentState);
+      }
+      mRetaining = false;
+      i = j;
+      if (mFromLayout)
+      {
+        mView = paramFragment.performCreateView(paramFragment.getLayoutInflater(mSavedFragmentState), null, mSavedFragmentState);
+        if (mView == null) {
+          break label1074;
+        }
+        mInnerView = mView;
+        if (Build.VERSION.SDK_INT >= 11)
         {
-          mFragmentManager = ((FragmentManagerImpl)localObject1);
-          mCalled = false;
-          paramFragment.onAttach(mHost.getContext());
-          if (mCalled) {
-            break;
-          }
-          throw new SuperNotCalledException("Fragment " + paramFragment + " did not call through to super.onAttach()");
-        }
-        if (mParentFragment == null) {
-          mHost.onAttachFragment(paramFragment);
-        }
-        if (!mRetaining) {
-          paramFragment.performCreate(mSavedFragmentState);
-        }
-        mRetaining = false;
-        i = j;
-        if (mFromLayout)
-        {
-          mView = paramFragment.performCreateView(paramFragment.getLayoutInflater(mSavedFragmentState), null, mSavedFragmentState);
-          if (mView == null) {
-            break label1023;
-          }
-          mInnerView = mView;
-          if (Build.VERSION.SDK_INT < 11) {
-            break label1009;
-          }
           ViewCompat.setSaveFromParentEnabled(mView, false);
           if (mHidden) {
             mView.setVisibility(8);
@@ -1378,7 +1380,9 @@ final class FragmentManagerImpl
           paramFragment.onViewCreated(mView, mSavedFragmentState);
           i = j;
         }
-      case 1: 
+      }
+      else
+      {
         k = i;
         if (i > 1)
         {
@@ -1388,7 +1392,7 @@ final class FragmentManagerImpl
           if (!mFromLayout)
           {
             if (mContainerId == 0) {
-              break label1616;
+              break label1667;
             }
             localObject2 = (ViewGroup)mContainer.onFindViewById(mContainerId);
             localObject1 = localObject2;
@@ -1401,16 +1405,14 @@ final class FragmentManagerImpl
             }
           }
         }
-        break;
       }
     }
-    label788:
-    label1009:
-    label1023:
-    label1114:
-    label1471:
-    label1610:
-    label1616:
+    label844:
+    label1074:
+    label1162:
+    label1514:
+    label1661:
+    label1667:
     for (Object localObject1 = localObject2;; localObject1 = null)
     {
       mContainer = ((ViewGroup)localObject1);
@@ -1461,19 +1463,18 @@ final class FragmentManagerImpl
         if (DEBUG) {
           Log.v("FragmentManager", "moveto RESUMED: " + paramFragment);
         }
-        mResumed = true;
         paramFragment.performResume();
         mSavedFragmentState = null;
         mSavedViewState = null;
         i = j;
         break;
         mView = NoSaveStateFrameLayout.wrap(mView);
-        break label540;
+        break label596;
         mInnerView = null;
         i = j;
-        break label572;
+        break label628;
         mView = NoSaveStateFrameLayout.wrap(mView);
-        break label788;
+        break label844;
         mInnerView = null;
       }
       i = paramInt1;
@@ -1503,7 +1504,7 @@ final class FragmentManagerImpl
             ((View)localObject1).clearAnimation();
           }
           if (mAnimatingAway == null) {
-            break label1471;
+            break label1514;
           }
           mStateAfterAnimating = paramInt1;
           i = 1;
@@ -1514,7 +1515,6 @@ final class FragmentManagerImpl
               Log.v("FragmentManager", "movefrom RESUMED: " + paramFragment);
             }
             paramFragment.performPause();
-            mResumed = false;
           }
           if (paramInt1 < 4)
           {
@@ -1540,7 +1540,7 @@ final class FragmentManagerImpl
         paramFragment.performDestroyView();
         if ((mView != null) && (mContainer != null)) {
           if ((mCurState <= 0) || (mDestroyed)) {
-            break label1610;
+            break label1661;
           }
         }
         for (localObject1 = loadAnimation(paramFragment, paramInt2, false, paramInt3);; localObject1 = null)
@@ -1567,17 +1567,22 @@ final class FragmentManagerImpl
           mContainer = null;
           mView = null;
           mInnerView = null;
-          break label1114;
+          break label1162;
           if (DEBUG) {
             Log.v("FragmentManager", "movefrom CREATED: " + paramFragment);
           }
           if (!mRetaining) {
             paramFragment.performDestroy();
           }
-          mCalled = false;
-          paramFragment.onDetach();
-          if (!mCalled) {
+          for (;;)
+          {
+            mCalled = false;
+            paramFragment.onDetach();
+            if (mCalled) {
+              break;
+            }
             throw new SuperNotCalledException("Fragment " + paramFragment + " did not call through to super.onDetach()");
+            mState = 0;
           }
           i = paramInt1;
           if (paramBoolean) {
@@ -1670,14 +1675,14 @@ final class FragmentManagerImpl
         addFragment(paramView, true);
         label347:
         if ((mCurState > 0) || (!mFromLayout)) {
-          break label540;
+          break label548;
         }
         moveToState(paramView, 1, 0, 0, false);
       }
       for (;;)
       {
         if (mView != null) {
-          break label548;
+          break label556;
         }
         throw new IllegalStateException("Fragment " + str1 + " did not create a view.");
         paramString = null;
@@ -1690,15 +1695,16 @@ final class FragmentManagerImpl
           throw new IllegalArgumentException(paramAttributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(k) + ", tag " + str2 + ", or parent id 0x" + Integer.toHexString(i) + " with another fragment for " + str1);
         }
         mInLayout = true;
+        mHost = mHost;
         if (!mRetaining) {
           paramString.onInflate(mHost.getContext(), paramAttributeSet, mSavedFragmentState);
         }
         paramView = paramString;
         break label347;
-        label540:
+        label548:
         moveToState(paramView);
       }
-      label548:
+      label556:
       if (k != 0) {
         mView.setId(k);
       }
@@ -2395,7 +2401,7 @@ final class FragmentManagerImpl
     //   128: ldc 44
     //   130: new 157	java/lang/StringBuilder
     //   133: dup
-    //   134: ldc_w 1295
+    //   134: ldc_w 1298
     //   137: invokespecial 160	java/lang/StringBuilder:<init>	(Ljava/lang/String;)V
     //   140: iload_3
     //   141: invokevirtual 396	java/lang/StringBuilder:append	(I)Ljava/lang/StringBuilder;

@@ -2,12 +2,14 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Build.VERSION;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.widget.LinearLayout;
-import bu;
-import bz;
+import gi;
+import gn;
 
 public class ButtonBarLayout
   extends LinearLayout
@@ -18,8 +20,8 @@ public class ButtonBarLayout
   public ButtonBarLayout(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, bz.ButtonBarLayout);
-    a = paramContext.getBoolean(bz.ButtonBarLayout_allowStacking, false);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, gn.ButtonBarLayout);
+    a = paramContext.getBoolean(gn.ButtonBarLayout_allowStacking, false);
     paramContext.recycle();
   }
   
@@ -36,7 +38,7 @@ public class ButtonBarLayout
       }
       i = 5;
       setGravity(i);
-      localView = findViewById(bu.spacer);
+      localView = findViewById(gi.spacer);
       if (localView != null) {
         if (!paramBoolean) {
           break label84;
@@ -68,42 +70,67 @@ public class ButtonBarLayout
   
   protected void onMeasure(int paramInt1, int paramInt2)
   {
-    int i = 0;
-    int j = View.MeasureSpec.getSize(paramInt1);
+    int m = 0;
+    int n = View.MeasureSpec.getSize(paramInt1);
     if (a)
     {
-      if ((j > b) && (a())) {
+      if ((n > b) && (a())) {
         a(false);
       }
-      b = j;
+      b = n;
     }
+    int j;
+    int i;
+    int k;
     if ((!a()) && (View.MeasureSpec.getMode(paramInt1) == 1073741824))
     {
-      j = View.MeasureSpec.makeMeasureSpec(j, Integer.MIN_VALUE);
+      j = View.MeasureSpec.makeMeasureSpec(n, Integer.MIN_VALUE);
       i = 1;
-    }
-    for (;;)
-    {
       super.onMeasure(j, paramInt2);
-      j = i;
+      k = i;
       if (a)
       {
-        j = i;
+        k = i;
         if (!a())
         {
-          j = i;
-          if ((getMeasuredWidthAndState() & 0xFF000000) == 16777216)
-          {
-            a(true);
+          if (Build.VERSION.SDK_INT < 11) {
+            break label160;
+          }
+          j = m;
+          if ((ViewCompat.getMeasuredWidthAndState(this) & 0xFF000000) == 16777216) {
             j = 1;
           }
         }
       }
-      if (j != 0) {
+    }
+    for (;;)
+    {
+      k = i;
+      if (j != 0)
+      {
+        a(true);
+        k = 1;
+      }
+      if (k != 0) {
         super.onMeasure(paramInt1, paramInt2);
       }
       return;
       j = paramInt1;
+      i = 0;
+      break;
+      label160:
+      int i1 = getChildCount();
+      j = 0;
+      k = 0;
+      while (j < i1)
+      {
+        k += getChildAt(j).getMeasuredWidth();
+        j += 1;
+      }
+      j = m;
+      if (getPaddingLeft() + k + getPaddingRight() > n) {
+        j = 1;
+      }
     }
   }
 }

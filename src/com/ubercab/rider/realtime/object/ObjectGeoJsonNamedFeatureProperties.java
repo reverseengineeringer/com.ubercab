@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jtn;
+import myv;
 
 @Shape
 abstract class ObjectGeoJsonNamedFeatureProperties
-  implements jtn
+  implements myv
 {}
 
 /* Location:

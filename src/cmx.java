@@ -1,7 +1,6 @@
-public abstract interface cmx
-  extends clv
+public abstract interface cmx<T>
 {
-  public abstract long c();
+  public abstract T a();
 }
 
 /* Location:

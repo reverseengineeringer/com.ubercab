@@ -1,9 +1,9 @@
 package com.ubercab.payment.model;
 
 import android.os.Parcelable;
-import brv;
-import brx;
-import bry;
+import bor;
+import bot;
+import bou;
 import com.ubercab.shape.Shape;
 
 @Shape
@@ -29,11 +29,11 @@ public abstract class PaymentUserInfo
   {
     try
     {
-      Object localObject = brx.a();
-      localObject = ((brx)localObject).a(((brx)localObject).a(getMobile(), getMobileCountryIso2()), bry.b);
+      Object localObject = bot.a();
+      localObject = ((bot)localObject).a(((bot)localObject).a(getMobile(), getMobileCountryIso2()), bou.b);
       return (String)localObject;
     }
-    catch (brv localbrv) {}
+    catch (bor localbor) {}
     return null;
   }
   
@@ -41,11 +41,11 @@ public abstract class PaymentUserInfo
   {
     try
     {
-      Object localObject = brx.a();
-      localObject = ((brx)localObject).a(((brx)localObject).a(getMobile(), getMobileCountryIso2()), bry.a);
+      Object localObject = bot.a();
+      localObject = ((bot)localObject).a(((bot)localObject).a(getMobile(), getMobileCountryIso2()), bou.a);
       return (String)localObject;
     }
-    catch (brv localbrv) {}
+    catch (bor localbor) {}
     return null;
   }
   

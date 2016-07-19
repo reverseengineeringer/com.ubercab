@@ -8,49 +8,49 @@ import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.util.ArrayMap;
-import bpc;
-import ckc;
+import blw;
+import ckt;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.android.partner.funnel.realtime.models.steps.documents.DocumentUploadResult;
 import com.ubercab.core.app.CoreService;
-import cuz;
-import cvb;
-import cwf;
-import d;
-import dfb;
-import dfc;
-import dfe;
-import dfg;
-import dfi;
-import iav;
-import ife;
+import cuu;
+import cuw;
+import cvy;
+import dhg;
+import dhh;
+import dhj;
+import dhl;
+import dhn;
+import f;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
-import jwc;
-import kld;
-import kls;
-import kmk;
-import kml;
-import kmp;
-import kuc;
-import kul;
+import kdf;
+import kia;
+import nct;
+import odr;
+import oeh;
+import oez;
+import ofa;
+import off;
+import oot;
+import opc;
 
 public class DocumentsUploadService
   extends CoreService
-  implements cuz<dfg>
+  implements cuu<dhl>
 {
-  public ckc a;
-  public dfi b;
-  public jwc c;
-  public ife d;
-  public bpc e;
+  public ckt a;
+  public dhn b;
+  public nct c;
+  public kia d;
+  public blw e;
   File f;
-  private kuc g = new kuc();
-  private cuz<dfg> h;
-  private dfg i;
+  private oot g = new oot();
+  private cuu<dhl> h;
+  private dhl i;
   private int j;
   private boolean k;
   
@@ -76,9 +76,9 @@ public class DocumentsUploadService
     return "documents_upload_service.partner_uuid" + String.valueOf(paramInt) + paramString;
   }
   
-  private void a(dfg paramdfg)
+  private void a(dhl paramdhl)
   {
-    paramdfg.a(this);
+    paramdhl.a(this);
   }
   
   /* Error */
@@ -97,9 +97,9 @@ public class DocumentsUploadService
     //   13: invokestatic 128	android/renderscript/RenderScript:create	(Landroid/content/Context;)Landroid/renderscript/RenderScript;
     //   16: astore 11
     //   18: aload_0
-    //   19: getfield 130	com/ubercab/android/partner/funnel/onboarding/documents/DocumentsUploadService:d	Life;
-    //   22: getstatic 135	cvb:i	Lcvb;
-    //   25: getstatic 140	cvd:b	Lcvd;
+    //   19: getfield 130	com/ubercab/android/partner/funnel/onboarding/documents/DocumentsUploadService:d	Lkia;
+    //   22: getstatic 135	cuw:g	Lcuw;
+    //   25: getstatic 140	cuy:b	Lcuy;
     //   28: invokeinterface 145 3 0
     //   33: istore 5
     //   35: iload 5
@@ -173,7 +173,7 @@ public class DocumentsUploadService
     //   140: aload 11
     //   142: aload 6
     //   144: aload 9
-    //   146: invokestatic 173	jbd:a	(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;[F)Landroid/graphics/Bitmap;
+    //   146: invokestatic 173	lxk:a	(Landroid/renderscript/RenderScript;Landroid/graphics/Bitmap;[F)Landroid/graphics/Bitmap;
     //   149: astore 9
     //   151: aload 9
     //   153: astore_1
@@ -190,7 +190,7 @@ public class DocumentsUploadService
     //   174: aload 9
     //   176: astore 8
     //   178: aload 9
-    //   180: invokestatic 181	jbd:a	(Landroid/graphics/Bitmap;)I
+    //   180: invokestatic 181	lxk:a	(Landroid/graphics/Bitmap;)I
     //   183: istore 4
     //   185: aload 9
     //   187: astore_1
@@ -267,17 +267,17 @@ public class DocumentsUploadService
     //   329: aload 9
     //   331: astore 8
     //   333: aload_0
-    //   334: getfield 208	com/ubercab/android/partner/funnel/onboarding/documents/DocumentsUploadService:a	Lckc;
+    //   334: getfield 208	com/ubercab/android/partner/funnel/onboarding/documents/DocumentsUploadService:a	Lckt;
     //   337: ldc -46
     //   339: invokestatic 215	com/ubercab/analytics/model/AnalyticsEvent:create	(Ljava/lang/String;)Lcom/ubercab/analytics/model/AnalyticsEvent;
-    //   342: getstatic 219	d:b	Ld;
-    //   345: invokevirtual 223	com/ubercab/analytics/model/AnalyticsEvent:setName	(Lckp;)Lcom/ubercab/analytics/model/AnalyticsEvent;
+    //   342: getstatic 219	f:c	Lf;
+    //   345: invokevirtual 223	com/ubercab/analytics/model/AnalyticsEvent:setName	(Lclg;)Lcom/ubercab/analytics/model/AnalyticsEvent;
     //   348: aload_0
-    //   349: getfield 225	com/ubercab/android/partner/funnel/onboarding/documents/DocumentsUploadService:e	Lbpc;
+    //   349: getfield 225	com/ubercab/android/partner/funnel/onboarding/documents/DocumentsUploadService:e	Lblw;
     //   352: aload 10
-    //   354: invokevirtual 230	bpc:a	(Ljava/lang/Object;)Ljava/lang/String;
+    //   354: invokevirtual 230	blw:b	(Ljava/lang/Object;)Ljava/lang/String;
     //   357: invokevirtual 233	com/ubercab/analytics/model/AnalyticsEvent:setValue	(Ljava/lang/String;)Lcom/ubercab/analytics/model/AnalyticsEvent;
-    //   360: invokevirtual 238	ckc:a	(Lcom/ubercab/analytics/model/AnalyticsEvent;)V
+    //   360: invokevirtual 238	ckt:a	(Lcom/ubercab/analytics/model/AnalyticsEvent;)V
     //   363: aload 11
     //   365: invokevirtual 241	android/renderscript/RenderScript:destroy	()V
     //   368: aload 6
@@ -351,7 +351,7 @@ public class DocumentsUploadService
     //   483: ldc -5
     //   485: iconst_0
     //   486: anewarray 253	java/lang/Object
-    //   489: invokestatic 258	kul:c	(Ljava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V
+    //   489: invokestatic 258	opc:d	(Ljava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V
     //   492: aload 11
     //   494: invokevirtual 241	android/renderscript/RenderScript:destroy	()V
     //   497: aload 6
@@ -476,8 +476,8 @@ public class DocumentsUploadService
     {
       try
       {
-        localObject4 = iav.b(new FileInputStream(f));
-        kul.c(localIOException1, "Unable to retrieve document.", new Object[0]);
+        localObject4 = kdf.b(new FileInputStream(f));
+        opc.d(localIOException1, "Unable to retrieve document.", new Object[0]);
       }
       catch (IOException localIOException1)
       {
@@ -522,38 +522,38 @@ public class DocumentsUploadService
           if (Build.VERSION.SDK_INT >= 17)
           {
             localObject4 = localObject5;
-            if (!d.a(cvb.i)) {
-              localObject4 = ((kld)localObject5).b(new kml()
+            if (!d.b(cuw.g)) {
+              localObject4 = ((odr)localObject5).b(new ofa()
               {
                 private void a(DocumentUploadResult paramAnonymousDocumentUploadResult)
                 {
-                  DocumentsUploadService.a(DocumentsUploadService.this, localObject2, paramAnonymousDocumentUploadResult.getId(), localObject1);
+                  DocumentsUploadService.a(DocumentsUploadService.this, localObject2, paramAnonymousDocumentUploadResult.getUuid(), localObject1);
                 }
-              }).g(new kmp() {});
+              }).g(new off() {});
             }
           }
-          g.a(((kld)localObject4).b(new kmk()
+          g.a(((odr)localObject4).b(new oez()
           {
             public final void a()
             {
               AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression");
-              localAnalyticsEvent.setName(d.D);
+              localAnalyticsEvent.setName(f.G);
               localAnalyticsEvent.setValue(Integer.valueOf(DocumentsUploadService.c(DocumentsUploadService.this)));
               a.a(localAnalyticsEvent);
             }
-          }).a(kls.a()).a(new kml()new kml
+          }).a(oeh.a()).a(new ofa()new ofa
           {
             private void a()
             {
-              if (DocumentsUploadService.b(DocumentsUploadService.this).b()) {
+              if (DocumentsUploadService.b(DocumentsUploadService.this).d()) {
                 a(true);
               }
             }
-          }, new kml()
+          }, new ofa()
           {
             private void a()
             {
-              if (DocumentsUploadService.b(DocumentsUploadService.this).b()) {
+              if (DocumentsUploadService.b(DocumentsUploadService.this).d()) {
                 a(false);
               }
             }
@@ -586,9 +586,9 @@ public class DocumentsUploadService
     }
   }
   
-  private static dfg d()
+  private static dhl d()
   {
-    return dfb.a().a(cwf.a()).a();
+    return dhg.a().a(cvy.a()).a();
   }
   
   final void a(boolean paramBoolean)
@@ -598,9 +598,9 @@ public class DocumentsUploadService
     c.a(f.getName());
     AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression");
     if (paramBoolean) {}
-    for (d locald = d.F;; locald = d.E)
+    for (f localf = f.I;; localf = f.H)
     {
-      localAnalyticsEvent.setName(locald);
+      localAnalyticsEvent.setName(localf);
       localAnalyticsEvent.setValue(Integer.valueOf(j));
       a.a(localAnalyticsEvent);
       c();
@@ -610,13 +610,13 @@ public class DocumentsUploadService
   
   public IBinder onBind(Intent paramIntent)
   {
-    return new dfe(this);
+    return new dhj(this);
   }
   
   public void onCreate()
   {
     if (h == null) {}
-    for (i = d();; i = ((dfg)h.a()))
+    for (i = d();; i = ((dhl)h.a()))
     {
       i.a(this);
       return;
@@ -626,7 +626,7 @@ public class DocumentsUploadService
   public void onDestroy()
   {
     super.onDestroy();
-    g.a();
+    g.c();
   }
   
   public int onStartCommand(final Intent paramIntent, int paramInt1, int paramInt2)
@@ -669,7 +669,7 @@ public class DocumentsUploadService
           super.onPostExecute(paramAnonymousBoolean);
           if (!paramAnonymousBoolean.booleanValue())
           {
-            kul.e("Unable to move file to pending uploads folder.", new Object[0]);
+            opc.e("Unable to move file to pending uploads folder.", new Object[0]);
             return;
           }
           DocumentsUploadService.a(DocumentsUploadService.this);

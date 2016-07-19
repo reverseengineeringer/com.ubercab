@@ -1,30 +1,42 @@
-import android.os.Bundle;
-import android.os.IInterface;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 
-public abstract interface bco
-  extends IInterface
+public final class bco
 {
-  public abstract bcf a();
+  private final String b;
+  private final long c;
+  private boolean d;
+  private long e;
   
-  public abstract void a(Bundle paramBundle);
+  public bco(bcm parambcm, String paramString, long paramLong)
+  {
+    abe.a(paramString);
+    b = paramString;
+    c = paramLong;
+  }
   
-  public abstract void a(bfd parambfd);
+  private void b()
+  {
+    if (d) {
+      return;
+    }
+    d = true;
+    e = bcm.a(a).getLong(b, c);
+  }
   
-  public abstract void b();
+  public final long a()
+  {
+    b();
+    return e;
+  }
   
-  public abstract void b(Bundle paramBundle);
-  
-  public abstract void c();
-  
-  public abstract void c(Bundle paramBundle);
-  
-  public abstract void d();
-  
-  public abstract void e();
-  
-  public abstract add f();
-  
-  public abstract void g();
+  public final void a(long paramLong)
+  {
+    SharedPreferences.Editor localEditor = bcm.a(a).edit();
+    localEditor.putLong(b, paramLong);
+    localEditor.apply();
+    e = paramLong;
+  }
 }
 
 /* Location:

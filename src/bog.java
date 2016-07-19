@@ -1,59 +1,61 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.Cart;
-import com.google.android.gms.wallet.LineItem;
-import java.util.ArrayList;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
 
-public final class bog
-  implements Parcelable.Creator<Cart>
+final class bog<T>
+  extends bmq<T>
 {
-  private static Cart a(Parcel paramParcel)
+  private final blw a;
+  private final bmq<T> b;
+  private final Type c;
+  
+  bog(blw paramblw, bmq<T> parambmq, Type paramType)
   {
-    String str2 = null;
-    int j = zm.b(paramParcel);
-    ArrayList localArrayList = new ArrayList();
-    int i = 0;
-    String str1 = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+    a = paramblw;
+    b = parambmq;
+    c = paramType;
+  }
+  
+  private static Type a(Type paramType, Object paramObject)
+  {
+    Object localObject = paramType;
+    if (paramObject != null) {
+      if ((paramType != Object.class) && (!(paramType instanceof TypeVariable)))
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str1 = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        str2 = zm.n(paramParcel, k);
-        break;
-      case 4: 
-        localArrayList = zm.c(paramParcel, k, LineItem.CREATOR);
+        localObject = paramType;
+        if (!(paramType instanceof Class)) {}
+      }
+      else
+      {
+        localObject = paramObject.getClass();
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    return (Type)localObject;
+  }
+  
+  public final T read(JsonReader paramJsonReader)
+  {
+    return (T)b.read(paramJsonReader);
+  }
+  
+  public final void write(JsonWriter paramJsonWriter, T paramT)
+  {
+    Object localObject1 = b;
+    Object localObject2 = a(c, paramT);
+    if (localObject2 != c)
+    {
+      localObject2 = a.a(boj.get((Type)localObject2));
+      localObject1 = localObject2;
+      if ((localObject2 instanceof boc))
+      {
+        localObject1 = localObject2;
+        if (!(b instanceof boc)) {
+          localObject1 = b;
+        }
+      }
     }
-    return new Cart(i, str1, str2, localArrayList);
-  }
-  
-  public static void a(Cart paramCart, Parcel paramParcel)
-  {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramCart.b());
-    zo.a(paramParcel, 2, a, false);
-    zo.a(paramParcel, 3, b, false);
-    zo.b(paramParcel, 4, c, false);
-    zo.a(paramParcel, i);
-  }
-  
-  private static Cart[] a(int paramInt)
-  {
-    return new Cart[paramInt];
+    ((bmq)localObject1).write(paramJsonWriter, paramT);
   }
 }
 

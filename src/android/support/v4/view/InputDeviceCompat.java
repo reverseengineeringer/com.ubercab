@@ -1,6 +1,6 @@
 package android.support.v4.view;
 
-public class InputDeviceCompat
+public final class InputDeviceCompat
 {
   public static final int SOURCE_ANY = -256;
   public static final int SOURCE_CLASS_BUTTON = 1;

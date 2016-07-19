@@ -1,4 +1,8 @@
-public final class ccz {}
+import android.os.Parcelable.Creator;
+
+public final class ccz
+  implements Parcelable.Creator
+{}
 
 /* Location:
  * Qualified Name:     ccz

@@ -1,128 +1,81 @@
-import android.content.Context;
-import android.os.Handler;
-import android.webkit.WebView;
-import com.google.android.gms.ads.internal.client.AdSizeParcel;
-import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
-import org.json.JSONObject;
+import android.support.v4.util.ArrayMap;
+import java.util.AbstractSet;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Set;
 
-@apl
-public final class akw
-  implements aks
+public final class akw<E>
+  extends AbstractSet<E>
 {
-  private final asq a;
+  private final ArrayMap<E, E> a;
   
-  public akw(Context paramContext, VersionInfoParcel paramVersionInfoParcel, aff paramaff)
+  public akw()
   {
-    tp.f();
-    a = asw.a(paramContext, new AdSizeParcel(), paramaff, paramVersionInfoParcel);
-    a.a().setWillNotDraw(true);
+    a = new ArrayMap();
   }
   
-  private static void a(Runnable paramRunnable)
+  public akw(int paramInt)
   {
-    np.a();
-    if (sp.b())
-    {
-      paramRunnable.run();
-      return;
+    a = new ArrayMap(paramInt);
+  }
+  
+  public akw(Collection<E> paramCollection)
+  {
+    this(paramCollection.size());
+    addAll(paramCollection);
+  }
+  
+  private boolean a(akw<? extends E> paramakw)
+  {
+    int i = size();
+    a.putAll(a);
+    return size() > i;
+  }
+  
+  public final boolean add(E paramE)
+  {
+    if (a.containsKey(paramE)) {
+      return false;
     }
-    aqz.a.post(paramRunnable);
+    a.put(paramE, paramE);
+    return true;
   }
   
-  public final void a()
+  public final boolean addAll(Collection<? extends E> paramCollection)
   {
-    a.destroy();
+    if ((paramCollection instanceof akw)) {
+      return a((akw)paramCollection);
+    }
+    return super.addAll(paramCollection);
   }
   
-  public final void a(final akt paramakt)
+  public final void clear()
   {
-    a.l().a(new ass()
-    {
-      public final void a(asq paramAnonymousasq, boolean paramAnonymousBoolean)
-      {
-        paramakt.a();
-      }
-    });
+    a.clear();
   }
   
-  public final void a(String paramString)
+  public final boolean contains(Object paramObject)
   {
-    a(new Runnable()
-    {
-      public final void run()
-      {
-        akw.a(akw.this).loadData(a, "text/html", "UTF-8");
-      }
-    });
+    return a.containsKey(paramObject);
   }
   
-  public final void a(String paramString, aji paramaji)
+  public final Iterator<E> iterator()
   {
-    a.l().a(paramString, paramaji);
+    return a.keySet().iterator();
   }
   
-  public final void a(final String paramString1, final String paramString2)
+  public final boolean remove(Object paramObject)
   {
-    a(new Runnable()
-    {
-      public final void run()
-      {
-        akw.a(akw.this).a(paramString1, paramString2);
-      }
-    });
+    if (!a.containsKey(paramObject)) {
+      return false;
+    }
+    a.remove(paramObject);
+    return true;
   }
   
-  public final void a(final String paramString, final JSONObject paramJSONObject)
+  public final int size()
   {
-    a(new Runnable()
-    {
-      public final void run()
-      {
-        akw.a(akw.this).a(paramString, paramJSONObject);
-      }
-    });
-  }
-  
-  public final void a(ms paramms, pt parampt, aje paramaje, qc paramqc)
-  {
-    a.l().a(paramms, parampt, paramaje, paramqc, false, null, null, new sw((byte)0), null);
-  }
-  
-  public final ale b()
-  {
-    return new alf(this);
-  }
-  
-  public final void b(final String paramString)
-  {
-    a(new Runnable()
-    {
-      public final void run()
-      {
-        akw.a(akw.this).loadUrl(paramString);
-      }
-    });
-  }
-  
-  public final void b(String paramString, aji paramaji)
-  {
-    a.l().b(paramString, paramaji);
-  }
-  
-  public final void b(String paramString, JSONObject paramJSONObject)
-  {
-    a.b(paramString, paramJSONObject);
-  }
-  
-  public final void c(final String paramString)
-  {
-    a(new Runnable()
-    {
-      public final void run()
-      {
-        akw.a(akw.this).loadData(paramString, "text/html", "UTF-8");
-      }
-    });
+    return a.size();
   }
 }
 

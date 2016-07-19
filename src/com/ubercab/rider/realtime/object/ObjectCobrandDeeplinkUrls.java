@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsr;
+import mxx;
 
 @Shape
 abstract class ObjectCobrandDeeplinkUrls
-  implements jsr
+  implements mxx
 {}
 
 /* Location:

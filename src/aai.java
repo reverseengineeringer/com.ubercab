@@ -1,70 +1,56 @@
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
-import com.google.android.gms.common.ConnectionResult;
-import java.util.concurrent.atomic.AtomicInteger;
+import android.content.ComponentName;
+import android.content.Intent;
 
 final class aai
-  extends Handler
 {
-  public aai(aag paramaag, Looper paramLooper)
+  private final String a;
+  private final ComponentName b;
+  
+  public aai(ComponentName paramComponentName)
   {
-    super(paramLooper);
+    a = null;
+    b = ((ComponentName)abe.a(paramComponentName));
   }
   
-  private static void a(Message paramMessage)
+  public aai(String paramString)
   {
-    ((aaj)obj).c();
+    a = abe.a(paramString);
+    b = null;
   }
   
-  private static boolean b(Message paramMessage)
+  public final Intent a()
   {
-    return (what == 2) || (what == 1) || (what == 5);
+    if (a != null) {
+      return new Intent(a).setPackage("com.google.android.gms");
+    }
+    return new Intent().setComponent(b);
   }
   
-  public final void handleMessage(Message paramMessage)
+  public final boolean equals(Object paramObject)
   {
-    if (a.c.get() != arg1)
+    if (this == paramObject) {}
+    do
     {
-      if (b(paramMessage)) {
-        a(paramMessage);
+      return true;
+      if (!(paramObject instanceof aai)) {
+        return false;
       }
-      return;
+      paramObject = (aai)paramObject;
+    } while ((abc.a(a, a)) && (abc.a(b, b)));
+    return false;
+  }
+  
+  public final int hashCode()
+  {
+    return abc.a(new Object[] { a, b });
+  }
+  
+  public final String toString()
+  {
+    if (a == null) {
+      return b.flattenToString();
     }
-    if (((what == 1) || (what == 5)) && (!a.j()))
-    {
-      a(paramMessage);
-      return;
-    }
-    if (what == 3)
-    {
-      paramMessage = new ConnectionResult(arg2, null);
-      aag.b(a).a(paramMessage);
-      a.a(paramMessage);
-      return;
-    }
-    if (what == 4)
-    {
-      aag.a(a, 4);
-      if (aag.c(a) != null) {
-        aag.c(a).a(arg2);
-      }
-      a.a(arg2);
-      aag.a(a, 4, 1, null);
-      return;
-    }
-    if ((what == 2) && (!a.e()))
-    {
-      a(paramMessage);
-      return;
-    }
-    if (b(paramMessage))
-    {
-      ((aaj)obj).b();
-      return;
-    }
-    Log.wtf("GmsClient", "Don't know how to handle message: " + what, new Exception());
+    return a;
   }
 }
 

@@ -2,9 +2,9 @@ package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import java.util.List;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface Profile
 {
   public static final String BILLING_MODE_CENTRALIZED = "Centralized";
@@ -13,6 +13,7 @@ public abstract interface Profile
   public static final String EXPENSE_PROVIDER_CHROME_RIVER = "CHROME_RIVER";
   public static final String EXPENSE_PROVIDER_CONCUR = "CONCUR";
   public static final String EXPENSE_PROVIDER_EXPENSIFY = "EXPENSIFY";
+  public static final String EXPENSE_PROVIDER_NOT_INTERESTED = "NOT_INTERESTED";
   public static final String SUMMARY_PERIOD_MONTHLY = "Monthly";
   public static final String SUMMARY_PERIOD_WEEKLY = "Weekly";
   public static final String TROY_PROFILE_TYPE_BUSINESS = "Business";

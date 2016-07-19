@@ -1,73 +1,53 @@
-import java.util.Iterator;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.location.places.personalized.PlaceAliasResult;
 
-@apl
-public class asj<T>
-  implements asf<T>
+public abstract class asj
+  extends Binder
+  implements asi
 {
-  protected int a = 0;
-  protected final BlockingQueue<asj<T>.ask> b = new LinkedBlockingQueue();
-  protected T c;
-  private final Object d = new Object();
-  
-  public final void a(asi<T> paramasi, asg paramasg)
+  public static asi a(IBinder paramIBinder)
   {
-    for (;;)
-    {
-      synchronized (d)
-      {
-        if (a == 1)
-        {
-          paramasi.a(c);
-          return;
-        }
-        if (a == -1) {
-          paramasg.a();
-        }
-      }
-      if (a == 0) {
-        b.add(new ask(this, paramasi, paramasg));
-      }
+    if (paramIBinder == null) {
+      return null;
     }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.location.places.personalized.IPlaceAliasCallbacks");
+    if ((localIInterface != null) && ((localIInterface instanceof asi))) {
+      return (asi)localIInterface;
+    }
+    return new ask(paramIBinder);
   }
   
-  public final void a(T paramT)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    synchronized (d)
+    Object localObject2 = null;
+    Object localObject1 = null;
+    switch (paramInt1)
     {
-      if (a != 0) {
-        throw new UnsupportedOperationException();
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.location.places.personalized.IPlaceAliasCallbacks");
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.location.places.personalized.IPlaceAliasCallbacks");
+      paramParcel2 = (Parcel)localObject1;
+      if (paramParcel1.readInt() != 0) {
+        paramParcel2 = (PlaceAliasResult)PlaceAliasResult.CREATOR.createFromParcel(paramParcel1);
       }
+      a(paramParcel2);
+      return true;
     }
-    c = paramT;
-    a = 1;
-    Iterator localIterator = b.iterator();
-    while (localIterator.hasNext()) {
-      nexta.a(paramT);
+    paramParcel1.enforceInterface("com.google.android.gms.location.places.personalized.IPlaceAliasCallbacks");
+    paramParcel2 = (Parcel)localObject2;
+    if (paramParcel1.readInt() != 0) {
+      paramParcel2 = (PlaceAliasResult)PlaceAliasResult.CREATOR.createFromParcel(paramParcel1);
     }
-    b.clear();
-  }
-  
-  public final void d()
-  {
-    synchronized (d)
-    {
-      if (a != 0) {
-        throw new UnsupportedOperationException();
-      }
-    }
-    a = -1;
-    Iterator localIterator = b.iterator();
-    while (localIterator.hasNext()) {
-      nextb.a();
-    }
-    b.clear();
-  }
-  
-  public final int e()
-  {
-    return a;
+    b(paramParcel2);
+    return true;
   }
 }
 

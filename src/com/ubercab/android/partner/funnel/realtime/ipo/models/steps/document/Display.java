@@ -14,43 +14,31 @@ public abstract class Display
   
   public abstract String getActionText();
   
-  public abstract String getCameraInstructions();
-  
-  public abstract String getDescription();
+  public abstract String getCameraInstruction();
   
   public abstract String getImageUrl();
   
+  public abstract String getMainDescription();
+  
   public abstract String getMainTitle();
   
-  public abstract String getPreviewInstructions();
-  
-  public abstract String getRejectionSubtitlesHeader();
-  
-  public abstract String getRejectionTitle();
+  public abstract String getPreviewInstruction();
   
   public abstract String getStepTitle();
   
-  public abstract String getSubtitlesHeader();
-  
   public abstract Display setActionText(String paramString);
   
-  abstract Display setCameraInstructions(String paramString);
-  
-  public abstract Display setDescription(String paramString);
+  abstract Display setCameraInstruction(String paramString);
   
   public abstract Display setImageUrl(String paramString);
   
+  public abstract Display setMainDescription(String paramString);
+  
   public abstract Display setMainTitle(String paramString);
   
-  abstract Display setPreviewInstructions(String paramString);
-  
-  public abstract Display setRejectionSubtitlesHeader(String paramString);
-  
-  public abstract Display setRejectionTitle(String paramString);
+  abstract Display setPreviewInstruction(String paramString);
   
   public abstract Display setStepTitle(String paramString);
-  
-  public abstract Display setSubtitlesHeader(String paramString);
 }
 
 /* Location:

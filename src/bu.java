@@ -1,98 +1,270 @@
-public final class bu
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Path.FillType;
+import android.graphics.RadialGradient;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Shader.TileMode;
+import android.graphics.drawable.Drawable;
+
+final class bu
+  extends gt
 {
-  public static final int action0 = 2131624072;
-  public static final int action_bar = 2131624056;
-  public static final int action_bar_activity_content = 2131623936;
-  public static final int action_bar_container = 2131624055;
-  public static final int action_bar_root = 2131624051;
-  public static final int action_bar_spinner = 2131623937;
-  public static final int action_bar_subtitle = 2131624025;
-  public static final int action_bar_title = 2131624024;
-  public static final int action_context_bar = 2131624057;
-  public static final int action_divider = 2131624076;
-  public static final int action_menu_divider = 2131623938;
-  public static final int action_menu_presenter = 2131623939;
-  public static final int action_mode_bar = 2131624053;
-  public static final int action_mode_bar_stub = 2131624052;
-  public static final int action_mode_close_button = 2131624026;
-  public static final int activity_chooser_view_content = 2131624027;
-  public static final int alertTitle = 2131624039;
-  public static final int always = 2131623982;
-  public static final int beginning = 2131623974;
-  public static final int buttonPanel = 2131624034;
-  public static final int cancel_action = 2131624073;
-  public static final int checkbox = 2131624048;
-  public static final int chronometer = 2131624079;
-  public static final int collapseActionView = 2131623983;
-  public static final int contentPanel = 2131624040;
-  public static final int custom = 2131624046;
-  public static final int customPanel = 2131624045;
-  public static final int decor_content_parent = 2131624054;
-  public static final int default_activity_button = 2131624030;
-  public static final int disableHome = 2131623953;
-  public static final int edit_query = 2131624058;
-  public static final int end = 2131623975;
-  public static final int end_padder = 2131624084;
-  public static final int expand_activities_button = 2131624028;
-  public static final int expanded_menu = 2131624047;
-  public static final int home = 2131623941;
-  public static final int homeAsUp = 2131623954;
-  public static final int icon = 2131624032;
-  public static final int ifRoom = 2131623984;
-  public static final int image = 2131624029;
-  public static final int info = 2131624083;
-  public static final int line1 = 2131624077;
-  public static final int line3 = 2131624081;
-  public static final int listMode = 2131623950;
-  public static final int list_item = 2131624031;
-  public static final int media_actions = 2131624075;
-  public static final int middle = 2131623976;
-  public static final int multiply = 2131623961;
-  public static final int never = 2131623985;
-  public static final int none = 2131623955;
-  public static final int normal = 2131623951;
-  public static final int parentPanel = 2131624036;
-  public static final int progress_circular = 2131623943;
-  public static final int progress_horizontal = 2131623944;
-  public static final int radio = 2131624050;
-  public static final int screen = 2131623962;
-  public static final int scrollIndicatorDown = 2131624044;
-  public static final int scrollIndicatorUp = 2131624041;
-  public static final int scrollView = 2131624042;
-  public static final int search_badge = 2131624060;
-  public static final int search_bar = 2131624059;
-  public static final int search_button = 2131624061;
-  public static final int search_close_btn = 2131624066;
-  public static final int search_edit_frame = 2131624062;
-  public static final int search_go_btn = 2131624068;
-  public static final int search_mag_icon = 2131624063;
-  public static final int search_plate = 2131624064;
-  public static final int search_src_text = 2131624065;
-  public static final int search_voice_btn = 2131624069;
-  public static final int select_dialog_listview = 2131624070;
-  public static final int shortcut = 2131624049;
-  public static final int showCustom = 2131623956;
-  public static final int showHome = 2131623957;
-  public static final int showTitle = 2131623958;
-  public static final int spacer = 2131624035;
-  public static final int split_action_bar = 2131623945;
-  public static final int src_atop = 2131623963;
-  public static final int src_in = 2131623964;
-  public static final int src_over = 2131623965;
-  public static final int status_bar_latest_event_content = 2131624074;
-  public static final int submit_area = 2131624067;
-  public static final int tabMode = 2131623952;
-  public static final int text = 2131624082;
-  public static final int text2 = 2131624080;
-  public static final int textSpacerNoButtons = 2131624043;
-  public static final int time = 2131624078;
-  public static final int title = 2131624033;
-  public static final int title_template = 2131624038;
-  public static final int topPanel = 2131624037;
-  public static final int up = 2131623949;
-  public static final int useLogo = 2131623959;
-  public static final int withText = 2131623986;
-  public static final int wrap_content = 2131623997;
+  static final double a = Math.cos(Math.toRadians(45.0D));
+  final Paint b;
+  final Paint c;
+  final RectF d;
+  float e;
+  Path f;
+  float g;
+  float h;
+  float i;
+  float j;
+  private boolean k;
+  private final int l;
+  private final int m;
+  private final int n;
+  private boolean o;
+  private float p;
+  private boolean q;
+  
+  private static float a(float paramFloat1, float paramFloat2, boolean paramBoolean)
+  {
+    if (paramBoolean) {
+      return (float)(1.5F * paramFloat1 + (1.0D - a) * paramFloat2);
+    }
+    return 1.5F * paramFloat1;
+  }
+  
+  private void a(float paramFloat1, float paramFloat2)
+  {
+    if ((paramFloat1 < 0.0F) || (paramFloat2 < 0.0F)) {
+      throw new IllegalArgumentException("invalid shadow size");
+    }
+    float f1 = c(paramFloat1);
+    paramFloat2 = c(paramFloat2);
+    paramFloat1 = f1;
+    if (f1 > paramFloat2)
+    {
+      if (!q) {
+        q = true;
+      }
+      paramFloat1 = paramFloat2;
+    }
+    if ((j == paramFloat1) && (h == paramFloat2)) {
+      return;
+    }
+    j = paramFloat1;
+    h = paramFloat2;
+    i = Math.round(paramFloat1 * 1.5F);
+    g = paramFloat2;
+    k = true;
+    invalidateSelf();
+  }
+  
+  private void a(Canvas paramCanvas)
+  {
+    int i3 = paramCanvas.save();
+    paramCanvas.rotate(p, d.centerX(), d.centerY());
+    float f1 = -e - i;
+    float f2 = e;
+    int i1;
+    if (d.width() - 2.0F * f2 > 0.0F)
+    {
+      i1 = 1;
+      if (d.height() - 2.0F * f2 <= 0.0F) {
+        break label579;
+      }
+    }
+    label579:
+    for (int i2 = 1;; i2 = 0)
+    {
+      float f6 = j;
+      float f7 = j;
+      float f3 = j;
+      float f8 = j;
+      float f4 = j;
+      float f5 = j;
+      f3 = f2 / (f3 - f8 * 0.5F + f2);
+      f6 = f2 / (f6 - f7 * 0.25F + f2);
+      f4 = f2 / (f2 + (f4 - f5 * 1.0F));
+      int i4 = paramCanvas.save();
+      paramCanvas.translate(d.left + f2, d.top + f2);
+      paramCanvas.scale(f3, f6);
+      paramCanvas.drawPath(f, b);
+      if (i1 != 0)
+      {
+        paramCanvas.scale(1.0F / f3, 1.0F);
+        paramCanvas.drawRect(0.0F, f1, d.width() - 2.0F * f2, -e, c);
+      }
+      paramCanvas.restoreToCount(i4);
+      i4 = paramCanvas.save();
+      paramCanvas.translate(d.right - f2, d.bottom - f2);
+      paramCanvas.scale(f3, f4);
+      paramCanvas.rotate(180.0F);
+      paramCanvas.drawPath(f, b);
+      if (i1 != 0)
+      {
+        paramCanvas.scale(1.0F / f3, 1.0F);
+        f5 = d.width();
+        f7 = -e;
+        paramCanvas.drawRect(0.0F, f1, f5 - 2.0F * f2, i + f7, c);
+      }
+      paramCanvas.restoreToCount(i4);
+      i1 = paramCanvas.save();
+      paramCanvas.translate(d.left + f2, d.bottom - f2);
+      paramCanvas.scale(f3, f4);
+      paramCanvas.rotate(270.0F);
+      paramCanvas.drawPath(f, b);
+      if (i2 != 0)
+      {
+        paramCanvas.scale(1.0F / f4, 1.0F);
+        paramCanvas.drawRect(0.0F, f1, d.height() - 2.0F * f2, -e, c);
+      }
+      paramCanvas.restoreToCount(i1);
+      i1 = paramCanvas.save();
+      paramCanvas.translate(d.right - f2, d.top + f2);
+      paramCanvas.scale(f3, f6);
+      paramCanvas.rotate(90.0F);
+      paramCanvas.drawPath(f, b);
+      if (i2 != 0)
+      {
+        paramCanvas.scale(1.0F / f6, 1.0F);
+        paramCanvas.drawRect(0.0F, f1, d.height() - 2.0F * f2, -e, c);
+      }
+      paramCanvas.restoreToCount(i1);
+      paramCanvas.restoreToCount(i3);
+      return;
+      i1 = 0;
+      break;
+    }
+  }
+  
+  private void a(Rect paramRect)
+  {
+    float f1 = h * 1.5F;
+    d.set(left + h, top + f1, right - h, bottom - f1);
+    b().setBounds((int)d.left, (int)d.top, (int)d.right, (int)d.bottom);
+    c();
+  }
+  
+  private static float b(float paramFloat1, float paramFloat2, boolean paramBoolean)
+  {
+    float f1 = paramFloat1;
+    if (paramBoolean) {
+      f1 = (float)(paramFloat1 + (1.0D - a) * paramFloat2);
+    }
+    return f1;
+  }
+  
+  private static int c(float paramFloat)
+  {
+    int i2 = Math.round(paramFloat);
+    int i1 = i2;
+    if (i2 % 2 == 1) {
+      i1 = i2 - 1;
+    }
+    return i1;
+  }
+  
+  private void c()
+  {
+    Object localObject = new RectF(-e, -e, e, e);
+    RectF localRectF = new RectF((RectF)localObject);
+    localRectF.inset(-i, -i);
+    if (f == null) {
+      f = new Path();
+    }
+    for (;;)
+    {
+      f.setFillType(Path.FillType.EVEN_ODD);
+      f.moveTo(-e, 0.0F);
+      f.rLineTo(-i, 0.0F);
+      f.arcTo(localRectF, 180.0F, 90.0F, false);
+      f.arcTo((RectF)localObject, 270.0F, -90.0F, false);
+      f.close();
+      float f1 = -top;
+      if (f1 > 0.0F)
+      {
+        f2 = e / f1;
+        float f3 = (1.0F - f2) / 2.0F;
+        localPaint = b;
+        i1 = l;
+        i2 = m;
+        i3 = n;
+        Shader.TileMode localTileMode = Shader.TileMode.CLAMP;
+        localPaint.setShader(new RadialGradient(0.0F, 0.0F, f1, new int[] { 0, i1, i2, i3 }, new float[] { 0.0F, f2, f2 + f3, 1.0F }, localTileMode));
+      }
+      Paint localPaint = c;
+      f1 = top;
+      float f2 = top;
+      int i1 = l;
+      int i2 = m;
+      int i3 = n;
+      localObject = Shader.TileMode.CLAMP;
+      localPaint.setShader(new LinearGradient(0.0F, f1, 0.0F, f2, new int[] { i1, i2, i3 }, new float[] { 0.0F, 0.5F, 1.0F }, (Shader.TileMode)localObject));
+      c.setAntiAlias(false);
+      return;
+      f.reset();
+    }
+  }
+  
+  public final float a()
+  {
+    return j;
+  }
+  
+  final void a(float paramFloat)
+  {
+    if (p != paramFloat)
+    {
+      p = paramFloat;
+      invalidateSelf();
+    }
+  }
+  
+  public final void b(float paramFloat)
+  {
+    a(paramFloat, h);
+  }
+  
+  public final void draw(Canvas paramCanvas)
+  {
+    if (k)
+    {
+      a(getBounds());
+      k = false;
+    }
+    a(paramCanvas);
+    super.draw(paramCanvas);
+  }
+  
+  public final int getOpacity()
+  {
+    return -3;
+  }
+  
+  public final boolean getPadding(Rect paramRect)
+  {
+    int i1 = (int)Math.ceil(a(h, e, o));
+    int i2 = (int)Math.ceil(b(h, e, o));
+    paramRect.set(i2, i1, i2, i1);
+    return true;
+  }
+  
+  protected final void onBoundsChange(Rect paramRect)
+  {
+    k = true;
+  }
+  
+  public final void setAlpha(int paramInt)
+  {
+    super.setAlpha(paramInt);
+    b.setAlpha(paramInt);
+    c.setAlpha(paramInt);
+  }
 }
 
 /* Location:

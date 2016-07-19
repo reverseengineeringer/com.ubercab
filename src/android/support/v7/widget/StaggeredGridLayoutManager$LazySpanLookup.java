@@ -1,9 +1,9 @@
 package android.support.v7.widget;
 
-import il;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import nc;
 
 public final class StaggeredGridLayoutManager$LazySpanLookup
 {
@@ -186,7 +186,7 @@ public final class StaggeredGridLayoutManager$LazySpanLookup
     c(paramInt1, paramInt2);
   }
   
-  final void a(int paramInt, il paramil)
+  final void a(int paramInt, nc paramnc)
   {
     f(paramInt);
     a[paramInt] = d;

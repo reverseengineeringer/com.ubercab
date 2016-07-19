@@ -14,46 +14,45 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnTextChanged;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.location.RiderLocation;
 import com.ubercab.client.core.model.LocationSearchResult;
 import com.ubercab.client.core.model.Note;
-import dsh;
-import dud;
-import ebj;
-import efr;
-import epz;
-import eqk;
-import hsg;
-import hsh;
-import hsk;
-import hsl;
-import p;
-import r;
+import dxm;
+import dzs;
+import eib;
+import enk;
+import eya;
+import eyn;
+import jom;
+import jon;
+import jor;
+import jos;
+import x;
+import z;
 
 public class PickupNoteComposeFragment
-  extends dsh<hsl>
+  extends dxm<jos>
 {
-  public ckc c;
+  public ckt c;
   int d;
   int e;
   private RiderLocation f;
   private Note g;
-  private hsk h;
+  private jor h;
   private boolean i;
   private boolean j;
-  @InjectView(2131625180)
-  TextView mCharacterLeftTextView;
-  @InjectView(2131625179)
-  EditText mPickupNoteEditText;
-  @InjectView(2131625181)
-  TextView mPickupNoteLocationTextView;
+  @BindView
+  public TextView mCharacterLeftTextView;
+  @BindView
+  public EditText mPickupNoteEditText;
+  @BindView
+  public TextView mPickupNoteLocationTextView;
   
   public static PickupNoteComposeFragment a(Note paramNote, RiderLocation paramRiderLocation)
   {
@@ -71,29 +70,29 @@ public class PickupNoteComposeFragment
     paramRiderLocation = f.getDisplayAddressWithNickname();
     String str = f.getTag();
     if (LocationSearchResult.isTagHome(str)) {
-      paramRiderLocation = getString(2131165954);
+      paramRiderLocation = getString(2131166062);
     }
     for (;;)
     {
-      mPickupNoteLocationTextView.setText(eqk.a(paramRiderLocation));
+      mPickupNoteLocationTextView.setText(eyn.a(paramRiderLocation));
       return;
       if (LocationSearchResult.isTagWork(str)) {
-        paramRiderLocation = getString(2131167240);
+        paramRiderLocation = getString(2131167625);
       }
     }
   }
   
-  private void a(hsl paramhsl)
+  private void a(jos paramjos)
   {
-    paramhsl.a(this);
+    paramjos.a(this);
   }
   
-  private hsl b(ebj paramebj)
+  private jos b(eib parameib)
   {
-    return hsg.a().a(new efr(this)).a(paramebj).a();
+    return jom.a().a(new enk(this)).a(parameib).a();
   }
   
-  private void b()
+  private void f()
   {
     if (h != null) {
       if (TextUtils.isEmpty(g.getText())) {
@@ -110,19 +109,19 @@ public class PickupNoteComposeFragment
   
   private void g()
   {
-    epz.a(d(), p.iA, 6001, null, getString(2131166223), getString(2131165710), getString(2131166003));
-    c.a(p.iz);
+    eya.a(b(), x.lI, 6001, null, getString(2131166384), getString(2131165770), getString(2131166113));
+    c.a(x.lH);
   }
   
-  final void a(hsk paramhsk)
+  final void a(jor paramjor)
   {
-    h = paramhsk;
+    h = paramjor;
   }
   
   final boolean a()
   {
-    c.a(r.fo);
-    if ((getFragmentManager().findFragmentByTag(epz.class.getName()) == null) && (i))
+    c.a(z.hO);
+    if ((getFragmentManager().findFragmentByTag(eya.class.getName()) == null) && (i))
     {
       g();
       return true;
@@ -134,28 +133,28 @@ public class PickupNoteComposeFragment
   {
     if ((paramInt1 == 6001) && (paramInt2 == 0))
     {
-      b();
-      c.a(r.fq);
+      f();
+      c.a(z.hQ);
       return true;
     }
-    c.a(r.fp);
+    c.a(z.hP);
     return false;
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return dsh.a;
+    return dxm.a;
   }
   
-  @OnTextChanged({2131625179})
-  void handlePickupNoteTextChanged(CharSequence paramCharSequence, int paramInt1, int paramInt2, int paramInt3)
+  @OnTextChanged
+  public void handlePickupNoteTextChanged(CharSequence paramCharSequence, int paramInt1, int paramInt2, int paramInt3)
   {
     paramInt1 = Math.max(d - paramCharSequence.length(), 0);
     mCharacterLeftTextView.setText(String.valueOf(paramInt1));
     TextView localTextView = mCharacterLeftTextView;
     Resources localResources = getResources();
     if (paramInt1 > e) {}
-    for (paramInt1 = 2131558568;; paramInt1 = 2131558542)
+    for (paramInt1 = 2131558672;; paramInt1 = 2131558639)
     {
       localTextView.setTextColor(localResources.getColor(paramInt1));
       g.setText(paramCharSequence.toString());
@@ -168,9 +167,9 @@ public class PickupNoteComposeFragment
   {
     super.onCreate(paramBundle);
     setHasOptionsMenu(true);
-    getActivity().setTitle(2131166222);
-    d = getResources().getInteger(2131427343);
-    e = getResources().getInteger(2131427344);
+    getActivity().setTitle(2131166383);
+    d = getResources().getInteger(2131427345);
+    e = getResources().getInteger(2131427346);
     Bundle localBundle = paramBundle;
     if (paramBundle == null) {
       localBundle = getArguments();
@@ -189,13 +188,13 @@ public class PickupNoteComposeFragment
   
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
-    paramMenuInflater.inflate(2131755030, paramMenu);
+    paramMenuInflater.inflate(2131755033, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903484, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903662, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
   }
   
@@ -208,7 +207,6 @@ public class PickupNoteComposeFragment
   public void onDestroyView()
   {
     mPickupNoteEditText.setOnKeyListener(null);
-    ButterKnife.reset(this);
     super.onDestroyView();
   }
   
@@ -219,15 +217,15 @@ public class PickupNoteComposeFragment
     default: 
       return super.onOptionsItemSelected(paramMenuItem);
     }
-    b();
-    c.a(AnalyticsEvent.create("tap").setName(r.fr).setValue("button"));
+    f();
+    c.a(AnalyticsEvent.create("tap").setName(z.hR).setValue("button"));
     return true;
   }
   
-  @cho
-  public void onPinLocationEvent(dud paramdud)
+  @chu
+  public void onPinLocationEvent(dzs paramdzs)
   {
-    a(paramdud.a());
+    a(paramdzs.a());
   }
   
   public void onSaveInstanceState(Bundle paramBundle)

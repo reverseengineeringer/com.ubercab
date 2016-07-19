@@ -105,20 +105,10 @@ public class SwipeRefreshLayout
         if ((mNotify) && (mListener != null)) {
           mListener.onRefresh();
         }
-      }
-      for (;;)
-      {
-        SwipeRefreshLayout.access$802(SwipeRefreshLayout.this, mCircleView.getTop());
+        SwipeRefreshLayout.access$402(SwipeRefreshLayout.this, mCircleView.getTop());
         return;
-        mProgress.stop();
-        mCircleView.setVisibility(8);
-        SwipeRefreshLayout.this.setColorViewAlpha(255);
-        if (mScale) {
-          SwipeRefreshLayout.this.setAnimationProgress(0.0F);
-        } else {
-          SwipeRefreshLayout.this.setTargetOffsetTopAndBottom(mOriginalOffsetTop - mCurrentTargetOffsetTop, true);
-        }
       }
+      SwipeRefreshLayout.this.reset();
     }
     
     public void onAnimationRepeat(Animation paramAnonymousAnimation) {}
@@ -303,26 +293,26 @@ public class SwipeRefreshLayout
         ViewCompat.setScaleX(mCircleView, 1.0F);
         ViewCompat.setScaleY(mCircleView, 1.0F);
       }
-      if (paramFloat >= mTotalDragDistance) {
-        break label311;
-      }
       if (mScale) {
-        setAnimationProgress(paramFloat / mTotalDragDistance);
+        setAnimationProgress(Math.min(1.0F, paramFloat / mTotalDragDistance));
+      }
+      if (paramFloat >= mTotalDragDistance) {
+        break label315;
       }
       if ((mProgress.getAlpha() > 76) && (!isAnimationRunning(mAlphaStartAnimation))) {
         startProgressAlphaStartAnimation();
       }
-      mProgress.setStartEndTrim(0.0F, Math.min(0.8F, f3 * 0.8F));
-      mProgress.setArrowScale(Math.min(1.0F, f3));
     }
     for (;;)
     {
+      mProgress.setStartEndTrim(0.0F, Math.min(0.8F, f3 * 0.8F));
+      mProgress.setArrowScale(Math.min(1.0F, f3));
       mProgress.setProgressRotation((-0.25F + f3 * 0.4F + f4 * 2.0F) * 0.5F);
       setTargetOffsetTopAndBottom(j + i - mCurrentTargetOffsetTop, true);
       return;
       f1 = mSpinnerFinalOffset;
       break;
-      label311:
+      label315:
       if ((mProgress.getAlpha() < 255) && (!isAnimationRunning(mAlphaMaxAnimation))) {
         startProgressAlphaMaxAnimation();
       }
@@ -347,6 +337,23 @@ public class SwipeRefreshLayout
     {
       mActivePointerId = MotionEventCompat.getPointerId(paramMotionEvent, i);
       return;
+    }
+  }
+  
+  private void reset()
+  {
+    mCircleView.clearAnimation();
+    mProgress.stop();
+    mCircleView.setVisibility(8);
+    setColorViewAlpha(255);
+    if (mScale) {
+      setAnimationProgress(0.0F);
+    }
+    for (;;)
+    {
+      mCurrentTargetOffsetTop = mCircleView.getTop();
+      return;
+      setTargetOffsetTopAndBottom(mOriginalOffsetTop - mCurrentTargetOffsetTop, true);
     }
   }
   
@@ -561,6 +568,12 @@ public class SwipeRefreshLayout
     return mRefreshing;
   }
   
+  protected void onDetachedFromWindow()
+  {
+    super.onDetachedFromWindow();
+    reset();
+  }
+  
   public boolean onInterceptTouchEvent(MotionEvent paramMotionEvent)
   {
     ensureTarget();
@@ -707,7 +720,7 @@ public class SwipeRefreshLayout
   {
     dispatchNestedScroll(paramInt1, paramInt2, paramInt3, paramInt4, mParentOffsetInWindow);
     paramInt1 = mParentOffsetInWindow[1] + paramInt4;
-    if (paramInt1 < 0)
+    if ((paramInt1 < 0) && (!canChildScrollUp()))
     {
       float f = mTotalUnconsumed;
       mTotalUnconsumed = (Math.abs(paramInt1) + f);

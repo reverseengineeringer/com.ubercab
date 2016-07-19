@@ -1,145 +1,76 @@
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
-import android.view.ViewGroup.LayoutParams;
-import android.view.ViewParent;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import com.google.android.gms.ads.internal.client.AdSizeParcel;
-import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
-import java.util.Map;
-import org.json.JSONObject;
+import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.location.places.AddPlaceRequest;
+import com.google.android.gms.maps.model.LatLng;
+import java.util.ArrayList;
 
-@apl
-public abstract interface asq
-  extends afw, ald
+public final class asq
+  implements Parcelable.Creator<AddPlaceRequest>
 {
-  public abstract View.OnClickListener A();
+  private static AddPlaceRequest a(Parcel paramParcel)
+  {
+    Uri localUri = null;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    String str1 = null;
+    ArrayList localArrayList = null;
+    String str2 = null;
+    LatLng localLatLng = null;
+    String str3 = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        str3 = zd.n(paramParcel, k);
+        break;
+      case 1000: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        localLatLng = (LatLng)zd.a(paramParcel, k, LatLng.CREATOR);
+        break;
+      case 3: 
+        str2 = zd.n(paramParcel, k);
+        break;
+      case 4: 
+        localArrayList = zd.A(paramParcel, k);
+        break;
+      case 5: 
+        str1 = zd.n(paramParcel, k);
+        break;
+      case 6: 
+        localUri = (Uri)zd.a(paramParcel, k, Uri.CREATOR);
+      }
+    }
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new AddPlaceRequest(i, str3, localLatLng, str2, localArrayList, str1, localUri);
+  }
   
-  public abstract WebView a();
+  public static void a(AddPlaceRequest paramAddPlaceRequest, Parcel paramParcel, int paramInt)
+  {
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramAddPlaceRequest.a(), false);
+    zf.a(paramParcel, 1000, a);
+    zf.a(paramParcel, 2, paramAddPlaceRequest.b(), paramInt, false);
+    zf.a(paramParcel, 3, paramAddPlaceRequest.c(), false);
+    zf.a(paramParcel, 4, paramAddPlaceRequest.d());
+    zf.a(paramParcel, 5, paramAddPlaceRequest.e(), false);
+    zf.a(paramParcel, 6, paramAddPlaceRequest.f(), paramInt, false);
+    zf.a(paramParcel, i);
+  }
   
-  public abstract void a(int paramInt);
-  
-  public abstract void a(Context paramContext);
-  
-  public abstract void a(Context paramContext, AdSizeParcel paramAdSizeParcel, ahi paramahi);
-  
-  public abstract void a(AdSizeParcel paramAdSizeParcel);
-  
-  public abstract void a(String paramString);
-  
-  public abstract void a(String paramString1, String paramString2);
-  
-  public abstract void a(String paramString, Map<String, ?> paramMap);
-  
-  public abstract void a(String paramString, JSONObject paramJSONObject);
-  
-  public abstract void a(pm parampm);
-  
-  public abstract void a(boolean paramBoolean);
-  
-  public abstract View b();
-  
-  public abstract void b(int paramInt);
-  
-  public abstract void b(String paramString);
-  
-  public abstract void b(pm parampm);
-  
-  public abstract void b(boolean paramBoolean);
-  
-  public abstract void c();
-  
-  public abstract void c(boolean paramBoolean);
-  
-  public abstract void clearCache(boolean paramBoolean);
-  
-  public abstract void d();
-  
-  public abstract void destroy();
-  
-  public abstract void e();
-  
-  public abstract Activity f();
-  
-  public abstract Context g();
-  
-  public abstract Context getContext();
-  
-  public abstract ViewGroup.LayoutParams getLayoutParams();
-  
-  public abstract void getLocationOnScreen(int[] paramArrayOfInt);
-  
-  public abstract int getMeasuredHeight();
-  
-  public abstract int getMeasuredWidth();
-  
-  public abstract ViewParent getParent();
-  
-  public abstract sv h();
-  
-  public abstract pm i();
-  
-  public abstract pm j();
-  
-  public abstract AdSizeParcel k();
-  
-  public abstract asr l();
-  
-  public abstract void loadData(String paramString1, String paramString2, String paramString3);
-  
-  public abstract void loadDataWithBaseURL(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5);
-  
-  public abstract void loadUrl(String paramString);
-  
-  public abstract boolean m();
-  
-  public abstract void measure(int paramInt1, int paramInt2);
-  
-  public abstract aff n();
-  
-  public abstract VersionInfoParcel o();
-  
-  public abstract void onPause();
-  
-  public abstract void onResume();
-  
-  public abstract boolean p();
-  
-  public abstract int q();
-  
-  public abstract boolean r();
-  
-  public abstract void s();
-  
-  public abstract void setBackgroundColor(int paramInt);
-  
-  public abstract void setOnClickListener(View.OnClickListener paramOnClickListener);
-  
-  public abstract void setOnTouchListener(View.OnTouchListener paramOnTouchListener);
-  
-  public abstract void setWebChromeClient(WebChromeClient paramWebChromeClient);
-  
-  public abstract void setWebViewClient(WebViewClient paramWebViewClient);
-  
-  public abstract void stopLoading();
-  
-  public abstract boolean t();
-  
-  public abstract String u();
-  
-  public abstract asp v();
-  
-  public abstract ahf w();
-  
-  public abstract ahh x();
-  
-  public abstract void y();
-  
-  public abstract void z();
+  private static AddPlaceRequest[] a(int paramInt)
+  {
+    return new AddPlaceRequest[paramInt];
+  }
 }
 
 /* Location:

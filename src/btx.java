@@ -1,16 +1,17 @@
-import java.security.cert.X509Certificate;
-import javax.net.ssl.X509TrustManager;
+import android.os.Build.VERSION;
+import java.util.HashMap;
 
-public final class btx
-  implements X509TrustManager
+final class btx
+  extends HashMap
 {
-  public final void checkClientTrusted(X509Certificate[] paramArrayOfX509Certificate, String paramString) {}
-  
-  public final void checkServerTrusted(X509Certificate[] paramArrayOfX509Certificate, String paramString) {}
-  
-  public final X509Certificate[] getAcceptedIssuers()
+  btx()
   {
-    return null;
+    put(Integer.valueOf(2), "ANDROIDCDMA_PHONE");
+    put(Integer.valueOf(1), "ANDROIDGSM_PHONE");
+    if (Build.VERSION.SDK_INT >= 11) {
+      put(Integer.valueOf(3), "ANDROIDGSM_UNDEFINED");
+    }
+    put(Integer.valueOf(0), "ANDROIDGSM_UNDEFINED");
   }
 }
 

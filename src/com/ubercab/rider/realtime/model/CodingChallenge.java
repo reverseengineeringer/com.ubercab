@@ -2,9 +2,9 @@ package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import java.util.UUID;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface CodingChallenge
 {
   public abstract UUID getChallengeId();

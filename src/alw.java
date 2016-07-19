@@ -1,63 +1,82 @@
+import android.os.Binder;
 import android.os.IBinder;
+import android.os.IInterface;
 import android.os.Parcel;
 
-final class alw
-  implements alu
+public abstract class alw
+  extends Binder
+  implements alv
 {
-  private IBinder a;
-  
-  alw(IBinder paramIBinder)
+  public alw()
   {
-    a = paramIBinder;
+    attachInterface(this, "com.google.android.gms.flags.IFlagProvider");
   }
   
-  public final alx a(String paramString)
+  public static alv asInterface(IBinder paramIBinder)
   {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IAdapterCreator");
-      localParcel1.writeString(paramString);
-      a.transact(1, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      paramString = aly.a(localParcel2.readStrongBinder());
-      return paramString;
+    if (paramIBinder == null) {
+      return null;
     }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.flags.IFlagProvider");
+    if ((localIInterface != null) && ((localIInterface instanceof alv))) {
+      return (alv)localIInterface;
     }
+    return new alx(paramIBinder);
   }
   
-  public final IBinder asBinder()
+  public IBinder asBinder()
   {
-    return a;
+    return this;
   }
   
-  public final boolean b(String paramString)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    boolean bool = false;
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
+    int i = 0;
+    switch (paramInt1)
     {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IAdapterCreator");
-      localParcel1.writeString(paramString);
-      a.transact(2, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      int i = localParcel2.readInt();
-      if (i != 0) {
-        bool = true;
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.flags.IFlagProvider");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.flags.IFlagProvider");
+      init(acq.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.flags.IFlagProvider");
+      String str = paramParcel1.readString();
+      if (paramParcel1.readInt() != 0) {}
+      for (boolean bool = true;; bool = false)
+      {
+        bool = getBooleanFlagValue(str, bool, paramParcel1.readInt());
+        paramParcel2.writeNoException();
+        paramInt1 = i;
+        if (bool) {
+          paramInt1 = 1;
+        }
+        paramParcel2.writeInt(paramInt1);
+        return true;
       }
-      return bool;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.flags.IFlagProvider");
+      paramInt1 = getIntFlagValue(paramParcel1.readString(), paramParcel1.readInt(), paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.flags.IFlagProvider");
+      long l = getLongFlagValue(paramParcel1.readString(), paramParcel1.readLong(), paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      paramParcel2.writeLong(l);
+      return true;
     }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
+    paramParcel1.enforceInterface("com.google.android.gms.flags.IFlagProvider");
+    paramParcel1 = getStringFlagValue(paramParcel1.readString(), paramParcel1.readString(), paramParcel1.readInt());
+    paramParcel2.writeNoException();
+    paramParcel2.writeString(paramParcel1);
+    return true;
   }
 }
 

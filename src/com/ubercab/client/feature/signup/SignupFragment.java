@@ -2,6 +2,7 @@ package com.ubercab.client.feature.signup;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,67 +21,57 @@ import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
-import com.ubercab.client.core.model.Ping;
+import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.client.core.vendor.alipay.AlipayAuthorizationActivity;
 import com.ubercab.client.core.vendor.alipay.model.AlipayAuthResult;
 import com.ubercab.client.core.vendor.facebook.FacebookAuthorizationActivity;
 import com.ubercab.client.feature.signin.SignInWithAlipayActivity;
 import com.ubercab.locale.name.NameInput;
 import com.ubercab.locale.phone.PhoneNumberView;
+import com.ubercab.rider.realtime.request.param.DeviceData;
 import com.ubercab.ui.AutoCompleteFloatingLabelEditText;
 import com.ubercab.ui.FloatingLabelEditText;
 import com.ubercab.ui.FloatingLabelElement;
-import dpf;
-import dps;
-import dpy;
-import dsh;
-import dux;
-import dvk;
-import dwd;
-import efr;
-import ehl;
-import ehq;
-import ejq;
-import ejy;
-import ekb;
-import eld;
-import eqg;
-import erc;
-import ere;
-import erj;
-import gwq;
-import gxc;
-import gxd;
-import gxw;
-import gxx;
-import gxy;
-import gye;
-import gyl;
-import gym;
-import gyn;
-import gyo;
-import gyt;
-import gzn;
-import gzp;
-import gzq;
-import gzu;
-import iab;
-import iak;
-import ife;
-import ifj;
+import dua;
+import duq;
+import duw;
+import dxm;
+import eaj;
+import ebe;
+import ebw;
+import enk;
+import eqc;
+import err;
+import evg;
+import evh;
+import eyh;
+import ezh;
+import ezm;
+import ezn;
+import ihy;
 import iik;
-import iin;
-import ijb;
-import ijd;
+import iil;
+import ije;
+import ijf;
+import ijg;
+import ijn;
+import ijx;
+import ijz;
+import ika;
+import ikb;
+import ikg;
+import ilh;
+import ilj;
+import ilk;
+import ilo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -90,143 +81,155 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import jse;
-import ju;
-import jzz;
-import kad;
-import kae;
-import kah;
-import kaq;
-import kld;
-import klo;
-import kls;
-import o;
-import p;
-import r;
-import vy;
+import kcl;
+import kcu;
+import khv;
+import kia;
+import kmj;
+import kmm;
+import kna;
+import knc;
+import mml;
+import mxk;
+import ngq;
+import ngu;
+import ngv;
+import ngy;
+import nhh;
+import odr;
+import oed;
+import oeh;
+import ol;
+import vo;
+import w;
+import x;
+import z;
 
 public class SignupFragment
-  extends dsh<gyn>
-  implements LoaderManager.LoaderCallbacks<gxw>, gyl
+  extends dxm<ikb>
+  implements LoaderManager.LoaderCallbacks<ije>, ijx
 {
-  private static final ijb<jzz> n = new ijb(new jzz(2131166315));
-  public ckc c;
-  public ju d;
-  public chh e;
-  public ife f;
-  public eld g;
-  public dwd h;
-  @Deprecated
-  public ehl i;
-  public ehq j;
-  public gyt k;
-  public dpy l;
-  public jse m;
-  @InjectView(2131625592)
-  com.ubercab.ui.Button mButtonLegal;
-  @InjectView(2131625575)
-  android.widget.Button mButtonNext;
-  @InjectView(2131625604)
-  AutoCompleteFloatingLabelEditText mEditTextEmail;
-  @InjectView(2131625606)
-  AutoCompleteFloatingLabelEditText mEditTextEmailOptional;
-  @InjectView(2131625605)
-  FloatingLabelEditText mEditTextPassword;
-  @InjectView(2131625602)
-  FrameLayout mFrameLayout;
-  @InjectView(2131625603)
-  NameInput mNameView;
-  @InjectView(2131625574)
-  PhoneNumberView mPhoneNumberView;
-  @InjectView(2131625607)
-  ProgressBar mProgressBarLoading;
-  @InjectView(2131625570)
-  ScrollView mScrollViewContent;
-  @InjectView(2131625587)
+  private static final kna<ngq> r = new kna(new ngq(2131166495));
+  public ckt c;
+  public ol d;
+  public chn e;
+  public khv f;
+  public odr<DeviceData> g;
+  public mml<DeviceData> h;
+  public kia i;
+  public RiderApplication j;
+  public ebw k;
+  public evg l;
+  public eqc m;
+  @BindView
+  public com.ubercab.ui.Button mButtonLegal;
+  @BindView
+  public android.widget.Button mButtonNext;
+  @BindView
+  public AutoCompleteFloatingLabelEditText mEditTextEmail;
+  @BindView
+  public AutoCompleteFloatingLabelEditText mEditTextEmailOptional;
+  @BindView
+  public FloatingLabelEditText mEditTextPassword;
+  @BindView
+  public FrameLayout mFrameLayout;
+  @BindView
+  public NameInput mNameView;
+  @BindView
+  public PhoneNumberView mPhoneNumberView;
+  @BindView
+  public ProgressBar mProgressBarLoading;
+  @BindView
+  public ScrollView mScrollViewContent;
+  @BindView
   public ImageButton mSignupButtonAlipay;
-  @InjectView(2131625613)
-  ImageButton mSignupButtonBaidu;
-  @InjectView(2131625611)
+  @BindView
+  public ImageButton mSignupButtonBaidu;
+  @BindView
   public ImageButton mSignupButtonFacebook;
-  @InjectView(2131625610)
+  @BindView
   public ImageButton mSignupButtonGooglePlus;
-  @InjectView(2131625608)
+  @BindView
   public ViewGroup mViewGroupThirdPartySignIn;
-  @InjectView(2131625612)
+  @BindView
   public ViewGroup mViewGroupThirdPartySignInChina;
-  @InjectView(2131625609)
+  @BindView
   public ViewGroup mViewGroupThirdPartySignInGeneral;
-  @InjectView(2131625614)
-  ViewGroup mViewGroupTos;
-  private final ifj o = new gyo(this, (byte)0);
-  private final Queue<Object> p = new LinkedList();
-  private klo q;
-  private boolean r;
-  private PhoneNumber s;
-  private erj t;
-  private SignupData u;
+  @BindView
+  public ViewGroup mViewGroupTos;
+  public ikg n;
+  public duw o;
+  public mxk p;
+  public evh q;
+  private final Queue<Object> s = new LinkedList();
+  private oed t;
+  private boolean u;
+  private ezn v;
+  private SignupData w;
+  private oed x;
+  private PhoneNumber y;
   
-  private SignupData a(ejy paramejy)
+  private SignupData a(err paramerr)
   {
-    if ((f.a(dux.aK, true)) && (!isAdded())) {
-      return u;
+    if (!isAdded()) {
+      return w;
     }
     SignupData.PromoCode localPromoCode = null;
-    if (paramejy != null) {
-      localPromoCode = SignupData.PromoCode.a(paramejy.b());
+    if (paramerr != null) {
+      localPromoCode = SignupData.PromoCode.a(paramerr.b());
     }
-    if (!f.b(dux.bc)) {
-      return u.b(mPhoneNumberView.g()).c(mPhoneNumberView.d()).a(localPromoCode).e(mNameView.c()).f(mNameView.d()).a(mEditTextEmail.i().toString()).d(mEditTextPassword.i().toString());
+    if (!i.c(eaj.bu)) {
+      return w.b(mPhoneNumberView.g()).c(mPhoneNumberView.d()).a(localPromoCode).e(mNameView.c()).f(mNameView.d()).a(mEditTextEmail.i().toString()).d(mEditTextPassword.i().toString());
     }
-    return u.b(mPhoneNumberView.g()).c(mPhoneNumberView.d()).a(localPromoCode).e(mNameView.c()).f(mNameView.d()).a(mEditTextEmailOptional.i().toString()).d(mEditTextPassword.i().toString());
+    return w.b(mPhoneNumberView.g()).c(mPhoneNumberView.d()).a(localPromoCode).e(mNameView.c()).f(mNameView.d()).a(mEditTextEmailOptional.i().toString()).d(mEditTextPassword.i().toString());
   }
   
-  private void a(gxw paramgxw)
+  private void a(ije paramije)
   {
-    Object localObject = paramgxw.a();
+    Object localObject = paramije.a();
     if (localObject != null)
     {
-      if (((gxx)localObject).c()) {
-        c.a(o.e);
+      if (((ijf)localObject).c()) {
+        c.a(w.e);
       }
-      if (((gxx)localObject).d()) {
-        c.a(o.f);
+      if (((ijf)localObject).d()) {
+        c.a(w.f);
       }
       if (mNameView.c().isEmpty())
       {
-        mNameView.a(((gxx)localObject).a());
-        mNameView.b(((gxx)localObject).b());
+        mNameView.a(((ijf)localObject).a());
+        mNameView.b(((ijf)localObject).b());
       }
-      if (paramgxw.f()) {
-        c.a(o.d);
+      if (paramije.g()) {
+        c.a(w.d);
       }
     }
-    localObject = new ArrayAdapter(getActivity(), 17367050, new ArrayList(paramgxw.e()));
-    if (!f.b(dux.bc))
+    localObject = new ArrayAdapter(getActivity(), 17367050, new ArrayList(paramije.e()));
+    if (!i.c(eaj.bu))
     {
       mEditTextEmail.a((ListAdapter)localObject);
       if (TextUtils.isEmpty(mEditTextEmail.i())) {
-        mEditTextEmail.d(paramgxw.b());
+        mEditTextEmail.d(paramije.b());
       }
-      if (paramgxw.g()) {
-        c.a(o.g);
+      if (paramije.h()) {
+        c.a(w.g);
       }
       if (TextUtils.isEmpty(mPhoneNumberView.g()))
       {
-        s = paramgxw.c();
-        if (s == null) {
-          break label353;
+        y = paramije.c();
+        if (y == null) {
+          break label352;
         }
-        mPhoneNumberView.a(s.a(), s.b());
+        mPhoneNumberView.a(y.a(), y.b());
       }
     }
     for (;;)
     {
-      if (f.b(dux.aq))
+      if (i.c(eaj.ao))
       {
-        paramgxw = f.a(dux.aq, "include_identifiers");
-        if (!TextUtils.isEmpty(paramgxw)) {
-          a(paramgxw, mEditTextEmail, mEditTextPassword, (FloatingLabelElement)mNameView.findViewById(2131626114), (FloatingLabelElement)mNameView.findViewById(2131626115), (FloatingLabelElement)mPhoneNumberView.findViewById(2131624580));
+        paramije = i.a(eaj.ao, "include_identifiers");
+        if (!TextUtils.isEmpty(paramije)) {
+          a(paramije, mEditTextEmail, mEditTextPassword, (FloatingLabelElement)mNameView.findViewById(2131626863), (FloatingLabelElement)mNameView.findViewById(2131626864), (FloatingLabelElement)mPhoneNumberView.findViewById(2131624872));
         }
       }
       mProgressBarLoading.setVisibility(8);
@@ -234,17 +237,17 @@ public class SignupFragment
       return;
       mEditTextEmailOptional.a((ListAdapter)localObject);
       break;
-      label353:
-      paramgxw = l.f();
-      if (!TextUtils.isEmpty(paramgxw)) {
-        mPhoneNumberView.a(null, paramgxw);
+      label352:
+      paramije = o.f();
+      if (!TextUtils.isEmpty(paramije)) {
+        mPhoneNumberView.a(null, paramije);
       }
     }
   }
   
-  private void a(gyn paramgyn)
+  private void a(ikb paramikb)
   {
-    paramgyn.a(this);
+    paramikb.a(this);
   }
   
   private void a(String paramString)
@@ -256,26 +259,38 @@ public class SignupFragment
   
   private void a(String paramString, FloatingLabelElement paramFloatingLabelElement1, FloatingLabelElement paramFloatingLabelElement2, FloatingLabelElement paramFloatingLabelElement3, FloatingLabelElement paramFloatingLabelElement4, FloatingLabelElement paramFloatingLabelElement5)
   {
-    k.a();
+    n.a();
     paramString = new HashSet(Arrays.asList(paramString.split(",")));
     if (paramString.contains("email")) {
-      k.a(paramFloatingLabelElement1);
+      n.a(paramFloatingLabelElement1);
     }
     if (paramString.contains("password")) {
-      k.a(paramFloatingLabelElement2);
+      n.a(paramFloatingLabelElement2);
     }
     if (paramString.contains("first_name")) {
-      k.a(paramFloatingLabelElement3);
+      n.a(paramFloatingLabelElement3);
     }
     if (paramString.contains("last_name")) {
-      k.a(paramFloatingLabelElement4);
+      n.a(paramFloatingLabelElement4);
     }
     if (paramString.contains("phone")) {
-      k.a(paramFloatingLabelElement5);
+      n.a(paramFloatingLabelElement5);
     }
   }
   
-  public static SignupFragment b()
+  private void a(Map<String, String> paramMap)
+  {
+    if ((paramMap.containsKey("username")) && (!paramMap.containsKey("email"))) {
+      paramMap.put("email", paramMap.get("username"));
+    }
+    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression").setName(x.qb);
+    localAnalyticsEvent.setValue(kcl.a(",").a(paramMap.keySet()));
+    c.a(localAnalyticsEvent);
+    v.a(paramMap);
+    v.a();
+  }
+  
+  public static SignupFragment f()
   {
     return new SignupFragment();
   }
@@ -283,22 +298,22 @@ public class SignupFragment
   private void g()
   {
     if (!isAdded()) {}
-    while ((mPhoneNumberView == null) || (s == null) || (s.a() == null)) {
+    while ((mPhoneNumberView == null) || (y == null) || (y.a() == null)) {
       return;
     }
-    if (erc.c(s.a(), s.b()).startsWith(erc.c(mPhoneNumberView.g(), mPhoneNumberView.d())))
+    if (ezh.c(y.a(), y.b()).startsWith(ezh.c(mPhoneNumberView.g(), mPhoneNumberView.d())))
     {
       mPhoneNumberView.a(null);
       return;
     }
-    c.a(p.mG);
-    mPhoneNumberView.a(getString(2131166489));
+    c.a(x.qJ);
+    mPhoneNumberView.a(getString(2131166741));
   }
   
   private void h()
   {
-    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap").setName(r.jq);
-    if (getString(2131166489).equals(mPhoneNumberView.f())) {
+    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap").setName(z.mF);
+    if (getString(2131166741).equals(mPhoneNumberView.f())) {
       localAnalyticsEvent.setValue("sign_up_phone_mismatch");
     }
     c.a(localAnalyticsEvent);
@@ -319,14 +334,14 @@ public class SignupFragment
   
   private boolean k()
   {
-    jzz localjzz = new jzz(2131166315);
-    if (!f.b(dux.bc)) {}
-    for (kaq localkaq = new kaq().a(mNameView, new iin(localjzz, localjzz)).a(mEditTextEmail, new kae(localjzz, new jzz(2131165983))).a(mPhoneNumberView, n);; localkaq = new kaq().a(mNameView, new iin(localjzz, localjzz)).a(mPhoneNumberView, n).a(mEditTextEmailOptional, new kad(new jzz(2131165983))))
+    ngq localngq = new ngq(2131166495);
+    if (!i.c(eaj.bu)) {}
+    for (nhh localnhh = new nhh().a(mNameView, new kmm(localngq, localngq)).a(mEditTextEmail, new ngv(localngq, new ngq(2131166093))).a(mPhoneNumberView, r);; localnhh = new nhh().a(mNameView, new kmm(localngq, localngq)).a(mPhoneNumberView, r).a(mEditTextEmailOptional, new ngu(new ngq(2131166093))))
     {
       if (!m()) {
-        localkaq.a(mEditTextPassword, new kah(localjzz));
+        localnhh.a(mEditTextPassword, new ngy(localngq));
       }
-      if (localkaq.a().isEmpty()) {
+      if (localnhh.a().isEmpty()) {
         break;
       }
       return false;
@@ -336,13 +351,13 @@ public class SignupFragment
   
   private void l()
   {
-    if (!f.b(dux.bc))
+    if (!i.c(eaj.bu))
     {
-      dps.b(getActivity(), mEditTextEmail);
+      duq.b(getActivity(), mEditTextEmail);
       mEditTextEmail.a(null);
       mPhoneNumberView.a(null);
       mEditTextPassword.a(null);
-      if (f.b(dux.bc)) {
+      if (i.c(eaj.bu)) {
         break label154;
       }
     }
@@ -352,10 +367,10 @@ public class SignupFragment
       String str2 = mPhoneNumberView.g();
       String str3 = mPhoneNumberView.d();
       String str4 = mEditTextPassword.i().toString();
-      b(getString(2131167227));
-      j.a(str1, str2, str3, str4);
+      a_(getString(2131167606));
+      m.a(str1, str2, str3, str4);
       return;
-      dps.b(getActivity(), mEditTextEmailOptional);
+      duq.b(getActivity(), mEditTextEmailOptional);
       mEditTextEmailOptional.a(null);
       break;
     }
@@ -363,12 +378,12 @@ public class SignupFragment
   
   private boolean m()
   {
-    return r;
+    return u;
   }
   
   private void n()
   {
-    r = true;
+    u = true;
     startActivityForResult(new Intent(getActivity(), FacebookAuthorizationActivity.class), 500);
   }
   
@@ -380,7 +395,7 @@ public class SignupFragment
       a(0name);
       return;
     }
-    localObject = vy.a(new String[] { "com.google" });
+    localObject = vo.a(new String[] { "com.google" });
     try
     {
       startActivityForResult((Intent)localObject, 700);
@@ -388,7 +403,7 @@ public class SignupFragment
     }
     catch (ActivityNotFoundException localActivityNotFoundException)
     {
-      dpf.a(getActivity(), getString(2131167164));
+      dua.b(getActivity(), getString(2131167537));
     }
   }
   
@@ -404,33 +419,40 @@ public class SignupFragment
   
   private void r()
   {
-    if ("CHINA".equals(h.a())) {
-      mViewGroupThirdPartySignIn.setVisibility(8);
-    }
-    for (;;)
+    if ("CHINA".equals(k.a()))
     {
-      f.b(o);
-      return;
+      if (!q())
+      {
+        mViewGroupThirdPartySignIn.setVisibility(8);
+        return;
+      }
       mViewGroupThirdPartySignIn.setVisibility(0);
-      mViewGroupThirdPartySignInGeneral.setVisibility(0);
-      mViewGroupThirdPartySignInChina.setVisibility(8);
+      mViewGroupThirdPartySignInChina.setVisibility(0);
+      mViewGroupThirdPartySignInGeneral.setVisibility(8);
+      mSignupButtonAlipay.setVisibility(0);
+      AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression").setName(x.qM).setValue("alipay");
+      c.a(localAnalyticsEvent);
+      return;
     }
+    mViewGroupThirdPartySignIn.setVisibility(0);
+    mViewGroupThirdPartySignInChina.setVisibility(8);
+    mViewGroupThirdPartySignInGeneral.setVisibility(0);
   }
   
-  private gyn s()
+  private ikb s()
   {
-    return gxc.a().a(new efr(this)).a((gye)((RiderActivity)getActivity()).d()).a();
+    return iik.a().a(new enk(this)).a((ijn)((RiderActivity)getActivity()).d()).a();
   }
   
   public final void a()
   {
-    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap").setName(r.ja).setValue(u.p());
+    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap").setName(z.mp).setValue(w.r());
     c.a(localAnalyticsEvent);
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return p.mb;
+    return x.qb;
   }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -442,145 +464,177 @@ public class SignupFragment
     label282:
     label304:
     label329:
+    label394:
     do
     {
       do
       {
         do
         {
-          break label167;
-          break label167;
-          break label167;
-          Object localObject;
-          if (paramInt1 == 600)
+          do
           {
-            if (paramInt2 != -1) {
-              break label304;
-            }
-            localObject = (SignupData)paramIntent.getParcelableExtra("com.ubercab.SIGNUP_DATA");
-            if ((((SignupData)localObject).o()) && (!f.b(dux.aH))) {
-              break label282;
-            }
-            p.add(new gzq((SignupData)localObject));
-          }
-          for (;;)
-          {
-            if ((paramInt1 != 400) || (paramInt2 != -1)) {
-              break label329;
-            }
-            paramIntent = (AlipayAuthResult)paramIntent.getParcelableExtra("alipay_auth_result");
-            if ((paramIntent != null) && ("9000".equals(paramIntent.getResultStatus())))
+            break label167;
+            break label167;
+            break label167;
+            break label167;
+            Object localObject;
+            if (paramInt1 == 600)
             {
-              paramIntent = ThirdPartyToken.a("alipay", null, 60000L, null, paramIntent.getAuthCode());
-              if (paramIntent.f()) {
-                startActivityForResult(SignInWithAlipayActivity.a(getActivity(), paramIntent), 401);
+              if (paramInt2 != -1) {
+                break label304;
+              }
+              localObject = (SignupData)paramIntent.getParcelableExtra("com.ubercab.SIGNUP_DATA");
+              if ((((SignupData)localObject).q()) && (!i.c(eaj.aN))) {
+                break label282;
+              }
+              s.add(new ilk((SignupData)localObject));
+            }
+            for (;;)
+            {
+              if ((paramInt1 != 400) || (paramInt2 != -1)) {
+                break label329;
+              }
+              paramIntent = (AlipayAuthResult)paramIntent.getParcelableExtra("alipay_auth_result");
+              if ((paramIntent != null) && ("9000".equals(paramIntent.getResultStatus())))
+              {
+                paramIntent = ThirdPartyToken.a("alipay", null, 60000L, null, paramIntent.getAuthCode());
+                if (paramIntent.f()) {
+                  startActivityForResult(SignInWithAlipayActivity.a(getActivity(), paramIntent), 401);
+                }
+              }
+              return;
+              if ((paramInt1 != 500) || (paramInt2 != -1)) {
+                break;
+              }
+              localObject = paramIntent.getStringExtra("token");
+              if (TextUtils.isEmpty((CharSequence)localObject)) {
+                break;
+              }
+              a_(getString(2131166742));
+              ThirdPartyToken localThirdPartyToken = ThirdPartyToken.a("facebook", (String)localObject, paramIntent.getLongExtra("tokenExpiry", 0L));
+              w = p();
+              w.a(localThirdPartyToken);
+              t = p.a("facebook", (String)localObject, null).a(oeh.a()).b(new ijz(this, (byte)0));
+              break;
+              s.add(new ilo((SignupData)localObject));
+              continue;
+              if (paramInt2 == 1) {
+                s.add(new ilj());
               }
             }
-            return;
-            if ((paramInt1 != 500) || (paramInt2 != -1)) {
-              break;
-            }
-            localObject = paramIntent.getStringExtra("token");
-            if (TextUtils.isEmpty((CharSequence)localObject)) {
-              break;
-            }
-            b(getString(2131166490));
-            ThirdPartyToken localThirdPartyToken = ThirdPartyToken.a("facebook", (String)localObject, paramIntent.getLongExtra("tokenExpiry", 0L));
-            u = p();
-            u.a(localThirdPartyToken);
-            q = m.a("facebook", (String)localObject, null).a(kls.a()).b(new gym(this, (byte)0));
-            break;
-            p.add(new gzu((SignupData)localObject));
-            continue;
-            if (paramInt2 == 1) {
-              p.add(new gzp());
-            }
+          } while (paramInt1 != 401);
+          if (paramInt2 != 1001) {
+            break label394;
           }
-        } while (paramInt1 != 401);
-        if (paramInt2 == 1001)
-        {
-          p.add(new gwq());
-          return;
-        }
+          if (!f.a(eaj.aU)) {
+            break;
+          }
+        } while (q == null);
+        q.a(null, null, null);
+        return;
+        s.add(new ihy());
+        return;
       } while (paramInt2 != -1);
       paramIntent = (SignupData)paramIntent.getParcelableExtra("com.ubercab.SIGNUP_DATA");
     } while (paramIntent == null);
-    p.add(new gzn(paramIntent));
+    s.add(new ilh(paramIntent));
   }
   
-  @OnClick({2131625587})
+  @OnClick
   public void onAlipaySignupClicked()
   {
-    c.a(r.iY);
+    c.a(z.mn);
     i();
   }
   
-  @OnClick({2131625592})
+  public void onAttach(Activity paramActivity)
+  {
+    super.onAttach(paramActivity);
+    q = ((evh)paramActivity);
+  }
+  
+  @OnClick
   public void onClickLegal()
   {
-    c.a(r.jw);
+    c.a(z.mM);
     startActivity(new Intent(getActivity(), LegalActivity.class));
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    u = SignupData.n();
+    w = SignupData.p();
     if (paramBundle != null)
     {
-      r = paramBundle.getBoolean("is_third_party");
-      s = ((PhoneNumber)paramBundle.getParcelable("top_phone"));
+      u = paramBundle.getBoolean("is_third_party");
+      y = ((PhoneNumber)paramBundle.getParcelable("top_phone"));
     }
   }
   
-  public Loader<gxw> onCreateLoader(int paramInt, Bundle paramBundle)
+  public Loader<ije> onCreateLoader(int paramInt, Bundle paramBundle)
   {
-    return new gxy(getActivity(), l);
+    return new ijg(getActivity(), o);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramViewGroup = paramLayoutInflater.inflate(2130903592, paramViewGroup, false);
-    ButterKnife.inject(this, paramViewGroup);
-    if (!f.b(dux.bc)) {}
-    for (paramLayoutInflater = new iak().a(new Pair("email", mEditTextEmail)).a(new Pair("password", mEditTextPassword)).a(new Pair("mobile", mPhoneNumberView)).a(new Pair("error", new SignupFragment.3(this))).a();; paramLayoutInflater = new iak().a(new Pair("password", mEditTextPassword)).a(new Pair("mobile", mPhoneNumberView)).a(new Pair("error", new SignupFragment.4(this))).a())
+    paramViewGroup = paramLayoutInflater.inflate(2130903805, paramViewGroup, false);
+    a(paramViewGroup);
+    if (!i.c(eaj.bu)) {
+      paramLayoutInflater = new kcu().a(new Pair("email", mEditTextEmail)).a(new Pair("password", mEditTextPassword)).a(new Pair("mobile", mPhoneNumberView)).a(new Pair("error", new SignupFragment.3(this))).a();
+    }
+    for (;;)
     {
-      t = new erj(paramLayoutInflater);
-      mEditTextPassword.a(new SignupFragment.5(this));
+      v = new ezn(paramLayoutInflater);
+      mEditTextPassword.a(new SignupFragment.6(this));
       return paramViewGroup;
+      if (i.a(eaj.hh, true)) {
+        paramLayoutInflater = new kcu().a(new Pair("mobile", mPhoneNumberView)).a(new Pair("password", mEditTextPassword)).a(new Pair("email", mEditTextEmailOptional)).a(new Pair("error", new SignupFragment.4(this))).a();
+      } else {
+        paramLayoutInflater = new kcu().a(new Pair("password", mEditTextPassword)).a(new Pair("mobile", mPhoneNumberView)).a(new Pair("error", new SignupFragment.5(this))).a();
+      }
     }
   }
   
-  public void onDestroyView()
+  public void onDestroy()
   {
-    super.onDestroyView();
-    ButterKnife.reset(this);
-    f.a(o);
+    super.onDestroy();
+    if (f.c(eaj.mj)) {
+      ezm.a(x);
+    }
   }
   
-  @OnClick({2131625611})
+  public void onDetach()
+  {
+    super.onDetach();
+    if (f.c(eaj.mj)) {
+      q = null;
+    }
+  }
+  
+  @OnClick
   public void onFacebookSignupClicked()
   {
-    c.a(r.jk);
+    c.a(z.mz);
     n();
   }
   
-  @OnClick({2131624579})
+  @OnClick
   public void onFlagClicked()
   {
-    c.a(r.jc);
+    c.a(z.mr);
   }
   
-  @OnClick({2131625610})
+  @OnClick
   public void onGoogleSignupClicked()
   {
-    c.a(r.jl);
+    c.a(z.mA);
     o();
   }
   
-  public void onLoaderReset(Loader<gxw> paramLoader) {}
+  public void onLoaderReset(Loader<ije> paramLoader) {}
   
-  @OnClick({2131625575})
+  @OnClick
   public void onNextClicked()
   {
     h();
@@ -590,70 +644,58 @@ public class SignupFragment
   public void onPause()
   {
     super.onPause();
-    if (q != null) {
-      q.c();
+    if (t != null) {
+      t.af_();
     }
   }
   
   public void onResume()
   {
     super.onResume();
-    d().b().a(getString(2131166302));
-    while (!p.isEmpty()) {
-      e.c(p.remove());
+    b().b().a(getString(2131166481));
+    while (!s.isEmpty()) {
+      e.c(s.remove());
     }
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putBoolean("is_third_party", r);
-    paramBundle.putParcelable("top_phone", s);
+    paramBundle.putBoolean("is_third_party", u);
+    paramBundle.putParcelable("top_phone", y);
   }
   
-  @cho
-  @Deprecated
-  public void onThirdPartyAuthResponseEvent(ejq paramejq)
+  @chu
+  public void onValidateAccountResponseEvent(err paramerr)
   {
-    if (paramejq.a())
+    if (paramerr.i())
     {
-      paramejq = (Ping)paramejq.c();
-      if ((ere.a(paramejq)) || (paramejq.getThirdPartyConnected()))
-      {
-        e.c(new gwq());
-        return;
-      }
-      paramejq = paramejq.getSignupFieldsRequired();
-      u.e((String)paramejq.get("firstName")).f((String)paramejq.get("lastName")).a((String)paramejq.get("email"));
-    }
-    e.c(new ekb(u));
-    e();
-  }
-  
-  @cho
-  public void onValidateAccountResponseEvent(ejy paramejy)
-  {
-    e();
-    if (paramejy.i())
-    {
-      e.c(new gzu(a(paramejy)));
+      M_();
+      e.c(new ilo(a(paramerr)));
       return;
     }
-    Map localMap = paramejy.a();
+    Map localMap = paramerr.a();
     if (localMap == null)
     {
-      paramejy = paramejy.a(getActivity());
-      eqg.a(d(), p.mf, 0, paramejy);
+      M_();
+      paramerr = paramerr.a(getActivity());
+      eyh.a(b(), x.qh, 0, paramerr);
       return;
     }
-    if ((localMap.containsKey("username")) && (!localMap.containsKey("email"))) {
-      localMap.put("email", localMap.get("username"));
+    if (f.a(eaj.aU))
+    {
+      if ((f.a(eaj.aV)) && (paramerr.n() == 406) && (localMap.containsKey("email")))
+      {
+        paramerr = a(paramerr);
+        x = l.a(paramerr.a(), paramerr.d()).a(oeh.a()).b(new ika(this, localMap));
+        return;
+      }
+      M_();
+      a(localMap);
+      return;
     }
-    paramejy = AnalyticsEvent.create("impression").setName(p.mb);
-    paramejy.setValue(iab.a(",").a(localMap.keySet()));
-    c.a(paramejy);
-    t.a(localMap);
-    t.a();
+    M_();
+    a(localMap);
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)
@@ -661,23 +703,23 @@ public class SignupFragment
     super.onViewCreated(paramView, paramBundle);
     paramView = mNameView;
     int i1;
-    if (("CHINA".equals(h.a())) && (ijd.a(Locale.getDefault())))
+    if (("CHINA".equals(k.a())) && (knc.a(Locale.getDefault())))
     {
-      i1 = iik.b;
+      i1 = kmj.b;
       paramView.a(i1);
       mButtonLegal.setPaintFlags(mButtonLegal.getPaintFlags() | 0x8);
       mPhoneNumberView.setNextFocusForwardId(mNameView.getId());
-      if (f.b(dux.hM)) {
+      if (i.c(eaj.mJ)) {
         mPhoneNumberView.a(new SignupFragment.1(this));
       }
       mEditTextPassword.a(new SignupFragment.2(this));
-      if (f.a(dux.aH)) {
+      if (i.b(eaj.aN)) {
         mViewGroupTos.setVisibility(8);
       }
-      if (f.a(dux.aH, dvk.b)) {
-        mButtonNext.setText(2131166302);
+      if (i.a(eaj.aN, ebe.b)) {
+        mButtonNext.setText(2131166481);
       }
-      if (f.b(dux.bc)) {
+      if (i.c(eaj.bu)) {
         break label235;
       }
       mEditTextEmail.setVisibility(0);
@@ -691,10 +733,10 @@ public class SignupFragment
       }
       getLoaderManager().initLoader(1, null, this);
       return;
-      i1 = iik.a;
+      i1 = kmj.a;
       break;
       label235:
-      c.a(p.mS);
+      c.a(x.qW);
       mEditTextEmail.setVisibility(8);
       mEditTextEmailOptional.setVisibility(0);
     }

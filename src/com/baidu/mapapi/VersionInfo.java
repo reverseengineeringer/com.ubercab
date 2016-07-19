@@ -2,18 +2,18 @@ package com.baidu.mapapi;
 
 public class VersionInfo
 {
-  public static final String KIT_NAME = "BaiduMapSDK_base_v3_6_1";
+  public static final String KIT_NAME = "BaiduMapSDK_base_v3_7_3";
   public static final String VERSION_DESC = "baidumapapi_base";
-  public static final String VERSION_INFO = "3_6_1";
+  public static final String VERSION_INFO = "3_7_3";
   
   public static String getApiVersion()
   {
-    return "3_6_1";
+    return "3_7_3";
   }
   
   public static String getKitName()
   {
-    return "BaiduMapSDK_base_v3_6_1";
+    return "BaiduMapSDK_base_v3_7_3";
   }
   
   public static String getVersionDesc()

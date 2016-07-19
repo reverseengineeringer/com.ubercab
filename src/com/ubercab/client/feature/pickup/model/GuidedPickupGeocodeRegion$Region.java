@@ -3,7 +3,7 @@ package com.ubercab.client.feature.pickup.model;
 import com.ubercab.client.feature.geojson.model.Feature;
 import com.ubercab.client.feature.geojson.model.Polygon;
 import com.ubercab.shape.Shape;
-import fka;
+import fzb;
 
 @Shape
 public abstract class GuidedPickupGeocodeRegion$Region
@@ -16,7 +16,7 @@ public abstract class GuidedPickupGeocodeRegion$Region
   
   public int getChirality()
   {
-    return fka.a(getGeometry());
+    return fzb.a(getGeometry());
   }
   
   public abstract Polygon getGeometry();

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckBox android:id="@id/ub__receipt_octane_feedback_button" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Style.Rider.SurveyDialog.MultiSelect.Button"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

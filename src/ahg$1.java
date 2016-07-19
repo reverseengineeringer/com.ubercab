@@ -1,18 +1,25 @@
-import java.util.concurrent.BlockingQueue;
+import android.app.DownloadManager;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 
 final class ahg$1
-  implements Runnable
+  implements DialogInterface.OnClickListener
 {
-  ahg$1(ahg paramahg, atg paramatg) {}
+  ahg$1(ahg paramahg, String paramString1, String paramString2) {}
   
-  public final void run()
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
   {
+    paramDialogInterface = (DownloadManager)ahg.a(c).getSystemService("download");
     try
     {
-      ahg.a(b).put(a);
+      paramDialogInterface.enqueue(ahg.a(a, b));
       return;
     }
-    catch (InterruptedException localInterruptedException) {}
+    catch (IllegalStateException paramDialogInterface)
+    {
+      c.a("Could not store picture.");
+    }
   }
 }
 

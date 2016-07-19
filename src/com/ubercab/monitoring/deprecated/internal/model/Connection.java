@@ -2,10 +2,10 @@ package com.ubercab.monitoring.deprecated.internal.model;
 
 import com.ubercab.monitoring.deprecated.internal.validator.MonitoringValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=MonitoringValidatorFactory.class)
+@lzo(a=MonitoringValidatorFactory.class)
 public abstract class Connection
 {
   public static Connection create(int paramInt)

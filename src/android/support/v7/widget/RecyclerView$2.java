@@ -1,6 +1,6 @@
 package android.support.v7.widget;
 
-import hc;
+import lv;
 
 final class RecyclerView$2
   implements Runnable
@@ -9,8 +9,8 @@ final class RecyclerView$2
   
   public final void run()
   {
-    if (a.e != null) {
-      a.e.a();
+    if (a.g != null) {
+      a.g.a();
     }
     RecyclerView.e(a);
   }

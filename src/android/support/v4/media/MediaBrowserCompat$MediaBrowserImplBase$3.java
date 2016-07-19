@@ -1,31 +1,13 @@
 package android.support.v4.media;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.os.ResultReceiver;
-
 class MediaBrowserCompat$MediaBrowserImplBase$3
-  extends ResultReceiver
+  implements Runnable
 {
-  MediaBrowserCompat$MediaBrowserImplBase$3(MediaBrowserCompat.MediaBrowserImplBase paramMediaBrowserImplBase, Handler paramHandler, MediaBrowserCompat.ItemCallback paramItemCallback, String paramString)
-  {
-    super(paramHandler);
-  }
+  MediaBrowserCompat$MediaBrowserImplBase$3(MediaBrowserCompat.MediaBrowserImplBase paramMediaBrowserImplBase, MediaBrowserCompat.ItemCallback paramItemCallback, String paramString) {}
   
-  protected void onReceiveResult(int paramInt, Bundle paramBundle)
+  public void run()
   {
-    if ((paramInt != 0) || (paramBundle == null) || (!paramBundle.containsKey("media_item")))
-    {
-      val$cb.onError(val$mediaId);
-      return;
-    }
-    paramBundle = paramBundle.getParcelable("media_item");
-    if (!(paramBundle instanceof MediaBrowserCompat.MediaItem))
-    {
-      val$cb.onError(val$mediaId);
-      return;
-    }
-    val$cb.onItemLoaded((MediaBrowserCompat.MediaItem)paramBundle);
+    val$cb.onError(val$mediaId);
   }
 }
 

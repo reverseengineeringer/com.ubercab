@@ -1,11 +1,63 @@
-import com.ubercab.android.m4.pipeline.model.Metric;
-import java.util.List;
+import com.ubercab.android.location.UberLocation;
 
-public abstract interface cme
+@Deprecated
+public final class cme
 {
-  public abstract boolean a(Metric paramMetric);
+  private final cmf a;
   
-  public abstract boolean a(List<Metric> paramList);
+  public cme(cms paramcms)
+  {
+    this(paramcms, new cmh().a());
+  }
+  
+  public cme(cms paramcms, cmg paramcmg)
+  {
+    a = paramcms.a(paramcmg);
+  }
+  
+  public final UberLocation a()
+  {
+    return a.a();
+  }
+  
+  public final void a(cmk paramcmk)
+  {
+    a.a(paramcmk);
+  }
+  
+  public final void a(cmp paramcmp)
+  {
+    try
+    {
+      a.a(paramcmp.a());
+      return;
+    }
+    finally
+    {
+      paramcmp = finally;
+      throw paramcmp;
+    }
+  }
+  
+  public final void b(cmk paramcmk)
+  {
+    a.b(paramcmk);
+  }
+  
+  public final boolean b()
+  {
+    return a.b();
+  }
+  
+  public final void c()
+  {
+    a.c();
+  }
+  
+  public final void d()
+  {
+    a.d();
+  }
 }
 
 /* Location:

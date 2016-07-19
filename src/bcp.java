@@ -1,126 +1,114 @@
-import android.os.Binder;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.util.Pair;
+import java.security.SecureRandom;
 
-public abstract class bcp
-  extends Binder
-  implements bco
+public final class bcp
 {
-  public static bco a(IBinder paramIBinder)
+  final String a;
+  private final String c;
+  private final String d;
+  private final long e;
+  
+  private bcp(bcm parambcm, String paramString, long paramLong)
   {
-    if (paramIBinder == null) {
-      return null;
+    abe.a(paramString);
+    if (paramLong > 0L) {}
+    for (boolean bool = true;; bool = false)
+    {
+      abe.b(bool);
+      a = (paramString + ":start");
+      c = (paramString + ":count");
+      d = (paramString + ":value");
+      e = paramLong;
+      return;
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-    if ((localIInterface != null) && ((localIInterface instanceof bco))) {
-      return (bco)localIInterface;
-    }
-    return new bcq(paramIBinder);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  private void b()
   {
-    Object localObject2 = null;
-    Object localObject3 = null;
-    bcf localbcf = null;
-    Object localObject4 = null;
-    Object localObject1 = null;
-    switch (paramInt1)
+    b.f();
+    long l = b.l().a();
+    SharedPreferences.Editor localEditor = bcm.a(b).edit();
+    localEditor.remove(c);
+    localEditor.remove(d);
+    localEditor.putLong(a, l);
+    localEditor.apply();
+  }
+  
+  private long c()
+  {
+    b.f();
+    long l = d();
+    if (l == 0L)
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IMapViewDelegate");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-      localbcf = a();
-      paramParcel2.writeNoException();
-      paramParcel1 = (Parcel)localObject1;
-      if (localbcf != null) {
-        paramParcel1 = localbcf.asBinder();
-      }
-      paramParcel2.writeStrongBinder(paramParcel1);
-      return true;
-    case 2: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-      localObject1 = localObject2;
-      if (paramParcel1.readInt() != 0) {
-        localObject1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);
-      }
-      a((Bundle)localObject1);
-      paramParcel2.writeNoException();
-      return true;
-    case 3: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
       b();
-      paramParcel2.writeNoException();
-      return true;
-    case 4: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-      c();
-      paramParcel2.writeNoException();
-      return true;
-    case 5: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-      d();
-      paramParcel2.writeNoException();
-      return true;
-    case 6: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-      e();
-      paramParcel2.writeNoException();
-      return true;
-    case 7: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-      localObject1 = localObject3;
-      if (paramParcel1.readInt() != 0) {
-        localObject1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);
-      }
-      b((Bundle)localObject1);
-      paramParcel2.writeNoException();
-      if (localObject1 != null)
-      {
-        paramParcel2.writeInt(1);
-        ((Bundle)localObject1).writeToParcel(paramParcel2, 1);
-      }
-      for (;;)
-      {
-        return true;
-        paramParcel2.writeInt(0);
-      }
-    case 8: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-      localObject1 = f();
-      paramParcel2.writeNoException();
-      paramParcel1 = localbcf;
-      if (localObject1 != null) {
-        paramParcel1 = ((add)localObject1).asBinder();
-      }
-      paramParcel2.writeStrongBinder(paramParcel1);
-      return true;
-    case 9: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-      a(bfe.a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      return true;
-    case 10: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-      localObject1 = localObject4;
-      if (paramParcel1.readInt() != 0) {
-        localObject1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);
-      }
-      c((Bundle)localObject1);
-      paramParcel2.writeNoException();
-      return true;
+      return 0L;
     }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-    g();
-    paramParcel2.writeNoException();
-    return true;
+    return Math.abs(l - b.l().a());
+  }
+  
+  private long d()
+  {
+    return bcm.c(b).getLong(a, 0L);
+  }
+  
+  public final Pair<String, Long> a()
+  {
+    b.f();
+    long l = c();
+    if (l < e) {
+      return null;
+    }
+    if (l > e * 2L)
+    {
+      b();
+      return null;
+    }
+    String str = bcm.c(b).getString(d, null);
+    l = bcm.c(b).getLong(c, 0L);
+    b();
+    if ((str == null) || (l <= 0L)) {
+      return bcm.a;
+    }
+    return new Pair(str, Long.valueOf(l));
+  }
+  
+  public final void a(String paramString)
+  {
+    a(paramString, 1L);
+  }
+  
+  public final void a(String paramString, long paramLong)
+  {
+    b.f();
+    if (d() == 0L) {
+      b();
+    }
+    String str = paramString;
+    if (paramString == null) {
+      str = "";
+    }
+    long l = bcm.a(b).getLong(c, 0L);
+    if (l <= 0L)
+    {
+      paramString = bcm.a(b).edit();
+      paramString.putString(d, str);
+      paramString.putLong(c, paramLong);
+      paramString.apply();
+      return;
+    }
+    if ((bcm.b(b).nextLong() & 0x7FFFFFFFFFFFFFFF) < Long.MAX_VALUE / (l + paramLong) * paramLong) {}
+    for (int i = 1;; i = 0)
+    {
+      paramString = bcm.a(b).edit();
+      if (i != 0) {
+        paramString.putString(d, str);
+      }
+      paramString.putLong(c, l + paramLong);
+      paramString.apply();
+      return;
+    }
   }
 }
 

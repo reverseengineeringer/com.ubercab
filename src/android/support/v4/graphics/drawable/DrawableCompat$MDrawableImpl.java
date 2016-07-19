@@ -3,7 +3,7 @@ package android.support.v4.graphics.drawable;
 import android.graphics.drawable.Drawable;
 
 class DrawableCompat$MDrawableImpl
-  extends DrawableCompat.LollipopMr1DrawableImpl
+  extends DrawableCompat.LollipopDrawableImpl
 {
   public int getLayoutDirection(Drawable paramDrawable)
   {
@@ -13,6 +13,11 @@ class DrawableCompat$MDrawableImpl
   public void setLayoutDirection(Drawable paramDrawable, int paramInt)
   {
     DrawableCompatApi23.setLayoutDirection(paramDrawable, paramInt);
+  }
+  
+  public Drawable wrap(Drawable paramDrawable)
+  {
+    return paramDrawable;
   }
 }
 

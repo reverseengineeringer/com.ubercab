@@ -2,7 +2,7 @@ package com.ubercab.core.support.multidex;
 
 import android.content.Context;
 import com.ubercab.core.app.CoreApplication;
-import s;
+import ed;
 
 public class CoreMultiDexApplication
   extends CoreApplication
@@ -10,7 +10,7 @@ public class CoreMultiDexApplication
   protected void attachBaseContext(Context paramContext)
   {
     super.attachBaseContext(paramContext);
-    s.a(this);
+    ed.a(this);
   }
 }
 

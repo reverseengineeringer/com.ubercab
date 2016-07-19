@@ -9,6 +9,8 @@ public abstract class EndorsementsStep
   extends BaseStep
   implements Parcelable
 {
+  public static final String CONTACT_ACCESS_ALLOWED_PARAM = "contact_access_allowed";
+  public static final String CONTACT_FIELDS_PARAM = "contact_fields";
   public static final String TYPE = "endorsements";
   
   public static EndorsementsStep create()

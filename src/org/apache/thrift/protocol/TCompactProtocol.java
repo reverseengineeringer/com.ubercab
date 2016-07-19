@@ -2,8 +2,8 @@ package org.apache.thrift.protocol;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-import kii;
-import kja;
+import nwj;
+import nxb;
 import org.apache.thrift.TException;
 
 public class TCompactProtocol
@@ -26,7 +26,7 @@ public class TCompactProtocol
   private final long containerLengthLimit_;
   byte[] i32buf = new byte[5];
   private short lastFieldId_ = 0;
-  private kii lastField_ = new kii();
+  private nwj lastField_ = new nwj();
   private final long stringLengthLimit_;
   byte[] varint64out = new byte[10];
   
@@ -48,20 +48,20 @@ public class TCompactProtocol
     ttypeToCompactType[12] = 12;
   }
   
-  public TCompactProtocol(kja paramkja)
+  public TCompactProtocol(nxb paramnxb)
   {
-    this(paramkja, -1L, -1L);
+    this(paramnxb, -1L, -1L);
   }
   
   @Deprecated
-  public TCompactProtocol(kja paramkja, long paramLong)
+  public TCompactProtocol(nxb paramnxb, long paramLong)
   {
-    this(paramkja, paramLong, -1L);
+    this(paramnxb, paramLong, -1L);
   }
   
-  public TCompactProtocol(kja paramkja, long paramLong1, long paramLong2)
+  public TCompactProtocol(nxb paramnxb, long paramLong1, long paramLong2)
   {
-    super(paramkja);
+    super(paramnxb);
     stringLengthLimit_ = paramLong1;
     containerLengthLimit_ = paramLong2;
   }

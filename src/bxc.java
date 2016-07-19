@@ -1,43 +1,37 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class bxc
-  implements bwv
+  implements bxq
 {
-  private bxd a;
+  private static Map a = new HashMap();
+  private static Map b = new HashMap();
   
-  public bxc(bxd parambxd)
+  public bxc()
   {
-    a = parambxd;
-  }
-  
-  public static List d()
-  {
-    ArrayList localArrayList = new ArrayList();
-    bxd[] arrayOfbxd = bxd.values();
-    int j = arrayOfbxd.length;
-    int i = 0;
-    while (i < j)
-    {
-      localArrayList.add(new bxc(arrayOfbxd[i]));
-      i += 1;
-    }
-    return localArrayList;
+    a.put(bxp.a, "Avbryt");
+    a.put(bxp.b, "American Express");
+    a.put(bxp.c, "Discover");
+    a.put(bxp.d, "JCB");
+    a.put(bxp.e, "MasterCard");
+    a.put(bxp.f, "Visa");
+    a.put(bxp.g, "Klart");
+    a.put(bxp.h, "CVV");
+    a.put(bxp.i, "Postnummer");
+    a.put(bxp.j, "Går ut");
+    a.put(bxp.k, "MM/ÅÅ");
+    a.put(bxp.l, "Håll kortet här.\nDet skannas automatiskt.");
+    a.put(bxp.m, "Tangentbord …");
+    a.put(bxp.n, "Kortnummer");
+    a.put(bxp.o, "Kortinformation");
+    a.put(bxp.p, "Den här enheten kan inte använda kameran till att läsa kortnummer.");
+    a.put(bxp.q, "Enhetens kamera är inte tillgänglig.");
+    a.put(bxp.r, "Ett oväntat fel uppstod när enheten skulle öppna kameran.");
   }
   
   public final String a()
   {
-    return a.name();
-  }
-  
-  public final btw b()
-  {
-    return a.a();
-  }
-  
-  public final String c()
-  {
-    return a.b();
+    return "sv";
   }
 }
 

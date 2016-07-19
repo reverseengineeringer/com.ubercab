@@ -1,5 +1,8 @@
 package com.baidu.mapapi.map;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.os.Parcelable.Creator;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
@@ -9,7 +12,9 @@ import com.baidu.platform.comapi.map.B;
 import com.baidu.platform.comapi.map.B.a;
 
 public final class MapStatus
+  implements Parcelable
 {
+  public static final Parcelable.Creator<MapStatus> CREATOR = new h();
   B a;
   private double b;
   public final LatLngBounds bound;
@@ -60,8 +65,23 @@ public final class MapStatus
     bound = paramLatLngBounds;
   }
   
+  protected MapStatus(Parcel paramParcel)
+  {
+    rotate = paramParcel.readFloat();
+    target = ((LatLng)paramParcel.readParcelable(LatLng.class.getClassLoader()));
+    overlook = paramParcel.readFloat();
+    zoom = paramParcel.readFloat();
+    targetScreen = ((android.graphics.Point)paramParcel.readParcelable(android.graphics.Point.class.getClassLoader()));
+    bound = ((LatLngBounds)paramParcel.readParcelable(LatLngBounds.class.getClassLoader()));
+    b = paramParcel.readDouble();
+    c = paramParcel.readDouble();
+  }
+  
   static MapStatus a(B paramB)
   {
+    if (paramB == null) {
+      return null;
+    }
     float f1 = b;
     double d1 = e;
     double d2 = d;
@@ -121,6 +141,11 @@ public final class MapStatus
     return b(new B());
   }
   
+  public final int describeContents()
+  {
+    return 0;
+  }
+  
   public final String toString()
   {
     StringBuilder localStringBuilder = new StringBuilder();
@@ -138,6 +163,18 @@ public final class MapStatus
     localStringBuilder.append("rotate: " + rotate + "\n");
     localStringBuilder.append("overlook: " + overlook + "\n");
     return localStringBuilder.toString();
+  }
+  
+  public final void writeToParcel(Parcel paramParcel, int paramInt)
+  {
+    paramParcel.writeFloat(rotate);
+    paramParcel.writeParcelable(target, paramInt);
+    paramParcel.writeFloat(overlook);
+    paramParcel.writeFloat(zoom);
+    paramParcel.writeParcelable(targetScreen, paramInt);
+    paramParcel.writeParcelable(bound, paramInt);
+    paramParcel.writeDouble(b);
+    paramParcel.writeDouble(c);
   }
 }
 

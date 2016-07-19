@@ -1,19 +1,39 @@
-import android.annotation.TargetApi;
-import android.view.View;
-import android.view.ViewGroup.LayoutParams;
+import android.accounts.Account;
+import android.content.Context;
+import android.os.IBinder;
+import android.os.Looper;
+import com.google.android.gms.location.places.internal.PlacesParams;
+import java.util.Locale;
 
-@TargetApi(19)
 public final class ari
-  extends arg
+  extends zv<arn>
 {
-  public final boolean a(View paramView)
+  private final PlacesParams d;
+  private final Locale e = Locale.getDefault();
+  
+  public ari(Context paramContext, Looper paramLooper, zq paramzq, wl paramwl, wm paramwm, String paramString, arc paramarc)
   {
-    return paramView.isAttachedToWindow();
+    super(paramContext, paramLooper, 65, paramzq, paramwl, paramwm);
+    paramContext = null;
+    if (paramzq.b() != null) {
+      paramContext = bname;
+    }
+    d = new PlacesParams(paramString, e, paramContext, a, b);
   }
   
-  public final ViewGroup.LayoutParams d()
+  private static arn b(IBinder paramIBinder)
   {
-    return new ViewGroup.LayoutParams(-1, -1);
+    return aro.a(paramIBinder);
+  }
+  
+  protected final String f()
+  {
+    return "com.google.android.gms.location.places.GeoDataApi";
+  }
+  
+  protected final String g()
+  {
+    return "com.google.android.gms.location.places.internal.IGooglePlacesService";
   }
 }
 

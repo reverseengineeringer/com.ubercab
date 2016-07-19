@@ -2,9 +2,9 @@ package com.ubercab.client.core.model;
 
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.TripDriverCapabilities;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class TripDriver
   implements com.ubercab.rider.realtime.model.TripDriver
 {

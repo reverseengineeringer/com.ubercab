@@ -1,10 +1,24 @@
-import android.content.Intent;
-
-public abstract interface ckn
+final class ckn<T extends bpt>
+  implements nvc<T>
 {
-  public abstract void a();
+  private final int a;
   
-  public abstract void a(Intent paramIntent);
+  ckn(int paramInt)
+  {
+    a = paramInt;
+  }
+  
+  public final T a()
+  {
+    switch (a)
+    {
+    default: 
+      throw new AssertionError();
+    }
+    for (cko localcko = new cko();; localcko = new cko()) {
+      return (bpt)localcko;
+    }
+  }
 }
 
 /* Location:

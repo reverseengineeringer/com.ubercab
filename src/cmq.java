@@ -1,14 +1,28 @@
+import com.ubercab.android.location.UberLocation;
+
+@Deprecated
 public final class cmq
-  implements cml
 {
-  public static cml a()
+  private final int a;
+  private final long b;
+  private final long c;
+  private boolean d;
+  private UberLocation e;
+  
+  public cmq(long paramLong1, long paramLong2, int paramInt)
   {
-    return new cmq();
+    b = paramLong1;
+    c = paramLong2;
+    a = paramInt;
+    d = false;
+    e = null;
   }
   
-  public final cmj a(long paramLong, cly<cmi> paramcly)
+  public final cmp a()
   {
-    return new cmp(paramLong, paramcly);
+    cmp localcmp = new cmp(c, b, a, e, (byte)0);
+    localcmp.a(d);
+    return localcmp;
   }
 }
 

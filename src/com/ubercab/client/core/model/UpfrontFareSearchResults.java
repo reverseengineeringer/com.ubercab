@@ -5,10 +5,10 @@ import com.ubercab.shape.Shape;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class UpfrontFareSearchResults
 {
   public static UpfrontFareSearchResults create()

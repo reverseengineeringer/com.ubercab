@@ -5,153 +5,160 @@ import android.graphics.PointF;
 import android.os.Parcelable;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
+import android.util.AttributeSet;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
-import gh;
-import gi;
-import gj;
-import gk;
-import gx;
-import hh;
-import hm;
-import hr;
-import hu;
-import ib;
 import java.util.List;
+import la;
+import lb;
+import lc;
+import ld;
+import lq;
+import ma;
+import mb;
+import mg;
+import ml;
+import mo;
+import mv;
 
 public class LinearLayoutManager
-  extends hh
+  extends ma
 {
-  private gj a;
+  private lc a;
   private boolean b;
   private boolean c = false;
   private boolean d = false;
   private boolean e = true;
   private boolean f;
-  int j;
-  public gx k;
-  boolean l = false;
-  int m = -1;
-  int n = Integer.MIN_VALUE;
-  LinearLayoutManager.SavedState o = null;
-  final gh p = new gh(this);
+  int i;
+  public lq j;
+  boolean k = false;
+  int l = -1;
+  int m = Integer.MIN_VALUE;
+  LinearLayoutManager.SavedState n = null;
+  final la o = new la(this);
   
-  public LinearLayoutManager()
+  public LinearLayoutManager(Context paramContext)
   {
-    this((byte)0);
+    this(paramContext, 1, false);
   }
   
-  public LinearLayoutManager(byte paramByte)
+  public LinearLayoutManager(Context paramContext, int paramInt, boolean paramBoolean)
   {
-    h();
-    G();
+    k(paramInt);
+    c(paramBoolean);
+    b(true);
   }
   
-  private void F()
+  public LinearLayoutManager(Context paramContext, AttributeSet paramAttributeSet, int paramInt1, int paramInt2)
+  {
+    paramContext = a(paramContext, paramAttributeSet, paramInt1, paramInt2);
+    k(a);
+    c(c);
+    a(d);
+    b(true);
+  }
+  
+  private void K()
   {
     boolean bool = true;
-    if ((j == 1) || (!i()))
+    if ((i == 1) || (!h()))
     {
-      l = c;
+      k = c;
       return;
     }
     if (!c) {}
     for (;;)
     {
-      l = bool;
+      k = bool;
       return;
       bool = false;
     }
   }
   
-  private void G()
+  private static lc L()
   {
-    a(null);
-    if (!c) {
-      return;
-    }
-    c = false;
-    n();
+    return new lc();
   }
   
-  private static gj H()
+  private boolean M()
   {
-    return new gj();
+    return (j.h() == 0) && (j.e() == 0);
   }
   
-  private View I()
+  private View N()
   {
-    if (l) {}
-    for (int i = t() - 1;; i = 0) {
-      return e(i);
+    if (k) {}
+    for (int i1 = t() - 1;; i1 = 0) {
+      return f(i1);
     }
   }
   
-  private View J()
+  private View O()
   {
-    if (l) {}
-    for (int i = 0;; i = t() - 1) {
-      return e(i);
+    if (k) {}
+    for (int i1 = 0;; i1 = t() - 1) {
+      return f(i1);
     }
   }
   
-  private int a(int paramInt, hm paramhm, hr paramhr, boolean paramBoolean)
+  private int a(int paramInt, mg parammg, ml paramml, boolean paramBoolean)
   {
-    int i = k.d() - paramInt;
-    if (i > 0)
+    int i1 = j.d() - paramInt;
+    if (i1 > 0)
     {
-      int i1 = -d(-i, paramhm, paramhr);
-      i = i1;
+      int i2 = -c(-i1, parammg, paramml);
+      i1 = i2;
       if (paramBoolean)
       {
-        paramInt = k.d() - (paramInt + i1);
-        i = i1;
+        paramInt = j.d() - (paramInt + i2);
+        i1 = i2;
         if (paramInt > 0)
         {
-          k.a(paramInt);
-          i = i1 + paramInt;
+          j.a(paramInt);
+          i1 = i2 + paramInt;
         }
       }
-      return i;
+      return i1;
     }
     return 0;
   }
   
-  private int a(hm paramhm, gj paramgj, hr paramhr, boolean paramBoolean)
+  private int a(mg parammg, lc paramlc, ml paramml, boolean paramBoolean)
   {
-    int i2 = c;
+    int i3 = c;
     if (g != Integer.MIN_VALUE)
     {
       if (c < 0) {
         g += c;
       }
-      a(paramhm, paramgj);
+      a(parammg, paramlc);
     }
-    int i = c + h;
-    gi localgi = new gi();
+    int i1 = c + h;
+    lb locallb = new lb();
     do
     {
-      int i1;
+      int i2;
       do
       {
-        if ((i <= 0) || (!paramgj.a(paramhr))) {
+        if (((!l) && (i1 <= 0)) || (!paramlc.a(paramml))) {
           break;
         }
-        localgi.a();
-        a(paramhm, paramhr, paramgj, localgi);
+        locallb.a();
+        a(parammg, paramml, paramlc, locallb);
         if (b) {
           break;
         }
         b += a * f;
         if ((c) && (a.k == null))
         {
-          i1 = i;
-          if (paramhr.a()) {}
+          i2 = i1;
+          if (paramml.a()) {}
         }
         else
         {
           c -= a;
-          i1 = i - a;
+          i2 = i1 - a;
         }
         if (g != Integer.MIN_VALUE)
         {
@@ -159,36 +166,36 @@ public class LinearLayoutManager
           if (c < 0) {
             g += c;
           }
-          a(paramhm, paramgj);
+          a(parammg, paramlc);
         }
-        i = i1;
+        i1 = i2;
       } while (!paramBoolean);
-      i = i1;
+      i1 = i2;
     } while (!d);
-    return i2 - c;
+    return i3 - c;
   }
   
   private View a(int paramInt1, int paramInt2, boolean paramBoolean1, boolean paramBoolean2)
   {
-    j();
-    int i1 = k.c();
-    int i2 = k.d();
+    i();
+    int i2 = j.c();
+    int i3 = j.d();
     if (paramInt2 > paramInt1) {}
     Object localObject;
     View localView;
-    for (int i = 1;; i = -1)
+    for (int i1 = 1;; i1 = -1)
     {
       localObject = null;
       if (paramInt1 == paramInt2) {
         break label130;
       }
-      localView = e(paramInt1);
-      int i3 = k.a(localView);
-      int i4 = k.b(localView);
-      if ((i3 >= i2) || (i4 <= i1)) {
+      localView = f(paramInt1);
+      int i4 = j.a(localView);
+      int i5 = j.b(localView);
+      if ((i4 >= i3) || (i5 <= i2)) {
         break label133;
       }
-      if ((paramBoolean1) && ((i3 < i1) || (i4 > i2))) {
+      if ((paramBoolean1) && ((i4 < i2) || (i5 > i3))) {
         break;
       }
       return localView;
@@ -200,365 +207,365 @@ public class LinearLayoutManager
     label133:
     for (;;)
     {
-      paramInt1 += i;
+      paramInt1 += i1;
       break;
       return (View)localObject;
     }
   }
   
-  private View a(boolean paramBoolean)
+  private void a(int paramInt1, int paramInt2, boolean paramBoolean, ml paramml)
   {
-    if (l) {
-      return a(t() - 1, -1, paramBoolean, true);
-    }
-    return a(0, t(), paramBoolean, true);
-  }
-  
-  private void a(int paramInt1, int paramInt2, boolean paramBoolean, hr paramhr)
-  {
-    int i = -1;
-    int i1 = 1;
-    a.h = g(paramhr);
+    int i1 = -1;
+    int i2 = 1;
+    a.l = M();
+    a.h = g(paramml);
     a.f = paramInt1;
     if (paramInt1 == 1)
     {
-      paramhr = a;
-      h += k.g();
-      paramhr = J();
-      localgj = a;
-      if (l) {}
-      for (paramInt1 = i;; paramInt1 = 1)
+      paramml = a;
+      h += j.g();
+      paramml = O();
+      locallc = a;
+      if (k) {}
+      for (paramInt1 = i1;; paramInt1 = 1)
       {
         e = paramInt1;
-        a.d = (c(paramhr) + a.e);
-        a.b = k.b(paramhr);
-        paramInt1 = k.b(paramhr) - k.d();
+        a.d = (c(paramml) + a.e);
+        a.b = j.b(paramml);
+        paramInt1 = j.b(paramml) - j.d();
         a.c = paramInt2;
         if (paramBoolean)
         {
-          paramhr = a;
+          paramml = a;
           c -= paramInt1;
         }
         a.g = paramInt1;
         return;
       }
     }
-    paramhr = I();
-    gj localgj = a;
-    h += k.c();
-    localgj = a;
-    if (l) {}
-    for (paramInt1 = i1;; paramInt1 = -1)
+    paramml = N();
+    lc locallc = a;
+    h += j.c();
+    locallc = a;
+    if (k) {}
+    for (paramInt1 = i2;; paramInt1 = -1)
     {
       e = paramInt1;
-      a.d = (c(paramhr) + a.e);
-      a.b = k.a(paramhr);
-      paramInt1 = -k.a(paramhr) + k.c();
+      a.d = (c(paramml) + a.e);
+      a.b = j.a(paramml);
+      paramInt1 = -j.a(paramml) + j.c();
       break;
     }
   }
   
-  private void a(gh paramgh)
+  private void a(la paramla)
   {
-    f(a, b);
+    i(a, b);
   }
   
-  private void a(hm paramhm, int paramInt)
+  private void a(mg parammg, int paramInt)
   {
     if (paramInt < 0) {}
     for (;;)
     {
       return;
-      int i1 = t();
-      int i;
+      int i2 = t();
+      int i1;
       View localView;
-      if (l)
+      if (k)
       {
-        i = i1 - 1;
-        while (i >= 0)
+        i1 = i2 - 1;
+        while (i1 >= 0)
         {
-          localView = e(i);
-          if (k.b(localView) > paramInt)
+          localView = f(i1);
+          if (j.b(localView) > paramInt)
           {
-            a(paramhm, i1 - 1, i);
+            a(parammg, i2 - 1, i1);
             return;
           }
-          i -= 1;
+          i1 -= 1;
         }
       }
       else
       {
-        i = 0;
-        while (i < i1)
+        i1 = 0;
+        while (i1 < i2)
         {
-          localView = e(i);
-          if (k.b(localView) > paramInt)
+          localView = f(i1);
+          if (j.b(localView) > paramInt)
           {
-            a(paramhm, 0, i);
+            a(parammg, 0, i1);
             return;
           }
-          i += 1;
+          i1 += 1;
         }
       }
     }
   }
   
-  private void a(hm paramhm, int paramInt1, int paramInt2)
+  private void a(mg parammg, int paramInt1, int paramInt2)
   {
     if (paramInt1 == paramInt2) {}
     for (;;)
     {
       return;
-      int i = paramInt1;
+      int i1 = paramInt1;
       if (paramInt2 > paramInt1)
       {
         paramInt2 -= 1;
         while (paramInt2 >= paramInt1)
         {
-          a(paramInt2, paramhm);
+          a(paramInt2, parammg);
           paramInt2 -= 1;
         }
       }
       else
       {
-        while (i > paramInt2)
+        while (i1 > paramInt2)
         {
-          a(i, paramhm);
-          i -= 1;
+          a(i1, parammg);
+          i1 -= 1;
         }
       }
     }
   }
   
-  private void a(hm paramhm, gj paramgj)
+  private void a(mg parammg, lc paramlc)
   {
-    if (!a) {
+    if ((!a) || (l)) {
       return;
     }
     if (f == -1)
     {
-      b(paramhm, g);
+      b(parammg, g);
       return;
     }
-    a(paramhm, g);
+    a(parammg, g);
   }
   
-  private void a(hm paramhm, hr paramhr, int paramInt1, int paramInt2)
+  private void a(mg parammg, ml paramml, int paramInt1, int paramInt2)
   {
-    if ((!paramhr.b()) || (t() == 0) || (paramhr.a()) || (!c())) {
+    if ((!paramml.b()) || (t() == 0) || (paramml.a()) || (!c())) {
       return;
     }
-    int i = 0;
     int i1 = 0;
-    List localList = paramhm.b();
-    int i4 = localList.size();
-    int i5 = c(e(0));
     int i2 = 0;
-    hu localhu;
-    int i6;
+    List localList = parammg.b();
+    int i5 = localList.size();
+    int i6 = c(f(0));
+    int i3 = 0;
+    mo localmo;
+    int i7;
     label105:
-    int i3;
-    if (i2 < i4)
+    int i4;
+    if (i3 < i5)
     {
-      localhu = (hu)localList.get(i2);
-      if (localhu.q()) {
+      localmo = (mo)localList.get(i3);
+      if (localmo.q()) {
         break label338;
       }
-      if (localhu.d() < i5)
+      if (localmo.d() < i6)
       {
-        i6 = 1;
-        if (i6 == l) {
+        i7 = 1;
+        if (i7 == k) {
           break label179;
         }
-        i3 = -1;
+        i4 = -1;
         label117:
-        if (i3 != -1) {
+        if (i4 != -1) {
           break label185;
         }
-        i3 = k.c(a) + i;
-        i = i1;
-        i1 = i3;
+        i4 = j.c(a) + i1;
+        i1 = i2;
+        i2 = i4;
       }
     }
     for (;;)
     {
-      i3 = i2 + 1;
+      i4 = i3 + 1;
+      i3 = i2;
       i2 = i1;
-      i1 = i;
-      i = i2;
-      i2 = i3;
+      i1 = i3;
+      i3 = i4;
       break;
-      i6 = 0;
+      i7 = 0;
       break label105;
       label179:
-      i3 = 1;
+      i4 = 1;
       break label117;
       label185:
-      i3 = k.c(a) + i1;
-      i1 = i;
-      i = i3;
+      i4 = j.c(a) + i2;
+      i2 = i1;
+      i1 = i4;
       continue;
       a.k = localList;
-      if (i > 0)
-      {
-        g(c(I()), paramInt1);
-        a.h = i;
-        a.c = 0;
-        a.a();
-        a(paramhm, a, paramhr, false);
-      }
       if (i1 > 0)
       {
-        f(c(J()), paramInt2);
+        j(c(N()), paramInt1);
         a.h = i1;
         a.c = 0;
         a.a();
-        a(paramhm, a, paramhr, false);
+        a(parammg, a, paramml, false);
+      }
+      if (i2 > 0)
+      {
+        i(c(O()), paramInt2);
+        a.h = i2;
+        a.c = 0;
+        a.a();
+        a(parammg, a, paramml, false);
       }
       a.k = null;
       return;
       label338:
-      i3 = i;
-      i = i1;
-      i1 = i3;
+      i4 = i1;
+      i1 = i2;
+      i2 = i4;
     }
   }
   
-  private boolean a(hr paramhr, gh paramgh)
+  private void a(mg parammg, ml paramml, la paramla)
+  {
+    if (a(paramml, paramla)) {}
+    while (b(parammg, paramml, paramla)) {
+      return;
+    }
+    paramla.b();
+    if (d) {}
+    for (int i1 = paramml.e() - 1;; i1 = 0)
+    {
+      a = i1;
+      return;
+    }
+  }
+  
+  private boolean a(ml paramml, la paramla)
   {
     boolean bool = false;
-    if ((paramhr.a()) || (m == -1)) {
+    if ((paramml.a()) || (l == -1)) {
       return false;
     }
-    if ((m < 0) || (m >= paramhr.e()))
+    if ((l < 0) || (l >= paramml.e()))
     {
-      m = -1;
-      n = Integer.MIN_VALUE;
+      l = -1;
+      m = Integer.MIN_VALUE;
       return false;
     }
-    a = m;
-    if ((o != null) && (o.a()))
+    a = l;
+    if ((n != null) && (n.a()))
     {
-      c = o.c;
+      c = n.c;
       if (c)
       {
-        b = (k.d() - o.b);
+        b = (j.d() - n.b);
         return true;
       }
-      b = (k.c() + o.b);
+      b = (j.c() + n.b);
       return true;
     }
-    if (n == Integer.MIN_VALUE)
+    if (m == Integer.MIN_VALUE)
     {
-      paramhr = a(m);
-      int i;
-      if (paramhr != null)
+      paramml = a(l);
+      int i1;
+      if (paramml != null)
       {
-        if (k.c(paramhr) > k.f())
+        if (j.c(paramml) > j.f())
         {
-          paramgh.b();
+          paramla.b();
           return true;
         }
-        if (k.a(paramhr) - k.c() < 0)
+        if (j.a(paramml) - j.c() < 0)
         {
-          b = k.c();
+          b = j.c();
           c = false;
           return true;
         }
-        if (k.d() - k.b(paramhr) < 0)
+        if (j.d() - j.b(paramml) < 0)
         {
-          b = k.d();
+          b = j.d();
           c = true;
           return true;
         }
         if (c) {}
-        for (i = k.b(paramhr) + k.b();; i = k.a(paramhr))
+        for (i1 = j.b(paramml) + j.b();; i1 = j.a(paramml))
         {
-          b = i;
+          b = i1;
           return true;
         }
       }
       if (t() > 0)
       {
-        i = c(e(0));
-        if (m >= i) {
+        i1 = c(f(0));
+        if (l >= i1) {
           break label350;
         }
       }
       label350:
-      for (int i1 = 1;; i1 = 0)
+      for (int i2 = 1;; i2 = 0)
       {
-        if (i1 == l) {
+        if (i2 == k) {
           bool = true;
         }
         c = bool;
-        paramgh.b();
+        paramla.b();
         return true;
       }
     }
-    c = l;
-    if (l)
+    c = k;
+    if (k)
     {
-      b = (k.d() - n);
+      b = (j.d() - m);
       return true;
     }
-    b = (k.c() + n);
+    b = (j.c() + m);
     return true;
   }
   
-  private int b(int paramInt, hm paramhm, hr paramhr, boolean paramBoolean)
+  private int b(int paramInt, mg parammg, ml paramml, boolean paramBoolean)
   {
-    int i = paramInt - k.c();
-    if (i > 0)
+    int i1 = paramInt - j.c();
+    if (i1 > 0)
     {
-      int i1 = -d(i, paramhm, paramhr);
-      i = i1;
+      int i2 = -c(i1, parammg, paramml);
+      i1 = i2;
       if (paramBoolean)
       {
-        paramInt = paramInt + i1 - k.c();
-        i = i1;
+        paramInt = paramInt + i2 - j.c();
+        i1 = i2;
         if (paramInt > 0)
         {
-          k.a(-paramInt);
-          i = i1 - paramInt;
+          j.a(-paramInt);
+          i1 = i2 - paramInt;
         }
       }
-      return i;
+      return i1;
     }
     return 0;
   }
   
-  private View b(boolean paramBoolean)
+  private void b(la paramla)
   {
-    if (l) {
-      return a(0, t(), paramBoolean, true);
-    }
-    return a(t() - 1, -1, paramBoolean, true);
+    j(a, b);
   }
   
-  private void b(gh paramgh)
+  private void b(mg parammg, int paramInt)
   {
-    g(a, b);
-  }
-  
-  private void b(hm paramhm, int paramInt)
-  {
-    int i = t();
+    int i1 = t();
     if (paramInt < 0) {}
     for (;;)
     {
       return;
-      int i1 = k.e() - paramInt;
+      int i2 = j.e() - paramInt;
       View localView;
-      if (l)
+      if (k)
       {
         paramInt = 0;
-        while (paramInt < i)
+        while (paramInt < i1)
         {
-          localView = e(paramInt);
-          if (k.a(localView) < i1)
+          localView = f(paramInt);
+          if (j.a(localView) < i2)
           {
-            a(paramhm, 0, paramInt);
+            a(parammg, 0, paramInt);
             return;
           }
           paramInt += 1;
@@ -566,13 +573,13 @@ public class LinearLayoutManager
       }
       else
       {
-        paramInt = i - 1;
+        paramInt = i1 - 1;
         while (paramInt >= 0)
         {
-          localView = e(paramInt);
-          if (k.a(localView) < i1)
+          localView = f(paramInt);
+          if (j.a(localView) < i2)
           {
-            a(paramhm, i - 1, paramInt);
+            a(parammg, i1 - 1, paramInt);
             return;
           }
           paramInt -= 1;
@@ -581,49 +588,34 @@ public class LinearLayoutManager
     }
   }
   
-  private void b(hm paramhm, hr paramhr, gh paramgh)
+  private boolean b(mg parammg, ml paramml, la paramla)
   {
-    if (a(paramhr, paramgh)) {}
-    while (c(paramhm, paramhr, paramgh)) {
-      return;
-    }
-    paramgh.b();
-    if (d) {}
-    for (int i = paramhr.e() - 1;; i = 0)
-    {
-      a = i;
-      return;
-    }
-  }
-  
-  private boolean c(hm paramhm, hr paramhr, gh paramgh)
-  {
-    int i = 0;
+    int i1 = 0;
     if (t() == 0) {}
     do
     {
       return false;
-      View localView = A();
-      if ((localView != null) && (gh.a(localView, paramhr)))
+      View localView = C();
+      if ((localView != null) && (la.a(localView, paramml)))
       {
-        paramgh.a(localView);
+        paramla.a(localView);
         return true;
       }
     } while (b != d);
     if (c)
     {
-      paramhm = d(paramhm, paramhr);
+      parammg = d(parammg, paramml);
       label65:
-      if (paramhm == null) {
+      if (parammg == null) {
         break label164;
       }
-      paramgh.b(paramhm);
-      if ((!paramhr.a()) && (c()))
+      paramla.b(parammg);
+      if ((!paramml.a()) && (c()))
       {
-        if ((k.a(paramhm) >= k.d()) || (k.b(paramhm) < k.c())) {
-          i = 1;
+        if ((j.a(parammg) >= j.d()) || (j.b(parammg) < j.c())) {
+          i1 = 1;
         }
-        if (i != 0) {
+        if (i1 != 0) {
           if (!c) {
             break label166;
           }
@@ -632,73 +624,164 @@ public class LinearLayoutManager
     }
     label164:
     label166:
-    for (i = k.d();; i = k.c())
+    for (i1 = j.d();; i1 = j.c())
     {
-      b = i;
+      b = i1;
       return true;
-      paramhm = e(paramhm, paramhr);
+      parammg = e(parammg, paramml);
       break label65;
       break;
     }
   }
   
-  private int d(int paramInt, hm paramhm, hr paramhr)
+  private int c(int paramInt, mg parammg, ml paramml)
   {
     if ((t() == 0) || (paramInt == 0)) {
       return 0;
     }
     a.a = true;
-    j();
+    i();
     if (paramInt > 0) {}
-    int i1;
     int i2;
-    for (int i = 1;; i = -1)
+    int i3;
+    for (int i1 = 1;; i1 = -1)
     {
-      i1 = Math.abs(paramInt);
-      a(i, i1, true, paramhr);
-      i2 = a.g + a(paramhm, a, paramhr, false);
-      if (i2 >= 0) {
+      i2 = Math.abs(paramInt);
+      a(i1, i2, true, paramml);
+      i3 = a.g + a(parammg, a, paramml, false);
+      if (i3 >= 0) {
         break;
       }
       return 0;
     }
-    if (i1 > i2) {
-      paramInt = i * i2;
+    if (i2 > i3) {
+      paramInt = i1 * i3;
     }
-    k.a(-paramInt);
+    j.a(-paramInt);
     a.j = paramInt;
     return paramInt;
   }
   
-  private View d(hm paramhm, hr paramhr)
+  private void c(boolean paramBoolean)
   {
-    if (l) {
-      return f(paramhm, paramhr);
+    a(null);
+    if (paramBoolean == c) {
+      return;
     }
-    return g(paramhm, paramhr);
+    c = paramBoolean;
+    n();
   }
   
-  private View e(hm paramhm, hr paramhr)
+  private View d(mg parammg, ml paramml)
   {
-    if (l) {
-      return g(paramhm, paramhr);
+    if (k) {
+      return f(parammg, paramml);
     }
-    return f(paramhm, paramhr);
+    return g(parammg, paramml);
   }
   
-  private View f(hm paramhm, hr paramhr)
+  private View d(boolean paramBoolean)
   {
-    return a(paramhm, paramhr, 0, t(), paramhr.e());
+    if (k) {
+      return a(t() - 1, -1, paramBoolean, true);
+    }
+    return a(0, t(), paramBoolean, true);
   }
   
-  private void f(int paramInt1, int paramInt2)
+  private View e(mg parammg, ml paramml)
   {
-    a.c = (k.d() - paramInt2);
-    gj localgj = a;
-    if (l) {}
-    for (int i = -1;; i = 1)
+    if (k) {
+      return g(parammg, paramml);
+    }
+    return f(parammg, paramml);
+  }
+  
+  private View e(boolean paramBoolean)
+  {
+    if (k) {
+      return a(0, t(), paramBoolean, true);
+    }
+    return a(t() - 1, -1, paramBoolean, true);
+  }
+  
+  private View f(mg parammg, ml paramml)
+  {
+    return a(parammg, paramml, 0, t(), paramml.e());
+  }
+  
+  private int g(ml paramml)
+  {
+    if (paramml.d()) {
+      return j.f();
+    }
+    return 0;
+  }
+  
+  private View g(mg parammg, ml paramml)
+  {
+    return a(parammg, paramml, t() - 1, -1, paramml.e());
+  }
+  
+  private int h(ml paramml)
+  {
+    boolean bool2 = true;
+    if (t() == 0) {
+      return 0;
+    }
+    i();
+    lq locallq = j;
+    View localView;
+    if (!e)
     {
-      e = i;
+      bool1 = true;
+      localView = d(bool1);
+      if (e) {
+        break label74;
+      }
+    }
+    label74:
+    for (boolean bool1 = bool2;; bool1 = false)
+    {
+      return mv.a(paramml, locallq, localView, e(bool1), this, e, k);
+      bool1 = false;
+      break;
+    }
+  }
+  
+  private int i(ml paramml)
+  {
+    boolean bool2 = true;
+    if (t() == 0) {
+      return 0;
+    }
+    i();
+    lq locallq = j;
+    View localView;
+    if (!e)
+    {
+      bool1 = true;
+      localView = d(bool1);
+      if (e) {
+        break label70;
+      }
+    }
+    label70:
+    for (boolean bool1 = bool2;; bool1 = false)
+    {
+      return mv.a(paramml, locallq, localView, e(bool1), this, e);
+      bool1 = false;
+      break;
+    }
+  }
+  
+  private void i(int paramInt1, int paramInt2)
+  {
+    a.c = (j.d() - paramInt2);
+    lc locallc = a;
+    if (k) {}
+    for (int i1 = -1;; i1 = 1)
+    {
+      e = i1;
       a.d = paramInt1;
       a.f = 1;
       a.b = paramInt2;
@@ -707,25 +790,38 @@ public class LinearLayoutManager
     }
   }
   
-  private int g(hr paramhr)
+  private int j(ml paramml)
   {
-    if (paramhr.d()) {
-      return k.f();
+    boolean bool2 = true;
+    if (t() == 0) {
+      return 0;
     }
-    return 0;
+    i();
+    lq locallq = j;
+    View localView;
+    if (!e)
+    {
+      bool1 = true;
+      localView = d(bool1);
+      if (e) {
+        break label70;
+      }
+    }
+    label70:
+    for (boolean bool1 = bool2;; bool1 = false)
+    {
+      return mv.b(paramml, locallq, localView, e(bool1), this, e);
+      bool1 = false;
+      break;
+    }
   }
   
-  private View g(hm paramhm, hr paramhr)
+  private void j(int paramInt1, int paramInt2)
   {
-    return a(paramhm, paramhr, t() - 1, -1, paramhr.e());
-  }
-  
-  private void g(int paramInt1, int paramInt2)
-  {
-    a.c = (paramInt2 - k.c());
+    a.c = (paramInt2 - j.c());
     a.d = paramInt1;
-    gj localgj = a;
-    if (l) {}
+    lc locallc = a;
+    if (k) {}
     for (paramInt1 = 1;; paramInt1 = -1)
     {
       e = paramInt1;
@@ -736,182 +832,126 @@ public class LinearLayoutManager
     }
   }
   
-  private int h(hr paramhr)
+  private void k(int paramInt)
   {
-    boolean bool2 = true;
-    if (t() == 0) {
+    if ((paramInt != 0) && (paramInt != 1)) {
+      throw new IllegalArgumentException("invalid orientation:" + paramInt);
+    }
+    a(null);
+    if (paramInt == i) {
+      return;
+    }
+    i = paramInt;
+    j = null;
+    n();
+  }
+  
+  public int a(int paramInt, mg parammg, ml paramml)
+  {
+    if (i == 1) {
       return 0;
     }
-    j();
-    gx localgx = k;
-    View localView;
-    if (!e)
-    {
-      bool1 = true;
-      localView = a(bool1);
-      if (e) {
-        break label74;
-      }
-    }
-    label74:
-    for (boolean bool1 = bool2;; bool1 = false)
-    {
-      return ib.a(paramhr, localgx, localView, b(bool1), this, e, l);
-      bool1 = false;
-      break;
-    }
+    return c(paramInt, parammg, paramml);
   }
   
-  private int i(hr paramhr)
+  public final int a(ml paramml)
   {
-    boolean bool2 = true;
-    if (t() == 0) {
-      return 0;
-    }
-    j();
-    gx localgx = k;
-    View localView;
-    if (!e)
-    {
-      bool1 = true;
-      localView = a(bool1);
-      if (e) {
-        break label70;
-      }
-    }
-    label70:
-    for (boolean bool1 = bool2;; bool1 = false)
-    {
-      return ib.a(paramhr, localgx, localView, b(bool1), this, e);
-      bool1 = false;
-      break;
-    }
-  }
-  
-  private int j(int paramInt)
-  {
-    int i1 = -1;
-    int i = i1;
-    switch (paramInt)
-    {
-    default: 
-      i = Integer.MIN_VALUE;
-    case 1: 
-    case 2: 
-    case 33: 
-    case 130: 
-    case 17: 
-      do
-      {
-        do
-        {
-          return i;
-          return 1;
-          i = i1;
-        } while (j == 1);
-        return Integer.MIN_VALUE;
-        if (j == 1) {
-          return 1;
-        }
-        return Integer.MIN_VALUE;
-        i = i1;
-      } while (j == 0);
-      return Integer.MIN_VALUE;
-    }
-    if (j == 0) {
-      return 1;
-    }
-    return Integer.MIN_VALUE;
-  }
-  
-  private int j(hr paramhr)
-  {
-    boolean bool2 = true;
-    if (t() == 0) {
-      return 0;
-    }
-    j();
-    gx localgx = k;
-    View localView;
-    if (!e)
-    {
-      bool1 = true;
-      localView = a(bool1);
-      if (e) {
-        break label70;
-      }
-    }
-    label70:
-    for (boolean bool1 = bool2;; bool1 = false)
-    {
-      return ib.b(paramhr, localgx, localView, b(bool1), this, e);
-      bool1 = false;
-      break;
-    }
-  }
-  
-  public int a(int paramInt, hm paramhm, hr paramhr)
-  {
-    if (j == 1) {
-      return 0;
-    }
-    return d(paramInt, paramhm, paramhr);
-  }
-  
-  public final int a(hr paramhr)
-  {
-    return h(paramhr);
+    return h(paramml);
   }
   
   public final View a(int paramInt)
   {
-    int i = t();
+    int i1 = t();
     Object localObject;
-    if (i == 0) {
+    if (i1 == 0) {
       localObject = null;
     }
     View localView;
     do
     {
       return (View)localObject;
-      int i1 = paramInt - c(e(0));
-      if ((i1 < 0) || (i1 >= i)) {
+      int i2 = paramInt - c(f(0));
+      if ((i2 < 0) || (i2 >= i1)) {
         break;
       }
-      localView = e(i1);
+      localView = f(i2);
       localObject = localView;
     } while (c(localView) == paramInt);
     return super.a(paramInt);
   }
   
-  View a(hm paramhm, hr paramhr, int paramInt1, int paramInt2, int paramInt3)
+  public View a(View paramView, int paramInt, mg parammg, ml paramml)
   {
-    paramhm = null;
-    j();
-    int i1 = k.c();
-    int i2 = k.d();
-    int i;
+    K();
+    if (t() == 0) {}
+    label42:
+    label134:
+    label136:
+    label142:
+    for (;;)
+    {
+      return null;
+      paramInt = e(paramInt);
+      if (paramInt != Integer.MIN_VALUE)
+      {
+        i();
+        if (paramInt == -1)
+        {
+          paramView = e(parammg, paramml);
+          if (paramView == null) {
+            break label134;
+          }
+          i();
+          a(paramInt, (int)(0.33333334F * j.f()), false, paramml);
+          a.g = Integer.MIN_VALUE;
+          a.a = false;
+          a(parammg, a, paramml, true);
+          if (paramInt != -1) {
+            break label136;
+          }
+        }
+        for (parammg = N();; parammg = O())
+        {
+          if ((parammg == paramView) || (!parammg.isFocusable())) {
+            break label142;
+          }
+          return parammg;
+          paramView = d(parammg, paramml);
+          break label42;
+          break;
+        }
+      }
+    }
+  }
+  
+  View a(mg parammg, ml paramml, int paramInt1, int paramInt2, int paramInt3)
+  {
+    parammg = null;
+    i();
+    int i2 = j.c();
+    int i3 = j.d();
+    int i1;
     label35:
     View localView;
     if (paramInt2 > paramInt1)
     {
-      i = 1;
-      paramhr = null;
+      i1 = 1;
+      paramml = null;
       if (paramInt1 == paramInt2) {
         break label144;
       }
-      localView = e(paramInt1);
-      int i3 = c(localView);
-      if ((i3 < 0) || (i3 >= paramInt3)) {
+      localView = f(paramInt1);
+      int i4 = c(localView);
+      if ((i4 < 0) || (i4 >= paramInt3)) {
         break label156;
       }
       if (!((RecyclerView.LayoutParams)localView.getLayoutParams()).c()) {
         break label102;
       }
-      if (paramhr != null) {
+      if (paramml != null) {
         break label156;
       }
-      paramhr = localView;
+      paramml = localView;
     }
     label102:
     label144:
@@ -919,30 +959,30 @@ public class LinearLayoutManager
     label156:
     for (;;)
     {
-      paramInt1 += i;
+      paramInt1 += i1;
       break label35;
-      i = -1;
+      i1 = -1;
       break;
       Object localObject;
-      if (k.a(localView) < i2)
+      if (j.a(localView) < i3)
       {
         localObject = localView;
-        if (k.b(localView) >= i1) {}
+        if (j.b(localView) >= i2) {}
       }
       else
       {
-        if (paramhm != null) {
+        if (parammg != null) {
           break label156;
         }
-        paramhm = localView;
+        parammg = localView;
         continue;
-        if (paramhm == null) {
+        if (parammg == null) {
           break label154;
         }
-        localObject = paramhm;
+        localObject = parammg;
       }
       return (View)localObject;
-      return paramhr;
+      return paramml;
     }
   }
   
@@ -950,14 +990,14 @@ public class LinearLayoutManager
   {
     if ((paramParcelable instanceof LinearLayoutManager.SavedState))
     {
-      o = ((LinearLayoutManager.SavedState)paramParcelable);
+      n = ((LinearLayoutManager.SavedState)paramParcelable);
       n();
     }
   }
   
   public void a(RecyclerView paramRecyclerView, int paramInt)
   {
-    paramRecyclerView = new gk(paramRecyclerView.getContext())
+    paramRecyclerView = new ld(paramRecyclerView.getContext())
     {
       public final PointF a(int paramAnonymousInt)
       {
@@ -968,13 +1008,13 @@ public class LinearLayoutManager
     a(paramRecyclerView);
   }
   
-  public final void a(RecyclerView paramRecyclerView, hm paramhm)
+  public final void a(RecyclerView paramRecyclerView, mg parammg)
   {
-    super.a(paramRecyclerView, paramhm);
+    super.a(paramRecyclerView, parammg);
     if (f)
     {
-      c(paramhm);
-      paramhm.a();
+      c(parammg);
+      parammg.a();
     }
   }
   
@@ -989,139 +1029,149 @@ public class LinearLayoutManager
     }
   }
   
-  void a(hm paramhm, hr paramhr, gh paramgh) {}
-  
-  void a(hm paramhm, hr paramhr, gj paramgj, gi paramgi)
+  public final void a(String paramString)
   {
-    paramhm = paramgj.a(paramhm);
-    if (paramhm == null)
+    if (n == null) {
+      super.a(paramString);
+    }
+  }
+  
+  void a(mg parammg, ml paramml, la paramla, int paramInt) {}
+  
+  void a(mg parammg, ml paramml, lc paramlc, lb paramlb)
+  {
+    parammg = paramlc.a(parammg);
+    if (parammg == null)
     {
       b = true;
       return;
     }
-    paramhr = (RecyclerView.LayoutParams)paramhm.getLayoutParams();
+    paramml = (RecyclerView.LayoutParams)parammg.getLayoutParams();
     boolean bool2;
     boolean bool1;
     label61:
-    int i;
     int i1;
-    label118:
     int i2;
+    label118:
     int i3;
+    int i4;
     if (k == null)
     {
-      bool2 = l;
+      bool2 = k;
       if (f == -1)
       {
         bool1 = true;
         if (bool2 != bool1) {
           break label212;
         }
-        b(paramhm);
-        d(paramhm);
-        a = k.c(paramhm);
-        if (j != 1) {
+        b(parammg);
+        e(parammg);
+        a = j.c(parammg);
+        if (i != 1) {
           break label319;
         }
-        if (!i()) {
+        if (!h()) {
           break label268;
         }
-        i = u() - y();
-        i1 = i - k.d(paramhm);
+        i1 = w() - A();
+        i2 = i1 - j.d(parammg);
         if (f != -1) {
           break label290;
         }
-        i2 = b;
-        i3 = b - a;
+        i3 = b;
+        i4 = b - a;
       }
     }
     for (;;)
     {
-      a(paramhm, i1 + leftMargin, i3 + topMargin, i - rightMargin, i2 - bottomMargin);
-      if ((paramhr.c()) || (paramhr.d())) {
+      a(parammg, i2 + leftMargin, i4 + topMargin, i1 - rightMargin, i3 - bottomMargin);
+      if ((paramml.c()) || (paramml.d())) {
         c = true;
       }
-      d = paramhm.isFocusable();
+      d = parammg.isFocusable();
       return;
       bool1 = false;
       break;
       label212:
-      b(paramhm, 0);
+      b(parammg, 0);
       break label61;
-      bool2 = l;
+      bool2 = k;
       if (f == -1) {}
       for (bool1 = true;; bool1 = false)
       {
         if (bool2 != bool1) {
           break label259;
         }
-        a(paramhm);
+        a(parammg);
         break;
       }
       label259:
-      a(paramhm, 0);
+      a(parammg, 0);
       break label61;
       label268:
-      i1 = w();
-      i = k.d(paramhm) + i1;
+      i2 = y();
+      i1 = j.d(parammg) + i2;
       break label118;
       label290:
+      i4 = b;
       i3 = b;
-      i2 = b;
-      int i4 = a;
-      i2 += i4;
+      int i5 = a;
+      i3 += i5;
       continue;
       label319:
-      i3 = x();
-      i2 = k.d(paramhm) + i3;
+      i4 = z();
+      i3 = j.d(parammg) + i4;
       if (f == -1)
       {
-        i = b;
-        i1 = b - a;
+        i1 = b;
+        i2 = b - a;
       }
       else
       {
-        i1 = b;
-        i = b + a;
+        i2 = b;
+        i1 = b + a;
       }
     }
   }
   
-  public final void a(String paramString)
+  public void a(boolean paramBoolean)
   {
-    if (o == null) {
-      super.a(paramString);
+    a(null);
+    if (d == paramBoolean) {
+      return;
     }
+    d = paramBoolean;
+    n();
   }
   
-  public int b(int paramInt, hm paramhm, hr paramhr)
+  public int b(int paramInt, mg parammg, ml paramml)
   {
-    if (j == 0) {
+    if (i == 0) {
       return 0;
     }
-    return d(paramInt, paramhm, paramhr);
+    return c(paramInt, parammg, paramml);
   }
   
-  public final int b(hr paramhr)
+  public final int b(ml paramml)
   {
-    return h(paramhr);
+    return h(paramml);
   }
   
   public final PointF b(int paramInt)
   {
-    int i = 1;
-    int i1 = 0;
+    int i1 = 1;
+    int i2 = 0;
     if (t() == 0) {
       return null;
     }
-    if (paramInt < c(e(0))) {
-      i1 = 1;
+    if (paramInt < c(f(0))) {
+      i2 = 1;
     }
-    paramInt = i;
-    if (i1 != l) {
+    paramInt = i1;
+    if (i2 != k) {
       paramInt = -1;
     }
-    if (j == 0) {
+    if (i == 0) {
       return new PointF(paramInt, 0.0F);
     }
     return new PointF(0.0F, paramInt);
@@ -1129,267 +1179,242 @@ public class LinearLayoutManager
   
   public RecyclerView.LayoutParams b()
   {
-    return new RecyclerView.LayoutParams(-2);
+    return new RecyclerView.LayoutParams(-2, -2);
   }
   
-  public final int c(hr paramhr)
+  public final int c(ml paramml)
   {
-    return i(paramhr);
-  }
-  
-  public final View c(int paramInt, hm paramhm, hr paramhr)
-  {
-    F();
-    if (t() == 0) {}
-    label42:
-    label134:
-    label136:
-    label142:
-    for (;;)
-    {
-      return null;
-      paramInt = j(paramInt);
-      if (paramInt != Integer.MIN_VALUE)
-      {
-        j();
-        View localView;
-        if (paramInt == -1)
-        {
-          localView = e(paramhm, paramhr);
-          if (localView == null) {
-            break label134;
-          }
-          j();
-          a(paramInt, (int)(0.33F * k.f()), false, paramhr);
-          a.g = Integer.MIN_VALUE;
-          a.a = false;
-          a(paramhm, a, paramhr, true);
-          if (paramInt != -1) {
-            break label136;
-          }
-        }
-        for (paramhm = I();; paramhm = J())
-        {
-          if ((paramhm == localView) || (!paramhm.isFocusable())) {
-            break label142;
-          }
-          return paramhm;
-          localView = d(paramhm, paramhr);
-          break label42;
-          break;
-        }
-      }
-    }
+    return i(paramml);
   }
   
   public final void c(int paramInt)
   {
-    m = paramInt;
-    n = Integer.MIN_VALUE;
-    if (o != null) {
-      o.b();
+    l = paramInt;
+    m = Integer.MIN_VALUE;
+    if (n != null) {
+      n.b();
     }
     n();
   }
   
-  public void c(hm paramhm, hr paramhr)
+  public void c(mg parammg, ml paramml)
   {
-    if (((o != null) || (m != -1)) && (paramhr.e() == 0))
+    if (((n != null) || (l != -1)) && (paramml.e() == 0))
     {
-      c(paramhm);
+      c(parammg);
       return;
     }
-    if ((o != null) && (o.a())) {
-      m = o.a;
+    if ((n != null) && (n.a())) {
+      l = n.a;
     }
-    j();
+    i();
     a.a = false;
-    F();
-    p.a();
-    p.c = (l ^ d);
-    b(paramhm, paramhr, p);
-    int i = g(paramhr);
-    int i1;
+    K();
+    o.a();
+    o.c = (k ^ d);
+    a(parammg, paramml, o);
+    int i1 = g(paramml);
     int i2;
+    int i4;
+    int i5;
     int i3;
     Object localObject;
-    label244:
-    label257:
-    int i4;
     if (a.j >= 0)
     {
-      i1 = 0;
-      i2 = i1 + k.c();
-      i3 = i + k.g();
-      i = i3;
-      i1 = i2;
-      if (paramhr.a())
+      i2 = 0;
+      i4 = i2 + j.c();
+      i5 = i1 + j.g();
+      i2 = i5;
+      i3 = i4;
+      if (paramml.a())
       {
-        i = i3;
-        i1 = i2;
-        if (m != -1)
+        i2 = i5;
+        i3 = i4;
+        if (l != -1)
         {
-          i = i3;
-          i1 = i2;
-          if (n != Integer.MIN_VALUE)
+          i2 = i5;
+          i3 = i4;
+          if (m != Integer.MIN_VALUE)
           {
-            localObject = a(m);
-            i = i3;
-            i1 = i2;
+            localObject = a(l);
+            i2 = i5;
+            i3 = i4;
             if (localObject != null)
             {
-              if (!l) {
-                break label613;
+              if (!k) {
+                break label648;
               }
-              i = k.d() - k.b((View)localObject) - n;
-              if (i <= 0) {
-                break label645;
+              i1 = j.d() - j.b((View)localObject) - m;
+              label248:
+              if (i1 <= 0) {
+                break label680;
               }
-              i1 = i2 + i;
-              i = i3;
+              i3 = i4 + i1;
+              i2 = i5;
             }
           }
         }
       }
-      a(paramhm, paramhr, p);
-      a(paramhm);
-      a.i = paramhr.a();
-      if (!p.c) {
-        break label657;
+      label262:
+      if (!o.c) {
+        break label698;
       }
-      b(p);
-      a.h = i1;
-      a(paramhm, a, paramhr, false);
-      i3 = a.b;
-      i4 = a.d;
-      i1 = i;
+      if (!k) {
+        break label693;
+      }
+      i1 = 1;
+      label281:
+      a(parammg, paramml, o, i1);
+      a(parammg);
+      a.l = M();
+      a.i = paramml.a();
+      if (!o.c) {
+        break label715;
+      }
+      b(o);
+      a.h = i3;
+      a(parammg, a, paramml, false);
+      i4 = a.b;
+      i5 = a.d;
+      i1 = i2;
       if (a.c > 0) {
-        i1 = i + a.c;
+        i1 = i2 + a.c;
       }
-      a(p);
+      a(o);
       a.h = i1;
       localObject = a;
       d += a.e;
-      a(paramhm, a, paramhr, false);
-      i2 = a.b;
+      a(parammg, a, paramml, false);
+      i3 = a.b;
       if (a.c <= 0) {
-        break label901;
+        break label960;
       }
-      i = a.c;
-      g(i4, i3);
-      a.h = i;
-      a(paramhm, a, paramhr, false);
+      i1 = a.c;
+      j(i5, i4);
+      a.h = i1;
+      a(parammg, a, paramml, false);
     }
-    label486:
-    label613:
-    label645:
-    label657:
-    label856:
-    label901:
-    for (i = a.b;; i = i3)
+    label521:
+    label648:
+    label680:
+    label693:
+    label698:
+    label715:
+    label915:
+    label960:
+    for (i1 = a.b;; i1 = i4)
     {
-      i1 = i;
-      i = i2;
-      i2 = i;
+      i2 = i1;
+      i1 = i3;
       i3 = i1;
+      i4 = i2;
       if (t() > 0)
       {
-        if (!(l ^ d)) {
-          break label856;
+        if (!(k ^ d)) {
+          break label915;
         }
-        i2 = a(i, paramhm, paramhr, true);
-        i3 = i1 + i2;
-        i1 = b(i3, paramhm, paramhr, false);
-        i3 += i1;
+        i3 = a(i1, parammg, paramml, true);
+        i4 = i2 + i3;
+        i2 = b(i4, parammg, paramml, false);
+        i4 += i2;
       }
-      for (i2 = i + i2 + i1;; i2 = i + i4)
+      for (i3 = i1 + i3 + i2;; i3 = i1 + i5)
       {
-        a(paramhm, paramhr, i3, i2);
-        if (!paramhr.a())
+        a(parammg, paramml, i4, i3);
+        if (!paramml.a())
         {
-          m = -1;
-          n = Integer.MIN_VALUE;
-          k.a();
+          l = -1;
+          m = Integer.MIN_VALUE;
+          j.a();
         }
         b = d;
-        o = null;
+        n = null;
         return;
-        i1 = i;
-        i = 0;
+        i2 = i1;
+        i1 = 0;
         break;
-        i = k.a((View)localObject);
-        i1 = k.c();
-        i = n - (i - i1);
-        break label244;
-        i = i3 - i;
-        i1 = i2;
-        break label257;
-        a(p);
-        a.h = i;
-        a(paramhm, a, paramhr, false);
-        i2 = a.b;
-        i4 = a.d;
-        i = i1;
-        if (a.c > 0) {
-          i = i1 + a.c;
+        i1 = j.a((View)localObject);
+        i2 = j.c();
+        i1 = m - (i1 - i2);
+        break label248;
+        i2 = i5 - i1;
+        i3 = i4;
+        break label262;
+        i1 = -1;
+        break label281;
+        if (k)
+        {
+          i1 = -1;
+          break label281;
         }
-        b(p);
-        a.h = i;
+        i1 = 1;
+        break label281;
+        a(o);
+        a.h = i2;
+        a(parammg, a, paramml, false);
+        i4 = a.b;
+        i5 = a.d;
+        i1 = i3;
+        if (a.c > 0) {
+          i1 = i3 + a.c;
+        }
+        b(o);
+        a.h = i1;
         localObject = a;
         d += a.e;
-        a(paramhm, a, paramhr, false);
+        a(parammg, a, paramml, false);
         i3 = a.b;
-        i = i2;
-        i1 = i3;
+        i1 = i4;
+        i2 = i3;
         if (a.c <= 0) {
-          break label486;
+          break label521;
         }
-        i = a.c;
-        f(i4, i2);
-        a.h = i;
-        a(paramhm, a, paramhr, false);
-        i = a.b;
-        i1 = i3;
-        break label486;
-        i2 = b(i1, paramhm, paramhr, true);
-        i += i2;
-        i4 = a(i, paramhm, paramhr, false);
-        i3 = i1 + i2 + i4;
+        i1 = a.c;
+        i(i5, i4);
+        a.h = i1;
+        a(parammg, a, paramml, false);
+        i1 = a.b;
+        i2 = i3;
+        break label521;
+        i3 = b(i2, parammg, paramml, true);
+        i1 += i3;
+        i5 = a(i1, parammg, paramml, false);
+        i4 = i2 + i3 + i5;
       }
     }
   }
   
   public boolean c()
   {
-    return (o == null) && (b == d);
+    return (n == null) && (b == d);
   }
   
-  public final int d(hr paramhr)
+  public final int d(ml paramml)
   {
-    return i(paramhr);
+    return i(paramml);
   }
   
   public final Parcelable d()
   {
-    if (o != null) {
-      return new LinearLayoutManager.SavedState(o);
+    if (n != null) {
+      return new LinearLayoutManager.SavedState(n);
     }
     LinearLayoutManager.SavedState localSavedState = new LinearLayoutManager.SavedState();
     if (t() > 0)
     {
-      j();
-      boolean bool = b ^ l;
+      i();
+      boolean bool = b ^ k;
       c = bool;
       if (bool)
       {
-        localView = J();
-        b = (k.d() - k.b(localView));
+        localView = O();
+        b = (j.d() - j.b(localView));
         a = c(localView);
         return localSavedState;
       }
-      View localView = I();
+      View localView = N();
       a = c(localView);
-      b = (k.a(localView) - k.c());
+      b = (j.a(localView) - j.c());
       return localSavedState;
     }
     localSavedState.b();
@@ -1398,63 +1423,93 @@ public class LinearLayoutManager
   
   public final void d(int paramInt)
   {
-    m = paramInt;
-    n = 0;
-    if (o != null) {
-      o.b();
+    l = paramInt;
+    m = 0;
+    if (n != null) {
+      n.b();
     }
     n();
   }
   
-  public final int e(hr paramhr)
+  final int e(int paramInt)
   {
-    return j(paramhr);
+    int i2 = -1;
+    int i1 = i2;
+    switch (paramInt)
+    {
+    default: 
+      i1 = Integer.MIN_VALUE;
+    case 1: 
+    case 2: 
+    case 33: 
+    case 130: 
+    case 17: 
+      do
+      {
+        do
+        {
+          return i1;
+          return 1;
+          i1 = i2;
+        } while (i == 1);
+        return Integer.MIN_VALUE;
+        if (i == 1) {
+          return 1;
+        }
+        return Integer.MIN_VALUE;
+        i1 = i2;
+      } while (i == 0);
+      return Integer.MIN_VALUE;
+    }
+    if (i == 0) {
+      return 1;
+    }
+    return Integer.MIN_VALUE;
+  }
+  
+  public final int e(ml paramml)
+  {
+    return j(paramml);
   }
   
   public final boolean e()
   {
-    return j == 0;
+    return i == 0;
   }
   
-  public final int f(hr paramhr)
+  public final int f(ml paramml)
   {
-    return j(paramhr);
+    return j(paramml);
   }
   
   public final boolean f()
   {
-    return j == 1;
+    return i == 1;
   }
   
   public final int g()
   {
-    return j;
+    return i;
   }
   
-  public final void h()
-  {
-    a(null);
-    if (1 == j) {
-      return;
-    }
-    j = 1;
-    k = null;
-    n();
-  }
-  
-  protected final boolean i()
+  protected final boolean h()
   {
     return s() == 1;
   }
   
-  final void j()
+  final void i()
   {
     if (a == null) {
-      a = H();
+      a = L();
     }
-    if (k == null) {
-      k = gx.a(this, j);
+    if (j == null) {
+      j = lq.a(this, i);
     }
+  }
+  
+  final boolean j()
+  {
+    return (v() != 1073741824) && (u() != 1073741824) && (J());
   }
   
   public final int k()

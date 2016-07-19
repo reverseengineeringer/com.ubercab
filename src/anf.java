@@ -1,76 +1,186 @@
-import android.app.Activity;
-import android.content.Intent;
-import android.os.IBinder;
-import android.os.RemoteException;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
+import android.os.WorkSource;
+import android.text.TextUtils;
+import android.util.Log;
 
-@apl
 public final class anf
-  extends adi<ank>
 {
-  private static final anf a = new anf();
+  private static String a = "WakeLock";
+  private static String b = "*gcore*:";
+  private static boolean c = false;
+  private final PowerManager.WakeLock d;
+  private WorkSource e;
+  private final int f;
+  private final String g;
+  private final String h;
+  private final Context i;
+  private boolean j = true;
+  private int k;
+  private int l;
   
-  private anf()
+  public anf(Context paramContext, String paramString) {}
+  
+  @SuppressLint({"UnwrappedWakeLock"})
+  private anf(Context paramContext, String paramString1, String paramString2)
   {
-    super("com.google.android.gms.ads.AdOverlayCreatorImpl");
+    abe.a(paramString1, "Wake lock name can NOT be empty");
+    f = 1;
+    h = null;
+    i = paramContext.getApplicationContext();
+    if ((!alp.a(paramString2)) && ("com.google.android.gms" != paramString2))
+    {
+      g = (b + paramString1);
+      d = ((PowerManager)paramContext.getSystemService("power")).newWakeLock(1, paramString1);
+      if (alq.a(i))
+      {
+        paramString1 = paramString2;
+        if (alp.a(paramString2))
+        {
+          if ((!zn.a) || (!ako.b())) {
+            break label187;
+          }
+          Log.e(a, "callingPackage is not supposed to be empty for wakelock " + g + "!", new IllegalArgumentException());
+        }
+      }
+    }
+    label187:
+    for (paramString1 = "com.google.android.gms";; paramString1 = paramContext.getPackageName())
+    {
+      e = alq.a(paramContext, paramString1);
+      a(e);
+      return;
+      g = paramString1;
+      break;
+    }
   }
   
-  public static anh a(Activity paramActivity)
+  private String a(boolean paramBoolean)
   {
+    if (j)
+    {
+      if (paramBoolean) {
+        return null;
+      }
+      return h;
+    }
+    return h;
+  }
+  
+  private void a(WorkSource paramWorkSource)
+  {
+    if ((alq.a(i)) && (paramWorkSource != null))
+    {
+      if (e == null) {
+        break label42;
+      }
+      e.add(paramWorkSource);
+    }
+    for (;;)
+    {
+      d.setWorkSource(e);
+      return;
+      label42:
+      e = paramWorkSource;
+    }
+  }
+  
+  private void e()
+  {
+    boolean bool = g();
+    String str = a(bool);
+    if (c) {
+      Log.d(a, "Acquire:\n mWakeLockName: " + g + "\n mSecondaryName: " + h + "\nmReferenceCounted: " + j + "\nreason: " + null + "\nmOpenEventCount" + l + "\nuseWithReason: " + bool + "\ntrackingName: " + str + "\ntimeout: 1000");
+    }
     try
     {
-      anh localanh1;
-      if (!b(paramActivity))
+      if (j)
       {
-        anh localanh2 = a.c(paramActivity);
-        localanh1 = localanh2;
-        if (localanh2 != null) {}
+        int m = k;
+        k = (m + 1);
+        if ((m == 0) || (bool)) {}
       }
       else
       {
-        sq.a("Using AdOverlay from the client jar.");
-        localanh1 = np.c().b(paramActivity);
+        if ((j) || (l != 0)) {
+          break label204;
+        }
       }
-      return localanh1;
+      acb.a();
+      acb.a(i, abz.a(d, str), 7, g, str, f, alq.a(e), 1000L);
+      l += 1;
+      label204:
+      return;
     }
-    catch (ang paramActivity)
-    {
-      sq.d(paramActivity.getMessage());
-    }
-    return null;
+    finally {}
   }
   
-  private static ank b(IBinder paramIBinder)
+  private void f()
   {
-    return anl.a(paramIBinder);
-  }
-  
-  private static boolean b(Activity paramActivity)
-  {
-    paramActivity = paramActivity.getIntent();
-    if (!paramActivity.hasExtra("com.google.android.gms.ads.internal.overlay.useClientJar")) {
-      throw new ang("Ad overlay requires the useClientJar flag in intent extras.");
+    boolean bool = g();
+    String str = a(bool);
+    if (c) {
+      Log.d(a, "Release:\n mWakeLockName: " + g + "\n mSecondaryName: " + h + "\nmReferenceCounted: " + j + "\nreason: " + null + "\n mOpenEventCount" + l + "\nuseWithReason: " + bool + "\ntrackingName: " + str);
     }
-    return paramActivity.getBooleanExtra("com.google.android.gms.ads.internal.overlay.useClientJar", false);
-  }
-  
-  private anh c(Activity paramActivity)
-  {
     try
     {
-      add localadd = adg.a(paramActivity);
-      paramActivity = ani.a(((ank)a(paramActivity)).a(localadd));
-      return paramActivity;
+      if (j)
+      {
+        int m = k - 1;
+        k = m;
+        if ((m == 0) || (bool)) {}
+      }
+      else
+      {
+        if ((j) || (l != 1)) {
+          break label195;
+        }
+      }
+      acb.a();
+      acb.a(i, abz.a(d, str), g, str, f, alq.a(e));
+      l -= 1;
+      label195:
+      return;
     }
-    catch (RemoteException paramActivity)
+    finally {}
+  }
+  
+  private boolean g()
+  {
+    if (!TextUtils.isEmpty(null))
     {
-      sq.d("Could not create remote AdOverlay.", paramActivity);
-      return null;
+      String str = h;
+      throw new NullPointerException();
     }
-    catch (adj paramActivity)
-    {
-      sq.d("Could not create remote AdOverlay.", paramActivity);
+    return false;
+  }
+  
+  public final void a()
+  {
+    if ((!all.c()) && (j)) {
+      Log.wtf(a, "Do not acquire with timeout on reference counted WakeLocks before ICS. wakelock: " + g);
     }
-    return null;
+    e();
+    d.acquire(1000L);
+  }
+  
+  public final void b()
+  {
+    f();
+    d.release();
+  }
+  
+  public final void c()
+  {
+    d.setReferenceCounted(false);
+    j = false;
+  }
+  
+  public final boolean d()
+  {
+    return d.isHeld();
   }
 }
 

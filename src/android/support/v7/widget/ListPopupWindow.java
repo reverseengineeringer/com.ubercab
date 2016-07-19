@@ -27,21 +27,21 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
-import bp;
-import bz;
-import gl;
-import gp;
-import gq;
-import gr;
-import gs;
-import gt;
+import gd;
+import gn;
 import java.lang.reflect.Method;
+import le;
+import li;
+import lj;
+import lk;
+import ll;
+import lm;
 
 public class ListPopupWindow
 {
   private static Method a;
   private static Method c;
-  private final gp A = new gp(this, (byte)0);
+  private final li A = new li(this, (byte)0);
   private Runnable B;
   private final Handler C;
   private Rect D = new Rect();
@@ -51,7 +51,7 @@ public class ListPopupWindow
   private Context d;
   private PopupWindow e;
   private ListAdapter f;
-  private gl g;
+  private le g;
   private int h = -2;
   private int i = -2;
   private int j;
@@ -68,9 +68,9 @@ public class ListPopupWindow
   private Drawable u;
   private AdapterView.OnItemClickListener v;
   private AdapterView.OnItemSelectedListener w;
-  private final gt x = new gt(this, (byte)0);
-  private final gs y = new gs(this, (byte)0);
-  private final gr z = new gr(this, (byte)0);
+  private final lm x = new lm(this, (byte)0);
+  private final ll y = new ll(this, (byte)0);
+  private final lk z = new lk(this, (byte)0);
   
   static
   {
@@ -99,12 +99,7 @@ public class ListPopupWindow
   
   public ListPopupWindow(Context paramContext)
   {
-    this(paramContext, null, bp.listPopupWindowStyle);
-  }
-  
-  public ListPopupWindow(Context paramContext, AttributeSet paramAttributeSet)
-  {
-    this(paramContext, paramAttributeSet, bp.listPopupWindowStyle);
+    this(paramContext, null, gd.listPopupWindowStyle);
   }
   
   public ListPopupWindow(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
@@ -116,9 +111,9 @@ public class ListPopupWindow
   {
     d = paramContext;
     C = new Handler(paramContext.getMainLooper());
-    TypedArray localTypedArray = paramContext.obtainStyledAttributes(paramAttributeSet, bz.ListPopupWindow, paramInt1, paramInt2);
-    j = localTypedArray.getDimensionPixelOffset(bz.ListPopupWindow_android_dropDownHorizontalOffset, 0);
-    k = localTypedArray.getDimensionPixelOffset(bz.ListPopupWindow_android_dropDownVerticalOffset, 0);
+    TypedArray localTypedArray = paramContext.obtainStyledAttributes(paramAttributeSet, gn.ListPopupWindow, paramInt1, paramInt2);
+    j = localTypedArray.getDimensionPixelOffset(gn.ListPopupWindow_android_dropDownHorizontalOffset, 0);
+    k = localTypedArray.getDimensionPixelOffset(gn.ListPopupWindow_android_dropDownVerticalOffset, 0);
     if (k != 0) {
       m = true;
     }
@@ -182,7 +177,7 @@ public class ListPopupWindow
       if (!E)
       {
         bool1 = true;
-        g = new gl((Context)localObject2, bool1);
+        g = new le((Context)localObject2, bool1);
         if (u != null) {
           g.setSelector(u);
         }
@@ -198,7 +193,7 @@ public class ListPopupWindow
             {
               paramAnonymousAdapterView = ListPopupWindow.a(ListPopupWindow.this);
               if (paramAnonymousAdapterView != null) {
-                gl.a(paramAnonymousAdapterView, false);
+                le.a(paramAnonymousAdapterView, false);
               }
             }
           }
@@ -362,7 +357,7 @@ public class ListPopupWindow
   public void a(ListAdapter paramListAdapter)
   {
     if (s == null) {
-      s = new gq(this, (byte)0);
+      s = new lj(this, (byte)0);
     }
     for (;;)
     {
@@ -564,13 +559,13 @@ public class ListPopupWindow
   
   public final void e(int paramInt)
   {
-    gl localgl = g;
-    if ((n()) && (localgl != null))
+    le localle = g;
+    if ((n()) && (localle != null))
     {
-      gl.a(localgl, false);
-      localgl.setSelection(paramInt);
-      if ((Build.VERSION.SDK_INT >= 11) && (localgl.getChoiceMode() != 0)) {
-        localgl.setItemChecked(paramInt, true);
+      le.a(localle, false);
+      localle.setSelection(paramInt);
+      if ((Build.VERSION.SDK_INT >= 11) && (localle.getChoiceMode() != 0)) {
+        localle.setItemChecked(paramInt, true);
       }
     }
   }
@@ -619,11 +614,11 @@ public class ListPopupWindow
   
   public final void m()
   {
-    gl localgl = g;
-    if (localgl != null)
+    le localle = g;
+    if (localle != null)
     {
-      gl.a(localgl, true);
-      localgl.requestLayout();
+      le.a(localle, true);
+      localle.requestLayout();
     }
   }
   

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@color/ub__white" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ub__partner_referrals_dashboard_invite_row_padding" android:paddingRight="@dimen/ub__partner_referrals_dashboard_invite_row_padding" android:paddingBottom="@dimen/ub__partner_referrals_dashboard_invite_row_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/ub__referrals_dashboard_imageview_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__ic_referrals_one_quarter_status_avatar" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_weight="1.0">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.ListItem.SingleLine" android:id="@id/ub__referrals_dashboard_textview_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__partner_referrals_dashboard_invite_margin" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.Byline" android:id="@id/ub__referrals_dashboard_textview_status" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <com.ubercab.ui.Button android:textColor="@color/ub__uber_blue_100" android:id="@id/ub__referrals_dashboard_button_remind" android:background="?android:selectableItemBackground" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/ub__partner_referrals_remind" style="@style/Uber.Widget.Button.Accent" />
+</LinearLayout>

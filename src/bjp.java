@@ -1,63 +1,64 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.measurement.internal.EventParams;
-import com.google.android.gms.measurement.internal.EventParcel;
+import com.google.j2objc.annotations.Weak;
+import java.util.Map.Entry;
 
-public final class bjp
-  implements Parcelable.Creator<EventParcel>
+final class bjp<K, V>
+  extends biy<V>
 {
-  public static EventParcel a(Parcel paramParcel)
+  @Weak
+  private final bje<K, V> a;
+  
+  bjp(bje<K, V> parambje)
   {
-    String str1 = null;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    long l = 0L;
-    EventParams localEventParams = null;
-    String str2 = null;
-    while (paramParcel.dataPosition() < j)
+    a = parambje;
+  }
+  
+  public final bkp<V> b()
+  {
+    new bkp()
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      final bkp<Map.Entry<K, V>> a = bjp.a(bjp.this).f().b();
+      
+      public final boolean hasNext()
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str2 = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        localEventParams = (EventParams)zm.a(paramParcel, k, EventParams.CREATOR);
-        break;
-      case 4: 
-        str1 = zm.n(paramParcel, k);
-        break;
-      case 5: 
-        l = zm.g(paramParcel, k);
+        return a.hasNext();
       }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new EventParcel(i, str2, localEventParams, str1, l);
+      
+      public final V next()
+      {
+        return (V)((Map.Entry)a.next()).getValue();
+      }
+    };
   }
   
-  public static void a(EventParcel paramEventParcel, Parcel paramParcel, int paramInt)
+  public final boolean contains(Object paramObject)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, b, false);
-    zo.a(paramParcel, 3, c, paramInt, false);
-    zo.a(paramParcel, 4, d, false);
-    zo.a(paramParcel, 5, e);
-    zo.a(paramParcel, i);
+    return (paramObject != null) && (bjv.a(b(), paramObject));
   }
   
-  private static EventParcel[] a(int paramInt)
+  final bjb<V> d()
   {
-    return new EventParcel[paramInt];
+    new bit()
+    {
+      final biy<V> a()
+      {
+        return bjp.this;
+      }
+      
+      public final V get(int paramAnonymousInt)
+      {
+        return (V)((Map.Entry)a.get(paramAnonymousInt)).getValue();
+      }
+    };
+  }
+  
+  public final int size()
+  {
+    return a.size();
+  }
+  
+  final Object writeReplace()
+  {
+    return new bjq(a);
   }
 }
 

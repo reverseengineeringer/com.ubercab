@@ -6,11 +6,11 @@ import com.ubercab.shape.Shape;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import jsn;
+import mxt;
 
 @Shape
 abstract class ObjectCity
-  implements jsn
+  implements mxt
 {
   public static ObjectCity create()
   {

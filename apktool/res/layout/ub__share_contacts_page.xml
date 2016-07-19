@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_width="fill_parent" android:layout_height="wrap_content" android:scaleType="fitCenter" android:adjustViewBounds="true" android:layout_weight="0.0" app:srcCompat="@drawable/ub__giftbox_hero_icon" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textSize="@dimen/ub__text_size_large" android:gravity="center" android:id="@id/ub__share_contacts_textview_title" android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:text="@string/share_contacts_headline" android:layout_weight="1.0" android:lineSpacingMultiplier="1.15" android:textAllCaps="false" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="0.0">
+        <com.ubercab.ui.Button android:id="@id/ub__share_contacts_button_connect" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:text="@string/connect_contacts" style="@style/Uber.Widget.Button.Primary" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:textColor="@color/ub__uber_white_80" android:gravity="center" android:id="@id/ub__share_contacts_textview_legal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x" android:text="@string/share_contacts_legal" />
+    </LinearLayout>
+</LinearLayout>

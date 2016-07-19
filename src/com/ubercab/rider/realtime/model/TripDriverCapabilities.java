@@ -1,14 +1,21 @@
 package com.ubercab.rider.realtime.model;
 
+import com.ubercab.rider.realtime.request.body.InAppMessage;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface TripDriverCapabilities
 {
   public abstract boolean getEdge();
   
+  public abstract InAppMessage getInAppMessage();
+  
+  @Deprecated
   public abstract boolean getInAppMessaging();
+  
+  @Deprecated
+  public abstract boolean getInAppMessagingText();
   
   public abstract boolean getMusic();
 }

@@ -1,59 +1,87 @@
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.MutableContextWrapper;
+import android.os.Bundle;
+import android.util.Log;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.data.DataHolder;
 
-@apl
-public final class asz
-  extends MutableContextWrapper
+public class asz
+  extends aru
 {
-  private Activity a;
-  private Context b;
-  private Context c;
+  private static final String a = asz.class.getSimpleName();
+  private final atd b = null;
+  private final ata c = null;
+  private final ate d = null;
+  private final atf e;
+  private final atc f;
+  private final Context g;
   
-  public asz(Context paramContext)
+  public asz(atf paramatf)
   {
-    super(paramContext);
-    setBaseContext(paramContext);
+    e = paramatf;
+    f = null;
+    g = null;
   }
   
-  public final Activity a()
+  public final void a(Status paramStatus)
   {
-    return a;
+    e.a(paramStatus);
   }
   
-  public final Context b()
+  public final void a(DataHolder paramDataHolder)
   {
-    return c;
-  }
-  
-  public final Object getSystemService(String paramString)
-  {
-    return c.getSystemService(paramString);
-  }
-  
-  public final void setBaseContext(Context paramContext)
-  {
-    b = paramContext.getApplicationContext();
-    if ((paramContext instanceof Activity)) {}
-    for (Activity localActivity = (Activity)paramContext;; localActivity = null)
+    if (b != null) {}
+    for (boolean bool = true;; bool = false)
     {
-      a = localActivity;
-      c = paramContext;
-      super.setBaseContext(b);
+      abe.a(bool, "placeEstimator cannot be null");
+      if (paramDataHolder != null) {
+        break;
+      }
+      if (Log.isLoggable(a, 6)) {
+        Log.e(a, "onPlaceEstimated received null DataHolder: " + aln.a());
+      }
+      b.a(Status.c);
+      return;
+    }
+    Bundle localBundle = paramDataHolder.f();
+    if (localBundle == null) {}
+    for (int i = 100;; i = aqx.a(localBundle))
+    {
+      paramDataHolder = new aqx(paramDataHolder, i, g);
+      b.a(paramDataHolder);
       return;
     }
   }
   
-  public final void startActivity(Intent paramIntent)
+  public final void b(DataHolder paramDataHolder)
   {
-    if ((a != null) && (!auu.h()))
+    if (paramDataHolder == null)
     {
-      a.startActivity(paramIntent);
+      if (Log.isLoggable(a, 6)) {
+        Log.e(a, "onAutocompletePrediction received null DataHolder: " + aln.a());
+      }
+      c.a(Status.c);
       return;
     }
-    paramIntent.setFlags(268435456);
-    b.startActivity(paramIntent);
+    c.a(new aqr(paramDataHolder));
+  }
+  
+  public final void c(DataHolder paramDataHolder)
+  {
+    if (paramDataHolder == null)
+    {
+      if (Log.isLoggable(a, 6)) {
+        Log.e(a, "onPlaceUserDataFetched received null DataHolder: " + aln.a());
+      }
+      d.a(Status.c);
+      return;
+    }
+    d.a(new asn(paramDataHolder));
+  }
+  
+  public final void d(DataHolder paramDataHolder)
+  {
+    paramDataHolder = new aqu(paramDataHolder, g);
+    f.a(paramDataHolder);
   }
 }
 

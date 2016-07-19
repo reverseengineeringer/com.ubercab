@@ -1,6 +1,12 @@
+import java.util.Map;
+
 public abstract interface cla
 {
-  public abstract void a();
+  public abstract String getApplicationKey();
+  
+  public abstract Map<String, Object> getFunnelPropertiesMap();
+  
+  public abstract Object getPropertiesObject();
 }
 
 /* Location:

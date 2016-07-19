@@ -1,6 +1,16 @@
-public abstract interface ccm
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.LoginActivity;
+
+public final class ccm
+  implements View.OnClickListener
 {
-  public abstract void a();
+  public ccm(LoginActivity paramLoginActivity) {}
+  
+  public final void onClick(View paramView)
+  {
+    LoginActivity.h(a);
+  }
 }
 
 /* Location:

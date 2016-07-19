@@ -1,10 +1,10 @@
 package com.ubercab.client.core.metrics.analytics.model;
 
 import android.content.Context;
-import chh;
-import cho;
-import ckj;
-import cld;
+import chn;
+import chu;
+import cla;
+import clt;
 import com.ubercab.analytics.model.Device;
 import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.client.core.location.RiderLocation;
@@ -12,44 +12,47 @@ import com.ubercab.rider.realtime.model.City;
 import com.ubercab.rider.realtime.model.DynamicFare;
 import com.ubercab.rider.realtime.model.Eyeball;
 import com.ubercab.rider.realtime.model.NearbyVehicle;
-import dty;
-import dud;
-import ebj;
-import hnn;
-import iac;
+import dzn;
+import dzs;
+import eaj;
+import eib;
 import java.util.HashMap;
 import java.util.Map;
-import jsg;
-import jsj;
-import kld;
-import klo;
-import kls;
+import jhy;
+import kcm;
+import khv;
+import mxm;
+import mxp;
+import odr;
+import oed;
+import oeh;
 
 public class RiderEventsProperties
-  implements ckj
+  implements cla
 {
-  private klo mCombinedStreamSubscription;
+  khv mCachedExperiments;
+  private oed mCombinedStreamSubscription;
   private final Context mContext;
   @Deprecated
-  jsg mDataProvider;
-  jsj mDataStream;
+  mxm mDataProvider;
+  mxp mDataStream;
   private boolean mEnableUpdateDevice = false;
   private Map<String, Object> mFunnelProperties;
   private final Rider mRider;
-  private final dty mSessionPreferences;
+  private final dzn mSessionPreferences;
   
-  public RiderEventsProperties(Context paramContext, dty paramdty)
+  public RiderEventsProperties(Context paramContext, dzn paramdzn)
   {
-    this(paramContext, paramdty, Rider.create());
+    this(paramContext, paramdzn, Rider.create());
   }
   
-  RiderEventsProperties(Context paramContext, dty paramdty, Rider paramRider)
+  RiderEventsProperties(Context paramContext, dzn paramdzn, Rider paramRider)
   {
     mContext = paramContext;
     mRider = paramRider;
-    mSessionPreferences = paramdty;
-    if (mSessionPreferences.z()) {
-      mRider.setRiderId(mSessionPreferences.y());
+    mSessionPreferences = paramdzn;
+    if (mSessionPreferences.O()) {
+      mRider.setRiderId(mSessionPreferences.N());
     }
   }
   
@@ -57,7 +60,7 @@ public class RiderEventsProperties
   {
     HashMap localHashMap = new HashMap();
     localHashMap.put("device", paramDevice);
-    localHashMap.put("version", "3.94.3");
+    localHashMap.put("version", "3.111.2");
     return localHashMap;
   }
   
@@ -127,6 +130,9 @@ public class RiderEventsProperties
     if (mEnableUpdateDevice) {
       mRider.getDevice().updateDevice(mContext);
     }
+    if ((mCachedExperiments != null) && (mCachedExperiments.a(eaj.a))) {
+      return mRider.deepCopy();
+    }
     return mRider;
   }
   
@@ -135,29 +141,29 @@ public class RiderEventsProperties
     return mRider;
   }
   
-  @cho
-  public void onPinLocationEvent(dud paramdud)
+  @chu
+  public void onPinLocationEvent(dzs paramdzs)
   {
-    if (mSessionPreferences.u())
+    if (mSessionPreferences.J())
     {
-      mRider.setPinLatLng(paramdud.a().getUberLatLng());
+      mRider.setPinLatLng(paramdzs.a().getUberLatLng());
       return;
     }
-    paramdud = paramdud.a().getLocation();
-    if (paramdud != null) {}
-    for (paramdud = new cld(paramdud).c();; paramdud = null)
+    paramdzs = paramdzs.a().getLocation();
+    if (paramdzs != null) {}
+    for (paramdzs = new clt(paramdzs).c();; paramdzs = null)
     {
-      mRider.setPinLatLng(paramdud);
+      mRider.setPinLatLng(paramdzs);
       return;
     }
   }
   
-  @cho
-  public void onVehicleSelected(hnn paramhnn)
+  @chu
+  public void onVehicleSelected(jhy paramjhy)
   {
-    String str = paramhnn.a();
+    String str = paramjhy.a();
     if (mRider.getCurrentProduct() == null) {}
-    for (paramhnn = null; iac.a(str, paramhnn); paramhnn = mRider.getCurrentProduct().getId()) {
+    for (paramjhy = null; kcm.a(str, paramjhy); paramjhy = mRider.getCurrentProduct().getId()) {
       return;
     }
     mRider.setCurrentProductId(str);
@@ -167,11 +173,11 @@ public class RiderEventsProperties
     Object localObject = mDataProvider.e();
     if (localObject != null)
     {
-      paramhnn = ((Eyeball)localObject).getNearbyVehicles();
-      if (paramhnn == null) {
+      paramjhy = ((Eyeball)localObject).getNearbyVehicles();
+      if (paramjhy == null) {
         break label184;
       }
-      paramhnn = (NearbyVehicle)paramhnn.get(str);
+      paramjhy = (NearbyVehicle)paramjhy.get(str);
       label114:
       if (localObject == null) {
         break label189;
@@ -194,11 +200,11 @@ public class RiderEventsProperties
     label199:
     for (boolean bool = true;; bool = false)
     {
-      extractCurrentProductProperties(bool, (DynamicFare)localObject, paramhnn);
+      extractCurrentProductProperties(bool, (DynamicFare)localObject, paramjhy);
       return;
-      paramhnn = null;
+      paramjhy = null;
       break;
-      paramhnn = null;
+      paramjhy = null;
       break label114;
       localObject = null;
       break label125;
@@ -207,19 +213,25 @@ public class RiderEventsProperties
     }
   }
   
-  public void register(chh paramchh)
+  public void register(chn paramchn)
   {
-    paramchh.a(this);
+    paramchn.a(this);
     if (mDataStream == null)
     {
-      paramchh = ((RiderApplication)mContext.getApplicationContext()).b();
-      if (paramchh != null) {
-        mDataStream = paramchh.bg();
+      paramchn = ((RiderApplication)mContext.getApplicationContext()).b();
+      if (paramchn != null) {
+        mDataStream = paramchn.bj();
       }
     }
-    if (((mCombinedStreamSubscription == null) || (mCombinedStreamSubscription.d())) && (mDataStream != null)) {
-      mCombinedStreamSubscription = kld.a(mDataStream.b(), mDataStream.c(), mDataStream.e(), mDataStream.g(), mDataStream.h(), new RiderEventsProperties.CombinedStreamHolder(null)).a(kls.a()).c(new RiderEventsProperties.CombinedStreamAction(this, null));
+    if (((mCombinedStreamSubscription == null) || (mCombinedStreamSubscription.w_())) && (mDataStream != null)) {
+      mCombinedStreamSubscription = odr.a(mDataStream.b(), mDataStream.c(), mDataStream.e(), mDataStream.g(), mDataStream.h(), new RiderEventsProperties.CombinedStreamHolder(null)).a(oeh.a()).c(new RiderEventsProperties.CombinedStreamAction(this, null));
     }
+  }
+  
+  public void setDeviceManufacturer(boolean paramBoolean)
+  {
+    Device.setManufacturerEnabled(paramBoolean);
+    mRider.setDevice(Device.create(mContext));
   }
   
   public void setEnableUpdateDevice(boolean paramBoolean)
@@ -227,11 +239,11 @@ public class RiderEventsProperties
     mEnableUpdateDevice = paramBoolean;
   }
   
-  public void unregister(chh paramchh)
+  public void unregister(chn paramchn)
   {
-    paramchh.b(this);
+    paramchn.b(this);
     if (mCombinedStreamSubscription != null) {
-      mCombinedStreamSubscription.c();
+      mCombinedStreamSubscription.af_();
     }
   }
 }

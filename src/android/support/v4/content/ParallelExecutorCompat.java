@@ -3,7 +3,7 @@ package android.support.v4.content;
 import android.os.Build.VERSION;
 import java.util.concurrent.Executor;
 
-public class ParallelExecutorCompat
+public final class ParallelExecutorCompat
 {
   public static Executor getParallelExecutor()
   {

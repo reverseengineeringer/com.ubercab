@@ -1,78 +1,48 @@
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
+import java.util.Map.Entry;
 
-abstract class bjk
+abstract class bjk<K, V>
+  extends bjr<Map.Entry<K, V>>
 {
-  private static volatile Handler b;
-  private final bko a;
-  private final Runnable c;
-  private volatile long d;
-  private boolean e;
+  abstract bje<K, V> a();
   
-  bjk(bko parambko)
+  public boolean contains(Object paramObject)
   {
-    abs.a(parambko);
-    a = parambko;
-    e = true;
-    c = new Runnable()
+    boolean bool2 = false;
+    boolean bool1 = bool2;
+    if ((paramObject instanceof Map.Entry))
     {
-      public final void run()
+      paramObject = (Map.Entry)paramObject;
+      Object localObject = a().get(((Map.Entry)paramObject).getKey());
+      bool1 = bool2;
+      if (localObject != null)
       {
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-          bjk.a(bjk.this).h().a(this);
+        bool1 = bool2;
+        if (localObject.equals(((Map.Entry)paramObject).getValue())) {
+          bool1 = true;
         }
-        boolean bool;
-        do
-        {
-          return;
-          bool = b();
-          bjk.b(bjk.this);
-        } while ((!bool) || (!bjk.c(bjk.this)));
-        a();
-      }
-    };
-  }
-  
-  private Handler d()
-  {
-    if (b != null) {
-      return b;
-    }
-    try
-    {
-      if (b == null) {
-        b = new Handler(a.q().getMainLooper());
-      }
-      Handler localHandler = b;
-      return localHandler;
-    }
-    finally {}
-  }
-  
-  public abstract void a();
-  
-  public final void a(long paramLong)
-  {
-    c();
-    if (paramLong >= 0L)
-    {
-      d = a.r().a();
-      if (!d().postDelayed(c, paramLong)) {
-        a.f().b().a("Failed to schedule delayed post. time", Long.valueOf(paramLong));
       }
     }
+    return bool1;
   }
   
-  public final boolean b()
+  boolean e()
   {
-    return d != 0L;
+    return a().k();
   }
   
-  public final void c()
+  public int hashCode()
   {
-    d = 0L;
-    d().removeCallbacks(c);
+    return a().hashCode();
+  }
+  
+  public int size()
+  {
+    return a().size();
+  }
+  
+  Object writeReplace()
+  {
+    return new bjl(a());
   }
 }
 

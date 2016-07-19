@@ -6,18 +6,7 @@ import android.os.Parcelable.Creator;
 public class PeriodicTask
   extends Task
 {
-  public static final Parcelable.Creator<PeriodicTask> CREATOR = new Parcelable.Creator()
-  {
-    private static PeriodicTask a(Parcel paramAnonymousParcel)
-    {
-      return new PeriodicTask(paramAnonymousParcel, (byte)0);
-    }
-    
-    private static PeriodicTask[] a(int paramAnonymousInt)
-    {
-      return new PeriodicTask[paramAnonymousInt];
-    }
-  };
+  public static final Parcelable.Creator<PeriodicTask> CREATOR = new PeriodicTask.1();
   protected long a = -1L;
   protected long b = -1L;
   

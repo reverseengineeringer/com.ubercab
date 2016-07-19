@@ -1,9 +1,7 @@
 import android.os.Binder;
-import android.os.Bundle;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import android.os.Parcelable.Creator;
 
 public abstract class awv
   extends Binder
@@ -14,7 +12,7 @@ public abstract class awv
     if (paramIBinder == null) {
       return null;
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.wallet.internal.IWalletInternalServiceCallbacks");
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnInfoWindowLongClickListener");
     if ((localIInterface != null) && ((localIInterface instanceof awu))) {
       return (awu)localIInterface;
     }
@@ -28,19 +26,13 @@ public abstract class awv
     default: 
       return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
     case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.wallet.internal.IWalletInternalServiceCallbacks");
+      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnInfoWindowLongClickListener");
       return true;
     }
-    paramParcel1.enforceInterface("com.google.android.gms.wallet.internal.IWalletInternalServiceCallbacks");
-    paramInt1 = paramParcel1.readInt();
-    paramInt2 = paramParcel1.readInt();
-    if (paramParcel1.readInt() != 0) {}
-    for (paramParcel1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-    {
-      a(paramInt1, paramInt2, paramParcel1);
-      paramParcel2.writeNoException();
-      return true;
-    }
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnInfoWindowLongClickListener");
+    a(azs.a(paramParcel1.readStrongBinder()));
+    paramParcel2.writeNoException();
+    return true;
   }
 }
 

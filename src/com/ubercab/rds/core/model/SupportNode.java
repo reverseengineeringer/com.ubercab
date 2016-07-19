@@ -20,6 +20,10 @@ public abstract class SupportNode
   
   public abstract String getCreated();
   
+  public abstract String getCsatSuccessMessage();
+  
+  public abstract String getCsatTitleMessage();
+  
   public abstract String getDescription();
   
   public abstract String getDeviceType();
@@ -27,6 +31,8 @@ public abstract class SupportNode
   public abstract String getIconType();
   
   public abstract String getId();
+  
+  public abstract boolean getIsCsatVisible();
   
   public abstract boolean getIsVisible();
   
@@ -50,6 +56,10 @@ public abstract class SupportNode
   
   public abstract SupportNode setCreated(String paramString);
   
+  public abstract SupportNode setCsatSuccessMessage(String paramString);
+  
+  public abstract SupportNode setCsatTitleMessage(String paramString);
+  
   public abstract SupportNode setDescription(String paramString);
   
   public abstract SupportNode setDeviceType(String paramString);
@@ -57,6 +67,8 @@ public abstract class SupportNode
   public abstract SupportNode setIconType(String paramString);
   
   public abstract SupportNode setId(String paramString);
+  
+  public abstract SupportNode setIsCsatVisible(boolean paramBoolean);
   
   public abstract SupportNode setIsVisible(boolean paramBoolean);
   

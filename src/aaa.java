@@ -1,33 +1,37 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.Handler;
+import android.os.IBinder;
 
-final class aaa
-  extends zz
+public final class aaa
+  implements ServiceConnection
 {
-  List<zz> p;
+  private final int b;
   
-  aaa(List<zz> paramList)
+  public aaa(zv paramzv, int paramInt)
   {
-    p = paramList;
+    b = paramInt;
   }
   
-  public final zz a(zz paramzz)
+  public final void onServiceConnected(ComponentName arg1, IBinder paramIBinder)
   {
-    ArrayList localArrayList = new ArrayList(p);
-    localArrayList.add(abs.a(paramzz));
-    return new aaa(localArrayList);
-  }
-  
-  public final boolean a(char paramChar)
-  {
-    Iterator localIterator = p.iterator();
-    while (localIterator.hasNext()) {
-      if (((zz)localIterator.next()).a(paramChar)) {
-        return true;
-      }
+    abe.a(paramIBinder, "Expecting a valid IBinder");
+    synchronized (zv.a(a))
+    {
+      zv.a(a, aaw.a(paramIBinder));
+      a.a(0, b);
+      return;
     }
-    return false;
+  }
+  
+  public final void onServiceDisconnected(ComponentName arg1)
+  {
+    synchronized (zv.a(a))
+    {
+      zv.a(a, null);
+      a.a.sendMessage(a.a.obtainMessage(4, b, 1));
+      return;
+    }
   }
 }
 

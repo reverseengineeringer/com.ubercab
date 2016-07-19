@@ -5,13 +5,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-import jdh;
+import lzo;
 
 @Deprecated
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class PaymentProfile
   implements com.ubercab.rider.realtime.model.PaymentProfile
 {
+  public static final String ANDROID_PAY_ACCOUNT_NAME = "Android Pay";
+  public static final String ANDROID_PAY_PLACEHOLDER_UUID = "FAKE-ANDROID-PAY-UUID";
+  public static final PaymentProfile ANDROID_PAY_PROFILE_PLACEHOLDER = new PaymentProfile("Android Pay", "FAKE-ANDROID-PAY-UUID", "Android Pay");
   public static final String CARD_USE_CASE_BUSINESS = "business";
   public static final String CARD_USE_CASE_PERSONAL = "personal";
   public static final PaymentProfile GOOGLE_WALLET = new PaymentProfile("Google Wallet", "FAKE-GOOGLE-WALLET-UUID");
@@ -21,6 +24,7 @@ public class PaymentProfile
   long cardExpirationEpoch = 0L;
   String cardNumber = "";
   String cardType = "";
+  boolean isCommuterBenefitsCard = false;
   RewardInfo rewardInfo;
   String status = "";
   String tokenType = "";
@@ -33,6 +37,13 @@ public class PaymentProfile
   {
     cardType = paramString1;
     uuid = paramString2;
+  }
+  
+  private PaymentProfile(String paramString1, String paramString2, String paramString3)
+  {
+    cardType = paramString1;
+    uuid = paramString2;
+    accountName = paramString3;
   }
   
   public boolean equals(Object paramObject)
@@ -129,17 +140,17 @@ public class PaymentProfile
           return false;
         }
       }
-      if (uuid == null) {
-        break;
+      if (uuid != null)
+      {
+        if (uuid.equals(uuid)) {}
       }
-    } while (uuid.equals(uuid));
-    for (;;)
-    {
-      return false;
-      if (uuid == null) {
-        break;
+      else {
+        while (uuid != null) {
+          return false;
+        }
       }
-    }
+    } while (isCommuterBenefitsCard == isCommuterBenefitsCard);
+    return false;
   }
   
   public String getAccountName()
@@ -196,6 +207,11 @@ public class PaymentProfile
     return getExpirationYear();
   }
   
+  public boolean getIsCommuterBenefitsCard()
+  {
+    return isCommuterBenefitsCard;
+  }
+  
   public RewardInfo getRewardInfo()
   {
     return rewardInfo;
@@ -228,8 +244,8 @@ public class PaymentProfile
   
   public int hashCode()
   {
-    int i5 = 0;
-    int i6 = (int)(cardExpirationEpoch ^ cardExpirationEpoch >>> 32);
+    int i6 = 0;
+    int i7 = (int)(cardExpirationEpoch ^ cardExpirationEpoch >>> 32);
     int i;
     int j;
     label48:
@@ -244,56 +260,63 @@ public class PaymentProfile
     int i2;
     label127:
     int i3;
+    label143:
+    int i4;
     if (accountName != null)
     {
       i = accountName.hashCode();
       if (billingCountryIso2 == null) {
-        break label240;
+        break label256;
       }
       j = billingCountryIso2.hashCode();
       if (billingZip == null) {
-        break label245;
+        break label261;
       }
       k = billingZip.hashCode();
       if (cardNumber == null) {
-        break label250;
+        break label266;
       }
       m = cardNumber.hashCode();
       if (cardType == null) {
-        break label256;
+        break label272;
       }
       n = cardType.hashCode();
       if (rewardInfo == null) {
-        break label262;
+        break label278;
       }
       i1 = rewardInfo.hashCode();
       if (status == null) {
-        break label268;
+        break label284;
       }
       i2 = status.hashCode();
       if (tokenType == null) {
-        break label274;
+        break label290;
       }
       i3 = tokenType.hashCode();
-      label143:
       if (useCase == null) {
-        break label280;
+        break label296;
+      }
+      i4 = useCase.hashCode();
+      label159:
+      if (uuid == null) {
+        break label302;
       }
     }
-    label240:
-    label245:
-    label250:
     label256:
-    label262:
-    label268:
-    label274:
-    label280:
-    for (int i4 = useCase.hashCode();; i4 = 0)
+    label261:
+    label266:
+    label272:
+    label278:
+    label284:
+    label290:
+    label296:
+    label302:
+    for (int i5 = uuid.hashCode();; i5 = 0)
     {
-      if (uuid != null) {
-        i5 = uuid.hashCode();
+      if (isCommuterBenefitsCard) {
+        i6 = 1;
       }
-      return (i4 + (i3 + (i2 + (i1 + (n + (m + (k + (j + (i + i6 * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i5;
+      return (i5 + (i4 + (i3 + (i2 + (i1 + (n + (m + (k + (j + (i + i7 * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i6;
       i = 0;
       break;
       j = 0;
@@ -310,6 +333,8 @@ public class PaymentProfile
       break label127;
       i3 = 0;
       break label143;
+      i4 = 0;
+      break label159;
     }
   }
 }

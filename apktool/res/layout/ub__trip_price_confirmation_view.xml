@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.ufp.PricingConfirmationView android:gravity="center_vertical" android:layout_gravity="center_vertical" android:background="@drawable/ub__container_top" android:padding="@dimen/ub__padding_small" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/ub__trip_price_title_left_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dip" android:src="@drawable/ub__icon_surge_small" />
+        <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_large" android:textStyle="bold" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/ub__trip_price_title_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:textAllCaps="false" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/ub__trip_price_title_right_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:src="@drawable/ub__icon_surge_small" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/ub__trip_price_subtitle_left_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="4.0dip" android:src="@drawable/ub__icon_surge_small" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H3" android:gravity="center_vertical" android:layout_gravity="center" android:id="@id/ub__trip_price_subtitle_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/surge_pricing" android:singleLine="true" android:textAllCaps="true" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/ub__trip_price_subtitle_right_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:src="@drawable/ub__icon_surge_small" />
+    </LinearLayout>
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H2" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/ub__trip_price_error_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/elevated_fares" android:singleLine="true" android:textAllCaps="true" />
+</com.ubercab.client.feature.trip.ufp.PricingConfirmationView>

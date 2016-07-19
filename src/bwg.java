@@ -1,99 +1,155 @@
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-import javax.net.ssl.X509TrustManager;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public final class bwg
-  implements X509TrustManager
+  extends bwt
 {
-  private final bwh a;
-  private final List b = new LinkedList();
-  private final Set c = Collections.synchronizedSet(new HashSet());
+  private String a;
+  private String b;
+  private boolean c;
+  private JSONObject d;
+  private JSONObject e;
+  private JSONObject f;
+  private String g;
+  private String h;
+  private String i;
+  private String j;
   
-  public bwg(bwh parambwh)
+  public bwg(bus parambus, bva parambva, String paramString1, String paramString2, boolean paramBoolean, String paramString3, String paramString4, String paramString5, String paramString6, JSONObject paramJSONObject1, JSONObject paramJSONObject2)
   {
-    a = parambwh;
-    parambwh = buj.a;
-    int i = 0;
-    while (i < 2)
-    {
-      String str = parambwh[i];
-      b.add(a(str));
-      i += 1;
+    super(bux.i, parambus, parambva, paramString1);
+    c = paramBoolean;
+    a = paramString5;
+    b = paramString6;
+    d = paramJSONObject1;
+    e = paramJSONObject2;
+    a("PayPal-Request-Id", paramString2);
+    if (bwy.d(paramString3)) {
+      a("PayPal-Partner-Attribution-Id", paramString3);
+    }
+    if (bwy.d(paramString4)) {
+      a("PayPal-Client-Metadata-Id", paramString4);
     }
   }
   
-  private boolean a(X509Certificate paramX509Certificate)
+  private static String a(JSONArray paramJSONArray)
   {
-    try
+    if (paramJSONArray == null) {}
+    for (;;)
     {
-      paramX509Certificate = MessageDigest.getInstance("SHA1").digest(paramX509Certificate.getPublicKey().getEncoded());
-      Iterator localIterator = b.iterator();
-      while (localIterator.hasNext())
+      return null;
+      try
       {
-        boolean bool = Arrays.equals((byte[])localIterator.next(), paramX509Certificate);
-        if (bool) {
-          return true;
+        paramJSONArray = paramJSONArray.getJSONObject(0);
+        if (paramJSONArray != null)
+        {
+          paramJSONArray = paramJSONArray.getJSONArray("related_resources");
+          if (paramJSONArray != null)
+          {
+            paramJSONArray = paramJSONArray.getJSONObject(0);
+            if (paramJSONArray != null)
+            {
+              JSONObject localJSONObject = paramJSONArray.optJSONObject("authorization");
+              if (localJSONObject != null) {
+                return localJSONObject.optString("id");
+              }
+              paramJSONArray = paramJSONArray.optJSONObject("order");
+              if (paramJSONArray != null)
+              {
+                paramJSONArray = paramJSONArray.optString("id");
+                return paramJSONArray;
+              }
+            }
+          }
         }
       }
-      return false;
+      catch (JSONException paramJSONArray) {}
     }
-    catch (NoSuchAlgorithmException paramX509Certificate)
+    return null;
+  }
+  
+  public final String b()
+  {
+    JSONObject localJSONObject1 = new JSONObject();
+    localJSONObject1.accumulate("payment_id", a);
+    localJSONObject1.accumulate("session_id", b);
+    if (e != null) {
+      localJSONObject1.accumulate("funding_option", e);
+    }
+    if (d != null) {
+      localJSONObject1.accumulate("shipping_address", d);
+    }
+    JSONObject localJSONObject2 = new JSONObject();
+    localJSONObject2.accumulate("device_info", bwy.a(btw.a().toString()));
+    localJSONObject2.accumulate("app_info", bwy.a(btt.a().toString()));
+    localJSONObject2.accumulate("risk_data", bwy.a(bre.a().c().toString()));
+    localJSONObject1.accumulate("client_info", localJSONObject2);
+    return localJSONObject1.toString();
+  }
+  
+  public final void c()
+  {
+    JSONObject localJSONObject = n();
+    try
     {
-      throw new CertificateException(paramX509Certificate);
-    }
-  }
-  
-  private static byte[] a(String paramString)
-  {
-    int j = paramString.length();
-    byte[] arrayOfByte = new byte[j / 2];
-    int i = 0;
-    while (i < j)
-    {
-      arrayOfByte[(i / 2)] = ((byte)((Character.digit(paramString.charAt(i), 16) << 4) + Character.digit(paramString.charAt(i + 1), 16)));
-      i += 2;
-    }
-    return arrayOfByte;
-  }
-  
-  public final void checkClientTrusted(X509Certificate[] paramArrayOfX509Certificate, String paramString)
-  {
-    throw new CertificateException("Client certificates not supported!");
-  }
-  
-  public final void checkServerTrusted(X509Certificate[] paramArrayOfX509Certificate, String paramString)
-  {
-    if (c.contains(paramArrayOfX509Certificate[0])) {
+      f = localJSONObject.getJSONObject("payment");
+      g = f.optString("state");
+      a = f.optString("id");
+      h = f.optString("create_time");
+      i = f.optString("intent");
+      j = a(f.getJSONArray("transactions"));
       return;
     }
-    paramString = new bui(paramArrayOfX509Certificate, a).a();
-    int j = paramString.length;
-    int i = 0;
-    while (i < j)
+    catch (JSONException localJSONException)
     {
-      if (a(paramString[i])) {
-        break label71;
-      }
-      i += 1;
+      d();
     }
-    throw new CertificateException("No valid pins found in chain!");
-    label71:
-    c.add(paramArrayOfX509Certificate[0]);
   }
   
-  public final X509Certificate[] getAcceptedIssuers()
+  public final void d()
   {
-    return null;
+    b(n());
+  }
+  
+  public final String e()
+  {
+    return "{     \"payment\": {         \"id\": \"PAY-6PU626847B294842SKPEWXHY\",         \"transactions\": [             {                 \"amount\": {                     \"total\": \"2.85\",                     \"details\": {                         \"subtotal\": \"2.85\"                     },                     \"currency\": \"USD\"                 },                 \"description\": \"Awesome Sauce\",                 \"related_resources\": [                     {                         \"sale\": {                             \"amount\": {                                 \"total\": \"2.85\",                                 \"currency\": \"USD\"                             },                             \"id\": \"5LR21373K59921925\",                             \"parent_payment\": \"PAY-6PU626847B294842SKPEWXHY\",                             \"update_time\": \"2014-07-18T18:47:06Z\",                             \"state\": \"completed\",                             \"create_time\": \"2014-07-18T18:46:55Z\",                             \"links\": [                                 {                                     \"method\": \"GET\",                                     \"rel\": \"self\",                                     \"href\": \"https://www.stage2std019.stage.\"                                 },                                 {                                     \"method\": \"POST\",                                     \"rel\": \"refund\",                                     \"href\": \"https://www.stage2std019.stage. \"                                 },                                 {                                     \"method\": \"GET\",                                     \"rel\": \"parent_payment\",                                     \"href\": \"https://www.stage2std019.stage.PEWXHY \"                                 }                             ]                         }                     }                 ]             }         ],         \"update_time\": \"2014-07-18T18:47:06Z\",         \"payer\": {             \"payer_info\": {                 \"shipping_address\": {                                      }             },             \"payment_method\": \"paypal\"         },         \"state\": \"approved\",         \"create_time\": \"2014-07-18T18:46:55Z\",         \"links\": [             {                 \"method\": \"GET\",                 \"rel\": \"self\",                 \"href\": \"https://www.stage2std019.stage.paypal.\"             }         ],         \"intent\": \"sale\"     } } ";
+  }
+  
+  public final void m()
+  {
+    bre.a().g();
+  }
+  
+  public final String u()
+  {
+    return a;
+  }
+  
+  public final boolean v()
+  {
+    return c;
+  }
+  
+  public final String w()
+  {
+    return g;
+  }
+  
+  public final String x()
+  {
+    return h;
+  }
+  
+  public final String y()
+  {
+    return i;
+  }
+  
+  public final String z()
+  {
+    return j;
   }
 }
 

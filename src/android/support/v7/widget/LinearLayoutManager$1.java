@@ -2,10 +2,10 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.graphics.PointF;
-import gk;
+import ld;
 
 final class LinearLayoutManager$1
-  extends gk
+  extends ld
 {
   LinearLayoutManager$1(LinearLayoutManager paramLinearLayoutManager, Context paramContext)
   {

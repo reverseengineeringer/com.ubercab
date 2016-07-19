@@ -10,15 +10,19 @@
     <style name="Base.Widget.AppCompat.ProgressBar.Horizontal" parent="@android:style/Widget.Material.ProgressBar.Horizontal" />
     <style name="Platform.AppCompat" parent="@android:style/Theme.Material">
         <item name="android:windowNoTitle">true</item>
+        <item name="android:textColorLink">?android:colorAccent</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:buttonBarStyle">?buttonBarStyle</item>
         <item name="android:buttonBarButtonStyle">?buttonBarButtonStyle</item>
+        <item name="android:textColorLinkInverse">?android:colorAccent</item>
     </style>
     <style name="Platform.AppCompat.Light" parent="@android:style/Theme.Material.Light">
         <item name="android:windowNoTitle">true</item>
+        <item name="android:textColorLink">?android:colorAccent</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:buttonBarStyle">?buttonBarStyle</item>
         <item name="android:buttonBarButtonStyle">?buttonBarButtonStyle</item>
+        <item name="android:textColorLinkInverse">?android:colorAccent</item>
     </style>
     <style name="Base.Widget.AppCompat.AutoCompleteTextView" parent="@android:style/Widget.Material.AutoCompleteTextView">
         <item name="android:background">?editTextBackground</item>
@@ -46,7 +50,6 @@
     <style name="Base.TextAppearance.AppCompat.Small" parent="@android:style/TextAppearance.Material.Small" />
     <style name="Base.TextAppearance.AppCompat.Subhead" parent="@android:style/TextAppearance.Material.Subhead" />
     <style name="Base.TextAppearance.AppCompat.Title" parent="@android:style/TextAppearance.Material.Title" />
-    <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Menu" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Menu" />
     <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Subtitle" />
     <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Subtitle.Inverse" />
     <style name="Base.TextAppearance.AppCompat.Widget.ActionBar.Title" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Title" />
@@ -196,14 +199,15 @@
         <item name="android:statusBarColor">@color/ub__status_bar_overlay_color</item>
         <item name="android:toolbarStyle">@style/Uber.Widget.Toolbar</item>
         <item name="floatingLabelStyle">@style/Uber.Widget.FloatingLabel</item>
-        <item name="selectedIndicatorColor">@color/ub__uber_blue_100</item>
-        <item name="unselectedIndicatorColor">@color/ub__uber_black_40</item>
+        <item name="snackbarViewStyle">@style/Uber.Widget.SnackbarView</item>
         <item name="actionOverflowButtonStyle">@style/Uber.Widget.ActionButtonOverflow</item>
         <item name="actionOverflowMenuStyle">@style/Uber.Widget.ActionOverflowMenuStyle</item>
         <item name="actionBarStyle">@style/Uber.Widget.ActionBar</item>
         <item name="actionBarSize">@dimen/ub__action_bar_height</item>
         <item name="toolbarStyle">@style/Uber.Widget.Toolbar</item>
         <item name="colorAccent">@color/ub__uber_blue_100</item>
+        <item name="selectedIndicatorColor">@color/ub__uber_blue_100</item>
+        <item name="unselectedIndicatorColor">@color/ub__uber_black_40</item>
     </style>
     <style name="Base.Theme.Uber.Black" parent="@style/Theme.Uber">
         <item name="android:actionBarStyle">@style/Uber.Widget.ActionBar.Black</item>
@@ -245,6 +249,12 @@
     <style name="Uber.Widget.ActionOverflowMenuStyle" parent="@style/Widget.AppCompat.Light.PopupMenu.Overflow">
         <item name="android:popupElevation">@dimen/ui__toolbar_elevation</item>
     </style>
+    <style name="Widget.Design.BottomSheet.Modal" parent="@android:style/Widget">
+        <item name="android:background">?android:colorBackground</item>
+        <item name="android:elevation">@dimen/design_bottom_sheet_modal_elevation</item>
+        <item name="behavior_peekHeight">@dimen/design_bottom_sheet_modal_peek_height</item>
+        <item name="behavior_hideable">true</item>
+    </style>
     <style name="Base.V21.Theme.AppCompat" parent="@style/Base.V7.Theme.AppCompat">
         <item name="android:colorControlNormal">?colorControlNormal</item>
         <item name="android:colorControlActivated">?colorControlActivated</item>
@@ -269,7 +279,7 @@
         <item name="dividerVertical">?android:dividerVertical</item>
         <item name="dividerHorizontal">?android:dividerHorizontal</item>
         <item name="editTextColor">?android:editTextColor</item>
-        <item name="editTextBackground">?android:editTextBackground</item>
+        <item name="editTextBackground">@drawable/abc_edit_text_material</item>
         <item name="listPreferredItemHeightSmall">?android:listPreferredItemHeightSmall</item>
         <item name="listChoiceBackgroundIndicator">?android:listChoiceBackgroundIndicator</item>
         <item name="buttonStyle">?android:buttonStyle</item>
@@ -307,7 +317,7 @@
         <item name="dividerVertical">?android:dividerVertical</item>
         <item name="dividerHorizontal">?android:dividerHorizontal</item>
         <item name="editTextColor">?android:editTextColor</item>
-        <item name="editTextBackground">?android:editTextBackground</item>
+        <item name="editTextBackground">@drawable/abc_edit_text_material</item>
         <item name="listPreferredItemHeightSmall">?android:listPreferredItemHeightSmall</item>
         <item name="listChoiceBackgroundIndicator">?android:listChoiceBackgroundIndicator</item>
         <item name="buttonStyle">?android:buttonStyle</item>

@@ -1,52 +1,159 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.location.internal.ClientIdentity;
+import android.os.RemoteException;
+import com.google.android.gms.maps.model.LatLng;
 
 public final class ayw
-  implements Parcelable.Creator<ClientIdentity>
 {
-  private static ClientIdentity a(Parcel paramParcel)
+  private final azl a;
+  
+  public ayw(azl paramazl)
   {
-    int j = 0;
-    int k = zm.b(paramParcel);
-    String str = null;
-    int i = 0;
-    while (paramParcel.dataPosition() < k)
+    a = ((azl)abe.a(paramazl));
+  }
+  
+  public final void a()
+  {
+    try
     {
-      int m = zm.a(paramParcel);
-      switch (zm.a(m))
-      {
-      default: 
-        zm.a(paramParcel, m);
-        break;
-      case 1: 
-        j = zm.e(paramParcel, m);
-        break;
-      case 1000: 
-        i = zm.e(paramParcel, m);
-        break;
-      case 2: 
-        str = zm.n(paramParcel, m);
-      }
+      a.a();
+      return;
     }
-    if (paramParcel.dataPosition() != k) {
-      throw new zn("Overread allowed size end=" + k, paramParcel);
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
     }
-    return new ClientIdentity(i, j, str);
   }
   
-  public static void a(ClientIdentity paramClientIdentity, Parcel paramParcel)
+  public final void a(float paramFloat)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 1000, paramClientIdentity.a());
-    zo.a(paramParcel, 2, b, false);
-    zo.a(paramParcel, i);
+    try
+    {
+      a.a(paramFloat);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
   }
   
-  private static ClientIdentity[] a(int paramInt)
+  public final void a(float paramFloat1, float paramFloat2)
   {
-    return new ClientIdentity[paramInt];
+    try
+    {
+      a.a(paramFloat1, paramFloat2);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final void a(LatLng paramLatLng)
+  {
+    try
+    {
+      a.a(paramLatLng);
+      return;
+    }
+    catch (RemoteException paramLatLng)
+    {
+      throw new ayz(paramLatLng);
+    }
+  }
+  
+  public final void a(boolean paramBoolean)
+  {
+    try
+    {
+      a.a(paramBoolean);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final float b()
+  {
+    try
+    {
+      float f = a.e();
+      return f;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final void b(float paramFloat)
+  {
+    try
+    {
+      a.d(paramFloat);
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final boolean c()
+  {
+    try
+    {
+      boolean bool = a.i();
+      return bool;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final float d()
+  {
+    try
+    {
+      float f = a.j();
+      return f;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final boolean equals(Object paramObject)
+  {
+    if (!(paramObject instanceof ayw)) {
+      return false;
+    }
+    try
+    {
+      boolean bool = a.a(a);
+      return bool;
+    }
+    catch (RemoteException paramObject)
+    {
+      throw new ayz((RemoteException)paramObject);
+    }
+  }
+  
+  public final int hashCode()
+  {
+    try
+    {
+      int i = a.k();
+      return i;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
   }
 }
 

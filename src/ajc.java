@@ -1,40 +1,12 @@
-public final class ajc
-  implements avb
+final class ajc<T>
+  extends aji<T>
+  implements aks<T>
 {
-  private int a = 2500;
-  private int b;
-  private final int c = 1;
-  private final float d = 1.0F;
+  private ajc(aja paramaja) {}
   
-  public ajc()
+  public final void a(T paramT)
   {
-    this((byte)0);
-  }
-  
-  private ajc(byte paramByte) {}
-  
-  private boolean c()
-  {
-    return b <= c;
-  }
-  
-  public final int a()
-  {
-    return a;
-  }
-  
-  public final void a(awg paramawg)
-  {
-    b += 1;
-    a = ((int)(a + a * d));
-    if (!c()) {
-      throw paramawg;
-    }
-  }
-  
-  public final int b()
-  {
-    return b;
+    super.b(paramT);
   }
 }
 

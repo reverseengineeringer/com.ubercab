@@ -1,40 +1,30 @@
-import com.ubercab.rider.realtime.model.ConfirmedFare;
+import android.graphics.drawable.Drawable;
+import com.ubercab.android.payment.realtime.model.PaymentProfile;
+import com.ubercab.shape.Shape;
 
-@Deprecated
-public final class hbd
+@Shape
+public abstract class hbd
 {
-  private final ConfirmedFare a;
-  private final long b;
-  private final boolean c;
-  private final String d;
-  
-  public hbd(String paramString, long paramLong, ConfirmedFare paramConfirmedFare, boolean paramBoolean)
+  public static hbd a()
   {
-    d = paramString;
-    b = paramLong;
-    a = paramConfirmedFare;
-    c = paramBoolean;
+    return new hbg();
   }
   
-  public final String a()
-  {
-    return d;
-  }
+  abstract hbd a(Drawable paramDrawable);
   
-  public final long b()
-  {
-    return b;
-  }
+  abstract hbd a(PaymentProfile paramPaymentProfile);
   
-  public final ConfirmedFare c()
-  {
-    return a;
-  }
+  abstract hbd a(String paramString);
   
-  public final boolean d()
-  {
-    return c;
-  }
+  public abstract Drawable b();
+  
+  abstract hbd b(String paramString);
+  
+  public abstract String c();
+  
+  public abstract String d();
+  
+  abstract PaymentProfile e();
 }
 
 /* Location:

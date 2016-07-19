@@ -2,10 +2,8 @@ package com.ubercab.client.feature.settings;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
@@ -16,94 +14,91 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import cho;
-import ciu;
-import cjg;
-import ckc;
-import ckr;
+import chu;
+import cja;
+import cjm;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.model.RiderAccount;
 import com.ubercab.locale.name.NameInput;
 import com.ubercab.locale.phone.PhoneNumberView;
 import com.ubercab.ui.CircleImageView;
 import com.ubercab.ui.FloatingLabelEditText;
-import dpf;
-import dsh;
-import dty;
-import dux;
-import dwd;
-import ebj;
-import efr;
-import ego;
-import eju;
-import ejx;
-import ens;
-import erc;
-import gsj;
-import gsm;
-import gsn;
-import gsu;
-import gsv;
-import gsw;
-import gta;
-import gth;
-import hzf;
-import ife;
-import iik;
-import iin;
-import ijb;
-import ijd;
-import java.io.File;
+import dua;
+import dxm;
+import dzn;
+import eaj;
+import ebw;
+import eib;
+import enk;
+import eoz;
+import erp;
+import evr;
+import ezh;
+import icb;
+import ice;
+import icf;
+import icn;
+import ico;
+import icp;
+import ict;
+import idd;
 import java.util.List;
 import java.util.Locale;
-import jse;
-import jwc;
-import jzz;
-import kad;
-import kae;
-import kaq;
-import kax;
-import kld;
-import kll;
-import klo;
-import kls;
-import p;
-import r;
+import kbj;
+import kia;
+import kmj;
+import kmm;
+import kna;
+import knc;
+import mxk;
+import nct;
+import ngq;
+import ngu;
+import ngv;
+import nhh;
+import nho;
+import odr;
+import odx;
+import oed;
+import oeh;
+import x;
+import z;
 
 public class EditAccountFragment
-  extends dsh<gsu>
+  extends dxm<icn>
 {
-  private static final jzz n = new jzz(2131166315);
-  private static final kae<FloatingLabelEditText, jzz> o = new kae(n, new jzz(2131165983));
-  private static final kad<FloatingLabelEditText, jzz> p = new kad(new jzz(2131165983));
-  private static final iin q = new iin(n, n);
-  private static final ijb<jzz> r = new ijb(n);
-  public ego c;
-  public ckc d;
-  public ife e;
-  public kax<jwc> f;
-  public ciu g;
-  public gta h;
-  public dwd i;
-  public kll j;
-  public dty k;
-  public ens l;
-  public jse m;
-  @InjectView(2131624112)
-  FloatingLabelEditText mEditTextEmail;
-  @InjectView(2131624110)
+  private static final ngq n = new ngq(2131166495);
+  private static final ngv<FloatingLabelEditText, ngq> o = new ngv(n, new ngq(2131166093));
+  private static final ngu<FloatingLabelEditText, ngq> p = new ngu(new ngq(2131166093));
+  private static final kmm q = new kmm(n, n);
+  private static final kna<ngq> r = new kna(n);
+  public eoz c;
+  public ckt d;
+  public kia e;
+  public nho<nct> f;
+  public cja g;
+  public ict h;
+  public ebw i;
+  public odx j;
+  public dzn k;
+  public evr l;
+  public mxk m;
+  @BindView
+  public FloatingLabelEditText mEditTextEmail;
+  @BindView
   public CircleImageView mImageViewPicture;
-  @InjectView(2131624111)
-  NameInput mNameInput;
-  @InjectView(2131624113)
-  PhoneNumberView mPhoneNumberView;
+  @BindView
+  public NameInput mNameInput;
+  @BindView
+  public PhoneNumberView mPhoneNumberView;
   private byte[] s;
   private Uri t;
-  private klo u;
-  private klo v;
+  private oed u;
+  private oed v;
   private boolean w = true;
   private boolean x;
   
@@ -118,13 +113,13 @@ public class EditAccountFragment
   
   private void a()
   {
-    d.a(r.aI);
-    startActivityForResult(AccountPictureActivity.a(d()), 101);
+    d.a(z.bp);
+    startActivityForResult(AccountPictureActivity.a(b()), 101);
   }
   
-  private void a(gsu paramgsu)
+  private void a(icn paramicn)
   {
-    paramgsu.a(this);
+    paramicn.a(this);
   }
   
   private void a(String paramString)
@@ -137,37 +132,33 @@ public class EditAccountFragment
   private void a(boolean paramBoolean)
   {
     w = paramBoolean;
-    mNameInput.setEnabled(paramBoolean);
-    mEditTextEmail.setEnabled(paramBoolean);
-    mPhoneNumberView.setEnabled(paramBoolean);
-    mImageViewPicture.setClickable(paramBoolean);
-    d().invalidateOptionsMenu();
-  }
-  
-  private gsu b(ebj paramebj)
-  {
-    return gsm.a().a(new efr(this)).a(new gth()).a(paramebj).a();
-  }
-  
-  private void b()
-  {
-    if ((e.b(dux.aP)) && (g())) {
-      l.a("com.uber.SMS_RECEIVER", hzf.a);
-    }
-    x = true;
-    a(false);
-    b(getString(2131167175));
-    if (s != null)
+    boolean bool;
+    if (e.a(eaj.dx, true))
     {
-      if (e.b(dux.eo))
+      RiderAccount localRiderAccount = (RiderAccount)getArguments().getParcelable("rider_account");
+      NameInput localNameInput = mNameInput;
+      if ((paramBoolean) && (localRiderAccount.isClient()))
       {
-        v = m.b(Base64.encodeToString(s, 0)).a(kls.a()).b(new gsw(this, (byte)0));
-        return;
+        bool = true;
+        localNameInput.setEnabled(bool);
       }
-      c.a(s);
-      return;
     }
-    h();
+    for (;;)
+    {
+      mEditTextEmail.setEnabled(paramBoolean);
+      mPhoneNumberView.setEnabled(paramBoolean);
+      mImageViewPicture.setClickable(paramBoolean);
+      b().invalidateOptionsMenu();
+      return;
+      bool = false;
+      break;
+      mNameInput.setEnabled(paramBoolean);
+    }
+  }
+  
+  private icn b(eib parameib)
+  {
+    return ice.a().a(new enk(this)).a(new idd()).a(parameib).a();
   }
   
   private void b(RiderAccount paramRiderAccount)
@@ -177,11 +168,27 @@ public class EditAccountFragment
     startActivity(paramRiderAccount);
   }
   
+  private void f()
+  {
+    if (g()) {
+      l.a("com.uber.SMS_RECEIVER", kbj.a);
+    }
+    x = true;
+    a(false);
+    a_(getString(2131167548));
+    if (s != null)
+    {
+      v = m.b(Base64.encodeToString(s, 0)).a(oeh.a()).b(new icp(this, (byte)0));
+      return;
+    }
+    h();
+  }
+  
   private boolean g()
   {
     Object localObject = (RiderAccount)getArguments().getParcelable("rider_account");
-    localObject = erc.c(((RiderAccount)localObject).getCurrentMobile(), ((RiderAccount)localObject).getMobileCountryIso2());
-    String str = erc.c(mPhoneNumberView.g(), mPhoneNumberView.d());
+    localObject = ezh.c(((RiderAccount)localObject).getCurrentMobile(), ((RiderAccount)localObject).getMobileCountryIso2());
+    String str = ezh.c(mPhoneNumberView.g(), mPhoneNumberView.d());
     return (localObject == null) || (!((String)localObject).equals(str));
   }
   
@@ -197,85 +204,79 @@ public class EditAccountFragment
         str1 = localRiderAccount.getEmail();
       }
     }
-    c.a(k.y(), mNameInput.c(), mNameInput.d(), str1, mPhoneNumberView.d(), mPhoneNumberView.h());
+    c.a(k.N(), mNameInput.c(), mNameInput.d(), str1, mPhoneNumberView.d(), mPhoneNumberView.h());
   }
   
   private void i()
   {
-    d.a(r.aJ);
-    kaq localkaq = new kaq().a(mNameInput, q).a(mPhoneNumberView, r);
+    d.a(z.bq);
+    nhh localnhh = new nhh().a(mNameInput, q).a(mPhoneNumberView, r);
     if (!RiderAccount.isFakedEmail(((RiderAccount)getArguments().getParcelable("rider_account")).getEmail())) {
-      localkaq.a(mEditTextEmail, o);
+      localnhh.a(mEditTextEmail, o);
     }
     for (;;)
     {
-      if (localkaq.a().isEmpty()) {
-        b();
+      if (localnhh.a().isEmpty()) {
+        f();
       }
       return;
-      localkaq.a(mEditTextEmail, p);
+      localnhh.a(mEditTextEmail, p);
     }
   }
   
   private void j()
   {
-    mImageViewPicture.setImageDrawable(ContextCompat.getDrawable(getContext(), 2130837650));
+    mImageViewPicture.setImageDrawable(ContextCompat.getDrawable(getContext(), 2130837697));
   }
   
   private GradientDrawable k()
   {
-    return gsj.a(getResources());
+    return icb.a(getResources());
   }
   
   public final void a(Uri paramUri)
   {
-    int i1 = getResources().getDimensionPixelSize(2131296359);
-    g.a(paramUri).b(i1, i1).a(k()).b(2130837650).a(mImageViewPicture);
+    int i1 = getResources().getDimensionPixelSize(2131296434);
+    g.a(paramUri).b(i1, i1).a(k()).b(2130837697).a(mImageViewPicture);
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return p.jC;
+    return x.nh;
   }
   
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    Object localObject = (RiderAccount)getArguments().getParcelable("rider_account");
-    mNameInput.a(((RiderAccount)localObject).getFirstName());
-    mNameInput.b(((RiderAccount)localObject).getLastName());
+    RiderAccount localRiderAccount = (RiderAccount)getArguments().getParcelable("rider_account");
+    mNameInput.a(localRiderAccount.getFirstName());
+    mNameInput.b(localRiderAccount.getLastName());
     FloatingLabelEditText localFloatingLabelEditText = mEditTextEmail;
-    if (RiderAccount.isFakedEmail(((RiderAccount)localObject).getEmail()))
+    if (RiderAccount.isFakedEmail(localRiderAccount.getEmail()))
     {
       paramBundle = "";
       localFloatingLabelEditText.d(paramBundle);
-      mPhoneNumberView.a(((RiderAccount)localObject).getCurrentMobile(), ((RiderAccount)localObject).getMobileCountryIso2());
-      paramBundle = ((RiderAccount)localObject).getPictureUrl();
+      mPhoneNumberView.a(localRiderAccount.getCurrentMobile(), localRiderAccount.getMobileCountryIso2());
+      paramBundle = localRiderAccount.getPictureUrl();
       if (TextUtils.isEmpty(paramBundle)) {
-        break label164;
-      }
-      if (!e.b(dux.cC)) {
-        break label128;
+        break label126;
       }
       a(paramBundle);
     }
     for (;;)
     {
-      mImageViewPicture.setClickable(true);
-      return;
-      paramBundle = ((RiderAccount)localObject).getEmail();
-      break;
-      label128:
-      localObject = gsj.a(getResources());
-      g.a(paramBundle).a((Drawable)localObject).b(2130837650).a(mImageViewPicture);
-      continue;
-      label164:
-      if (e.b(dux.cC)) {
-        j();
-      } else {
-        mImageViewPicture.setImageResource(2130837650);
+      if (!e.a(eaj.dx, true)) {
+        break label133;
       }
+      a(true);
+      return;
+      paramBundle = localRiderAccount.getEmail();
+      break;
+      label126:
+      j();
     }
+    label133:
+    mImageViewPicture.setClickable(true);
   }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -286,19 +287,14 @@ public class EditAccountFragment
       a(false);
       paramIntent = paramIntent.getData();
       t = paramIntent;
-      if ((e.b(dux.aj)) && (paramIntent != null)) {
-        u = h.a(paramIntent).b(j).a(kls.a()).b(new gsv(this, paramIntent));
+      if (paramIntent != null) {
+        u = h.a(paramIntent).b(j).a(oeh.a()).b(new ico(this, paramIntent));
       }
     }
-    else
-    {
-      return;
-    }
-    new EditAccountFragment.1(this, paramIntent).execute(new Void[0]);
   }
   
-  @OnClick({2131624110})
-  void onClickAccountPicture()
+  @OnClick
+  public void onClickAccountPicture()
   {
     a();
   }
@@ -311,25 +307,19 @@ public class EditAccountFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903151, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903216, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131626157)
+    if (paramMenuItem.getItemId() == 2131626913)
     {
       a();
       return true;
     }
-    if (paramMenuItem.getItemId() == 2131626158)
+    if (paramMenuItem.getItemId() == 2131626914)
     {
       i();
       return true;
@@ -340,61 +330,44 @@ public class EditAccountFragment
   public void onPause()
   {
     super.onPause();
-    if ((e.b(dux.aj)) && (u != null)) {
-      u.c();
+    if (u != null) {
+      u.af_();
     }
-    if ((e.b(dux.eo)) && (v != null)) {
-      v.c();
+    if (v != null) {
+      v.af_();
     }
   }
   
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
-    paramMenu.findItem(2131626160).setVisible(false);
-    paramMenu.setGroupVisible(2131626156, true);
-    paramMenu.setGroupEnabled(2131626156, w);
+    paramMenu.findItem(2131626916).setVisible(false);
+    paramMenu.setGroupVisible(2131626912, true);
+    paramMenu.setGroupEnabled(2131626912, w);
   }
   
   public void onResume()
   {
     super.onResume();
-    e();
+    M_();
     if (x) {
       b(null);
     }
   }
   
-  @cho
-  public void onUpdateAccountResponseEvent(eju parameju)
+  @chu
+  public void onUpdateAccountResponseEvent(erp paramerp)
   {
-    e();
+    M_();
     FragmentActivity localFragmentActivity = getActivity();
-    if (parameju.i())
+    if (paramerp.i())
     {
-      parameju = (RiderAccount)parameju.g();
-      ((jwc)f.a()).a("com.ubercab.client.RIDER_ACCOUNT", parameju);
-      dpf.a(localFragmentActivity, getString(2131165744));
-      b(parameju);
+      paramerp = (RiderAccount)paramerp.g();
+      ((nct)f.a()).a("com.ubercab.client.RIDER_ACCOUNT", paramerp);
+      dua.b(localFragmentActivity, getString(2131165809));
+      b(paramerp);
       return;
     }
-    dpf.a(localFragmentActivity, getString(2131165788));
-    a(true);
-  }
-  
-  @cho
-  @Deprecated
-  public void onUploadAccountPictureResponseEvent(ejx paramejx)
-  {
-    if (paramejx.i())
-    {
-      if ((t != null) && (t.getPath() != null)) {
-        new File(t.getPath()).delete();
-      }
-      h();
-      return;
-    }
-    e();
-    dpf.a(getActivity(), getString(2131165789));
+    dua.b(localFragmentActivity, getString(2131165858));
     a(true);
   }
   
@@ -402,8 +375,8 @@ public class EditAccountFragment
   {
     super.onViewCreated(paramView, paramBundle);
     paramView = mNameInput;
-    if (("CHINA".equals(i.a())) && (ijd.a(Locale.getDefault()))) {}
-    for (int i1 = iik.b;; i1 = iik.a)
+    if (("CHINA".equals(i.a())) && (knc.a(Locale.getDefault()))) {}
+    for (int i1 = kmj.b;; i1 = kmj.a)
     {
       paramView.a(i1);
       return;

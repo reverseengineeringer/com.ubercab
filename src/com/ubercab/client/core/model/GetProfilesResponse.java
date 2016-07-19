@@ -4,10 +4,10 @@ import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.Profile;
 import com.ubercab.shape.Shape;
 import java.util.List;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class GetProfilesResponse
 {
   public static GetProfilesResponse create(List<Profile> paramList)

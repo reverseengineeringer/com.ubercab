@@ -1,56 +1,38 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import android.os.IBinder;
+import android.os.Parcel;
 
-@apl
-public final class agw
+final class agw
+  implements agu
 {
-  private final Collection<agv> a = new ArrayList();
-  private final Collection<agv<String>> b = new ArrayList();
-  private final Collection<agv<String>> c = new ArrayList();
+  private IBinder a;
   
-  public final List<String> a()
+  agw(IBinder paramIBinder)
   {
-    ArrayList localArrayList = new ArrayList();
-    Iterator localIterator = b.iterator();
-    while (localIterator.hasNext())
+    a = paramIBinder;
+  }
+  
+  public final int a()
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
     {
-      String str = (String)((agv)localIterator.next()).c();
-      if (str != null) {
-        localArrayList.add(str);
-      }
+      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IMediationResponseMetadata");
+      a.transact(1, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      return i;
     }
-    return localArrayList;
-  }
-  
-  public final void a(agv paramagv)
-  {
-    a.add(paramagv);
-  }
-  
-  public final List<String> b()
-  {
-    List localList = a();
-    Iterator localIterator = c.iterator();
-    while (localIterator.hasNext())
+    finally
     {
-      String str = (String)((agv)localIterator.next()).c();
-      if (str != null) {
-        localList.add(str);
-      }
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
-    return localList;
   }
   
-  public final void b(agv<String> paramagv)
+  public final IBinder asBinder()
   {
-    b.add(paramagv);
-  }
-  
-  public final void c(agv<String> paramagv)
-  {
-    c.add(paramagv);
+    return a;
   }
 }
 

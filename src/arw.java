@@ -1,16 +1,18 @@
-@apl
-public final class arw<T>
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.PlaceReport;
+
+public final class arw
+  implements aqv
 {
-  private T a;
-  
-  public final T a()
+  public final wo<Status> a(wj paramwj, final PlaceReport paramPlaceReport)
   {
-    return (T)a;
-  }
-  
-  public final void a(T paramT)
-  {
-    a = paramT;
+    paramwj.b(new atf(arb.b, paramwj)
+    {
+      private void a(arx paramAnonymousarx)
+      {
+        paramAnonymousarx.a(new asz(this), paramPlaceReport);
+      }
+    });
   }
 }
 

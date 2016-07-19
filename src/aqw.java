@@ -1,8 +1,4 @@
-abstract class aqw
-  extends aqs
-{
-  public final void b() {}
-}
+public abstract interface aqw {}
 
 /* Location:
  * Qualified Name:     aqw

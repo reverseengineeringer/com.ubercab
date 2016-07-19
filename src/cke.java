@@ -1,8 +1,18 @@
-import com.ubercab.analytics.model.AnalyticsEvent;
+import android.os.Process;
 
-public abstract interface cke
+final class cke
+  extends Thread
 {
-  public abstract void a(AnalyticsEvent paramAnalyticsEvent);
+  public cke(Runnable paramRunnable)
+  {
+    super(paramRunnable);
+  }
+  
+  public final void run()
+  {
+    Process.setThreadPriority(10);
+    super.run();
+  }
 }
 
 /* Location:

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.ResultReceiver;
 
 abstract interface MediaSessionCompatApi21$Callback
+  extends MediaSessionCompatApi19.Callback
 {
   public abstract void onCommand(String paramString, Bundle paramBundle, ResultReceiver paramResultReceiver);
   
@@ -23,10 +24,6 @@ abstract interface MediaSessionCompatApi21$Callback
   public abstract void onPlayFromSearch(String paramString, Bundle paramBundle);
   
   public abstract void onRewind();
-  
-  public abstract void onSeekTo(long paramLong);
-  
-  public abstract void onSetRating(Object paramObject);
   
   public abstract void onSkipToNext();
   

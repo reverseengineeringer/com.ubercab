@@ -1,63 +1,58 @@
-import android.os.IBinder;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.maps.model.TileOverlayOptions;
+import java.util.NoSuchElementException;
 
-public final class bik
-  implements Parcelable.Creator<TileOverlayOptions>
+abstract class bik<E>
+  extends bkq<E>
 {
-  public static TileOverlayOptions a(Parcel paramParcel)
+  private final int a;
+  private int b;
+  
+  protected bik(int paramInt1, int paramInt2)
   {
-    boolean bool2 = false;
-    int j = zm.b(paramParcel);
-    IBinder localIBinder = null;
-    float f = 0.0F;
-    boolean bool1 = true;
-    int i = 0;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        localIBinder = zm.o(paramParcel, k);
-        break;
-      case 3: 
-        bool2 = zm.b(paramParcel, k);
-        break;
-      case 4: 
-        f = zm.j(paramParcel, k);
-        break;
-      case 5: 
-        bool1 = zm.b(paramParcel, k);
-      }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new TileOverlayOptions(i, localIBinder, bool2, f, bool1);
+    bhx.b(paramInt2, paramInt1);
+    a = paramInt1;
+    b = paramInt2;
   }
   
-  public static void a(TileOverlayOptions paramTileOverlayOptions, Parcel paramParcel)
+  protected abstract E a(int paramInt);
+  
+  public final boolean hasNext()
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramTileOverlayOptions.a());
-    zo.a(paramParcel, 2, paramTileOverlayOptions.b());
-    zo.a(paramParcel, 3, paramTileOverlayOptions.d());
-    zo.a(paramParcel, 4, paramTileOverlayOptions.c());
-    zo.a(paramParcel, 5, paramTileOverlayOptions.e());
-    zo.a(paramParcel, i);
+    return b < a;
   }
   
-  private static TileOverlayOptions[] a(int paramInt)
+  public final boolean hasPrevious()
   {
-    return new TileOverlayOptions[paramInt];
+    return b > 0;
+  }
+  
+  public final E next()
+  {
+    if (!hasNext()) {
+      throw new NoSuchElementException();
+    }
+    int i = b;
+    b = (i + 1);
+    return (E)a(i);
+  }
+  
+  public final int nextIndex()
+  {
+    return b;
+  }
+  
+  public final E previous()
+  {
+    if (!hasPrevious()) {
+      throw new NoSuchElementException();
+    }
+    int i = b - 1;
+    b = i;
+    return (E)a(i);
+  }
+  
+  public final int previousIndex()
+  {
+    return b - 1;
   }
 }
 

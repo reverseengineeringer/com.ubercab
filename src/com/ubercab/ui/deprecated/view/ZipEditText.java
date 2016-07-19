@@ -7,24 +7,24 @@ import android.text.InputFilter.LengthFilter;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import com.ubercab.ui.EditText;
-import iaj;
-import jzm;
-import jzv;
-import jzw;
-import kac;
-import kak;
+import kct;
+import ngd;
+import ngm;
+import ngn;
+import ngt;
+import nhb;
 
 @Deprecated
 public class ZipEditText
   extends EditText
-  implements jzm, kac
+  implements ngd, ngt
 {
-  private static final iaj<String> a = iaj.a("US", "CA", "GB");
+  private static final kct<String> a = kct.a("US", "CA", "GB");
   private static final Boolean b = Boolean.FALSE;
   private boolean c;
-  private jzv d;
+  private ngm d;
   private String e;
-  private kak<ZipEditText, Boolean> f;
+  private nhb<ZipEditText, Boolean> f;
   
   public ZipEditText(Context paramContext)
   {
@@ -40,8 +40,8 @@ public class ZipEditText
   {
     super(paramContext, paramAttributeSet, paramInt);
     setSingleLine();
-    addTextChangedListener(new jzw(this, (byte)0));
-    f = new kak(this, b);
+    addTextChangedListener(new ngn(this, (byte)0));
+    f = new nhb(this, b);
   }
   
   private void d()
@@ -75,7 +75,7 @@ public class ZipEditText
     setVisibility(8);
   }
   
-  public final boolean V_()
+  public final boolean Z_()
   {
     return c;
   }
@@ -98,15 +98,15 @@ public class ZipEditText
     }
   }
   
-  public final void a(jzv paramjzv)
+  public final void a(ngm paramngm)
   {
-    d = paramjzv;
+    d = paramngm;
     setText(getText());
   }
   
   public final boolean c()
   {
-    return ("US".equals(e)) && (V_());
+    return ("US".equals(e)) && (Z_());
   }
   
   public void onRestoreInstanceState(Parcelable paramParcelable)

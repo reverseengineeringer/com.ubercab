@@ -1,16 +1,4 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-
-final class cft
-  implements DialogInterface.OnClickListener
-{
-  cft(cfm paramcfm) {}
-  
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
-  {
-    cfm.c(a);
-  }
-}
+public final class cft {}
 
 /* Location:
  * Qualified Name:     cft

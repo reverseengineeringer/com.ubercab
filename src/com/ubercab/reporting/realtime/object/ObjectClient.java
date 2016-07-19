@@ -1,11 +1,11 @@
 package com.ubercab.reporting.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jqq;
+import moz;
 
 @Shape
 public abstract class ObjectClient
-  implements jqq
+  implements moz
 {
   static ObjectClient create()
   {

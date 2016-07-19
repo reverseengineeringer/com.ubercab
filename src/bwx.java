@@ -1,185 +1,43 @@
-import android.util.Log;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONTokener;
+import java.util.Locale;
 
-public abstract class bwx
+public final class bwx
+  extends buf
 {
-  private static final String a = bwx.class.getSimpleName();
-  private static long j = 1L;
-  private String b;
-  private String c;
-  private Map d;
-  private final bwy e;
-  private final bxg f;
-  private bwv g;
-  private String h;
-  private bts i;
-  private long k;
-  private Integer l;
-  private String m;
+  private final boolean c;
+  private final int d;
   
-  public bwx(bwv parambwv, bwy parambwy, bxg parambxg)
+  public bwx(bus parambus, int paramInt1, boolean paramBoolean, int paramInt2)
   {
-    this(parambwv, parambwy, parambxg, null);
+    super(paramInt1, parambus);
+    c = paramBoolean;
+    d = paramInt2;
   }
   
-  public bwx(bwv parambwv, bwy parambwy, bxg parambxg, String paramString)
+  protected final String a()
   {
-    long l1 = j;
-    j = 1L + l1;
-    k = l1;
-    g = parambwv;
-    h = paramString;
-    e = parambwy;
-    f = parambxg;
-    d = new LinkedHashMap();
-  }
-  
-  public static void l() {}
-  
-  public String a(bwv parambwv)
-  {
-    String str = e.a(parambwv);
-    if (str != null)
+    int j = d;
+    StringBuilder localStringBuilder = new StringBuilder();
+    int i = 0;
+    while (i < j)
     {
-      parambwv = str;
-      if (h != null) {
-        parambwv = str + h;
+      if (i != 0) {
+        localStringBuilder.append(",\n");
       }
-      return parambwv;
+      String str = new String(new char[4]).replace("\000", String.valueOf(i)).substring(0, 4);
+      localStringBuilder.append(String.format(Locale.US, "    {\n        \"type\":\"sms_otp\",\n        \"token_identifier\":\"mock_token_id_%s\",\n        \"token_identifier_display\":\"xxx-xxx-%s\"\n    }\n", new Object[] { Integer.valueOf(i), str }));
+      i += 1;
     }
-    throw new RuntimeException("API " + parambwv.toString() + " has no record for server " + e.c());
+    return String.format(Locale.US, "{\n    \"nonce\":\"mock-login-nonce\",\n    \"error\":\"2fa_required\",\n    \"error_description\":\"Unable to authenticate the user. 2fa flow completion is necessary for successful login.\",\n    \"visitor_id\":\"mock-visitor_id\",\n    \"2fa_enabled\":\"true\",\n    \"2fa_token_identifier\":[\n%s    ]\n}", new Object[] { localStringBuilder.toString() });
   }
   
-  public final void a(bts parambts)
+  protected final int b()
   {
-    if (i != null)
-    {
-      IllegalStateException localIllegalStateException = new IllegalStateException("Multiple exceptions reported");
-      Log.e(a, "first error=" + i);
-      Log.e(a, "second error=" + parambts);
-      Log.e(a, "", localIllegalStateException);
-      throw localIllegalStateException;
-    }
-    i = parambts;
+    return 401;
   }
   
-  public final void a(Integer paramInteger)
+  protected final boolean c(bur parambur)
   {
-    l = paramInteger;
-  }
-  
-  public final void a(String paramString)
-  {
-    b = paramString;
-  }
-  
-  protected final void a(String paramString1, String paramString2)
-  {
-    d.put(paramString1, paramString2);
-  }
-  
-  public boolean a()
-  {
-    return false;
-  }
-  
-  public abstract String b();
-  
-  public final void b(String paramString)
-  {
-    c = paramString;
-  }
-  
-  public final void b(String paramString1, String paramString2)
-  {
-    a(new btu(paramString1, paramString2));
-  }
-  
-  public abstract void c();
-  
-  public final void c(String paramString)
-  {
-    m = paramString;
-  }
-  
-  public abstract void d();
-  
-  public abstract String e();
-  
-  public final bxg f()
-  {
-    return f;
-  }
-  
-  public final String g()
-  {
-    return b;
-  }
-  
-  public final String h()
-  {
-    return c;
-  }
-  
-  public final bwv i()
-  {
-    return g;
-  }
-  
-  public final Map j()
-  {
-    return d;
-  }
-  
-  public final String k()
-  {
-    return m;
-  }
-  
-  public void m() {}
-  
-  protected final JSONObject n()
-  {
-    String str = c;
-    Object localObject = new JSONTokener(str).nextValue();
-    if (!(localObject instanceof JSONObject)) {
-      throw new JSONException("could not parse:" + str + "\nnextValue:" + localObject);
-    }
-    return (JSONObject)localObject;
-  }
-  
-  public final String o()
-  {
-    return getClass().getSimpleName() + " SN:" + k;
-  }
-  
-  public final long p()
-  {
-    return k;
-  }
-  
-  public final bts q()
-  {
-    return i;
-  }
-  
-  public final boolean r()
-  {
-    return i == null;
-  }
-  
-  public final Integer s()
-  {
-    return l;
-  }
-  
-  public final bwy t()
-  {
-    return e;
+    return (c) && ((parambur instanceof bwp)) && (!((bwp)parambur).u());
   }
 }
 

@@ -1,54 +1,102 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import java.lang.reflect.Type;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public abstract class bly
-  extends Binder
-  implements blx
+public final class bly
 {
-  public static blx a(IBinder paramIBinder)
+  private bnd a = bnd.a;
+  private bmn b = bmn.a;
+  private blv c = blu.a;
+  private final Map<Type, blz<?>> d = new HashMap();
+  private final List<bmr> e = new ArrayList();
+  private final List<bmr> f = new ArrayList();
+  private boolean g;
+  private String h;
+  private int i = 2;
+  private int j = 2;
+  private boolean k;
+  private boolean l;
+  private boolean m = true;
+  private boolean n;
+  private boolean o;
+  
+  private static void a(String paramString, int paramInt1, int paramInt2, List<bmr> paramList)
   {
-    if (paramIBinder == null) {
-      return null;
+    if ((paramString != null) && (!"".equals(paramString.trim()))) {}
+    for (paramString = new blr(paramString);; paramString = new blr(paramInt1, paramInt2))
+    {
+      paramList.add(bmo.a(boj.get(java.util.Date.class), paramString));
+      paramList.add(bmo.a(boj.get(Timestamp.class), paramString));
+      paramList.add(bmo.a(boj.get(java.sql.Date.class), paramString));
+      do
+      {
+        return;
+      } while ((paramInt1 == 2) || (paramInt2 == 2));
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.plus.internal.IPlusOneButtonCreator");
-    if ((localIInterface != null) && ((localIInterface instanceof blx))) {
-      return (blx)localIInterface;
-    }
-    return new blz(paramIBinder);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public final bly a()
   {
-    Object localObject = null;
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.plus.internal.IPlusOneButtonCreator");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusOneButtonCreator");
-      paramParcel1 = a(ade.a(paramParcel1.readStrongBinder()), paramParcel1.readInt(), paramParcel1.readInt(), paramParcel1.readString(), paramParcel1.readInt());
-      paramParcel2.writeNoException();
-      if (paramParcel1 != null) {}
-      for (paramParcel1 = paramParcel1.asBinder();; paramParcel1 = null)
-      {
-        paramParcel2.writeStrongBinder(paramParcel1);
-        return true;
-      }
+    g = true;
+    return this;
+  }
+  
+  public final bly a(blu paramblu)
+  {
+    c = paramblu;
+    return this;
+  }
+  
+  public final bly a(bmr parambmr)
+  {
+    e.add(parambmr);
+    return this;
+  }
+  
+  public final bly a(Type paramType, Object paramObject)
+  {
+    bmx.a(true);
+    if ((paramObject instanceof blz)) {
+      d.put(paramType, (blz)paramObject);
     }
-    paramParcel1.enforceInterface("com.google.android.gms.plus.internal.IPlusOneButtonCreator");
-    add localadd = a(ade.a(paramParcel1.readStrongBinder()), paramParcel1.readInt(), paramParcel1.readInt(), paramParcel1.readString(), paramParcel1.readString());
-    paramParcel2.writeNoException();
-    paramParcel1 = (Parcel)localObject;
-    if (localadd != null) {
-      paramParcel1 = localadd.asBinder();
+    boj localboj = boj.get(paramType);
+    e.add(bmo.b(localboj, paramObject));
+    if ((paramObject instanceof bmq)) {
+      e.add(boh.a(boj.get(paramType), (bmq)paramObject));
     }
-    paramParcel2.writeStrongBinder(paramParcel1);
-    return true;
+    return this;
+  }
+  
+  public final bly a(int... paramVarArgs)
+  {
+    a = a.a(paramVarArgs);
+    return this;
+  }
+  
+  public final bly b()
+  {
+    n = true;
+    return this;
+  }
+  
+  public final bly c()
+  {
+    l = true;
+    return this;
+  }
+  
+  public final blw d()
+  {
+    ArrayList localArrayList = new ArrayList();
+    localArrayList.addAll(e);
+    Collections.reverse(localArrayList);
+    localArrayList.addAll(f);
+    a(h, i, j, localArrayList);
+    return new blw(a, c, d, g, k, o, m, n, l, b, localArrayList);
   }
 }
 

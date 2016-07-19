@@ -1,37 +1,222 @@
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
+import android.os.Handler;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
 
-public final class cah
-  implements bzw
+public class cah
 {
-  private static Map a = new HashMap();
-  private static Map b = new HashMap();
+  private static final String a = cah.class.getSimpleName();
+  private static final Object g = new Object();
+  private static cah h;
+  private final Context b;
+  private final HashMap c = new HashMap();
+  private final HashMap d = new HashMap();
+  private final ArrayList e = new ArrayList();
+  private final Handler f;
   
-  public cah()
+  private cah(Context paramContext)
   {
-    a.put(bzv.a, "Hætta við");
-    a.put(bzv.b, "American Express");
-    a.put(bzv.c, "Discover");
-    a.put(bzv.d, "JCB");
-    a.put(bzv.e, "MasterCard");
-    a.put(bzv.f, "Visa");
-    a.put(bzv.g, "Lokið");
-    a.put(bzv.h, "CVV");
-    a.put(bzv.i, "Póstnúmer");
-    a.put(bzv.j, "Rennur út");
-    a.put(bzv.k, "MM/ÁÁ");
-    a.put(bzv.l, "Haltu kortinu kyrru hér.\nÞað verður sjálvirkt skannað.");
-    a.put(bzv.m, "Lyklaborð…");
-    a.put(bzv.n, "Kortanúmar");
-    a.put(bzv.o, "Kortaupplýsingar");
-    a.put(bzv.p, "Þetta tæki getur ekki notað myndavélina til að lesa af númer af kortinu.");
-    a.put(bzv.q, "Ekki næst samband við myndavélina.");
-    a.put(bzv.r, "Upp kom villa við að opna myndavélina..");
+    b = paramContext;
+    f = new cai(this, paramContext.getMainLooper());
   }
   
-  public final String a()
+  public static cah a(Context paramContext)
   {
-    return "is";
+    synchronized (g)
+    {
+      if (h == null) {
+        h = new cah(paramContext.getApplicationContext());
+      }
+      paramContext = h;
+      return paramContext;
+    }
+  }
+  
+  public final void a(BroadcastReceiver paramBroadcastReceiver)
+  {
+    for (;;)
+    {
+      int k;
+      int i;
+      synchronized (c)
+      {
+        ArrayList localArrayList1 = (ArrayList)c.remove(paramBroadcastReceiver);
+        if (localArrayList1 != null) {
+          break label167;
+        }
+        return;
+        if (j < localArrayList1.size())
+        {
+          IntentFilter localIntentFilter = (IntentFilter)localArrayList1.get(j);
+          k = 0;
+          if (k >= localIntentFilter.countActions()) {
+            break label188;
+          }
+          String str = localIntentFilter.getAction(k);
+          ArrayList localArrayList2 = (ArrayList)d.get(str);
+          if (localArrayList2 == null) {
+            break label179;
+          }
+          i = 0;
+          if (i < localArrayList2.size())
+          {
+            if (getb == paramBroadcastReceiver)
+            {
+              localArrayList2.remove(i);
+              i -= 1;
+              break label172;
+            }
+          }
+          else
+          {
+            if (localArrayList2.size() > 0) {
+              break label179;
+            }
+            d.remove(str);
+            break label179;
+          }
+        }
+        else
+        {
+          return;
+        }
+      }
+      break label172;
+      label167:
+      int j = 0;
+      continue;
+      label172:
+      i += 1;
+      continue;
+      label179:
+      k += 1;
+      continue;
+      label188:
+      j += 1;
+    }
+  }
+  
+  public final void a(BroadcastReceiver paramBroadcastReceiver, IntentFilter paramIntentFilter)
+  {
+    synchronized (c)
+    {
+      cak localcak = new cak(paramIntentFilter, paramBroadcastReceiver);
+      Object localObject2 = (ArrayList)c.get(paramBroadcastReceiver);
+      Object localObject1 = localObject2;
+      if (localObject2 == null)
+      {
+        localObject1 = new ArrayList(1);
+        c.put(paramBroadcastReceiver, localObject1);
+      }
+      ((ArrayList)localObject1).add(paramIntentFilter);
+      int i = 0;
+      while (i < paramIntentFilter.countActions())
+      {
+        localObject2 = paramIntentFilter.getAction(i);
+        localObject1 = (ArrayList)d.get(localObject2);
+        paramBroadcastReceiver = (BroadcastReceiver)localObject1;
+        if (localObject1 == null)
+        {
+          paramBroadcastReceiver = new ArrayList(1);
+          d.put(localObject2, paramBroadcastReceiver);
+        }
+        paramBroadcastReceiver.add(localcak);
+        i += 1;
+      }
+      return;
+    }
+  }
+  
+  public final boolean a(Intent paramIntent)
+  {
+    for (;;)
+    {
+      synchronized (c)
+      {
+        String str1 = paramIntent.getAction();
+        String str2 = paramIntent.resolveTypeIfNeeded(b.getContentResolver());
+        Uri localUri = paramIntent.getData();
+        String str3 = paramIntent.getScheme();
+        Set localSet = paramIntent.getCategories();
+        if ((paramIntent.getFlags() & 0x8) == 0) {
+          break label387;
+        }
+        i = 1;
+        if (i != 0) {
+          new StringBuilder("Resolving type ").append(str2).append(" scheme ").append(str3).append(" of intent ").append(paramIntent);
+        }
+        ArrayList localArrayList2 = (ArrayList)d.get(paramIntent.getAction());
+        if (localArrayList2 == null) {
+          break label361;
+        }
+        if (i == 0) {
+          break label372;
+        }
+        new StringBuilder("Action list: ").append(localArrayList2);
+        break label372;
+        if (j < localArrayList2.size())
+        {
+          cak localcak = (cak)localArrayList2.get(j);
+          if (i != 0) {
+            new StringBuilder("Matching against filter ").append(a);
+          }
+          if (c)
+          {
+            if (i == 0) {
+              break label369;
+            }
+            break label380;
+          }
+          int k = a.match(str1, str2, str3, localUri, localSet, "ClonedLocalBroadcastManager");
+          if (k < 0) {
+            break label369;
+          }
+          if (i != 0) {
+            new StringBuilder("  Filter matched!  match=0x").append(Integer.toHexString(k));
+          }
+          if (localArrayList1 != null) {
+            break label366;
+          }
+          localArrayList1 = new ArrayList();
+          localArrayList1.add(localcak);
+          c = true;
+        }
+      }
+      if (localArrayList1 != null)
+      {
+        i = 0;
+        while (i < localArrayList1.size())
+        {
+          getc = false;
+          i += 1;
+        }
+        e.add(new caj(paramIntent, localArrayList1));
+        if (!f.hasMessages(1)) {
+          f.sendEmptyMessage(1);
+        }
+        return true;
+      }
+      label361:
+      return false;
+      label366:
+      continue;
+      label369:
+      break label380;
+      label372:
+      ArrayList localArrayList1 = null;
+      int j = 0;
+      continue;
+      label380:
+      j += 1;
+      continue;
+      label387:
+      int i = 0;
+    }
   }
 }
 

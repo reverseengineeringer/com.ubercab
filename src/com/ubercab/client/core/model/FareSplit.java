@@ -3,14 +3,14 @@ package com.ubercab.client.core.model;
 import android.content.Context;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.FareSplitClient;
-import eqr;
-import iad;
-import ian;
+import eyu;
 import java.util.ArrayList;
 import java.util.List;
-import jdh;
+import kcn;
+import kcx;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class FareSplit
   implements com.ubercab.rider.realtime.model.FareSplit
 {
@@ -44,7 +44,7 @@ public class FareSplit
     if (clients == null) {
       return null;
     }
-    return (FareSplitClient)ian.d(clients, new FareSplit.1(this)).d();
+    return (FareSplitClient)kcx.d(clients, new FareSplit.1(this)).d();
   }
   
   public FareSplitClient getClientSelf()
@@ -52,7 +52,7 @@ public class FareSplit
     if (clients == null) {
       return null;
     }
-    return (FareSplitClient)ian.d(clients, new FareSplit.2(this)).d();
+    return (FareSplitClient)kcx.d(clients, new FareSplit.2(this)).d();
   }
   
   public List<FareSplitClient> getClients()
@@ -65,7 +65,7 @@ public class FareSplit
   
   public String getDescription(Context paramContext)
   {
-    return eqr.a(paramContext, this);
+    return eyu.a(paramContext, this);
   }
   
   public int hashCode()

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ub__family_group_settings_tooltip" android:background="@drawable/ub__profiles_expense_integration_tooltip_bg" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/ub__family_group_settings_tooltip_image_view" android:layout_width="@dimen/ub__profiles_profile_settings_badge_medium" android:layout_height="@dimen/ub__profiles_profile_settings_badge_medium" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:src="@drawable/ub__family_add_member" android:contentDescription="@string/expense_provider" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:textColor="@color/ub__uber_black_40" android:id="@id/ub__family_group_settings_tooltip_textview" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/expense_integrations_byline" android:layout_weight="1.0" />
+    <ImageView android:id="@id/ub__family_group_settings_tooltip_close_image_view" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__x" android:contentDescription="@string/close" />
+</LinearLayout>

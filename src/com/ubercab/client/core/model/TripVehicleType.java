@@ -2,9 +2,9 @@ package com.ubercab.client.core.model;
 
 import android.text.TextUtils;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class TripVehicleType
   implements com.ubercab.rider.realtime.model.TripVehicleType
 {

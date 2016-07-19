@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-public class LocalBroadcastManager
+public final class LocalBroadcastManager
 {
   private static final boolean DEBUG = false;
   static final int MSG_EXEC_PENDING_BROADCASTS = 1;
@@ -86,7 +86,7 @@ public class LocalBroadcastManager
     }
   }
   
-  public void registerReceiver(BroadcastReceiver paramBroadcastReceiver, IntentFilter paramIntentFilter)
+  public final void registerReceiver(BroadcastReceiver paramBroadcastReceiver, IntentFilter paramIntentFilter)
   {
     synchronized (mReceivers)
     {
@@ -117,7 +117,7 @@ public class LocalBroadcastManager
     }
   }
   
-  public boolean sendBroadcast(Intent paramIntent)
+  public final boolean sendBroadcast(Intent paramIntent)
   {
     int i;
     label155:
@@ -238,14 +238,14 @@ public class LocalBroadcastManager
     }
   }
   
-  public void sendBroadcastSync(Intent paramIntent)
+  public final void sendBroadcastSync(Intent paramIntent)
   {
     if (sendBroadcast(paramIntent)) {
       executePendingBroadcasts();
     }
   }
   
-  public void unregisterReceiver(BroadcastReceiver paramBroadcastReceiver)
+  public final void unregisterReceiver(BroadcastReceiver paramBroadcastReceiver)
   {
     for (;;)
     {

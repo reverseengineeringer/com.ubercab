@@ -9,7 +9,7 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View.MeasureSpec;
 import android.widget.FrameLayout;
-import fv;
+import kn;
 
 public class ContentFrameLayout
   extends FrameLayout
@@ -21,7 +21,7 @@ public class ContentFrameLayout
   private TypedValue e;
   private TypedValue f;
   private final Rect g = new Rect();
-  private fv h;
+  private kn h;
   
   public ContentFrameLayout(Context paramContext)
   {
@@ -59,9 +59,9 @@ public class ContentFrameLayout
     fitSystemWindows(paramRect);
   }
   
-  public final void a(fv paramfv)
+  public final void a(kn paramkn)
   {
-    h = paramfv;
+    h = paramkn;
   }
   
   public final TypedValue b()

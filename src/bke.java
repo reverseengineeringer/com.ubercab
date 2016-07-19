@@ -1,166 +1,44 @@
+import java.util.Map.Entry;
+
 final class bke
+  extends biv<V, K>
 {
-  final boolean a;
-  final int b;
-  long c;
-  float d;
-  long e;
-  float f;
-  long g;
-  float h;
-  final boolean i;
+  private bke(bkd parambkd) {}
   
-  public bke(avl paramavl)
+  public final biv<K, V> b()
   {
-    abs.a(paramavl);
-    boolean bool1;
-    if ((a == null) || (a.intValue() == 0)) {
-      bool1 = false;
-    }
+    return b;
+  }
+  
+  final bjr<Map.Entry<V, K>> g()
+  {
+    return new bkf(this);
+  }
+  
+  public final K get(Object paramObject)
+  {
+    if ((paramObject == null) || (bkd.a(b) == null)) {}
     for (;;)
     {
-      if (bool1)
-      {
-        b = a.intValue();
-        if ((b != null) && (b.booleanValue()))
-        {
-          label62:
-          a = bool2;
-          if (a.intValue() != 4) {
-            break label185;
-          }
-          if (!a) {
-            break label160;
-          }
-          f = Float.parseFloat(d);
-          h = Float.parseFloat(e);
+      return null;
+      int i = bis.a(paramObject.hashCode());
+      int j = bkd.b(b);
+      for (bjh localbjh = bkd.a(b)[(i & j)]; localbjh != null; localbjh = localbjh.b()) {
+        if (paramObject.equals(localbjh.getValue())) {
+          return (K)localbjh.getKey();
         }
       }
-      for (;;)
-      {
-        i = bool1;
-        return;
-        if (a.intValue() != 4)
-        {
-          if (c != null) {
-            break label233;
-          }
-          bool1 = false;
-          break;
-        }
-        if ((d != null) && (e != null)) {
-          break label233;
-        }
-        bool1 = false;
-        break;
-        bool2 = false;
-        break label62;
-        label160:
-        e = Long.parseLong(d);
-        g = Long.parseLong(e);
-        continue;
-        label185:
-        if (a)
-        {
-          d = Float.parseFloat(c);
-        }
-        else
-        {
-          c = Long.parseLong(c);
-          continue;
-          b = 0;
-          a = false;
-        }
-      }
-      label233:
-      bool1 = true;
     }
   }
   
-  public final Boolean a(float paramFloat)
+  public final int size()
   {
-    boolean bool3 = true;
-    boolean bool4 = true;
-    boolean bool1 = true;
-    boolean bool2 = false;
-    if (!i) {
-      return null;
-    }
-    if (!a) {
-      return null;
-    }
-    switch (b)
-    {
-    default: 
-      return null;
-    case 1: 
-      if (paramFloat < d) {}
-      for (;;)
-      {
-        return Boolean.valueOf(bool1);
-        bool1 = false;
-      }
-    case 2: 
-      if (paramFloat > d) {}
-      for (bool1 = bool3;; bool1 = false) {
-        return Boolean.valueOf(bool1);
-      }
-    case 3: 
-      if (paramFloat != d)
-      {
-        bool1 = bool2;
-        if (Math.abs(paramFloat - d) >= 2.0F * Math.max(Math.ulp(paramFloat), Math.ulp(d))) {}
-      }
-      else
-      {
-        bool1 = true;
-      }
-      return Boolean.valueOf(bool1);
-    }
-    if ((paramFloat >= f) && (paramFloat <= h)) {}
-    for (bool1 = bool4;; bool1 = false) {
-      return Boolean.valueOf(bool1);
-    }
+    return b().size();
   }
   
-  public final Boolean a(long paramLong)
+  final Object writeReplace()
   {
-    boolean bool2 = true;
-    boolean bool3 = true;
-    boolean bool4 = true;
-    boolean bool1 = true;
-    if (!i) {
-      return null;
-    }
-    if (a) {
-      return null;
-    }
-    switch (b)
-    {
-    default: 
-      return null;
-    case 1: 
-      if (paramLong < c) {}
-      for (;;)
-      {
-        return Boolean.valueOf(bool1);
-        bool1 = false;
-      }
-    case 2: 
-      if (paramLong > c) {}
-      for (bool1 = bool2;; bool1 = false) {
-        return Boolean.valueOf(bool1);
-      }
-    case 3: 
-      if (paramLong == c) {}
-      for (bool1 = bool3;; bool1 = false) {
-        return Boolean.valueOf(bool1);
-      }
-    }
-    if ((paramLong >= e) && (paramLong <= g)) {}
-    for (bool1 = bool4;; bool1 = false) {
-      return Boolean.valueOf(bool1);
-    }
+    return new bkg(b);
   }
 }
 

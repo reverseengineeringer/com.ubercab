@@ -28,7 +28,7 @@ public final class RemoteInput$Builder
   
   public final RemoteInput build()
   {
-    return new RemoteInput(mResultKey, mLabel, mChoices, mAllowFreeFormInput, mExtras);
+    return new RemoteInput(mResultKey, mLabel, mChoices, mAllowFreeFormInput, mExtras, null);
   }
   
   public final Bundle getExtras()

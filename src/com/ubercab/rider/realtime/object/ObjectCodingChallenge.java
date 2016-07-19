@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jss;
+import mxy;
 
 @Shape
 abstract class ObjectCodingChallenge
-  implements jss
+  implements mxy
 {}
 
 /* Location:

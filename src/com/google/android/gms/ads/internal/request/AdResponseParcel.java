@@ -1,19 +1,19 @@
 package com.google.android.gms.ads.internal.request;
 
+import aih;
 import android.os.Parcel;
 import android.text.TextUtils;
-import apl;
 import com.google.android.gms.ads.internal.reward.mediation.client.RewardItemParcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import java.util.Collections;
 import java.util.List;
-import rj;
+import tr;
 
-@apl
+@aih
 public final class AdResponseParcel
   implements SafeParcelable
 {
-  public static final rj CREATOR = new rj();
+  public static final tr CREATOR = new tr();
   public String A;
   public boolean B;
   public boolean C;
@@ -48,16 +48,6 @@ public final class AdResponseParcel
   public final int x;
   public LargeParcelTeleporter y;
   public String z;
-  
-  public AdResponseParcel(int paramInt)
-  {
-    this(16, null, null, null, paramInt, null, -1L, false, -1L, null, -1L, -1, null, -1L, null, false, null, null, false, false, false, true, false, 0, null, null, null, false, false, null, null, null, false);
-  }
-  
-  public AdResponseParcel(int paramInt, long paramLong)
-  {
-    this(16, null, null, null, paramInt, null, -1L, false, -1L, null, paramLong, -1, null, -1L, null, false, null, null, false, false, false, true, false, 0, null, null, null, false, false, null, null, null, false);
-  }
   
   public AdResponseParcel(int paramInt1, String paramString1, String paramString2, List<String> paramList1, int paramInt2, List<String> paramList2, long paramLong1, boolean paramBoolean1, long paramLong2, List<String> paramList3, long paramLong3, int paramInt3, String paramString3, long paramLong4, String paramString4, boolean paramBoolean2, String paramString5, String paramString6, boolean paramBoolean3, boolean paramBoolean4, boolean paramBoolean5, boolean paramBoolean6, boolean paramBoolean7, int paramInt4, LargeParcelTeleporter paramLargeParcelTeleporter, String paramString7, String paramString8, boolean paramBoolean8, boolean paramBoolean9, RewardItemParcel paramRewardItemParcel, List<String> paramList4, List<String> paramList5, boolean paramBoolean10)
   {
@@ -125,18 +115,6 @@ public final class AdResponseParcel
     }
   }
   
-  public AdResponseParcel(AdRequestInfoParcel paramAdRequestInfoParcel, String paramString1, String paramString2, List<String> paramList1, List<String> paramList2, long paramLong1, boolean paramBoolean1, long paramLong2, List<String> paramList3, long paramLong3, int paramInt1, String paramString3, long paramLong4, String paramString4, boolean paramBoolean2, String paramString5, String paramString6, boolean paramBoolean3, boolean paramBoolean4, boolean paramBoolean5, boolean paramBoolean6, boolean paramBoolean7, int paramInt2, String paramString7, boolean paramBoolean8, boolean paramBoolean9, RewardItemParcel paramRewardItemParcel, List<String> paramList4, List<String> paramList5, boolean paramBoolean10)
-  {
-    this(16, paramString1, paramString2, paramList1, -2, paramList2, paramLong1, paramBoolean1, paramLong2, paramList3, paramLong3, paramInt1, paramString3, paramLong4, paramString4, paramBoolean2, paramString5, paramString6, paramBoolean3, paramBoolean4, paramBoolean5, paramBoolean6, paramBoolean7, paramInt2, null, null, paramString7, paramBoolean8, paramBoolean9, paramRewardItemParcel, paramList4, paramList5, paramBoolean10);
-    H = paramAdRequestInfoParcel;
-  }
-  
-  public AdResponseParcel(AdRequestInfoParcel paramAdRequestInfoParcel, String paramString1, String paramString2, List<String> paramList1, List<String> paramList2, long paramLong1, boolean paramBoolean1, List<String> paramList3, long paramLong2, int paramInt1, String paramString3, long paramLong3, String paramString4, String paramString5, boolean paramBoolean2, boolean paramBoolean3, boolean paramBoolean4, boolean paramBoolean5, int paramInt2, String paramString6, boolean paramBoolean6, boolean paramBoolean7, RewardItemParcel paramRewardItemParcel, List<String> paramList4, List<String> paramList5, boolean paramBoolean8)
-  {
-    this(16, paramString1, paramString2, paramList1, -2, paramList2, paramLong1, paramBoolean1, -1L, paramList3, paramLong2, paramInt1, paramString3, paramLong3, paramString4, false, null, paramString5, paramBoolean2, paramBoolean3, paramBoolean4, paramBoolean5, false, paramInt2, null, null, paramString6, paramBoolean6, paramBoolean7, paramRewardItemParcel, paramList4, paramList5, paramBoolean8);
-    H = paramAdRequestInfoParcel;
-  }
-  
   public final int describeContents()
   {
     return 0;
@@ -149,7 +127,7 @@ public final class AdResponseParcel
       y = new LargeParcelTeleporter(new StringParcel(c));
       c = null;
     }
-    rj.a(this, paramParcel, paramInt);
+    tr.a(this, paramParcel, paramInt);
   }
 }
 

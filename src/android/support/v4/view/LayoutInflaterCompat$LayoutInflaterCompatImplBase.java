@@ -5,6 +5,11 @@ import android.view.LayoutInflater;
 class LayoutInflaterCompat$LayoutInflaterCompatImplBase
   implements LayoutInflaterCompat.LayoutInflaterCompatImpl
 {
+  public LayoutInflaterFactory getFactory(LayoutInflater paramLayoutInflater)
+  {
+    return LayoutInflaterCompatBase.getFactory(paramLayoutInflater);
+  }
+  
   public void setFactory(LayoutInflater paramLayoutInflater, LayoutInflaterFactory paramLayoutInflaterFactory)
   {
     LayoutInflaterCompatBase.setFactory(paramLayoutInflater, paramLayoutInflaterFactory);

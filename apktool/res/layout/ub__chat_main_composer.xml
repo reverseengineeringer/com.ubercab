@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.trip.chat.ChatMainComposerView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__margin_small"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/ub__chat_text_composer_view" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__chat_text_composer" />
+    <include android:id="@id/ub__chat_audio_composer_view" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__chat_composer" />
+</com.ubercab.client.feature.trip.chat.ChatMainComposerView>

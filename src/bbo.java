@@ -1,8 +1,8 @@
-import com.google.android.gms.maps.model.Marker;
-
-public abstract interface bbo
+public final class bbo
 {
-  public abstract void b(Marker paramMarker);
+  long a;
+  long b;
+  long c;
 }
 
 /* Location:

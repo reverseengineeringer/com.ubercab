@@ -13,18 +13,18 @@ import android.view.ViewGroup.MarginLayoutParams;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import bp;
-import bu;
-import bw;
-import bz;
-import co;
-import di;
-import ee;
-import iv;
-import jc;
+import gd;
+import gi;
+import gk;
+import gn;
+import hb;
+import hv;
+import ir;
+import ni;
+import nq;
 
 public class ActionBarContextView
-  extends ee
+  extends ir
 {
   private CharSequence g;
   private CharSequence h;
@@ -45,18 +45,18 @@ public class ActionBarContextView
   
   public ActionBarContextView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, bp.actionModeStyle);
+    this(paramContext, paramAttributeSet, gd.actionModeStyle);
   }
   
   public ActionBarContextView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramContext = iv.a(paramContext, paramAttributeSet, bz.ActionMode, paramInt);
-    setBackgroundDrawable(paramContext.a(bz.ActionMode_background));
-    n = paramContext.f(bz.ActionMode_titleTextStyle, 0);
-    o = paramContext.f(bz.ActionMode_subtitleTextStyle, 0);
-    e = paramContext.e(bz.ActionMode_height, 0);
-    q = paramContext.f(bz.ActionMode_closeItemLayout, bw.abc_action_mode_close_item_material);
+    paramContext = ni.a(paramContext, paramAttributeSet, gn.ActionMode, paramInt);
+    setBackgroundDrawable(paramContext.a(gn.ActionMode_background));
+    n = paramContext.f(gn.ActionMode_titleTextStyle, 0);
+    o = paramContext.f(gn.ActionMode_subtitleTextStyle, 0);
+    e = paramContext.e(gn.ActionMode_height, 0);
+    q = paramContext.f(gn.ActionMode_closeItemLayout, gk.abc_action_mode_close_item_material);
     paramContext.a();
   }
   
@@ -66,10 +66,10 @@ public class ActionBarContextView
     int i2 = 1;
     if (k == null)
     {
-      LayoutInflater.from(getContext()).inflate(bw.abc_action_bar_title_item, this);
+      LayoutInflater.from(getContext()).inflate(gk.abc_action_bar_title_item, this);
       k = ((LinearLayout)getChildAt(getChildCount() - 1));
-      l = ((TextView)k.findViewById(bu.action_bar_title));
-      m = ((TextView)k.findViewById(bu.action_bar_subtitle));
+      l = ((TextView)k.findViewById(gi.action_bar_title));
+      m = ((TextView)k.findViewById(gi.action_bar_subtitle));
       if (n != 0) {
         l.setTextAppearance(getContext(), n);
       }
@@ -142,7 +142,7 @@ public class ActionBarContextView
     requestLayout();
   }
   
-  public final void a(final co paramco)
+  public final void a(final hb paramhb)
   {
     if (i == null)
     {
@@ -151,21 +151,21 @@ public class ActionBarContextView
     }
     for (;;)
     {
-      i.findViewById(bu.action_mode_close_button).setOnClickListener(new View.OnClickListener()
+      i.findViewById(gi.action_mode_close_button).setOnClickListener(new View.OnClickListener()
       {
         public final void onClick(View paramAnonymousView)
         {
-          paramco.c();
+          paramhb.c();
         }
       });
-      paramco = (di)paramco.b();
+      paramhb = (hv)paramhb.b();
       if (d != null) {
-        d.i();
+        d.k();
       }
       d = new ActionMenuPresenter(getContext());
-      d.d();
+      d.f();
       ViewGroup.LayoutParams localLayoutParams = new ViewGroup.LayoutParams(-2, -1);
-      paramco.a(d, b);
+      paramhb.a(d, b);
       c = ((ActionMenuView)d.a(this));
       c.setBackgroundDrawable(null);
       addView(c, localLayoutParams);
@@ -193,7 +193,7 @@ public class ActionBarContextView
   public final boolean a()
   {
     if (d != null) {
-      return d.g();
+      return d.i();
     }
     return false;
   }
@@ -248,8 +248,8 @@ public class ActionBarContextView
     super.onDetachedFromWindow();
     if (d != null)
     {
-      d.h();
       d.j();
+      d.l();
     }
   }
   
@@ -273,7 +273,7 @@ public class ActionBarContextView
   
   protected void onLayout(boolean paramBoolean, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    paramBoolean = jc.a(this);
+    paramBoolean = nq.a(this);
     int i1;
     int i2;
     int i3;

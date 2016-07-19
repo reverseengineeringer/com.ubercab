@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ub__profile_picker_header_container" android:padding="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_3x" android:src="@drawable/ub__profiles_picker_house" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H4" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/what_kind_of_trip_is_this" />
+    <com.ubercab.ui.TextView android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/what_kind_of_trip_is_this_byline" style="@style/Uber.TextAppearance.Byline" />
+</LinearLayout>

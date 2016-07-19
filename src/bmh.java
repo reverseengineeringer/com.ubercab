@@ -1,12 +1,22 @@
-public abstract interface bmh
+public class bmh
+  extends RuntimeException
 {
-  public abstract bmi d();
+  static final long serialVersionUID = -4086729973971783390L;
   
-  public abstract boolean e();
+  public bmh(String paramString)
+  {
+    super(paramString);
+  }
   
-  public abstract bmj f();
+  public bmh(String paramString, Throwable paramThrowable)
+  {
+    super(paramString, paramThrowable);
+  }
   
-  public abstract boolean g();
+  public bmh(Throwable paramThrowable)
+  {
+    super(paramThrowable);
+  }
 }
 
 /* Location:

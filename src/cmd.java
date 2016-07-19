@@ -1,8 +1,10 @@
-import com.ubercab.android.m4.pipeline.model.Metric;
+import com.ubercab.android.location.UberLocation;
 
 public abstract interface cmd
 {
-  public abstract boolean a(Metric paramMetric);
+  public abstract odr<UberLocation> a();
+  
+  public abstract void a(UberLocation paramUberLocation);
 }
 
 /* Location:

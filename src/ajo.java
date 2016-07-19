@@ -1,8 +1,6 @@
-import java.util.ArrayList;
-
 public abstract interface ajo
 {
-  public abstract void a(String paramString, ArrayList<String> paramArrayList);
+  public abstract void a(ajm paramajm);
 }
 
 /* Location:

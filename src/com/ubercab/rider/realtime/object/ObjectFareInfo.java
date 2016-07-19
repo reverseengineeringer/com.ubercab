@@ -3,11 +3,11 @@ package com.ubercab.rider.realtime.object;
 import com.ubercab.rider.realtime.model.Metadata;
 import com.ubercab.rider.realtime.model.UpfrontFare;
 import com.ubercab.shape.Shape;
-import jte;
+import myl;
 
 @Shape
 abstract class ObjectFareInfo
-  implements jte
+  implements myl
 {
   private static final String FARETYPE_ELEVATED = "elevated";
   private static final String FARETYPE_ELEVATED_SOBRIETY = "elevatedSobriety";

@@ -1,83 +1,58 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 public final class bpg
-  extends bpj
-  implements Iterable<bpj>
+  extends bpl
 {
-  private final List<bpj> a = new ArrayList();
+  public bpf[] a;
   
-  public final Number a()
+  public bpg()
   {
-    if (a.size() == 1) {
-      return ((bpj)a.get(0)).a();
+    a();
+  }
+  
+  private bpg a()
+  {
+    a = bpf.a();
+    F = -1;
+    return this;
+  }
+  
+  public final bpg b(bpi parambpi)
+  {
+    for (;;)
+    {
+      int i = parambpi.a();
+      switch (i)
+      {
+      default: 
+        if (bpn.a(parambpi, i)) {}
+        break;
+      case 0: 
+        return this;
+      case 10: 
+        int j = bpn.b(parambpi, 10);
+        if (a == null) {}
+        bpf[] arrayOfbpf;
+        for (i = 0;; i = a.length)
+        {
+          arrayOfbpf = new bpf[j + i];
+          j = i;
+          if (i != 0)
+          {
+            System.arraycopy(a, 0, arrayOfbpf, 0, i);
+            j = i;
+          }
+          while (j < arrayOfbpf.length - 1)
+          {
+            arrayOfbpf[j] = new bpf();
+            parambpi.a(arrayOfbpf[j]);
+            parambpi.a();
+            j += 1;
+          }
+        }
+        arrayOfbpf[j] = new bpf();
+        parambpi.a(arrayOfbpf[j]);
+        a = arrayOfbpf;
+      }
     }
-    throw new IllegalStateException();
-  }
-  
-  public final void a(bpj parambpj)
-  {
-    Object localObject = parambpj;
-    if (parambpj == null) {
-      localObject = bpl.a;
-    }
-    a.add(localObject);
-  }
-  
-  public final String b()
-  {
-    if (a.size() == 1) {
-      return ((bpj)a.get(0)).b();
-    }
-    throw new IllegalStateException();
-  }
-  
-  public final double c()
-  {
-    if (a.size() == 1) {
-      return ((bpj)a.get(0)).c();
-    }
-    throw new IllegalStateException();
-  }
-  
-  public final long d()
-  {
-    if (a.size() == 1) {
-      return ((bpj)a.get(0)).d();
-    }
-    throw new IllegalStateException();
-  }
-  
-  public final int e()
-  {
-    if (a.size() == 1) {
-      return ((bpj)a.get(0)).e();
-    }
-    throw new IllegalStateException();
-  }
-  
-  public final boolean equals(Object paramObject)
-  {
-    return (paramObject == this) || (((paramObject instanceof bpg)) && (a.equals(a)));
-  }
-  
-  public final boolean f()
-  {
-    if (a.size() == 1) {
-      return ((bpj)a.get(0)).f();
-    }
-    throw new IllegalStateException();
-  }
-  
-  public final int hashCode()
-  {
-    return a.hashCode();
-  }
-  
-  public final Iterator<bpj> iterator()
-  {
-    return a.iterator();
   }
 }
 

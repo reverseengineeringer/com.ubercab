@@ -1,18 +1,12 @@
-import android.annotation.TargetApi;
-import android.view.View;
+import com.google.android.gms.common.data.DataHolder;
 
-@TargetApi(18)
-public class arg
-  extends arf
+public final class arg
+  extends asg
+  implements aqq
 {
-  public boolean a(View paramView)
+  public arg(DataHolder paramDataHolder, int paramInt)
   {
-    return (super.a(paramView)) || (paramView.getWindowId() != null);
-  }
-  
-  public final int c()
-  {
-    return 14;
+    super(paramDataHolder, paramInt);
   }
 }
 

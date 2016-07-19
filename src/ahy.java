@@ -11,34 +11,14 @@ final class ahy
     a = paramIBinder;
   }
   
-  public final add a(String paramString)
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAdViewDelegate");
-      localParcel1.writeString(paramString);
-      a.transact(2, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      paramString = ade.a(localParcel2.readStrongBinder());
-      return paramString;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
   public final void a()
   {
     Parcel localParcel1 = Parcel.obtain();
     Parcel localParcel2 = Parcel.obtain();
     try
     {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAdViewDelegate");
-      a.transact(4, localParcel1, localParcel2, 0);
+      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManager");
+      a.transact(1, localParcel1, localParcel2, 0);
       localParcel2.readException();
       return;
     }
@@ -50,126 +30,94 @@ final class ahy
   }
   
   /* Error */
-  public final void a(add paramadd)
+  public final void a(int paramInt1, int paramInt2, android.content.Intent paramIntent)
   {
     // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +42 -> 57
-    //   18: aload_1
-    //   19: invokeinterface 59 1 0
-    //   24: astore_1
-    //   25: aload_2
-    //   26: aload_1
-    //   27: invokevirtual 62	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   30: aload_0
-    //   31: getfield 15	ahy:a	Landroid/os/IBinder;
-    //   34: iconst_3
-    //   35: aload_2
-    //   36: aload_3
-    //   37: iconst_0
-    //   38: invokeinterface 38 5 0
-    //   43: pop
-    //   44: aload_3
-    //   45: invokevirtual 41	android/os/Parcel:readException	()V
-    //   48: aload_3
-    //   49: invokevirtual 53	android/os/Parcel:recycle	()V
-    //   52: aload_2
-    //   53: invokevirtual 53	android/os/Parcel:recycle	()V
-    //   56: return
-    //   57: aconst_null
-    //   58: astore_1
-    //   59: goto -34 -> 25
-    //   62: astore_1
-    //   63: aload_3
-    //   64: invokevirtual 53	android/os/Parcel:recycle	()V
-    //   67: aload_2
-    //   68: invokevirtual 53	android/os/Parcel:recycle	()V
-    //   71: aload_1
-    //   72: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	73	0	this	ahy
-    //   0	73	1	paramadd	add
-    //   3	65	2	localParcel1	Parcel
-    //   7	57	3	localParcel2	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	62	finally
-    //   18	25	62	finally
-    //   25	48	62	finally
-  }
-  
-  /* Error */
-  public final void a(String paramString, add paramadd)
-  {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_3
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore 4
-    //   9: aload_3
-    //   10: ldc 25
-    //   12: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   15: aload_3
-    //   16: aload_1
-    //   17: invokevirtual 32	android/os/Parcel:writeString	(Ljava/lang/String;)V
-    //   20: aload_2
-    //   21: ifnull +45 -> 66
-    //   24: aload_2
-    //   25: invokeinterface 59 1 0
-    //   30: astore_1
-    //   31: aload_3
-    //   32: aload_1
-    //   33: invokevirtual 62	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   36: aload_0
-    //   37: getfield 15	ahy:a	Landroid/os/IBinder;
-    //   40: iconst_1
-    //   41: aload_3
-    //   42: aload 4
-    //   44: iconst_0
-    //   45: invokeinterface 38 5 0
-    //   50: pop
+    //   0: invokestatic 22	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore 4
+    //   5: invokestatic 22	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   8: astore 5
+    //   10: aload 4
+    //   12: ldc 24
+    //   14: invokevirtual 28	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   17: aload 4
+    //   19: iload_1
+    //   20: invokevirtual 45	android/os/Parcel:writeInt	(I)V
+    //   23: aload 4
+    //   25: iload_2
+    //   26: invokevirtual 45	android/os/Parcel:writeInt	(I)V
+    //   29: aload_3
+    //   30: ifnull +48 -> 78
+    //   33: aload 4
+    //   35: iconst_1
+    //   36: invokevirtual 45	android/os/Parcel:writeInt	(I)V
+    //   39: aload_3
+    //   40: aload 4
+    //   42: iconst_0
+    //   43: invokevirtual 51	android/content/Intent:writeToParcel	(Landroid/os/Parcel;I)V
+    //   46: aload_0
+    //   47: getfield 15	ahy:a	Landroid/os/IBinder;
+    //   50: iconst_3
     //   51: aload 4
-    //   53: invokevirtual 41	android/os/Parcel:readException	()V
-    //   56: aload 4
-    //   58: invokevirtual 53	android/os/Parcel:recycle	()V
-    //   61: aload_3
-    //   62: invokevirtual 53	android/os/Parcel:recycle	()V
-    //   65: return
-    //   66: aconst_null
-    //   67: astore_1
-    //   68: goto -37 -> 31
-    //   71: astore_1
+    //   53: aload 5
+    //   55: iconst_0
+    //   56: invokeinterface 34 5 0
+    //   61: pop
+    //   62: aload 5
+    //   64: invokevirtual 37	android/os/Parcel:readException	()V
+    //   67: aload 5
+    //   69: invokevirtual 40	android/os/Parcel:recycle	()V
     //   72: aload 4
-    //   74: invokevirtual 53	android/os/Parcel:recycle	()V
-    //   77: aload_3
-    //   78: invokevirtual 53	android/os/Parcel:recycle	()V
-    //   81: aload_1
-    //   82: athrow
+    //   74: invokevirtual 40	android/os/Parcel:recycle	()V
+    //   77: return
+    //   78: aload 4
+    //   80: iconst_0
+    //   81: invokevirtual 45	android/os/Parcel:writeInt	(I)V
+    //   84: goto -38 -> 46
+    //   87: astore_3
+    //   88: aload 5
+    //   90: invokevirtual 40	android/os/Parcel:recycle	()V
+    //   93: aload 4
+    //   95: invokevirtual 40	android/os/Parcel:recycle	()V
+    //   98: aload_3
+    //   99: athrow
     // Local variable table:
     //   start	length	slot	name	signature
-    //   0	83	0	this	ahy
-    //   0	83	1	paramString	String
-    //   0	83	2	paramadd	add
-    //   3	75	3	localParcel1	Parcel
-    //   7	66	4	localParcel2	Parcel
+    //   0	100	0	this	ahy
+    //   0	100	1	paramInt1	int
+    //   0	100	2	paramInt2	int
+    //   0	100	3	paramIntent	android.content.Intent
+    //   3	91	4	localParcel1	Parcel
+    //   8	81	5	localParcel2	Parcel
     // Exception table:
     //   from	to	target	type
-    //   9	20	71	finally
-    //   24	31	71	finally
-    //   31	56	71	finally
+    //   10	29	87	finally
+    //   33	46	87	finally
+    //   46	67	87	finally
+    //   78	84	87	finally
   }
   
   public final IBinder asBinder()
   {
     return a;
+  }
+  
+  public final void b()
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManager");
+      a.transact(2, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
   }
 }
 

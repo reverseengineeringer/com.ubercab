@@ -10,11 +10,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.app.RiderApplication;
@@ -27,66 +27,69 @@ import com.ubercab.client.feature.music.DisconnectMusicProviderActivity;
 import com.ubercab.client.feature.music.MusicProviderAuthorizationActivity;
 import com.ubercab.client.feature.profiles.ProfilesOnBoardingDialogFragment;
 import com.ubercab.client.feature.search.LocationSearchFragment;
-import dpf;
-import dta;
-import dtf;
-import dtx;
-import dty;
+import dua;
+import dyn;
+import dys;
+import dzm;
+import dzn;
+import eaj;
 import eav;
-import ebj;
-import ego;
-import eio;
-import epz;
-import eqk;
-import fsy;
-import gif;
-import gry;
-import gsb;
-import gsf;
-import gsg;
-import gso;
-import gsp;
-import gtb;
-import gtc;
-import gtm;
-import ife;
+import ehn;
+import eib;
+import eya;
+import eyn;
+import gli;
+import hjm;
+import ibq;
+import ibt;
+import ibx;
+import iby;
+import icg;
+import ich;
+import icv;
+import icw;
+import icx;
+import idj;
 import java.util.Collection;
 import java.util.Collections;
-import jse;
-import jwc;
-import kax;
-import kld;
-import klo;
-import kls;
-import p;
-import r;
+import khv;
+import mxd;
+import mxk;
+import nct;
+import nho;
+import odr;
+import oed;
+import oeh;
+import x;
+import z;
 
 public class SettingsActivity
-  extends RiderActivity<gtc>
+  extends RiderActivity<icx>
 {
-  public ego g;
-  public ckc h;
-  public ife i;
-  public kax<jwc> j;
-  public dta k;
-  public dtx l;
-  public gif m;
-  @InjectView(2131625472)
-  RelativeLayout mLoadingView;
-  public dty n;
-  public jse o;
+  public ckt g;
+  public khv h;
+  public nho<nct> i;
+  public dyn j;
+  public dzm k;
+  public hjm l;
+  public mxd m;
+  @BindView
+  public RelativeLayout mLoadingView;
+  public dzn n;
+  public mxk o;
   public SettingsFragment p;
   private RiderAccount q;
-  private klo r;
+  private oed r;
+  private oed s;
   
   public static Intent a(Context paramContext, RiderAccount paramRiderAccount)
   {
     return new Intent(paramContext, SettingsActivity.class).putExtra("com.ubercab.client.RIDER_ACCOUNT", paramRiderAccount);
   }
   
-  private void a(gtc paramgtc)
+  private void a(icx paramicx)
   {
-    paramgtc.a(this);
+    paramicx.a(this);
   }
   
   private void a(String paramString, LocationSearchResult paramLocationSearchResult)
@@ -106,7 +109,7 @@ public class SettingsActivity
       if (i1 == 0) {
         break label89;
       }
-      str1 = getString(2131165254, new Object[] { str1 });
+      str1 = getString(2131165257, new Object[] { str1 });
     }
     for (;;)
     {
@@ -119,13 +122,13 @@ public class SettingsActivity
       }
       for (;;)
       {
-        a(2131625471, LocationSearchFragment.a(str2, paramString, l.b(), paramLocationSearchResult, str1));
+        a(2131626119, LocationSearchFragment.a(str2, paramString, k.b(), paramLocationSearchResult, str1));
         return;
         label84:
         i1 = 0;
         break;
         label89:
-        str1 = getString(2131165748, new Object[] { str1 });
+        str1 = getString(2131165813, new Object[] { str1 });
         break label51;
         paramLocationSearchResult = RiderLocation.create(paramLocationSearchResult);
         str2 = "com.ubercab.ACTION_EDIT_TAGGED_LOCATION";
@@ -135,9 +138,9 @@ public class SettingsActivity
     }
   }
   
-  private gtc b(ebj paramebj)
+  private icx b(eib parameib)
   {
-    return gso.a().a(new eav(this)).a(paramebj).a();
+    return icg.a().a(new ehn(this)).a(parameib).a();
   }
   
   private String b(String paramString)
@@ -147,10 +150,10 @@ public class SettingsActivity
     {
       return null;
       if (LocationSearchResult.isTagHome(paramString)) {
-        return eqk.a(getString(2131165954));
+        return eyn.a(getString(2131166062));
       }
     } while (!LocationSearchResult.isTagWork(paramString));
-    return eqk.a(getString(2131167240));
+    return eyn.a(getString(2131167625));
   }
   
   private void f()
@@ -158,13 +161,18 @@ public class SettingsActivity
     if (a(SettingsFragment.class) == null)
     {
       p = SettingsFragment.a(q);
-      a(2131625471, p, true);
+      a(2131626119, p, true);
     }
   }
   
   private void g()
   {
-    b().a(getString(2131166399));
+    b().a(getString(2131166634));
+  }
+  
+  private boolean h()
+  {
+    return (!h.c(eaj.fN)) && (q != null) && (!q.getHasPassword());
   }
   
   public final void a(int paramInt1, int paramInt2, Bundle paramBundle)
@@ -172,7 +180,7 @@ public class SettingsActivity
     super.a(paramInt1, paramInt2, paramBundle);
     if ((paramInt1 == 1001) && (paramInt2 == -1))
     {
-      h.a(r.iU);
+      g.a(z.mj);
       RiderApplication.a(this).a(this);
     }
     do
@@ -180,7 +188,7 @@ public class SettingsActivity
       do
       {
         return;
-      } while ((!m.q()) || (paramInt1 != 2001) || (paramInt2 != -1));
+      } while ((!l.s()) || (paramInt1 != 2001) || (paramInt2 != -1));
       paramBundle = (SettingsFragment)a(SettingsFragment.class);
     } while (paramBundle == null);
     paramBundle.a();
@@ -190,8 +198,8 @@ public class SettingsActivity
   {
     super.b(paramBundle);
     g();
-    setContentView(2130903559);
-    ButterKnife.inject(this);
+    setContentView(2130903769);
+    ButterKnife.a(this);
     if (getIntent().hasExtra("com.ubercab.client.RIDER_ACCOUNT")) {
       q = ((RiderAccount)getIntent().getParcelableExtra("com.ubercab.client.RIDER_ACCOUNT"));
     }
@@ -213,14 +221,14 @@ public class SettingsActivity
     default: 
       return;
     }
-    r = o.d("spotify", paramIntent).a(kls.a()).b(new gtb(this, (byte)0));
+    r = o.d("spotify", paramIntent).a(oeh.a()).b(new icv(this, (byte)0));
   }
   
-  @cho
-  public void onAddTaggedLocationEvent(gry paramgry)
+  @chu
+  public void onAddTaggedLocationEvent(ibq paramibq)
   {
-    h.a(AnalyticsEvent.create("tap").setName(r.hO).setValue(paramgry.a()));
-    a(paramgry.a(), null);
+    g.a(AnalyticsEvent.create("tap").setName(z.kX).setValue(paramibq.a()));
+    a(paramibq.a(), null);
   }
   
   public void onBackPressed()
@@ -233,58 +241,42 @@ public class SettingsActivity
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
-    getMenuInflater().inflate(2131755034, paramMenu);
+    getMenuInflater().inflate(2131755037, paramMenu);
     return true;
   }
   
-  @cho
-  public void onEditAccountEvent(gtm paramgtm)
+  @chu
+  public void onEditAccountEvent(idj paramidj)
   {
     if (a(EditAccountFragment.class) == null)
     {
-      b().a(getString(2131165743));
-      dpf.a(this, getString(2131166149));
-      a(2131625471, EditAccountFragment.a(q));
-    }
-  }
-  
-  @cho
-  public void onGetAccountResponseEvent(eio parameio)
-  {
-    mLoadingView.setVisibility(8);
-    if (parameio.i())
-    {
-      q = ((RiderAccount)parameio.g());
-      ((jwc)j.a()).a("com.ubercab.client.RIDER_ACCOUNT", q);
-      parameio = (SettingsFragment)a(SettingsFragment.class);
-      if ((parameio != null) && (parameio.getView() != null) && (q != null))
-      {
-        parameio.b(q);
-        return;
+      b().a(getString(2131165808));
+      if (!h()) {
+        dua.b(this, getString(2131166283));
       }
+      a(2131626119, EditAccountFragment.a(q));
     }
-    f();
   }
   
-  @cho
-  public void onLocationClickEvent(gsb paramgsb)
+  @chu
+  public void onLocationClickEvent(ibt paramibt)
   {
-    h.a(AnalyticsEvent.create("tap").setName(r.hP).setValue(paramgsb.b()));
-    a(paramgsb.b(), paramgsb.a());
+    g.a(AnalyticsEvent.create("tap").setName(z.kY).setValue(paramibt.b()));
+    a(paramibt.b(), paramibt.a());
   }
   
-  @cho
-  public void onMusicProviderSelectedEvent(fsy paramfsy)
+  @chu
+  public void onMusicProviderSelectedEvent(gli paramgli)
   {
-    paramfsy = paramfsy.a();
-    if (paramfsy.getLinked().booleanValue())
+    paramgli = paramgli.a();
+    if (paramgli.getLinked().booleanValue())
     {
-      h.a(r.jY);
-      startActivity(DisconnectMusicProviderActivity.a(this, paramfsy));
+      g.a(z.nn);
+      startActivity(DisconnectMusicProviderActivity.a(this, paramgli));
       return;
     }
-    h.a(r.jW);
-    startActivityForResult(MusicProviderAuthorizationActivity.a(this, paramfsy), 1);
+    g.a(z.nl);
+    startActivityForResult(MusicProviderAuthorizationActivity.a(this, paramgli), 1);
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -301,16 +293,32 @@ public class SettingsActivity
     }
     else
     {
-      if (paramMenuItem.getItemId() == 2131626159)
+      if (paramMenuItem.getItemId() == 2131626915)
       {
-        VerifyPasswordDialogFragment.a(this, q.getProfileType());
-        return true;
+        if (q == null) {
+          return true;
+        }
+        if (h()) {
+          onEditAccountEvent(new idj());
+        }
+        for (;;)
+        {
+          return true;
+          VerifyPasswordDialogFragment.a(this, q.getProfileType());
+        }
       }
-      if (paramMenuItem.getItemId() == 2131626160)
+      if (paramMenuItem.getItemId() == 2131626916)
       {
-        epz.a(this, p.ld, 1001, null, getString(2131166029), getString(2131166028), getString(2131165320));
-        h.a(p.jE);
-        return true;
+        if (h.c(eaj.mA)) {
+          h.b(eaj.mA, eav.a);
+        }
+        for (;;)
+        {
+          eya.a(this, x.oZ, 1001, null, getString(2131166146), getString(2131166145), getString(2131165344));
+          g.a(x.nk);
+          return true;
+          h.b(eaj.mA, eav.b);
+        }
       }
     }
     return super.onOptionsItemSelected(paramMenuItem);
@@ -320,14 +328,19 @@ public class SettingsActivity
   {
     super.onPause();
     if (r != null) {
-      r.c();
+      r.af_();
+    }
+    if (s != null)
+    {
+      s.af_();
+      s = null;
     }
   }
   
-  @cho
-  public void onRemoveTaggedLocationEvent(gsf paramgsf)
+  @chu
+  public void onRemoveTaggedLocationEvent(ibx paramibx)
   {
-    C();
+    E();
   }
   
   public void onResume()
@@ -335,7 +348,7 @@ public class SettingsActivity
     super.onResume();
     if (q == null)
     {
-      RiderAccount localRiderAccount = (RiderAccount)((jwc)j.a()).a("com.ubercab.client.RIDER_ACCOUNT", Shape_RiderAccount.class);
+      RiderAccount localRiderAccount = (RiderAccount)((nct)i.a()).a("com.ubercab.client.RIDER_ACCOUNT", Shape_RiderAccount.class);
       if (localRiderAccount != null)
       {
         q = localRiderAccount;
@@ -343,7 +356,7 @@ public class SettingsActivity
       }
       for (;;)
       {
-        g.a(n.y());
+        s = m.a().a(oeh.a()).b(new icw(this, (byte)0));
         return;
         mLoadingView.setVisibility(0);
       }
@@ -357,24 +370,24 @@ public class SettingsActivity
     paramBundle.putParcelable("com.ubercab.client.RIDER_ACCOUNT", q);
   }
   
-  @cho
-  public void onSelectTaggedLocationEvent(gsg paramgsg)
+  @chu
+  public void onSelectTaggedLocationEvent(iby paramiby)
   {
-    C();
-    if ((m.q()) && (LocationSearchResult.isTagWork(paramgsg.a())))
+    E();
+    if ((l.s()) && (LocationSearchResult.isTagWork(paramiby.a())))
     {
-      h.a(p.oL);
-      paramgsg = ProfilesOnBoardingDialogFragment.d();
-      paramgsg.show(getSupportFragmentManager(), paramgsg.getClass().getName());
+      g.a(x.tj);
+      paramiby = ProfilesOnBoardingDialogFragment.d();
+      paramiby.show(getSupportFragmentManager(), paramiby.getClass().getName());
     }
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
-    return Collections.singleton(k);
+    return Collections.singleton(j);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

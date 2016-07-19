@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jve;
+import nao;
 
 @Shape
 public abstract class ObjectUpgrade
-  implements jve
+  implements nao
 {}
 
 /* Location:

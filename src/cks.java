@@ -1,6 +1,7 @@
-public abstract interface cks
-  extends ckp
-{}
+final class cks
+{
+  private static final ckr a = new ckr((byte)0);
+}
 
 /* Location:
  * Qualified Name:     cks

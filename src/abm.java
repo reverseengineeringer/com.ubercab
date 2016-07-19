@@ -1,12 +1,54 @@
-import android.os.IInterface;
-import com.google.android.gms.common.internal.SignInButtonConfig;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.server.response.FastJsonResponse.Field;
+import com.google.android.gms.common.server.response.FieldMappingDictionary.FieldMapPair;
 
-public abstract interface abm
-  extends IInterface
+public final class abm
+  implements Parcelable.Creator<FieldMappingDictionary.FieldMapPair>
 {
-  public abstract add a(add paramadd, int paramInt1, int paramInt2);
+  private static FieldMappingDictionary.FieldMapPair a(Parcel paramParcel)
+  {
+    FastJsonResponse.Field localField = null;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    String str = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        str = zd.n(paramParcel, k);
+        break;
+      case 3: 
+        localField = (FastJsonResponse.Field)zd.a(paramParcel, k, FastJsonResponse.Field.CREATOR);
+      }
+    }
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new FieldMappingDictionary.FieldMapPair(i, str, localField);
+  }
   
-  public abstract add a(add paramadd, SignInButtonConfig paramSignInButtonConfig);
+  public static void a(FieldMappingDictionary.FieldMapPair paramFieldMapPair, Parcel paramParcel, int paramInt)
+  {
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, b, false);
+    zf.a(paramParcel, 3, c, paramInt, false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static FieldMappingDictionary.FieldMapPair[] a(int paramInt)
+  {
+    return new FieldMappingDictionary.FieldMapPair[paramInt];
+  }
 }
 
 /* Location:

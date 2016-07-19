@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
-import bz;
+import gn;
 
 public class LinearLayoutCompat$LayoutParams
   extends ViewGroup.MarginLayoutParams
@@ -22,9 +22,9 @@ public class LinearLayoutCompat$LayoutParams
   public LinearLayoutCompat$LayoutParams(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, bz.LinearLayoutCompat_Layout);
-    g = paramContext.getFloat(bz.LinearLayoutCompat_Layout_android_layout_weight, 0.0F);
-    h = paramContext.getInt(bz.LinearLayoutCompat_Layout_android_layout_gravity, -1);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, gn.LinearLayoutCompat_Layout);
+    g = paramContext.getFloat(gn.LinearLayoutCompat_Layout_android_layout_weight, 0.0F);
+    h = paramContext.getInt(gn.LinearLayoutCompat_Layout_android_layout_gravity, -1);
     paramContext.recycle();
   }
   

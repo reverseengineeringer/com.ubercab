@@ -1,20 +1,8 @@
-import android.app.PendingIntent;
-import android.location.Location;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.location.ActivityRecognitionResult;
-import com.google.android.gms.location.GeofencingRequest;
-import com.google.android.gms.location.GestureRequest;
-import com.google.android.gms.location.LocationAvailability;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.location.internal.LocationRequestInternal;
-import com.google.android.gms.location.internal.LocationRequestUpdateData;
-import com.google.android.gms.location.internal.ParcelableGeofence;
-import java.util.List;
+import com.google.android.gms.maps.model.LatLng;
 
 public abstract class azj
   extends Binder
@@ -25,7 +13,7 @@ public abstract class azj
     if (paramIBinder == null) {
       return null;
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
     if ((localIInterface != null) && ((localIInterface instanceof azi))) {
       return (azi)localIInterface;
     }
@@ -34,94 +22,42 @@ public abstract class azj
   
   public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
+    int i = 0;
+    int j = 0;
     boolean bool = false;
-    Object localObject2 = null;
-    Object localObject3 = null;
-    Object localObject4 = null;
-    Object localObject1 = null;
+    float f;
     switch (paramInt1)
     {
     default: 
       return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
     case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.location.internal.IGoogleLocationManagerService");
+      paramParcel2.writeString("com.google.android.gms.maps.model.internal.ICircleDelegate");
       return true;
     case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      localObject2 = paramParcel1.createTypedArrayList(ParcelableGeofence.CREATOR);
-      if (paramParcel1.readInt() != 0) {}
-      for (localObject1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; localObject1 = null)
-      {
-        a((List)localObject2, (PendingIntent)localObject1, azg.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
-        paramParcel2.writeNoException();
-        return true;
-      }
-    case 57: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0)
-      {
-        localObject1 = (GeofencingRequest)GeofencingRequest.CREATOR.createFromParcel(paramParcel1);
-        if (paramParcel1.readInt() == 0) {
-          break label436;
-        }
-      }
-      for (localObject2 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; localObject2 = null)
-      {
-        a((GeofencingRequest)localObject1, (PendingIntent)localObject2, azg.a(paramParcel1.readStrongBinder()));
-        paramParcel2.writeNoException();
-        return true;
-        localObject1 = null;
-        break;
-      }
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      a();
+      paramParcel2.writeNoException();
+      return true;
     case 2: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0) {}
-      for (localObject1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; localObject1 = null)
-      {
-        a((PendingIntent)localObject1, azg.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
-        paramParcel2.writeNoException();
-        return true;
-      }
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      paramParcel1 = b();
+      paramParcel2.writeNoException();
+      paramParcel2.writeString(paramParcel1);
+      return true;
     case 3: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      a(paramParcel1.createStringArray(), azg.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
-      paramParcel2.writeNoException();
-      return true;
-    case 4: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      a(azg.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
-      paramParcel2.writeNoException();
-      return true;
-    case 5: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      long l = paramParcel1.readLong();
-      if (paramParcel1.readInt() != 0)
-      {
-        bool = true;
-        if (paramParcel1.readInt() == 0) {
-          break label619;
-        }
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      if (paramParcel1.readInt() != 0) {
+        bah localbah = LatLng.CREATOR;
       }
-      for (paramParcel1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-      {
-        a(l, bool, paramParcel1);
-        paramParcel2.writeNoException();
-        return true;
-        bool = false;
-        break;
-      }
-    case 6: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0) {}
-      for (paramParcel1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+      for (paramParcel1 = bah.a(paramParcel1);; paramParcel1 = null)
       {
         a(paramParcel1);
         paramParcel2.writeNoException();
         return true;
       }
-    case 64: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      paramParcel1 = a(paramParcel1.readString());
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      paramParcel1 = c();
       paramParcel2.writeNoException();
       if (paramParcel1 != null)
       {
@@ -131,243 +67,95 @@ public abstract class azj
       }
       paramParcel2.writeInt(0);
       return true;
-    case 65: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0) {}
-      for (localObject1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; localObject1 = null)
-      {
-        a((PendingIntent)localObject1, yi.a(paramParcel1.readStrongBinder()));
-        paramParcel2.writeNoException();
-        return true;
-      }
-    case 66: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0) {}
-      for (localObject1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; localObject1 = null)
-      {
-        b((PendingIntent)localObject1, yi.a(paramParcel1.readStrongBinder()));
-        paramParcel2.writeNoException();
-        return true;
-      }
-    case 60: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0)
-      {
-        localObject1 = GestureRequest.CREATOR;
-        localObject1 = bax.a(paramParcel1);
-        if (paramParcel1.readInt() == 0) {
-          break label885;
-        }
-      }
-      for (localObject2 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; localObject2 = null)
-      {
-        a((GestureRequest)localObject1, (PendingIntent)localObject2, yi.a(paramParcel1.readStrongBinder()));
-        paramParcel2.writeNoException();
-        return true;
-        localObject1 = null;
-        break;
-      }
-    case 61: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0) {}
-      for (localObject1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; localObject1 = null)
-      {
-        c((PendingIntent)localObject1, yi.a(paramParcel1.readStrongBinder()));
-        paramParcel2.writeNoException();
-        return true;
-      }
-    case 68: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0) {}
-      for (localObject1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; localObject1 = null)
-      {
-        d((PendingIntent)localObject1, yi.a(paramParcel1.readStrongBinder()));
-        paramParcel2.writeNoException();
-        return true;
-      }
-    case 69: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0) {}
-      for (localObject1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; localObject1 = null)
-      {
-        e((PendingIntent)localObject1, yi.a(paramParcel1.readStrongBinder()));
-        paramParcel2.writeNoException();
-        return true;
-      }
-    case 7: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      paramParcel1 = a();
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      a(paramParcel1.readDouble());
       paramParcel2.writeNoException();
-      if (paramParcel1 != null)
-      {
-        paramParcel2.writeInt(1);
-        paramParcel1.writeToParcel(paramParcel2, 1);
-        return true;
-      }
-      paramParcel2.writeInt(0);
+      return true;
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      double d = d();
+      paramParcel2.writeNoException();
+      paramParcel2.writeDouble(d);
+      return true;
+    case 7: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      a(paramParcel1.readFloat());
+      paramParcel2.writeNoException();
       return true;
     case 8: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0)
-      {
-        localObject1 = LocationRequest.CREATOR;
-        localObject1 = ayr.a(paramParcel1);
-      }
-      a((LocationRequest)localObject1, bbc.a(paramParcel1.readStrongBinder()));
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      f = e();
       paramParcel2.writeNoException();
-      return true;
-    case 20: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      localObject1 = localObject2;
-      if (paramParcel1.readInt() != 0)
-      {
-        localObject1 = LocationRequest.CREATOR;
-        localObject1 = ayr.a(paramParcel1);
-      }
-      a((LocationRequest)localObject1, bbc.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
-      paramParcel2.writeNoException();
+      paramParcel2.writeFloat(f);
       return true;
     case 9: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0)
-      {
-        localObject1 = LocationRequest.CREATOR;
-        localObject1 = ayr.a(paramParcel1);
-        if (paramParcel1.readInt() == 0) {
-          break label1243;
-        }
-      }
-      for (paramParcel1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-      {
-        a((LocationRequest)localObject1, paramParcel1);
-        paramParcel2.writeNoException();
-        return true;
-        localObject1 = null;
-        break;
-      }
-    case 52: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      localObject1 = localObject3;
-      if (paramParcel1.readInt() != 0)
-      {
-        localObject1 = LocationRequestInternal.CREATOR;
-        localObject1 = azt.a(paramParcel1);
-      }
-      a((LocationRequestInternal)localObject1, bbc.a(paramParcel1.readStrongBinder()));
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      a(paramParcel1.readInt());
       paramParcel2.writeNoException();
       return true;
-    case 53: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0)
-      {
-        localObject1 = LocationRequestInternal.CREATOR;
-        localObject1 = azt.a(paramParcel1);
-        if (paramParcel1.readInt() == 0) {
-          break label1358;
-        }
-      }
-      for (paramParcel1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-      {
-        a((LocationRequestInternal)localObject1, paramParcel1);
-        paramParcel2.writeNoException();
-        return true;
-        localObject1 = null;
-        break;
-      }
     case 10: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      a(bbc.a(paramParcel1.readStrongBinder()));
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      paramInt1 = f();
       paramParcel2.writeNoException();
+      paramParcel2.writeInt(paramInt1);
       return true;
     case 11: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0) {}
-      for (paramParcel1 = (PendingIntent)PendingIntent.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-      {
-        b(paramParcel1);
-        paramParcel2.writeNoException();
-        return true;
-      }
-    case 59: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      localObject1 = localObject4;
-      if (paramParcel1.readInt() != 0)
-      {
-        localObject1 = LocationRequestUpdateData.CREATOR;
-        localObject1 = azu.a(paramParcel1);
-      }
-      a((LocationRequestUpdateData)localObject1);
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      b(paramParcel1.readInt());
       paramParcel2.writeNoException();
       return true;
     case 12: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      paramInt1 = g();
+      paramParcel2.writeNoException();
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 13: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      b(paramParcel1.readFloat());
+      paramParcel2.writeNoException();
+      return true;
+    case 14: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      f = h();
+      paramParcel2.writeNoException();
+      paramParcel2.writeFloat(f);
+      return true;
+    case 15: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
       if (paramParcel1.readInt() != 0) {
         bool = true;
       }
       a(bool);
       paramParcel2.writeNoException();
       return true;
-    case 13: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0) {}
-      for (paramParcel1 = (Location)Location.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
-      {
-        a(paramParcel1);
-        paramParcel2.writeNoException();
-        return true;
-      }
-    case 21: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      paramParcel1 = b(paramParcel1.readString());
+    case 16: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      bool = i();
       paramParcel2.writeNoException();
-      if (paramParcel1 != null)
-      {
-        paramParcel2.writeInt(1);
-        paramParcel1.writeToParcel(paramParcel2, 1);
-        return true;
+      paramInt1 = i;
+      if (bool) {
+        paramInt1 = 1;
       }
-      paramParcel2.writeInt(0);
+      paramParcel2.writeInt(paramInt1);
       return true;
-    case 26: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      if (paramParcel1.readInt() != 0) {}
-      for (localObject1 = (Location)Location.CREATOR.createFromParcel(paramParcel1);; localObject1 = null)
-      {
-        a((Location)localObject1, paramParcel1.readInt());
-        paramParcel2.writeNoException();
-        return true;
-      }
-    case 67: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      a(azd.a(paramParcel1.readStrongBinder()));
+    case 17: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+      bool = a(a(paramParcel1.readStrongBinder()));
       paramParcel2.writeNoException();
-      return true;
-    case 34: 
-      label436:
-      label619:
-      label885:
-      label1243:
-      label1358:
-      paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-      paramParcel1 = c(paramParcel1.readString());
-      paramParcel2.writeNoException();
-      if (paramParcel1 != null)
-      {
-        paramParcel2.writeInt(1);
-        paramParcel1.writeToParcel(paramParcel2, 1);
-        return true;
+      paramInt1 = j;
+      if (bool) {
+        paramInt1 = 1;
       }
-      paramParcel2.writeInt(0);
+      paramParcel2.writeInt(paramInt1);
       return true;
     }
-    paramParcel1.enforceInterface("com.google.android.gms.location.internal.IGoogleLocationManagerService");
-    if (paramParcel1.readInt() != 0) {}
-    for (localObject1 = (LocationSettingsRequest)LocationSettingsRequest.CREATOR.createFromParcel(paramParcel1);; localObject1 = null)
-    {
-      a((LocationSettingsRequest)localObject1, azm.a(paramParcel1.readStrongBinder()), paramParcel1.readString());
-      paramParcel2.writeNoException();
-      return true;
-    }
+    paramParcel1.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
+    paramInt1 = j();
+    paramParcel2.writeNoException();
+    paramParcel2.writeInt(paramInt1);
+    return true;
   }
 }
 

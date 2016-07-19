@@ -1,26 +1,43 @@
-final class bkm
-  implements Thread.UncaughtExceptionHandler
+final class bkm<E>
+  extends bjb<E>
 {
-  private final String b;
+  final transient E a;
   
-  public bkm(bkk parambkk, String paramString)
+  bkm(E paramE)
   {
-    abs.a(paramString);
-    b = paramString;
+    a = bhx.a(paramE);
   }
   
-  public final void uncaughtException(Thread paramThread, Throwable paramThrowable)
+  public final bjb<E> a(int paramInt1, int paramInt2)
   {
-    try
-    {
-      a.s().b().a(b, paramThrowable);
-      return;
+    bhx.a(paramInt1, paramInt2, 1);
+    Object localObject = this;
+    if (paramInt1 == paramInt2) {
+      localObject = bjb.e();
     }
-    finally
-    {
-      paramThread = finally;
-      throw paramThread;
-    }
+    return (bjb<E>)localObject;
+  }
+  
+  public final bkp<E> b()
+  {
+    return bjv.a(a);
+  }
+  
+  public final E get(int paramInt)
+  {
+    bhx.a(paramInt, 1);
+    return (E)a;
+  }
+  
+  public final int size()
+  {
+    return 1;
+  }
+  
+  public final String toString()
+  {
+    String str = a.toString();
+    return str.length() + 2 + '[' + str + ']';
   }
 }
 

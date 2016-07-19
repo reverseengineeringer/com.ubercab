@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Build.VERSION;
 
-public class EdgeEffectCompat
+public final class EdgeEffectCompat
 {
   private static final EdgeEffectCompat.EdgeEffectImpl IMPL = new EdgeEffectCompat.BaseEdgeEffectImpl();
   private Object mEdgeEffect;
@@ -28,42 +28,42 @@ public class EdgeEffectCompat
     mEdgeEffect = IMPL.newEdgeEffect(paramContext);
   }
   
-  public boolean draw(Canvas paramCanvas)
+  public final boolean draw(Canvas paramCanvas)
   {
     return IMPL.draw(mEdgeEffect, paramCanvas);
   }
   
-  public void finish()
+  public final void finish()
   {
     IMPL.finish(mEdgeEffect);
   }
   
-  public boolean isFinished()
+  public final boolean isFinished()
   {
     return IMPL.isFinished(mEdgeEffect);
   }
   
-  public boolean onAbsorb(int paramInt)
+  public final boolean onAbsorb(int paramInt)
   {
     return IMPL.onAbsorb(mEdgeEffect, paramInt);
   }
   
-  public boolean onPull(float paramFloat)
+  public final boolean onPull(float paramFloat)
   {
     return IMPL.onPull(mEdgeEffect, paramFloat);
   }
   
-  public boolean onPull(float paramFloat1, float paramFloat2)
+  public final boolean onPull(float paramFloat1, float paramFloat2)
   {
     return IMPL.onPull(mEdgeEffect, paramFloat1, paramFloat2);
   }
   
-  public boolean onRelease()
+  public final boolean onRelease()
   {
     return IMPL.onRelease(mEdgeEffect);
   }
   
-  public void setSize(int paramInt1, int paramInt2)
+  public final void setSize(int paramInt1, int paramInt2)
   {
     IMPL.setSize(mEdgeEffect, paramInt1, paramInt2);
   }

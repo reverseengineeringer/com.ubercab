@@ -1,38 +1,52 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.wallet.wobs.TimeInterval;
 
-public abstract class bfz
-  extends Binder
-  implements bfy
+public final class bfz
+  implements Parcelable.Creator<TimeInterval>
 {
-  public static bfy a(IBinder paramIBinder)
+  private static TimeInterval a(Parcel paramParcel)
   {
-    if (paramIBinder == null) {
-      return null;
+    long l1 = 0L;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    long l2 = 0L;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        l2 = zd.g(paramParcel, k);
+        break;
+      case 3: 
+        l1 = zd.g(paramParcel, k);
+      }
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnPolylineClickListener");
-    if ((localIInterface != null) && ((localIInterface instanceof bfy))) {
-      return (bfy)localIInterface;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new bga(paramIBinder);
+    return new TimeInterval(i, l2, l1);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static void a(TimeInterval paramTimeInterval, Parcel paramParcel)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnPolylineClickListener");
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnPolylineClickListener");
-    a(bgw.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    return true;
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramTimeInterval.a());
+    zf.a(paramParcel, 2, a);
+    zf.a(paramParcel, 3, b);
+    zf.a(paramParcel, i);
+  }
+  
+  private static TimeInterval[] a(int paramInt)
+  {
+    return new TimeInterval[paramInt];
   }
 }
 

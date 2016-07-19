@@ -1,223 +1,125 @@
-public final class awa
-  extends axq
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import com.google.android.gms.maps.GoogleMapOptions;
+import com.google.android.gms.maps.StreetViewPanoramaOptions;
+
+public abstract class awa
+  extends Binder
+  implements avz
 {
-  private static volatile awa[] f;
-  public Long a;
-  public String b;
-  public String c;
-  public Long d;
-  public Float e;
-  
-  public awa()
+  public static avz a(IBinder paramIBinder)
   {
-    e();
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.ICreator");
+    if ((localIInterface != null) && ((localIInterface instanceof avz))) {
+      return (avz)localIInterface;
+    }
+    return new awb(paramIBinder);
   }
   
-  private awa b(axh paramaxh)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    for (;;)
+    Object localObject1 = null;
+    Object localObject4 = null;
+    Object localObject5 = null;
+    Object localObject2 = null;
+    Object localObject6 = null;
+    Object localObject3 = null;
+    switch (paramInt1)
     {
-      int i = paramaxh.a();
-      switch (i)
-      {
-      default: 
-        if (axt.a(paramaxh, i)) {}
-        break;
-      case 0: 
-        return this;
-      case 8: 
-        a = Long.valueOf(paramaxh.d());
-        break;
-      case 18: 
-        b = paramaxh.g();
-        break;
-      case 26: 
-        c = paramaxh.g();
-        break;
-      case 32: 
-        d = Long.valueOf(paramaxh.d());
-        break;
-      case 45: 
-        e = Float.valueOf(paramaxh.b());
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.ICreator");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICreator");
+      a(acq.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICreator");
+      localObject1 = b(acq.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject3;
+      if (localObject1 != null) {
+        paramParcel1 = ((aus)localObject1).asBinder();
       }
-    }
-  }
-  
-  private awa e()
-  {
-    a = null;
-    b = null;
-    c = null;
-    d = null;
-    e = null;
-    S = -1;
-    return this;
-  }
-  
-  public static awa[] q_()
-  {
-    if (f == null) {}
-    synchronized (axo.a)
-    {
-      if (f == null) {
-        f = new awa[0];
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICreator");
+      localObject2 = acq.a(paramParcel1.readStrongBinder());
+      if (paramParcel1.readInt() != 0) {
+        localObject3 = GoogleMapOptions.CREATOR;
       }
-      return f;
-    }
-  }
-  
-  protected final int a()
-  {
-    int j = super.a();
-    int i = j;
-    if (a != null) {
-      i = j + axi.c(1, a.longValue());
-    }
-    j = i;
-    if (b != null) {
-      j = i + axi.b(2, b);
-    }
-    i = j;
-    if (c != null) {
-      i = j + axi.b(3, c);
-    }
-    j = i;
-    if (d != null) {
-      j = i + axi.c(4, d.longValue());
-    }
-    i = j;
-    if (e != null)
-    {
-      e.floatValue();
-      i = j + axi.a(5);
-    }
-    return i;
-  }
-  
-  public final void a(axi paramaxi)
-  {
-    if (a != null) {
-      paramaxi.b(1, a.longValue());
-    }
-    if (b != null) {
-      paramaxi.a(2, b);
-    }
-    if (c != null) {
-      paramaxi.a(3, c);
-    }
-    if (d != null) {
-      paramaxi.b(4, d.longValue());
-    }
-    if (e != null) {
-      paramaxi.a(5, e.floatValue());
-    }
-    super.a(paramaxi);
-  }
-  
-  public final boolean equals(Object paramObject)
-  {
-    if (paramObject == this) {}
-    do
-    {
-      do
+      for (paramParcel1 = bat.a(paramParcel1);; paramParcel1 = null)
       {
+        localObject2 = a((acp)localObject2, paramParcel1);
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject1;
+        if (localObject2 != null) {
+          paramParcel1 = ((auv)localObject2).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
         return true;
-        if (!(paramObject instanceof awa)) {
-          return false;
-        }
-        paramObject = (awa)paramObject;
-        if (a == null)
-        {
-          if (a != null) {
-            return false;
-          }
-        }
-        else if (!a.equals(a)) {
-          return false;
-        }
-        if (b == null)
-        {
-          if (b != null) {
-            return false;
-          }
-        }
-        else if (!b.equals(b)) {
-          return false;
-        }
-        if (c == null)
-        {
-          if (c != null) {
-            return false;
-          }
-        }
-        else if (!c.equals(c)) {
-          return false;
-        }
-        if (d == null)
-        {
-          if (d != null) {
-            return false;
-          }
-        }
-        else if (!d.equals(d)) {
-          return false;
-        }
-        if (e != null) {
-          break;
-        }
-      } while (e == null);
-      return false;
-    } while (e.equals(e));
-    return false;
-  }
-  
-  public final int hashCode()
-  {
-    int n = 0;
-    int i1 = getClass().getName().hashCode();
-    int i;
-    int j;
-    label33:
-    int k;
-    label42:
-    int m;
-    if (a == null)
-    {
-      i = 0;
-      if (b != null) {
-        break label104;
       }
-      j = 0;
-      if (c != null) {
-        break label115;
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICreator");
+      localObject1 = a();
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject4;
+      if (localObject1 != null) {
+        paramParcel1 = ((auj)localObject1).asBinder();
       }
-      k = 0;
-      if (d != null) {
-        break label126;
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICreator");
+      localObject1 = b();
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject5;
+      if (localObject1 != null) {
+        paramParcel1 = ((azf)localObject1).asBinder();
       }
-      m = 0;
-      label52:
-      if (e != null) {
-        break label138;
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICreator");
+      a(acq.a(paramParcel1.readStrongBinder()), paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      return true;
+    case 7: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICreator");
+      localObject1 = acq.a(paramParcel1.readStrongBinder());
+      if (paramParcel1.readInt() != 0) {
+        localObject3 = StreetViewPanoramaOptions.CREATOR;
+      }
+      for (paramParcel1 = bau.a(paramParcel1);; paramParcel1 = null)
+      {
+        localObject1 = a((acp)localObject1, paramParcel1);
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject2;
+        if (localObject1 != null) {
+          paramParcel1 = ((avh)localObject1).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
       }
     }
-    for (;;)
-    {
-      return (m + (k + (j + (i + (i1 + 527) * 31) * 31) * 31) * 31) * 31 + n;
-      i = a.hashCode();
-      break;
-      label104:
-      j = b.hashCode();
-      break label33;
-      label115:
-      k = c.hashCode();
-      break label42;
-      label126:
-      m = d.hashCode();
-      break label52;
-      label138:
-      n = e.hashCode();
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICreator");
+    localObject1 = c(acq.a(paramParcel1.readStrongBinder()));
+    paramParcel2.writeNoException();
+    paramParcel1 = (Parcel)localObject6;
+    if (localObject1 != null) {
+      paramParcel1 = ((ave)localObject1).asBinder();
     }
+    paramParcel2.writeStrongBinder(paramParcel1);
+    return true;
   }
 }
 

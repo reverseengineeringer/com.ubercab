@@ -1,13 +1,13 @@
 package com.baidu.lbsapi.auth;
 
 class l
-  implements c.a<String>
+  implements e.a<String>
 {
-  l(i parami, String paramString) {}
+  l(h paramh, String paramString) {}
   
   public void a(String paramString)
   {
-    i.a(b, paramString, a);
+    h.a(b, paramString, a);
   }
 }
 

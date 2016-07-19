@@ -13,11 +13,11 @@ import android.view.View.MeasureSpec;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
-import bu;
-import bz;
-import eg;
-import eh;
-import ic;
+import gi;
+import gn;
+import it;
+import iu;
+import mw;
 
 public class ActionBarContainer
   extends FrameLayout
@@ -45,16 +45,16 @@ public class ActionBarContainer
     boolean bool;
     if (Build.VERSION.SDK_INT >= 21)
     {
-      localObject = new eh(this);
+      localObject = new iu(this);
       setBackgroundDrawable((Drawable)localObject);
-      paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, bz.ActionBar);
-      a = paramContext.getDrawable(bz.ActionBar_background);
-      b = paramContext.getDrawable(bz.ActionBar_backgroundStacked);
-      j = paramContext.getDimensionPixelSize(bz.ActionBar_height, -1);
-      if (getId() == bu.split_action_bar)
+      paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, gn.ActionBar);
+      a = paramContext.getDrawable(gn.ActionBar_background);
+      b = paramContext.getDrawable(gn.ActionBar_backgroundStacked);
+      j = paramContext.getDimensionPixelSize(gn.ActionBar_height, -1);
+      if (getId() == gi.split_action_bar)
       {
         d = true;
-        c = paramContext.getDrawable(bz.ActionBar_backgroundSplit);
+        c = paramContext.getDrawable(gn.ActionBar_backgroundSplit);
       }
       paramContext.recycle();
       if (!d) {
@@ -69,7 +69,7 @@ public class ActionBarContainer
     {
       setWillNotDraw(bool);
       return;
-      localObject = new eg(this);
+      localObject = new it(this);
       break;
       label138:
       bool = false;
@@ -101,19 +101,51 @@ public class ActionBarContainer
     return g;
   }
   
-  public final void a(ic paramic)
+  public final void a(Drawable paramDrawable)
+  {
+    boolean bool = true;
+    if (a != null)
+    {
+      a.setCallback(null);
+      unscheduleDrawable(a);
+    }
+    a = paramDrawable;
+    if (paramDrawable != null)
+    {
+      paramDrawable.setCallback(this);
+      if (h != null) {
+        a.setBounds(h.getLeft(), h.getTop(), h.getRight(), h.getBottom());
+      }
+    }
+    if (d) {
+      if (c != null) {}
+    }
+    for (;;)
+    {
+      setWillNotDraw(bool);
+      invalidate();
+      return;
+      bool = false;
+      continue;
+      if ((a != null) || (b != null)) {
+        bool = false;
+      }
+    }
+  }
+  
+  public final void a(mw parammw)
   {
     if (g != null) {
       removeView(g);
     }
-    g = paramic;
-    if (paramic != null)
+    g = parammw;
+    if (parammw != null)
     {
-      addView(paramic);
-      ViewGroup.LayoutParams localLayoutParams = paramic.getLayoutParams();
+      addView(parammw);
+      ViewGroup.LayoutParams localLayoutParams = parammw.getLayoutParams();
       width = -1;
       height = -2;
-      paramic.a(false);
+      parammw.a(false);
     }
   }
   
@@ -162,8 +194,8 @@ public class ActionBarContainer
   public void onFinishInflate()
   {
     super.onFinishInflate();
-    h = findViewById(bu.action_bar);
-    i = findViewById(bu.action_context_bar);
+    h = findViewById(gi.action_bar);
+    i = findViewById(gi.action_context_bar);
   }
   
   public boolean onInterceptTouchEvent(MotionEvent paramMotionEvent)

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.payment.arrears.PendingPaymentLoaderLayout android:id="@id/ub__payment_pending_loader" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/ub__pending_payment_content" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.ubercab.ui.collection.RecyclerView android:id="@id/ub__pending_payment_recycler" android:layout_width="fill_parent" android:layout_height="fill_parent"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+    </FrameLayout>
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/ub__pending_payment_error" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x">
+        <com.ubercab.ui.TextView android:gravity="center" android:id="@id/ub__payment_pending_textview_error" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" />
+    </LinearLayout>
+</com.ubercab.client.feature.payment.arrears.PendingPaymentLoaderLayout>

@@ -1,9 +1,9 @@
 package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface PaymentProfile
 {
   public abstract String getAccountName();
@@ -21,6 +21,8 @@ public abstract interface PaymentProfile
   public abstract String getExpirationMonthFormatted();
   
   public abstract String getExpirationYearFormatted();
+  
+  public abstract boolean getIsCommuterBenefitsCard();
   
   public abstract RewardInfo getRewardInfo();
   

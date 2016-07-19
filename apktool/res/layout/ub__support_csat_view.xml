@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.ubercab.ui.TextView android:gravity="center_horizontal" android:id="@id/ub__support_csat_textview_message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_1x" style="@style/Uber.TextAppearance.P" />
+    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x">
+        <com.ubercab.rds.feature.support.SupportFaqCsatButton android:id="@id/ub__support_csat_button_satisfied" android:background="@drawable/ub__rds__selectable_item_background_round" android:padding="@dimen/ub__rds__spacing_unit_small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ub__rds__spacing_unit_small" app:srcCompat="@drawable/ub__support_csat_satisfied" />
+        <com.ubercab.rds.feature.support.SupportFaqCsatButton android:id="@id/ub__support_csat_button_unsatisfied" android:background="@drawable/ub__rds__selectable_item_background_round" android:padding="@dimen/ub__rds__spacing_unit_small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__rds__spacing_unit_small" app:srcCompat="@drawable/ub__support_csat_unsatisfied" />
+    </LinearLayout>
+</merge>

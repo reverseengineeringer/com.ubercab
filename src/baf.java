@@ -1,72 +1,105 @@
+import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.location.places.internal.PlacesParams;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 
 public final class baf
-  implements Parcelable.Creator<PlacesParams>
+  implements Parcelable.Creator<GroundOverlayOptions>
 {
-  private static PlacesParams a(Parcel paramParcel)
+  public static GroundOverlayOptions a(Parcel paramParcel)
   {
+    int j = zd.b(paramParcel);
     int i = 0;
-    String str1 = null;
-    int m = zm.b(paramParcel);
-    int j = 0;
-    String str2 = null;
-    String str3 = null;
-    String str4 = null;
-    int k = 0;
-    while (paramParcel.dataPosition() < m)
+    IBinder localIBinder = null;
+    LatLng localLatLng = null;
+    float f7 = 0.0F;
+    float f6 = 0.0F;
+    LatLngBounds localLatLngBounds = null;
+    float f5 = 0.0F;
+    float f4 = 0.0F;
+    boolean bool2 = false;
+    float f3 = 0.0F;
+    float f2 = 0.0F;
+    float f1 = 0.0F;
+    boolean bool1 = false;
+    while (paramParcel.dataPosition() < j)
     {
-      int n = zm.a(paramParcel);
-      switch (zm.a(n))
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
       default: 
-        zm.a(paramParcel, n);
+        zd.a(paramParcel, k);
         break;
       case 1: 
-        str4 = zm.n(paramParcel, n);
-        break;
-      case 1000: 
-        k = zm.e(paramParcel, n);
+        i = zd.e(paramParcel, k);
         break;
       case 2: 
-        str3 = zm.n(paramParcel, n);
+        localIBinder = zd.o(paramParcel, k);
         break;
       case 3: 
-        str2 = zm.n(paramParcel, n);
+        localLatLng = (LatLng)zd.a(paramParcel, k, LatLng.CREATOR);
         break;
       case 4: 
-        str1 = zm.n(paramParcel, n);
+        f7 = zd.j(paramParcel, k);
+        break;
+      case 5: 
+        f6 = zd.j(paramParcel, k);
         break;
       case 6: 
-        j = zm.e(paramParcel, n);
+        localLatLngBounds = (LatLngBounds)zd.a(paramParcel, k, LatLngBounds.CREATOR);
         break;
       case 7: 
-        i = zm.e(paramParcel, n);
+        f5 = zd.j(paramParcel, k);
+        break;
+      case 8: 
+        f4 = zd.j(paramParcel, k);
+        break;
+      case 9: 
+        bool2 = zd.b(paramParcel, k);
+        break;
+      case 10: 
+        f3 = zd.j(paramParcel, k);
+        break;
+      case 11: 
+        f2 = zd.j(paramParcel, k);
+        break;
+      case 12: 
+        f1 = zd.j(paramParcel, k);
+        break;
+      case 13: 
+        bool1 = zd.b(paramParcel, k);
       }
     }
-    if (paramParcel.dataPosition() != m) {
-      throw new zn("Overread allowed size end=" + m, paramParcel);
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new PlacesParams(k, str4, str3, str2, str1, j, i);
+    return new GroundOverlayOptions(i, localIBinder, localLatLng, f7, f6, localLatLngBounds, f5, f4, bool2, f3, f2, f1, bool1);
   }
   
-  public static void a(PlacesParams paramPlacesParams, Parcel paramParcel)
+  public static void a(GroundOverlayOptions paramGroundOverlayOptions, Parcel paramParcel, int paramInt)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, c, false);
-    zo.a(paramParcel, 1000, b);
-    zo.a(paramParcel, 2, d, false);
-    zo.a(paramParcel, 3, e, false);
-    zo.a(paramParcel, 4, f, false);
-    zo.a(paramParcel, 6, g);
-    zo.a(paramParcel, 7, h);
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramGroundOverlayOptions.b());
+    zf.a(paramParcel, 2, paramGroundOverlayOptions.a());
+    zf.a(paramParcel, 3, paramGroundOverlayOptions.c(), paramInt, false);
+    zf.a(paramParcel, 4, paramGroundOverlayOptions.d());
+    zf.a(paramParcel, 5, paramGroundOverlayOptions.e());
+    zf.a(paramParcel, 6, paramGroundOverlayOptions.f(), paramInt, false);
+    zf.a(paramParcel, 7, paramGroundOverlayOptions.g());
+    zf.a(paramParcel, 8, paramGroundOverlayOptions.h());
+    zf.a(paramParcel, 9, paramGroundOverlayOptions.l());
+    zf.a(paramParcel, 10, paramGroundOverlayOptions.i());
+    zf.a(paramParcel, 11, paramGroundOverlayOptions.j());
+    zf.a(paramParcel, 12, paramGroundOverlayOptions.k());
+    zf.a(paramParcel, 13, paramGroundOverlayOptions.m());
+    zf.a(paramParcel, i);
   }
   
-  private static PlacesParams[] a(int paramInt)
+  private static GroundOverlayOptions[] a(int paramInt)
   {
-    return new PlacesParams[paramInt];
+    return new GroundOverlayOptions[paramInt];
   }
 }
 

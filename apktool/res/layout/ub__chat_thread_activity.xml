@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<LinearLayout android:orientation="vertical" android:id="@id/ub__chat_activity_root" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <android.support.v7.widget.RecyclerView android:id="@id/ub__message_list" android:background="@color/ub__uber_white_20" android:paddingBottom="@dimen/ub__voice_chat_thread_message_margin" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
-    <com.ubercab.client.feature.trip.chat.ChatComposerView android:id="@id/ub__chat_composer" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <include android:id="@id/ub__chat_main_composer_view" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__chat_main_composer" />
 </LinearLayout>

@@ -2,12 +2,12 @@ package com.ubercab.android.partner.funnel.signup.model;
 
 import android.os.Parcelable;
 import com.ubercab.shape.Shape;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class RegistrationFormError
-  extends jvq<RegistrationFormError>
+  extends nba<RegistrationFormError>
   implements Parcelable
 {
   public static RegistrationFormError create()
@@ -19,9 +19,9 @@ public abstract class RegistrationFormError
   
   public abstract RegistrationFormErrorPayload getPayload();
   
-  protected Object onGet(jvr<RegistrationFormError> paramjvr, Object paramObject)
+  protected Object onGet(nbb<RegistrationFormError> paramnbb, Object paramObject)
   {
-    switch (RegistrationFormError.1.$SwitchMap$com$ubercab$android$partner$funnel$signup$model$Shape_RegistrationFormError$Property[((Shape_RegistrationFormError.Property)paramjvr).ordinal()])
+    switch (RegistrationFormError.1.$SwitchMap$com$ubercab$android$partner$funnel$signup$model$Shape_RegistrationFormError$Property[((Shape_RegistrationFormError.Property)paramnbb).ordinal()])
     {
     }
     do

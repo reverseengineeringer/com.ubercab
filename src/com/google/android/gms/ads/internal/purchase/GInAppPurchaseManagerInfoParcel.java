@@ -1,47 +1,38 @@
 package com.google.android.gms.ads.internal.purchase;
 
-import add;
-import ade;
-import adg;
+import acp;
+import acq;
+import acs;
+import ahv;
+import aih;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
-import ant;
-import apl;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import qi;
-import qs;
-import qt;
+import tf;
+import tm;
+import tn;
 
-@apl
+@aih
 public final class GInAppPurchaseManagerInfoParcel
   implements SafeParcelable
 {
-  public static final qi CREATOR = new qi();
+  public static final tf CREATOR = new tf();
   public final int a;
-  public final qt b;
-  public final ant c;
+  public final tn b;
+  public final ahv c;
   public final Context d;
-  public final qs e;
+  public final tm e;
   
   public GInAppPurchaseManagerInfoParcel(int paramInt, IBinder paramIBinder1, IBinder paramIBinder2, IBinder paramIBinder3, IBinder paramIBinder4)
   {
     a = paramInt;
-    b = ((qt)adg.a(ade.a(paramIBinder1)));
-    c = ((ant)adg.a(ade.a(paramIBinder2)));
-    d = ((Context)adg.a(ade.a(paramIBinder3)));
-    e = ((qs)adg.a(ade.a(paramIBinder4)));
-  }
-  
-  public GInAppPurchaseManagerInfoParcel(Context paramContext, qt paramqt, ant paramant, qs paramqs)
-  {
-    a = 2;
-    d = paramContext;
-    b = paramqt;
-    c = paramant;
-    e = paramqs;
+    b = ((tn)acs.a(acq.a(paramIBinder1)));
+    c = ((ahv)acs.a(acq.a(paramIBinder2)));
+    d = ((Context)acs.a(acq.a(paramIBinder3)));
+    e = ((tm)acs.a(acq.a(paramIBinder4)));
   }
   
   public static GInAppPurchaseManagerInfoParcel a(Intent paramIntent)
@@ -57,31 +48,24 @@ public final class GInAppPurchaseManagerInfoParcel
     return null;
   }
   
-  public static void a(Intent paramIntent, GInAppPurchaseManagerInfoParcel paramGInAppPurchaseManagerInfoParcel)
-  {
-    Bundle localBundle = new Bundle(1);
-    localBundle.putParcelable("com.google.android.gms.ads.internal.purchase.InAppPurchaseManagerInfo", paramGInAppPurchaseManagerInfoParcel);
-    paramIntent.putExtra("com.google.android.gms.ads.internal.purchase.InAppPurchaseManagerInfo", localBundle);
-  }
-  
   public final IBinder a()
   {
-    return adg.a(e).asBinder();
+    return acs.a(e).asBinder();
   }
   
   public final IBinder b()
   {
-    return adg.a(b).asBinder();
+    return acs.a(b).asBinder();
   }
   
   public final IBinder c()
   {
-    return adg.a(c).asBinder();
+    return acs.a(c).asBinder();
   }
   
   public final IBinder d()
   {
-    return adg.a(d).asBinder();
+    return acs.a(d).asBinder();
   }
   
   public final int describeContents()
@@ -91,7 +75,7 @@ public final class GInAppPurchaseManagerInfoParcel
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    qi.a(this, paramParcel);
+    tf.a(this, paramParcel);
   }
 }
 

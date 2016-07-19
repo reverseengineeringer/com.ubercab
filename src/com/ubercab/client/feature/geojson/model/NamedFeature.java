@@ -2,9 +2,9 @@ package com.ubercab.client.feature.geojson.model;
 
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.GeoJsonNamedFeature;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract interface NamedFeature<P extends NamedFeatureProperties, G extends Geometry<?>>
   extends Feature<P, G>, GeoJsonNamedFeature<P, G>
 {

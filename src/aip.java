@@ -1,75 +1,96 @@
-import android.os.IBinder;
+import android.os.Process;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 
-final class aip
-  implements ain
+@aih
+public final class aip
 {
-  private IBinder a;
+  private static final ExecutorService a = Executors.newFixedThreadPool(10, a("Default"));
+  private static final ExecutorService b = Executors.newFixedThreadPool(5, a("Loader"));
   
-  aip(IBinder paramIBinder)
+  public static ajj<Void> a(int paramInt, Runnable paramRunnable)
   {
-    a = paramIBinder;
+    if (paramInt == 1) {
+      a(b, new Callable()
+      {
+        private Void a()
+        {
+          run();
+          return null;
+        }
+      });
+    }
+    a(a, new Callable()
+    {
+      private Void a()
+      {
+        run();
+        return null;
+      }
+    });
   }
   
-  /* Error */
-  public final void a(aic paramaic)
+  public static ajj<Void> a(Runnable paramRunnable)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +42 -> 57
-    //   18: aload_1
-    //   19: invokeinterface 35 1 0
-    //   24: astore_1
-    //   25: aload_2
-    //   26: aload_1
-    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   30: aload_0
-    //   31: getfield 15	aip:a	Landroid/os/IBinder;
-    //   34: iconst_1
-    //   35: aload_2
-    //   36: aload_3
-    //   37: iconst_0
-    //   38: invokeinterface 44 5 0
-    //   43: pop
-    //   44: aload_3
-    //   45: invokevirtual 47	android/os/Parcel:readException	()V
-    //   48: aload_3
-    //   49: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   52: aload_2
-    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   56: return
-    //   57: aconst_null
-    //   58: astore_1
-    //   59: goto -34 -> 25
-    //   62: astore_1
-    //   63: aload_3
-    //   64: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   67: aload_2
-    //   68: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   71: aload_1
-    //   72: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	73	0	this	aip
-    //   0	73	1	paramaic	aic
-    //   3	65	2	localParcel1	android.os.Parcel
-    //   7	57	3	localParcel2	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	62	finally
-    //   18	25	62	finally
-    //   25	48	62	finally
+    return a(0, paramRunnable);
   }
   
-  public final IBinder asBinder()
+  private static <T> ajj<T> a(ExecutorService paramExecutorService, final Callable<T> paramCallable)
   {
-    return a;
+    aji localaji = new aji();
+    try
+    {
+      localaji.a(new Runnable()
+      {
+        public final void run()
+        {
+          try
+          {
+            Process.setThreadPriority(10);
+            b(paramCallable.call());
+            return;
+          }
+          catch (Exception localException)
+          {
+            ul.f().a(localException, true);
+            cancel(true);
+          }
+        }
+      }
+      {
+        public final void run()
+        {
+          if (isCancelled()) {
+            b.cancel(true);
+          }
+        }
+      });
+      return localaji;
+    }
+    catch (RejectedExecutionException paramExecutorService)
+    {
+      ain.c("Thread execution is rejected.", paramExecutorService);
+      localaji.cancel(true);
+    }
+    return localaji;
+  }
+  
+  private static ThreadFactory a(String paramString)
+  {
+    new ThreadFactory()
+    {
+      private final AtomicInteger b = new AtomicInteger(1);
+      
+      public final Thread newThread(Runnable paramAnonymousRunnable)
+      {
+        return new Thread(paramAnonymousRunnable, "AdWorker(" + aip.this + ") #" + b.getAndIncrement());
+      }
+    };
   }
 }
 

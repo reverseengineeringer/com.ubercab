@@ -1,27 +1,27 @@
 package com.ubercab.client.feature.notification.model;
 
 import android.content.Context;
-import bqa;
+import bmu;
 import com.ubercab.rider.realtime.model.FareSplitClient;
-import iaj;
 import java.io.Serializable;
 import java.util.List;
+import kct;
 
 public final class TripNotificationData$FareSplitClient
   implements Serializable
 {
-  private static final List<String> FAKE_NAMES = iaj.a("Skyler", "Jesse", "Hank", "Marie", "Saul");
+  private static final List<String> FAKE_NAMES = kct.a("Skyler", "Jesse", "Hank", "Marie", "Saul");
   public static final String STATUS_ACCEPTED = "Accepted";
   public static final String STATUS_CANCELED = "Canceled";
   public static final String STATUS_DECLINED = "Declined";
   public static final String STATUS_INVALID_NUMBER = "InvalidNumber";
   public static final String STATUS_NO_ACCOUNT = "NoAccount";
   public static final String STATUS_PENDING = "Pending";
-  @bqa(a="id")
+  @bmu(a="id")
   private String mId;
-  @bqa(a="name")
+  @bmu(a="name")
   private String mName;
-  @bqa(a="status")
+  @bmu(a="status")
   private String mStatus;
   
   public static FareSplitClient createFake(int paramInt, String paramString)
@@ -81,11 +81,11 @@ public final class TripNotificationData$FareSplitClient
         break;
       }
     }
-    return paramContext.getString(2131165857);
-    return paramContext.getString(2131165862);
-    return paramContext.getString(2131165858);
-    return paramContext.getString(2131165984);
-    return paramContext.getString(2131165868);
+    return paramContext.getString(2131165951);
+    return paramContext.getString(2131165956);
+    return paramContext.getString(2131165952);
+    return paramContext.getString(2131166094);
+    return paramContext.getString(2131165962);
   }
   
   public final String getId()

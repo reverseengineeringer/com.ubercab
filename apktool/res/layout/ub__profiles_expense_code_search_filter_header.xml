@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_3x" android:layout_marginBottom="@dimen/ui__spacing_unit_3x"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:text="@string/no_expense_code_found_title" style="@style/Style.Rider.TextAppearance.Profiles.ExpenseCode.Search.Header"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+    <com.ubercab.ui.TextView android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:text="@string/no_expense_code_found_byline" style="@style/Style.Rider.TextAppearance.Profiles.ExpenseCode.Search.Header" fontPath="@string/ub__font_news"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+</LinearLayout>

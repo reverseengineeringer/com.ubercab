@@ -4,17 +4,17 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
-import il;
+import nc;
 
 public class StaggeredGridLayoutManager$LayoutParams
   extends RecyclerView.LayoutParams
 {
-  public il e;
+  public nc e;
   public boolean f;
   
-  public StaggeredGridLayoutManager$LayoutParams()
+  public StaggeredGridLayoutManager$LayoutParams(int paramInt1, int paramInt2)
   {
-    super(-2);
+    super(paramInt1, paramInt2);
   }
   
   public StaggeredGridLayoutManager$LayoutParams(Context paramContext, AttributeSet paramAttributeSet)
@@ -32,7 +32,12 @@ public class StaggeredGridLayoutManager$LayoutParams
     super(paramMarginLayoutParams);
   }
   
-  public final int a()
+  public final boolean a()
+  {
+    return f;
+  }
+  
+  public final int b()
   {
     if (e == null) {
       return -1;

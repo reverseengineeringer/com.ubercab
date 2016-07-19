@@ -1,6 +1,9 @@
-public final class azb
-  implements ayo
-{}
+import com.google.android.gms.maps.model.Tile;
+
+public abstract interface azb
+{
+  public static final Tile b = new Tile();
+}
 
 /* Location:
  * Qualified Name:     azb

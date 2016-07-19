@@ -3,9 +3,9 @@ package com.ubercab.client.core.model;
 import android.text.TextUtils;
 import com.ubercab.android.location.UberLatLng;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class LocationSearchResult
 {
   public static final String[] HOME_WORK_TAGS = { "home", "work" };

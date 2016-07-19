@@ -1,8 +1,8 @@
-import com.google.android.gms.maps.model.LatLng;
-
-public abstract interface bbp
+abstract interface bbp
 {
-  public abstract void a(LatLng paramLatLng);
+  public abstract void a(amq paramamq);
+  
+  public abstract boolean a(long paramLong, amn paramamn);
 }
 
 /* Location:

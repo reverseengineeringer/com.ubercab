@@ -1,6 +1,18 @@
-public abstract interface cku
-  extends ckp
-{}
+import retrofit.Callback;
+import retrofit.RetrofitError;
+
+final class cku
+  implements Callback<Void>
+{
+  private ckw b = null;
+  
+  cku(ckt paramckt) {}
+  
+  public final void failure(RetrofitError paramRetrofitError)
+  {
+    ckt.a(a, paramRetrofitError);
+  }
+}
 
 /* Location:
  * Qualified Name:     cku

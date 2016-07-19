@@ -1,77 +1,50 @@
-import android.util.Base64;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Build;
+import android.os.Build.VERSION;
+import android.telephony.TelephonyManager;
 
-public abstract class byw
-  extends bww
+public final class byw
 {
-  private static final String a = byw.class.getSimpleName();
-  public String g;
-  public boolean h;
-  public Map i;
-  
-  public byw(bxd parambxd, bwy parambwy, bxg parambxg, String paramString)
+  public static String a()
   {
-    super(new bxc(parambxd), parambwy, parambxg, paramString);
-    a("Accept", "application/json; charset=utf-8");
-    a("Accept-Language", "en_US");
-    a("Content-Type", "application/x-www-form-urlencoded");
-  }
-  
-  protected static String a(JSONObject paramJSONObject)
-  {
-    JSONArray localJSONArray = new JSONArray();
-    localJSONArray.put(paramJSONObject);
-    return bze.a(localJSONArray.toString());
-  }
-  
-  protected static String c(String paramString1, String paramString2)
-  {
-    StringBuilder localStringBuilder = new StringBuilder("Basic ");
-    if ((bvh.a(paramString1)) && (paramString2 == null)) {}
-    for (paramString1 = "mock:";; paramString1 = new String(Base64.encode(paramString2.getBytes(), 2)) + ":") {
-      return paramString1;
+    String str1 = Build.MANUFACTURER;
+    String str2 = Build.MODEL;
+    if ((str1.equalsIgnoreCase("unknown")) || (str2.startsWith(str1))) {
+      return str2;
     }
+    return str1 + " " + str2;
   }
   
-  protected final void b(JSONObject paramJSONObject)
+  public static String a(Context paramContext)
   {
-    String str1 = paramJSONObject.getString("error");
-    String str2 = paramJSONObject.optString("error_description");
-    if (paramJSONObject.has("nonce")) {
-      g = paramJSONObject.getString("nonce");
-    }
-    if ((paramJSONObject.has("2fa_enabled")) && (paramJSONObject.getBoolean("2fa_enabled")))
+    try
     {
-      h = true;
-      i = new LinkedHashMap();
-      if (paramJSONObject.has("2fa_token_identifier"))
-      {
-        paramJSONObject = paramJSONObject.getJSONArray("2fa_token_identifier");
-        int j = 0;
-        if (j < paramJSONObject.length())
-        {
-          Object localObject = paramJSONObject.getJSONObject(j);
-          String str3 = ((JSONObject)localObject).getString("type");
-          String str4 = ((JSONObject)localObject).getString("token_identifier");
-          localObject = ((JSONObject)localObject).getString("token_identifier_display");
-          if ("sms_otp".equals(str3))
-          {
-            i.put(str4, localObject);
-            new StringBuilder("adding token [").append(str4).append(",").append((String)localObject).append("]");
-          }
-          for (;;)
-          {
-            j += 1;
-            break;
-            new StringBuilder("skipping token [").append(str4).append(",").append((String)localObject).append("], as the type is not supported:").append(str3);
-          }
-        }
-      }
+      PackageManager localPackageManager = paramContext.getPackageManager();
+      paramContext = getPackageInfogetPackageName0applicationInfo.loadLabel(localPackageManager).toString();
+      return paramContext;
     }
-    b(str1, str2);
+    catch (PackageManager.NameNotFoundException paramContext) {}
+    return null;
+  }
+  
+  public static String b()
+  {
+    return "Android " + Build.VERSION.RELEASE;
+  }
+  
+  public static String b(Context paramContext)
+  {
+    try
+    {
+      paramContext = ((TelephonyManager)paramContext.getSystemService("phone")).getSimOperatorName();
+      return paramContext;
+    }
+    catch (SecurityException paramContext) {}
+    return null;
   }
 }
 

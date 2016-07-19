@@ -3,8 +3,8 @@ package com.ubercab.identity.internal.vendor.alipay.model;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.ubercab.shape.Shape;
-import iam;
 import java.util.Map;
+import kcw;
 
 @Shape
 public abstract class AlipayAuthResult
@@ -45,9 +45,9 @@ public abstract class AlipayAuthResult
   
   private static Map<String, String> parseRawResult(String paramString)
   {
-    iam localiam = new iam();
+    kcw localkcw = new kcw();
     if (TextUtils.isEmpty(paramString)) {
-      return localiam.a();
+      return localkcw.a();
     }
     paramString = paramString.split(";");
     int k = paramString.length;
@@ -63,7 +63,7 @@ public abstract class AlipayAuthResult
         if (arrayOfString2.length != 1) {
           break label113;
         }
-        localiam.a(localObject, extractValue(arrayOfString2[0]));
+        localkcw.a(localObject, extractValue(arrayOfString2[0]));
       }
       for (;;)
       {
@@ -77,13 +77,13 @@ public abstract class AlipayAuthResult
         {
           localObject = arrayOfString1[j].split("=");
           if (localObject.length == 2) {
-            localiam.a(extractValue(localObject[0]), extractValue(localObject[1]));
+            localkcw.a(extractValue(localObject[0]), extractValue(localObject[1]));
           }
           j += 1;
         }
       }
     }
-    return localiam.a();
+    return localkcw.a();
   }
   
   public abstract String getAlipayOpenId();

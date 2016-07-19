@@ -1,4 +1,17 @@
- enum cbc {}
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import com.paypal.android.sdk.payments.LoginActivity;
+
+public final class cbc
+  implements DialogInterface.OnClickListener
+{
+  public cbc(LoginActivity paramLoginActivity) {}
+  
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  {
+    LoginActivity.n(a);
+  }
+}
 
 /* Location:
  * Qualified Name:     cbc

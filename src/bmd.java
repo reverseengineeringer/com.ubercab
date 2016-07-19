@@ -1,73 +1,104 @@
-import android.content.Context;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Looper;
-import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.plus.internal.PlusSession;
-import com.google.android.gms.plus.internal.model.people.PersonEntity;
-import java.util.Set;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
 
-public final class bmd
-  extends aag<bma>
+public abstract class bmd
 {
-  private bmh a;
-  private final PlusSession e;
-  
-  public bmd(Context paramContext, Looper paramLooper, aab paramaab, PlusSession paramPlusSession, wu paramwu, wv paramwv)
+  public Number a()
   {
-    super(paramContext, paramLooper, 2, paramaab, paramwu, paramwv);
-    e = paramPlusSession;
+    throw new UnsupportedOperationException(getClass().getSimpleName());
   }
   
-  private static boolean a(Set<Scope> paramSet)
+  public String b()
   {
-    if ((paramSet == null) || (paramSet.isEmpty())) {}
-    while ((paramSet.size() == 1) && (paramSet.contains(new Scope("plus_one_placeholder_scope")))) {
-      return false;
+    throw new UnsupportedOperationException(getClass().getSimpleName());
+  }
+  
+  public double c()
+  {
+    throw new UnsupportedOperationException(getClass().getSimpleName());
+  }
+  
+  public long d()
+  {
+    throw new UnsupportedOperationException(getClass().getSimpleName());
+  }
+  
+  public int e()
+  {
+    throw new UnsupportedOperationException(getClass().getSimpleName());
+  }
+  
+  public boolean f()
+  {
+    throw new UnsupportedOperationException(getClass().getSimpleName());
+  }
+  
+  public final boolean g()
+  {
+    return this instanceof bma;
+  }
+  
+  public final boolean h()
+  {
+    return this instanceof bmg;
+  }
+  
+  public final boolean i()
+  {
+    return this instanceof bmj;
+  }
+  
+  public final boolean j()
+  {
+    return this instanceof bmf;
+  }
+  
+  public final bmg k()
+  {
+    if (h()) {
+      return (bmg)this;
     }
-    return true;
+    throw new IllegalStateException("Not a JSON Object: " + this);
   }
   
-  private static bma b(IBinder paramIBinder)
+  public final bma l()
   {
-    return bmb.a(paramIBinder);
-  }
-  
-  protected final String a()
-  {
-    return "com.google.android.gms.plus.service.START";
-  }
-  
-  protected final void a(int paramInt1, IBinder paramIBinder, Bundle paramBundle, int paramInt2)
-  {
-    if ((paramInt1 == 0) && (paramBundle != null) && (paramBundle.containsKey("loaded_person"))) {
-      a = PersonEntity.a(paramBundle.getByteArray("loaded_person"));
+    if (g()) {
+      return (bma)this;
     }
-    super.a(paramInt1, paramIBinder, paramBundle, paramInt2);
+    throw new IllegalStateException("This is not a JSON Array.");
   }
   
-  protected final String b()
+  public final bmj m()
   {
-    return "com.google.android.gms.plus.internal.IPlusService";
+    if (i()) {
+      return (bmj)this;
+    }
+    throw new IllegalStateException("This is not a JSON Primitive.");
   }
   
-  public final bmh c()
+  Boolean n()
   {
-    n();
-    return a;
+    throw new UnsupportedOperationException(getClass().getSimpleName());
   }
   
-  public final boolean f()
+  public String toString()
   {
-    return a(l().a(bkz.c));
-  }
-  
-  protected final Bundle m()
-  {
-    Bundle localBundle = e.k();
-    localBundle.putStringArray("request_visible_actions", e.d());
-    localBundle.putString("auth_package", e.f());
-    return localBundle;
+    try
+    {
+      Object localObject = new StringWriter();
+      JsonWriter localJsonWriter = new JsonWriter((Writer)localObject);
+      localJsonWriter.setLenient(true);
+      bnn.a(this, localJsonWriter);
+      localObject = ((StringWriter)localObject).toString();
+      return (String)localObject;
+    }
+    catch (IOException localIOException)
+    {
+      throw new AssertionError(localIOException);
+    }
   }
 }
 

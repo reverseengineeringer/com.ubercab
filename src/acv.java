@@ -1,19 +1,14 @@
-import java.util.Arrays;
-
-final class acv
-  extends acu
+public final class acv
+  extends Exception
 {
-  private final byte[] a;
-  
-  acv(byte[] paramArrayOfByte)
+  public acv(String paramString)
   {
-    super(Arrays.copyOfRange(paramArrayOfByte, 0, 25));
-    a = paramArrayOfByte;
+    super(paramString);
   }
   
-  final byte[] a()
+  public acv(String paramString, Throwable paramThrowable)
   {
-    return a;
+    super(paramString, paramThrowable);
   }
 }
 

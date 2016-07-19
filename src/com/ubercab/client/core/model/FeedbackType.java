@@ -3,9 +3,9 @@ package com.ubercab.client.core.model;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.Image;
 import java.util.List;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public final class FeedbackType
   implements com.ubercab.rider.realtime.model.FeedbackType
 {
@@ -15,6 +15,12 @@ public final class FeedbackType
   private String type;
   
   public FeedbackType() {}
+  
+  public FeedbackType(Integer paramInteger, String paramString)
+  {
+    id = paramInteger;
+    description = paramString;
+  }
   
   public FeedbackType(String paramString)
   {

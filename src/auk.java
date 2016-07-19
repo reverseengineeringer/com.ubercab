@@ -1,35 +1,187 @@
-import android.support.v4.util.ArrayMap;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Set;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 
-public final class auk
+public abstract class auk
+  extends Binder
+  implements auj
 {
-  public static <K, V> Map<K, V> a(K paramK1, V paramV1, K paramK2, V paramV2, K paramK3, V paramV3, K paramK4, V paramV4, K paramK5, V paramV5, K paramK6, V paramV6)
+  public static auj a(IBinder paramIBinder)
   {
-    ArrayMap localArrayMap = new ArrayMap(6);
-    localArrayMap.put(paramK1, paramV1);
-    localArrayMap.put(paramK2, paramV2);
-    localArrayMap.put(paramK3, paramV3);
-    localArrayMap.put(paramK4, paramV4);
-    localArrayMap.put(paramK5, paramV5);
-    localArrayMap.put(paramK6, paramV6);
-    return Collections.unmodifiableMap(localArrayMap);
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+    if ((localIInterface != null) && ((localIInterface instanceof auj))) {
+      return (auj)localIInterface;
+    }
+    return new aul(paramIBinder);
   }
   
-  public static <T> Set<T> a(T paramT1, T paramT2, T paramT3)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    auf localauf = new auf(3);
-    localauf.add(paramT1);
-    localauf.add(paramT2);
-    localauf.add(paramT3);
-    return Collections.unmodifiableSet(localauf);
-  }
-  
-  public static <T> Set<T> a(T... paramVarArgs)
-  {
-    return Collections.unmodifiableSet(new auf(Arrays.asList(paramVarArgs)));
+    Object localObject7 = null;
+    Object localObject8 = null;
+    Object localObject9 = null;
+    Object localObject10 = null;
+    Object localObject11 = null;
+    Object localObject1 = null;
+    Object localObject2 = null;
+    Object localObject3 = null;
+    Object localObject4 = null;
+    Object localObject5 = null;
+    Object localObject6 = null;
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      localObject1 = a();
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject6;
+      if (localObject1 != null) {
+        paramParcel1 = ((acp)localObject1).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      localObject1 = b();
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject7;
+      if (localObject1 != null) {
+        paramParcel1 = ((acp)localObject1).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      localObject1 = a(paramParcel1.readFloat(), paramParcel1.readFloat());
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject8;
+      if (localObject1 != null) {
+        paramParcel1 = ((acp)localObject1).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      localObject1 = a(paramParcel1.readFloat());
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject9;
+      if (localObject1 != null) {
+        paramParcel1 = ((acp)localObject1).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      localObject1 = b(paramParcel1.readFloat());
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject10;
+      if (localObject1 != null) {
+        paramParcel1 = ((acp)localObject1).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      localObject1 = a(paramParcel1.readFloat(), paramParcel1.readInt(), paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject11;
+      if (localObject1 != null) {
+        paramParcel1 = ((acp)localObject1).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 7: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      if (paramParcel1.readInt() != 0) {
+        localObject2 = CameraPosition.CREATOR;
+      }
+      for (paramParcel1 = bad.a(paramParcel1);; paramParcel1 = null)
+      {
+        localObject2 = a(paramParcel1);
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject1;
+        if (localObject2 != null) {
+          paramParcel1 = ((acp)localObject2).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
+    case 8: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = LatLng.CREATOR;
+      }
+      for (paramParcel1 = bah.a(paramParcel1);; paramParcel1 = null)
+      {
+        localObject1 = a(paramParcel1);
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject2;
+        if (localObject1 != null) {
+          paramParcel1 = ((acp)localObject1).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
+    case 9: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = LatLng.CREATOR;
+      }
+      for (localObject1 = bah.a(paramParcel1);; localObject1 = null)
+      {
+        localObject1 = a((LatLng)localObject1, paramParcel1.readFloat());
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject3;
+        if (localObject1 != null) {
+          paramParcel1 = ((acp)localObject1).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
+    case 10: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = LatLngBounds.CREATOR;
+      }
+      for (localObject1 = bag.a(paramParcel1);; localObject1 = null)
+      {
+        localObject1 = a((LatLngBounds)localObject1, paramParcel1.readInt());
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject4;
+        if (localObject1 != null) {
+          paramParcel1 = ((acp)localObject1).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+    if (paramParcel1.readInt() != 0) {
+      localObject1 = LatLngBounds.CREATOR;
+    }
+    for (localObject1 = bag.a(paramParcel1);; localObject1 = null)
+    {
+      localObject1 = a((LatLngBounds)localObject1, paramParcel1.readInt(), paramParcel1.readInt(), paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject5;
+      if (localObject1 != null) {
+        paramParcel1 = ((acp)localObject1).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    }
   }
 }
 

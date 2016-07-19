@@ -1,14 +1,14 @@
 package com.ubercab.rider.realtime.client;
 
 import com.ubercab.rider.realtime.request.body.SurgeInputBody;
-import kld;
+import odr;
 import retrofit.http.Body;
 import retrofit.http.POST;
 
 public abstract interface SurgeApi
 {
   @POST("/rt/surge/input")
-  public abstract kld<Void> postSurgeInput(@Body SurgeInputBody paramSurgeInputBody);
+  public abstract odr<Void> postSurgeInput(@Body SurgeInputBody paramSurgeInputBody);
 }
 
 /* Location:

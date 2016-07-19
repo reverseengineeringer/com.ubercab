@@ -6,8 +6,8 @@ import android.support.v4.util.ArrayMap;
 import java.io.File;
 import java.util.Iterator;
 import java.util.Set;
-import jwc;
-import kul;
+import nct;
+import opc;
 
 final class DocumentsUploadService$1
   extends AsyncTask<Void, Void, Boolean>
@@ -35,7 +35,7 @@ final class DocumentsUploadService$1
     super.onPostExecute(paramBoolean);
     if (!paramBoolean.booleanValue())
     {
-      kul.e("Unable to move file to pending uploads folder.", new Object[0]);
+      opc.e("Unable to move file to pending uploads folder.", new Object[0]);
       return;
     }
     DocumentsUploadService.a(e);

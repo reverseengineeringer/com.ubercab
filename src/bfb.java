@@ -1,45 +1,76 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.wallet.Cart;
+import com.google.android.gms.wallet.MaskedWalletRequest;
+import com.google.android.gms.wallet.PaymentMethodTokenizationParameters;
+import java.util.ArrayList;
+import java.util.Collection;
 
-public abstract class bfb
-  extends Binder
-  implements bfa
+public final class bfb
 {
-  public static bfa a(IBinder paramIBinder)
+  private bfb(MaskedWalletRequest paramMaskedWalletRequest) {}
+  
+  public final bfb a()
   {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnMapLongClickListener");
-    if ((localIInterface != null) && ((localIInterface instanceof bfa))) {
-      return (bfa)localIInterface;
-    }
-    return new bfc(paramIBinder);
+    a.b = false;
+    return this;
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public final bfb a(Cart paramCart)
   {
-    switch (paramInt1)
+    a.h = paramCart;
+    return this;
+  }
+  
+  public final bfb a(PaymentMethodTokenizationParameters paramPaymentMethodTokenizationParameters)
+  {
+    a.o = paramPaymentMethodTokenizationParameters;
+    return this;
+  }
+  
+  public final bfb a(String paramString)
+  {
+    a.e = paramString;
+    return this;
+  }
+  
+  public final bfb a(Collection<Integer> paramCollection)
+  {
+    if (paramCollection != null)
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnMapLongClickListener");
-      return true;
+      if (a.p == null) {
+        a.p = new ArrayList();
+      }
+      a.p.addAll(paramCollection);
     }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMapLongClickListener");
-    if (paramParcel1.readInt() != 0) {
-      bia localbia = LatLng.CREATOR;
-    }
-    for (paramParcel1 = bia.a(paramParcel1);; paramParcel1 = null)
-    {
-      a(paramParcel1);
-      paramParcel2.writeNoException();
-      return true;
-    }
+    return this;
+  }
+  
+  public final bfb b()
+  {
+    a.c = false;
+    return this;
+  }
+  
+  public final bfb b(String paramString)
+  {
+    a.f = paramString;
+    return this;
+  }
+  
+  public final bfb c()
+  {
+    a.l = false;
+    return this;
+  }
+  
+  public final bfb c(String paramString)
+  {
+    a.g = paramString;
+    return this;
+  }
+  
+  public final MaskedWalletRequest d()
+  {
+    return a;
   }
 }
 

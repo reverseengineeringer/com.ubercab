@@ -1,30 +1,47 @@
-@apl
+import java.util.Map;
+
+@aih
 public final class ahf
 {
-  private final long a;
-  private final String b;
-  private final ahf c;
+  private final ajm a;
+  private final boolean b;
+  private final String c;
   
-  public ahf(long paramLong, String paramString, ahf paramahf)
+  public ahf(ajm paramajm, Map<String, String> paramMap)
   {
-    a = paramLong;
-    b = paramString;
-    c = paramahf;
+    a = paramajm;
+    c = ((String)paramMap.get("forceOrientation"));
+    if (paramMap.containsKey("allowOrientationChange"))
+    {
+      b = Boolean.parseBoolean((String)paramMap.get("allowOrientationChange"));
+      return;
+    }
+    b = true;
   }
   
-  final long a()
+  public final void a()
   {
-    return a;
-  }
-  
-  final String b()
-  {
-    return b;
-  }
-  
-  final ahf c()
-  {
-    return c;
+    if (a == null)
+    {
+      ain.d("AdWebView is null");
+      return;
+    }
+    int i;
+    if ("portrait".equalsIgnoreCase(c)) {
+      i = ul.e().b();
+    }
+    for (;;)
+    {
+      a.b(i);
+      return;
+      if ("landscape".equalsIgnoreCase(c)) {
+        i = ul.e().a();
+      } else if (b) {
+        i = -1;
+      } else {
+        i = ul.e().c();
+      }
+    }
   }
 }
 

@@ -1,232 +1,117 @@
-import com.ubercab.android.location.UberLatLngBounds;
-import com.ubercab.android.map.Marker;
-
 public final class coe
+  extends cnz
 {
-  private final cpz a;
-  private boolean b = false;
-  private coh c;
-  private cpd d;
-  private cnw e;
-  private UberLatLngBounds f;
+  private String a;
+  private String b;
+  private String c;
   
-  public coe(cpz paramcpz)
+  final cnz a(String paramString)
   {
-    a = paramcpz;
-    a.a(new coh()
-    {
-      public final void a(cnw paramAnonymouscnw)
-      {
-        coe.a(coe.this, paramAnonymouscnw);
-        coe.a(coe.this, coe.a(coe.this).c().a());
-        coe.a(coe.this, coe.b(coe.this), coe.c(coe.this));
-        if (coe.d(coe.this) != null) {
-          coe.d(coe.this).a(paramAnonymouscnw);
-        }
-      }
-    });
+    a = paramString;
+    return this;
   }
   
-  private void a(cnw paramcnw, UberLatLngBounds paramUberLatLngBounds)
+  final String a()
   {
-    if ((d == null) || (paramcnw == null) || (paramUberLatLngBounds == null)) {
-      return;
-    }
-    d.a(paramcnw, paramUberLatLngBounds);
+    return a;
   }
   
-  private void h()
+  final cnz b(String paramString)
   {
-    if (i()) {
-      return;
-    }
-    if (d != null) {
-      d.a();
-    }
-    a.h();
+    c = paramString;
+    return this;
   }
   
-  private boolean i()
+  final String b()
   {
     return b;
   }
   
-  public final cnw a()
+  final String c()
   {
-    if (i()) {
-      return null;
-    }
-    return a.b();
+    return c;
   }
   
-  public final coc a(cod paramcod)
+  final cnz d()
   {
-    if (i()) {
-      return null;
-    }
-    return a.a(paramcod);
+    b = null;
+    return this;
   }
   
-  public final Marker a(cor paramcor)
+  public final boolean equals(Object paramObject)
   {
-    if (i()) {
-      return null;
-    }
-    if (paramcor.e() == null) {
-      throw new IllegalArgumentException("Must setup icon in MarkerOptions");
-    }
-    return a.a(paramcor);
-  }
-  
-  public final cou a(cov paramcov)
-  {
-    if (i()) {
-      return null;
-    }
-    return a.a(paramcov);
-  }
-  
-  public final void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
-  {
-    if (i()) {
-      return;
-    }
-    a.a(paramInt1, paramInt2, paramInt3, paramInt4);
-  }
-  
-  public final void a(cny paramcny)
-  {
-    if (i()) {
-      return;
-    }
-    a.a(paramcny);
-  }
-  
-  public final void a(cny paramcny, int paramInt, cof paramcof)
-  {
-    if (i()) {
-      return;
-    }
-    a.a(paramcny, paramInt, paramcof);
-  }
-  
-  public final void a(cog paramcog)
-  {
-    if (i()) {
-      return;
-    }
-    a.a(paramcog);
-  }
-  
-  public final void a(coh paramcoh)
-  {
-    if (i()) {
-      return;
-    }
-    c = paramcoh;
-  }
-  
-  public final void a(coi paramcoi)
-  {
-    if (i()) {
-      return;
-    }
-    a.a(paramcoi);
-  }
-  
-  public final void a(coj paramcoj)
-  {
-    if (i()) {
-      return;
-    }
-    a.a(paramcoj);
-  }
-  
-  public final void a(cok paramcok)
-  {
-    if (i()) {
-      return;
-    }
-    a.a(paramcok);
-  }
-  
-  public final boolean a(boolean paramBoolean)
-  {
-    if (i()) {
+    if (this == paramObject) {}
+    do
+    {
+      return true;
+      if ((paramObject == null) || (getClass() != paramObject.getClass())) {
+        return false;
+      }
+      paramObject = (cnz)paramObject;
+      if (((cnz)paramObject).a() != null)
+      {
+        if (((cnz)paramObject).a().equals(a())) {}
+      }
+      else {
+        while (a() != null) {
+          return false;
+        }
+      }
+      if (((cnz)paramObject).b() != null)
+      {
+        if (((cnz)paramObject).b().equals(b())) {}
+      }
+      else {
+        while (b() != null) {
+          return false;
+        }
+      }
+      if (((cnz)paramObject).c() == null) {
+        break;
+      }
+    } while (((cnz)paramObject).c().equals(c()));
+    for (;;)
+    {
       return false;
+      if (c() == null) {
+        break;
+      }
     }
-    return a.a(paramBoolean);
   }
   
-  public final cow b()
+  public final int hashCode()
   {
-    if (i()) {
-      return null;
+    int k = 0;
+    int i;
+    int j;
+    if (a == null)
+    {
+      i = 0;
+      if (b != null) {
+        break label53;
+      }
+      j = 0;
+      label20:
+      if (c != null) {
+        break label64;
+      }
     }
-    return a.c();
+    for (;;)
+    {
+      return (j ^ (i ^ 0xF4243) * 1000003) * 1000003 ^ k;
+      i = a.hashCode();
+      break;
+      label53:
+      j = b.hashCode();
+      break label20;
+      label64:
+      k = c.hashCode();
+    }
   }
   
-  public final void b(cny paramcny)
+  public final String toString()
   {
-    if (i()) {
-      return;
-    }
-    a.b(paramcny);
-  }
-  
-  public final void b(boolean paramBoolean)
-  {
-    if (i()) {
-      return;
-    }
-    a.b(paramBoolean);
-  }
-  
-  public final cop c()
-  {
-    if (i()) {
-      return null;
-    }
-    return a.d();
-  }
-  
-  public final void c(boolean paramBoolean)
-  {
-    if (i()) {
-      return;
-    }
-    a.c(paramBoolean);
-  }
-  
-  public final void d()
-  {
-    if (i()) {
-      return;
-    }
-    a.e();
-  }
-  
-  public final void e()
-  {
-    if (i()) {
-      return;
-    }
-    a.f();
-  }
-  
-  public final boolean f()
-  {
-    if (i()) {
-      return false;
-    }
-    return a.g();
-  }
-  
-  public final void g()
-  {
-    h();
-    a.a();
-    b = true;
+    return "Headers{clientId=" + a + ", mode=" + b + ", userAgent=" + c + "}";
   }
 }
 

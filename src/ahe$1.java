@@ -1,9 +1,14 @@
+import android.view.View;
+import android.view.View.OnClickListener;
+
 final class ahe$1
-  extends ahe
+  implements View.OnClickListener
 {
-  public final String a(String paramString1, String paramString2)
+  ahe$1(ahe paramahe) {}
+  
+  public final void onClick(View paramView)
   {
-    return paramString2;
+    a.a(true);
   }
 }
 

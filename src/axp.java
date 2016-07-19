@@ -1,47 +1,13 @@
-import java.io.IOException;
+import android.os.IInterface;
 
-public final class axp
-  extends IOException
+public abstract interface axp
+  extends IInterface
 {
-  private axp(String paramString)
-  {
-    super(paramString);
-  }
+  public abstract void a(azr paramazr);
   
-  static axp a()
-  {
-    return new axp("While parsing a protocol message, the input ended unexpectedly in the middle of a field.  This could mean either than the input has been truncated or that an embedded message misreported its own length.");
-  }
+  public abstract void b(azr paramazr);
   
-  static axp b()
-  {
-    return new axp("CodedInputStream encountered an embedded string or message which claimed to have negative size.");
-  }
-  
-  static axp c()
-  {
-    return new axp("CodedInputStream encountered a malformed varint.");
-  }
-  
-  static axp d()
-  {
-    return new axp("Protocol message contained an invalid tag (zero).");
-  }
-  
-  static axp e()
-  {
-    return new axp("Protocol message end-group tag did not match expected tag.");
-  }
-  
-  static axp f()
-  {
-    return new axp("Protocol message tag had invalid wire type.");
-  }
-  
-  static axp g()
-  {
-    return new axp("Protocol message had too many levels of nesting.  May be malicious.  Use CodedInputStream.setRecursionLimit() to increase the depth limit.");
-  }
+  public abstract void c(azr paramazr);
 }
 
 /* Location:

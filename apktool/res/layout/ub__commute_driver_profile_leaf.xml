@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="center" android:id="@id/ub__commute_driver_profile_frame" android:visibility="gone" android:layout_width="@dimen/ub__commute_disclaimer_profile_image_diameter" android:layout_height="@dimen/ub__commute_disclaimer_profile_image_diameter"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.CircleImageView android:id="@id/ub__commute_driver_profile_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/ub__account_image" android:scaleType="centerCrop" />
+    <FrameLayout android:layout_gravity="bottom|center|right" android:background="@drawable/ub__commute_driver_profile_green_leaf_background" android:layout_width="@dimen/ub__commute_driver_profile_leaf_size" android:layout_height="@dimen/ub__commute_driver_profile_leaf_size">
+        <ImageView android:layout_gravity="center" android:id="@id/ub__commute_button_opt_in_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/ub__commute_leaf_icon" android:scaleX="0.75" android:scaleY="0.75" />
+    </FrameLayout>
+</FrameLayout>

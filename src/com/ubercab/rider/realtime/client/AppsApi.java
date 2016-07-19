@@ -2,14 +2,14 @@ package com.ubercab.rider.realtime.client;
 
 import com.ubercab.rider.realtime.request.body.BootstrapRiderBody;
 import com.ubercab.rider.realtime.response.BootstrapRider;
-import kld;
+import odr;
 import retrofit.http.Body;
 import retrofit.http.POST;
 
 public abstract interface AppsApi
 {
   @POST("/rt/apps/bootstrap-rider")
-  public abstract kld<BootstrapRider> postBootstrapRider(@Body BootstrapRiderBody paramBootstrapRiderBody);
+  public abstract odr<BootstrapRider> postBootstrapRider(@Body BootstrapRiderBody paramBootstrapRiderBody);
 }
 
 /* Location:

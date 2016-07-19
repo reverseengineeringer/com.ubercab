@@ -1,6 +1,8 @@
+import com.google.android.gms.maps.model.Marker;
+
 public abstract interface aua
 {
-  public abstract void a(awg paramawg);
+  public abstract boolean b(Marker paramMarker);
 }
 
 /* Location:

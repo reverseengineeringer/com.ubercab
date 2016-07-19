@@ -1,96 +1,53 @@
-import java.util.List;
 import java.util.Map;
 
 public final class cnm
-  extends cno
+  extends cnh
 {
-  private boolean a;
-  private boolean b;
-  private long c;
-  private long d;
-  private String e;
-  private cns f;
-  private List<cnl> g;
-  private List<cno> h;
-  private Map<String, cno> i;
-  private Map<String, String> j;
+  private String a;
+  private String b;
+  private String c;
+  private Map<String, String> d;
   
-  final cno a(long paramLong)
+  final cnh a(String paramString)
   {
-    c = paramLong;
+    a = paramString;
     return this;
   }
   
-  final cno a(cns paramcns)
+  final cnh a(Map<String, String> paramMap)
   {
-    f = paramcns;
+    d = paramMap;
     return this;
   }
   
-  final cno a(String paramString)
-  {
-    e = paramString;
-    return this;
-  }
-  
-  final cno a(List<cnl> paramList)
-  {
-    g = paramList;
-    return this;
-  }
-  
-  final cno a(Map<String, cno> paramMap)
-  {
-    i = paramMap;
-    return this;
-  }
-  
-  final cno a(boolean paramBoolean)
-  {
-    b = paramBoolean;
-    return this;
-  }
-  
-  final boolean a()
+  final String a()
   {
     return a;
   }
   
-  final cno b()
+  final cnh b(String paramString)
   {
-    a = true;
+    b = paramString;
     return this;
   }
   
-  final cno b(long paramLong)
-  {
-    d = paramLong;
-    return this;
-  }
-  
-  final cno b(List<cno> paramList)
-  {
-    h = paramList;
-    return this;
-  }
-  
-  final cno b(Map<String, String> paramMap)
-  {
-    j = paramMap;
-    return this;
-  }
-  
-  final boolean c()
+  final String b()
   {
     return b;
   }
   
-  final long d()
+  final cnh c(String paramString)
+  {
+    c = paramString;
+    return this;
+  }
+  
+  final String c()
   {
     return c;
   }
   
-  final long e()
+  final Map<String, String> d()
   {
     return d;
   }
@@ -104,184 +61,89 @@ public final class cnm
       if ((paramObject == null) || (getClass() != paramObject.getClass())) {
         return false;
       }
-      paramObject = (cno)paramObject;
-      if (((cno)paramObject).a() != a()) {
-        return false;
-      }
-      if (((cno)paramObject).c() != c()) {
-        return false;
-      }
-      if (((cno)paramObject).d() != d()) {
-        return false;
-      }
-      if (((cno)paramObject).e() != e()) {
-        return false;
-      }
-      if (((cno)paramObject).f() != null)
+      paramObject = (cnh)paramObject;
+      if (((cnh)paramObject).a() != null)
       {
-        if (((cno)paramObject).f().equals(f())) {}
+        if (((cnh)paramObject).a().equals(a())) {}
       }
       else {
-        while (f() != null) {
+        while (a() != null) {
           return false;
         }
       }
-      if (((cno)paramObject).g() != null)
+      if (((cnh)paramObject).b() != null)
       {
-        if (((cno)paramObject).g().equals(g())) {}
+        if (((cnh)paramObject).b().equals(b())) {}
       }
       else {
-        while (g() != null) {
+        while (b() != null) {
           return false;
         }
       }
-      if (((cno)paramObject).h() != null)
+      if (((cnh)paramObject).c() != null)
       {
-        if (((cno)paramObject).h().equals(h())) {}
+        if (((cnh)paramObject).c().equals(c())) {}
       }
       else {
-        while (h() != null) {
+        while (c() != null) {
           return false;
         }
       }
-      if (((cno)paramObject).i() != null)
-      {
-        if (((cno)paramObject).i().equals(i())) {}
-      }
-      else {
-        while (i() != null) {
-          return false;
-        }
-      }
-      if (((cno)paramObject).j() != null)
-      {
-        if (((cno)paramObject).j().equals(j())) {}
-      }
-      else {
-        while (j() != null) {
-          return false;
-        }
-      }
-      if (((cno)paramObject).k() == null) {
+      if (((cnh)paramObject).d() == null) {
         break;
       }
-    } while (((cno)paramObject).k().equals(k()));
+    } while (((cnh)paramObject).d().equals(d()));
     for (;;)
     {
       return false;
-      if (k() == null) {
+      if (d() == null) {
         break;
       }
     }
-  }
-  
-  final String f()
-  {
-    return e;
-  }
-  
-  final cns g()
-  {
-    return f;
-  }
-  
-  final List<cnl> h()
-  {
-    return g;
   }
   
   public final int hashCode()
   {
-    int m = 1231;
-    int i3 = 0;
+    int m = 0;
+    int i;
+    int j;
+    label21:
     int k;
-    label25:
-    int i4;
-    label81:
-    label90:
-    int n;
-    label99:
-    int i1;
-    label109:
-    int i2;
-    if (a)
+    if (a == null)
     {
-      k = 1231;
-      if (!b) {
-        break label169;
+      i = 0;
+      if (b != null) {
+        break label69;
       }
-      i4 = (int)((int)(((k ^ 0xF4243) * 1000003 ^ m) * 1000003 ^ c >>> 32 ^ c) * 1000003 ^ d >>> 32 ^ d);
-      if (e != null) {
-        break label176;
+      j = 0;
+      if (c != null) {
+        break label80;
       }
       k = 0;
-      if (f != null) {
-        break label187;
-      }
-      m = 0;
-      if (g != null) {
-        break label198;
-      }
-      n = 0;
-      if (h != null) {
-        break label211;
-      }
-      i1 = 0;
-      if (i != null) {
-        break label225;
-      }
-      i2 = 0;
-      label119:
-      if (j != null) {
-        break label239;
+      label30:
+      if (d != null) {
+        break label91;
       }
     }
     for (;;)
     {
-      return (i2 ^ (i1 ^ (n ^ (m ^ (k ^ i4 * 1000003) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003 ^ i3;
-      k = 1237;
+      return (k ^ (j ^ (i ^ 0xF4243) * 1000003) * 1000003) * 1000003 ^ m;
+      i = a.hashCode();
       break;
-      label169:
-      m = 1237;
-      break label25;
-      label176:
-      k = e.hashCode();
-      break label81;
-      label187:
-      m = f.hashCode();
-      break label90;
-      label198:
-      n = g.hashCode();
-      break label99;
-      label211:
-      i1 = h.hashCode();
-      break label109;
-      label225:
-      i2 = i.hashCode();
-      break label119;
-      label239:
-      i3 = j.hashCode();
+      label69:
+      j = b.hashCode();
+      break label21;
+      label80:
+      k = c.hashCode();
+      break label30;
+      label91:
+      m = d.hashCode();
     }
-  }
-  
-  final List<cno> i()
-  {
-    return h;
-  }
-  
-  final Map<String, cno> j()
-  {
-    return i;
-  }
-  
-  final Map<String, String> k()
-  {
-    return j;
   }
   
   public final String toString()
   {
-    return "Span{isComplete=" + a + ", isRunning=" + b + ", beginTimestampMicroseconds=" + c + ", endTimestampMicroseconds=" + d + ", name=" + e + ", clock=" + f + ", events=" + g + ", spanList=" + h + ", spanMap=" + i + ", attributes=" + j + "}";
+    return "CommonTags{clientVersion=" + a + ", deviceModel=" + b + ", deviceOs=" + c + ", additionalAttributes=" + d + "}";
   }
 }
 

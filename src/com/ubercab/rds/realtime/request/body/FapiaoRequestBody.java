@@ -4,12 +4,12 @@ import com.ubercab.shape.Shape;
 import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class FapiaoRequestBody
-  extends jvq<FapiaoRequestBody>
+  extends nba<FapiaoRequestBody>
 {
   public static FapiaoRequestBody create()
   {
@@ -34,12 +34,12 @@ public abstract class FapiaoRequestBody
   
   public abstract String getTitle();
   
-  protected Object onGet(jvr<FapiaoRequestBody> paramjvr, Object paramObject)
+  protected Object onGet(nbb<FapiaoRequestBody> paramnbb, Object paramObject)
   {
     if (paramObject != null) {
       return paramObject;
     }
-    switch (FapiaoRequestBody.1.$SwitchMap$com$ubercab$rds$realtime$request$body$Shape_FapiaoRequestBody$Property[((Shape_FapiaoRequestBody.Property)paramjvr).ordinal()])
+    switch (FapiaoRequestBody.1.$SwitchMap$com$ubercab$rds$realtime$request$body$Shape_FapiaoRequestBody$Property[((Shape_FapiaoRequestBody.Property)paramnbb).ordinal()])
     {
     default: 
       return null;

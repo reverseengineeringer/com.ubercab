@@ -4,7 +4,7 @@ import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.pm.ResolveInfo;
 import android.os.Build.VERSION;
 
-public class AccessibilityServiceInfoCompat
+public final class AccessibilityServiceInfoCompat
 {
   public static final int CAPABILITY_CAN_FILTER_KEY_EVENTS = 8;
   public static final int CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY = 4;

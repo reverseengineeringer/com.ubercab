@@ -1,119 +1,54 @@
+import com.ubercab.android.location.UberLatLng;
+import com.ubercab.android.location.UberLatLngBounds;
+
 public final class clw
-  implements clv
 {
-  private clz a;
-  private cnj b;
-  private cnq c;
-  private boolean d;
+  private double a = Double.POSITIVE_INFINITY;
+  private double b = Double.NEGATIVE_INFINITY;
+  private double c = NaN.0D;
+  private double d = NaN.0D;
   
-  private clw(clz paramclz, cnj paramcnj, cnq paramcnq)
+  private boolean a(double paramDouble)
   {
-    a = paramclz;
-    b = paramcnj;
-    c = paramcnq;
-  }
-  
-  /* Error */
-  public final void a()
-  {
-    // Byte code:
-    //   0: aload_0
-    //   1: monitorenter
-    //   2: aload_0
-    //   3: getfield 31	clw:d	Z
-    //   6: istore_1
-    //   7: iload_1
-    //   8: ifeq +6 -> 14
-    //   11: aload_0
-    //   12: monitorexit
-    //   13: return
-    //   14: aload_0
-    //   15: iconst_1
-    //   16: putfield 31	clw:d	Z
-    //   19: aload_0
-    //   20: getfield 21	clw:a	Lclz;
-    //   23: invokevirtual 35	clz:a	()V
-    //   26: aload_0
-    //   27: getfield 23	clw:b	Lcnj;
-    //   30: ifnull -19 -> 11
-    //   33: aload_0
-    //   34: getfield 23	clw:b	Lcnj;
-    //   37: invokevirtual 38	cnj:a	()V
-    //   40: goto -29 -> 11
-    //   43: astore_2
-    //   44: aload_0
-    //   45: monitorexit
-    //   46: aload_2
-    //   47: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	48	0	this	clw
-    //   6	2	1	bool	boolean
-    //   43	4	2	localObject	Object
-    // Exception table:
-    //   from	to	target	type
-    //   2	7	43	finally
-    //   14	40	43	finally
-  }
-  
-  /* Error */
-  public final void b()
-  {
-    // Byte code:
-    //   0: aload_0
-    //   1: monitorenter
-    //   2: aload_0
-    //   3: getfield 31	clw:d	Z
-    //   6: istore_1
-    //   7: iload_1
-    //   8: ifne +6 -> 14
-    //   11: aload_0
-    //   12: monitorexit
-    //   13: return
-    //   14: aload_0
-    //   15: iconst_0
-    //   16: putfield 31	clw:d	Z
-    //   19: aload_0
-    //   20: getfield 23	clw:b	Lcnj;
-    //   23: ifnull +10 -> 33
-    //   26: aload_0
-    //   27: getfield 23	clw:b	Lcnj;
-    //   30: invokevirtual 40	cnj:b	()V
-    //   33: aload_0
-    //   34: getfield 21	clw:a	Lclz;
-    //   37: invokevirtual 41	clz:b	()V
-    //   40: goto -29 -> 11
-    //   43: astore_2
-    //   44: aload_0
-    //   45: monitorexit
-    //   46: aload_2
-    //   47: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	48	0	this	clw
-    //   6	2	1	bool	boolean
-    //   43	4	2	localObject	Object
-    // Exception table:
-    //   from	to	target	type
-    //   2	7	43	finally
-    //   14	33	43	finally
-    //   33	40	43	finally
-  }
-  
-  public final cnj c()
-  {
-    if (b == null) {
-      throw new IllegalStateException("M4: PluginManager has not been enabled.");
+    if (c <= d) {
+      if ((c > paramDouble) || (paramDouble > d)) {}
     }
-    return b;
+    while ((c <= paramDouble) || (paramDouble <= d))
+    {
+      return true;
+      return false;
+    }
+    return false;
   }
   
-  public final cnq d()
+  public final clw a(UberLatLng paramUberLatLng)
   {
-    if (c == null) {
-      throw new IllegalStateException("M4: TraceKit has not been enabled.");
+    a = Math.min(a, paramUberLatLng.a());
+    b = Math.max(b, paramUberLatLng.a());
+    double d1 = paramUberLatLng.b();
+    if (Double.isNaN(c))
+    {
+      c = d1;
+      d = d1;
     }
-    return c;
+    while (a(d1)) {
+      return this;
+    }
+    if (UberLatLngBounds.a(c, d1) < UberLatLngBounds.b(d, d1))
+    {
+      c = d1;
+      return this;
+    }
+    d = d1;
+    return this;
+  }
+  
+  public final UberLatLngBounds a()
+  {
+    if ((Double.isInfinite(a)) || (Double.isInfinite(b))) {
+      throw new IllegalStateException("Bounds must have at least two points");
+    }
+    return new UberLatLngBounds(new UberLatLng(a, c), new UberLatLng(b, d));
   }
 }
 

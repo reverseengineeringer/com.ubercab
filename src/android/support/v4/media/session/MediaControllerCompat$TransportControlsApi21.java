@@ -39,7 +39,16 @@ class MediaControllerCompat$TransportControlsApi21
     MediaControllerCompatApi21.TransportControls.playFromSearch(mControlsObj, paramString, paramBundle);
   }
   
-  public void playFromUri(Uri paramUri, Bundle paramBundle) {}
+  public void playFromUri(Uri paramUri, Bundle paramBundle)
+  {
+    if ((paramUri == null) || (Uri.EMPTY.equals(paramUri))) {
+      throw new IllegalArgumentException("You must specify a non-empty Uri for playFromUri.");
+    }
+    Bundle localBundle = new Bundle();
+    localBundle.putParcelable("android.support.v4.media.session.action.ARGUMENT_URI", paramUri);
+    localBundle.putParcelable("android.support.v4.media.session.action.ARGUMENT_EXTRAS", paramBundle);
+    sendCustomAction("android.support.v4.media.session.action.PLAY_FROM_URI", localBundle);
+  }
   
   public void rewind()
   {

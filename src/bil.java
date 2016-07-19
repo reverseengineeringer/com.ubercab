@@ -1,69 +1,62 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.VisibleRegion;
+import java.util.Map.Entry;
 
-public final class bil
-  implements Parcelable.Creator<VisibleRegion>
+abstract class bil<K, V>
+  implements Map.Entry<K, V>
 {
-  public static VisibleRegion a(Parcel paramParcel)
+  public boolean equals(Object paramObject)
   {
-    LatLngBounds localLatLngBounds = null;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    LatLng localLatLng1 = null;
-    LatLng localLatLng2 = null;
-    LatLng localLatLng3 = null;
-    LatLng localLatLng4 = null;
-    while (paramParcel.dataPosition() < j)
+    boolean bool2 = false;
+    boolean bool1 = bool2;
+    if ((paramObject instanceof Map.Entry))
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      paramObject = (Map.Entry)paramObject;
+      bool1 = bool2;
+      if (bhv.a(getKey(), ((Map.Entry)paramObject).getKey()))
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        localLatLng4 = (LatLng)zm.a(paramParcel, k, LatLng.CREATOR);
-        break;
-      case 3: 
-        localLatLng3 = (LatLng)zm.a(paramParcel, k, LatLng.CREATOR);
-        break;
-      case 4: 
-        localLatLng2 = (LatLng)zm.a(paramParcel, k, LatLng.CREATOR);
-        break;
-      case 5: 
-        localLatLng1 = (LatLng)zm.a(paramParcel, k, LatLng.CREATOR);
-        break;
-      case 6: 
-        localLatLngBounds = (LatLngBounds)zm.a(paramParcel, k, LatLngBounds.CREATOR);
+        bool1 = bool2;
+        if (bhv.a(getValue(), ((Map.Entry)paramObject).getValue())) {
+          bool1 = true;
+        }
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    return bool1;
+  }
+  
+  public abstract K getKey();
+  
+  public abstract V getValue();
+  
+  public int hashCode()
+  {
+    int j = 0;
+    Object localObject1 = getKey();
+    Object localObject2 = getValue();
+    int i;
+    if (localObject1 == null)
+    {
+      i = 0;
+      if (localObject2 != null) {
+        break label36;
+      }
     }
-    return new VisibleRegion(i, localLatLng4, localLatLng3, localLatLng2, localLatLng1, localLatLngBounds);
+    for (;;)
+    {
+      return j ^ i;
+      i = localObject1.hashCode();
+      break;
+      label36:
+      j = localObject2.hashCode();
+    }
   }
   
-  public static void a(VisibleRegion paramVisibleRegion, Parcel paramParcel, int paramInt)
+  public V setValue(V paramV)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramVisibleRegion.a());
-    zo.a(paramParcel, 2, a, paramInt, false);
-    zo.a(paramParcel, 3, b, paramInt, false);
-    zo.a(paramParcel, 4, c, paramInt, false);
-    zo.a(paramParcel, 5, d, paramInt, false);
-    zo.a(paramParcel, 6, e, paramInt, false);
-    zo.a(paramParcel, i);
+    throw new UnsupportedOperationException();
   }
   
-  private static VisibleRegion[] a(int paramInt)
+  public String toString()
   {
-    return new VisibleRegion[paramInt];
+    return getKey() + "=" + getValue();
   }
 }
 

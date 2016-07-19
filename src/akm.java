@@ -1,39 +1,45 @@
-import android.os.Handler;
-import java.util.concurrent.Executor;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import com.google.android.gms.clearcut.LogEventParcelable;
 
-public final class akm
-  implements aup
+public abstract class akm
+  extends Binder
+  implements akl
 {
-  private final Executor a;
-  
-  public akm(final Handler paramHandler)
+  public static akl a(IBinder paramIBinder)
   {
-    a = new Executor()
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.clearcut.internal.IClearcutLoggerService");
+    if ((localIInterface != null) && ((localIInterface instanceof akl))) {
+      return (akl)localIInterface;
+    }
+    return new akn(paramIBinder);
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    switch (paramInt1)
     {
-      public final void execute(Runnable paramAnonymousRunnable)
-      {
-        paramHandler.post(paramAnonymousRunnable);
-      }
-    };
-  }
-  
-  public final void a(atg<?> paramatg, atz<?> paramatz)
-  {
-    a(paramatg, paramatz, null);
-  }
-  
-  public final void a(atg<?> paramatg, atz<?> paramatz, Runnable paramRunnable)
-  {
-    paramatg.l();
-    paramatg.a("post-response");
-    a.execute(new akn(this, paramatg, paramatz, paramRunnable));
-  }
-  
-  public final void a(atg<?> paramatg, awg paramawg)
-  {
-    paramatg.a("post-error");
-    paramawg = atz.a(paramawg);
-    a.execute(new akn(this, paramatg, paramawg, null));
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.clearcut.internal.IClearcutLoggerService");
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.clearcut.internal.IClearcutLoggerService");
+    paramParcel2 = akj.a(paramParcel1.readStrongBinder());
+    if (paramParcel1.readInt() != 0) {
+      vn localvn = LogEventParcelable.CREATOR;
+    }
+    for (paramParcel1 = vn.a(paramParcel1);; paramParcel1 = null)
+    {
+      a(paramParcel2, paramParcel1);
+      return true;
+    }
   }
 }
 

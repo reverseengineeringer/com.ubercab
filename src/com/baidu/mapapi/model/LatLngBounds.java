@@ -1,9 +1,21 @@
 package com.baidu.mapapi.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.os.Parcelable.Creator;
+
 public final class LatLngBounds
+  implements Parcelable
 {
+  public static final Parcelable.Creator<LatLngBounds> CREATOR = new b();
   public final LatLng northeast;
   public final LatLng southwest;
+  
+  protected LatLngBounds(Parcel paramParcel)
+  {
+    northeast = ((LatLng)paramParcel.readParcelable(LatLng.class.getClassLoader()));
+    southwest = ((LatLng)paramParcel.readParcelable(LatLng.class.getClassLoader()));
+  }
   
   LatLngBounds(LatLng paramLatLng1, LatLng paramLatLng2)
   {
@@ -33,6 +45,11 @@ public final class LatLngBounds
     return true;
   }
   
+  public final int describeContents()
+  {
+    return 0;
+  }
+  
   public final LatLng getCenter()
   {
     return new LatLng((northeast.latitude - southwest.latitude) / 2.0D + southwest.latitude, (northeast.longitude - southwest.longitude) / 2.0D + southwest.longitude);
@@ -51,6 +68,12 @@ public final class LatLngBounds
     localStringBuilder.append(", ");
     localStringBuilder.append(northeast.longitude);
     return localStringBuilder.toString();
+  }
+  
+  public final void writeToParcel(Parcel paramParcel, int paramInt)
+  {
+    paramParcel.writeParcelable(northeast, paramInt);
+    paramParcel.writeParcelable(southwest, paramInt);
   }
 }
 

@@ -1,103 +1,32 @@
-import com.google.android.gms.ads.internal.reward.mediation.client.RewardItemParcel;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-@apl
 public final class alk
 {
-  public final List<alj> a;
-  public final long b;
-  public final List<String> c;
-  public final List<String> d;
-  public final List<String> e;
-  public final String f;
-  public final long g;
-  public final String h;
-  public final int i;
-  public final int j;
-  public final long k;
-  public int l;
-  public int m;
-  
-  public alk(String paramString)
+  public static int a(byte[] paramArrayOfByte, int paramInt)
   {
-    paramString = new JSONObject(paramString);
-    if (aqt.a(2)) {
-      aqt.e("Mediation Response JSON: " + paramString.toString(2));
-    }
-    JSONArray localJSONArray = paramString.getJSONArray("ad_networks");
-    ArrayList localArrayList = new ArrayList(localJSONArray.length());
-    int n = 0;
-    int i2;
-    for (int i1 = -1; n < localJSONArray.length(); i1 = i2)
+    int k = 0;
+    int m = 0;
+    int n = (paramInt & 0xFFFFFFFC) + 0;
+    int j = 0;
+    for (int i = 0; j < n; i = -430675100 + (i >>> 19 | i << 13) * 5)
     {
-      alj localalj = new alj(localJSONArray.getJSONObject(n));
-      localArrayList.add(localalj);
-      i2 = i1;
-      if (i1 < 0)
-      {
-        i2 = i1;
-        if (a(localalj)) {
-          i2 = n;
-        }
-      }
-      n += 1;
+      int i1 = (paramArrayOfByte[j] & 0xFF | (paramArrayOfByte[(j + 1)] & 0xFF) << 8 | (paramArrayOfByte[(j + 2)] & 0xFF) << 16 | paramArrayOfByte[(j + 3)] << 24) * -862048943;
+      i ^= (i1 >>> 17 | i1 << 15) * 461845907;
+      j += 4;
     }
-    l = i1;
-    m = localJSONArray.length();
-    a = Collections.unmodifiableList(localArrayList);
-    f = paramString.getString("qdata");
-    j = paramString.optInt("fs_model_type", -1);
-    k = paramString.optLong("timeout_ms", -1L);
-    paramString = paramString.optJSONObject("settings");
-    if (paramString != null)
+    j = m;
+    switch (paramInt & 0x3)
     {
-      b = paramString.optLong("ad_network_timeout_millis", -1L);
-      tp.r();
-      c = alq.a(paramString, "click_urls");
-      tp.r();
-      d = alq.a(paramString, "imp_urls");
-      tp.r();
-      e = alq.a(paramString, "nofill_urls");
-      long l1 = paramString.optLong("refresh", -1L);
-      if (l1 > 0L) {}
-      for (l1 *= 1000L;; l1 = -1L)
-      {
-        g = l1;
-        paramString = RewardItemParcel.a(paramString.optJSONArray("rewards"));
-        if (paramString != null) {
-          break;
-        }
-        h = null;
-        i = 0;
-        return;
-      }
-      h = b;
-      i = c;
-      return;
     }
-    b = -1L;
-    c = null;
-    d = null;
-    e = null;
-    g = -1L;
-    h = null;
-    i = 0;
-  }
-  
-  private static boolean a(alj paramalj)
-  {
-    paramalj = c.iterator();
-    while (paramalj.hasNext()) {
-      if (((String)paramalj.next()).equals("com.google.ads.mediation.admob.AdMobAdapter")) {
-        return true;
-      }
+    for (;;)
+    {
+      paramInt = i ^ paramInt;
+      paramInt = (paramInt ^ paramInt >>> 16) * -2048144789;
+      paramInt = (paramInt ^ paramInt >>> 13) * -1028477387;
+      return paramInt ^ paramInt >>> 16;
+      j = (paramArrayOfByte[(n + 2)] & 0xFF) << 16;
+      k = j | (paramArrayOfByte[(n + 1)] & 0xFF) << 8;
+      j = (k | paramArrayOfByte[n] & 0xFF) * -862048943;
+      i = (j >>> 17 | j << 15) * 461845907 ^ i;
     }
-    return false;
   }
 }
 

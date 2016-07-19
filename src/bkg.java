@@ -1,41 +1,19 @@
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
+import java.io.Serializable;
 
-public final class bkg
+final class bkg<K, V>
+  implements Serializable
 {
-  private final String b;
-  private final boolean c;
-  private boolean d;
-  private boolean e;
+  private static final long serialVersionUID = 1L;
+  private final biv<K, V> a;
   
-  public bkg(bkf parambkf, String paramString)
+  bkg(biv<K, V> parambiv)
   {
-    abs.a(paramString);
-    b = paramString;
-    c = true;
+    a = parambiv;
   }
   
-  private void b()
+  final Object readResolve()
   {
-    if (d) {
-      return;
-    }
-    d = true;
-    e = bkf.a(a).getBoolean(b, c);
-  }
-  
-  public final void a(boolean paramBoolean)
-  {
-    SharedPreferences.Editor localEditor = bkf.a(a).edit();
-    localEditor.putBoolean(b, paramBoolean);
-    localEditor.apply();
-    e = paramBoolean;
-  }
-  
-  public final boolean a()
-  {
-    b();
-    return e;
+    return a.b();
   }
 }
 

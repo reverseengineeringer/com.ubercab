@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jug;
+import mzo;
 
 @Shape
 abstract class ObjectRewardInfo
-  implements jug
+  implements mzo
 {
   private static final String ELIGIBLE_TO_EARN = "E";
   private static final String ELIGIBLE_TO_EARN_OR_BURN = "B";

@@ -5,18 +5,18 @@ import android.text.Selection;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import com.ubercab.ui.EditText;
-import gdk;
-import gdl;
-import jzm;
+import hdf;
+import hdg;
+import ngd;
 
 @Deprecated
 public final class CreditCardEditText
   extends EditText
-  implements jzm
+  implements ngd
 {
   private boolean a;
   private String b;
-  private gdk c;
+  private hdf c;
   private String d;
   
   public CreditCardEditText(Context paramContext)
@@ -34,25 +34,25 @@ public final class CreditCardEditText
     super(paramContext, paramAttributeSet, paramInt);
     setInputType(2);
     if (!isInEditMode()) {
-      setHint(2131166849);
+      setHint(2131167211);
     }
   }
   
-  public final boolean V_()
+  public final boolean Z_()
   {
     return a;
   }
   
-  public final void a(gdk paramgdk)
+  public final void a(hdf paramhdf)
   {
-    c = paramgdk;
+    c = paramhdf;
   }
   
   public final boolean c()
   {
-    String str1 = gdl.a(b);
+    String str1 = hdg.a(b);
     String str2 = getText().toString().replaceAll("\\s", "");
-    return (!TextUtils.isEmpty(str1)) && (str2.length() == gdl.d(str1)) && (V_());
+    return (!TextUtils.isEmpty(str1)) && (str2.length() == hdg.d(str1)) && (Z_());
   }
   
   protected final void onAttachedToWindow()
@@ -71,13 +71,13 @@ public final class CreditCardEditText
     Object localObject = d;
     paramCharSequence = (CharSequence)localObject;
     if (localObject == null) {
-      paramCharSequence = gdl.a(str);
+      paramCharSequence = hdg.a(str);
     }
-    b = gdl.c(paramCharSequence, str);
-    a = gdl.a(paramCharSequence, b);
+    b = hdg.c(paramCharSequence, str);
+    a = hdg.a(paramCharSequence, b);
     localObject = getContext();
     if (localObject != null) {
-      setCompoundDrawablesWithIntrinsicBounds(gdl.a((Context)localObject, paramCharSequence), null, null, null);
+      setCompoundDrawablesWithIntrinsicBounds(hdg.a((Context)localObject, paramCharSequence), null, null, null);
     }
     if (c != null) {
       c.a(this, a, paramCharSequence);

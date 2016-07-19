@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+<com.ubercab.client.feature.trip.chat.AudioComposerView android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <com.ubercab.ui.TextView android:textColor="@color/ub__uber_blue_100" android:layout_gravity="center" android:id="@id/ub__chat_textview_recording_status" android:paddingTop="@dimen/ub__padding_medium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__margin_medium" android:text="@string/hold_to_talk" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:textAllCaps="true" />
     <com.ubercab.ui.TextView android:textColor="@color/ub__white" android:layout_gravity="end|center" android:id="@id/ub__chat_textview_timer" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:layout_alignBaseline="@id/ub__chat_textview_recording_status" android:layout_alignParentRight="true" android:layout_marginEnd="@dimen/ub__margin_medium" android:layout_alignParentEnd="true" />
     <com.ubercab.client.feature.trip.chat.RecordButton android:layout_gravity="center" android:id="@id/ub__chat_recordbutton" android:background="@drawable/ub__chat_recordbutton_background" android:layout_width="72.0dip" android:layout_height="72.0dip" android:scaleType="centerInside" android:layout_below="@id/ub__chat_textview_recording_status" android:layout_centerHorizontal="true" />
     <android.support.v4.widget.Space android:layout_width="0.0dip" android:layout_height="@dimen/ub__padding_medium" android:layout_below="@id/ub__chat_recordbutton" />
     <View android:id="@id/ub__chat_view_recording_ripple" android:background="@drawable/ub__shape_round_white" android:visibility="gone" android:layout_width="72.0dip" android:layout_height="72.0dip" android:layout_alignLeft="@id/ub__chat_recordbutton" android:layout_alignTop="@id/ub__chat_recordbutton" />
-</RelativeLayout>
+</com.ubercab.client.feature.trip.chat.AudioComposerView>

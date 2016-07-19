@@ -2,11 +2,11 @@ package com.ubercab.rider.realtime.object;
 
 import com.ubercab.rider.realtime.model.MobileMessage;
 import com.ubercab.shape.Shape;
-import jtv;
+import mzd;
 
 @Shape
 abstract class ObjectMobileMessage
-  implements jtv
+  implements mzd
 {
   public boolean equals(Object paramObject)
   {

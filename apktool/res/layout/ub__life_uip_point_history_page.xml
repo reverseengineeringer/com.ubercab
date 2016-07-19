@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:background="@color/ub__uber_white_80" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:showDividers="end">
+        <android.support.v7.widget.Toolbar android:theme="@style/ThemeOverlay.AppCompat.ActionBar" android:id="@id/ub__life_point_history_toolbar" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="?actionBarSize" android:title="@string/ub__life_uip_point_history_title" app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            <ImageView android:layout_gravity="right" android:id="@id/ub__life_point_history_toolbar_help" android:layout_width="@dimen/ui__icon_small" android:layout_height="@dimen/ui__icon_small" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:src="@drawable/ub__life_help" android:scaleType="fitXY" android:adjustViewBounds="true" />
+        </android.support.v7.widget.Toolbar>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:padding="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:layout_width="@dimen/ub__life_uip_pointhistory_coin_size" android:layout_height="@dimen/ub__life_uip_pointhistory_coin_size" android:src="@drawable/ub__life_uip_coin" />
+                <com.ubercab.ui.TextView android:textSize="@dimen/ub__life_uip_pointhistory_point_size" android:id="@id/ub__life_uip_point_history_points" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:text="" style="@style/Uber.TextAppearance.DisplayLarge" />
+            </LinearLayout>
+            <com.ubercab.ui.TextView android:id="@id/ub__life_uip_point_history_msg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="" style="@style/Uber.TextAppearance.H2" />
+            <com.ubercab.ui.TextView android:id="@id/ub__life_uip_point_history_expiringtag" android:text="" style="@style/Uber.TextAppearance.Life.History.ExpiringTag" />
+        </LinearLayout>
+        <LinearLayout android:gravity="left" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:id="@id/ub__life_uip_point_history_transaction_title" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" style="@style/Uber.TextAppearance.H3" />
+            <com.ubercab.ui.collection.RecyclerView android:id="@id/ub__life_uip_history_recyclerview" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/ui__spacing_unit_1x" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

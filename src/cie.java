@@ -1,8 +1,32 @@
+import android.content.ContentResolver;
+import android.content.Context;
 import android.net.Uri;
+import java.io.InputStream;
 
-public abstract interface cie
+class cie
+  extends cjn
 {
-  public abstract cif a(Uri paramUri, int paramInt);
+  final Context a;
+  
+  cie(Context paramContext)
+  {
+    a = paramContext;
+  }
+  
+  public boolean a(cjk paramcjk)
+  {
+    return "content".equals(d.getScheme());
+  }
+  
+  public cjo b(cjk paramcjk)
+  {
+    return new cjo(c(paramcjk), cje.b);
+  }
+  
+  final InputStream c(cjk paramcjk)
+  {
+    return a.getContentResolver().openInputStream(d);
+  }
 }
 
 /* Location:

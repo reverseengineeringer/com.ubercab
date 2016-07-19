@@ -1,97 +1,149 @@
-import android.content.Context;
-import android.os.Handler;
-import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
-import com.google.android.gms.ads.internal.request.AdResponseParcel;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-@apl
-public abstract class aor
-  implements arj<Void>, ass
+public final class aor
+  extends aoc<aor>
 {
-  protected final aoy a;
-  protected final Context b;
-  protected final asq c;
-  protected final aqk d;
-  protected AdResponseParcel e;
-  protected final Object f = new Object();
-  private Runnable g;
-  private AtomicBoolean h = new AtomicBoolean(true);
+  private static volatile aor[] d;
+  public String b;
+  public String c;
   
-  protected aor(Context paramContext, aqk paramaqk, asq paramasq, aoy paramaoy)
+  public aor()
   {
-    b = paramContext;
-    d = paramaqk;
-    e = d.b;
-    c = paramasq;
-    a = paramaoy;
+    f();
   }
   
-  private aqj b(int paramInt)
+  private aor b(anz paramanz)
   {
-    AdRequestInfoParcel localAdRequestInfoParcel = d.a;
-    return new aqj(c, c, e.d, paramInt, e.f, e.j, e.l, e.k, i, e.h, null, null, null, null, null, e.i, d.d, e.g, d.f, e.n, e.o, d.h, null, e.D, e.E, e.F, e.G);
-  }
-  
-  private Void c()
-  {
-    abs.b("Webview render task needs to be called on UI thread.");
-    g = new Runnable()
+    for (;;)
     {
-      public final void run()
+      int i = paramanz.a();
+      switch (i)
       {
-        if (!aor.a(aor.this).get()) {
-          return;
-        }
-        aqt.b("Timed out waiting for WebView to finish loading.");
-        d();
+      default: 
+        if (a(paramanz, i)) {}
+        break;
+      case 0: 
+        return this;
+      case 10: 
+        b = paramanz.g();
+        break;
+      case 18: 
+        c = paramanz.g();
       }
-    };
-    aqz.a.postDelayed(g, ((Long)agz.ay.c()).longValue());
-    a();
-    return null;
+    }
   }
   
-  protected abstract void a();
-  
-  protected void a(int paramInt)
+  public static aor[] e()
   {
-    if (paramInt != -2) {
-      e = new AdResponseParcel(paramInt, e.k);
-    }
-    c.e();
-    a.b(b(paramInt));
-  }
-  
-  public final void a(asq paramasq, boolean paramBoolean)
-  {
-    aqt.a("WebView finished loading.");
-    if (!h.getAndSet(false)) {
-      return;
-    }
-    if (paramBoolean) {}
-    for (int i = b();; i = -1)
+    if (d == null) {}
+    synchronized (aog.a)
     {
-      a(i);
-      aqz.a.removeCallbacks(g);
-      return;
+      if (d == null) {
+        d = new aor[0];
+      }
+      return d;
     }
   }
   
-  protected int b()
+  private aor f()
   {
-    return -2;
+    b = "";
+    c = "";
+    a = null;
+    B = -1;
+    return this;
   }
   
-  public void d()
+  public final void a(aoa paramaoa)
   {
-    if (!h.getAndSet(false)) {
-      return;
+    if (!b.equals("")) {
+      paramaoa.a(1, b);
     }
-    c.stopLoading();
-    tp.g();
-    arb.a(c);
-    a(-1);
-    aqz.a.removeCallbacks(g);
+    if (!c.equals("")) {
+      paramaoa.a(2, c);
+    }
+    super.a(paramaoa);
+  }
+  
+  protected final int b()
+  {
+    int j = super.b();
+    int i = j;
+    if (!b.equals("")) {
+      i = j + aoa.b(1, b);
+    }
+    j = i;
+    if (!c.equals("")) {
+      j = i + aoa.b(2, c);
+    }
+    return j;
+  }
+  
+  public final boolean equals(Object paramObject)
+  {
+    if (paramObject == this) {}
+    do
+    {
+      return true;
+      if (!(paramObject instanceof aor)) {
+        return false;
+      }
+      paramObject = (aor)paramObject;
+      if (b == null)
+      {
+        if (b != null) {
+          return false;
+        }
+      }
+      else if (!b.equals(b)) {
+        return false;
+      }
+      if (c == null)
+      {
+        if (c != null) {
+          return false;
+        }
+      }
+      else if (!c.equals(c)) {
+        return false;
+      }
+      if ((a != null) && (!a.b())) {
+        break;
+      }
+    } while ((a == null) || (a.b()));
+    return false;
+    return a.equals(a);
+  }
+  
+  public final int hashCode()
+  {
+    int m = 0;
+    int n = getClass().getName().hashCode();
+    int i;
+    int j;
+    if (b == null)
+    {
+      i = 0;
+      if (c != null) {
+        break label89;
+      }
+      j = 0;
+      label33:
+      k = m;
+      if (a != null) {
+        if (!a.b()) {
+          break label100;
+        }
+      }
+    }
+    label89:
+    label100:
+    for (int k = m;; k = a.hashCode())
+    {
+      return (j + (i + (n + 527) * 31) * 31) * 31 + k;
+      i = b.hashCode();
+      break;
+      j = c.hashCode();
+      break label33;
+    }
   }
 }
 

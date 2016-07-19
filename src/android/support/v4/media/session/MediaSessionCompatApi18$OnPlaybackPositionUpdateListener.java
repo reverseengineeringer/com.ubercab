@@ -2,7 +2,7 @@ package android.support.v4.media.session;
 
 import android.media.RemoteControlClient.OnPlaybackPositionUpdateListener;
 
-class MediaSessionCompatApi18$OnPlaybackPositionUpdateListener<T extends MediaSessionCompatApi14.Callback>
+class MediaSessionCompatApi18$OnPlaybackPositionUpdateListener<T extends MediaSessionCompatApi18.Callback>
   implements RemoteControlClient.OnPlaybackPositionUpdateListener
 {
   protected final T mCallback;

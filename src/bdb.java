@@ -1,111 +1,68 @@
-import android.os.Binder;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
+import com.google.android.gms.playlog.internal.LogEvent;
 
-public abstract class bdb
-  extends Binder
-  implements bda
+public final class bdb
+  implements Parcelable.Creator<LogEvent>
 {
-  public static bda a(IBinder paramIBinder)
+  private static LogEvent a(Parcel paramParcel)
   {
-    if (paramIBinder == null) {
-      return null;
+    long l1 = 0L;
+    Bundle localBundle = null;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    byte[] arrayOfByte = null;
+    String str = null;
+    long l2 = 0L;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        l2 = zd.g(paramParcel, k);
+        break;
+      case 3: 
+        str = zd.n(paramParcel, k);
+        break;
+      case 4: 
+        arrayOfByte = zd.q(paramParcel, k);
+        break;
+      case 5: 
+        localBundle = zd.p(paramParcel, k);
+        break;
+      case 6: 
+        l1 = zd.g(paramParcel, k);
+      }
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-    if ((localIInterface != null) && ((localIInterface instanceof bda))) {
-      return (bda)localIInterface;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new bdc(paramIBinder);
+    return new LogEvent(i, l2, l1, str, arrayOfByte, localBundle);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static void a(LogEvent paramLogEvent, Parcel paramParcel)
   {
-    Object localObject2 = null;
-    Object localObject3 = null;
-    bcu localbcu = null;
-    Object localObject1 = null;
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-      localbcu = a();
-      paramParcel2.writeNoException();
-      paramParcel1 = (Parcel)localObject1;
-      if (localbcu != null) {
-        paramParcel1 = localbcu.asBinder();
-      }
-      paramParcel2.writeStrongBinder(paramParcel1);
-      return true;
-    case 2: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-      localObject1 = localObject2;
-      if (paramParcel1.readInt() != 0) {
-        localObject1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);
-      }
-      a((Bundle)localObject1);
-      paramParcel2.writeNoException();
-      return true;
-    case 3: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-      b();
-      paramParcel2.writeNoException();
-      return true;
-    case 4: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-      c();
-      paramParcel2.writeNoException();
-      return true;
-    case 5: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-      d();
-      paramParcel2.writeNoException();
-      return true;
-    case 6: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-      e();
-      paramParcel2.writeNoException();
-      return true;
-    case 7: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-      localObject1 = localObject3;
-      if (paramParcel1.readInt() != 0) {
-        localObject1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);
-      }
-      b((Bundle)localObject1);
-      paramParcel2.writeNoException();
-      if (localObject1 != null)
-      {
-        paramParcel2.writeInt(1);
-        ((Bundle)localObject1).writeToParcel(paramParcel2, 1);
-      }
-      for (;;)
-      {
-        return true;
-        paramParcel2.writeInt(0);
-      }
-    case 8: 
-      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-      localObject1 = f();
-      paramParcel2.writeNoException();
-      paramParcel1 = localbcu;
-      if (localObject1 != null) {
-        paramParcel1 = ((add)localObject1).asBinder();
-      }
-      paramParcel2.writeStrongBinder(paramParcel1);
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-    a(bdk.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    return true;
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, b);
+    zf.a(paramParcel, 3, d, false);
+    zf.a(paramParcel, 4, e);
+    zf.a(paramParcel, 5, f);
+    zf.a(paramParcel, 6, c);
+    zf.a(paramParcel, i);
+  }
+  
+  private static LogEvent[] a(int paramInt)
+  {
+    return new LogEvent[paramInt];
   }
 }
 

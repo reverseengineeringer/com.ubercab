@@ -1,26 +1,37 @@
-public final class brv
-  extends Exception
+import org.apache.http.Header;
+import org.apache.http.HeaderElement;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpResponseInterceptor;
+import org.apache.http.protocol.HttpContext;
+
+final class brv
+  implements HttpResponseInterceptor
 {
-  private brw a;
-  private String b;
-  
-  public brv(brw parambrw, String paramString)
+  public final void process(HttpResponse paramHttpResponse, HttpContext paramHttpContext)
   {
-    super(paramString);
-    b = paramString;
-    a = parambrw;
-  }
-  
-  public final brw a()
-  {
-    return a;
-  }
-  
-  public final String toString()
-  {
-    String str1 = String.valueOf(a);
-    String str2 = b;
-    return String.valueOf(str1).length() + 14 + String.valueOf(str2).length() + "Error type: " + str1 + ". " + str2;
+    paramHttpContext = paramHttpResponse.getEntity();
+    if (paramHttpContext == null) {}
+    for (;;)
+    {
+      return;
+      paramHttpContext = paramHttpContext.getContentEncoding();
+      if (paramHttpContext != null)
+      {
+        paramHttpContext = paramHttpContext.getElements();
+        int j = paramHttpContext.length;
+        int i = 0;
+        while (i < j)
+        {
+          if (paramHttpContext[i].getName().equalsIgnoreCase("gzip"))
+          {
+            paramHttpResponse.setEntity(new brw(paramHttpResponse.getEntity()));
+            return;
+          }
+          i += 1;
+        }
+      }
+    }
   }
 }
 

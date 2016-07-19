@@ -1,82 +1,28 @@
-import android.os.Message;
-import java.util.Map;
+import android.content.Context;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-public class bvj
-  implements bwy
+public final class bvj
 {
-  private static final String a = bvj.class.getSimpleName();
-  private final bvl b;
-  private bvk c;
-  private bvi d;
-  private final btp e;
-  private bwt f;
+  public LinearLayout a;
+  public TextView b;
+  private LinearLayout c;
   
-  public bvj(bvl parambvl, bvi parambvi)
+  public bvj(Context paramContext)
   {
-    b = parambvl;
-    d = parambvi;
-    e = new btp();
-    c = new bvk(this);
-  }
-  
-  public final String a(bwv parambwv)
-  {
-    new StringBuilder("environment:").append(d).append(" environment.getEndpoints():").append(d.b());
-    if ((d != null) && (d.b() != null)) {
-      return (String)d.b().get(parambwv.a());
-    }
-    return null;
-  }
-  
-  public final void a()
-  {
-    f.a();
-  }
-  
-  public final void a(btr parambtr)
-  {
-    e.a(parambtr);
-  }
-  
-  public final void a(bwt parambwt)
-  {
-    if (f != null) {
-      throw new IllegalStateException();
-    }
-    f = parambwt;
-  }
-  
-  public final void a(bwx parambwx)
-  {
-    parambwx.m();
-    btk.a().f();
-    if (!parambwx.a())
-    {
-      Message localMessage = new Message();
-      what = 2;
-      obj = parambwx;
-      c.sendMessage(localMessage);
-    }
-  }
-  
-  public final void b()
-  {
-    e.a();
-  }
-  
-  public final void b(bwx parambwx)
-  {
-    f.a(parambwx);
-  }
-  
-  public final String c()
-  {
-    return d.a();
-  }
-  
-  public final bvl d()
-  {
-    return b;
+    c = new LinearLayout(paramContext);
+    c.setOrientation(0);
+    b = new TextView(paramContext);
+    b.setText("server");
+    b.setTextColor(-1);
+    b.setBackgroundColor(but.e);
+    b.setGravity(17);
+    c.addView(b);
+    buu.a(b, "8dip", "8dip", "8dip", "8dip");
+    buu.a(b, -2, -2);
+    buu.b(b, null, "15dip", null, "15dip");
+    buu.a(b, 1, 1.0F);
+    a = c;
   }
 }
 

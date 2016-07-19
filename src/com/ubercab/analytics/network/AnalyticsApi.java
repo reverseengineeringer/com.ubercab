@@ -1,7 +1,7 @@
 package com.ubercab.analytics.network;
 
 import java.util.Map;
-import kld;
+import odr;
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.POST;
@@ -9,7 +9,7 @@ import retrofit.http.POST;
 public abstract interface AnalyticsApi
 {
   @POST("/event/user/")
-  public abstract kld<Void> sendAnalytics(@Body Map<String, Object> paramMap);
+  public abstract odr<Void> sendAnalytics(@Body Map<String, Object> paramMap);
   
   @POST("/event/user/")
   public abstract void sendAnalytics(@Body Map<String, Object> paramMap, Callback<Void> paramCallback);

@@ -4,10 +4,10 @@ import com.ubercab.rider.realtime.model.ProfileThemeOption;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.List;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class ProfilesThemeOptionsResponse
 {
   public abstract List<ProfileThemeOption> getProfileThemeOptions();

@@ -10,7 +10,7 @@ import android.provider.Settings.Secure;
 import java.util.HashSet;
 import java.util.Set;
 
-public class NotificationManagerCompat
+public final class NotificationManagerCompat
 {
   public static final String ACTION_BIND_SIDE_CHANNEL = "android.support.BIND_NOTIFICATION_SIDE_CHANNEL";
   public static final String EXTRA_USE_SIDE_CHANNEL = "android.support.useSideChannel";
@@ -104,12 +104,12 @@ public class NotificationManagerCompat
     return (paramNotification != null) && (paramNotification.getBoolean("android.support.useSideChannel"));
   }
   
-  public void cancel(int paramInt)
+  public final void cancel(int paramInt)
   {
     cancel(null, paramInt);
   }
   
-  public void cancel(String paramString, int paramInt)
+  public final void cancel(String paramString, int paramInt)
   {
     IMPL.cancelNotification(mNotificationManager, paramString, paramInt);
     if (Build.VERSION.SDK_INT <= 19) {
@@ -117,7 +117,7 @@ public class NotificationManagerCompat
     }
   }
   
-  public void cancelAll()
+  public final void cancelAll()
   {
     mNotificationManager.cancelAll();
     if (Build.VERSION.SDK_INT <= 19) {
@@ -125,12 +125,12 @@ public class NotificationManagerCompat
     }
   }
   
-  public void notify(int paramInt, Notification paramNotification)
+  public final void notify(int paramInt, Notification paramNotification)
   {
     notify(null, paramInt, paramNotification);
   }
   
-  public void notify(String paramString, int paramInt, Notification paramNotification)
+  public final void notify(String paramString, int paramInt, Notification paramNotification)
   {
     if (useSideChannelForNotification(paramNotification))
     {

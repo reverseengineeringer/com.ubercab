@@ -1,38 +1,14 @@
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.google.android.gms.plus.PlusOneButton;
-
-public final class blb
-  implements View.OnClickListener, blc
+abstract class blb
 {
-  private final blc b;
+  abstract void a(blk paramblk1, blk paramblk2);
   
-  public blb(PlusOneButton paramPlusOneButton, blc paramblc)
-  {
-    b = paramblc;
-  }
+  abstract void a(blk paramblk, Thread paramThread);
   
-  public final void a(Intent paramIntent)
-  {
-    Context localContext = a.getContext();
-    if (((localContext instanceof Activity)) && (paramIntent != null)) {
-      ((Activity)localContext).startActivityForResult(paramIntent, PlusOneButton.b(a));
-    }
-  }
+  abstract boolean a(bla<?> parambla, ble paramble1, ble paramble2);
   
-  public final void onClick(View paramView)
-  {
-    paramView = (Intent)PlusOneButton.a(a).getTag();
-    if (b != null)
-    {
-      b.a(paramView);
-      return;
-    }
-    a(paramView);
-  }
+  abstract boolean a(bla<?> parambla, blk paramblk1, blk paramblk2);
+  
+  abstract boolean a(bla<?> parambla, Object paramObject1, Object paramObject2);
 }
 
 /* Location:

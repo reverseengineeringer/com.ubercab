@@ -1,29 +1,18 @@
-import java.io.Writer;
+import java.util.HashSet;
 
 final class bqu
-  extends Writer
+  extends HashSet
 {
-  private final Appendable a;
-  private final bqv b = new bqv();
-  
-  private bqu(Appendable paramAppendable)
+  bqu()
   {
-    a = paramAppendable;
-  }
-  
-  public final void close() {}
-  
-  public final void flush() {}
-  
-  public final void write(int paramInt)
-  {
-    a.append((char)paramInt);
-  }
-  
-  public final void write(char[] paramArrayOfChar, int paramInt1, int paramInt2)
-  {
-    b.a = paramArrayOfChar;
-    a.append(b, paramInt1, paramInt1 + paramInt2);
+    bqs[] arrayOfbqs = bqs.values();
+    int j = arrayOfbqs.length;
+    int i = 0;
+    while (i < j)
+    {
+      add(arrayOfbqs[i].a());
+      i += 1;
+    }
   }
 }
 

@@ -1,8 +1,40 @@
-import java.io.InputStream;
+import android.util.Log;
+import java.net.Socket;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
 
-public abstract interface brs
+public final class brs
+  extends org.apache.http.conn.ssl.SSLSocketFactory
 {
-  public abstract InputStream a(String paramString);
+  private javax.net.ssl.SSLSocketFactory a;
+  
+  public brs()
+  {
+    super(null);
+    try
+    {
+      SSLContext localSSLContext = SSLContext.getInstance("TLS");
+      localSSLContext.init(null, new TrustManager[] { new brr() }, null);
+      a = localSSLContext.getSocketFactory();
+      setHostnameVerifier(new AllowAllHostnameVerifier());
+      return;
+    }
+    catch (Exception localException)
+    {
+      Log.e("paypal.sdk", "TrustAllSSLSocketFactory caught exception " + localException.getMessage());
+    }
+  }
+  
+  public final Socket createSocket()
+  {
+    return a.createSocket();
+  }
+  
+  public final Socket createSocket(Socket paramSocket, String paramString, int paramInt, boolean paramBoolean)
+  {
+    return a.createSocket(paramSocket, paramString, paramInt, paramBoolean);
+  }
 }
 
 /* Location:

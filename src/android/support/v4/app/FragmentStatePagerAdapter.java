@@ -27,16 +27,22 @@ public abstract class FragmentStatePagerAdapter
   
   public void destroyItem(ViewGroup paramViewGroup, int paramInt, Object paramObject)
   {
-    paramViewGroup = (Fragment)paramObject;
+    paramObject = (Fragment)paramObject;
     if (mCurTransaction == null) {
       mCurTransaction = mFragmentManager.beginTransaction();
     }
     while (mSavedState.size() <= paramInt) {
       mSavedState.add(null);
     }
-    mSavedState.set(paramInt, mFragmentManager.saveFragmentInstanceState(paramViewGroup));
-    mFragments.set(paramInt, null);
-    mCurTransaction.remove(paramViewGroup);
+    ArrayList localArrayList = mSavedState;
+    if (((Fragment)paramObject).isAdded()) {}
+    for (paramViewGroup = mFragmentManager.saveFragmentInstanceState((Fragment)paramObject);; paramViewGroup = null)
+    {
+      localArrayList.set(paramInt, paramViewGroup);
+      mFragments.set(paramInt, null);
+      mCurTransaction.remove((Fragment)paramObject);
+      return;
+    }
   }
   
   public void finishUpdate(ViewGroup paramViewGroup)

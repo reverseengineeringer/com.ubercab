@@ -2,16 +2,16 @@ package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import java.util.Map;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface Experiment
 {
   public abstract Long getId();
   
   public abstract String getName();
   
-  public abstract Map<String, Object> getParameters();
+  public abstract Map<String, String> getParameters();
   
   public abstract Long getTreatmentGroupId();
   

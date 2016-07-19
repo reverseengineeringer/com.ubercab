@@ -1,16 +1,24 @@
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.paypal.android.sdk.payments.FuturePaymentInfoActivity;
+import com.paypal.android.sdk.bF;
+import com.paypal.android.sdk.bI;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalService;
 
 public final class cbj
-  implements View.OnClickListener
+  implements cbm
 {
-  public cbj(FuturePaymentInfoActivity paramFuturePaymentInfoActivity) {}
+  public cbj(PayPalService paramPayPalService) {}
   
-  public final void onClick(View paramView)
+  public final void a()
   {
-    a.finish();
+    if ((!PayPalService.a(a).j()) && (a.b != null))
+    {
+      a.a(a.c().c.b(), a.b.e());
+      a.b = null;
+      a.t();
+    }
   }
+  
+  public final void a(cbn paramcbn) {}
 }
 
 /* Location:

@@ -1,10 +1,9 @@
-import android.os.Bundle;
 import android.os.IInterface;
 
 public abstract interface awu
   extends IInterface
 {
-  public abstract void a(int paramInt1, int paramInt2, Bundle paramBundle);
+  public abstract void a(azr paramazr);
 }
 
 /* Location:

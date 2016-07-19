@@ -25,11 +25,21 @@ public class MediaButtonReceiver
   
   public void onReceive(Context paramContext, Intent paramIntent)
   {
-    Object localObject = new Intent("android.intent.action.MEDIA_BUTTON");
-    ((Intent)localObject).setPackage(paramContext.getPackageName());
-    localObject = paramContext.getPackageManager().queryIntentServices((Intent)localObject, 0);
+    Intent localIntent = new Intent("android.intent.action.MEDIA_BUTTON");
+    localIntent.setPackage(paramContext.getPackageName());
+    PackageManager localPackageManager = paramContext.getPackageManager();
+    List localList = localPackageManager.queryIntentServices(localIntent, 0);
+    Object localObject = localList;
+    if (localList.isEmpty())
+    {
+      localIntent.setAction("android.media.browse.MediaBrowserService");
+      localObject = localPackageManager.queryIntentServices(localIntent, 0);
+    }
+    if (((List)localObject).isEmpty()) {
+      throw new IllegalStateException("Could not find any Service that handles android.intent.action.MEDIA_BUTTON or a media browser service implementation");
+    }
     if (((List)localObject).size() != 1) {
-      throw new IllegalStateException("Expected 1 Service that handles android.intent.action.MEDIA_BUTTON, found " + ((List)localObject).size());
+      throw new IllegalStateException("Expected 1 Service that handles " + localIntent.getAction() + ", found " + ((List)localObject).size());
     }
     localObject = (ResolveInfo)((List)localObject).get(0);
     paramIntent.setComponent(new ComponentName(serviceInfo.packageName, serviceInfo.name));

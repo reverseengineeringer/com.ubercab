@@ -5,16 +5,16 @@ import com.ubercab.shape.Shape;
 @Shape
 public abstract class EtdInfo$DeviceTimeData
 {
-  public static DeviceTimeData create(int paramInt, String paramString)
+  public static DeviceTimeData create(long paramLong, String paramString)
   {
-    return new Shape_EtdInfo_DeviceTimeData().setTimestamp(paramInt).setTimezone(paramString);
+    return new Shape_EtdInfo_DeviceTimeData().setTimestamp(paramLong).setTimezone(paramString);
   }
   
-  public abstract int getTimestamp();
+  public abstract long getTimestamp();
   
   public abstract String getTimezone();
   
-  public abstract DeviceTimeData setTimestamp(int paramInt);
+  public abstract DeviceTimeData setTimestamp(long paramLong);
   
   public abstract DeviceTimeData setTimezone(String paramString);
 }

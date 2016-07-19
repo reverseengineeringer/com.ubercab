@@ -1,17 +1,6 @@
-public abstract interface cgt
-  extends cgl, Comparable<cgt>
+public enum cgt
 {
-  public abstract void a(cgm paramcgm);
-  
-  public abstract void a(cgn paramcgn);
-  
-  public abstract void b(String paramString1, String paramString2);
-  
-  public abstract String c();
-  
-  public abstract String d();
-  
-  public abstract cgm e();
+  private cgt() {}
 }
 
 /* Location:

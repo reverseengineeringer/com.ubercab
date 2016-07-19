@@ -8,27 +8,26 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.TintableCompoundButton;
 import android.util.AttributeSet;
 import android.widget.RadioButton;
-import bp;
-import ff;
-import it;
+import gd;
+import js;
+import jt;
+import nf;
 
 public class AppCompatRadioButton
   extends RadioButton
   implements TintableCompoundButton
 {
-  private it a;
-  private ff b;
+  private jt a = jt.a();
+  private js b = new js(this, a);
   
   public AppCompatRadioButton(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, bp.radioButtonStyle);
+    this(paramContext, paramAttributeSet, gd.radioButtonStyle);
   }
   
   public AppCompatRadioButton(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
-    super(paramContext, paramAttributeSet, paramInt);
-    a = it.a(paramContext);
-    b = new ff(this, a);
+    super(nf.a(paramContext), paramAttributeSet, paramInt);
     b.a(paramAttributeSet, paramInt);
   }
   
@@ -61,7 +60,7 @@ public class AppCompatRadioButton
   public void setButtonDrawable(int paramInt)
   {
     if (a != null) {}
-    for (Drawable localDrawable = a.a(paramInt);; localDrawable = ContextCompat.getDrawable(getContext(), paramInt))
+    for (Drawable localDrawable = a.a(getContext(), paramInt);; localDrawable = ContextCompat.getDrawable(getContext(), paramInt))
     {
       setButtonDrawable(localDrawable);
       return;

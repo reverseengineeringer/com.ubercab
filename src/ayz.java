@@ -1,19 +1,11 @@
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.internal.FusedLocationProviderResult;
+import android.os.RemoteException;
 
-final class ayz
-  extends azd
+public final class ayz
+  extends RuntimeException
 {
-  private final xh<Status> a;
-  
-  public ayz(xh<Status> paramxh)
+  public ayz(RemoteException paramRemoteException)
   {
-    a = paramxh;
-  }
-  
-  public final void a(FusedLocationProviderResult paramFusedLocationProviderResult)
-  {
-    a.a(paramFusedLocationProviderResult.a());
+    super(paramRemoteException);
   }
 }
 

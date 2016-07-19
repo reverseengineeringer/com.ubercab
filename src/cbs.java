@@ -1,18 +1,32 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.LoginActivity;
-import java.util.List;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
 
-final class cbs
-  implements DialogInterface.OnClickListener
+public final class cbs
+  implements ServiceConnection
 {
-  cbs(cbr paramcbr) {}
+  public cbs(PaymentActivity paramPaymentActivity) {}
   
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  public final void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
   {
-    LoginActivity.a(a.c, paramInt);
-    a.a.a(paramInt);
-    ka.c).o.a((String)a.b.get(paramInt));
+    new StringBuilder().append(PaymentActivity.a()).append(".onServiceConnected");
+    if (a.isFinishing()) {
+      new StringBuilder().append(PaymentActivity.a()).append(".onServiceConnected exit - isFinishing");
+    }
+    do
+    {
+      return;
+      PaymentActivity.a(a, a);
+    } while (!PaymentActivity.b(a).a(new cbt(this)));
+    PaymentActivity.c(a);
+  }
+  
+  public final void onServiceDisconnected(ComponentName paramComponentName)
+  {
+    PaymentActivity.a(a, null);
+    PaymentActivity.a();
   }
 }
 

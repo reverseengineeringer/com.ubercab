@@ -1,53 +1,46 @@
-import android.content.Context;
-import android.os.RemoteException;
-
-public final class bbu
+final class bbu
 {
-  private static boolean a = false;
+  final String a;
+  final String b;
+  final long c;
+  final long d;
+  final long e;
   
-  public static int a(Context paramContext)
+  bbu(String paramString1, String paramString2, long paramLong1, long paramLong2, long paramLong3)
   {
-    int i = 0;
-    for (;;)
+    abe.a(paramString1);
+    abe.a(paramString2);
+    if (paramLong1 >= 0L)
     {
-      try
-      {
-        abs.a(paramContext, "Context is null");
-        boolean bool = a;
-        if (!bool) {
-          continue;
-        }
+      bool1 = true;
+      abe.b(bool1);
+      if (paramLong2 < 0L) {
+        break label81;
       }
-      finally
-      {
-        try
-        {
-          paramContext = bdp.a(paramContext);
-          a(paramContext);
-          a = true;
-        }
-        catch (wb paramContext)
-        {
-          i = a;
-        }
-        paramContext = finally;
-      }
-      return i;
+    }
+    label81:
+    for (boolean bool1 = bool2;; bool1 = false)
+    {
+      abe.b(bool1);
+      a = paramString1;
+      b = paramString2;
+      c = paramLong1;
+      d = paramLong2;
+      e = paramLong3;
+      return;
+      bool1 = false;
+      break;
     }
   }
   
-  private static void a(bdt parambdt)
+  final bbu a()
   {
-    try
-    {
-      bbj.a(parambdt.a());
-      bgo.a(parambdt.b());
-      return;
-    }
-    catch (RemoteException parambdt)
-    {
-      throw new bgs(parambdt);
-    }
+    return new bbu(a, b, c + 1L, d + 1L, e);
+  }
+  
+  final bbu a(long paramLong)
+  {
+    return new bbu(a, b, c, d, paramLong);
   }
 }
 

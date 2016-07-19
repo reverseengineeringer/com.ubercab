@@ -1,78 +1,55 @@
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.res.Configuration;
-import android.os.Build.VERSION;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatDelegateImplV7;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuInflater;
-import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.view.Window;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.widget.FrameLayout;
 
-public abstract class ar
+public class ar
+  extends FrameLayout
 {
-  public static ar a(Activity paramActivity, aq paramaq)
+  private Drawable a;
+  private Rect b;
+  private Rect c;
+  
+  public void draw(Canvas paramCanvas)
   {
-    return a(paramActivity, paramActivity.getWindow(), paramaq);
+    super.draw(paramCanvas);
+    int i = getWidth();
+    int j = getHeight();
+    if ((b != null) && (a != null))
+    {
+      int k = paramCanvas.save();
+      paramCanvas.translate(getScrollX(), getScrollY());
+      c.set(0, 0, i, b.top);
+      a.setBounds(c);
+      a.draw(paramCanvas);
+      c.set(0, j - b.bottom, i, j);
+      a.setBounds(c);
+      a.draw(paramCanvas);
+      c.set(0, b.top, b.left, j - b.bottom);
+      a.setBounds(c);
+      a.draw(paramCanvas);
+      c.set(i - b.right, b.top, i, j - b.bottom);
+      a.setBounds(c);
+      a.draw(paramCanvas);
+      paramCanvas.restoreToCount(k);
+    }
   }
   
-  public static ar a(Dialog paramDialog, aq paramaq)
+  protected void onAttachedToWindow()
   {
-    return a(paramDialog.getContext(), paramDialog.getWindow(), paramaq);
+    super.onAttachedToWindow();
+    if (a != null) {
+      a.setCallback(this);
+    }
   }
   
-  private static ar a(Context paramContext, Window paramWindow, aq paramaq)
+  protected void onDetachedFromWindow()
   {
-    int i = Build.VERSION.SDK_INT;
-    if (i >= 23) {
-      return new ay(paramContext, paramWindow, paramaq);
+    super.onDetachedFromWindow();
+    if (a != null) {
+      a.setCallback(null);
     }
-    if (i >= 14) {
-      return new aw(paramContext, paramWindow, paramaq);
-    }
-    if (i >= 11) {
-      return new av(paramContext, paramWindow, paramaq);
-    }
-    return new AppCompatDelegateImplV7(paramContext, paramWindow, paramaq);
   }
-  
-  public abstract ActionBar a();
-  
-  public abstract void a(int paramInt);
-  
-  public abstract void a(Configuration paramConfiguration);
-  
-  public abstract void a(Toolbar paramToolbar);
-  
-  public abstract void a(View paramView);
-  
-  public abstract void a(View paramView, ViewGroup.LayoutParams paramLayoutParams);
-  
-  public abstract void a(CharSequence paramCharSequence);
-  
-  public abstract MenuInflater b();
-  
-  public abstract void b(View paramView, ViewGroup.LayoutParams paramLayoutParams);
-  
-  public abstract boolean b(int paramInt);
-  
-  public abstract void c();
-  
-  public abstract void d();
-  
-  public abstract void e();
-  
-  public abstract void f();
-  
-  public abstract void g();
-  
-  public abstract void h();
-  
-  public abstract ab i();
-  
-  public abstract void j();
 }
 
 /* Location:

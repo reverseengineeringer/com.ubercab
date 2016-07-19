@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jvd;
+import nan;
 
 @Shape
 abstract class ObjectUpfrontFare
-  implements jvd
+  implements nan
 {}
 
 /* Location:

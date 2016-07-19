@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_4x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_4x" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H1" android:gravity="center" android:layout_gravity="center" android:id="@id/ub__zaakpay_verify_textview_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__payment_verify_payment_info_title" android:drawablePadding="@dimen/ui__spacing_unit_2x" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:gravity="center" android:id="@id/ub__zaakpay_verify_textview_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" />
+    <RelativeLayout android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageButton android:layout_gravity="center_vertical" android:id="@id/ub__zaakpay_verify_button_code_info" android:background="@color/ub__transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__payment_ic_oval_question_mark" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <com.ubercab.ui.EditText android:textSize="@dimen/ub__payment_zaakpay_verify_code_text_size" android:gravity="center" android:id="@id/ub__zaakpay_verify_edittext_code" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_4x" android:layout_marginRight="@dimen/ui__spacing_unit_4x" android:maxLength="4" android:inputType="number" />
+    </RelativeLayout>
+    <com.ubercab.ui.Button android:enabled="false" android:id="@id/ub__zaakpay_verify_button_continue" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:text="@string/ub__payment_continue" style="@style/Uber.Widget.Button.Primary" />
+</LinearLayout>

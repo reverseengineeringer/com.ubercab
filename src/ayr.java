@@ -1,82 +1,45 @@
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
 import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
-public final class ayr
-  implements Parcelable.Creator<LocationRequest>
+public abstract class ayr
+  extends Binder
+  implements ayq
 {
-  public static LocationRequest a(Parcel paramParcel)
+  public static ayq a(IBinder paramIBinder)
   {
-    int m = zm.b(paramParcel);
-    int k = 0;
-    int j = 102;
-    long l4 = 3600000L;
-    long l3 = 600000L;
-    boolean bool = false;
-    long l2 = Long.MAX_VALUE;
-    int i = Integer.MAX_VALUE;
-    float f = 0.0F;
-    long l1 = 0L;
-    while (paramParcel.dataPosition() < m)
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaLongClickListener");
+    if ((localIInterface != null) && ((localIInterface instanceof ayq))) {
+      return (ayq)localIInterface;
+    }
+    return new ays(paramIBinder);
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    switch (paramInt1)
     {
-      int n = zm.a(paramParcel);
-      switch (zm.a(n))
-      {
-      default: 
-        zm.a(paramParcel, n);
-        break;
-      case 1: 
-        j = zm.e(paramParcel, n);
-        break;
-      case 1000: 
-        k = zm.e(paramParcel, n);
-        break;
-      case 2: 
-        l4 = zm.g(paramParcel, n);
-        break;
-      case 3: 
-        l3 = zm.g(paramParcel, n);
-        break;
-      case 4: 
-        bool = zm.b(paramParcel, n);
-        break;
-      case 5: 
-        l2 = zm.g(paramParcel, n);
-        break;
-      case 6: 
-        i = zm.e(paramParcel, n);
-        break;
-      case 7: 
-        f = zm.j(paramParcel, n);
-        break;
-      case 8: 
-        l1 = zm.g(paramParcel, n);
-      }
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnStreetViewPanoramaLongClickListener");
+      return true;
     }
-    if (paramParcel.dataPosition() != m) {
-      throw new zn("Overread allowed size end=" + m, paramParcel);
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaLongClickListener");
+    if (paramParcel1.readInt() != 0) {
+      bap localbap = StreetViewPanoramaOrientation.CREATOR;
     }
-    return new LocationRequest(k, j, l4, l3, bool, l2, i, f, l1);
-  }
-  
-  public static void a(LocationRequest paramLocationRequest, Parcel paramParcel)
-  {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 1000, paramLocationRequest.b());
-    zo.a(paramParcel, 2, b);
-    zo.a(paramParcel, 3, c);
-    zo.a(paramParcel, 4, d);
-    zo.a(paramParcel, 5, e);
-    zo.a(paramParcel, 6, f);
-    zo.a(paramParcel, 7, g);
-    zo.a(paramParcel, 8, h);
-    zo.a(paramParcel, i);
-  }
-  
-  private static LocationRequest[] a(int paramInt)
-  {
-    return new LocationRequest[paramInt];
+    for (paramParcel1 = bap.a(paramParcel1);; paramParcel1 = null)
+    {
+      a(paramParcel1);
+      paramParcel2.writeNoException();
+      return true;
+    }
   }
 }
 

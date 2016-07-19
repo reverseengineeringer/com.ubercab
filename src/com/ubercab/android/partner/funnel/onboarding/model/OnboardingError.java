@@ -2,12 +2,12 @@ package com.ubercab.android.partner.funnel.onboarding.model;
 
 import android.os.Parcelable;
 import com.ubercab.shape.Shape;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class OnboardingError
-  extends jvq<OnboardingError>
+  extends nba<OnboardingError>
   implements Parcelable
 {
   public static OnboardingError create()
@@ -19,9 +19,9 @@ public abstract class OnboardingError
   
   public abstract OnboardingErrorPayload getPayload();
   
-  protected Object onGet(jvr<OnboardingError> paramjvr, Object paramObject)
+  protected Object onGet(nbb<OnboardingError> paramnbb, Object paramObject)
   {
-    switch (OnboardingError.1.$SwitchMap$com$ubercab$android$partner$funnel$onboarding$model$Shape_OnboardingError$Property[((Shape_OnboardingError.Property)paramjvr).ordinal()])
+    switch (OnboardingError.1.$SwitchMap$com$ubercab$android$partner$funnel$onboarding$model$Shape_OnboardingError$Property[((Shape_OnboardingError.Property)paramnbb).ordinal()])
     {
     }
     do

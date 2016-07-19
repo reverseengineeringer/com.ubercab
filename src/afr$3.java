@@ -1,17 +1,11 @@
 import java.util.Map;
 
 final class afr$3
-  implements aji
+  implements afs
 {
-  afr$3(afr paramafr) {}
-  
-  public final void a(asq paramasq, Map<String, String> paramMap)
+  public final void a(ajm paramajm, Map<String, String> paramMap)
   {
-    if (!a.a(paramMap)) {
-      return;
-    }
-    aqt.a("Received request to untrack: " + a.b.d());
-    a.b();
+    ain.c("Received log message: " + (String)paramMap.get("string"));
   }
 }
 

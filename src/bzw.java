@@ -1,8 +1,9 @@
-public abstract interface bzw
+public final class bzw
 {
-  public abstract String a();
-  
-  public abstract String a(Enum paramEnum, String paramString);
+  public static boolean a(String paramString)
+  {
+    return paramString.equals("mock");
+  }
 }
 
 /* Location:

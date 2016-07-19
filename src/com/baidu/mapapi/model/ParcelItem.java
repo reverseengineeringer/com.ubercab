@@ -8,7 +8,7 @@ import android.os.Parcelable.Creator;
 public class ParcelItem
   implements Parcelable
 {
-  public static final Parcelable.Creator<ParcelItem> CREATOR = new b();
+  public static final Parcelable.Creator<ParcelItem> CREATOR = new c();
   private Bundle a;
   
   public int describeContents()

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/ub__uber_white_80" />
+            <size android:height="@dimen/ub__local_offers_step_circle_diameter" android:width="@dimen/ub__local_offers_step_circle_diameter" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="@dimen/ub__local_offers_step_circle_thickness" android:color="@android:color/transparent" />
+            <solid android:color="@color/ub__uber_black_80" />
+            <size android:height="@dimen/ub__local_offers_step_circle_diameter" android:width="@dimen/ub__local_offers_step_circle_diameter" />
+        </shape>
+    </item>
+</layer-list>

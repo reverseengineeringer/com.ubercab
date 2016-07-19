@@ -1,76 +1,126 @@
-import java.util.Calendar;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-public class bzb
-  extends bwx
+final class bzb
 {
-  private static final String a = bzb.class.getSimpleName();
-  private final btn b;
-  
-  public bzb(bwy parambwy, bxg parambxg, btn parambtn)
+  static bze a(JSONObject paramJSONObject)
   {
-    super(new bxc(bxd.a), parambwy, parambxg);
-    b = parambtn;
+    int j = 0;
+    bze localbze = new bze();
+    localbze.a(paramJSONObject.getString("file_timestamp"));
+    paramJSONObject = paramJSONObject.getJSONObject("1.0");
+    Object localObject = paramJSONObject.getJSONArray("oauth2_recipes_in_decreasing_priority_order");
+    int i = 0;
+    JSONObject localJSONObject;
+    while (i < ((JSONArray)localObject).length())
+    {
+      localJSONObject = ((JSONArray)localObject).getJSONObject(i);
+      if (localJSONObject != null) {
+        localbze.a(d(localJSONObject));
+      }
+      i += 1;
+    }
+    localObject = paramJSONObject.getJSONArray("checkout_recipes_in_decreasing_priority_order");
+    i = 0;
+    while (i < ((JSONArray)localObject).length())
+    {
+      localJSONObject = ((JSONArray)localObject).getJSONObject(i);
+      if (localJSONObject != null) {
+        localbze.a(b(localJSONObject));
+      }
+      i += 1;
+    }
+    paramJSONObject = paramJSONObject.getJSONArray("billing_agreement_recipes_in_decreasing_priority_order");
+    i = j;
+    while (i < paramJSONObject.length())
+    {
+      localObject = paramJSONObject.getJSONObject(i);
+      if (localObject != null) {
+        localbze.a(c((JSONObject)localObject));
+      }
+      i += 1;
+    }
+    return localbze;
   }
   
-  private static void a(Map paramMap, StringBuilder paramStringBuilder)
+  private static void a(bzd parambzd, String paramString, JSONObject paramJSONObject)
   {
-    if (paramMap.isEmpty()) {}
-    for (;;)
+    parambzd.a(paramString, new bza(paramString, paramJSONObject.getString("url"), paramJSONObject.getString("certificate")));
+  }
+  
+  private static void a(bzf<?> parambzf, JSONObject paramJSONObject)
+  {
+    int j = 0;
+    parambzf.a(bzm.valueOf(paramJSONObject.getString("target"))).b(paramJSONObject.getString("protocol"));
+    if (paramJSONObject.has("intent_action")) {
+      parambzf.e(paramJSONObject.getString("intent_action"));
+    }
+    JSONArray localJSONArray = paramJSONObject.getJSONArray("packages");
+    int i = 0;
+    while (i < localJSONArray.length())
     {
-      return;
-      Iterator localIterator = paramMap.keySet().iterator();
-      while (localIterator.hasNext())
+      parambzf.c(localJSONArray.getString(i));
+      i += 1;
+    }
+    if (paramJSONObject.has("supported_locales"))
+    {
+      paramJSONObject = paramJSONObject.getJSONArray("supported_locales");
+      i = j;
+      while (i < paramJSONObject.length())
       {
-        String str1 = (String)localIterator.next();
-        if (paramMap.get(str1) == null)
-        {
-          new StringBuilder("No value for ").append(str1).append(", skipping");
-          return;
-        }
-        String str2 = bze.a((String)paramMap.get(str1));
-        paramStringBuilder.append("&").append(str1);
-        paramStringBuilder.append("=").append(str2);
+        parambzf.d(paramJSONObject.getString(i));
+        i += 1;
       }
     }
   }
   
-  public final String a(bwv parambwv)
+  private static byz b(JSONObject paramJSONObject)
   {
-    return "https://paypal.112.2o7.net/b/ss/paypalglobal/0/OIP-2.1.6/";
+    byz localbyz = new byz();
+    a(localbyz, paramJSONObject);
+    return localbyz;
   }
   
-  public final boolean a()
+  private static byy c(JSONObject paramJSONObject)
   {
-    return true;
+    byy localbyy = new byy();
+    a(localbyy, paramJSONObject);
+    return localbyy;
   }
   
-  public final String b()
+  private static bzd d(JSONObject paramJSONObject)
   {
-    StringBuilder localStringBuilder = new StringBuilder();
-    Object localObject = Calendar.getInstance();
-    int i = ((Calendar)localObject).get(4);
-    long l = -((((Calendar)localObject).get(15) + ((Calendar)localObject).get(16)) / 60000);
-    localStringBuilder.append(Integer.toString(((Calendar)localObject).get(5))).append("/").append(Integer.toString(((Calendar)localObject).get(2))).append("/").append(Integer.toString(((Calendar)localObject).get(1))).append(" ").append(Integer.toString(((Calendar)localObject).get(11))).append(":").append(Integer.toString(((Calendar)localObject).get(12))).append(":").append(Integer.toString(((Calendar)localObject).get(13))).append(" ").append(Integer.toString(i)).append(" ").append(Long.toString(l));
-    localObject = localStringBuilder.toString();
-    localStringBuilder = new StringBuilder();
-    localStringBuilder.append("s").append(b.a).append("?AQB=1&ndh=1").append("&t" + bze.a((String)localObject));
-    localObject = bze.a(t().d().e().replace("-", ""));
-    localStringBuilder.append("&ch=" + bze.a(b.c)).append("&sv=" + b.d).append("&vid=" + (String)localObject);
-    a(b.b, localStringBuilder);
-    localStringBuilder.append("&AQE=1");
-    return localStringBuilder.toString();
-  }
-  
-  public final void c() {}
-  
-  public final void d() {}
-  
-  public final String e()
-  {
-    return "mockSiteCatalystResponse";
+    bzd localbzd = new bzd();
+    a(localbzd, paramJSONObject);
+    JSONArray localJSONArray = paramJSONObject.getJSONArray("scope");
+    int i = 0;
+    if (i < localJSONArray.length())
+    {
+      String str = localJSONArray.getString(i);
+      if ("*".equals(str)) {
+        localbzd.b();
+      }
+      for (;;)
+      {
+        i += 1;
+        break;
+        localbzd.a(str);
+      }
+    }
+    if (paramJSONObject.has("endpoints"))
+    {
+      paramJSONObject = paramJSONObject.getJSONObject("endpoints");
+      if (paramJSONObject.has("live")) {
+        a(localbzd, "live", paramJSONObject.getJSONObject("live"));
+      }
+      if (paramJSONObject.has("develop")) {
+        a(localbzd, "develop", paramJSONObject.getJSONObject("develop"));
+      }
+      if (paramJSONObject.has("mock")) {
+        a(localbzd, "mock", paramJSONObject.getJSONObject("mock"));
+      }
+    }
+    return localbzd;
   }
 }
 

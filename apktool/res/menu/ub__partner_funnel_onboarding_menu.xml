@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@id/ub__partner_funnel_onboarding_menuitem_sign_out" android:visible="true" android:title="@string/ub__partner_funnel_sign_out" android:showAsAction="always" app:showAsAction="never" />
+    <group android:id="@id/ub__partner_funnel_menuitem_sign_out_group" android:visible="false">
+        <item android:id="@id/ub__partner_funnel_menuitem_sign_out" android:title="@string/ub__partner_funnel_sign_out" android:showAsAction="always" app:showAsAction="never" />
+    </group>
+    <group android:id="@id/ub__partner_funnel_menuitem_settings_group" android:visible="false">
+        <item android:id="@id/ub__partner_funnel_menuitem_settings" android:title="@string/ub__partner_funnel_debug_settings" android:showAsAction="ifRoom" app:showAsAction="never" />
+    </group>
 </menu>

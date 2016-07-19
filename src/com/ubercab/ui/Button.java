@@ -8,18 +8,18 @@ import android.view.View.OnClickListener;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.RemoteViews.RemoteView;
-import jwk;
-import jwo;
-import jww;
-import jwx;
-import jzx;
+import ndb;
+import ndf;
+import ndn;
+import ndp;
+import ngo;
 
 @RemoteViews.RemoteView
 public class Button
   extends android.widget.Button
 {
-  private static final int[] a = { jwo.fontPath };
-  private jwx b;
+  private static final int[] a = { ndf.fontPath };
+  private ndp b;
   
   public Button(Context paramContext)
   {
@@ -48,19 +48,19 @@ public class Button
     float f1 = Float.MAX_VALUE;
     float f2 = Float.MIN_VALUE;
     boolean bool2 = false;
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, jww.UberText);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, ndn.UberText);
     boolean bool1;
     if (paramContext != null)
     {
-      bool1 = paramContext.getBoolean(jww.UberText_autoShrink, false);
-      bool2 = paramContext.getBoolean(jww.UberText_autoResize, false);
-      f2 = paramContext.getDimension(jww.UberText_autoResizeTextSizeMin, Float.MIN_VALUE);
-      f1 = paramContext.getDimension(jww.UberText_autoResizeTextSizeMax, Float.MAX_VALUE);
+      bool1 = paramContext.getBoolean(ndn.UberText_autoShrink, false);
+      bool2 = paramContext.getBoolean(ndn.UberText_autoResize, false);
+      f2 = paramContext.getDimension(ndn.UberText_autoResizeTextSizeMin, Float.MIN_VALUE);
+      f1 = paramContext.getDimension(ndn.UberText_autoResizeTextSizeMax, Float.MAX_VALUE);
       paramContext.recycle();
     }
     for (;;)
     {
-      b = new jwx(this, paramPaint, bool1, bool2, jzx.a(f2), jzx.a(f1));
+      b = new ndp(this, paramPaint, bool1, bool2, ngo.a(f2), ngo.a(f1));
       return;
       bool1 = false;
     }
@@ -92,7 +92,7 @@ public class Button
     paramContext = getContext().obtainStyledAttributes(paramInt, a);
     paramInt = paramContext.getResourceId(0, 0);
     if ((paramInt != 0) && (!isInEditMode())) {
-      setTypeface(jwk.a(getContext(), paramInt));
+      setTypeface(ndb.a(getContext(), paramInt));
     }
     paramContext.recycle();
   }

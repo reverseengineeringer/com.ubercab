@@ -1,40 +1,33 @@
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.ViewTreeObserver.OnScrollChangedListener;
-import java.lang.ref.WeakReference;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.data.DataHolder;
+import com.google.android.gms.location.places.personalized.PlaceUserData;
 
-@apl
-final class asn
-  extends aso
-  implements ViewTreeObserver.OnScrollChangedListener
+public final class asn
+  extends yt<PlaceUserData>
+  implements wq
 {
-  private final WeakReference<ViewTreeObserver.OnScrollChangedListener> a;
+  private final Status b;
   
-  public asn(View paramView, ViewTreeObserver.OnScrollChangedListener paramOnScrollChangedListener)
+  public asn(DataHolder paramDataHolder)
   {
-    super(paramView);
-    a = new WeakReference(paramOnScrollChangedListener);
+    this(paramDataHolder, are.b(paramDataHolder.e()));
   }
   
-  protected final void a(ViewTreeObserver paramViewTreeObserver)
+  private asn(DataHolder paramDataHolder, Status paramStatus)
   {
-    paramViewTreeObserver.addOnScrollChangedListener(this);
-  }
-  
-  protected final void b(ViewTreeObserver paramViewTreeObserver)
-  {
-    paramViewTreeObserver.removeOnScrollChangedListener(this);
-  }
-  
-  public final void onScrollChanged()
-  {
-    ViewTreeObserver.OnScrollChangedListener localOnScrollChangedListener = (ViewTreeObserver.OnScrollChangedListener)a.get();
-    if (localOnScrollChangedListener != null)
+    super(paramDataHolder, PlaceUserData.CREATOR);
+    if ((paramDataHolder == null) || (paramDataHolder.e() == paramStatus.f())) {}
+    for (boolean bool = true;; bool = false)
     {
-      localOnScrollChangedListener.onScrollChanged();
+      abe.b(bool);
+      b = paramStatus;
       return;
     }
-    b();
+  }
+  
+  public final Status a()
+  {
+    return b;
   }
 }
 

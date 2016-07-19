@@ -1,27 +1,15 @@
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.LoginActivity;
+
 public final class cck
+  implements View.OnClickListener
 {
-  Integer a;
-  public String b;
+  public cck(LoginActivity paramLoginActivity) {}
   
-  public cck(String paramString, Integer paramInteger)
+  public final void onClick(View paramView)
   {
-    b = paramString;
-    a = paramInteger;
-  }
-  
-  public final boolean a()
-  {
-    return (a != null) && (a.equals(Integer.valueOf(401)));
-  }
-  
-  public final boolean b()
-  {
-    return (a()) && (b.equals("2fa_required"));
-  }
-  
-  public final boolean c()
-  {
-    return b.equals(btt.b.toString());
+    LoginActivity.f(a);
   }
 }
 

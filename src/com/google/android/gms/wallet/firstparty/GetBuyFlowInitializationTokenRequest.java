@@ -2,14 +2,14 @@ package com.google.android.gms.wallet.firstparty;
 
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import bnm;
+import bfk;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 
 @Deprecated
 public final class GetBuyFlowInitializationTokenRequest
   implements SafeParcelable
 {
-  public static final Parcelable.Creator<GetBuyFlowInitializationTokenRequest> CREATOR = new bnm();
+  public static final Parcelable.Creator<GetBuyFlowInitializationTokenRequest> CREATOR = new bfk();
   public byte[] a;
   public byte[] b;
   private final int c;
@@ -38,7 +38,7 @@ public final class GetBuyFlowInitializationTokenRequest
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    bnm.a(this, paramParcel);
+    bfk.a(this, paramParcel);
   }
 }
 

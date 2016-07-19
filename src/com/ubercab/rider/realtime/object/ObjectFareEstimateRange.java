@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jtd;
+import myk;
 
 @Shape
 abstract class ObjectFareEstimateRange
-  implements jtd
+  implements myk
 {}
 
 /* Location:

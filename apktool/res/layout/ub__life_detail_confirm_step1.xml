@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:id="@id/ub__life_detail_step1_preconfirmtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="" style="@style/Uber.TextAppearance.H1" />
+    <com.ubercab.ui.TextView android:id="@id/ub__life_detail_step1_preconfirmtext" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="" style="@style/Uber.TextAppearance.P" />
+    <com.ubercab.ui.Button android:id="@id/ub__life_detail_step1_preconfirmbtn" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" style="@style/Uber.Widget.Button" />
+</LinearLayout>

@@ -1,120 +1,23 @@
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.IInterface;
+import com.google.android.gms.measurement.internal.AppMetadata;
+import com.google.android.gms.measurement.internal.EventParcel;
+import com.google.android.gms.measurement.internal.UserAttributeParcel;
+import java.util.List;
 
-public final class bbz
-  implements bdh
+public abstract interface bbz
+  extends IInterface
 {
-  private final ViewGroup a;
-  private final bda b;
-  private View c;
+  public abstract List<UserAttributeParcel> a(AppMetadata paramAppMetadata, boolean paramBoolean);
   
-  public bbz(ViewGroup paramViewGroup, bda parambda)
-  {
-    b = ((bda)abs.a(parambda));
-    a = ((ViewGroup)abs.a(paramViewGroup));
-  }
+  public abstract void a(AppMetadata paramAppMetadata);
   
-  public final void a()
-  {
-    try
-    {
-      b.b();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
+  public abstract void a(EventParcel paramEventParcel, AppMetadata paramAppMetadata);
   
-  public final void a(Bundle paramBundle)
-  {
-    try
-    {
-      b.a(paramBundle);
-      c = ((View)adg.a(b.f()));
-      a.removeAllViews();
-      a.addView(c);
-      return;
-    }
-    catch (RemoteException paramBundle)
-    {
-      throw new bgs(paramBundle);
-    }
-  }
+  public abstract void a(EventParcel paramEventParcel, String paramString1, String paramString2);
   
-  public final void a(final bbw parambbw)
-  {
-    try
-    {
-      b.a(new bdk()
-      {
-        public final void a(bcu paramAnonymousbcu)
-        {
-          new bby(paramAnonymousbcu);
-        }
-      });
-      return;
-    }
-    catch (RemoteException parambbw)
-    {
-      throw new bgs(parambbw);
-    }
-  }
+  public abstract void a(UserAttributeParcel paramUserAttributeParcel, AppMetadata paramAppMetadata);
   
-  public final void b()
-  {
-    try
-    {
-      b.c();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
-  
-  public final void b(Bundle paramBundle)
-  {
-    try
-    {
-      b.b(paramBundle);
-      return;
-    }
-    catch (RemoteException paramBundle)
-    {
-      throw new bgs(paramBundle);
-    }
-  }
-  
-  public final void c()
-  {
-    try
-    {
-      b.d();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
-  
-  public final void d()
-  {
-    try
-    {
-      b.e();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
+  public abstract void b(AppMetadata paramAppMetadata);
 }
 
 /* Location:

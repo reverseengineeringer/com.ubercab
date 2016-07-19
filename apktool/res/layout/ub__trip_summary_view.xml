@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ubercab.client.feature.trip.summary.TripSummaryView android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<com.ubercab.client.feature.trip.summary.TripSummaryView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <include android:id="@id/ub__trip_summary_fare" style="@style/Style.Rider.Trip.Summary.Section.Hidden" layout="@layout/ub__trip_summary_tab_view" />
-    <View android:id="@id/ub__trip_summary_divider_left" style="@style/Style.Rider.Trip.Summary.Divider.Hidden" />
-    <include android:id="@id/ub__trip_summary_capacity" style="@style/Style.Rider.Trip.Summary.Section" layout="@layout/ub__trip_summary_tab_view" />
-    <View android:id="@id/ub__trip_summary_divider_right" style="@style/Style.Rider.Trip.Summary.Divider" />
-    <include android:id="@id/ub__trip_summary_payment" style="@style/Style.Rider.Trip.Summary.Section" layout="@layout/ub__trip_summary_tab_view" />
+    <LinearLayout android:orientation="horizontal" android:padding="@dimen/ub__trip_tray_tab_view_padding" android:layout_width="fill_parent" android:layout_height="@dimen/ub__trip_tray_collapsed_item_height_small">
+        <include android:id="@id/ub__trip_summary_fare_estimate" style="@style/Style.Rider.Trip.Summary.Section.Hidden" layout="@layout/ub__trip_summary_tab_view" />
+        <include android:id="@id/ub__trip_summary_fare" style="@style/Style.Rider.Trip.Summary.Section.Hidden" layout="@layout/ub__trip_summary_tab_view" />
+        <View android:id="@id/ub__trip_summary_divider_left" style="@style/Style.Rider.Trip.Summary.Divider.Hidden" />
+        <include android:id="@id/ub__trip_summary_capacity" style="@style/Style.Rider.Trip.Summary.Section" layout="@layout/ub__trip_summary_tab_view" />
+        <View android:id="@id/ub__trip_summary_divider_right" style="@style/Style.Rider.Trip.Summary.Divider" />
+        <include android:id="@id/ub__trip_summary_payment" style="@style/Style.Rider.Trip.Summary.Section" layout="@layout/ub__trip_summary_tab_view" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/ub__trip_button_payment_card_offers_progress" style="@style/Style.Rider.Trip.CardOffer" />
 </com.ubercab.client.feature.trip.summary.TripSummaryView>

@@ -9,6 +9,11 @@ public abstract class FinishedStep
 {
   public static final String TYPE = "finished";
   
+  public static FinishedStep create(Extra paramExtra)
+  {
+    return new Shape_FinishedStep().setExtra(paramExtra);
+  }
+  
   public abstract Extra getExtra();
   
   abstract FinishedStep setExtra(Extra paramExtra);

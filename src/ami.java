@@ -1,146 +1,133 @@
-import android.os.Binder;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-
-public abstract class ami
-  extends Binder
-  implements amh
+public final class ami
+  extends aoi
 {
+  private static volatile ami[] c;
+  public String a;
+  public Boolean b;
+  
   public ami()
   {
-    attachInterface(this, "com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
+    e();
   }
   
-  public static amh a(IBinder paramIBinder)
+  private ami b(anz paramanz)
   {
-    if (paramIBinder == null) {
-      return null;
+    for (;;)
+    {
+      int i = paramanz.a();
+      switch (i)
+      {
+      default: 
+        if (aol.a(paramanz, i)) {}
+        break;
+      case 0: 
+        return this;
+      case 10: 
+        a = paramanz.g();
+        break;
+      case 16: 
+        b = Boolean.valueOf(paramanz.f());
+      }
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-    if ((localIInterface != null) && ((localIInterface instanceof amh))) {
-      return (amh)localIInterface;
-    }
-    return new amj(paramIBinder);
   }
   
-  public IBinder asBinder()
+  private ami e()
   {
+    a = null;
+    b = null;
+    B = -1;
     return this;
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static ami[] e_()
+  {
+    if (c == null) {}
+    synchronized (aog.a)
+    {
+      if (c == null) {
+        c = new ami[0];
+      }
+      return c;
+    }
+  }
+  
+  public final void a(aoa paramaoa)
+  {
+    if (a != null) {
+      paramaoa.a(1, a);
+    }
+    if (b != null) {
+      paramaoa.a(2, b.booleanValue());
+    }
+    super.a(paramaoa);
+  }
+  
+  protected final int b()
+  {
+    int j = super.b();
+    int i = j;
+    if (a != null) {
+      i = j + aoa.b(1, a);
+    }
+    j = i;
+    if (b != null)
+    {
+      b.booleanValue();
+      j = i + aoa.b(2);
+    }
+    return j;
+  }
+  
+  public final boolean equals(Object paramObject)
+  {
+    if (paramObject == this) {}
+    do
+    {
+      do
+      {
+        return true;
+        if (!(paramObject instanceof ami)) {
+          return false;
+        }
+        paramObject = (ami)paramObject;
+        if (a == null)
+        {
+          if (a != null) {
+            return false;
+          }
+        }
+        else if (!a.equals(a)) {
+          return false;
+        }
+        if (b != null) {
+          break;
+        }
+      } while (b == null);
+      return false;
+    } while (b.equals(b));
+    return false;
+  }
+  
+  public final int hashCode()
   {
     int j = 0;
-    int i = 0;
-    boolean bool;
-    switch (paramInt1)
+    int k = getClass().getName().hashCode();
+    int i;
+    if (a == null)
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      return true;
-    case 2: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      paramParcel1 = a();
-      paramParcel2.writeNoException();
-      paramParcel2.writeString(paramParcel1);
-      return true;
-    case 3: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      paramParcel1 = b();
-      paramParcel2.writeNoException();
-      paramParcel2.writeList(paramParcel1);
-      return true;
-    case 4: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      paramParcel1 = c();
-      paramParcel2.writeNoException();
-      paramParcel2.writeString(paramParcel1);
-      return true;
-    case 5: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      paramParcel1 = d();
-      paramParcel2.writeNoException();
-      if (paramParcel1 != null) {}
-      for (paramParcel1 = paramParcel1.asBinder();; paramParcel1 = null)
-      {
-        paramParcel2.writeStrongBinder(paramParcel1);
-        return true;
+      i = 0;
+      if (b != null) {
+        break label56;
       }
-    case 6: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      paramParcel1 = e();
-      paramParcel2.writeNoException();
-      paramParcel2.writeString(paramParcel1);
-      return true;
-    case 7: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      double d = f();
-      paramParcel2.writeNoException();
-      paramParcel2.writeDouble(d);
-      return true;
-    case 8: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      paramParcel1 = g();
-      paramParcel2.writeNoException();
-      paramParcel2.writeString(paramParcel1);
-      return true;
-    case 9: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      paramParcel1 = h();
-      paramParcel2.writeNoException();
-      paramParcel2.writeString(paramParcel1);
-      return true;
-    case 10: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      i();
-      paramParcel2.writeNoException();
-      return true;
-    case 11: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      a(ade.a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      return true;
-    case 12: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      b(ade.a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      return true;
-    case 13: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      bool = j();
-      paramParcel2.writeNoException();
-      paramInt1 = i;
-      if (bool) {
-        paramInt1 = 1;
-      }
-      paramParcel2.writeInt(paramInt1);
-      return true;
-    case 14: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-      bool = k();
-      paramParcel2.writeNoException();
-      paramInt1 = j;
-      if (bool) {
-        paramInt1 = 1;
-      }
-      paramParcel2.writeInt(paramInt1);
-      return true;
     }
-    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeAppInstallAdMapper");
-    paramParcel1 = l();
-    paramParcel2.writeNoException();
-    if (paramParcel1 != null)
+    for (;;)
     {
-      paramParcel2.writeInt(1);
-      paramParcel1.writeToParcel(paramParcel2, 1);
-      return true;
+      return (i + (k + 527) * 31) * 31 + j;
+      i = a.hashCode();
+      break;
+      label56:
+      j = b.hashCode();
     }
-    paramParcel2.writeInt(0);
-    return true;
   }
 }
 

@@ -3,7 +3,7 @@ package android.support.v4.view;
 import android.os.Build.VERSION;
 import android.view.VelocityTracker;
 
-public class VelocityTrackerCompat
+public final class VelocityTrackerCompat
 {
   static final VelocityTrackerCompat.VelocityTrackerVersionImpl IMPL = new VelocityTrackerCompat.BaseVelocityTrackerVersionImpl();
   

@@ -1,146 +1,57 @@
-import android.os.RemoteException;
-import com.google.android.gms.maps.model.LatLng;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.wallet.NotifyTransactionStatusRequest;
 
 public final class bgq
+  implements Parcelable.Creator<NotifyTransactionStatusRequest>
 {
-  private final bhe a;
-  
-  public bgq(bhe parambhe)
+  private static NotifyTransactionStatusRequest a(Parcel paramParcel)
   {
-    a = ((bhe)abs.a(parambhe));
+    String str2 = null;
+    int j = 0;
+    int k = zd.b(paramParcel);
+    String str1 = null;
+    int i = 0;
+    while (paramParcel.dataPosition() < k)
+    {
+      int m = zd.a(paramParcel);
+      switch (zd.a(m))
+      {
+      default: 
+        zd.a(paramParcel, m);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, m);
+        break;
+      case 2: 
+        str1 = zd.n(paramParcel, m);
+        break;
+      case 3: 
+        j = zd.e(paramParcel, m);
+        break;
+      case 4: 
+        str2 = zd.n(paramParcel, m);
+      }
+    }
+    if (paramParcel.dataPosition() != k) {
+      throw new ze("Overread allowed size end=" + k, paramParcel);
+    }
+    return new NotifyTransactionStatusRequest(i, str1, j, str2);
   }
   
-  public final void a()
+  public static void a(NotifyTransactionStatusRequest paramNotifyTransactionStatusRequest, Parcel paramParcel)
   {
-    try
-    {
-      a.a();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, b, false);
+    zf.a(paramParcel, 3, c);
+    zf.a(paramParcel, 4, d, false);
+    zf.a(paramParcel, i);
   }
   
-  public final void a(float paramFloat)
+  private static NotifyTransactionStatusRequest[] a(int paramInt)
   {
-    try
-    {
-      a.d(paramFloat);
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
-  
-  public final void a(float paramFloat1, float paramFloat2)
-  {
-    try
-    {
-      a.a(paramFloat1, paramFloat2);
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
-  
-  public final void a(LatLng paramLatLng)
-  {
-    try
-    {
-      a.a(paramLatLng);
-      return;
-    }
-    catch (RemoteException paramLatLng)
-    {
-      throw new bgs(paramLatLng);
-    }
-  }
-  
-  public final void a(boolean paramBoolean)
-  {
-    try
-    {
-      a.a(paramBoolean);
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
-  
-  public final float b()
-  {
-    try
-    {
-      float f = a.e();
-      return f;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
-  
-  public final boolean c()
-  {
-    try
-    {
-      boolean bool = a.i();
-      return bool;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
-  
-  public final float d()
-  {
-    try
-    {
-      float f = a.j();
-      return f;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
-  
-  public final boolean equals(Object paramObject)
-  {
-    if (!(paramObject instanceof bgq)) {
-      return false;
-    }
-    try
-    {
-      boolean bool = a.a(a);
-      return bool;
-    }
-    catch (RemoteException paramObject)
-    {
-      throw new bgs((RemoteException)paramObject);
-    }
-  }
-  
-  public final int hashCode()
-  {
-    try
-    {
-      int i = a.k();
-      return i;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
+    return new NotifyTransactionStatusRequest[paramInt];
   }
 }
 

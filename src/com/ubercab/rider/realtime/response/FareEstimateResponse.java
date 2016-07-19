@@ -2,12 +2,14 @@ package com.ubercab.rider.realtime.response;
 
 import com.ubercab.rider.realtime.model.EtdInfo;
 import com.ubercab.rider.realtime.model.FareInfo;
+import com.ubercab.rider.realtime.model.FareVariant;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import java.util.List;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class FareEstimateResponse
 {
   public abstract String getCurrencyCode();
@@ -18,9 +20,11 @@ public abstract class FareEstimateResponse
   
   public abstract FareInfo getFareInfo();
   
-  public abstract FareHijackVehicleViewInfo getHijackVehicleViewInfo();
+  public abstract List<FareVariant> getFareVariants();
   
   public abstract HopInfo getHopInfo();
+  
+  public abstract ItineraryInfo getItineraryInfo();
   
   public abstract FareLinkedVehicleViewInfo getLinkedVehicleViewInfo();
   
@@ -36,9 +40,11 @@ public abstract class FareEstimateResponse
   
   abstract FareEstimateResponse setFareInfo(FareInfo paramFareInfo);
   
-  abstract FareEstimateResponse setHijackVehicleViewInfo(FareHijackVehicleViewInfo paramFareHijackVehicleViewInfo);
+  abstract FareEstimateResponse setFareVariants(List<FareVariant> paramList);
   
   abstract FareEstimateResponse setHopInfo(HopInfo paramHopInfo);
+  
+  abstract FareEstimateResponse setItineraryInfo(ItineraryInfo paramItineraryInfo);
   
   abstract FareEstimateResponse setLinkedVehicleViewInfo(FareLinkedVehicleViewInfo paramFareLinkedVehicleViewInfo);
   

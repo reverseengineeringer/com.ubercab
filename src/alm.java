@@ -1,128 +1,54 @@
-@apl
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
+import android.content.Context;
+import android.os.Binder;
+import java.util.Iterator;
+import java.util.List;
+
 public final class alm
-  extends amb
 {
-  private final Object a = new Object();
-  private alp b;
-  private all c;
-  
-  public final void a()
+  public static String a(int paramInt)
   {
-    synchronized (a)
+    StackTraceElement[] arrayOfStackTraceElement = Thread.currentThread().getStackTrace();
+    StringBuffer localStringBuffer = new StringBuffer();
+    int i = 3;
+    while (i < paramInt + 3)
     {
-      if (c != null) {
-        c.r();
-      }
-      return;
+      localStringBuffer.append(a(arrayOfStackTraceElement, i)).append(" ");
+      i += 1;
     }
+    return localStringBuffer.toString();
   }
   
-  public final void a(int paramInt)
+  public static String a(Context paramContext)
   {
-    for (;;)
+    return a(paramContext, Binder.getCallingPid());
+  }
+  
+  public static String a(Context paramContext, int paramInt)
+  {
+    paramContext = ((ActivityManager)paramContext.getSystemService("activity")).getRunningAppProcesses();
+    if (paramContext != null)
     {
-      synchronized (a)
+      paramContext = paramContext.iterator();
+      while (paramContext.hasNext())
       {
-        if (b != null)
-        {
-          if (paramInt == 3)
-          {
-            paramInt = 1;
-            b.a(paramInt);
-            b = null;
-          }
-        }
-        else {
-          return;
+        ActivityManager.RunningAppProcessInfo localRunningAppProcessInfo = (ActivityManager.RunningAppProcessInfo)paramContext.next();
+        if (pid == paramInt) {
+          return processName;
         }
       }
-      paramInt = 2;
     }
+    return null;
   }
   
-  public final void a(all paramall)
+  private static String a(StackTraceElement[] paramArrayOfStackTraceElement, int paramInt)
   {
-    synchronized (a)
-    {
-      c = paramall;
-      return;
+    if (paramInt + 4 >= paramArrayOfStackTraceElement.length) {
+      return "<bottom of call stack>";
     }
-  }
-  
-  public final void a(alp paramalp)
-  {
-    synchronized (a)
-    {
-      b = paramalp;
-      return;
-    }
-  }
-  
-  public final void a(ame paramame)
-  {
-    synchronized (a)
-    {
-      if (b != null)
-      {
-        b.a(paramame);
-        b = null;
-        return;
-      }
-      if (c != null) {
-        c.v();
-      }
-      return;
-    }
-  }
-  
-  public final void b()
-  {
-    synchronized (a)
-    {
-      if (c != null) {
-        c.s();
-      }
-      return;
-    }
-  }
-  
-  public final void c()
-  {
-    synchronized (a)
-    {
-      if (c != null) {
-        c.t();
-      }
-      return;
-    }
-  }
-  
-  public final void d()
-  {
-    synchronized (a)
-    {
-      if (c != null) {
-        c.u();
-      }
-      return;
-    }
-  }
-  
-  public final void e()
-  {
-    synchronized (a)
-    {
-      if (b != null)
-      {
-        b.a(0);
-        b = null;
-        return;
-      }
-      if (c != null) {
-        c.v();
-      }
-      return;
-    }
+    paramArrayOfStackTraceElement = paramArrayOfStackTraceElement[(paramInt + 4)];
+    return paramArrayOfStackTraceElement.getClassName() + "." + paramArrayOfStackTraceElement.getMethodName() + ":" + paramArrayOfStackTraceElement.getLineNumber();
   }
 }
 

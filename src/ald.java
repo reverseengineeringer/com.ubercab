@@ -1,16 +1,49 @@
-import org.json.JSONObject;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 
-public abstract interface ald
+public final class ald
 {
-  public abstract void a(String paramString, aji paramaji);
+  @TargetApi(20)
+  public static boolean a(Context paramContext)
+  {
+    return (all.g()) && (paramContext.getPackageManager().hasSystemFeature("android.hardware.type.watch"));
+  }
   
-  public abstract void a(String paramString1, String paramString2);
+  public static boolean a(Resources paramResources)
+  {
+    if (paramResources == null) {}
+    for (;;)
+    {
+      return false;
+      if ((getConfigurationscreenLayout & 0xF) > 3) {}
+      for (int i = 1; ((all.a()) && (i != 0)) || (b(paramResources)); i = 0) {
+        return true;
+      }
+    }
+  }
   
-  public abstract void a(String paramString, JSONObject paramJSONObject);
-  
-  public abstract void b(String paramString, aji paramaji);
-  
-  public abstract void b(String paramString, JSONObject paramJSONObject);
+  @TargetApi(13)
+  private static boolean b(Resources paramResources)
+  {
+    boolean bool2 = false;
+    paramResources = paramResources.getConfiguration();
+    boolean bool1 = bool2;
+    if (all.b())
+    {
+      bool1 = bool2;
+      if ((screenLayout & 0xF) <= 3)
+      {
+        bool1 = bool2;
+        if (smallestScreenWidthDp >= 600) {
+          bool1 = true;
+        }
+      }
+    }
+    return bool1;
+  }
 }
 
 /* Location:

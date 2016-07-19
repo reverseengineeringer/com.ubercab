@@ -10,7 +10,6 @@ import android.os.Parcelable.Creator;
 import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 import android.util.Log;
-import java.util.Iterator;
 import java.util.Set;
 
 public final class MediaMetadataCompat
@@ -119,34 +118,13 @@ public final class MediaMetadataCompat
     if ((paramObject == null) || (Build.VERSION.SDK_INT < 21)) {
       return null;
     }
-    Object localObject = new MediaMetadataCompat.Builder();
-    Iterator localIterator = MediaMetadataCompatApi21.keySet(paramObject).iterator();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      Integer localInteger = (Integer)METADATA_KEYS_TYPE.get(str);
-      if (localInteger != null) {
-        switch (localInteger.intValue())
-        {
-        default: 
-          break;
-        case 0: 
-          ((MediaMetadataCompat.Builder)localObject).putLong(str, MediaMetadataCompatApi21.getLong(paramObject, str));
-          break;
-        case 2: 
-          ((MediaMetadataCompat.Builder)localObject).putBitmap(str, MediaMetadataCompatApi21.getBitmap(paramObject, str));
-          break;
-        case 3: 
-          ((MediaMetadataCompat.Builder)localObject).putRating(str, RatingCompat.fromRating(MediaMetadataCompatApi21.getRating(paramObject, str)));
-          break;
-        case 1: 
-          ((MediaMetadataCompat.Builder)localObject).putText(str, MediaMetadataCompatApi21.getText(paramObject, str));
-        }
-      }
-    }
-    localObject = ((MediaMetadataCompat.Builder)localObject).build();
+    Parcel localParcel = Parcel.obtain();
+    MediaMetadataCompatApi21.writeToParcel(paramObject, localParcel, 0);
+    localParcel.setDataPosition(0);
+    MediaMetadataCompat localMediaMetadataCompat = (MediaMetadataCompat)CREATOR.createFromParcel(localParcel);
+    localParcel.recycle();
     mMetadataObj = paramObject;
-    return (MediaMetadataCompat)localObject;
+    return localMediaMetadataCompat;
   }
   
   public final boolean containsKey(String paramString)
@@ -268,32 +246,11 @@ public final class MediaMetadataCompat
     if ((mMetadataObj != null) || (Build.VERSION.SDK_INT < 21)) {
       return mMetadataObj;
     }
-    Object localObject = MediaMetadataCompatApi21.Builder.newInstance();
-    Iterator localIterator = keySet().iterator();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      Integer localInteger = (Integer)METADATA_KEYS_TYPE.get(str);
-      if (localInteger != null) {
-        switch (localInteger.intValue())
-        {
-        default: 
-          break;
-        case 0: 
-          MediaMetadataCompatApi21.Builder.putLong(localObject, str, getLong(str));
-          break;
-        case 2: 
-          MediaMetadataCompatApi21.Builder.putBitmap(localObject, str, getBitmap(str));
-          break;
-        case 3: 
-          MediaMetadataCompatApi21.Builder.putRating(localObject, str, getRating(str).getRating());
-          break;
-        case 1: 
-          MediaMetadataCompatApi21.Builder.putText(localObject, str, getText(str));
-        }
-      }
-    }
-    mMetadataObj = MediaMetadataCompatApi21.Builder.build(localObject);
+    Parcel localParcel = Parcel.obtain();
+    writeToParcel(localParcel, 0);
+    localParcel.setDataPosition(0);
+    mMetadataObj = MediaMetadataCompatApi21.createFromParcel(localParcel);
+    localParcel.recycle();
     return mMetadataObj;
   }
   
@@ -301,6 +258,9 @@ public final class MediaMetadataCompat
   {
     try
     {
+      if (Build.VERSION.SDK_INT >= 21) {
+        return RatingCompat.fromRating(mBundle.getParcelable(paramString));
+      }
       paramString = (RatingCompat)mBundle.getParcelable(paramString);
       return paramString;
     }

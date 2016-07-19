@@ -1,55 +1,34 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.server.response.FieldMappingDictionary.Entry;
-import com.google.android.gms.common.server.response.FieldMappingDictionary.FieldMapPair;
-import java.util.ArrayList;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Looper;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public final class acc
-  implements Parcelable.Creator<FieldMappingDictionary.Entry>
+  implements ServiceConnection
 {
-  private static FieldMappingDictionary.Entry a(Parcel paramParcel)
+  boolean a = false;
+  private final BlockingQueue<IBinder> b = new LinkedBlockingQueue();
+  
+  public final IBinder a()
   {
-    ArrayList localArrayList = null;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    String str = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        localArrayList = zm.c(paramParcel, k, FieldMappingDictionary.FieldMapPair.CREATOR);
-      }
+    if (Looper.myLooper() == Looper.getMainLooper()) {
+      throw new IllegalStateException("BlockingServiceConnection.getService() called on main thread");
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    if (a) {
+      throw new IllegalStateException();
     }
-    return new FieldMappingDictionary.Entry(i, str, localArrayList);
+    a = true;
+    return (IBinder)b.take();
   }
   
-  public static void a(FieldMappingDictionary.Entry paramEntry, Parcel paramParcel)
+  public final void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, b, false);
-    zo.b(paramParcel, 3, c, false);
-    zo.a(paramParcel, i);
+    b.add(paramIBinder);
   }
   
-  private static FieldMappingDictionary.Entry[] a(int paramInt)
-  {
-    return new FieldMappingDictionary.Entry[paramInt];
-  }
+  public final void onServiceDisconnected(ComponentName paramComponentName) {}
 }
 
 /* Location:

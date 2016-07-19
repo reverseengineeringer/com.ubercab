@@ -6,18 +6,18 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import android.util.Log;
-import bvh;
-import bvl;
-import bze;
-import caq;
-import cdn;
-import cfi;
+import btb;
+import btf;
+import bwy;
+import byk;
+import ccq;
+import cel;
 import java.util.concurrent.ExecutorService;
 
 public final class PayPalConfiguration
   implements Parcelable
 {
-  public static final Parcelable.Creator CREATOR = new cdn();
+  public static final Parcelable.Creator CREATOR = new ccq();
   private static final String a = PayPalConfiguration.class.getSimpleName();
   private String b;
   private String c;
@@ -91,8 +91,8 @@ public final class PayPalConfiguration
   private static String b(Context paramContext)
   {
     ExecutorService localExecutorService = PayPalService.a;
-    new cfi();
-    return caq.a(localExecutorService, paramContext, new bvl(paramContext, "AndroidBasePrefs"), "2.9.10");
+    new cel();
+    return byk.a(localExecutorService, paramContext, new btf(paramContext, "AndroidBasePrefs"), "2.9.10");
   }
   
   public final PayPalConfiguration a(Uri paramUri)
@@ -126,7 +126,7 @@ public final class PayPalConfiguration
   
   final String b()
   {
-    if (bze.a(c))
+    if (bwy.a(c))
     {
       c = "live";
       Log.w("paypal.sdk", "defaulting to production environment");
@@ -207,11 +207,11 @@ public final class PayPalConfiguration
   
   public final boolean o()
   {
-    boolean bool2 = bze.a(a, b(), "environment");
+    boolean bool2 = bwy.a(a, b(), "environment");
     a(bool2, "environment");
     boolean bool1;
     if (bool2) {
-      if (bvh.a(b())) {
+      if (btb.a(b())) {
         bool1 = true;
       }
     }
@@ -220,7 +220,7 @@ public final class PayPalConfiguration
       if ((bool2) && (bool1))
       {
         return true;
-        bool1 = bze.a(a, k, "clientId");
+        bool1 = bwy.a(a, k, "clientId");
         a(bool1, "clientId");
       }
       else

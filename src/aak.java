@@ -1,34 +1,40 @@
-import android.os.Bundle;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.util.Log;
+import java.util.Iterator;
+import java.util.Set;
 
 public final class aak
-  extends abe
+  implements ServiceConnection
 {
-  private aag a;
-  private final int b;
+  public aak(aaj paramaaj) {}
   
-  public aak(aag paramaag, int paramInt)
+  public final void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
   {
-    a = paramaag;
-    b = paramInt;
+    synchronized (aah.a(a.a))
+    {
+      aaj.a(a, paramIBinder);
+      aaj.a(a, paramComponentName);
+      Iterator localIterator = aaj.b(a).iterator();
+      if (localIterator.hasNext()) {
+        ((ServiceConnection)localIterator.next()).onServiceConnected(paramComponentName, paramIBinder);
+      }
+    }
+    aaj.a(a, 1);
   }
   
-  private void a()
+  public final void onServiceDisconnected(ComponentName paramComponentName)
   {
-    a = null;
-  }
-  
-  public final void a(int paramInt, Bundle paramBundle)
-  {
-    Log.wtf("GmsClient", "received deprecated onAccountValidationComplete callback, ignoring", new Exception());
-  }
-  
-  public final void a(int paramInt, IBinder paramIBinder, Bundle paramBundle)
-  {
-    abs.a(a, "onPostInitComplete can be called only once per call to getRemoteService");
-    a.a(paramInt, paramIBinder, paramBundle, b);
-    a();
+    synchronized (aah.a(a.a))
+    {
+      aaj.a(a, null);
+      aaj.a(a, paramComponentName);
+      Iterator localIterator = aaj.b(a).iterator();
+      if (localIterator.hasNext()) {
+        ((ServiceConnection)localIterator.next()).onServiceDisconnected(paramComponentName);
+      }
+    }
+    aaj.a(a, 2);
   }
 }
 

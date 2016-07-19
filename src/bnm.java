@@ -1,52 +1,48 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.firstparty.GetBuyFlowInitializationTokenRequest;
+import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class bnm
-  implements Parcelable.Creator<GetBuyFlowInitializationTokenRequest>
 {
-  private static GetBuyFlowInitializationTokenRequest a(Parcel paramParcel)
+  private static final Map<Class<?>, Class<?>> a;
+  private static final Map<Class<?>, Class<?>> b;
+  
+  static
   {
-    byte[] arrayOfByte2 = null;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    byte[] arrayOfByte1 = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        arrayOfByte1 = zm.q(paramParcel, k);
-        break;
-      case 3: 
-        arrayOfByte2 = zm.q(paramParcel, k);
-      }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new GetBuyFlowInitializationTokenRequest(i, arrayOfByte1, arrayOfByte2);
+    HashMap localHashMap1 = new HashMap(16);
+    HashMap localHashMap2 = new HashMap(16);
+    a(localHashMap1, localHashMap2, Boolean.TYPE, Boolean.class);
+    a(localHashMap1, localHashMap2, Byte.TYPE, Byte.class);
+    a(localHashMap1, localHashMap2, Character.TYPE, Character.class);
+    a(localHashMap1, localHashMap2, Double.TYPE, Double.class);
+    a(localHashMap1, localHashMap2, Float.TYPE, Float.class);
+    a(localHashMap1, localHashMap2, Integer.TYPE, Integer.class);
+    a(localHashMap1, localHashMap2, Long.TYPE, Long.class);
+    a(localHashMap1, localHashMap2, Short.TYPE, Short.class);
+    a(localHashMap1, localHashMap2, Void.TYPE, Void.class);
+    a = Collections.unmodifiableMap(localHashMap1);
+    b = Collections.unmodifiableMap(localHashMap2);
   }
   
-  public static void a(GetBuyFlowInitializationTokenRequest paramGetBuyFlowInitializationTokenRequest, Parcel paramParcel)
+  public static <T> Class<T> a(Class<T> paramClass)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramGetBuyFlowInitializationTokenRequest.a());
-    zo.a(paramParcel, 2, a);
-    zo.a(paramParcel, 3, b);
-    zo.a(paramParcel, i);
+    Class localClass = (Class)a.get(bmx.a(paramClass));
+    if (localClass == null) {
+      return paramClass;
+    }
+    return localClass;
   }
   
-  private static GetBuyFlowInitializationTokenRequest[] a(int paramInt)
+  private static void a(Map<Class<?>, Class<?>> paramMap1, Map<Class<?>, Class<?>> paramMap2, Class<?> paramClass1, Class<?> paramClass2)
   {
-    return new GetBuyFlowInitializationTokenRequest[paramInt];
+    paramMap1.put(paramClass1, paramClass2);
+    paramMap2.put(paramClass2, paramClass1);
+  }
+  
+  public static boolean a(Type paramType)
+  {
+    return a.containsKey(paramType);
   }
 }
 

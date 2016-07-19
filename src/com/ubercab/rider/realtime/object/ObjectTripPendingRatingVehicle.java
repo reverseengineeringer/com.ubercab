@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jva;
+import naj;
 
 @Shape
 abstract class ObjectTripPendingRatingVehicle
-  implements jva
+  implements naj
 {}
 
 /* Location:

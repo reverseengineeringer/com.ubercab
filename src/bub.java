@@ -1,37 +1,74 @@
-import org.apache.http.Header;
-import org.apache.http.HeaderElement;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpResponseInterceptor;
-import org.apache.http.protocol.HttpContext;
+import java.security.GeneralSecurityException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.cert.X509Certificate;
+import java.util.Enumeration;
+import java.util.HashMap;
+import javax.security.auth.x500.X500Principal;
 
-final class bub
-  implements HttpResponseInterceptor
+public class bub
 {
-  public final void process(HttpResponse paramHttpResponse, HttpContext paramHttpContext)
+  private static bub a;
+  private final HashMap b = a(bsc.b());
+  
+  public static bub a()
   {
-    paramHttpContext = paramHttpResponse.getEntity();
-    if (paramHttpContext == null) {}
-    for (;;)
+    try
     {
-      return;
-      paramHttpContext = paramHttpContext.getContentEncoding();
-      if (paramHttpContext != null)
+      if (a == null) {
+        a = new bub();
+      }
+      bub localbub = a;
+      return localbub;
+    }
+    finally {}
+  }
+  
+  private static HashMap a(KeyStore paramKeyStore)
+  {
+    try
+    {
+      HashMap localHashMap = new HashMap();
+      Enumeration localEnumeration = paramKeyStore.aliases();
+      while (localEnumeration.hasMoreElements())
       {
-        paramHttpContext = paramHttpContext.getElements();
-        int j = paramHttpContext.length;
-        int i = 0;
-        while (i < j)
-        {
-          if (paramHttpContext[i].getName().equalsIgnoreCase("gzip"))
-          {
-            paramHttpResponse.setEntity(new buc(paramHttpResponse.getEntity()));
-            return;
-          }
-          i += 1;
+        Object localObject = (String)localEnumeration.nextElement();
+        bub.class.getSimpleName();
+        localObject = (X509Certificate)paramKeyStore.getCertificate((String)localObject);
+        if (localObject != null) {
+          localHashMap.put(((X509Certificate)localObject).getSubjectX500Principal(), localObject);
         }
       }
+      return localHashMap;
     }
+    catch (KeyStoreException paramKeyStore)
+    {
+      throw new AssertionError(paramKeyStore);
+    }
+  }
+  
+  public final boolean a(X509Certificate paramX509Certificate)
+  {
+    X509Certificate localX509Certificate = (X509Certificate)b.get(paramX509Certificate.getSubjectX500Principal());
+    return (localX509Certificate != null) && (localX509Certificate.getPublicKey().equals(paramX509Certificate.getPublicKey()));
+  }
+  
+  public final X509Certificate b(X509Certificate paramX509Certificate)
+  {
+    X509Certificate localX509Certificate = (X509Certificate)b.get(paramX509Certificate.getIssuerX500Principal());
+    if (localX509Certificate == null) {
+      return null;
+    }
+    if (localX509Certificate.getSubjectX500Principal().equals(paramX509Certificate.getSubjectX500Principal())) {
+      return null;
+    }
+    try
+    {
+      paramX509Certificate.verify(localX509Certificate.getPublicKey());
+      return localX509Certificate;
+    }
+    catch (GeneralSecurityException paramX509Certificate) {}
+    return null;
   }
 }
 

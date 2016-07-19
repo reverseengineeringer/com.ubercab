@@ -1,29 +1,31 @@
-import java.util.HashMap;
+import android.content.Context;
+import android.view.View;
+import com.payu.custombrowser.DotsProgressBar;
 
-final class cfo
-  extends HashMap
+public final class cfo
 {
-  cfo()
+  private void showProgressDialogNew(Context paramContext, View paramView)
   {
-    put(cbc.a, bsy.d);
-    put(cbc.b, bsy.b);
-    put(cbc.c, bsy.b);
-    put(cbc.d, bsy.b);
-    put(cbc.e, bsy.b);
-    put(cbc.f, bsy.b);
-    put(cbc.g, bsy.b);
-    put(cbc.h, bsy.c);
-    put(cbc.i, bsy.c);
-    put(cbc.j, bsy.c);
-    put(cbc.k, bsy.c);
-    put(cbc.l, bsy.e);
-    put(cbc.m, bsy.f);
-    put(cbc.n, bsy.f);
-    put(cbc.o, bsy.f);
-    put(cbc.p, bsy.f);
-    put(cbc.q, bsy.f);
-    put(cbc.r, bsy.f);
-    put(cbc.s, bsy.g);
+    paramContext = (DotsProgressBar)paramView.findViewById(cfy.dotsProgressBar);
+    paramContext.setDotsCount(5);
+    paramContext.start();
+  }
+  
+  public final void removeDialog(View paramView)
+  {
+    paramView.setVisibility(8);
+  }
+  
+  public final void removeProgressDialog(View paramView)
+  {
+    paramView.setVisibility(8);
+    ((DotsProgressBar)paramView.findViewById(cfy.dotsProgressBar)).stop();
+  }
+  
+  public final void showDialog(Context paramContext, View paramView)
+  {
+    paramView.setVisibility(0);
+    showProgressDialogNew(paramContext, paramView);
   }
 }
 

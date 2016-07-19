@@ -1,18 +1,35 @@
-import java.util.TimerTask;
+import org.apache.http.NoHttpResponseException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.conn.ClientConnectionManager;
 
 final class bum
-  extends TimerTask
+  extends bry
 {
-  bum(btk parambtk) {}
+  private final bur a;
   
-  public final void run()
+  private bum(buh parambuh, bur parambur)
   {
-    btk.g(a);
-    btk.h();
-    new StringBuilder("****** LoadConfigurationTask #").append(btk.h(a));
-    bvf.b();
-    but localbut = new but(btk.i(a), btk.j(a), btk.k(a));
-    buw.a().a(localbut);
+    a = parambur;
+  }
+  
+  public final void a(String paramString1, String paramString2)
+  {
+    a.b(paramString1);
+    buh.c();
+    new StringBuilder().append(a.o()).append(" success");
+  }
+  
+  public final void a(Throwable paramThrowable, String paramString)
+  {
+    a.b(paramString);
+    if ((paramThrowable instanceof NoHttpResponseException))
+    {
+      buh.e(b).a().getConnectionManager().closeExpiredConnections();
+      b.b(a);
+      return;
+    }
+    buh.c();
+    new StringBuilder().append(a.o()).append(" failure: ").append(paramThrowable.getMessage());
   }
 }
 

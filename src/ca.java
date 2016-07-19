@@ -1,4 +1,4 @@
-public final class ca {}
+public abstract interface ca {}
 
 /* Location:
  * Qualified Name:     ca

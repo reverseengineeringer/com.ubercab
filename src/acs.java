@@ -1,110 +1,54 @@
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.text.TextUtils;
+import java.lang.reflect.Field;
 
-public class acs
+public final class acs<T>
+  extends acq
 {
-  private static final acs a = new acs();
-  public static final int b = acy.b;
+  private final T a;
   
-  public static boolean a(Context paramContext, String paramString)
+  private acs(T paramT)
   {
-    return acy.a(paramContext, paramString);
+    a = paramT;
   }
   
-  public static acs b()
+  public static <T> acp a(T paramT)
   {
-    return a;
+    return new acs(paramT);
   }
   
-  private static String b(Context paramContext, String paramString)
+  public static <T> T a(acp paramacp)
   {
-    StringBuilder localStringBuilder = new StringBuilder();
-    localStringBuilder.append("gcore_");
-    localStringBuilder.append(b);
-    localStringBuilder.append("-");
-    if (!TextUtils.isEmpty(paramString)) {
-      localStringBuilder.append(paramString);
+    if ((paramacp instanceof acs)) {
+      return (T)a;
     }
-    localStringBuilder.append("-");
-    if (paramContext != null) {
-      localStringBuilder.append(paramContext.getPackageName());
-    }
-    localStringBuilder.append("-");
-    if (paramContext != null) {}
-    try
+    paramacp = paramacp.asBinder();
+    Object localObject = paramacp.getClass().getDeclaredFields();
+    if (localObject.length == 1)
     {
-      localStringBuilder.append(getPackageManagergetPackageInfogetPackageName0versionCode);
-      return localStringBuilder.toString();
+      localObject = localObject[0];
+      if (!((Field)localObject).isAccessible())
+      {
+        ((Field)localObject).setAccessible(true);
+        try
+        {
+          paramacp = ((Field)localObject).get(paramacp);
+          return paramacp;
+        }
+        catch (NullPointerException paramacp)
+        {
+          throw new IllegalArgumentException("Binder object is null.", paramacp);
+        }
+        catch (IllegalArgumentException paramacp)
+        {
+          throw new IllegalArgumentException("remoteBinder is the wrong class.", paramacp);
+        }
+        catch (IllegalAccessException paramacp)
+        {
+          throw new IllegalArgumentException("Could not access the field in remoteBinder.", paramacp);
+        }
+      }
+      throw new IllegalArgumentException("The concrete class implementing IObjectWrapper must have exactly one declared *private* field for the wrapped object. Preferably, this is an instance of the ObjectWrapper<T> class.");
     }
-    catch (PackageManager.NameNotFoundException paramContext)
-    {
-      for (;;) {}
-    }
-  }
-  
-  public static void d(Context paramContext)
-  {
-    acy.d(paramContext);
-  }
-  
-  public static void e(Context paramContext)
-  {
-    acy.e(paramContext);
-  }
-  
-  public int a(Context paramContext)
-  {
-    int j = acy.c(paramContext);
-    int i = j;
-    if (acy.b(paramContext, j)) {
-      i = 18;
-    }
-    return i;
-  }
-  
-  public Intent a(Context paramContext, int paramInt, String paramString)
-  {
-    switch (paramInt)
-    {
-    default: 
-      return null;
-    case 1: 
-    case 2: 
-      return aaw.a("com.google.android.gms", b(paramContext, paramString));
-    case 42: 
-      return aaw.a();
-    }
-    return aaw.a("com.google.android.gms");
-  }
-  
-  public boolean a(int paramInt)
-  {
-    return acy.d(paramInt);
-  }
-  
-  public boolean a(Context paramContext, int paramInt)
-  {
-    return acy.b(paramContext, paramInt);
-  }
-  
-  @Deprecated
-  public Intent b(int paramInt)
-  {
-    return a(null, paramInt, null);
-  }
-  
-  public String b(Context paramContext)
-  {
-    return acy.f(paramContext);
-  }
-  
-  public int c(Context paramContext)
-  {
-    return acy.j(paramContext);
+    throw new IllegalArgumentException("The concrete class implementing IObjectWrapper must have exactly *one* declared private field for the wrapped object.  Preferably, this is an instance of the ObjectWrapper<T> class.");
   }
 }
 

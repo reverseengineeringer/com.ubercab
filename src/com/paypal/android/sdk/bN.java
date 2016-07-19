@@ -3,15 +3,15 @@ package com.paypal.android.sdk;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
-import bvu;
-import bvv;
+import bto;
+import btp;
 import java.util.Random;
 
 public final class bN
-  extends bvu
+  extends bto
   implements Parcelable
 {
-  public static final Parcelable.Creator CREATOR = new bvv();
+  public static final Parcelable.Creator CREATOR = new btp();
   
   public bN()
   {

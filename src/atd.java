@@ -1,22 +1,6 @@
-import android.annotation.TargetApi;
-import android.view.View;
-import android.webkit.WebChromeClient.CustomViewCallback;
-
-@apl
-@TargetApi(14)
-public final class atd
-  extends atb
-{
-  public atd(asq paramasq)
-  {
-    super(paramasq);
-  }
-  
-  public final void onShowCustomView(View paramView, int paramInt, WebChromeClient.CustomViewCallback paramCustomViewCallback)
-  {
-    a(paramView, paramInt, paramCustomViewCallback);
-  }
-}
+public abstract class atd<A extends wc>
+  extends atb<aqx, A>
+{}
 
 /* Location:
  * Qualified Name:     atd

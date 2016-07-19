@@ -1,14 +1,12 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
+import android.content.Context;
+import android.os.Looper;
 
 final class amz$2
-  implements DialogInterface.OnClickListener
+  extends wb<beu, ana>
 {
-  amz$2(amz paramamz) {}
-  
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  private static beu a(Context paramContext, Looper paramLooper, zq paramzq, ana paramana, wl paramwl, wm paramwm)
   {
-    a.a("User canceled the download.");
+    return new beu(paramContext, paramLooper, false, paramzq, paramana.a(), paramwl, paramwm);
   }
 }
 

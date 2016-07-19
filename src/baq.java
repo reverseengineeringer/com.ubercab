@@ -1,64 +1,57 @@
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.location.places.PlaceFilter;
-import com.google.android.gms.location.places.UserDataType;
-import java.util.ArrayList;
+import com.google.android.gms.maps.model.Tile;
 
 public final class baq
-  implements Parcelable.Creator<PlaceFilter>
+  implements Parcelable.Creator<Tile>
 {
-  private static PlaceFilter a(Parcel paramParcel)
+  public static Tile a(Parcel paramParcel)
   {
-    boolean bool = false;
-    ArrayList localArrayList1 = null;
-    int j = zm.b(paramParcel);
-    ArrayList localArrayList2 = null;
-    ArrayList localArrayList3 = null;
+    int k = 0;
+    int m = zd.b(paramParcel);
+    byte[] arrayOfByte = null;
+    int j = 0;
     int i = 0;
-    while (paramParcel.dataPosition() < j)
+    while (paramParcel.dataPosition() < m)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      int n = zd.a(paramParcel);
+      switch (zd.a(n))
       {
       default: 
-        zm.a(paramParcel, k);
+        zd.a(paramParcel, n);
         break;
       case 1: 
-        localArrayList3 = zm.A(paramParcel, k);
+        i = zd.e(paramParcel, n);
         break;
-      case 1000: 
-        i = zm.e(paramParcel, k);
+      case 2: 
+        j = zd.e(paramParcel, n);
         break;
       case 3: 
-        bool = zm.b(paramParcel, k);
+        k = zd.e(paramParcel, n);
         break;
       case 4: 
-        localArrayList1 = zm.c(paramParcel, k, UserDataType.CREATOR);
-        break;
-      case 6: 
-        localArrayList2 = zm.B(paramParcel, k);
+        arrayOfByte = zd.q(paramParcel, n);
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    if (paramParcel.dataPosition() != m) {
+      throw new ze("Overread allowed size end=" + m, paramParcel);
     }
-    return new PlaceFilter(i, localArrayList3, bool, localArrayList2, localArrayList1);
+    return new Tile(i, j, k, arrayOfByte);
   }
   
-  public static void a(PlaceFilter paramPlaceFilter, Parcel paramParcel)
+  public static void a(Tile paramTile, Parcel paramParcel)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, b);
-    zo.a(paramParcel, 1000, a);
-    zo.a(paramParcel, 3, c);
-    zo.b(paramParcel, 4, d, false);
-    zo.a(paramParcel, 6, e, false);
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramTile.a());
+    zf.a(paramParcel, 2, a);
+    zf.a(paramParcel, 3, b);
+    zf.a(paramParcel, 4, c);
+    zf.a(paramParcel, i);
   }
   
-  private static PlaceFilter[] a(int paramInt)
+  private static Tile[] a(int paramInt)
   {
-    return new PlaceFilter[paramInt];
+    return new Tile[paramInt];
   }
 }
 

@@ -1,20 +1,10 @@
-public abstract interface cki
+public final class cki
+  extends IllegalStateException
 {
-  public abstract Double a();
-  
-  public abstract Double b();
-  
-  public abstract Float c();
-  
-  public abstract Float d();
-  
-  public abstract Double e();
-  
-  public abstract Float f();
-  
-  public abstract Float g();
-  
-  public abstract Long h();
+  public cki(String paramString)
+  {
+    super(paramString);
+  }
 }
 
 /* Location:

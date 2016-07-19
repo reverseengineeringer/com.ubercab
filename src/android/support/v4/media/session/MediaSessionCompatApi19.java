@@ -28,7 +28,7 @@ class MediaSessionCompatApi19
     paramMetadataEditor.putObject(268435457, paramBundle.getParcelable("android.media.metadata.USER_RATING"));
   }
   
-  public static Object createMetadataUpdateListener(MediaSessionCompatApi14.Callback paramCallback)
+  public static Object createMetadataUpdateListener(MediaSessionCompatApi19.Callback paramCallback)
   {
     return new MediaSessionCompatApi19.OnMetadataUpdateListener(paramCallback);
   }

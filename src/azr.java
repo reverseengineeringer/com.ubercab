@@ -1,42 +1,60 @@
-import android.location.Location;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
+import android.os.IInterface;
+import com.google.android.gms.maps.model.LatLng;
 
-final class azr
-  extends bbc
+public abstract interface azr
+  extends IInterface
 {
-  private Handler a;
+  public abstract void a();
   
-  azr(ayq paramayq)
-  {
-    if (Looper.myLooper() != null) {}
-    for (boolean bool = true;; bool = false)
-    {
-      abs.a(bool, "Can't create handler inside thread that has not called Looper.prepare()");
-      a = new azq(paramayq);
-      return;
-    }
-  }
+  public abstract void a(float paramFloat);
   
-  public final void a()
-  {
-    a = null;
-  }
+  public abstract void a(float paramFloat1, float paramFloat2);
   
-  public final void a(Location paramLocation)
-  {
-    if (a == null)
-    {
-      Log.e("LocationClientHelper", "Received a location in client after calling removeLocationUpdates.");
-      return;
-    }
-    Message localMessage = Message.obtain();
-    what = 1;
-    obj = paramLocation;
-    a.sendMessage(localMessage);
-  }
+  public abstract void a(acp paramacp);
+  
+  public abstract void a(LatLng paramLatLng);
+  
+  public abstract void a(String paramString);
+  
+  public abstract void a(boolean paramBoolean);
+  
+  public abstract boolean a(azr paramazr);
+  
+  public abstract String b();
+  
+  public abstract void b(float paramFloat);
+  
+  public abstract void b(float paramFloat1, float paramFloat2);
+  
+  public abstract void b(String paramString);
+  
+  public abstract void b(boolean paramBoolean);
+  
+  public abstract LatLng c();
+  
+  public abstract void c(boolean paramBoolean);
+  
+  public abstract String d();
+  
+  public abstract String e();
+  
+  public abstract boolean f();
+  
+  public abstract void g();
+  
+  public abstract void h();
+  
+  public abstract boolean i();
+  
+  public abstract boolean j();
+  
+  public abstract int k();
+  
+  public abstract boolean l();
+  
+  public abstract float m();
+  
+  public abstract float n();
 }
 
 /* Location:

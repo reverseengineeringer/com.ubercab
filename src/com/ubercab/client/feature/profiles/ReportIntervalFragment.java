@@ -3,44 +3,45 @@ package com.ubercab.client.feature.profiles;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.rider.realtime.model.Profile;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.TextView;
-import dsh;
-import ebj;
-import efr;
-import ggy;
-import ggz;
-import gid;
-import gif;
-import gip;
-import giq;
-import giy;
-import gjb;
-import iaj;
+import dxm;
+import eib;
+import enk;
+import hht;
+import hhu;
+import hjk;
+import hjm;
+import hka;
+import hkb;
+import hkr;
+import hks;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import r;
+import kct;
+import z;
 
 public class ReportIntervalFragment
-  extends dsh<gid>
+  extends dxm<hjk>
 {
-  public ckc c;
-  public chh d;
-  public gif e;
+  public ckt c;
+  public chn d;
+  public hjm e;
   private Profile f;
   private int g;
   private List<String> h;
@@ -72,31 +73,31 @@ public class ReportIntervalFragment
   private void a(Context paramContext, ListView paramListView)
   {
     b(paramContext, paramListView);
-    paramListView.setAdapter(new TroyProfilePreferencesAdapter(paramContext, Arrays.asList(new gip[] { new gip(giq.e, paramContext.getString(2131167235)).h().a(a("Weekly")), new gip(giq.g, paramContext.getString(2131166055)).h().a(a("Monthly")) }), d));
+    paramListView.setAdapter(new TroyProfilePreferencesAdapter(paramContext, Arrays.asList(new hka[] { new hka(hkb.e, paramContext.getString(2131167616)).g().b(a("Weekly")), new hka(hkb.g, paramContext.getString(2131166174)).g().b(a("Monthly")) }), d));
     if (g == 0) {
       c(paramContext, paramListView);
     }
   }
   
-  private void a(gid paramgid)
+  private void a(hjk paramhjk)
   {
-    paramgid.a(this);
+    paramhjk.a(this);
   }
   
-  private void a(giq paramgiq)
+  private void a(hkb paramhkb)
   {
     if (g == 0)
     {
-      if (paramgiq != giq.e) {
+      if (paramhkb != hkb.e) {
         break label25;
       }
-      c.a(r.mX);
+      c.a(z.qF);
     }
     label25:
-    while (paramgiq != giq.g) {
+    while (paramhkb != hkb.g) {
       return;
     }
-    c.a(r.mP);
+    c.a(z.qx);
   }
   
   private void a(String paramString, boolean paramBoolean)
@@ -114,35 +115,35 @@ public class ReportIntervalFragment
     return (h != null) && (h.contains(paramString));
   }
   
-  private gid b(ebj paramebj)
+  private hjk b(eib parameib)
   {
-    return ggy.a().a(new efr(this)).a(paramebj).a();
+    return hht.a().a(new enk(this)).a(parameib).a();
   }
   
   private void b(Context paramContext, ListView paramListView)
   {
     paramContext = LayoutInflater.from(paramContext);
-    paramListView.addFooterView(paramContext.inflate(2130903263, paramListView, false), null, false);
+    paramListView.addFooterView(paramContext.inflate(2130903689, paramListView, false), null, false);
     if ((g == 1) && (f != null))
     {
-      View localView = paramContext.inflate(2130903518, paramListView, false);
-      ((TextView)localView.findViewById(2131625292)).setText(getString(2131166618, new Object[] { f.getEmail() }));
+      View localView = paramContext.inflate(2130903703, paramListView, false);
+      ((TextView)localView.findViewById(2131625870)).setText(getString(2131166863, new Object[] { f.getEmail() }));
       paramListView.addFooterView(localView, null, false);
     }
-    paramContext = paramContext.inflate(2130903554, paramListView, false);
+    paramContext = paramContext.inflate(2130903764, paramListView, false);
     paramListView.addFooterView(paramContext, null, false);
-    paramContext.findViewById(2131625448).setOnClickListener(new ReportIntervalFragment.1(this));
+    paramContext.findViewById(2131626096).setOnClickListener(new ReportIntervalFragment.1(this));
   }
   
   private void c(Context paramContext, ListView paramListView)
   {
     paramContext = LayoutInflater.from(paramContext);
-    paramListView.addHeaderView(paramContext.inflate(2130903522, paramListView, false), null, false);
-    paramListView.addHeaderView(paramContext.inflate(2130903263, paramListView, false), null, false);
-    ((Button)paramListView.findViewById(2131625448)).setText(getString(2131166073));
+    paramListView.addHeaderView(paramContext.inflate(2130903707, paramListView, false), null, false);
+    paramListView.addHeaderView(paramContext.inflate(2130903689, paramListView, false), null, false);
+    ((Button)paramListView.findViewById(2131626096)).setText(getString(2131166201));
   }
   
-  public final ckr f()
+  public final cli e()
   {
     return RiderActivity.a;
   }
@@ -153,20 +154,23 @@ public class ReportIntervalFragment
     paramBundle = getArguments();
     if (paramBundle != null)
     {
-      f = e.a(paramBundle.getString("EXTRA_TROY_PROFILE_UUID"));
+      localObject = paramBundle.getString("EXTRA_TROY_PROFILE_UUID");
+      if ((!e.n()) || (!TextUtils.isEmpty((CharSequence)localObject))) {
+        f = e.a((String)localObject);
+      }
       g = a(paramBundle);
     }
     if (g == 0)
     {
-      paramBundle = iaj.a("Monthly");
+      paramBundle = kct.a("Monthly");
       localObject = paramBundle;
       if (f != null) {
         if (f.getSelectedSummaryPeriods() != null) {
-          break label95;
+          break label114;
         }
       }
     }
-    label95:
+    label114:
     for (Object localObject = paramBundle;; localObject = f.getSelectedSummaryPeriods())
     {
       h = new ArrayList((Collection)localObject);
@@ -178,39 +182,39 @@ public class ReportIntervalFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903210, paramViewGroup, false);
-    a(paramLayoutInflater.getContext(), (ListView)paramLayoutInflater.findViewById(2131624430));
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903281, paramViewGroup, false);
+    a(paramLayoutInflater.getContext(), (ListView)paramLayoutInflater.findViewById(2131624649));
     return paramLayoutInflater;
   }
   
-  @cho
-  public void onProfilePreferencesItemSelectEvent(giy paramgiy)
+  @chu
+  public void onProfilePreferencesItemSelectEvent(hkr paramhkr)
   {
-    giq localgiq = paramgiy.a();
-    if (localgiq == giq.e) {
-      a("Weekly", paramgiy.b());
+    hkb localhkb = paramhkr.a();
+    if (localhkb == hkb.e) {
+      a("Weekly", paramhkr.b());
     }
     for (;;)
     {
-      a(localgiq);
+      a(localhkb);
       return;
-      if (localgiq == giq.g) {
-        a("Monthly", paramgiy.b());
+      if (localhkb == hkb.g) {
+        a("Monthly", paramhkr.b());
       }
     }
   }
   
-  @OnClick({2131625448})
-  void onSaveButtonClick()
+  @OnClick
+  public void onSaveButtonClick()
   {
-    d.c(new gjb(h));
+    d.c(new hks(h));
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
     if (g == 1) {
-      d().b().a(2131166617);
+      b().b().a(2131166862);
     }
   }
 }

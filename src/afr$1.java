@@ -1,16 +1,9 @@
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import java.util.Map;
 
 final class afr$1
-  extends BroadcastReceiver
+  implements afs
 {
-  afr$1(afr paramafr) {}
-  
-  public final void onReceive(Context paramContext, Intent paramIntent)
-  {
-    a.b(false);
-  }
+  public final void a(ajm paramajm, Map<String, String> paramMap) {}
 }
 
 /* Location:

@@ -1,92 +1,23 @@
-import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
 
 public final class adr
+  extends amy
 {
-  static bio a;
+  private Intent b;
   
-  public static void a(Context paramContext, Intent paramIntent)
+  public adr() {}
+  
+  public adr(aij paramaij)
   {
-    a(paramContext, "_nr", paramIntent);
+    super(paramaij);
   }
   
-  private static void a(Context paramContext, String paramString, Intent paramIntent)
+  public final String getMessage()
   {
-    Bundle localBundle = new Bundle();
-    String str1 = paramIntent.getStringExtra("google.c.a.c_id");
-    String str2 = paramIntent.getStringExtra("google.c.a.c_l");
-    if ((str1 != null) && (str2 != null))
-    {
-      localBundle.putString("_nmid", str1);
-      localBundle.putString("_nmn", str2);
+    if (b != null) {
+      return "User needs to (re)enter credentials.";
     }
-    str1 = paramIntent.getStringExtra("from");
-    if ((str1 != null) && (str1.startsWith("/topics/"))) {}
-    for (;;)
-    {
-      if (str1 != null) {
-        localBundle.putString("_nt", str1);
-      }
-      try
-      {
-        localBundle.putInt("_nmt", Integer.valueOf(paramIntent.getStringExtra("google.c.a.ts")).intValue());
-        label101:
-        if (!paramIntent.hasExtra("google.c.a.udt")) {}
-      }
-      catch (NumberFormatException paramIntent)
-      {
-        try
-        {
-          localBundle.putInt("_ndt", Integer.valueOf(paramIntent.getStringExtra("google.c.a.udt")).intValue());
-          label129:
-          if (Log.isLoggable("GcmAnalytics", 3)) {
-            Log.d("GcmAnalytics", "Sending event=" + paramString + " params=" + localBundle);
-          }
-        }
-        catch (NumberFormatException paramIntent)
-        {
-          try
-          {
-            if (a == null) {}
-            for (paramContext = bio.a(paramContext);; paramContext = a)
-            {
-              paramContext.a("gcm", paramString, localBundle);
-              return;
-              str1 = null;
-              break;
-              localNumberFormatException = localNumberFormatException;
-              Log.w("GcmAnalytics", "Error while parsing timestamp in GCM event.");
-              break label101;
-              paramIntent = paramIntent;
-              Log.w("GcmAnalytics", "Error while parsing use_device_time in GCM event.");
-              break label129;
-            }
-            return;
-          }
-          catch (NoClassDefFoundError paramContext)
-          {
-            Log.w("GcmAnalytics", "Unable to log event, missing measurement library");
-          }
-        }
-      }
-    }
-  }
-  
-  public static void b(Context paramContext, Intent paramIntent)
-  {
-    a(paramContext, "_no", paramIntent);
-  }
-  
-  public static void c(Context paramContext, Intent paramIntent)
-  {
-    a(paramContext, "_nd", paramIntent);
-  }
-  
-  public static void d(Context paramContext, Intent paramIntent)
-  {
-    a(paramContext, "_nf", paramIntent);
+    return super.getMessage();
   }
 }
 

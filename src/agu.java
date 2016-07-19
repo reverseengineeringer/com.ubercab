@@ -1,9 +1,9 @@
-import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
-import java.util.List;
+import android.os.IInterface;
 
 public abstract interface agu
+  extends IInterface
 {
-  public abstract List<String> a(AdRequestInfoParcel paramAdRequestInfoParcel);
+  public abstract int a();
 }
 
 /* Location:

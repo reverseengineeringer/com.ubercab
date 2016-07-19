@@ -1,29 +1,38 @@
 package android.support.v7.app;
 
-import ab;
-import ac;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.app.TaskStackBuilder.SupportParentable;
+import android.support.v4.view.KeyEventCompat;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import aq;
-import ar;
+import em;
+import en;
+import fb;
+import fc;
+import nm;
 
 public class AppCompatActivity
   extends FragmentActivity
-  implements ac, TaskStackBuilder.SupportParentable, aq
+  implements TaskStackBuilder.SupportParentable, en, fb
 {
-  private ar a;
+  private fc a;
+  private int b = 0;
+  private boolean c;
+  private Resources d;
   
   private void a(TaskStackBuilder paramTaskStackBuilder)
   {
@@ -69,10 +78,10 @@ public class AppCompatActivity
     return false;
   }
   
-  private ar f()
+  private fc f()
   {
     if (a == null) {
-      a = ar.a(this, this);
+      a = fc.a(this, this);
     }
     return a;
   }
@@ -92,9 +101,48 @@ public class AppCompatActivity
     return f().a();
   }
   
+  public boolean dispatchKeyEvent(KeyEvent paramKeyEvent)
+  {
+    if ((KeyEventCompat.hasModifiers(paramKeyEvent, 4096)) && (paramKeyEvent.getUnicodeChar(paramKeyEvent.getMetaState() & 0x8FFF) == 60))
+    {
+      int i = paramKeyEvent.getAction();
+      if (i == 0)
+      {
+        ActionBar localActionBar = b();
+        if ((localActionBar != null) && (localActionBar.h()) && (localActionBar.n()))
+        {
+          c = true;
+          return true;
+        }
+      }
+      else if ((i == 1) && (c))
+      {
+        c = false;
+        return true;
+      }
+    }
+    return super.dispatchKeyEvent(paramKeyEvent);
+  }
+  
+  public View findViewById(int paramInt)
+  {
+    return f().a(paramInt);
+  }
+  
   public MenuInflater getMenuInflater()
   {
     return f().b();
+  }
+  
+  public Resources getResources()
+  {
+    if ((d == null) && (nm.a())) {
+      d = new nm(this, super.getResources());
+    }
+    if (d == null) {
+      return super.getResources();
+    }
+    return d;
   }
   
   public Intent getSupportParentActivityIntent()
@@ -104,28 +152,52 @@ public class AppCompatActivity
   
   public void invalidateOptionsMenu()
   {
-    f().g();
+    f().f();
+  }
+  
+  public final em n_()
+  {
+    return f().h();
   }
   
   public void onConfigurationChanged(Configuration paramConfiguration)
   {
     super.onConfigurationChanged(paramConfiguration);
     f().a(paramConfiguration);
+    if (d != null)
+    {
+      DisplayMetrics localDisplayMetrics = super.getResources().getDisplayMetrics();
+      d.updateConfiguration(paramConfiguration, localDisplayMetrics);
+    }
   }
   
   public void onContentChanged() {}
   
   public void onCreate(Bundle paramBundle)
   {
-    f().j();
-    f().c();
-    super.onCreate(paramBundle);
+    fc localfc = f();
+    localfc.i();
+    localfc.a(paramBundle);
+    if ((localfc.j()) && (b != 0))
+    {
+      if (Build.VERSION.SDK_INT < 23) {
+        break label55;
+      }
+      onApplyThemeResource(getTheme(), b, false);
+    }
+    for (;;)
+    {
+      super.onCreate(paramBundle);
+      return;
+      label55:
+      setTheme(b);
+    }
   }
   
   public void onDestroy()
   {
     super.onDestroy();
-    f().h();
+    f().g();
   }
   
   public final boolean onMenuItemSelected(int paramInt, MenuItem paramMenuItem)
@@ -134,7 +206,7 @@ public class AppCompatActivity
       return true;
     }
     ActionBar localActionBar = b();
-    if ((paramMenuItem.getItemId() == 16908332) && (localActionBar != null) && ((localActionBar.d() & 0x4) != 0)) {
+    if ((paramMenuItem.getItemId() == 16908332) && (localActionBar != null) && ((localActionBar.e() & 0x4) != 0)) {
       return e();
     }
     return false;
@@ -153,19 +225,25 @@ public class AppCompatActivity
   public void onPostCreate(Bundle paramBundle)
   {
     super.onPostCreate(paramBundle);
-    f().d();
+    f().c();
   }
   
   public void onPostResume()
   {
     super.onPostResume();
-    f().f();
+    f().e();
+  }
+  
+  public void onSaveInstanceState(Bundle paramBundle)
+  {
+    super.onSaveInstanceState(paramBundle);
+    f().b(paramBundle);
   }
   
   public void onStop()
   {
     super.onStop();
-    f().e();
+    f().d();
   }
   
   protected void onTitleChanged(CharSequence paramCharSequence, int paramInt)
@@ -174,14 +252,9 @@ public class AppCompatActivity
     f().a(paramCharSequence);
   }
   
-  public final ab s_()
-  {
-    return f().i();
-  }
-  
   public void setContentView(int paramInt)
   {
-    f().a(paramInt);
+    f().b(paramInt);
   }
   
   public void setContentView(View paramView)
@@ -194,9 +267,15 @@ public class AppCompatActivity
     f().a(paramView, paramLayoutParams);
   }
   
+  public void setTheme(int paramInt)
+  {
+    super.setTheme(paramInt);
+    b = paramInt;
+  }
+  
   public void supportInvalidateOptionsMenu()
   {
-    f().g();
+    f().f();
   }
 }
 

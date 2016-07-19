@@ -3,10 +3,10 @@ package com.ubercab.rider.realtime.model;
 import android.os.Parcelable;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class FamilyPayment
   implements Parcelable
 {
@@ -29,7 +29,7 @@ public abstract class FamilyPayment
   
   public abstract String getCardType();
   
-  public abstract String getPaymentProfileUuid();
+  public abstract String getPaymentProfileUUID();
   
   public abstract FamilyPayment setBillingCountryIso2(String paramString);
   
@@ -45,7 +45,7 @@ public abstract class FamilyPayment
   
   public abstract FamilyPayment setCardType(String paramString);
   
-  public abstract FamilyPayment setPaymentProfileUuid(String paramString);
+  public abstract FamilyPayment setPaymentProfileUUID(String paramString);
 }
 
 /* Location:

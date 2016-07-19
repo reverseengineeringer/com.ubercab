@@ -1,17 +1,11 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.PayPalService;
-import com.paypal.android.sdk.payments.PaymentMethodActivity;
-
-public final class ces
-  implements DialogInterface.OnClickListener
+final class ces
+  implements cec
 {
-  public ces(PaymentMethodActivity paramPaymentMethodActivity) {}
+  ces(cep paramcep) {}
   
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  public final void a()
   {
-    PaymentMethodActivity.g(a).t();
-    PaymentMethodActivity.h(a);
+    cep.a(a, bve.t);
   }
 }
 

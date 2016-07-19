@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build.VERSION;
 
-public class ConnectivityManagerCompat
+public final class ConnectivityManagerCompat
 {
   private static final ConnectivityManagerCompat.ConnectivityManagerCompatImpl IMPL = new ConnectivityManagerCompat.BaseConnectivityManagerCompatImpl();
   

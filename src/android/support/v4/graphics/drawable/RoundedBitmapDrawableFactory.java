@@ -7,7 +7,7 @@ import android.os.Build.VERSION;
 import android.util.Log;
 import java.io.InputStream;
 
-public class RoundedBitmapDrawableFactory
+public final class RoundedBitmapDrawableFactory
 {
   private static final String TAG = "RoundedBitmapDrawableFactory";
   

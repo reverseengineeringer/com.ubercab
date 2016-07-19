@@ -3,7 +3,7 @@ package android.support.v4.os;
 import android.os.Build.VERSION;
 import android.os.Parcelable.Creator;
 
-public class ParcelableCompat
+public final class ParcelableCompat
 {
   public static <T> Parcelable.Creator<T> newCreator(ParcelableCompatCreatorCallbacks<T> paramParcelableCompatCreatorCallbacks)
   {

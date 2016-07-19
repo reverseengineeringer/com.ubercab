@@ -1,70 +1,45 @@
-import android.os.Bundle;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
 import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.location.ActivityRecognitionResult;
-import com.google.android.gms.location.DetectedActivity;
-import java.util.ArrayList;
+import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
 
-public final class ayl
-  implements Parcelable.Creator<ActivityRecognitionResult>
+public abstract class ayl
+  extends Binder
+  implements ayk
 {
-  public static ActivityRecognitionResult a(Parcel paramParcel)
+  public static ayk a(IBinder paramIBinder)
   {
-    long l1 = 0L;
-    Bundle localBundle = null;
-    int i = 0;
-    int k = zm.b(paramParcel);
-    long l2 = 0L;
-    ArrayList localArrayList = null;
-    int j = 0;
-    while (paramParcel.dataPosition() < k)
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
+    if ((localIInterface != null) && ((localIInterface instanceof ayk))) {
+      return (ayk)localIInterface;
+    }
+    return new aym(paramIBinder);
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    switch (paramInt1)
     {
-      int m = zm.a(paramParcel);
-      switch (zm.a(m))
-      {
-      default: 
-        zm.a(paramParcel, m);
-        break;
-      case 1: 
-        localArrayList = zm.c(paramParcel, m, DetectedActivity.CREATOR);
-        break;
-      case 1000: 
-        j = zm.e(paramParcel, m);
-        break;
-      case 2: 
-        l2 = zm.g(paramParcel, m);
-        break;
-      case 3: 
-        l1 = zm.g(paramParcel, m);
-        break;
-      case 4: 
-        i = zm.e(paramParcel, m);
-        break;
-      case 5: 
-        localBundle = zm.p(paramParcel, m);
-      }
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
+      return true;
     }
-    if (paramParcel.dataPosition() != k) {
-      throw new zn("Overread allowed size end=" + k, paramParcel);
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
+    if (paramParcel1.readInt() != 0) {
+      bao localbao = StreetViewPanoramaLocation.CREATOR;
     }
-    return new ActivityRecognitionResult(j, localArrayList, l2, l1, i, localBundle);
-  }
-  
-  public static void a(ActivityRecognitionResult paramActivityRecognitionResult, Parcel paramParcel)
-  {
-    int i = zo.a(paramParcel);
-    zo.b(paramParcel, 1, a, false);
-    zo.a(paramParcel, 1000, paramActivityRecognitionResult.a());
-    zo.a(paramParcel, 2, b);
-    zo.a(paramParcel, 3, c);
-    zo.a(paramParcel, 4, d);
-    zo.a(paramParcel, 5, e);
-    zo.a(paramParcel, i);
-  }
-  
-  private static ActivityRecognitionResult[] a(int paramInt)
-  {
-    return new ActivityRecognitionResult[paramInt];
+    for (paramParcel1 = bao.a(paramParcel1);; paramParcel1 = null)
+    {
+      a(paramParcel1);
+      paramParcel2.writeNoException();
+      return true;
+    }
   }
 }
 

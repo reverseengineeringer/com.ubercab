@@ -1,16 +1,69 @@
-import com.google.android.gms.common.api.Status;
+import android.os.RemoteException;
+import com.google.android.gms.maps.model.LatLng;
+import java.util.List;
 
-abstract class ayy
-  extends ayt<Status>
+public final class ayy
 {
-  public ayy(ws paramws)
+  private final azc a;
+  
+  public ayy(azc paramazc)
   {
-    super(paramws);
+    a = ((azc)abe.a(paramazc));
   }
   
-  private static Status d(Status paramStatus)
+  public final void a()
   {
-    return paramStatus;
+    try
+    {
+      a.a();
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final List<LatLng> b()
+  {
+    try
+    {
+      List localList = a.c();
+      return localList;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
+  }
+  
+  public final boolean equals(Object paramObject)
+  {
+    if (!(paramObject instanceof ayy)) {
+      return false;
+    }
+    try
+    {
+      boolean bool = a.a(a);
+      return bool;
+    }
+    catch (RemoteException paramObject)
+    {
+      throw new ayz((RemoteException)paramObject);
+    }
+  }
+  
+  public final int hashCode()
+  {
+    try
+    {
+      int i = a.i();
+      return i;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new ayz(localRemoteException);
+    }
   }
 }
 

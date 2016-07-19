@@ -2,12 +2,12 @@ package com.ubercab.android.partner.funnel.signup.form.model;
 
 import android.os.Parcelable;
 import com.ubercab.shape.Shape;
-import jvq;
-import jvr;
+import nba;
+import nbb;
 
 @Shape
 public abstract class Name
-  extends jvq<Name>
+  extends nba<Name>
   implements Parcelable
 {
   public static Name create()
@@ -23,9 +23,9 @@ public abstract class Name
   
   public abstract String getLastName();
   
-  protected Object onGet(jvr<Name> paramjvr, Object paramObject)
+  protected Object onGet(nbb<Name> paramnbb, Object paramObject)
   {
-    switch (Name.1.$SwitchMap$com$ubercab$android$partner$funnel$signup$form$model$Shape_Name$Property[((Shape_Name.Property)paramjvr).ordinal()])
+    switch (Name.1.$SwitchMap$com$ubercab$android$partner$funnel$signup$form$model$Shape_Name$Property[((Shape_Name.Property)paramnbb).ordinal()])
     {
     default: 
       return paramObject;

@@ -1,94 +1,106 @@
-import android.app.Activity;
 import android.text.TextUtils;
-import com.ubercab.client.core.model.ApiResponse;
-import com.ubercab.client.core.model.Ping;
-import com.ubercab.client.feature.promo.v2.BasePromoFragment;
-import com.ubercab.client.feature.signup.SignupData.PromoCode;
 
-public class gmf
-  extends BasePromoFragment
+public final class gmf
 {
-  private gmg i;
-  private klo j;
+  private final cgp a;
+  private cgu b;
+  private kia c;
+  private glr d;
   
-  public static final gmf a()
+  private gmf(cgp paramcgp, kia paramkia)
   {
-    return new gmf();
+    a = paramcgp;
+    c = paramkia;
   }
   
-  private void a(SignupData.PromoCode paramPromoCode)
+  gmf(String paramString1, String paramString2, String paramString3, kia paramkia)
   {
-    String str = i();
-    h();
-    g();
-    j().a(p.ik);
-    i.a(paramPromoCode, str);
+    this(new cgp(paramString1, a(paramString2, paramString3)), paramkia);
   }
   
-  private void d(String paramString)
+  private static cgq a(String paramString1, String paramString2)
   {
-    j().a(p.ij);
-    if (!TextUtils.isEmpty(paramString)) {
-      a(paramString);
-    }
+    paramString2 = kcv.a("x-uber-token", paramString2, "Accept-Language", dui.a());
+    paramString1 = new gjv(paramString1 + "rt/utunes/auth_private_channel");
+    paramString1.a(paramString2);
+    return new cgq().a().c().a(paramString1);
   }
   
-  private void k()
+  private void b(String paramString, gmg paramgmg, String... paramVarArgs)
   {
-    a(getString(2131166493));
-  }
-  
-  protected final void a(String paramString, boolean paramBoolean)
-  {
-    j = h.d(paramString).a(kls.a()).b(new gmh(this, (byte)0));
-  }
-  
-  protected final String b()
-  {
-    return "verify_promo";
-  }
-  
-  public void onAttach(Activity paramActivity)
-  {
-    super.onAttach(paramActivity);
-    i = ((gmg)paramActivity);
-  }
-  
-  public void onClickApply()
-  {
-    super.onClickApply();
-    a(true);
-  }
-  
-  public void onDetach()
-  {
-    super.onDetach();
-    i = null;
-  }
-  
-  public void onPause()
-  {
-    super.onPause();
-    if (j != null) {
-      j.c();
-    }
-  }
-  
-  @cho
-  public void onValidatePromoResponseEvent(ejz paramejz)
-  {
-    a(false);
-    if (paramejz.e())
-    {
-      a(getString(2131166493));
+    if (b()) {
       return;
     }
-    if (!paramejz.a())
+    b = a.a(paramString, new gmf.2(this, paramgmg), paramVarArgs);
+  }
+  
+  public final void a(String paramString, bmg parambmg)
+  {
+    boolean bool;
+    if (!TextUtils.isEmpty(paramString))
     {
-      d(paramejz.b());
+      bool = true;
+      kco.a(bool);
+      d = new glr(paramString, parambmg);
+      if (a()) {
+        break label46;
+      }
+      a.b();
+    }
+    label46:
+    while (!b())
+    {
+      return;
+      bool = false;
+      break;
+    }
+    e();
+  }
+  
+  public final void a(String paramString, gmg paramgmg, String... paramVarArgs)
+  {
+    if (!TextUtils.isEmpty(paramString)) {}
+    for (boolean bool = true;; bool = false)
+    {
+      kco.a(bool);
+      kco.a(paramVarArgs);
+      if (!a()) {
+        break;
+      }
+      b(paramString, paramgmg, paramVarArgs);
       return;
     }
-    a(SignupData.PromoCode.a(i(), ((Ping)paramejz.c()).getApiResponse().getData()));
+    a.a(new gmf.1(this, paramString, paramgmg, paramVarArgs));
+  }
+  
+  public final boolean a()
+  {
+    return a.a().b() == chd.b;
+  }
+  
+  public final boolean b()
+  {
+    return b != null;
+  }
+  
+  public final void c()
+  {
+    a.a(b.a());
+    b = null;
+  }
+  
+  public final void d()
+  {
+    a.c();
+  }
+  
+  final void e()
+  {
+    if ((!c.c(eaj.G)) || (cgt.c.equals(b.b())))
+    {
+      b.a(d.a(), d.b());
+      d = null;
+    }
   }
 }
 

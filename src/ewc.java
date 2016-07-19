@@ -1,29 +1,15 @@
-import android.app.Application;
-import com.ubercab.client.feature.addressbook.UploadContactsIntentService;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 
-public final class ewc
+public abstract interface ewc
 {
-  final UploadContactsIntentService a;
+  public abstract Executor a();
   
-  public ewc(UploadContactsIntentService paramUploadContactsIntentService1, UploadContactsIntentService paramUploadContactsIntentService2)
-  {
-    a = paramUploadContactsIntentService2;
-  }
+  public abstract ExecutorService b();
   
-  public static evj a()
-  {
-    return new evj();
-  }
+  public abstract odx c();
   
-  protected static jrq a(joq<jsf> paramjoq)
-  {
-    return jrq.a(paramjoq);
-  }
-  
-  final ewa a(evj paramevj, ife paramife, jrq paramjrq, dty paramdty)
-  {
-    return new ewa(b.getApplication().getApplicationContext(), paramdty.y(), paramevj, paramjrq, paramife);
-  }
+  public abstract dzy d();
 }
 
 /* Location:

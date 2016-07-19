@@ -1,18 +1,23 @@
 package com.ubercab.analytics.model;
 
 import android.content.Context;
-import cka;
+import ckr;
+import com.ubercab.analytics.internal.AnalyticsValidatorFactory;
 import com.ubercab.shape.Shape;
-import dpm;
-import dpr;
+import dui;
+import duo;
 import java.util.Locale;
 import java.util.MissingResourceException;
+import java.util.concurrent.atomic.AtomicBoolean;
+import lzo;
 
 @Shape
+@lzo(a=AnalyticsValidatorFactory.class)
 public abstract class Device
 {
   private static Device sDevice;
   private static final Object sLock = new Object();
+  private static AtomicBoolean sManufacturerEnabled = new AtomicBoolean(false);
   
   public static Device create(Context paramContext)
   {
@@ -32,26 +37,29 @@ public abstract class Device
   static Device createNew(Context paramContext)
   {
     Shape_Device localShape_Device = new Shape_Device();
-    localShape_Device.setCpuAbi(dpm.d());
+    localShape_Device.setCpuAbi(dui.d());
     localShape_Device.setOs("android");
-    localShape_Device.setId(dpm.a(paramContext));
-    localShape_Device.setOsVersion(dpm.e());
-    localShape_Device.setModel(dpm.f());
+    localShape_Device.setId(dui.a(paramContext));
+    localShape_Device.setOsVersion(dui.e());
+    localShape_Device.setModel(dui.f());
+    if (sManufacturerEnabled.get()) {
+      localShape_Device.setManufacturer(dui.g());
+    }
     localShape_Device.setLanguage(getDeviceLanguage());
-    localShape_Device.setRegionIso2(dpm.g());
-    localShape_Device.setSerialNumber(dpm.c());
-    localShape_Device.setCarrier(dpm.k(paramContext));
-    localShape_Device.setCarrierMcc(dpm.b(paramContext));
-    localShape_Device.setCarrierMnc(dpm.c(paramContext));
-    localShape_Device.setImeiNumber(dpm.f(paramContext));
-    localShape_Device.setVoiceover(dpm.l(paramContext));
+    localShape_Device.setRegionIso2(dui.h());
+    localShape_Device.setSerialNumber(dui.c());
+    localShape_Device.setCarrier(dui.k(paramContext));
+    localShape_Device.setCarrierMcc(dui.b(paramContext));
+    localShape_Device.setCarrierMnc(dui.c(paramContext));
+    localShape_Device.setImeiNumber(dui.f(paramContext));
+    localShape_Device.setVoiceover(dui.l(paramContext));
     localShape_Device.updateNetworkInfo(paramContext);
     localShape_Device.updateBatteryInfo(paramContext);
-    localShape_Device.setUnknownSources(dpm.m(paramContext));
-    if (cka.c())
+    localShape_Device.setUnknownSources(dui.m(paramContext));
+    if (ckr.c())
     {
-      localShape_Device.setGooglePlayServicesStatus(dpr.a(paramContext));
-      localShape_Device.setGooglePlayServicesVersion(dpr.c(paramContext));
+      localShape_Device.setGooglePlayServicesStatus(duo.a(paramContext));
+      localShape_Device.setGooglePlayServicesVersion(duo.c(paramContext));
     }
     return localShape_Device;
   }
@@ -64,6 +72,9 @@ public abstract class Device
     localShape_Device.setId(paramDevice.getId());
     localShape_Device.setOsVersion(paramDevice.getOsVersion());
     localShape_Device.setModel(paramDevice.getModel());
+    if (sManufacturerEnabled.get()) {
+      localShape_Device.setManufacturer(paramDevice.getManufacturer());
+    }
     localShape_Device.setLanguage(paramDevice.getLanguage());
     localShape_Device.setRegionIso2(paramDevice.getRegionIso2());
     localShape_Device.setSerialNumber(paramDevice.getSerialNumber());
@@ -92,10 +103,27 @@ public abstract class Device
     return null;
   }
   
+  public static void setManufacturerEnabled(boolean paramBoolean)
+  {
+    ??? = sManufacturerEnabled;
+    if (!paramBoolean) {}
+    for (boolean bool = true;; bool = false)
+    {
+      if (((AtomicBoolean)???).compareAndSet(bool, paramBoolean)) {
+        synchronized (sLock)
+        {
+          sDevice = null;
+          return;
+        }
+      }
+      return;
+    }
+  }
+  
   private void updateBatteryInfo(Context paramContext)
   {
-    setBatteryStatus(dpm.p(paramContext));
-    setBatteryLevel(dpm.q(paramContext));
+    setBatteryStatus(dui.p(paramContext));
+    setBatteryLevel(dui.q(paramContext));
   }
   
   private void updateBatteryInfo(Device paramDevice)
@@ -106,8 +134,8 @@ public abstract class Device
   
   private void updateNetworkInfo(Context paramContext)
   {
-    setWifiConnected(dpm.n(paramContext));
-    setIpAddress(dpm.o(paramContext));
+    setWifiConnected(dui.n(paramContext));
+    setIpAddress(dui.o(paramContext));
   }
   
   private void updateNetworkInfo(Device paramDevice)
@@ -139,6 +167,8 @@ public abstract class Device
   abstract String getIpAddress();
   
   abstract String getLanguage();
+  
+  abstract String getManufacturer();
   
   abstract String getModel();
   
@@ -179,6 +209,8 @@ public abstract class Device
   abstract Device setIpAddress(String paramString);
   
   abstract Device setLanguage(String paramString);
+  
+  abstract Device setManufacturer(String paramString);
   
   abstract Device setModel(String paramString);
   

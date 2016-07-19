@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/ui__spacing_unit_3x" android:paddingTop="@dimen/ui__spacing_unit_5x" android:paddingRight="@dimen/ui__spacing_unit_3x" android:paddingBottom="@dimen/ui__spacing_unit_5x" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textSize="46.0sp" android:textColor="@color/ub__black" android:gravity="center" android:id="@id/ub__textview_amount" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" fontPath="@string/ub__font_book" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:textSize="14.0sp" android:gravity="center" android:id="@id/ub__textview_message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/complete_payment_last_trip" android:lineSpacingMultiplier="1.25" />
+</LinearLayout>

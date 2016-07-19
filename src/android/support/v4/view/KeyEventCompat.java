@@ -5,7 +5,7 @@ import android.view.KeyEvent;
 import android.view.KeyEvent.Callback;
 import android.view.View;
 
-public class KeyEventCompat
+public final class KeyEventCompat
 {
   static final KeyEventCompat.KeyEventVersionImpl IMPL = new KeyEventCompat.BaseKeyEventVersionImpl();
   

@@ -1,34 +1,13 @@
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import android.os.IInterface;
+import com.google.android.gms.location.places.PlacePhotoMetadataResult;
+import com.google.android.gms.location.places.PlacePhotoResult;
 
-final class arq<T>
-  extends atg<InputStream>
+public abstract interface arq
+  extends IInterface
 {
-  private final arp<T> a;
-  private final aub<T> b;
+  public abstract void a(PlacePhotoMetadataResult paramPlacePhotoMetadataResult);
   
-  public arq(String paramString, final arp<T> paramarp, aub<T> paramaub)
-  {
-    super(paramString, new aua()
-    {
-      public final void a(awg paramAnonymousawg)
-      {
-        a(paramarp.a());
-      }
-    });
-    a = paramarp;
-    b = paramaub;
-  }
-  
-  private void a(InputStream paramInputStream)
-  {
-    b.a(a.a(paramInputStream));
-  }
-  
-  protected final atz<InputStream> a(aqe paramaqe)
-  {
-    return atz.a(new ByteArrayInputStream(b), ayh.a(paramaqe));
-  }
+  public abstract void a(PlacePhotoResult paramPlacePhotoResult);
 }
 
 /* Location:

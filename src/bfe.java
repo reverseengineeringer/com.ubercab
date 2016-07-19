@@ -1,48 +1,50 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import android.content.Context;
+import android.os.Looper;
+import com.google.android.gms.wallet.FullWalletRequest;
+import com.google.android.gms.wallet.MaskedWalletRequest;
 
-public abstract class bfe
-  extends Binder
-  implements bfd
+public final class bfe
 {
-  public bfe()
+  public static final vw<bff> a = new vw("Wallet.API", f, e);
+  public static final bfd b = new ans();
+  public static final bgc c = new any();
+  public static final bfj d = new anx();
+  private static final wd<ant> e = new wd();
+  private static final wb<ant, bff> f = new wb()
   {
-    attachInterface(this, "com.google.android.gms.maps.internal.IOnMapReadyCallback");
-  }
-  
-  public static bfd a(IBinder paramIBinder)
-  {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnMapReadyCallback");
-    if ((localIInterface != null) && ((localIInterface instanceof bfd))) {
-      return (bfd)localIInterface;
-    }
-    return new bff(paramIBinder);
-  }
-  
-  public IBinder asBinder()
-  {
-    return this;
-  }
-  
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
+    private static ant a(Context paramAnonymousContext, Looper paramAnonymousLooper, zq paramAnonymouszq, bff paramAnonymousbff, wl paramAnonymouswl, wm paramAnonymouswm)
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnMapReadyCallback");
-      return true;
+      if (paramAnonymousbff != null) {}
+      for (;;)
+      {
+        return new ant(paramAnonymousContext, paramAnonymousLooper, paramAnonymouszq, paramAnonymouswl, paramAnonymouswm, a, b, bff.a(paramAnonymousbff));
+        paramAnonymousbff = new bff((byte)0);
+      }
     }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMapReadyCallback");
-    a(bcg.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    return true;
+  };
+  
+  @Deprecated
+  public static void a(wj paramwj)
+  {
+    b.a(paramwj, 8001);
+  }
+  
+  @Deprecated
+  public static void a(wj paramwj, FullWalletRequest paramFullWalletRequest)
+  {
+    b.a(paramwj, paramFullWalletRequest, 8004);
+  }
+  
+  @Deprecated
+  public static void a(wj paramwj, MaskedWalletRequest paramMaskedWalletRequest)
+  {
+    b.a(paramwj, paramMaskedWalletRequest, 8002);
+  }
+  
+  @Deprecated
+  public static void a(wj paramwj, String paramString1, String paramString2)
+  {
+    b.a(paramwj, paramString1, paramString2, 8003);
   }
 }
 

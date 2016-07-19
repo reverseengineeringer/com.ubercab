@@ -1,259 +1,311 @@
-public final class avj
-  extends axq
+import android.os.IBinder;
+import android.os.Parcel;
+
+final class avj
+  implements avh
 {
-  private static volatile avj[] f;
-  public Integer a;
-  public String b;
-  public avk[] c;
-  public Boolean d;
-  public avl e;
+  private IBinder a;
   
-  public avj()
+  avj(IBinder paramIBinder)
   {
-    e();
+    a = paramIBinder;
   }
   
-  private avj e()
+  public final avb a()
   {
-    a = null;
-    b = null;
-    c = avk.i_();
-    d = null;
-    e = null;
-    S = -1;
-    return this;
-  }
-  
-  public static avj[] h_()
-  {
-    if (f == null) {}
-    synchronized (axo.a)
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
     {
-      if (f == null) {
-        f = new avj[0];
-      }
-      return f;
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
+      a.transact(1, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      avb localavb = avc.a(localParcel2.readStrongBinder());
+      return localavb;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
   }
   
-  protected final int a()
+  /* Error */
+  public final void a(android.os.Bundle paramBundle)
   {
-    int i = super.a();
-    int j = i;
-    if (a != null) {
-      j = i + axi.b(1, a.intValue());
-    }
-    i = j;
-    if (b != null) {
-      i = j + axi.b(2, b);
-    }
-    j = i;
-    if (c != null)
-    {
-      j = i;
-      if (c.length > 0)
-      {
-        j = 0;
-        while (j < c.length)
-        {
-          avk localavk = c[j];
-          int k = i;
-          if (localavk != null) {
-            k = i + axi.c(3, localavk);
-          }
-          j += 1;
-          i = k;
-        }
-        j = i;
-      }
-    }
-    i = j;
-    if (d != null)
-    {
-      d.booleanValue();
-      i = j + axi.b(4);
-    }
-    j = i;
-    if (e != null) {
-      j = i + axi.c(5, e);
-    }
-    return j;
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +41 -> 56
+    //   18: aload_2
+    //   19: iconst_1
+    //   20: invokevirtual 55	android/os/Parcel:writeInt	(I)V
+    //   23: aload_1
+    //   24: aload_2
+    //   25: iconst_0
+    //   26: invokevirtual 61	android/os/Bundle:writeToParcel	(Landroid/os/Parcel;I)V
+    //   29: aload_0
+    //   30: getfield 15	avj:a	Landroid/os/IBinder;
+    //   33: iconst_2
+    //   34: aload_2
+    //   35: aload_3
+    //   36: iconst_0
+    //   37: invokeinterface 35 5 0
+    //   42: pop
+    //   43: aload_3
+    //   44: invokevirtual 38	android/os/Parcel:readException	()V
+    //   47: aload_3
+    //   48: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   51: aload_2
+    //   52: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   55: return
+    //   56: aload_2
+    //   57: iconst_0
+    //   58: invokevirtual 55	android/os/Parcel:writeInt	(I)V
+    //   61: goto -32 -> 29
+    //   64: astore_1
+    //   65: aload_3
+    //   66: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   69: aload_2
+    //   70: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   73: aload_1
+    //   74: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	75	0	this	avj
+    //   0	75	1	paramBundle	android.os.Bundle
+    //   3	67	2	localParcel1	Parcel
+    //   7	59	3	localParcel2	Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	64	finally
+    //   18	29	64	finally
+    //   29	47	64	finally
+    //   56	61	64	finally
   }
   
-  public final void a(axi paramaxi)
+  /* Error */
+  public final void a(avp paramavp)
   {
-    if (a != null) {
-      paramaxi.a(1, a.intValue());
-    }
-    if (b != null) {
-      paramaxi.a(2, b);
-    }
-    if ((c != null) && (c.length > 0))
-    {
-      int i = 0;
-      while (i < c.length)
-      {
-        avk localavk = c[i];
-        if (localavk != null) {
-          paramaxi.a(3, localavk);
-        }
-        i += 1;
-      }
-    }
-    if (d != null) {
-      paramaxi.a(4, d.booleanValue());
-    }
-    if (e != null) {
-      paramaxi.a(5, e);
-    }
-    super.a(paramaxi);
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +43 -> 58
+    //   18: aload_1
+    //   19: invokeinterface 67 1 0
+    //   24: astore_1
+    //   25: aload_2
+    //   26: aload_1
+    //   27: invokevirtual 70	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
+    //   30: aload_0
+    //   31: getfield 15	avj:a	Landroid/os/IBinder;
+    //   34: bipush 9
+    //   36: aload_2
+    //   37: aload_3
+    //   38: iconst_0
+    //   39: invokeinterface 35 5 0
+    //   44: pop
+    //   45: aload_3
+    //   46: invokevirtual 38	android/os/Parcel:readException	()V
+    //   49: aload_3
+    //   50: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   53: aload_2
+    //   54: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   57: return
+    //   58: aconst_null
+    //   59: astore_1
+    //   60: goto -35 -> 25
+    //   63: astore_1
+    //   64: aload_3
+    //   65: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   68: aload_2
+    //   69: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   72: aload_1
+    //   73: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	74	0	this	avj
+    //   0	74	1	paramavp	avp
+    //   3	66	2	localParcel1	Parcel
+    //   7	58	3	localParcel2	Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	63	finally
+    //   18	25	63	finally
+    //   25	49	63	finally
   }
   
-  public final avj b(axh paramaxh)
+  public final IBinder asBinder()
   {
-    for (;;)
+    return a;
+  }
+  
+  public final void b()
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
     {
-      int i = paramaxh.a();
-      switch (i)
-      {
-      default: 
-        if (axt.a(paramaxh, i)) {}
-        break;
-      case 0: 
-        return this;
-      case 8: 
-        a = Integer.valueOf(paramaxh.e());
-        break;
-      case 18: 
-        b = paramaxh.g();
-        break;
-      case 26: 
-        int j = axt.b(paramaxh, 26);
-        if (c == null) {}
-        avk[] arrayOfavk;
-        for (i = 0;; i = c.length)
-        {
-          arrayOfavk = new avk[j + i];
-          j = i;
-          if (i != 0)
-          {
-            System.arraycopy(c, 0, arrayOfavk, 0, i);
-            j = i;
-          }
-          while (j < arrayOfavk.length - 1)
-          {
-            arrayOfavk[j] = new avk();
-            paramaxh.a(arrayOfavk[j]);
-            paramaxh.a();
-            j += 1;
-          }
-        }
-        arrayOfavk[j] = new avk();
-        paramaxh.a(arrayOfavk[j]);
-        c = arrayOfavk;
-        break;
-      case 32: 
-        d = Boolean.valueOf(paramaxh.f());
-        break;
-      case 42: 
-        if (e == null) {
-          e = new avl();
-        }
-        paramaxh.a(e);
-      }
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
+      a.transact(3, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
   }
   
-  public final boolean equals(Object paramObject)
+  /* Error */
+  public final void b(android.os.Bundle paramBundle)
   {
-    if (paramObject == this) {}
-    do
-    {
-      do
-      {
-        return true;
-        if (!(paramObject instanceof avj)) {
-          return false;
-        }
-        paramObject = (avj)paramObject;
-        if (a == null)
-        {
-          if (a != null) {
-            return false;
-          }
-        }
-        else if (!a.equals(a)) {
-          return false;
-        }
-        if (b == null)
-        {
-          if (b != null) {
-            return false;
-          }
-        }
-        else if (!b.equals(b)) {
-          return false;
-        }
-        if (!axo.a(c, c)) {
-          return false;
-        }
-        if (d == null)
-        {
-          if (d != null) {
-            return false;
-          }
-        }
-        else if (!d.equals(d)) {
-          return false;
-        }
-        if (e != null) {
-          break;
-        }
-      } while (e == null);
-      return false;
-    } while (e.equals(e));
-    return false;
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +54 -> 69
+    //   18: aload_2
+    //   19: iconst_1
+    //   20: invokevirtual 55	android/os/Parcel:writeInt	(I)V
+    //   23: aload_1
+    //   24: aload_2
+    //   25: iconst_0
+    //   26: invokevirtual 61	android/os/Bundle:writeToParcel	(Landroid/os/Parcel;I)V
+    //   29: aload_0
+    //   30: getfield 15	avj:a	Landroid/os/IBinder;
+    //   33: bipush 7
+    //   35: aload_2
+    //   36: aload_3
+    //   37: iconst_0
+    //   38: invokeinterface 35 5 0
+    //   43: pop
+    //   44: aload_3
+    //   45: invokevirtual 38	android/os/Parcel:readException	()V
+    //   48: aload_3
+    //   49: invokevirtual 75	android/os/Parcel:readInt	()I
+    //   52: ifeq +8 -> 60
+    //   55: aload_1
+    //   56: aload_3
+    //   57: invokevirtual 79	android/os/Bundle:readFromParcel	(Landroid/os/Parcel;)V
+    //   60: aload_3
+    //   61: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   64: aload_2
+    //   65: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   68: return
+    //   69: aload_2
+    //   70: iconst_0
+    //   71: invokevirtual 55	android/os/Parcel:writeInt	(I)V
+    //   74: goto -45 -> 29
+    //   77: astore_1
+    //   78: aload_3
+    //   79: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   82: aload_2
+    //   83: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   86: aload_1
+    //   87: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	88	0	this	avj
+    //   0	88	1	paramBundle	android.os.Bundle
+    //   3	80	2	localParcel1	Parcel
+    //   7	72	3	localParcel2	Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	77	finally
+    //   18	29	77	finally
+    //   29	60	77	finally
+    //   69	74	77	finally
   }
   
-  public final int hashCode()
+  public final void c()
   {
-    int m = 0;
-    int n = getClass().getName().hashCode();
-    int i;
-    int j;
-    label33:
-    int i1;
-    int k;
-    if (a == null)
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
     {
-      i = 0;
-      if (b != null) {
-        break label103;
-      }
-      j = 0;
-      i1 = axo.a(c);
-      if (d != null) {
-        break label114;
-      }
-      k = 0;
-      label51:
-      if (e != null) {
-        break label125;
-      }
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
+      a.transact(4, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
     }
-    for (;;)
+    finally
     {
-      return (k + ((j + (i + (n + 527) * 31) * 31) * 31 + i1) * 31) * 31 + m;
-      i = a.hashCode();
-      break;
-      label103:
-      j = b.hashCode();
-      break label33;
-      label114:
-      k = d.hashCode();
-      break label51;
-      label125:
-      m = e.hashCode();
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final void d()
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
+      a.transact(5, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final void e()
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
+      a.transact(6, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final acp f()
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
+      a.transact(8, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      acp localacp = acq.a(localParcel2.readStrongBinder());
+      return localacp;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
   }
 }

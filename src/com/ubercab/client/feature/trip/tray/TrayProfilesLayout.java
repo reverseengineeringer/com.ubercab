@@ -3,46 +3,50 @@ package com.ubercab.client.feature.trip.tray;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
-import chh;
-import cho;
-import ckc;
-import cku;
+import chn;
+import chu;
+import ckt;
+import cll;
 import com.ubercab.client.core.model.RiderTripExpenseInfo;
 import com.ubercab.client.feature.profiles.ProfileContainerView;
+import com.ubercab.client.feature.profiles.model.TypedProfile;
+import com.ubercab.rider.realtime.model.Profile;
 import com.ubercab.rider.realtime.model.TripExpenseInfo;
-import dso;
-import erf;
-import ghp;
-import gif;
-import gir;
-import giu;
-import gjc;
-import hdg;
-import hgm;
-import huv;
-import hvi;
-import hvk;
-import ife;
-import jsg;
-import r;
+import dyb;
+import ezj;
+import hiq;
+import hjm;
+import hkk;
+import hkn;
+import hkt;
+import iuk;
+import iyw;
+import jsr;
+import jtj;
+import jtl;
+import khv;
+import mxm;
+import z;
 
 public class TrayProfilesLayout
   extends FrameLayout
-  implements ghp
+  implements hiq
 {
-  public ckc a;
-  public chh b;
-  public jsg c;
-  public ife d;
-  public gif e;
-  public hvi f;
-  public hgm g;
+  public ckt a;
+  public chn b;
+  public khv c;
+  public mxm d;
+  public hjm e;
+  public jtj f;
+  public iyw g;
   public boolean h;
   public int i;
-  huv j;
-  @InjectView(2131626051)
+  jsr j;
+  Profile k;
+  TypedProfile l;
+  @BindView
   public ProfileContainerView mProfileContainerView;
   
   public TrayProfilesLayout(Context paramContext)
@@ -59,48 +63,69 @@ public class TrayProfilesLayout
   {
     super(paramContext, paramAttributeSet, paramInt);
     if (!isInEditMode()) {
-      ((hdg)((dso)getContext()).d()).a(this);
+      ((iuk)((dyb)getContext()).d()).a(this);
     }
   }
   
-  private void d()
+  private boolean d()
+  {
+    if (e.p()) {
+      return (k != null) && (k.getIsExpensingEnabled()) && (l != null) && (l.hasExpensingOption());
+    }
+    return ezj.h(e.c());
+  }
+  
+  private void e()
   {
     h = true;
     mProfileContainerView.a(this);
     i = mProfileContainerView.a();
     mProfileContainerView.b();
-    j.a(c.b(), c.c());
+    j.a(d.b(), d.c());
+    if ((e.p()) && (e.c() != null))
+    {
+      k = e.c();
+      l = e.d(k);
+    }
+  }
+  
+  private boolean f()
+  {
+    if (e.p()) {
+      return (l != null) && (l.shouldShowPaymentOnTray());
+    }
+    return ezj.k(e.c());
   }
   
   public final void a()
   {
-    ckc localckc = a;
-    if (huv.a(j)) {}
-    for (Object localObject = r.nK;; localObject = r.nJ)
+    ckt localckt = a;
+    if (jsr.a(j)) {}
+    for (Object localObject = z.rt;; localObject = z.rs)
     {
-      localckc.a((cku)localObject);
+      localckt.a((cll)localObject);
       localObject = RiderTripExpenseInfo.create(g.b());
-      ((RiderTripExpenseInfo)localObject).setExpenseTrip(erf.k(e.c()));
-      b.c(new gir((TripExpenseInfo)localObject));
+      ((RiderTripExpenseInfo)localObject).setExpenseTrip(d());
+      b.c(new hkk((TripExpenseInfo)localObject));
       return;
     }
   }
   
   public final void b()
   {
-    ckc localckc = a;
-    if (huv.a(j)) {}
-    for (r localr = r.nQ;; localr = r.nP)
+    ckt localckt = a;
+    if (jsr.a(j)) {}
+    for (z localz = z.rz;; localz = z.ry)
     {
-      localckc.a(localr);
-      b.c(new gjc());
+      localckt.a(localz);
+      b.c(new hkt());
       return;
     }
   }
   
   public final void c()
   {
-    a.a(r.nL);
+    a.a(z.ru);
     f.b();
   }
   
@@ -110,9 +135,14 @@ public class TrayProfilesLayout
     b.a(this);
   }
   
-  @cho
-  public void onCurrentlySelectedProfileSetEvent(giu paramgiu)
+  @chu
+  public void onCurrentlySelectedProfileSetEvent(hkn paramhkn)
   {
+    if (e.p())
+    {
+      l = e.d(paramhkn.a());
+      k = paramhkn.a();
+    }
     if (mProfileContainerView != null)
     {
       mProfileContainerView.a(false);
@@ -135,11 +165,11 @@ public class TrayProfilesLayout
     do
     {
       return;
-      j = new huv(this);
-      ButterKnife.inject(this);
-      hvk.a(this, j);
-    } while ((!e.p()) || (e.c() == null));
-    d();
+      j = new jsr(this);
+      ButterKnife.a(this);
+      jtl.a(this, j);
+    } while ((!e.o()) || (e.c() == null));
+    e();
   }
 }
 

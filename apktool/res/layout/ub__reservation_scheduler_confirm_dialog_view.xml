@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/ui__spacing_unit_3x" android:paddingRight="@dimen/ui__spacing_unit_3x" android:paddingBottom="@dimen/ub__reservation_confirm_dialog_line_spacing_large" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:id="@id/ub__reservation_scheduling_fee_free" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__reservation_confirm_dialog_line_spacing_micro" android:layout_marginBottom="@dimen/ub__reservation_confirm_dialog_line_spacing_large">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ub__reservation_confirm_dialog_one_space" android:text="@string/reservation_scheduling_fee" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:textColor="@color/ub__green" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/reservation_scheduling_fee_free" />
+    </LinearLayout>
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:textColor="@color/ub__black" android:id="@id/ub__reservation_scheduler_confirm_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__reservation_confirm_dialog_line_spacing_normal" android:textAllCaps="false" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__pickup_dot_green" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:id="@id/ub__reservation_scheduler_confirm_pickup_address" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__dropoff_dot_red" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:id="@id/ub__reservation_scheduler_confirm_dropoff_address" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    </LinearLayout>
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:id="@id/ub__reservation_scheduler_confirm_surge_disclaimer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__reservation_confirm_dialog_line_spacing_normal" android:text="@string/reservation_scheduler_fare_estimate_surge_label" />
+</LinearLayout>

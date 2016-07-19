@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jtg;
+import myn;
 
 @Shape
 abstract class ObjectFareSplitClient
-  implements jtg
+  implements myn
 {
   public String getDisplayName()
   {

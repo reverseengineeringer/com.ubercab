@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import cho;
-import ckc;
-import ckr;
-import cku;
+import chu;
+import ckt;
+import cli;
+import cll;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.config.AppConfigKey.Rider.FavoriteLocationDistanceConstraints;
 import com.ubercab.client.core.location.RiderLocation;
@@ -16,42 +16,42 @@ import com.ubercab.client.core.model.TaggedLocationDistanceConstraints;
 import com.ubercab.rider.realtime.model.ClientStatus;
 import com.ubercab.rider.realtime.model.Reminder;
 import com.ubercab.rider.realtime.model.Trip;
-import dta;
-import dtf;
-import eav;
-import ebj;
-import emx;
-import epz;
-import eyh;
-import grl;
-import grm;
-import grp;
-import gry;
-import grz;
-import gsc;
-import gsd;
-import gse;
-import gsf;
-import gsg;
-import iae;
-import ife;
+import dyn;
+import dys;
+import ehn;
+import eib;
+import eun;
+import eya;
+import flf;
+import iba;
+import ibb;
+import ibe;
+import ibq;
+import ibr;
+import ibu;
+import ibv;
+import ibw;
+import ibx;
+import iby;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import jsg;
-import kul;
-import p;
-import r;
+import kco;
+import kia;
+import mxm;
+import opc;
+import x;
+import z;
 
 public class LocationSearchActivity
-  extends RiderActivity<grp>
+  extends RiderActivity<ibe>
 {
-  public ckc g;
-  public emx h;
-  public jsg i;
-  public ife j;
-  public dta k;
+  public ckt g;
+  public eun h;
+  public mxm i;
+  public kia j;
+  public dyn k;
   
   public static Intent a(Context paramContext, String paramString1, RiderLocation paramRiderLocation1, RiderLocation paramRiderLocation2, String paramString2, boolean paramBoolean)
   {
@@ -60,24 +60,24 @@ public class LocationSearchActivity
   
   public static Intent a(Context paramContext, String paramString1, RiderLocation paramRiderLocation1, RiderLocation paramRiderLocation2, String paramString2, boolean paramBoolean, List<Reminder> paramList)
   {
-    iae.a(paramList);
+    kco.a(paramList);
     return b(paramContext, paramString1, paramRiderLocation1, paramRiderLocation2, paramString2, paramBoolean, paramList);
   }
   
   private void a(RiderLocation paramRiderLocation)
   {
-    String str1 = getString(2131165338);
-    String str2 = getString(2131165337);
-    String str3 = getString(2131166126);
-    String str4 = getString(2131165320);
+    String str1 = getString(2131165383);
+    String str2 = getString(2131165382);
+    String str3 = getString(2131166260);
+    String str4 = getString(2131165344);
     Bundle localBundle = new Bundle();
     localBundle.putParcelable("com.ubercab.LOCATION", paramRiderLocation);
-    epz.a(this, p.eA, 6001, str1, str2, str3, str4, localBundle);
+    eya.a(this, x.gD, 6001, str1, str2, str3, str4, localBundle);
   }
   
-  private void a(grp paramgrp)
+  private void a(ibe paramibe)
   {
-    paramgrp.a(this);
+    paramibe.a(this);
   }
   
   private void a(String paramString, LocationSearchResult paramLocationSearchResult)
@@ -90,7 +90,7 @@ public class LocationSearchActivity
       localRiderLocation1 = RiderLocation.create(paramLocationSearchResult);
       str = "com.ubercab.ACTION_EDIT_TAGGED_LOCATION";
     }
-    a(2131624581, LocationSearchFragment.a(str, paramString, localRiderLocation2, localRiderLocation1, getIntent().getStringExtra("com.ubercab.ACTION_BAR_TITLE")));
+    a(2131624907, LocationSearchFragment.a(str, paramString, localRiderLocation2, localRiderLocation1, getIntent().getStringExtra("com.ubercab.ACTION_BAR_TITLE")));
   }
   
   private static Intent b(Context paramContext, String paramString1, RiderLocation paramRiderLocation1, RiderLocation paramRiderLocation2, String paramString2, boolean paramBoolean, List<Reminder> paramList)
@@ -118,7 +118,7 @@ public class LocationSearchActivity
     String str1 = ((Intent)localObject).getStringExtra("com.ubercab.VEHICLE_VIEW_ID");
     String str2 = ((Intent)localObject).getStringExtra("com.ubercab.ACTION_BAR_TITLE");
     boolean bool = ((Intent)localObject).getBooleanExtra("com.ubercab.SHOW_UPFRONT_PRICING", false);
-    if (eyh.a(j))
+    if (flf.a(j))
     {
       ArrayList localArrayList = ((Intent)localObject).getParcelableArrayListExtra("com.ubercab.REMINDERS");
       localObject = localArrayList;
@@ -130,15 +130,15 @@ public class LocationSearchActivity
     return LocationSearchFragment.a(paramString, localRiderLocation1, localRiderLocation2, str1, str2, g(), bool);
   }
   
-  private grp b(ebj paramebj)
+  private ibe b(eib parameib)
   {
-    return grl.a().a(new eav(this)).a(paramebj).a();
+    return iba.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void f()
   {
     if (a(LocationSearchFragment.class) == null) {
-      a(2131624581, b(getIntent().getAction()), true);
+      a(2131624907, b(getIntent().getAction()), true);
     }
   }
   
@@ -163,7 +163,7 @@ public class LocationSearchActivity
     if (getIntent() == null) {}
     for (Object localObject1 = null; localObject1 == null; localObject1 = getIntent().getAction())
     {
-      kul.d("Null action", new Object[0]);
+      opc.d("Null action", new Object[0]);
       return;
     }
     int m = -1;
@@ -173,14 +173,14 @@ public class LocationSearchActivity
       switch (m)
       {
       default: 
-        kul.d("Not tracking action: %s", new Object[] { localObject1 });
+        opc.d("Not tracking action: %s", new Object[] { localObject1 });
         localObject1 = localObject2;
       }
       break;
     }
     for (;;)
     {
-      g.a((cku)localObject1);
+      g.a((cll)localObject1);
       return;
       if (!((String)localObject1).equals("com.ubercab.ACTION_PICKUP_LOCATION")) {
         break;
@@ -197,17 +197,17 @@ public class LocationSearchActivity
       }
       m = 2;
       break;
-      localObject1 = r.hQ;
+      localObject1 = z.kZ;
       continue;
-      localObject1 = r.hA;
+      localObject1 = z.kJ;
     }
   }
   
   private void i()
   {
-    String str1 = getString(2131166018);
-    String str2 = getString(2131166126);
-    epz.a(this, p.eB, 0, null, str1, str2, null, null);
+    String str1 = getString(2131166135);
+    String str2 = getString(2131166260);
+    eya.a(this, x.gE, 0, null, str1, str2, null, null);
   }
   
   public final void a(int paramInt1, int paramInt2, Bundle paramBundle)
@@ -225,14 +225,14 @@ public class LocationSearchActivity
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903269);
+    setContentView(2130903364);
     f();
   }
   
-  @cho
-  public void onAddTaggedLocationEvent(gry paramgry)
+  @chu
+  public void onAddTaggedLocationEvent(ibq paramibq)
   {
-    a(paramgry.a(), null);
+    a(paramibq.a(), null);
   }
   
   public void onBackPressed()
@@ -241,21 +241,21 @@ public class LocationSearchActivity
     super.onBackPressed();
   }
   
-  @cho
-  public void onEditTaggedLocationEvent(grz paramgrz)
+  @chu
+  public void onEditTaggedLocationEvent(ibr paramibr)
   {
-    a(paramgrz.a(), paramgrz.c());
+    a(paramibr.a(), paramibr.c());
   }
   
-  @cho
-  public void onLocationSearchFailedEvent(gsc paramgsc)
+  @chu
+  public void onLocationSearchFailedEvent(ibu paramibu)
   {
     setResult(2);
     finish();
   }
   
-  @cho
-  public void onLocationSelectedEvent(gsd paramgsd)
+  @chu
+  public void onLocationSelectedEvent(ibv paramibv)
   {
     Object localObject = i.d();
     if (localObject != null)
@@ -272,29 +272,29 @@ public class LocationSearchActivity
       if ((m == 0) || (localObject == null) || (((Trip)localObject).getDestination() == null)) {
         break label89;
       }
-      a(paramgsd.b());
+      a(paramibv.b());
       return;
       localObject = null;
       break;
     }
     label89:
-    if (paramgsd.b().getUberLatLng() == null)
+    if (paramibv.b().getUberLatLng() == null)
     {
       i();
       return;
     }
     localObject = new Intent();
-    ((Intent)localObject).putExtra("com.ubercab.LOCATION", paramgsd.b());
-    ((Intent)localObject).putExtra("com.ubercab.FAREINFO", paramgsd.c());
-    if (eyh.a(j)) {
-      ((Intent)localObject).putExtra("com.ubercab.CLIENT_ID", paramgsd.a());
+    ((Intent)localObject).putExtra("com.ubercab.LOCATION", paramibv.b());
+    ((Intent)localObject).putExtra("com.ubercab.FAREINFO", paramibv.c());
+    if (flf.a(j)) {
+      ((Intent)localObject).putExtra("com.ubercab.CLIENT_ID", paramibv.a());
     }
     setResult(-1, (Intent)localObject);
     finish();
   }
   
-  @cho
-  public void onLocationSkippedEvent(gse paramgse)
+  @chu
+  public void onLocationSkippedEvent(ibw paramibw)
   {
     setResult(1);
     finish();
@@ -311,29 +311,29 @@ public class LocationSearchActivity
     return super.onOptionsItemSelected(paramMenuItem);
   }
   
-  @cho
-  public void onRemoveTaggedLocationEvent(gsf paramgsf)
+  @chu
+  public void onRemoveTaggedLocationEvent(ibx paramibx)
   {
-    C();
+    E();
   }
   
-  @cho
-  public void onSelectTaggedLocationEvent(gsg paramgsg)
+  @chu
+  public void onSelectTaggedLocationEvent(iby paramiby)
   {
-    C();
+    E();
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
     return Collections.singleton(k);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }
   
-  protected final boolean v()
+  protected final boolean w()
   {
     return true;
   }

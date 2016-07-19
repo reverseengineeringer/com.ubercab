@@ -1,21 +1,17 @@
-import android.os.IBinder;
-import android.os.IInterface;
-import java.util.List;
-
-public abstract interface bhh
-  extends IInterface
+final class bhh
+  extends bgv
 {
-  public abstract int a();
+  static final bhh o = new bhh();
   
-  public abstract boolean a(bhh parambhh);
+  public final boolean b(char paramChar)
+  {
+    return Character.isLowerCase(paramChar);
+  }
   
-  public abstract int b();
-  
-  public abstract List<IBinder> c();
-  
-  public abstract boolean d();
-  
-  public abstract int e();
+  public final String toString()
+  {
+    return "CharMatcher.javaLowerCase()";
+  }
 }
 
 /* Location:

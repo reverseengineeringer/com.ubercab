@@ -1,37 +1,51 @@
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.Handler;
-import android.os.IBinder;
+import android.content.Intent;
+import android.net.Uri;
+import android.net.Uri.Builder;
+import android.text.TextUtils;
 
 public final class aal
-  implements ServiceConnection
 {
-  private final int b;
+  private static final Uri a;
+  private static final Uri b;
   
-  public aal(aag paramaag, int paramInt)
+  static
   {
-    b = paramInt;
+    Uri localUri = Uri.parse("http://plus.google.com/");
+    a = localUri;
+    b = localUri.buildUpon().appendPath("circles").appendPath("find").build();
   }
   
-  public final void onServiceConnected(ComponentName arg1, IBinder paramIBinder)
+  public static Intent a()
   {
-    abs.a(paramIBinder, "Expecting a valid IBinder");
-    synchronized (aag.a(a))
-    {
-      aag.a(a, abh.a(paramIBinder));
-      a.a(0, b);
-      return;
-    }
+    Intent localIntent = new Intent("com.google.android.clockwork.home.UPDATE_ANDROID_WEAR_ACTION");
+    localIntent.setPackage("com.google.android.wearable.app");
+    return localIntent;
   }
   
-  public final void onServiceDisconnected(ComponentName arg1)
+  public static Intent a(String paramString)
   {
-    synchronized (aag.a(a))
-    {
-      aag.a(a, null);
-      a.b.sendMessage(a.b.obtainMessage(4, b, 1));
-      return;
+    paramString = Uri.fromParts("package", paramString, null);
+    Intent localIntent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
+    localIntent.setData(paramString);
+    return localIntent;
+  }
+  
+  public static Intent a(String paramString1, String paramString2)
+  {
+    Intent localIntent = new Intent("android.intent.action.VIEW");
+    localIntent.setData(b(paramString1, paramString2));
+    localIntent.setPackage("com.android.vending");
+    localIntent.addFlags(524288);
+    return localIntent;
+  }
+  
+  private static Uri b(String paramString1, String paramString2)
+  {
+    paramString1 = Uri.parse("market://details").buildUpon().appendQueryParameter("id", paramString1);
+    if (!TextUtils.isEmpty(paramString2)) {
+      paramString1.appendQueryParameter("pcampaignid", paramString2);
     }
+    return paramString1.build();
   }
 }
 

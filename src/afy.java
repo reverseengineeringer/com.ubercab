@@ -1,154 +1,157 @@
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.Context;
-import android.view.View;
-import com.google.android.gms.ads.internal.client.AdSizeParcel;
-import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.net.Uri.Builder;
+import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.WeakHashMap;
+import java.util.List;
+import java.util.Map;
 
-@apl
 public final class afy
-  implements afz
 {
-  private final Object a = new Object();
-  private final WeakHashMap<aqj, afr> b = new WeakHashMap();
-  private final ArrayList<afr> c = new ArrayList();
-  private final Context d;
-  private final VersionInfoParcel e;
-  private final akx f;
+  private final ajm a;
   
-  public afy(Context paramContext, VersionInfoParcel paramVersionInfoParcel, akx paramakx)
+  public afy(ajm paramajm)
   {
-    d = paramContext.getApplicationContext();
-    e = paramVersionInfoParcel;
-    f = paramakx;
+    a = paramajm;
   }
   
-  private afr a(AdSizeParcel paramAdSizeParcel, aqj paramaqj, age paramage, ald paramald)
+  private static Intent a(Intent paramIntent, ResolveInfo paramResolveInfo)
   {
+    paramIntent = new Intent(paramIntent);
+    paramIntent.setClassName(activityInfo.packageName, activityInfo.name);
+    return paramIntent;
+  }
+  
+  private static Intent a(Uri paramUri)
+  {
+    if (paramUri == null) {
+      return null;
+    }
+    Intent localIntent = new Intent("android.intent.action.VIEW");
+    localIntent.addFlags(268435456);
+    localIntent.setData(paramUri);
+    localIntent.setAction("android.intent.action.VIEW");
+    return localIntent;
+  }
+  
+  private static ResolveInfo a(Context paramContext, Intent paramIntent)
+  {
+    return a(paramContext, paramIntent, new ArrayList());
+  }
+  
+  private static ResolveInfo a(Context paramContext, Intent paramIntent, ArrayList<ResolveInfo> paramArrayList)
+  {
+    paramContext = paramContext.getPackageManager();
+    if (paramContext == null) {
+      return null;
+    }
+    List localList = paramContext.queryIntentActivities(paramIntent, 65536);
+    paramContext = paramContext.resolveActivity(paramIntent, 65536);
+    int i;
+    if ((localList != null) && (paramContext != null))
+    {
+      i = 0;
+      if (i < localList.size())
+      {
+        paramIntent = (ResolveInfo)localList.get(i);
+        if ((paramContext == null) || (!activityInfo.name.equals(activityInfo.name))) {}
+      }
+    }
     for (;;)
     {
-      synchronized (a)
-      {
-        if (e(paramaqj))
-        {
-          paramAdSizeParcel = (afr)b.get(paramaqj);
-          return paramAdSizeParcel;
-        }
-        if (paramald != null)
-        {
-          paramAdSizeParcel = new aga(d, paramAdSizeParcel, paramaqj, e, paramage, paramald);
-          paramAdSizeParcel.a(this);
-          b.put(paramaqj, paramAdSizeParcel);
-          c.add(paramAdSizeParcel);
-          return paramAdSizeParcel;
-        }
-      }
-      paramAdSizeParcel = new agd(d, paramAdSizeParcel, paramaqj, e, paramage, f);
+      paramArrayList.addAll(localList);
+      return paramContext;
+      i += 1;
+      break;
+      paramContext = null;
     }
   }
   
-  private boolean e(aqj paramaqj)
+  public final Intent a(Context paramContext, Map<String, String> paramMap)
   {
+    Object localObject1 = null;
+    Object localObject3 = (ActivityManager)paramContext.getSystemService("activity");
+    Object localObject2 = (String)paramMap.get("u");
+    if (TextUtils.isEmpty((CharSequence)localObject2))
+    {
+      paramMap = (Map<String, String>)localObject1;
+      return paramMap;
+    }
+    localObject1 = localObject2;
+    if (a != null)
+    {
+      ul.c();
+      localObject1 = aiq.a(a, (String)localObject2);
+    }
+    localObject1 = Uri.parse((String)localObject1);
+    boolean bool1 = Boolean.parseBoolean((String)paramMap.get("use_first_package"));
+    boolean bool2 = Boolean.parseBoolean((String)paramMap.get("use_running_process"));
+    if ("http".equalsIgnoreCase(((Uri)localObject1).getScheme())) {
+      paramMap = ((Uri)localObject1).buildUpon().scheme("https").build();
+    }
     for (;;)
     {
-      synchronized (a)
+      localObject2 = new ArrayList();
+      Intent localIntent = a((Uri)localObject1);
+      paramMap = a(paramMap);
+      localObject1 = a(paramContext, localIntent, (ArrayList)localObject2);
+      if (localObject1 != null)
       {
-        paramaqj = (afr)b.get(paramaqj);
-        if ((paramaqj != null) && (paramaqj.e()))
-        {
-          bool = true;
-          return bool;
+        return a(localIntent, (ResolveInfo)localObject1);
+        if ("https".equalsIgnoreCase(((Uri)localObject1).getScheme())) {
+          paramMap = ((Uri)localObject1).buildUpon().scheme("http").build();
         }
       }
-      boolean bool = false;
-    }
-  }
-  
-  public final afr a(AdSizeParcel paramAdSizeParcel, aqj paramaqj)
-  {
-    return a(paramAdSizeParcel, paramaqj, b.b());
-  }
-  
-  public final afr a(AdSizeParcel paramAdSizeParcel, aqj paramaqj, View paramView)
-  {
-    return a(paramAdSizeParcel, paramaqj, new afv(paramView, paramaqj), null);
-  }
-  
-  public final afr a(AdSizeParcel paramAdSizeParcel, aqj paramaqj, View paramView, ald paramald)
-  {
-    return a(paramAdSizeParcel, paramaqj, new afv(paramView, paramaqj), paramald);
-  }
-  
-  public final afr a(AdSizeParcel paramAdSizeParcel, aqj paramaqj, pe parampe)
-  {
-    return a(paramAdSizeParcel, paramaqj, new afs(parampe), null);
-  }
-  
-  public final void a(afr paramafr)
-  {
-    synchronized (a)
-    {
-      if (!paramafr.e())
+      else
       {
-        c.remove(paramafr);
-        Iterator localIterator = b.entrySet().iterator();
-        while (localIterator.hasNext()) {
-          if (((Map.Entry)localIterator.next()).getValue() == paramafr) {
-            localIterator.remove();
+        if (paramMap != null)
+        {
+          paramMap = a(paramContext, paramMap);
+          if (paramMap != null)
+          {
+            localObject1 = a(localIntent, paramMap);
+            paramMap = (Map<String, String>)localObject1;
+            if (a(paramContext, (Intent)localObject1) != null) {
+              break;
+            }
           }
         }
+        if (((ArrayList)localObject2).size() == 0) {
+          return localIntent;
+        }
+        if ((bool2) && (localObject3 != null))
+        {
+          paramContext = ((ActivityManager)localObject3).getRunningAppProcesses();
+          if (paramContext != null)
+          {
+            do
+            {
+              paramMap = ((ArrayList)localObject2).iterator();
+              while (!((Iterator)localObject3).hasNext())
+              {
+                if (!paramMap.hasNext()) {
+                  break;
+                }
+                localObject1 = (ResolveInfo)paramMap.next();
+                localObject3 = paramContext.iterator();
+              }
+            } while (!nextprocessName.equals(activityInfo.packageName));
+            return a(localIntent, (ResolveInfo)localObject1);
+          }
+        }
+        if (bool1) {
+          return a(localIntent, (ResolveInfo)((ArrayList)localObject2).get(0));
+        }
+        return localIntent;
       }
-    }
-  }
-  
-  public final void a(aqj paramaqj)
-  {
-    synchronized (a)
-    {
-      paramaqj = (afr)b.get(paramaqj);
-      if (paramaqj != null) {
-        paramaqj.c();
-      }
-      return;
-    }
-  }
-  
-  public final void b(aqj paramaqj)
-  {
-    synchronized (a)
-    {
-      paramaqj = (afr)b.get(paramaqj);
-      if (paramaqj != null) {
-        paramaqj.g();
-      }
-      return;
-    }
-  }
-  
-  public final void c(aqj paramaqj)
-  {
-    synchronized (a)
-    {
-      paramaqj = (afr)b.get(paramaqj);
-      if (paramaqj != null) {
-        paramaqj.h();
-      }
-      return;
-    }
-  }
-  
-  public final void d(aqj paramaqj)
-  {
-    synchronized (a)
-    {
-      paramaqj = (afr)b.get(paramaqj);
-      if (paramaqj != null) {
-        paramaqj.i();
-      }
-      return;
+      paramMap = null;
     }
   }
 }

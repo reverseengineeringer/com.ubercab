@@ -1,15 +1,20 @@
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.view.View;
 import android.view.View.OnClickListener;
-import com.paypal.android.sdk.payments.LoginActivity;
+import com.paypal.android.sdk.payments.PaymentConfirmActivity;
+import java.util.ArrayList;
 
 public final class cde
   implements View.OnClickListener
 {
-  public cde(LoginActivity paramLoginActivity) {}
+  public cde(PaymentConfirmActivity paramPaymentConfirmActivity, bvl parambvl, ArrayList paramArrayList) {}
   
   public final void onClick(View paramView)
   {
-    LoginActivity.c(a);
+    paramView = new AlertDialog.Builder(paramView.getContext());
+    paramView.setTitle(bvf.a(bvh.aC)).setAdapter(a, new cdf(this));
+    paramView.create().show();
   }
 }
 

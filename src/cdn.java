@@ -1,8 +1,4 @@
-import android.os.Parcelable.Creator;
-
-public final class cdn
-  implements Parcelable.Creator
-{}
+public enum cdn {}
 
 /* Location:
  * Qualified Name:     cdn

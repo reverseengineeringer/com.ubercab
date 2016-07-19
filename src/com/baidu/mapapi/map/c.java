@@ -11,15 +11,15 @@ class c
   
   public Bundle a(int paramInt1, int paramInt2, int paramInt3)
   {
-    BaiduMap.t(a).lock();
+    BaiduMap.u(a).lock();
     try
     {
-      if (BaiduMap.u(a) != null)
+      if (BaiduMap.v(a) != null)
       {
-        Object localObject1 = BaiduMap.u(a).a(paramInt1, paramInt2, paramInt3);
+        Object localObject1 = BaiduMap.v(a).a(paramInt1, paramInt2, paramInt3);
         if (localObject1 != null)
         {
-          localObject1 = ((Tile)localObject1).a();
+          localObject1 = ((Tile)localObject1).toBundle();
           return (Bundle)localObject1;
         }
       }
@@ -27,7 +27,7 @@ class c
     }
     finally
     {
-      BaiduMap.t(a).unlock();
+      BaiduMap.u(a).unlock();
     }
   }
 }

@@ -5,6 +5,7 @@ import android.util.Log;
 class a
 {
   public static boolean a = false;
+  private static String b = "BaiduApiAuth";
   
   public static String a()
   {
@@ -14,9 +15,18 @@ class a
   
   public static void a(String paramString)
   {
-    if (Thread.currentThread().getStackTrace().length != 0) {
-      Log.d(a(), paramString);
+    if ((!a) || (Thread.currentThread().getStackTrace().length == 0)) {
+      return;
     }
+    Log.d(b, a() + ";" + paramString);
+  }
+  
+  public static void b(String paramString)
+  {
+    if ((!a) || (Thread.currentThread().getStackTrace().length == 0)) {
+      return;
+    }
+    Log.e(b, a() + ";" + paramString);
   }
 }
 

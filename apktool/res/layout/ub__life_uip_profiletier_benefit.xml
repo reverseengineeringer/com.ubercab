@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="@dimen/ub__life_uip_profile_benefit_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/ub__life_uip_profile_benefit" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/ub__life_uip_profile_benefit_image" android:paddingTop="@dimen/ub__life_uip_profile_benefit_imageoffset" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="@dimen/ub__life_uip_profile_benefit_image_width" android:layout_height="@dimen/ub__life_uip_profile_benefit_image_height" android:scaleType="fitXY" android:adjustViewBounds="true" />
+        <com.ubercab.ui.TextView android:textColor="@color/ub__black" android:id="@id/ub__life_uip_profile_benefit_item_title" android:paddingBottom="@dimen/ub__action_button_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_toRightOf="@id/ub__life_uip_profile_benefit_image" android:textIsSelectable="false" style="@style/Uber.TextAppearance.H2" />
+        <com.ubercab.ui.TextView android:id="@id/ub__life_uip_profile_benefit_item_message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_toRightOf="@id/ub__life_uip_profile_benefit_image" android:layout_below="@id/ub__life_uip_profile_benefit_item_title" style="@style/Uber.TextAppearance.H3" />
+    </RelativeLayout>
+    <View android:background="@color/ub__uber_white_60" android:layout_width="fill_parent" android:layout_height="@dimen/ub__life_uip_profile_benefit_divider" />
+</LinearLayout>

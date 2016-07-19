@@ -1,78 +1,83 @@
-import android.os.IBinder;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.server.converter.ConverterWrapper;
+import com.google.android.gms.common.server.response.FastJsonResponse.Field;
 
-final class abl
-  implements abj
+public final class abl
+  implements Parcelable.Creator<FastJsonResponse.Field>
 {
-  private IBinder a;
-  
-  abl(IBinder paramIBinder)
+  private static FastJsonResponse.Field a(Parcel paramParcel)
   {
-    a = paramIBinder;
+    ConverterWrapper localConverterWrapper = null;
+    int i = 0;
+    int n = zd.b(paramParcel);
+    String str1 = null;
+    String str2 = null;
+    boolean bool1 = false;
+    int j = 0;
+    boolean bool2 = false;
+    int k = 0;
+    int m = 0;
+    while (paramParcel.dataPosition() < n)
+    {
+      int i1 = zd.a(paramParcel);
+      switch (zd.a(i1))
+      {
+      default: 
+        zd.a(paramParcel, i1);
+        break;
+      case 1: 
+        m = zd.e(paramParcel, i1);
+        break;
+      case 2: 
+        k = zd.e(paramParcel, i1);
+        break;
+      case 3: 
+        bool2 = zd.b(paramParcel, i1);
+        break;
+      case 4: 
+        j = zd.e(paramParcel, i1);
+        break;
+      case 5: 
+        bool1 = zd.b(paramParcel, i1);
+        break;
+      case 6: 
+        str2 = zd.n(paramParcel, i1);
+        break;
+      case 7: 
+        i = zd.e(paramParcel, i1);
+        break;
+      case 8: 
+        str1 = zd.n(paramParcel, i1);
+        break;
+      case 9: 
+        localConverterWrapper = (ConverterWrapper)zd.a(paramParcel, i1, ConverterWrapper.CREATOR);
+      }
+    }
+    if (paramParcel.dataPosition() != n) {
+      throw new ze("Overread allowed size end=" + n, paramParcel);
+    }
+    return new FastJsonResponse.Field(m, k, bool2, j, bool1, str2, i, str1, localConverterWrapper);
   }
   
-  /* Error */
-  public final void a(com.google.android.gms.common.internal.ResolveAccountResponse paramResolveAccountResponse)
+  public static void a(FastJsonResponse.Field paramField, Parcel paramParcel, int paramInt)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +41 -> 56
-    //   18: aload_2
-    //   19: iconst_1
-    //   20: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   23: aload_1
-    //   24: aload_2
-    //   25: iconst_0
-    //   26: invokevirtual 39	com/google/android/gms/common/internal/ResolveAccountResponse:writeToParcel	(Landroid/os/Parcel;I)V
-    //   29: aload_0
-    //   30: getfield 15	abl:a	Landroid/os/IBinder;
-    //   33: iconst_2
-    //   34: aload_2
-    //   35: aload_3
-    //   36: iconst_0
-    //   37: invokeinterface 45 5 0
-    //   42: pop
-    //   43: aload_3
-    //   44: invokevirtual 48	android/os/Parcel:readException	()V
-    //   47: aload_3
-    //   48: invokevirtual 51	android/os/Parcel:recycle	()V
-    //   51: aload_2
-    //   52: invokevirtual 51	android/os/Parcel:recycle	()V
-    //   55: return
-    //   56: aload_2
-    //   57: iconst_0
-    //   58: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   61: goto -32 -> 29
-    //   64: astore_1
-    //   65: aload_3
-    //   66: invokevirtual 51	android/os/Parcel:recycle	()V
-    //   69: aload_2
-    //   70: invokevirtual 51	android/os/Parcel:recycle	()V
-    //   73: aload_1
-    //   74: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	75	0	this	abl
-    //   0	75	1	paramResolveAccountResponse	com.google.android.gms.common.internal.ResolveAccountResponse
-    //   3	67	2	localParcel1	android.os.Parcel
-    //   7	59	3	localParcel2	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	64	finally
-    //   18	29	64	finally
-    //   29	47	64	finally
-    //   56	61	64	finally
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramField.a());
+    zf.a(paramParcel, 2, paramField.b());
+    zf.a(paramParcel, 3, paramField.c());
+    zf.a(paramParcel, 4, paramField.d());
+    zf.a(paramParcel, 5, paramField.e());
+    zf.a(paramParcel, 6, paramField.f(), false);
+    zf.a(paramParcel, 7, paramField.g());
+    zf.a(paramParcel, 8, paramField.i(), false);
+    zf.a(paramParcel, 9, paramField.k(), paramInt, false);
+    zf.a(paramParcel, i);
   }
   
-  public final IBinder asBinder()
+  private static FastJsonResponse.Field[] a(int paramInt)
   {
-    return a;
+    return new FastJsonResponse.Field[paramInt];
   }
 }
 

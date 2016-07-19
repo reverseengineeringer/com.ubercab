@@ -1,4 +1,9 @@
-public enum cbk {}
+public abstract interface cbk
+{
+  public abstract void a(cbn paramcbn);
+  
+  public abstract void a(Object paramObject);
+}
 
 /* Location:
  * Qualified Name:     cbk

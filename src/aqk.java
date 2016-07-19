@@ -1,30 +1,59 @@
-import com.google.android.gms.ads.internal.client.AdSizeParcel;
-import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
-import com.google.android.gms.ads.internal.request.AdResponseParcel;
-import org.json.JSONObject;
+import android.content.Context;
+import android.location.Location;
+import android.os.Looper;
+import android.util.Log;
+import com.google.android.gms.location.LocationRequest;
 
-@apl
 public final class aqk
+  extends apn
 {
-  public final AdRequestInfoParcel a;
-  public final AdResponseParcel b;
-  public final alk c;
-  public final AdSizeParcel d;
-  public final int e;
-  public final long f;
-  public final long g;
-  public final JSONObject h;
+  private final aqg e = new aqg(paramContext, d);
   
-  public aqk(AdRequestInfoParcel paramAdRequestInfoParcel, AdResponseParcel paramAdResponseParcel, alk paramalk, AdSizeParcel paramAdSizeParcel, int paramInt, long paramLong1, long paramLong2, JSONObject paramJSONObject)
+  public aqk(Context paramContext, Looper paramLooper, wl paramwl, wm paramwm, String paramString, zq paramzq)
   {
-    a = paramAdRequestInfoParcel;
-    b = paramAdResponseParcel;
-    c = paramalk;
-    d = paramAdSizeParcel;
-    e = paramInt;
-    f = paramLong1;
-    g = paramLong2;
-    h = paramJSONObject;
+    super(paramContext, paramLooper, paramwl, paramwm, paramString, paramzq);
+  }
+  
+  public final void a()
+  {
+    synchronized (e)
+    {
+      boolean bool = b();
+      if (bool) {}
+      try
+      {
+        e.b();
+        e.c();
+        super.a();
+        return;
+      }
+      catch (Exception localException)
+      {
+        for (;;)
+        {
+          Log.e("LocationClientImpl", "Client disconnected before listeners could be cleaned up", localException);
+        }
+      }
+    }
+  }
+  
+  public final void a(api paramapi, apu paramapu)
+  {
+    e.a(paramapi, paramapu);
+  }
+  
+  public final void a(LocationRequest paramLocationRequest, api paramapi, apu paramapu)
+  {
+    synchronized (e)
+    {
+      e.a(paramLocationRequest, paramapi, paramapu);
+      return;
+    }
+  }
+  
+  public final Location q()
+  {
+    return e.a();
   }
 }
 

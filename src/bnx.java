@@ -1,59 +1,191 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.wobs.LabelValue;
-import com.google.android.gms.wallet.wobs.LabelValueRow;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
+import java.util.List;
 
 public final class bnx
-  implements Parcelable.Creator<LabelValueRow>
+  extends JsonWriter
 {
-  private static LabelValueRow a(Parcel paramParcel)
+  private static final Writer a = new Writer()
   {
-    String str2 = null;
-    int j = zm.b(paramParcel);
-    ArrayList localArrayList = aug.a();
-    int i = 0;
-    String str1 = null;
-    while (paramParcel.dataPosition() < j)
+    public final void close()
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str1 = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        str2 = zm.n(paramParcel, k);
-        break;
-      case 4: 
-        localArrayList = zm.c(paramParcel, k, LabelValue.CREATOR);
+      throw new AssertionError();
+    }
+    
+    public final void flush()
+    {
+      throw new AssertionError();
+    }
+    
+    public final void write(char[] paramAnonymousArrayOfChar, int paramAnonymousInt1, int paramAnonymousInt2)
+    {
+      throw new AssertionError();
+    }
+  };
+  private static final bmj b = new bmj("closed");
+  private final List<bmd> c = new ArrayList();
+  private String d;
+  private bmd e = bmf.a;
+  
+  public bnx()
+  {
+    super(a);
+  }
+  
+  private void a(bmd parambmd)
+  {
+    if (d != null)
+    {
+      if ((!parambmd.j()) || (getSerializeNulls())) {
+        ((bmg)b()).a(d, parambmd);
+      }
+      d = null;
+      return;
+    }
+    if (c.isEmpty())
+    {
+      e = parambmd;
+      return;
+    }
+    bmd localbmd = b();
+    if ((localbmd instanceof bma))
+    {
+      ((bma)localbmd).a(parambmd);
+      return;
+    }
+    throw new IllegalStateException();
+  }
+  
+  private bmd b()
+  {
+    return (bmd)c.get(c.size() - 1);
+  }
+  
+  public final bmd a()
+  {
+    if (!c.isEmpty()) {
+      throw new IllegalStateException("Expected one JSON element but was " + c);
+    }
+    return e;
+  }
+  
+  public final JsonWriter beginArray()
+  {
+    bma localbma = new bma();
+    a(localbma);
+    c.add(localbma);
+    return this;
+  }
+  
+  public final JsonWriter beginObject()
+  {
+    bmg localbmg = new bmg();
+    a(localbmg);
+    c.add(localbmg);
+    return this;
+  }
+  
+  public final void close()
+  {
+    if (!c.isEmpty()) {
+      throw new IOException("Incomplete document");
+    }
+    c.add(b);
+  }
+  
+  public final JsonWriter endArray()
+  {
+    if ((c.isEmpty()) || (d != null)) {
+      throw new IllegalStateException();
+    }
+    if ((b() instanceof bma))
+    {
+      c.remove(c.size() - 1);
+      return this;
+    }
+    throw new IllegalStateException();
+  }
+  
+  public final JsonWriter endObject()
+  {
+    if ((c.isEmpty()) || (d != null)) {
+      throw new IllegalStateException();
+    }
+    if ((b() instanceof bmg))
+    {
+      c.remove(c.size() - 1);
+      return this;
+    }
+    throw new IllegalStateException();
+  }
+  
+  public final void flush() {}
+  
+  public final JsonWriter name(String paramString)
+  {
+    if ((c.isEmpty()) || (d != null)) {
+      throw new IllegalStateException();
+    }
+    if ((b() instanceof bmg))
+    {
+      d = paramString;
+      return this;
+    }
+    throw new IllegalStateException();
+  }
+  
+  public final JsonWriter nullValue()
+  {
+    a(bmf.a);
+    return this;
+  }
+  
+  public final JsonWriter value(double paramDouble)
+  {
+    if ((!isLenient()) && ((Double.isNaN(paramDouble)) || (Double.isInfinite(paramDouble)))) {
+      throw new IllegalArgumentException("JSON forbids NaN and infinities: " + paramDouble);
+    }
+    a(new bmj(Double.valueOf(paramDouble)));
+    return this;
+  }
+  
+  public final JsonWriter value(long paramLong)
+  {
+    a(new bmj(Long.valueOf(paramLong)));
+    return this;
+  }
+  
+  public final JsonWriter value(Number paramNumber)
+  {
+    if (paramNumber == null) {
+      return nullValue();
+    }
+    if (!isLenient())
+    {
+      double d1 = paramNumber.doubleValue();
+      if ((Double.isNaN(d1)) || (Double.isInfinite(d1))) {
+        throw new IllegalArgumentException("JSON forbids NaN and infinities: " + paramNumber);
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    a(new bmj(paramNumber));
+    return this;
+  }
+  
+  public final JsonWriter value(String paramString)
+  {
+    if (paramString == null) {
+      return nullValue();
     }
-    return new LabelValueRow(i, str1, str2, localArrayList);
+    a(new bmj(paramString));
+    return this;
   }
   
-  public static void a(LabelValueRow paramLabelValueRow, Parcel paramParcel)
+  public final JsonWriter value(boolean paramBoolean)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramLabelValueRow.a());
-    zo.a(paramParcel, 2, a, false);
-    zo.a(paramParcel, 3, b, false);
-    zo.b(paramParcel, 4, c, false);
-    zo.a(paramParcel, i);
-  }
-  
-  private static LabelValueRow[] a(int paramInt)
-  {
-    return new LabelValueRow[paramInt];
+    a(new bmj(Boolean.valueOf(paramBoolean)));
+    return this;
   }
 }
 

@@ -7,7 +7,6 @@ import com.ubercab.rider.realtime.model.Eyeball;
 import com.ubercab.rider.realtime.model.Meta;
 import com.ubercab.rider.realtime.model.Model;
 import com.ubercab.rider.realtime.model.Trip;
-import hzz;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -17,12 +16,13 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-import jdb;
-import jdf;
-import jsf;
-import jsk;
-import jtt;
-import jwc;
+import kcj;
+import lzi;
+import lzm;
+import mxl;
+import mxp;
+import mzb;
+import nct;
 
 public class PersistedObjectDataStore
   extends ObjectDataStore
@@ -53,29 +53,29 @@ public class PersistedObjectDataStore
   static final String VALUE_VALIDATION_FAILURE = "rave_validation_failure";
   private final String appVersion;
   private final PersistedObjectDataStore.CacheDelegate cacheDelegate;
-  private final hzz clock;
+  private final kcj clock;
   private final CountDownLatch countDownLatch;
   private final double destinationEtaSafetyFactor;
   private final ExecutorService executorService;
   private final AtomicBoolean hasLoggedBlockedOnDataCommit = new AtomicBoolean(false);
-  private final jwc keyValueStore;
+  private final nct keyValueStore;
   private final PersistedObjectDataStore.Logger logger;
-  private final jdb rave;
+  private final lzi rave;
   private final boolean shouldInitAsync;
   private final Long tripTtl;
   private final PersistedObjectDataStore.ValidationPolicy validationPolicy;
   
-  PersistedObjectDataStore(hzz paramhzz, CountDownLatch paramCountDownLatch, jsk paramjsk, ExecutorService paramExecutorService, jwc paramjwc, jdb paramjdb, PersistedObjectDataStore.CacheDelegate paramCacheDelegate, String paramString, PersistedObjectDataStore.ValidationPolicy paramValidationPolicy, PersistedObjectDataStore.Logger paramLogger, Long paramLong, boolean paramBoolean1, double paramDouble, boolean paramBoolean2)
+  PersistedObjectDataStore(kcj paramkcj, CountDownLatch paramCountDownLatch, mxp parammxp, ExecutorService paramExecutorService, nct paramnct, lzi paramlzi, PersistedObjectDataStore.CacheDelegate paramCacheDelegate, String paramString, PersistedObjectDataStore.ValidationPolicy paramValidationPolicy, PersistedObjectDataStore.Logger paramLogger, Long paramLong, boolean paramBoolean1, double paramDouble, boolean paramBoolean2)
   {
-    super(paramjsk, paramhzz, paramBoolean2);
+    super(parammxp, paramkcj, paramBoolean2);
     appVersion = paramString;
-    clock = paramhzz;
+    clock = paramkcj;
     countDownLatch = paramCountDownLatch;
     destinationEtaSafetyFactor = paramDouble;
     executorService = paramExecutorService;
-    keyValueStore = paramjwc;
+    keyValueStore = paramnct;
     logger = paramLogger;
-    rave = paramjdb;
+    rave = paramlzi;
     shouldInitAsync = paramBoolean1;
     cacheDelegate = paramCacheDelegate;
     tripTtl = paramLong;
@@ -91,7 +91,7 @@ public class PersistedObjectDataStore
   {
     paramClass = (Model)keyValueStore.a(paramString, paramClass);
     if ((paramClass != null) && (paramClass.getMeta() != null)) {
-      ((jtt)paramClass.getMeta()).setFromPersistentDataStore(true);
+      ((mzb)paramClass.getMeta()).setFromPersistentDataStore(true);
     }
     if (paramClass == null) {
       paramString = null;
@@ -105,9 +105,9 @@ public class PersistedObjectDataStore
     return paramClass;
   }
   
-  public static PersistedObjectDataStore newStore(jsk paramjsk, ExecutorService paramExecutorService, jwc paramjwc, PersistedObjectDataStore.CacheDelegate paramCacheDelegate, String paramString, PersistedObjectDataStore.ValidationPolicy paramValidationPolicy, PersistedObjectDataStore.Logger paramLogger, Long paramLong, boolean paramBoolean1, double paramDouble, boolean paramBoolean2)
+  public static PersistedObjectDataStore newStore(mxp parammxp, ExecutorService paramExecutorService, nct paramnct, PersistedObjectDataStore.CacheDelegate paramCacheDelegate, String paramString, PersistedObjectDataStore.ValidationPolicy paramValidationPolicy, PersistedObjectDataStore.Logger paramLogger, Long paramLong, boolean paramBoolean1, double paramDouble, boolean paramBoolean2)
   {
-    return new PersistedObjectDataStore(new hzz(), new CountDownLatch(1), paramjsk, paramExecutorService, paramjwc, jdb.a(), paramCacheDelegate, paramString, paramValidationPolicy, paramLogger, paramLong, paramBoolean1, paramDouble, paramBoolean2);
+    return new PersistedObjectDataStore(new kcj(), new CountDownLatch(1), parammxp, paramExecutorService, paramnct, lzi.a(), paramCacheDelegate, paramString, paramValidationPolicy, paramLogger, paramLong, paramBoolean1, paramDouble, paramBoolean2);
   }
   
   private void putOrRemove(String paramString, Object paramObject)
@@ -124,7 +124,7 @@ public class PersistedObjectDataStore
     }
   }
   
-  private void setData(jsf paramjsf)
+  private void setData(mxl parammxl)
   {
     HashMap localHashMap = new HashMap();
     Object localObject1 = keyValueStore.e("com.ubercab.realtime.object.APP_VERSION");
@@ -149,7 +149,7 @@ public class PersistedObjectDataStore
       for (;;)
       {
         return;
-        l1 = hzz.a();
+        l1 = kcj.b();
         localMap = (Map)keyValueStore.a("com.ubercab.realtime.object.APP_CONFIG", HashMap.class);
         try
         {
@@ -158,8 +158,8 @@ public class PersistedObjectDataStore
           localObjectClientStatus = (ObjectClientStatus)get("com.ubercab.realtime.object.CLIENT_STATUS", Shape_ObjectClientStatus.class);
           localObjectEyeball = (ObjectEyeball)get("com.ubercab.realtime.object.EYEBALL", Shape_ObjectEyeball.class);
           localObject1 = (ObjectTrip)get("com.ubercab.realtime.object.TRIP", Shape_ObjectTrip.class);
-          if (localObjectClientStatus != null) {
-            break label298;
+          if ((localObjectClientStatus != null) && (localObjectCity != null)) {
+            break label303;
           }
           cacheDelegate.cacheMiss();
           if (logger != null)
@@ -170,7 +170,7 @@ public class PersistedObjectDataStore
             return;
           }
         }
-        catch (jdf paramjsf)
+        catch (lzm parammxl)
         {
           cacheDelegate.cacheMiss();
         }
@@ -180,27 +180,27 @@ public class PersistedObjectDataStore
     localHashMap.put("reason", "rave_validation_failure");
     logger.log(localHashMap);
     return;
-    label298:
+    label303:
     long l2;
-    if (("OnTrip".equals(localObjectClientStatus.getStatus())) && (localObjectEyeball != null) && (localObject1 != null) && (((ObjectTrip)localObject1).getMeta() != null))
+    if ((localObjectEyeball != null) && (localObject1 != null) && (((ObjectTrip)localObject1).getMeta() != null))
     {
       l2 = ((ObjectTrip)localObject1).getMeta().getOriginTimeMs();
       long l3 = TimeUnit.MILLISECONDS.convert(((ObjectTrip)localObject1).getEtaToDestination(), TimeUnit.SECONDS);
       if (l3 > 0L)
       {
         if (l1 < l2 + l3 * destinationEtaSafetyFactor) {
-          break label964;
+          break label967;
         }
         localObjectClientStatus.setStatus("Looking");
         if (logger == null) {
-          break label646;
+          break label649;
         }
         localHashMap.put("tripEviction", "trip_evicted_TTD");
         localObject1 = null;
       }
     }
-    label646:
-    label964:
+    label649:
+    label967:
     for (;;)
     {
       Object localObject2;
@@ -213,21 +213,21 @@ public class PersistedObjectDataStore
           if (((Iterator)localObject2).hasNext())
           {
             Object localObject3 = (String)((Iterator)localObject2).next();
-            localObject3 = (ObjectNearbyVehicle)localObjectEyeball.getNearbyVehicles().get(localObject3);
-            ((ObjectNearbyVehicle)localObject3).setEtaString(cacheDelegate.getEtaString());
-            ((ObjectNearbyVehicle)localObject3).setEtaStringShort(cacheDelegate.getEtaStringShort());
-            ((ObjectNearbyVehicle)localObject3).setMinEta(cacheDelegate.getMinEta());
-            if (((ObjectNearbyVehicle)localObject3).getVehiclePaths() != null)
+            ObjectNearbyVehicle localObjectNearbyVehicle = (ObjectNearbyVehicle)localObjectEyeball.getNearbyVehicles().get(localObject3);
+            localObjectNearbyVehicle.setEtaString(cacheDelegate.getEtaString(localObjectCity, (String)localObject3));
+            localObjectNearbyVehicle.setEtaStringShort(cacheDelegate.getEtaStringShort(localObjectCity, (String)localObject3));
+            localObjectNearbyVehicle.setMinEta(cacheDelegate.getMinEta(localObjectCity, (String)localObject3));
+            if (localObjectNearbyVehicle.getVehiclePaths() != null)
             {
-              Iterator localIterator = ((ObjectNearbyVehicle)localObject3).getVehiclePaths().keySet().iterator();
-              while (localIterator.hasNext())
+              localObject3 = localObjectNearbyVehicle.getVehiclePaths().keySet().iterator();
+              while (((Iterator)localObject3).hasNext())
               {
-                String str = (String)localIterator.next();
-                ((List)((ObjectNearbyVehicle)localObject3).getVehiclePaths().get(str)).clear();
+                String str = (String)((Iterator)localObject3).next();
+                ((List)localObjectNearbyVehicle.getVehiclePaths().get(str)).clear();
               }
               continue;
               if ((tripTtl == null) || (l1 - l2 < tripTtl.longValue())) {
-                break label964;
+                break label967;
               }
               localObjectClientStatus.setStatus("Looking");
               if (logger != null) {
@@ -265,12 +265,12 @@ public class PersistedObjectDataStore
       if (!cacheDelegate.shouldUseCache()) {
         break;
       }
-      paramjsf.setAppConfig(localMap);
-      paramjsf.setCity(localObjectCity);
-      paramjsf.setClient(localObjectClient);
-      paramjsf.setClientStatus(localObjectClientStatus);
-      paramjsf.setTrip((Trip)localObject1);
-      paramjsf.setEyeball(localObjectEyeball);
+      parammxl.setAppConfig(localMap);
+      parammxl.setCity(localObjectCity);
+      parammxl.setClient(localObjectClient);
+      parammxl.setClientStatus(localObjectClientStatus);
+      parammxl.setTrip((Trip)localObject1);
+      parammxl.setEyeball(localObjectEyeball);
       return;
     }
   }
@@ -294,7 +294,7 @@ public class PersistedObjectDataStore
     catch (InterruptedException localInterruptedException) {}
   }
   
-  public jsf getData()
+  public mxl getData()
   {
     waitForDataCommit();
     return super.getData();

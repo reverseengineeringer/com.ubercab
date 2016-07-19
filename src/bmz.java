@@ -1,48 +1,36 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.ResolveAccountRequest;
-import com.google.android.gms.signin.internal.SignInRequest;
+import java.io.Serializable;
+import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.Type;
 
-public final class bmz
-  implements Parcelable.Creator<SignInRequest>
+final class bmz
+  implements Serializable, GenericArrayType
 {
-  private static SignInRequest a(Parcel paramParcel)
+  private static final long serialVersionUID = 0L;
+  private final Type a;
+  
+  public bmz(Type paramType)
   {
-    int j = zm.b(paramParcel);
-    int i = 0;
-    ResolveAccountRequest localResolveAccountRequest = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        localResolveAccountRequest = (ResolveAccountRequest)zm.a(paramParcel, k, ResolveAccountRequest.CREATOR);
-      }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new SignInRequest(i, localResolveAccountRequest);
+    a = bmy.a(paramType);
   }
   
-  public static void a(SignInRequest paramSignInRequest, Parcel paramParcel, int paramInt)
+  public final boolean equals(Object paramObject)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, paramSignInRequest.a(), paramInt, false);
-    zo.a(paramParcel, i);
+    return ((paramObject instanceof GenericArrayType)) && (bmy.a(this, (GenericArrayType)paramObject));
   }
   
-  private static SignInRequest[] a(int paramInt)
+  public final Type getGenericComponentType()
   {
-    return new SignInRequest[paramInt];
+    return a;
+  }
+  
+  public final int hashCode()
+  {
+    return a.hashCode();
+  }
+  
+  public final String toString()
+  {
+    return bmy.c(a) + "[]";
   }
 }
 

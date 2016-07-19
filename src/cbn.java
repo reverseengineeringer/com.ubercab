@@ -1,20 +1,28 @@
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.paypal.android.sdk.payments.LoginActivity;
-
 public final class cbn
-  implements TextWatcher
 {
-  public cbn(LoginActivity paramLoginActivity) {}
+  Integer a;
+  public String b;
   
-  public final void afterTextChanged(Editable paramEditable)
+  public cbn(String paramString, Integer paramInteger)
   {
-    LoginActivity.a(a);
+    b = paramString;
+    a = paramInteger;
   }
   
-  public final void beforeTextChanged(CharSequence paramCharSequence, int paramInt1, int paramInt2, int paramInt3) {}
+  public final boolean a()
+  {
+    return (a != null) && (a.equals(Integer.valueOf(401)));
+  }
   
-  public final void onTextChanged(CharSequence paramCharSequence, int paramInt1, int paramInt2, int paramInt3) {}
+  public final boolean b()
+  {
+    return (a()) && (b.equals("2fa_required"));
+  }
+  
+  public final boolean c()
+  {
+    return b.equals(brn.b.toString());
+  }
 }
 
 /* Location:

@@ -1,26 +1,4 @@
-import android.util.Log;
-
-@apl
-public final class aqt
-  extends sq
-{
-  private static boolean a()
-  {
-    return ((Boolean)agz.ak.c()).booleanValue();
-  }
-  
-  private static boolean b()
-  {
-    return (a(2)) && (a());
-  }
-  
-  public static void e(String paramString)
-  {
-    if (b()) {
-      Log.v("Ads", paramString);
-    }
-  }
-}
+public abstract interface aqt {}
 
 /* Location:
  * Qualified Name:     aqt

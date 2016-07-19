@@ -1,228 +1,88 @@
-import java.util.Arrays;
+import android.os.IBinder;
 
-public final class axo
+final class axo
+  implements axm
 {
-  public static final Object a = new Object();
+  private IBinder a;
   
-  public static int a(int[] paramArrayOfInt)
+  axo(IBinder paramIBinder)
   {
-    if ((paramArrayOfInt == null) || (paramArrayOfInt.length == 0)) {
-      return 0;
-    }
-    return Arrays.hashCode(paramArrayOfInt);
+    a = paramIBinder;
   }
   
-  public static int a(long[] paramArrayOfLong)
+  /* Error */
+  public final boolean a(azr paramazr)
   {
-    if ((paramArrayOfLong == null) || (paramArrayOfLong.length == 0)) {
-      return 0;
-    }
-    return Arrays.hashCode(paramArrayOfLong);
+    // Byte code:
+    //   0: iconst_1
+    //   1: istore_3
+    //   2: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   5: astore 4
+    //   7: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   10: astore 5
+    //   12: aload 4
+    //   14: ldc 25
+    //   16: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   19: aload_1
+    //   20: ifnull +59 -> 79
+    //   23: aload_1
+    //   24: invokeinterface 35 1 0
+    //   29: astore_1
+    //   30: aload 4
+    //   32: aload_1
+    //   33: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
+    //   36: aload_0
+    //   37: getfield 15	axo:a	Landroid/os/IBinder;
+    //   40: iconst_1
+    //   41: aload 4
+    //   43: aload 5
+    //   45: iconst_0
+    //   46: invokeinterface 44 5 0
+    //   51: pop
+    //   52: aload 5
+    //   54: invokevirtual 47	android/os/Parcel:readException	()V
+    //   57: aload 5
+    //   59: invokevirtual 51	android/os/Parcel:readInt	()I
+    //   62: istore_2
+    //   63: iload_2
+    //   64: ifeq +20 -> 84
+    //   67: aload 5
+    //   69: invokevirtual 54	android/os/Parcel:recycle	()V
+    //   72: aload 4
+    //   74: invokevirtual 54	android/os/Parcel:recycle	()V
+    //   77: iload_3
+    //   78: ireturn
+    //   79: aconst_null
+    //   80: astore_1
+    //   81: goto -51 -> 30
+    //   84: iconst_0
+    //   85: istore_3
+    //   86: goto -19 -> 67
+    //   89: astore_1
+    //   90: aload 5
+    //   92: invokevirtual 54	android/os/Parcel:recycle	()V
+    //   95: aload 4
+    //   97: invokevirtual 54	android/os/Parcel:recycle	()V
+    //   100: aload_1
+    //   101: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	102	0	this	axo
+    //   0	102	1	paramazr	azr
+    //   62	2	2	i	int
+    //   1	85	3	bool	boolean
+    //   5	91	4	localParcel1	android.os.Parcel
+    //   10	81	5	localParcel2	android.os.Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   12	19	89	finally
+    //   23	30	89	finally
+    //   30	63	89	finally
   }
   
-  public static int a(Object[] paramArrayOfObject)
+  public final IBinder asBinder()
   {
-    int k = 0;
-    if (paramArrayOfObject == null) {}
-    for (int i = 0;; i = paramArrayOfObject.length)
-    {
-      int j = 0;
-      while (j < i)
-      {
-        Object localObject = paramArrayOfObject[j];
-        int m = k;
-        if (localObject != null) {
-          m = k * 31 + localObject.hashCode();
-        }
-        j += 1;
-        k = m;
-      }
-    }
-    return k;
-  }
-  
-  public static int a(byte[][] paramArrayOfByte)
-  {
-    int k = 0;
-    if (paramArrayOfByte == null) {}
-    for (int i = 0;; i = paramArrayOfByte.length)
-    {
-      int j = 0;
-      while (j < i)
-      {
-        byte[] arrayOfByte = paramArrayOfByte[j];
-        int m = k;
-        if (arrayOfByte != null) {
-          m = k * 31 + Arrays.hashCode(arrayOfByte);
-        }
-        j += 1;
-        k = m;
-      }
-    }
-    return k;
-  }
-  
-  public static void a(axk paramaxk1, axk paramaxk2)
-  {
-    if (a != null) {
-      a = a.c();
-    }
-  }
-  
-  public static boolean a(int[] paramArrayOfInt1, int[] paramArrayOfInt2)
-  {
-    if ((paramArrayOfInt1 == null) || (paramArrayOfInt1.length == 0)) {
-      return (paramArrayOfInt2 == null) || (paramArrayOfInt2.length == 0);
-    }
-    return Arrays.equals(paramArrayOfInt1, paramArrayOfInt2);
-  }
-  
-  public static boolean a(long[] paramArrayOfLong1, long[] paramArrayOfLong2)
-  {
-    if ((paramArrayOfLong1 == null) || (paramArrayOfLong1.length == 0)) {
-      return (paramArrayOfLong2 == null) || (paramArrayOfLong2.length == 0);
-    }
-    return Arrays.equals(paramArrayOfLong1, paramArrayOfLong2);
-  }
-  
-  public static boolean a(Object[] paramArrayOfObject1, Object[] paramArrayOfObject2)
-  {
-    boolean bool2 = false;
-    int k;
-    if (paramArrayOfObject1 == null)
-    {
-      k = 0;
-      if (paramArrayOfObject2 != null) {
-        break label47;
-      }
-    }
-    int j;
-    int i;
-    label47:
-    for (int m = 0;; m = paramArrayOfObject2.length)
-    {
-      j = 0;
-      i = 0;
-      while ((i < k) && (paramArrayOfObject1[i] == null)) {
-        i += 1;
-      }
-      k = paramArrayOfObject1.length;
-      break;
-    }
-    for (;;)
-    {
-      if ((j < m) && (paramArrayOfObject2[j] == null))
-      {
-        j += 1;
-      }
-      else
-      {
-        int n;
-        int i1;
-        label91:
-        boolean bool1;
-        if (i >= k)
-        {
-          n = 1;
-          if (j < m) {
-            break label113;
-          }
-          i1 = 1;
-          if ((n == 0) || (i1 == 0)) {
-            break label119;
-          }
-          bool1 = true;
-        }
-        label113:
-        label119:
-        do
-        {
-          do
-          {
-            return bool1;
-            n = 0;
-            break;
-            i1 = 0;
-            break label91;
-            bool1 = bool2;
-          } while (n != i1);
-          bool1 = bool2;
-        } while (!paramArrayOfObject1[i].equals(paramArrayOfObject2[j]));
-        j += 1;
-        i += 1;
-        break;
-      }
-    }
-  }
-  
-  public static boolean a(byte[][] paramArrayOfByte1, byte[][] paramArrayOfByte2)
-  {
-    boolean bool2 = false;
-    int k;
-    if (paramArrayOfByte1 == null)
-    {
-      k = 0;
-      if (paramArrayOfByte2 != null) {
-        break label47;
-      }
-    }
-    int j;
-    int i;
-    label47:
-    for (int m = 0;; m = paramArrayOfByte2.length)
-    {
-      j = 0;
-      i = 0;
-      while ((i < k) && (paramArrayOfByte1[i] == null)) {
-        i += 1;
-      }
-      k = paramArrayOfByte1.length;
-      break;
-    }
-    for (;;)
-    {
-      if ((j < m) && (paramArrayOfByte2[j] == null))
-      {
-        j += 1;
-      }
-      else
-      {
-        int n;
-        int i1;
-        label91:
-        boolean bool1;
-        if (i >= k)
-        {
-          n = 1;
-          if (j < m) {
-            break label113;
-          }
-          i1 = 1;
-          if ((n == 0) || (i1 == 0)) {
-            break label119;
-          }
-          bool1 = true;
-        }
-        label113:
-        label119:
-        do
-        {
-          do
-          {
-            return bool1;
-            n = 0;
-            break;
-            i1 = 0;
-            break label91;
-            bool1 = bool2;
-          } while (n != i1);
-          bool1 = bool2;
-        } while (!Arrays.equals(paramArrayOfByte1[i], paramArrayOfByte2[j]));
-        j += 1;
-        i += 1;
-        break;
-      }
-    }
+    return a;
   }
 }
 

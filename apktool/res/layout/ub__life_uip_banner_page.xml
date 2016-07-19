@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/ub__life_uip_banner_card" android:layout_width="@dimen/ui__life_uip_banner__card_width" android:layout_height="@dimen/ui__life_uip_banner__card_height" android:layout_marginRight="@dimen/ui__spacing_unit_3x" android:scaleType="centerInside" android:adjustViewBounds="true" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.ubercab.ui.TextView android:id="@id/ub__life_uip_banner_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:textIsSelectable="false" style="@style/Uber.TextAppearance.H1" />
+                <ImageView android:textColor="@color/ub__black" android:id="@id/ub__life_uip_banner_chevron" android:layout_width="wrap_content" android:layout_height="@dimen/ui__icon_small" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:src="@drawable/ub__life_uip_chevron" android:scaleType="centerInside" />
+            </LinearLayout>
+            <com.ubercab.ui.TextView android:id="@id/ub__life_uip_banner_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:text="" style="@style/Uber.TextAppearance.H3" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

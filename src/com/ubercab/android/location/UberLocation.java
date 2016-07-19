@@ -1,7 +1,7 @@
 package com.ubercab.android.location;
 
 import android.os.Parcelable;
-import clh;
+import clx;
 import com.ubercab.shape.Shape;
 
 @Shape
@@ -13,9 +13,9 @@ public abstract class UberLocation
     return new Shape_UberLocation().a(paramFloat1).a(paramDouble).b(paramFloat2).c(paramFloat3).a(paramLong).a(paramUberLatLng).a(paramString);
   }
   
-  public static clh h()
+  public static clx h()
   {
-    return clh.i();
+    return clx.i();
   }
   
   public abstract float a();

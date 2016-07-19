@@ -2,11 +2,12 @@ package com.ubercab.client.core.model;
 
 import android.os.Parcelable;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
+import com.ubercab.rider.realtime.model.PricingExplainer;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class FareInfo
   implements Parcelable, com.ubercab.rider.realtime.model.FareInfo
 {
@@ -18,9 +19,9 @@ public abstract class FareInfo
     return new Shape_FareInfo();
   }
   
-  public abstract UpfrontFareDetail getFareDetail();
-  
   public abstract UpfrontFareMetadata getMetadata();
+  
+  public abstract PricingExplainer getPricingExplainer();
   
   public abstract UpfrontFare getUpfrontFare();
   
@@ -39,9 +40,9 @@ public abstract class FareInfo
     return ("elevated".equals(str)) || ("elevatedSobriety".equals(str));
   }
   
-  public abstract FareInfo setFareDetail(UpfrontFareDetail paramUpfrontFareDetail);
-  
   public abstract FareInfo setMetadata(UpfrontFareMetadata paramUpfrontFareMetadata);
+  
+  abstract FareInfo setPricingExplainer(PricingExplainer paramPricingExplainer);
   
   public abstract FareInfo setUpfrontFare(UpfrontFare paramUpfrontFare);
 }

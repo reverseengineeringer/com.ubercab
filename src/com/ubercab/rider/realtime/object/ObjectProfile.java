@@ -1,13 +1,14 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.rider.realtime.model.ManagedBusinessProfileAttributes;
+import com.ubercab.rider.realtime.model.ManagedFamilyProfileAttributes;
 import com.ubercab.rider.realtime.model.ProfileTheme;
 import com.ubercab.shape.Shape;
-import jub;
+import mzj;
 
 @Shape
 abstract class ObjectProfile
-  implements jub
+  implements mzj
 {
   private static boolean isEmptyString(String paramString)
   {
@@ -24,6 +25,11 @@ abstract class ObjectProfile
     return "ManagedBusiness".equals(getType());
   }
   
+  private boolean isManagedFamilyProfile()
+  {
+    return "ManagedFamily".equals(getType());
+  }
+  
   public String getBillingModeFromChildAttributes()
   {
     if (isManagedBusinessProfile())
@@ -38,13 +44,20 @@ abstract class ObjectProfile
   
   public String getNameFromChildAttributes()
   {
-    if (isManagedBusinessProfile())
-    {
+    String str = null;
+    if (isManagedBusinessProfile()) {
       if (getManagedBusinessProfileAttributes() != null) {
-        return getManagedBusinessProfileAttributes().getName();
+        str = getManagedBusinessProfileAttributes().getName();
       }
-      return null;
     }
+    do
+    {
+      return str;
+      if (!isManagedFamilyProfile()) {
+        break;
+      }
+    } while (getManagedFamilyProfileAttributes() == null);
+    return getManagedFamilyProfileAttributes().getName();
     return getName();
   }
   

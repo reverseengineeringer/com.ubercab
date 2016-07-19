@@ -1,39 +1,22 @@
-import android.os.Binder;
-import android.os.IBinder;
 import android.os.IInterface;
-import android.os.Parcel;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.signin.internal.AuthAccountResult;
+import com.google.android.gms.signin.internal.SignInResponse;
 
-public abstract class bem
-  extends Binder
-  implements bel
+public abstract interface bem
+  extends IInterface
 {
-  public static bel a(IBinder paramIBinder)
-  {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnInfoWindowCloseListener");
-    if ((localIInterface != null) && ((localIInterface instanceof bel))) {
-      return (bel)localIInterface;
-    }
-    return new ben(paramIBinder);
-  }
+  public abstract void a(ConnectionResult paramConnectionResult, AuthAccountResult paramAuthAccountResult);
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnInfoWindowCloseListener");
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnInfoWindowCloseListener");
-    a(bhl.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    return true;
-  }
+  public abstract void a(Status paramStatus);
+  
+  public abstract void a(Status paramStatus, GoogleSignInAccount paramGoogleSignInAccount);
+  
+  public abstract void a(SignInResponse paramSignInResponse);
+  
+  public abstract void b(Status paramStatus);
 }
 
 /* Location:

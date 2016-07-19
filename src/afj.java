@@ -1,12 +1,10 @@
-public final class afj
-  extends Exception
+import android.os.IBinder;
+import android.os.IInterface;
+
+public abstract interface afj
+  extends IInterface
 {
-  public afj(afi paramafi) {}
-  
-  public afj(afi paramafi, Throwable paramThrowable)
-  {
-    super(paramThrowable);
-  }
+  public abstract IBinder a(acp paramacp1, acp paramacp2, acp paramacp3, int paramInt);
 }
 
 /* Location:

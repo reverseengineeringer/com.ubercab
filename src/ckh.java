@@ -1,8 +1,6 @@
-public abstract interface ckh
+public enum ckh
 {
-  public abstract long a();
-  
-  public abstract void b();
+  private ckh() {}
 }
 
 /* Location:

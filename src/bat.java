@@ -1,57 +1,109 @@
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.location.places.PlaceReport;
+import com.google.android.gms.maps.GoogleMapOptions;
+import com.google.android.gms.maps.model.CameraPosition;
 
 public final class bat
-  implements Parcelable.Creator<PlaceReport>
+  implements Parcelable.Creator<GoogleMapOptions>
 {
-  private static PlaceReport a(Parcel paramParcel)
+  public static GoogleMapOptions a(Parcel paramParcel)
   {
-    String str3 = null;
-    int j = zm.b(paramParcel);
-    String str1 = null;
+    int k = zd.b(paramParcel);
+    int j = 0;
+    byte b11 = -1;
+    byte b10 = -1;
     int i = 0;
-    String str2 = null;
-    while (paramParcel.dataPosition() < j)
+    CameraPosition localCameraPosition = null;
+    byte b9 = -1;
+    byte b8 = -1;
+    byte b7 = -1;
+    byte b6 = -1;
+    byte b5 = -1;
+    byte b4 = -1;
+    byte b3 = -1;
+    byte b2 = -1;
+    byte b1 = -1;
+    while (paramParcel.dataPosition() < k)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      int m = zd.a(paramParcel);
+      switch (zd.a(m))
       {
+      case 13: 
       default: 
-        zm.a(paramParcel, k);
+        zd.a(paramParcel, m);
         break;
       case 1: 
-        i = zm.e(paramParcel, k);
+        j = zd.e(paramParcel, m);
         break;
       case 2: 
-        str1 = zm.n(paramParcel, k);
+        b11 = zd.c(paramParcel, m);
         break;
       case 3: 
-        str2 = zm.n(paramParcel, k);
+        b10 = zd.c(paramParcel, m);
         break;
       case 4: 
-        str3 = zm.n(paramParcel, k);
+        i = zd.e(paramParcel, m);
+        break;
+      case 5: 
+        localCameraPosition = (CameraPosition)zd.a(paramParcel, m, CameraPosition.CREATOR);
+        break;
+      case 6: 
+        b9 = zd.c(paramParcel, m);
+        break;
+      case 7: 
+        b8 = zd.c(paramParcel, m);
+        break;
+      case 8: 
+        b7 = zd.c(paramParcel, m);
+        break;
+      case 9: 
+        b6 = zd.c(paramParcel, m);
+        break;
+      case 10: 
+        b5 = zd.c(paramParcel, m);
+        break;
+      case 11: 
+        b4 = zd.c(paramParcel, m);
+        break;
+      case 12: 
+        b3 = zd.c(paramParcel, m);
+        break;
+      case 14: 
+        b2 = zd.c(paramParcel, m);
+        break;
+      case 15: 
+        b1 = zd.c(paramParcel, m);
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    if (paramParcel.dataPosition() != k) {
+      throw new ze("Overread allowed size end=" + k, paramParcel);
     }
-    return new PlaceReport(i, str1, str2, str3);
+    return new GoogleMapOptions(j, b11, b10, i, localCameraPosition, b9, b8, b7, b6, b5, b4, b3, b2, b1);
   }
   
-  public static void a(PlaceReport paramPlaceReport, Parcel paramParcel)
+  public static void a(GoogleMapOptions paramGoogleMapOptions, Parcel paramParcel, int paramInt)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, paramPlaceReport.a(), false);
-    zo.a(paramParcel, 3, paramPlaceReport.b(), false);
-    zo.a(paramParcel, 4, paramPlaceReport.c(), false);
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramGoogleMapOptions.a());
+    zf.a(paramParcel, 2, paramGoogleMapOptions.b());
+    zf.a(paramParcel, 3, paramGoogleMapOptions.c());
+    zf.a(paramParcel, 4, paramGoogleMapOptions.m());
+    zf.a(paramParcel, 5, paramGoogleMapOptions.n(), paramInt, false);
+    zf.a(paramParcel, 6, paramGoogleMapOptions.d());
+    zf.a(paramParcel, 7, paramGoogleMapOptions.e());
+    zf.a(paramParcel, 8, paramGoogleMapOptions.f());
+    zf.a(paramParcel, 9, paramGoogleMapOptions.g());
+    zf.a(paramParcel, 10, paramGoogleMapOptions.h());
+    zf.a(paramParcel, 11, paramGoogleMapOptions.i());
+    zf.a(paramParcel, 12, paramGoogleMapOptions.j());
+    zf.a(paramParcel, 14, paramGoogleMapOptions.k());
+    zf.a(paramParcel, 15, paramGoogleMapOptions.l());
+    zf.a(paramParcel, i);
   }
   
-  private static PlaceReport[] a(int paramInt)
+  private static GoogleMapOptions[] a(int paramInt)
   {
-    return new PlaceReport[paramInt];
+    return new GoogleMapOptions[paramInt];
   }
 }
 

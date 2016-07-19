@@ -30,6 +30,11 @@ class TextViewCompat$BaseTextViewCompatImpl
   {
     paramTextView.setCompoundDrawablesWithIntrinsicBounds(paramDrawable1, paramDrawable2, paramDrawable3, paramDrawable4);
   }
+  
+  public void setTextAppearance(TextView paramTextView, int paramInt)
+  {
+    TextViewCompatDonut.setTextAppearance(paramTextView, paramInt);
+  }
 }
 
 /* Location:

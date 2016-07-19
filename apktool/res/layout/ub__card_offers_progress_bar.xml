@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.cardoffers.view.CardOffersProgressBar android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_small" android:textColor="@color/ub__green" android:id="@id/ub__card_offer_progress_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ub__card_offers_horizontal_margin" />
+    <ProgressBar android:id="@id/ub__card_offer_progress_bar" android:layout_width="0.0dip" android:layout_height="wrap_content" android:maxHeight="@dimen/ub__card_offers_progress_bar_height" android:progressDrawable="@drawable/ub__card_offers_progress_bar_background" android:minHeight="@dimen/ub__card_offers_progress_bar_height" android:layout_weight="1.0" style="@android:style/Widget.ProgressBar.Horizontal" />
+</com.ubercab.client.feature.cardoffers.view.CardOffersProgressBar>

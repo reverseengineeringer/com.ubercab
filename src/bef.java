@@ -1,11 +1,8 @@
-import android.os.IInterface;
-
 public abstract interface bef
-  extends IInterface
 {
-  public abstract void a();
+  public abstract String d();
   
-  public abstract void a(bhh parambhh);
+  public abstract String e();
 }
 
 /* Location:

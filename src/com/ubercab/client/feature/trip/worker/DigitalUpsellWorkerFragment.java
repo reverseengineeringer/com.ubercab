@@ -6,84 +6,84 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.PaymentProfile;
 import com.ubercab.ui.Button;
-import dsh;
-import dux;
-import efr;
-import epu;
-import fpg;
-import fph;
-import fpj;
-import hdg;
-import hgm;
-import hmk;
-import hnc;
-import hwn;
-import hwo;
-import hwz;
-import hxy;
-import iaj;
-import ife;
+import dxm;
+import eaj;
+import enk;
+import exu;
+import ghd;
+import ghe;
+import ghg;
+import iuk;
+import iyw;
 import java.util.Iterator;
 import java.util.List;
-import jsg;
-import kld;
-import klo;
-import p;
+import jgu;
+import jhl;
+import juy;
+import juz;
+import jvl;
+import jwk;
+import kct;
+import kia;
+import mxm;
+import odr;
+import oed;
+import x;
 
 public class DigitalUpsellWorkerFragment
-  extends hxy<hwz>
+  extends jwk<jvl>
 {
-  private static final List<String> h = iaj.a("cash", "unknown");
-  public ckc c;
-  public chh d;
-  public jsg e;
-  public ife f;
-  public hgm g;
+  private static final List<String> h = kct.a("cash", "unknown");
+  public ckt c;
+  public chn d;
+  public mxm e;
+  public kia f;
+  public iyw g;
   private AlertDialog i;
   private SharedPreferences j;
-  private klo k;
+  private oed k;
   private boolean l;
   private boolean m = false;
-  @InjectView(2131624269)
-  Button mAcceptButton;
-  @InjectView(2131624268)
-  Button mCancelButton;
+  @BindView
+  public Button mAcceptButton;
+  @BindView
+  public Button mCancelButton;
   
-  private hwz a()
+  private jvl a()
   {
-    return hwn.a().a(new efr(this)).a((hdg)((RiderActivity)getActivity()).d()).a();
+    return juy.a().a(new enk(this)).a((iuk)((RiderActivity)getActivity()).d()).a();
   }
   
   private void a(PaymentProfile paramPaymentProfile)
   {
-    if (!f.b(dux.du)) {}
+    if (!f.c(eaj.fC)) {}
     while ((paramPaymentProfile == null) || (!"cash".equals(paramPaymentProfile.getTokenType())) || (l) || (m)) {
       return;
     }
     l = true;
-    paramPaymentProfile = View.inflate(getContext(), 2130903146, null);
-    ButterKnife.inject(this, paramPaymentProfile);
-    i = epu.a(getActivity());
+    paramPaymentProfile = View.inflate(getContext(), 2130903209, null);
+    ButterKnife.a(this, paramPaymentProfile);
+    i = exu.a(getActivity());
     i.setView(paramPaymentProfile);
     i.setCanceledOnTouchOutside(false);
-    b();
+    f();
     i.show();
-    c.a(p.bv);
+    c.a(x.bZ);
   }
   
-  private void a(hwz paramhwz)
+  private void a(jvl paramjvl)
   {
-    paramhwz.a(this);
+    paramjvl.a(this);
   }
   
   private static boolean a(List<PaymentProfile> paramList)
@@ -99,7 +99,7 @@ public class DigitalUpsellWorkerFragment
     return false;
   }
   
-  private void b()
+  private void f()
   {
     mAcceptButton.setOnClickListener(new DigitalUpsellWorkerFragment.2(this));
     mCancelButton.setOnClickListener(new DigitalUpsellWorkerFragment.3(this));
@@ -113,41 +113,41 @@ public class DigitalUpsellWorkerFragment
     }
     if (a(localClient.getPaymentProfiles()))
     {
-      d.c(new hnc(g.a(), g.d(), g.e(), g.b()));
+      d.c(new jhl(g.a(), g.d(), g.e(), g.b()));
       return;
     }
-    d.c(new hmk());
+    d.c(new jgu());
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return dsh.a;
+    return dxm.a;
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    if (f.b(dux.du))
+    if (f.c(eaj.fC))
     {
       j = getActivity().getSharedPreferences("digitalUpsell", 0);
       l = j.getBoolean("com.ubercab.HAS_SEEN_DIGITAL_UPSELL", false);
     }
   }
   
-  @cho
-  public void onDismissMobileMessage(fpj paramfpj)
+  @chu
+  public void onDismissMobileMessage(ghg paramghg)
   {
     m = false;
   }
   
-  @cho
-  public void onMobileMessageConfirmActionEvent(fpg paramfpg)
+  @chu
+  public void onMobileMessageConfirmActionEvent(ghd paramghd)
   {
     m = false;
   }
   
-  @cho
-  public void onMobileMessageForLookingEvent(fph paramfph)
+  @chu
+  public void onMobileMessageForLookingEvent(ghe paramghe)
   {
     m = true;
   }
@@ -155,13 +155,13 @@ public class DigitalUpsellWorkerFragment
   public void onPause()
   {
     super.onPause();
-    if (f.b(dux.du))
+    if (f.c(eaj.fC))
     {
       SharedPreferences.Editor localEditor = j.edit();
       localEditor.putBoolean("com.ubercab.HAS_SEEN_DIGITAL_UPSELL", l);
       localEditor.apply();
       if (k != null) {
-        k.c();
+        k.af_();
       }
     }
   }
@@ -169,8 +169,8 @@ public class DigitalUpsellWorkerFragment
   public void onResume()
   {
     super.onResume();
-    if (f.b(dux.du)) {
-      k = g.m().c(new DigitalUpsellWorkerFragment.1(this));
+    if (f.c(eaj.fC)) {
+      k = g.u().c(new DigitalUpsellWorkerFragment.1(this));
     }
   }
 }

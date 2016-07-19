@@ -1,18 +1,18 @@
 package android.support.v7.widget;
 
-import fc;
-import fd;
-import fs;
-import hh;
-import hr;
-import hu;
+import jp;
+import jq;
+import kk;
+import ma;
+import ml;
+import mo;
 
 final class RecyclerView$6
-  implements fc
+  implements jp
 {
   RecyclerView$6(RecyclerView paramRecyclerView) {}
   
-  private void c(fd paramfd)
+  private void c(jq paramjq)
   {
     switch (a)
     {
@@ -23,67 +23,67 @@ final class RecyclerView$6
     default: 
       return;
     case 1: 
-      RecyclerView.h(a).a(b, d);
+      a.f.a(b, d);
       return;
     case 2: 
-      RecyclerView.h(a).b(b, d);
+      a.f.b(b, d);
       return;
     case 4: 
-      RecyclerView.h(a).c(b, d);
+      a.f.c(b, d);
       return;
     }
-    RecyclerView.h(a).d(b, d);
+    a.f.d(b, d);
   }
   
-  public final hu a(int paramInt)
+  public final mo a(int paramInt)
   {
-    hu localhu = a.d(paramInt);
-    if (localhu == null) {}
-    while (a.c.d(a)) {
+    mo localmo = a.d(paramInt);
+    if (localmo == null) {}
+    while (a.d.d(a)) {
       return null;
     }
-    return localhu;
+    return localmo;
   }
   
   public final void a(int paramInt1, int paramInt2)
   {
     a.a(paramInt1, paramInt2, true);
-    a.g = true;
-    hr.a(a.f, paramInt2);
+    a.i = true;
+    ml.a(a.h, paramInt2);
   }
   
   public final void a(int paramInt1, int paramInt2, Object paramObject)
   {
     a.a(paramInt1, paramInt2, paramObject);
-    a.h = true;
+    a.j = true;
   }
   
-  public final void a(fd paramfd)
+  public final void a(jq paramjq)
   {
-    c(paramfd);
+    c(paramjq);
   }
   
   public final void b(int paramInt1, int paramInt2)
   {
     a.a(paramInt1, paramInt2, false);
-    a.g = true;
+    a.i = true;
   }
   
-  public final void b(fd paramfd)
+  public final void b(jq paramjq)
   {
-    c(paramfd);
+    c(paramjq);
   }
   
   public final void c(int paramInt1, int paramInt2)
   {
-    a.d(paramInt1, paramInt2);
-    a.g = true;
+    a.f(paramInt1, paramInt2);
+    a.i = true;
   }
   
   public final void d(int paramInt1, int paramInt2)
   {
-    a.c(paramInt1, paramInt2);
-    a.g = true;
+    a.e(paramInt1, paramInt2);
+    a.i = true;
   }
 }
 

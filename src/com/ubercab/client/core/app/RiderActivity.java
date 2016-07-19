@@ -10,58 +10,56 @@ import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 import android.widget.Toast;
-import ckr;
-import com.ubercab.client.core.model.Ping;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+import cli;
 import com.ubercab.client.feature.launch.LauncherActivity;
 import com.ubercab.client.feature.trip.TripActivity;
 import com.ubercab.core.support.v7.app.CoreAppCompatActivity;
-import drt;
-import drw;
-import dsn;
-import dso;
-import dsp;
-import dtf;
-import dty;
-import dux;
-import dwd;
-import ebj;
-import epw;
-import eqg;
-import eua;
-import ife;
-import ikp;
+import dwy;
+import dxb;
+import dya;
+import dyb;
+import dyc;
+import dys;
+import eaj;
+import ebw;
+import eib;
+import exw;
+import eyh;
+import fck;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import kul;
-import kur;
-import p;
+import khv;
+import kia;
+import opc;
+import opi;
+import x;
 
-public abstract class RiderActivity<T extends dsp>
+public abstract class RiderActivity<T extends dyc>
   extends CoreAppCompatActivity
-  implements dsn<T>, dso<T>, ikp<Ping>
+  implements dya<T>, dyb<T>
 {
-  public static final ckr a = new RiderActivity.1();
+  public static final cli a = new RiderActivity.1();
   protected AlertDialog b;
-  public dty c;
-  public Collection<dtf> d;
-  public dwd e;
-  public ife f;
-  private final Handler g = new Handler(Looper.getMainLooper());
-  private final Set<dtf> h = new HashSet();
-  private T i;
-  private boolean j = false;
-  private dsn<T> k;
+  public khv c;
+  public Collection<dys> d;
+  public ebw e;
+  public kia f;
+  private final Set<dys> g = new HashSet();
+  private T h;
+  private boolean i = false;
+  private dya<T> j;
+  private Unbinder k;
   
   private boolean f()
   {
@@ -78,27 +76,63 @@ public abstract class RiderActivity<T extends dsp>
     return ((b == null) || (!b.isShowing())) && (!isFinishing());
   }
   
-  public void A()
+  public final void A()
   {
-    if (!j) {}
-    while ((drw)a(drw.class) != null) {
+    if (!f.c(eaj.bK)) {}
+    do
+    {
+      do
+      {
+        return;
+        localObject = (dwy)a(dwy.class);
+        if (!fck.a(this)) {
+          break;
+        }
+      } while (localObject == null);
+      ((dwy)localObject).dismissAllowingStateLoss();
+      return;
+    } while (localObject != null);
+    if (f()) {}
+    for (Object localObject = getString(2131165837);; localObject = getString(2131166260))
+    {
+      String str1 = getString(2131165840);
+      String str2 = getString(2131165839);
+      dwy.a(this, x.os, str1, str2, (String)localObject);
+      getSupportFragmentManager().executePendingTransactions();
       return;
     }
-    drw localdrw = new drw();
-    FragmentTransaction localFragmentTransaction = getSupportFragmentManager().beginTransaction();
-    localFragmentTransaction.add(localdrw, drw.class.getName());
-    localFragmentTransaction.commitAllowingStateLoss();
   }
   
   public void B()
   {
-    drw localdrw = (drw)a(drw.class);
-    if (localdrw != null) {
-      localdrw.dismissAllowingStateLoss();
+    if (!i) {}
+    while ((c.a(eaj.aS)) || ((dxb)a(dxb.class) != null)) {
+      return;
     }
+    dxb localdxb = new dxb();
+    FragmentTransaction localFragmentTransaction = getSupportFragmentManager().beginTransaction();
+    localFragmentTransaction.add(localdxb, dxb.class.getName());
+    localFragmentTransaction.commitAllowingStateLoss();
   }
   
-  public final void C()
+  public void C()
+  {
+    if (c.a(eaj.aS)) {}
+    dxb localdxb;
+    do
+    {
+      return;
+      localdxb = (dxb)a(dxb.class);
+    } while (localdxb == null);
+    localdxb.dismissAllowingStateLoss();
+  }
+  
+  public final boolean D()
+  {
+    return i;
+  }
+  
+  public final void E()
   {
     try
     {
@@ -115,14 +149,14 @@ public abstract class RiderActivity<T extends dsp>
     }
   }
   
-  public final void D()
+  public final void F()
   {
     try
     {
       int m = getFragmentManager().getBackStackEntryCount() - 1;
       while (m >= 0)
       {
-        C();
+        E();
         m -= 1;
       }
       return;
@@ -144,7 +178,7 @@ public abstract class RiderActivity<T extends dsp>
     }
   }
   
-  public abstract T a(ebj paramebj);
+  public abstract T a(eib parameib);
   
   public void a(int paramInt1, int paramInt2, Bundle paramBundle)
   {
@@ -178,12 +212,12 @@ public abstract class RiderActivity<T extends dsp>
     //   0: aload_0
     //   1: monitorenter
     //   2: aload_2
-    //   3: invokevirtual 176	java/lang/Object:getClass	()Ljava/lang/Class;
-    //   6: invokevirtual 124	java/lang/Class:getName	()Ljava/lang/String;
+    //   3: invokevirtual 213	java/lang/Object:getClass	()Ljava/lang/Class;
+    //   6: invokevirtual 164	java/lang/Class:getName	()Ljava/lang/String;
     //   9: astore 4
     //   11: aload_0
-    //   12: invokevirtual 112	com/ubercab/client/core/app/RiderActivity:getSupportFragmentManager	()Landroid/support/v4/app/FragmentManager;
-    //   15: invokevirtual 118	android/support/v4/app/FragmentManager:beginTransaction	()Landroid/support/v4/app/FragmentTransaction;
+    //   12: invokevirtual 135	com/ubercab/client/core/app/RiderActivity:getSupportFragmentManager	()Landroid/support/v4/app/FragmentManager;
+    //   15: invokevirtual 158	android/support/v4/app/FragmentManager:beginTransaction	()Landroid/support/v4/app/FragmentTransaction;
     //   18: astore 5
     //   20: iload_3
     //   21: ifeq +22 -> 43
@@ -191,10 +225,10 @@ public abstract class RiderActivity<T extends dsp>
     //   26: iload_1
     //   27: aload_2
     //   28: aload 4
-    //   30: invokevirtual 180	android/support/v4/app/FragmentTransaction:replace	(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    //   30: invokevirtual 217	android/support/v4/app/FragmentTransaction:replace	(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
     //   33: pop
     //   34: aload 5
-    //   36: invokevirtual 187	android/support/v4/app/FragmentTransaction:commit	()I
+    //   36: invokevirtual 224	android/support/v4/app/FragmentTransaction:commit	()I
     //   39: pop
     //   40: aload_0
     //   41: monitorexit
@@ -203,7 +237,7 @@ public abstract class RiderActivity<T extends dsp>
     //   45: iload_1
     //   46: aload_2
     //   47: aload 4
-    //   49: invokevirtual 190	android/support/v4/app/FragmentTransaction:add	(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    //   49: invokevirtual 227	android/support/v4/app/FragmentTransaction:add	(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
     //   52: pop
     //   53: goto -19 -> 34
     //   56: astore_2
@@ -233,7 +267,7 @@ public abstract class RiderActivity<T extends dsp>
   {
     if (g())
     {
-      b = epw.a(this, paramString, true, null);
+      b = exw.a(this, paramString, true, null);
       b.setOnCancelListener(paramOnCancelListener);
       b.show();
     }
@@ -243,19 +277,14 @@ public abstract class RiderActivity<T extends dsp>
   {
     if (g())
     {
-      b = epw.a(this, paramString, true, paramOnDismissListener);
+      b = exw.a(this, paramString, true, paramOnDismissListener);
       b.show();
     }
   }
   
-  public final void a_(String paramString)
-  {
-    Toast.makeText(this, paramString, 1).show();
-  }
-  
   protected void attachBaseContext(Context paramContext)
   {
-    super.attachBaseContext(kur.a(paramContext));
+    super.attachBaseContext(opi.a(paramContext));
   }
   
   public void b(Bundle paramBundle) {}
@@ -264,9 +293,14 @@ public abstract class RiderActivity<T extends dsp>
   {
     if (g())
     {
-      b = epw.a(this, paramString, false, paramOnDismissListener);
+      b = exw.a(this, paramString, false, paramOnDismissListener);
       b.show();
     }
+  }
+  
+  public final void b_(String paramString)
+  {
+    Toast.makeText(this, paramString, 1).show();
   }
   
   public final T c()
@@ -276,10 +310,13 @@ public abstract class RiderActivity<T extends dsp>
   
   public final T d()
   {
-    return i;
+    return h;
   }
   
-  public void e() {}
+  public final void e()
+  {
+    k = ButterKnife.a(this);
+  }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
@@ -295,46 +332,46 @@ public abstract class RiderActivity<T extends dsp>
     }
     catch (PendingIntent.CanceledException paramIntent)
     {
-      kul.c(paramIntent, "Error sending pending intent from Google Play service error.", new Object[0]);
+      opc.d(paramIntent, "Error sending pending intent from Google Play service error.", new Object[0]);
     }
   }
   
   public void onBackPressed()
   {
-    if (j) {
+    if (i) {
       super.onBackPressed();
     }
   }
   
   protected final void onCreate(Bundle paramBundle)
   {
-    e();
-    if (k != null)
+    t();
+    if (j != null)
     {
-      i = k.c();
-      k.a(i);
+      h = j.c();
+      j.a(h);
     }
     for (;;)
     {
       if (d != null) {
-        h.addAll(d);
+        g.addAll(d);
       }
-      h.addAll(t());
-      if ((!v()) || (e.a() != null)) {
+      g.addAll(u());
+      if ((!w()) || (e.a() != null)) {
         break;
       }
       super.onCreate(null);
-      x();
+      y();
       return;
-      i = c();
-      a(i);
+      h = c();
+      a(h);
     }
     super.onCreate(paramBundle);
-    Iterator localIterator = h.iterator();
+    Iterator localIterator = g.iterator();
     while (localIterator.hasNext()) {
-      ((dtf)localIterator.next()).a();
+      ((dys)localIterator.next()).a();
     }
-    j = true;
+    i = true;
     b(paramBundle);
   }
   
@@ -343,10 +380,15 @@ public abstract class RiderActivity<T extends dsp>
     if ((b != null) && (b.isShowing())) {
       b.dismiss();
     }
+    if (k != null)
+    {
+      k.a();
+      k = null;
+    }
     super.onDestroy();
-    Iterator localIterator = h.iterator();
+    Iterator localIterator = g.iterator();
     while (localIterator.hasNext()) {
-      ((dtf)localIterator.next()).b();
+      ((dys)localIterator.next()).c();
     }
   }
   
@@ -363,41 +405,41 @@ public abstract class RiderActivity<T extends dsp>
   public void onPause()
   {
     super.onPause();
-    Iterator localIterator = h.iterator();
+    Iterator localIterator = g.iterator();
     while (localIterator.hasNext()) {
-      ((dtf)localIterator.next()).d();
+      ((dys)localIterator.next()).e();
     }
   }
   
   public void onResume()
   {
     super.onResume();
-    Iterator localIterator = h.iterator();
+    Iterator localIterator = g.iterator();
     while (localIterator.hasNext()) {
-      ((dtf)localIterator.next()).A_();
+      ((dys)localIterator.next()).d();
     }
   }
   
   public void onResumeFragments()
   {
     super.onResumeFragments();
-    j = true;
+    i = true;
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle = h.iterator();
+    paramBundle = g.iterator();
     while (paramBundle.hasNext()) {
       paramBundle.next();
     }
-    j = false;
+    i = false;
   }
   
   public void onStart()
   {
     super.onStart();
-    Iterator localIterator = h.iterator();
+    Iterator localIterator = g.iterator();
     while (localIterator.hasNext()) {
       localIterator.next();
     }
@@ -406,25 +448,27 @@ public abstract class RiderActivity<T extends dsp>
   public void onStop()
   {
     super.onStop();
-    Iterator localIterator = h.iterator();
+    Iterator localIterator = g.iterator();
     while (localIterator.hasNext()) {
-      ((dtf)localIterator.next()).e();
+      ((dys)localIterator.next()).f();
     }
   }
   
-  public Collection<dtf> t()
+  public void t() {}
+  
+  public Collection<dys> u()
   {
     return Collections.emptySet();
   }
   
-  public abstract ckr u();
+  public abstract cli v();
   
-  public boolean v()
+  public boolean w()
   {
     return false;
   }
   
-  public final void w()
+  public final void x()
   {
     if ((b != null) && (b.isShowing()))
     {
@@ -433,7 +477,7 @@ public abstract class RiderActivity<T extends dsp>
     }
   }
   
-  public final void x()
+  public final void y()
   {
     Intent localIntent1 = getIntent();
     Object localObject = new Intent(this, LauncherActivity.class);
@@ -453,45 +497,18 @@ public abstract class RiderActivity<T extends dsp>
     overridePendingTransition(0, 0);
   }
   
-  public final void y()
-  {
-    if (f.b(dux.bn)) {}
-    while ((eua.a(this)) || (a(eqg.class) != null) || (!j)) {
-      return;
-    }
-    if (f()) {}
-    for (String str1 = getString(2131165768);; str1 = getString(2131166126))
-    {
-      String str2 = getString(2131165771);
-      String str3 = getString(2131165770);
-      eqg.a(this, p.ky, 2100, str2, str3, str1);
-      getSupportFragmentManager().executePendingTransactions();
-      return;
-    }
-  }
-  
   public final void z()
   {
-    if (!f.b(dux.bn)) {}
-    do
-    {
-      do
-      {
-        return;
-        localObject = (drt)a(drt.class);
-        if (!eua.a(this)) {
-          break;
-        }
-      } while (localObject == null);
-      ((drt)localObject).dismissAllowingStateLoss();
+    if (f.c(eaj.bK)) {}
+    while ((fck.a(this)) || (a(eyh.class) != null) || (!i)) {
       return;
-    } while (localObject != null);
+    }
     if (f()) {}
-    for (Object localObject = getString(2131165768);; localObject = getString(2131166126))
+    for (String str1 = getString(2131165837);; str1 = getString(2131166260))
     {
-      String str1 = getString(2131165771);
-      String str2 = getString(2131165770);
-      drt.a(this, p.kx, str1, str2, (String)localObject);
+      String str2 = getString(2131165840);
+      String str3 = getString(2131165839);
+      eyh.a(this, x.ot, 2100, str2, str3, str1);
       getSupportFragmentManager().executePendingTransactions();
       return;
     }

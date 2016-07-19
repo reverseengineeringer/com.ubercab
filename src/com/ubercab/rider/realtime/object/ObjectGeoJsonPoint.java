@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jto;
+import myw;
 
 @Shape
 abstract class ObjectGeoJsonPoint
-  implements jto
+  implements myw
 {}
 
 /* Location:

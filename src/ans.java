@@ -1,56 +1,73 @@
-import android.content.Context;
-import android.os.Handler;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import android.annotation.SuppressLint;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.wallet.FullWalletRequest;
+import com.google.android.gms.wallet.IsReadyToPayRequest;
+import com.google.android.gms.wallet.MaskedWalletRequest;
 
-@apl
+@SuppressLint({"MissingRemoteException"})
 public final class ans
-  implements anp
+  implements bfd
 {
-  final Set<WebView> a = Collections.synchronizedSet(new HashSet());
-  private final Context b;
-  
-  public ans(Context paramContext)
+  public final wo<wh> a(wj paramwj)
   {
-    b = paramContext;
-  }
-  
-  public final WebView a()
-  {
-    WebView localWebView = new WebView(b);
-    localWebView.getSettings().setJavaScriptEnabled(true);
-    return localWebView;
-  }
-  
-  public final void a(final String paramString1, final String paramString2)
-  {
-    aqt.a("Fetching assets for the given html");
-    aqz.a.post(new Runnable()
+    paramwj.a(new bfh(paramwj)
     {
-      public final void run()
+      private void a(ant paramAnonymousant)
       {
-        final WebView localWebView = a();
-        localWebView.setWebViewClient(new WebViewClient()
-        {
-          public final void onPageFinished(WebView paramAnonymous2WebView, String paramAnonymous2String)
-          {
-            aqt.a("Loading assets have finished");
-            a.remove(localWebView);
-          }
-          
-          public final void onReceivedError(WebView paramAnonymous2WebView, int paramAnonymous2Int, String paramAnonymous2String1, String paramAnonymous2String2)
-          {
-            aqt.d("Loading assets have failed.");
-            a.remove(localWebView);
-          }
-        });
-        a.add(localWebView);
-        localWebView.loadDataWithBaseURL(paramString1, paramString2, "text/html", "UTF-8", null);
-        aqt.a("Fetching assets finished.");
+        paramAnonymousant.a(IsReadyToPayRequest.a().a(), this);
+      }
+      
+      private static wh d(Status paramAnonymousStatus)
+      {
+        return new wh(paramAnonymousStatus, false);
+      }
+    });
+  }
+  
+  public final void a(wj paramwj, final int paramInt)
+  {
+    paramwj.a(new bfi(paramwj)
+    {
+      private void a(ant paramAnonymousant)
+      {
+        paramAnonymousant.b(paramInt);
+        a(Status.a);
+      }
+    });
+  }
+  
+  public final void a(wj paramwj, final FullWalletRequest paramFullWalletRequest, final int paramInt)
+  {
+    paramwj.a(new bfi(paramwj)
+    {
+      private void a(ant paramAnonymousant)
+      {
+        paramAnonymousant.a(paramFullWalletRequest, paramInt);
+        a(Status.a);
+      }
+    });
+  }
+  
+  public final void a(wj paramwj, final MaskedWalletRequest paramMaskedWalletRequest, final int paramInt)
+  {
+    paramwj.a(new bfi(paramwj)
+    {
+      private void a(ant paramAnonymousant)
+      {
+        paramAnonymousant.a(paramMaskedWalletRequest, paramInt);
+        a(Status.a);
+      }
+    });
+  }
+  
+  public final void a(wj paramwj, final String paramString1, final String paramString2, final int paramInt)
+  {
+    paramwj.a(new bfi(paramwj)
+    {
+      private void a(ant paramAnonymousant)
+      {
+        paramAnonymousant.a(paramString1, paramString2, paramInt);
+        a(Status.a);
       }
     });
   }

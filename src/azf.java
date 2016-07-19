@@ -1,14 +1,22 @@
-import android.app.PendingIntent;
+import android.graphics.Bitmap;
 import android.os.IInterface;
 
 public abstract interface azf
   extends IInterface
 {
-  public abstract void a(int paramInt, PendingIntent paramPendingIntent);
+  public abstract acp a();
   
-  public abstract void a(int paramInt, String[] paramArrayOfString);
+  public abstract acp a(float paramFloat);
   
-  public abstract void b(int paramInt, String[] paramArrayOfString);
+  public abstract acp a(int paramInt);
+  
+  public abstract acp a(Bitmap paramBitmap);
+  
+  public abstract acp a(String paramString);
+  
+  public abstract acp b(String paramString);
+  
+  public abstract acp c(String paramString);
 }
 
 /* Location:

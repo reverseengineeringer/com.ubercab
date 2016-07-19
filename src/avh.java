@@ -1,4 +1,27 @@
-public abstract interface avh {}
+import android.os.Bundle;
+import android.os.IInterface;
+
+public abstract interface avh
+  extends IInterface
+{
+  public abstract avb a();
+  
+  public abstract void a(Bundle paramBundle);
+  
+  public abstract void a(avp paramavp);
+  
+  public abstract void b();
+  
+  public abstract void b(Bundle paramBundle);
+  
+  public abstract void c();
+  
+  public abstract void d();
+  
+  public abstract void e();
+  
+  public abstract acp f();
+}
 
 /* Location:
  * Qualified Name:     avh

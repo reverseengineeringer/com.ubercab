@@ -1,25 +1,28 @@
-import android.content.Context;
-import android.view.Window;
-import android.view.Window.Callback;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.ViewDragHelper;
+import android.view.View;
 
-class aw
-  extends av
+public final class aw
+  implements Runnable
 {
-  private boolean r = true;
+  private final View b;
+  private final int c;
   
-  aw(Context paramContext, Window paramWindow, aq paramaq)
+  public aw(BottomSheetBehavior paramBottomSheetBehavior, View paramView, int paramInt)
   {
-    super(paramContext, paramWindow, paramaq);
+    b = paramView;
+    c = paramInt;
   }
   
-  Window.Callback a(Window.Callback paramCallback)
+  public final void run()
   {
-    return new ax(this, paramCallback);
-  }
-  
-  public final boolean n()
-  {
-    return r;
+    if ((BottomSheetBehavior.k(a) != null) && (BottomSheetBehavior.k(a).continueSettling(true)))
+    {
+      ViewCompat.postOnAnimation(b, this);
+      return;
+    }
+    BottomSheetBehavior.a(a, c);
   }
 }
 

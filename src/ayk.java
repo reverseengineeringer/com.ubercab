@@ -1,6 +1,10 @@
+import android.os.IInterface;
+import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
+
 public abstract interface ayk
+  extends IInterface
 {
-  public abstract String a();
+  public abstract void a(StreetViewPanoramaLocation paramStreetViewPanoramaLocation);
 }
 
 /* Location:

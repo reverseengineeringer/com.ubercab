@@ -4,21 +4,21 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import com.ubercab.client.core.app.RiderApplication;
-import dsn;
-import dso;
-import evt;
-import evu;
-import ewa;
-import ewb;
-import ewc;
-import kul;
+import dya;
+import dyb;
+import fej;
+import fek;
+import fer;
+import fes;
+import fet;
+import opc;
 
 public class UploadContactsIntentService
   extends IntentService
-  implements dsn<ewb>, dso<ewb>
+  implements dya<fes>, dyb<fes>
 {
-  public ewa a;
-  private ewb b;
+  public fer a;
+  private fes b;
   
   public UploadContactsIntentService()
   {
@@ -30,17 +30,17 @@ public class UploadContactsIntentService
     return new Intent(paramContext, UploadContactsIntentService.class);
   }
   
-  private ewb a()
+  private fes a()
   {
-    return evt.a().a(new ewc(this, this)).a(((RiderApplication)getApplication()).b()).a();
+    return fej.a().a(new fet(this, this)).a(((RiderApplication)getApplication()).b()).a();
   }
   
-  private void a(ewb paramewb)
+  private void a(fes paramfes)
   {
-    paramewb.a(this);
+    paramfes.a(this);
   }
   
-  private ewb b()
+  private fes b()
   {
     return b;
   }
@@ -61,7 +61,12 @@ public class UploadContactsIntentService
     }
     catch (Exception paramIntent)
     {
-      kul.e("UploadContactsIntentService exception while synchronizing contacts", new Object[] { paramIntent });
+      opc.e("UploadContactsIntentService exception while synchronizing contacts", new Object[] { paramIntent });
+      return;
+    }
+    catch (OutOfMemoryError paramIntent)
+    {
+      for (;;) {}
     }
   }
 }

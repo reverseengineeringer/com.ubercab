@@ -1,88 +1,119 @@
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-
 public final class cmv
-  implements cmx
+  implements cmu
 {
-  private final ConnectivityManager a;
-  private final WifiManager b;
+  private cmy a;
+  private cok b;
+  private cor c;
+  private boolean d;
   
-  public cmv(Context paramContext)
+  private cmv(cmy paramcmy, cok paramcok, cor paramcor)
   {
-    a = ((ConnectivityManager)paramContext.getSystemService("connectivity"));
-    b = ((WifiManager)paramContext.getSystemService("wifi"));
+    a = paramcmy;
+    b = paramcok;
+    c = paramcor;
   }
   
-  private static long a(int paramInt)
+  /* Error */
+  public final void a()
   {
-    long l = 600L;
-    switch (paramInt)
-    {
-    default: 
-      l = 25L;
-    case 6: 
-    case 10: 
-    case 14: 
-      return l;
-    case 7: 
-      return 50L;
-    case 4: 
-      return 37L;
-    case 2: 
-      return 118L;
-    case 5: 
-      return 400L;
-    case 12: 
-      return 2142L;
-    case 1: 
-      return 35L;
-    case 8: 
-      return 1000L;
-    case 15: 
-      return 5800L;
-    case 9: 
-      return 730L;
-    case 11: 
-      return 25L;
-    case 13: 
-      return 3000L;
+    // Byte code:
+    //   0: aload_0
+    //   1: monitorenter
+    //   2: aload_0
+    //   3: getfield 31	cmv:d	Z
+    //   6: istore_1
+    //   7: iload_1
+    //   8: ifeq +6 -> 14
+    //   11: aload_0
+    //   12: monitorexit
+    //   13: return
+    //   14: aload_0
+    //   15: iconst_1
+    //   16: putfield 31	cmv:d	Z
+    //   19: aload_0
+    //   20: getfield 21	cmv:a	Lcmy;
+    //   23: invokevirtual 35	cmy:a	()V
+    //   26: aload_0
+    //   27: getfield 23	cmv:b	Lcok;
+    //   30: ifnull -19 -> 11
+    //   33: aload_0
+    //   34: getfield 23	cmv:b	Lcok;
+    //   37: invokevirtual 38	cok:a	()V
+    //   40: goto -29 -> 11
+    //   43: astore_2
+    //   44: aload_0
+    //   45: monitorexit
+    //   46: aload_2
+    //   47: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	48	0	this	cmv
+    //   6	2	1	bool	boolean
+    //   43	4	2	localObject	Object
+    // Exception table:
+    //   from	to	target	type
+    //   2	7	43	finally
+    //   14	40	43	finally
+  }
+  
+  /* Error */
+  public final void b()
+  {
+    // Byte code:
+    //   0: aload_0
+    //   1: monitorenter
+    //   2: aload_0
+    //   3: getfield 31	cmv:d	Z
+    //   6: istore_1
+    //   7: iload_1
+    //   8: ifne +6 -> 14
+    //   11: aload_0
+    //   12: monitorexit
+    //   13: return
+    //   14: aload_0
+    //   15: iconst_0
+    //   16: putfield 31	cmv:d	Z
+    //   19: aload_0
+    //   20: getfield 23	cmv:b	Lcok;
+    //   23: ifnull +10 -> 33
+    //   26: aload_0
+    //   27: getfield 23	cmv:b	Lcok;
+    //   30: invokevirtual 40	cok:b	()V
+    //   33: aload_0
+    //   34: getfield 21	cmv:a	Lcmy;
+    //   37: invokevirtual 41	cmy:b	()V
+    //   40: goto -29 -> 11
+    //   43: astore_2
+    //   44: aload_0
+    //   45: monitorexit
+    //   46: aload_2
+    //   47: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	48	0	this	cmv
+    //   6	2	1	bool	boolean
+    //   43	4	2	localObject	Object
+    // Exception table:
+    //   from	to	target	type
+    //   2	7	43	finally
+    //   14	33	43	finally
+    //   33	40	43	finally
+  }
+  
+  public final cok c()
+  {
+    if (b == null) {
+      throw new IllegalStateException("M4: PluginManager has not been enabled.");
     }
-    return 350L;
+    return b;
   }
   
-  private static long a(long paramLong)
+  public final cor d()
   {
-    return (cng.a(paramLong) * 0.1D);
-  }
-  
-  private long d()
-  {
-    WifiInfo localWifiInfo = b.getConnectionInfo();
-    if (localWifiInfo != null) {
-      return (cng.b(localWifiInfo.getLinkSpeed()) * 0.24D);
+    if (c == null) {
+      throw new IllegalStateException("M4: TraceKit has not been enabled.");
     }
-    return 0L;
-  }
-  
-  public final void a() {}
-  
-  public final void b() {}
-  
-  public final long c()
-  {
-    NetworkInfo localNetworkInfo = a.getActiveNetworkInfo();
-    if ((localNetworkInfo != null) && (localNetworkInfo.isConnected())) {}
-    switch (localNetworkInfo.getType())
-    {
-    default: 
-      return 0L;
-    case 0: 
-      return a(a(localNetworkInfo.getSubtype()));
-    }
-    return a(d());
+    return c;
   }
 }
 

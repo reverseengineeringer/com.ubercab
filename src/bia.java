@@ -1,52 +1,39 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.maps.model.LatLng;
+import java.io.Serializable;
 
-public final class bia
-  implements Parcelable.Creator<LatLng>
+final class bia<T>
+  implements bhy<T>, Serializable
 {
-  public static LatLng a(Parcel paramParcel)
+  private static final long serialVersionUID = 0L;
+  private final T a;
+  
+  private bia(T paramT)
   {
-    double d1 = 0.0D;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    double d2 = 0.0D;
-    while (paramParcel.dataPosition() < j)
+    a = paramT;
+  }
+  
+  public final boolean a(T paramT)
+  {
+    return a.equals(paramT);
+  }
+  
+  public final boolean equals(Object paramObject)
+  {
+    if ((paramObject instanceof bia))
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        d2 = zm.l(paramParcel, k);
-        break;
-      case 3: 
-        d1 = zm.l(paramParcel, k);
-      }
+      paramObject = (bia)paramObject;
+      return a.equals(a);
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new LatLng(i, d2, d1);
+    return false;
   }
   
-  public static void a(LatLng paramLatLng, Parcel paramParcel)
+  public final int hashCode()
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramLatLng.a());
-    zo.a(paramParcel, 2, a);
-    zo.a(paramParcel, 3, b);
-    zo.a(paramParcel, i);
+    return a.hashCode();
   }
   
-  private static LatLng[] a(int paramInt)
+  public final String toString()
   {
-    return new LatLng[paramInt];
+    return "Predicates.equalTo(" + a + ")";
   }
 }
 

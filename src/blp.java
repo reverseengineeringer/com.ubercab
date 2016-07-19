@@ -1,57 +1,78 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.plus.internal.model.people.PersonEntity.ImageEntity;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Locale;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicLong;
 
 public final class blp
-  implements Parcelable.Creator<PersonEntity.ImageEntity>
 {
-  private static PersonEntity.ImageEntity a(Parcel paramParcel)
+  private String a = null;
+  private Boolean b = null;
+  private Integer c = null;
+  private Thread.UncaughtExceptionHandler d = null;
+  private ThreadFactory e = null;
+  
+  private static ThreadFactory a(blp paramblp)
   {
-    int j = zm.b(paramParcel);
-    HashSet localHashSet = new HashSet();
-    int i = 0;
-    String str = null;
-    while (paramParcel.dataPosition() < j)
+    final String str = a;
+    final Boolean localBoolean = b;
+    final Integer localInteger = c;
+    final Thread.UncaughtExceptionHandler localUncaughtExceptionHandler = d;
+    if (e != null)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        localHashSet.add(Integer.valueOf(1));
-        break;
-      case 2: 
-        str = zm.n(paramParcel, k);
-        localHashSet.add(Integer.valueOf(2));
+      paramblp = e;
+      if (str == null) {
+        break label70;
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    label70:
+    for (final AtomicLong localAtomicLong = new AtomicLong(0L);; localAtomicLong = null)
+    {
+      new ThreadFactory()
+      {
+        public final Thread newThread(Runnable paramAnonymousRunnable)
+        {
+          paramAnonymousRunnable = blp.this.newThread(paramAnonymousRunnable);
+          if (str != null) {
+            paramAnonymousRunnable.setName(blp.a(str, new Object[] { Long.valueOf(localAtomicLong.getAndIncrement()) }));
+          }
+          if (localBoolean != null) {
+            paramAnonymousRunnable.setDaemon(localBoolean.booleanValue());
+          }
+          if (localInteger != null) {
+            paramAnonymousRunnable.setPriority(localInteger.intValue());
+          }
+          if (localUncaughtExceptionHandler != null) {
+            paramAnonymousRunnable.setUncaughtExceptionHandler(localUncaughtExceptionHandler);
+          }
+          return paramAnonymousRunnable;
+        }
+      };
+      paramblp = Executors.defaultThreadFactory();
+      break;
     }
-    return new PersonEntity.ImageEntity(localHashSet, i, str);
   }
   
-  public static void a(PersonEntity.ImageEntity paramImageEntity, Parcel paramParcel)
+  private static String b(String paramString, Object... paramVarArgs)
   {
-    int i = zo.a(paramParcel);
-    Set localSet = a;
-    if (localSet.contains(Integer.valueOf(1))) {
-      zo.a(paramParcel, 1, b);
-    }
-    if (localSet.contains(Integer.valueOf(2))) {
-      zo.a(paramParcel, 2, c, true);
-    }
-    zo.a(paramParcel, i);
+    return String.format(Locale.ROOT, paramString, paramVarArgs);
   }
   
-  private static PersonEntity.ImageEntity[] a(int paramInt)
+  public final blp a()
   {
-    return new PersonEntity.ImageEntity[paramInt];
+    b = Boolean.valueOf(true);
+    return this;
+  }
+  
+  public final blp a(String paramString)
+  {
+    b(paramString, new Object[] { Integer.valueOf(0) });
+    a = paramString;
+    return this;
+  }
+  
+  public final ThreadFactory b()
+  {
+    return a(this);
   }
 }
 

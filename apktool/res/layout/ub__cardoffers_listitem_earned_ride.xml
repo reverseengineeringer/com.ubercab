@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_small" android:textColor="@color/ub__white" android:gravity="center" android:id="@id/ub__card_offers_earned_ride_item" android:background="@drawable/ub__card_offers_earned_ride_circle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__card_offers_earned_rides_margin_horizontal"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

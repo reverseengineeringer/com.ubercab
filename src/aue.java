@@ -1,31 +1,70 @@
-public final class aue
+import android.content.Context;
+import android.os.RemoteException;
+import android.view.ViewGroup;
+import com.google.android.gms.maps.GoogleMapOptions;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+final class aue
+  extends acn<aud>
 {
-  public final int a;
-  public final int b;
+  protected act<aud> a;
+  private final ViewGroup b;
+  private final Context c;
+  private final GoogleMapOptions d;
+  private final List<aug> e = new ArrayList();
   
-  public aue(int paramInt1, int paramInt2)
+  aue(ViewGroup paramViewGroup, Context paramContext, GoogleMapOptions paramGoogleMapOptions)
   {
-    a = paramInt1;
-    b = paramInt2;
+    b = paramViewGroup;
+    c = paramContext;
+    d = paramGoogleMapOptions;
   }
   
-  public final boolean equals(Object paramObject)
+  protected final void a(act<aud> paramact)
   {
-    if (!(paramObject instanceof aue)) {}
-    do
+    a = paramact;
+    f();
+  }
+  
+  public final void a(aug paramaug)
+  {
+    if (a() != null)
     {
-      return false;
-      if (this == paramObject) {
-        return true;
-      }
-      paramObject = (aue)paramObject;
-    } while ((a != a) || (b != b));
-    return true;
+      ((aud)a()).a(paramaug);
+      return;
+    }
+    e.add(paramaug);
   }
   
-  public final int hashCode()
+  public final void f()
   {
-    return abq.a(new Object[] { Integer.valueOf(a), Integer.valueOf(b) });
+    if ((a != null) && (a() == null)) {
+      try
+      {
+        auf.a(c);
+        Object localObject = avv.a(c).a(acs.a(c), d);
+        if (localObject == null) {
+          return;
+        }
+        a.a(new aud(b, (auv)localObject));
+        localObject = e.iterator();
+        while (((Iterator)localObject).hasNext())
+        {
+          aug localaug = (aug)((Iterator)localObject).next();
+          ((aud)a()).a(localaug);
+        }
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new ayz(localRemoteException);
+        e.clear();
+        return;
+      }
+      catch (vr localvr) {}
+    }
   }
 }
 

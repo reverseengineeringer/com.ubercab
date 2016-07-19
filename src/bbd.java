@@ -1,69 +1,173 @@
-import android.os.IBinder;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 
-final class bbd
-  implements bbb
+public final class bbd
+  extends bcz
 {
-  private IBinder a;
-  
-  bbd(IBinder paramIBinder)
+  private Handler a;
+  private long b;
+  private final Runnable c = new Runnable()
   {
-    a = paramIBinder;
+    public final void run()
+    {
+      r().a(new Runnable()
+      {
+        public final void run()
+        {
+          v();
+        }
+      });
+    }
+  };
+  private final bbr d = new bbr(n)
+  {
+    public final void a()
+    {
+      bbd.a(bbd.this);
+    }
+  };
+  private final bbr e = new bbr(n)
+  {
+    public final void a()
+    {
+      bbd.b(bbd.this);
+    }
+  };
+  
+  bbd(bcv parambcv)
+  {
+    super(parambcv);
   }
   
-  /* Error */
-  public final void a(android.location.Location paramLocation)
+  private void a(long paramLong)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: aload_2
-    //   5: ldc 25
-    //   7: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   10: aload_1
-    //   11: ifnull +33 -> 44
-    //   14: aload_2
-    //   15: iconst_1
-    //   16: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   19: aload_1
-    //   20: aload_2
-    //   21: iconst_0
-    //   22: invokevirtual 39	android/location/Location:writeToParcel	(Landroid/os/Parcel;I)V
-    //   25: aload_0
-    //   26: getfield 15	bbd:a	Landroid/os/IBinder;
-    //   29: iconst_1
-    //   30: aload_2
-    //   31: aconst_null
-    //   32: iconst_1
-    //   33: invokeinterface 45 5 0
-    //   38: pop
-    //   39: aload_2
-    //   40: invokevirtual 48	android/os/Parcel:recycle	()V
-    //   43: return
-    //   44: aload_2
-    //   45: iconst_0
-    //   46: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   49: goto -24 -> 25
-    //   52: astore_1
-    //   53: aload_2
-    //   54: invokevirtual 48	android/os/Parcel:recycle	()V
-    //   57: aload_1
-    //   58: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	59	0	this	bbd
-    //   0	59	1	paramLocation	android.location.Location
-    //   3	51	2	localParcel	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   4	10	52	finally
-    //   14	25	52	finally
-    //   25	39	52	finally
-    //   44	49	52	finally
+    f();
+    w();
+    d.c();
+    e.c();
+    s().z().a("Activity resumed, time", Long.valueOf(paramLong));
+    b = paramLong;
+    if (l().a() - ti.a() > tk.a())
+    {
+      tj.a(true);
+      tl.a(0L);
+    }
+    if (tj.a())
+    {
+      d.a(Math.max(0L, th.a() - tl.a()));
+      return;
+    }
+    e.a(Math.max(0L, 3600000L - tl.a()));
   }
   
-  public final IBinder asBinder()
+  private void b(long paramLong)
   {
-    return a;
+    f();
+    w();
+    d.c();
+    e.c();
+    s().z().a("Activity paused, time", Long.valueOf(paramLong));
+    if (b != 0L) {
+      tl.a(tl.a() + (paramLong - b));
+    }
+    tk.a(l().a());
+    try
+    {
+      if (!tj.a()) {
+        a.postDelayed(c, 1000L);
+      }
+      return;
+    }
+    finally {}
+  }
+  
+  private void w()
+  {
+    try
+    {
+      if (a == null) {
+        a = new Handler(Looper.getMainLooper());
+      }
+      return;
+    }
+    finally {}
+  }
+  
+  private void x()
+  {
+    f();
+    long l = l().b();
+    s().z().a("Session started, time", Long.valueOf(l));
+    tj.a(false);
+    h().a("auto", "_s", new Bundle());
+  }
+  
+  private void y()
+  {
+    f();
+    long l1 = l().b();
+    if (b == 0L) {
+      b = (l1 - 3600000L);
+    }
+    long l2 = tl.a() + (l1 - b);
+    tl.a(l2);
+    s().z().a("Recording user engagement, ms", Long.valueOf(l2));
+    Bundle localBundle = new Bundle();
+    localBundle.putLong("_et", l2);
+    h().a("auto", "_e", localBundle);
+    tl.a(0L);
+    b = l1;
+    e.a(Math.max(0L, 3600000L - tl.a()));
+  }
+  
+  protected final void a() {}
+  
+  protected final void b()
+  {
+    try
+    {
+      w();
+      a.removeCallbacks(c);
+      final long l = l().b();
+      r().a(new Runnable()
+      {
+        public final void run()
+        {
+          bbd.a(bbd.this, l);
+        }
+      });
+      return;
+    }
+    finally {}
+  }
+  
+  protected final void c()
+  {
+    final long l = l().b();
+    r().a(new Runnable()
+    {
+      public final void run()
+      {
+        bbd.b(bbd.this, l);
+      }
+    });
+  }
+  
+  public final void v()
+  {
+    f();
+    s().y().a("Application backgrounded. Logging engagement");
+    long l = tl.a();
+    if (l > 0L)
+    {
+      Bundle localBundle = new Bundle();
+      localBundle.putLong("_et", l);
+      h().a("auto", "_e", localBundle);
+      tl.a(0L);
+      return;
+    }
+    s().c().a("Not logging non-positive engagement time", Long.valueOf(l));
   }
 }
 

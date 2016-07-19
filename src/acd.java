@@ -1,53 +1,58 @@
+import android.app.PendingIntent;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.server.response.FieldMappingDictionary;
-import com.google.android.gms.common.server.response.SafeParcelResponse;
+import com.google.android.gms.common.ConnectionResult;
 
 public final class acd
-  implements Parcelable.Creator<SafeParcelResponse>
+  implements Parcelable.Creator<ConnectionResult>
 {
-  public static SafeParcelResponse a(Parcel paramParcel)
+  private static ConnectionResult a(Parcel paramParcel)
   {
-    FieldMappingDictionary localFieldMappingDictionary = null;
-    int j = zm.b(paramParcel);
+    int k = zd.b(paramParcel);
+    PendingIntent localPendingIntent = null;
+    int j = 0;
     int i = 0;
-    Parcel localParcel = null;
-    while (paramParcel.dataPosition() < j)
+    String str = null;
+    while (paramParcel.dataPosition() < k)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      int m = zd.a(paramParcel);
+      switch (zd.a(m))
       {
       default: 
-        zm.a(paramParcel, k);
+        zd.a(paramParcel, m);
         break;
       case 1: 
-        i = zm.e(paramParcel, k);
+        i = zd.e(paramParcel, m);
         break;
       case 2: 
-        localParcel = zm.C(paramParcel, k);
+        j = zd.e(paramParcel, m);
         break;
       case 3: 
-        localFieldMappingDictionary = (FieldMappingDictionary)zm.a(paramParcel, k, FieldMappingDictionary.CREATOR);
+        localPendingIntent = (PendingIntent)zd.a(paramParcel, m, PendingIntent.CREATOR);
+        break;
+      case 4: 
+        str = zd.n(paramParcel, m);
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    if (paramParcel.dataPosition() != k) {
+      throw new ze("Overread allowed size end=" + k, paramParcel);
     }
-    return new SafeParcelResponse(i, localParcel, localFieldMappingDictionary);
+    return new ConnectionResult(i, j, localPendingIntent, str);
   }
   
-  public static void a(SafeParcelResponse paramSafeParcelResponse, Parcel paramParcel, int paramInt)
+  public static void a(ConnectionResult paramConnectionResult, Parcel paramParcel, int paramInt)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramSafeParcelResponse.d());
-    zo.a(paramParcel, paramSafeParcelResponse.e());
-    zo.a(paramParcel, 3, paramSafeParcelResponse.f(), paramInt, false);
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, b);
+    zf.a(paramParcel, 2, paramConnectionResult.c());
+    zf.a(paramParcel, 3, paramConnectionResult.d(), paramInt, false);
+    zf.a(paramParcel, 4, paramConnectionResult.e(), false);
+    zf.a(paramParcel, i);
   }
   
-  private static SafeParcelResponse[] a(int paramInt)
+  private static ConnectionResult[] a(int paramInt)
   {
-    return new SafeParcelResponse[paramInt];
+    return new ConnectionResult[paramInt];
   }
 }
 

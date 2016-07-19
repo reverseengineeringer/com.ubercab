@@ -14,7 +14,6 @@
         </LinearLayout>
         <View android:background="@color/ub__uber_white_80" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_divider" />
         <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
-            <include android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/ub__receipt_fragment_enhanced_no_fare_info" />
             <include android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/ub__receipt_fragment_enhanced_edittext_comment" />
             <include android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/ub__receipt_fragment_enhanced_map" />
             <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
@@ -38,7 +37,6 @@
                                     <View android:layout_gravity="center_vertical" android:id="@id/ub__receipt_octane_vertical_fare_divider" android:background="@color/ub__uber_white_80" android:layout_width="@dimen/ub__octane_receipt_divider" android:layout_height="fill_parent" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" />
                                     <com.ubercab.ui.TextView android:layout_gravity="center" android:id="@id/ub__receipt_octane_textview_fare" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__padding_small" android:layout_marginRight="@dimen/ui__spacing_unit_2x" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.DriverFare" />
                                 </LinearLayout>
-                                <com.ubercab.ui.Button android:layout_gravity="center_vertical" android:id="@id/ub__receipt_octane_button_your_fare" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:text="@string/receipt_no_fare_button_label" style="@style/Uber.Widget.Button.Supporting" />
                             </LinearLayout>
                         </FrameLayout>
                         <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
@@ -49,17 +47,17 @@
                             </LinearLayout>
                         </FrameLayout>
                     </LinearLayout>
-                    <View android:background="@color/ub__uber_white_80" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_divider" />
+                    <View android:id="@id/ub__receipt_octane_divider" android:background="@color/ub__uber_white_80" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_divider" />
                     <LinearLayout android:orientation="vertical" android:id="@id/ub__receipt_octane_comment_layout" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="fill_parent">
                         <com.ubercab.ui.TextView android:id="@id/ub__receipt_octane_textview_comment" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_comment_bar_height" android:hint="@string/leave_a_comment_title" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.Comment" />
                         <View android:id="@id/ub__receipt_octane_comment_divider" android:background="@color/ub__uber_white_80" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_divider" />
                     </LinearLayout>
                     <RelativeLayout android:orientation="vertical" android:id="@id/ub__receipt_octane_rating_layout" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_ratingbar_layout_height">
-                        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/ub__receipt_octane_button_submit_skip_layout">
+                        <FrameLayout android:id="@id/ub__receipt_octane_rating_selection_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/ub__receipt_octane_button_submit_skip_layout">
                             <include android:gravity="center" android:id="@id/ub__receipt_octane_inverted_bottom_feedback" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/ub__receipt_fragment_enhanced_inverted_feedback" />
                             <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ub__receipt_octane_ratings_button_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
-                                <com.ubercab.ui.TextView android:id="@id/ub__receipt_octane_textview_rate" android:paddingBottom="@dimen/ub__octane_receipt_rate_trip_lable_bottom_padding" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/receipt_rate_your_trip_label" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.Comment" />
-                                <RatingBar android:id="@id/ub__receipt_octane_view_ratingbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__octane_receipt_ratingbar_bottom_margin" android:max="5" android:numStars="5" android:stepSize="1.0" style="@style/Style.Rider.Octane.RatingBar" />
+                                <com.ubercab.ui.TextView android:id="@id/ub__receipt_octane_textview_rate" android:paddingTop="@dimen/ub__octane_receipt_ratingbar_padding" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/receipt_rate_your_trip_label" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.Comment" />
+                                <RatingBar android:id="@id/ub__receipt_octane_view_ratingbar" android:paddingTop="@dimen/ub__octane_receipt_ratingbar_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:max="5" android:numStars="5" android:stepSize="1.0" style="@style/Style.Rider.Octane.RatingBar" />
                                 <RadioGroup android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/ub__receipt_octane_radiogroup_thumbs" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
                                     <RadioButton android:id="@id/ub__receipt_octane_thumbsdown_button" android:layout_margin="@dimen/ui__spacing_unit_4x" style="@style/Style.Rider.Octane.ReceiptDialog.Rate.ThumbsDown.Button" />
                                     <RadioButton android:id="@id/ub__receipt_octane_thumbsup_button" android:layout_margin="@dimen/ui__spacing_unit_4x" style="@style/Style.Rider.Octane.ReceiptDialog.Rate.ThumbsUp.Button" />
@@ -75,12 +73,10 @@
                                 </RadioGroup>
                             </LinearLayout>
                         </FrameLayout>
+                        <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_100" android:textColorHint="@color/ub__uber_white_120" android:gravity="center" android:id="@id/ub__receipt_octane_textview_dynamic_comment" android:background="@drawable/ub__border_outline_light" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_comment_box_height" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginTop="@dimen/ub__octane_receipt_comment_box_margin_top_bottom" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ub__octane_receipt_comment_box_margin_top_bottom" android:hint="@string/additional_feedback" android:layout_above="@id/ub__receipt_octane_button_submit_skip_layout" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.Comment" />
                         <FrameLayout android:gravity="bottom" android:layout_gravity="bottom" android:id="@id/ub__receipt_octane_button_submit_skip_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
                             <LinearLayout android:orientation="vertical" android:id="@id/ub__receipt_octane_button_submit_layout" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content">
                                 <com.ubercab.ui.Button android:id="@id/ub__receipt_octane_button_submit" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_submit_button_height" android:text="@string/submit" style="@style/Uber.Widget.Button.Accent" />
-                            </LinearLayout>
-                            <LinearLayout android:orientation="vertical" android:id="@id/ub__receipt_octane_button_skip_layout" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content">
-                                <com.ubercab.ui.Button android:id="@id/ub__receipt_octane_button_skip" android:layout_width="fill_parent" android:layout_height="@dimen/ub__octane_receipt_skip_button_height" android:text="@string/skip" style="@style/Uber.Widget.Button.Secondary" />
                             </LinearLayout>
                         </FrameLayout>
                     </RelativeLayout>

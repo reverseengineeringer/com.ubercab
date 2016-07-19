@@ -11,75 +11,147 @@ final class azh
     a = paramIBinder;
   }
   
-  /* Error */
-  public final void a(int paramInt, android.app.PendingIntent paramPendingIntent)
+  public final acp a()
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_3
-    //   4: aload_3
-    //   5: ldc 25
-    //   7: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   10: aload_3
-    //   11: iload_1
-    //   12: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   15: aload_2
-    //   16: ifnull +33 -> 49
-    //   19: aload_3
-    //   20: iconst_1
-    //   21: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   24: aload_2
-    //   25: aload_3
-    //   26: iconst_0
-    //   27: invokevirtual 39	android/app/PendingIntent:writeToParcel	(Landroid/os/Parcel;I)V
-    //   30: aload_0
-    //   31: getfield 15	azh:a	Landroid/os/IBinder;
-    //   34: iconst_3
-    //   35: aload_3
-    //   36: aconst_null
-    //   37: iconst_1
-    //   38: invokeinterface 45 5 0
-    //   43: pop
-    //   44: aload_3
-    //   45: invokevirtual 48	android/os/Parcel:recycle	()V
-    //   48: return
-    //   49: aload_3
-    //   50: iconst_0
-    //   51: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   54: goto -24 -> 30
-    //   57: astore_2
-    //   58: aload_3
-    //   59: invokevirtual 48	android/os/Parcel:recycle	()V
-    //   62: aload_2
-    //   63: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	64	0	this	azh
-    //   0	64	1	paramInt	int
-    //   0	64	2	paramPendingIntent	android.app.PendingIntent
-    //   3	56	3	localParcel	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   4	15	57	finally
-    //   19	30	57	finally
-    //   30	44	57	finally
-    //   49	54	57	finally
-  }
-  
-  public final void a(int paramInt, String[] paramArrayOfString)
-  {
-    Parcel localParcel = Parcel.obtain();
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
     try
     {
-      localParcel.writeInterfaceToken("com.google.android.gms.location.internal.IGeofencerCallbacks");
-      localParcel.writeInt(paramInt);
-      localParcel.writeStringArray(paramArrayOfString);
-      a.transact(1, localParcel, null, 1);
-      return;
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+      a.transact(4, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      acp localacp = acq.a(localParcel2.readStrongBinder());
+      return localacp;
     }
     finally
     {
-      localParcel.recycle();
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final acp a(float paramFloat)
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+      localParcel1.writeFloat(paramFloat);
+      a.transact(5, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      acp localacp = acq.a(localParcel2.readStrongBinder());
+      return localacp;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final acp a(int paramInt)
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+      localParcel1.writeInt(paramInt);
+      a.transact(1, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      acp localacp = acq.a(localParcel2.readStrongBinder());
+      return localacp;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  /* Error */
+  public final acp a(android.graphics.Bitmap paramBitmap)
+  {
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +51 -> 66
+    //   18: aload_2
+    //   19: iconst_1
+    //   20: invokevirtual 60	android/os/Parcel:writeInt	(I)V
+    //   23: aload_1
+    //   24: aload_2
+    //   25: iconst_0
+    //   26: invokevirtual 67	android/graphics/Bitmap:writeToParcel	(Landroid/os/Parcel;I)V
+    //   29: aload_0
+    //   30: getfield 15	azh:a	Landroid/os/IBinder;
+    //   33: bipush 6
+    //   35: aload_2
+    //   36: aload_3
+    //   37: iconst_0
+    //   38: invokeinterface 35 5 0
+    //   43: pop
+    //   44: aload_3
+    //   45: invokevirtual 38	android/os/Parcel:readException	()V
+    //   48: aload_3
+    //   49: invokevirtual 42	android/os/Parcel:readStrongBinder	()Landroid/os/IBinder;
+    //   52: invokestatic 47	acq:a	(Landroid/os/IBinder;)Lacp;
+    //   55: astore_1
+    //   56: aload_3
+    //   57: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   60: aload_2
+    //   61: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   64: aload_1
+    //   65: areturn
+    //   66: aload_2
+    //   67: iconst_0
+    //   68: invokevirtual 60	android/os/Parcel:writeInt	(I)V
+    //   71: goto -42 -> 29
+    //   74: astore_1
+    //   75: aload_3
+    //   76: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   79: aload_2
+    //   80: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   83: aload_1
+    //   84: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	85	0	this	azh
+    //   0	85	1	paramBitmap	android.graphics.Bitmap
+    //   3	77	2	localParcel1	Parcel
+    //   7	69	3	localParcel2	Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	74	finally
+    //   18	29	74	finally
+    //   29	56	74	finally
+    //   66	71	74	finally
+  }
+  
+  public final acp a(String paramString)
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+      localParcel1.writeString(paramString);
+      a.transact(2, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      paramString = acq.a(localParcel2.readStrongBinder());
+      return paramString;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
   }
   
@@ -88,20 +160,43 @@ final class azh
     return a;
   }
   
-  public final void b(int paramInt, String[] paramArrayOfString)
+  public final acp b(String paramString)
   {
-    Parcel localParcel = Parcel.obtain();
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
     try
     {
-      localParcel.writeInterfaceToken("com.google.android.gms.location.internal.IGeofencerCallbacks");
-      localParcel.writeInt(paramInt);
-      localParcel.writeStringArray(paramArrayOfString);
-      a.transact(2, localParcel, null, 1);
-      return;
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+      localParcel1.writeString(paramString);
+      a.transact(3, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      paramString = acq.a(localParcel2.readStrongBinder());
+      return paramString;
     }
     finally
     {
-      localParcel.recycle();
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final acp c(String paramString)
+  {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+      localParcel1.writeString(paramString);
+      a.transact(7, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      paramString = acq.a(localParcel2.readStrongBinder());
+      return paramString;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
   }
 }

@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import juc;
+import mzk;
 
 @Shape
 abstract class ObjectProfileTheme
-  implements juc
+  implements mzk
 {}
 
 /* Location:

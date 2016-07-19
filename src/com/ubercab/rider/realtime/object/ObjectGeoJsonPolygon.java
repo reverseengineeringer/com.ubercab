@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jtp;
+import myx;
 
 @Shape
 abstract class ObjectGeoJsonPolygon
-  implements jtp
+  implements myx
 {}
 
 /* Location:

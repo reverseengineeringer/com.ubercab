@@ -12,59 +12,58 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import chh;
-import cho;
-import ckr;
+import butterknife.BindView;
+import chn;
+import chu;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.ui.Button;
-import dsh;
-import ebj;
-import efr;
-import epa;
-import gpp;
-import gpq;
-import gqd;
-import gqf;
-import grd;
+import dxm;
+import eib;
+import enk;
+import exc;
+import hyu;
+import hyv;
+import hzm;
+import hzo;
+import ias;
 import java.util.ArrayList;
 import java.util.List;
-import p;
+import x;
 
 public class SafetyNetFragment
-  extends dsh<gqd>
+  extends dxm<hzm>
 {
-  public chh c;
-  public gqf d;
+  public chn c;
+  public hzo d;
   private boolean e;
   private boolean f;
   private FrameLayout g;
-  private epa h;
+  private exc h;
   private SafetyNetContactsAdapter i;
-  @InjectView(2131625434)
-  View mListContainer;
-  @InjectView(2131625435)
-  ListView mListView;
-  @InjectView(2131625438)
-  ProgressBar mProgressLoading;
+  @BindView
+  public View mListContainer;
+  @BindView
+  public ListView mListView;
+  @BindView
+  public ProgressBar mProgressLoading;
   
   static SafetyNetFragment a()
   {
     return new SafetyNetFragment();
   }
   
-  private void a(gqd paramgqd)
+  private void a(hzm paramhzm)
   {
-    paramgqd.a(this);
+    paramhzm.a(this);
   }
   
-  private gqd b(ebj paramebj)
+  private hzm b(eib parameib)
   {
-    return gpp.a().a(new efr(this)).a(paramebj).a();
+    return hyu.a().a(new enk(this)).a(parameib).a();
   }
   
-  private void b()
+  private void f()
   {
     if (d.e() == null)
     {
@@ -130,9 +129,9 @@ public class SafetyNetFragment
     }
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return p.kN;
+    return x.oI;
   }
   
   public void onCreate(Bundle paramBundle)
@@ -143,28 +142,22 @@ public class SafetyNetFragment
   
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
-    paramMenuInflater.inflate(2131755032, paramMenu);
+    paramMenuInflater.inflate(2131755035, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramViewGroup = paramLayoutInflater.inflate(2130903550, paramViewGroup, false);
-    ButterKnife.inject(this, paramViewGroup);
-    g = ((FrameLayout)paramLayoutInflater.inflate(2130903552, mListView, false));
-    ((Button)g.findViewById(2131625441)).setOnClickListener(new SafetyNetFragment.1(this));
+    paramViewGroup = paramLayoutInflater.inflate(2130903760, paramViewGroup, false);
+    a(paramViewGroup);
+    g = ((FrameLayout)paramLayoutInflater.inflate(2130903762, mListView, false));
+    ((Button)g.findViewById(2131626089)).setOnClickListener(new SafetyNetFragment.1(this));
     return paramViewGroup;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
     boolean bool = false;
-    if (2131626154 == paramMenuItem.getItemId())
+    if (2131626910 == paramMenuItem.getItemId())
     {
       if (!e) {
         bool = true;
@@ -179,11 +172,11 @@ public class SafetyNetFragment
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
     super.onPrepareOptionsMenu(paramMenu);
-    paramMenu = paramMenu.findItem(2131626154);
+    paramMenu = paramMenu.findItem(2131626910);
     if ((f) && (i.a()))
     {
       if (e) {}
-      for (int j = 2131165718;; j = 2131165742)
+      for (int j = 2131165779;; j = 2131165807)
       {
         paramMenu.setTitle(getString(j));
         paramMenu.setVisible(true);
@@ -196,16 +189,16 @@ public class SafetyNetFragment
   public void onResume()
   {
     super.onResume();
-    String str = getString(2131166363).toUpperCase();
-    d().b().a(str);
-    b();
+    String str = getString(2131166597).toUpperCase();
+    b().b().a(str);
+    f();
   }
   
-  @cho
-  public void onSafetyNetContactsUpdatedEvent(grd paramgrd)
+  @chu
+  public void onSafetyNetContactsUpdatedEvent(ias paramias)
   {
     if (!f) {
-      b();
+      f();
     }
     i.a(d.e());
     g();
@@ -222,11 +215,11 @@ public class SafetyNetFragment
     super.onViewCreated(paramView, paramBundle);
     paramView = new ArrayList();
     paramBundle = new ArrayList();
-    paramView.add(getString(2131166363));
-    i = new SafetyNetContactsAdapter(d(), c);
-    i.a(getString(2131166352));
+    paramView.add(getString(2131166597));
+    i = new SafetyNetContactsAdapter(b(), c);
+    i.a(getString(2131166587));
     paramBundle.add(i);
-    h = new epa(getActivity(), paramBundle, paramView);
+    h = new exc(getActivity(), paramBundle, paramView);
   }
 }
 

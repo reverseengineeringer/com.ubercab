@@ -2,88 +2,91 @@ package com.ubercab.client.feature.mobilemessage;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.view.accessibility.AccessibilityManager;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
-import chh;
-import cho;
-import ckc;
+import chn;
+import chu;
+import ckt;
 import com.ubercab.analytics.model.AnalyticsEvent;
-import com.ubercab.client.core.app.RiderApplication;
+import com.ubercab.client.feature.mobilemessage.model.AccessibleMobileMessageDataHolder;
 import com.ubercab.client.feature.mobilemessage.model.MobileMessageDataHolder;
 import com.ubercab.network.uspout.UspoutClient;
 import com.ubercab.network.uspout.model.Message;
 import com.ubercab.rider.realtime.model.MobileMessage;
 import com.ubercab.rider.realtime.model.MobileMessageModule;
-import dpf;
-import dpn;
-import dsj;
-import dty;
-import dux;
-import fol;
-import fos;
-import fox;
-import foy;
-import fpc;
-import fpe;
-import hts;
-import htt;
-import iam;
-import ife;
+import dua;
+import duj;
+import dxu;
+import dzn;
+import eaj;
+import ggd;
+import ggk;
+import ggp;
+import ggq;
+import ggz;
+import ghb;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import jsg;
-import kul;
-import p;
-import r;
+import jqo;
+import jqp;
+import kcw;
+import khv;
+import mxm;
+import opc;
+import x;
+import z;
 
 public class MobileMessagePopupWindow
-  extends dsj
-  implements fox
+  extends dxu
+  implements ggp
 {
-  private final ckc a;
-  private final chh b;
-  private final jsg c;
-  private final ife d;
-  private final fos e;
+  private final ckt a;
+  private final chn b;
+  private final mxm c;
+  private final khv d;
+  private final ggk e;
   private FrameLayout f;
-  private fpe g;
+  private ghb g;
   private boolean h = false;
   private int i = 0;
   private boolean j = false;
   private MobileMessage k;
-  private foy l;
-  private Map<String, hts> m;
-  @InjectView(2131624651)
-  MobileMessageDraggableLayout mLayoutModules;
+  private ggq l;
+  private Map<String, jqo> m;
+  @BindView
+  public MobileMessageDraggableLayout mLayoutModules;
   private UspoutClient n;
   
-  public MobileMessagePopupWindow(Activity paramActivity, ckc paramckc, chh paramchh, jsg paramjsg, ife paramife, fos paramfos, RiderApplication paramRiderApplication, dty paramdty, UspoutClient paramUspoutClient)
+  public MobileMessagePopupWindow(Activity paramActivity, ckt paramckt, chn paramchn, mxm parammxm, khv paramkhv, ggk paramggk, dzn paramdzn, UspoutClient paramUspoutClient)
   {
-    super(paramActivity, paramchh);
-    a = paramckc;
-    b = paramchh;
-    c = paramjsg;
-    d = paramife;
-    e = paramfos;
+    super(paramActivity, paramchn);
+    a = paramckt;
+    b = paramchn;
+    c = parammxm;
+    d = paramkhv;
+    e = paramggk;
     n = paramUspoutClient;
-    l = new foy(paramchh, paramjsg, paramRiderApplication, paramdty);
-    f = ((FrameLayout)LayoutInflater.from(a()).inflate(2130903284, null, false));
-    ButterKnife.inject(this, f);
+    l = new ggq(paramchn, parammxm, paramdzn, d);
+    f = ((FrameLayout)LayoutInflater.from(a()).inflate(2130903378, null, false));
+    setTouchInterceptor(new MobileMessagePopupWindow.1(this));
+    ButterKnife.a(this, f);
     setContentView(f);
-    setAnimationStyle(2131362033);
+    setAnimationStyle(2131362060);
     setWidth(-1);
     setHeight(-1);
     mLayoutModules.setVisibility(8);
-    f.setOnClickListener(new MobileMessagePopupWindow.1(this));
-    mLayoutModules.a(new MobileMessagePopupWindow.2(this));
+    f.setOnClickListener(new MobileMessagePopupWindow.2(this));
+    mLayoutModules.a(new MobileMessagePopupWindow.3(this));
   }
   
   private View a(String paramString, MobileMessageModule paramMobileMessageModule)
@@ -100,9 +103,9 @@ public class MobileMessagePopupWindow
       return;
     }
     if (paramBoolean) {
-      l();
+      m();
     }
-    if (d.a(dux.dH, false)) {
+    if (d.a(eaj.fX)) {
       h();
     }
     mLayoutModules.b();
@@ -112,11 +115,11 @@ public class MobileMessagePopupWindow
   {
     if ((k != null) && (m != null))
     {
-      hts localhts = (hts)m.get(k.getVehicleViewId());
-      if (localhts != null)
+      jqo localjqo = (jqo)m.get(k.getVehicleViewId());
+      if (localjqo != null)
       {
-        mLayoutModules.a(dpn.a(a()) - localhts.c());
-        g = new fpe(a(), localhts);
+        mLayoutModules.a(duj.a(a()) - localjqo.c());
+        g = new ghb(a(), localjqo);
       }
     }
   }
@@ -126,19 +129,19 @@ public class MobileMessagePopupWindow
     TranslateAnimation localTranslateAnimation = new TranslateAnimation(1, 0.0F, 1, 0.0F, 1, 1.0F, 1, 0.0F);
     localTranslateAnimation.setDuration(450L);
     localTranslateAnimation.setStartOffset(300L);
-    localTranslateAnimation.setAnimationListener(new MobileMessagePopupWindow.3(this));
+    localTranslateAnimation.setAnimationListener(new MobileMessagePopupWindow.4(this));
     mLayoutModules.startAnimation(localTranslateAnimation);
     mLayoutModules.setVisibility(0);
   }
   
   private void h()
   {
-    iam localiam = new iam().a("width", Integer.valueOf(mLayoutModules.c().getWidth())).a("height", Integer.valueOf(mLayoutModules.c().getHeight()));
+    kcw localkcw = new kcw().a("width", Integer.valueOf(mLayoutModules.c().getWidth())).a("height", Integer.valueOf(mLayoutModules.c().getHeight()));
     if (k == null) {}
     for (Object localObject = null;; localObject = k.getId())
     {
-      localObject = localiam.a("message_id", localObject).a("status", "dismiss").a();
-      localObject = new iam().a("message", localObject).a("title", "mobile_message").a();
+      localObject = localkcw.a("message_id", localObject).a("status", "dismiss").a();
+      localObject = new kcw().a("message", localObject).a("title", "mobile_message").a();
       n.a(new Message[] { Message.create((Map)localObject) });
       return;
     }
@@ -163,41 +166,51 @@ public class MobileMessagePopupWindow
   private void j()
   {
     j = false;
-    new Handler().post(new MobileMessagePopupWindow.4(this));
+    new Handler().post(new MobileMessagePopupWindow.5(this));
   }
   
-  private void k()
+  private View k()
   {
-    if (k != null)
-    {
-      AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression").setName(p.fj).setValue(k.getId());
-      a.a(localAnalyticsEvent);
-    }
+    MobileMessageModuleView localMobileMessageModuleView = new MobileMessageModuleView(a());
+    localMobileMessageModuleView.a(this);
+    String str = a().getResources().getString(2131165777);
+    AccessibleMobileMessageDataHolder localAccessibleMobileMessageDataHolder = new AccessibleMobileMessageDataHolder(str);
+    localMobileMessageModuleView.a(str, new MobileMessagePopupWindow.6(this), localAccessibleMobileMessageDataHolder);
+    return localMobileMessageModuleView;
   }
   
   private void l()
   {
     if (k != null)
     {
-      AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap").setName(r.cJ).setValue(k.getId());
+      AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression").setName(x.hs).setValue(k.getId());
       a.a(localAnalyticsEvent);
     }
   }
   
   private void m()
   {
+    if (k != null)
+    {
+      AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("tap").setName(z.eC).setValue(k.getId());
+      a.a(localAnalyticsEvent);
+    }
+  }
+  
+  private void n()
+  {
     showAtLocation(a().getWindow().getDecorView(), 48, 0, 0);
   }
   
-  public final void E_()
+  public final void A_()
   {
     i += 1;
-    if ((k != null) && (k.getModules() != null) && (i >= k.getModules().size()) && (dpf.a(a().getWindow())))
+    if ((k != null) && (k.getModules() != null) && (i >= k.getModules().size()) && (dua.a(a().getWindow())))
     {
-      m();
+      n();
       f();
       g();
-      k();
+      l();
     }
   }
   
@@ -222,15 +235,18 @@ public class MobileMessagePopupWindow
         Object localObject = l.a(str);
         if (localObject != null)
         {
-          localObject = ((fpc)localObject).a(a(), k, str);
-          if (((fol)localObject).b()) {
-            a.a(((fol)localObject).a());
+          localObject = ((ggz)localObject).a(a(), k, str);
+          if (((ggd)localObject).b()) {
+            a.a(((ggd)localObject).a());
           }
-          if (((fol)localObject).c()) {
+          if (((ggd)localObject).c()) {
             a(false);
           }
-          if (!((fol)localObject).d()) {
-            kul.e("Could not handle [%s] in mobile message", new Object[] { str });
+          if (d.a(eaj.fG)) {
+            e.b(k);
+          }
+          if (!((ggd)localObject).d()) {
+            opc.e("Could not handle [%s] in mobile message", new Object[] { str });
           }
         }
         i1 += 1;
@@ -250,6 +266,9 @@ public class MobileMessagePopupWindow
     } while ((paramMobileMessage == null) || (paramMobileMessage.getModules() == null));
     j = true;
     h = false;
+    if ((d.b(eaj.jd)) && (((AccessibilityManager)a().getSystemService("accessibility")).isEnabled())) {
+      mLayoutModules.addView(k());
+    }
     Iterator localIterator = paramMobileMessage.getModules().iterator();
     while (localIterator.hasNext())
     {
@@ -280,7 +299,7 @@ public class MobileMessagePopupWindow
   public void dismiss()
   {
     j = false;
-    g(this);
+    h(this);
   }
   
   final void e()
@@ -293,10 +312,10 @@ public class MobileMessagePopupWindow
     }
   }
   
-  @cho
-  public void onVehicleViewPositionEvent(htt paramhtt)
+  @chu
+  public void onVehicleViewPositionEvent(jqp paramjqp)
   {
-    m = paramhtt.a();
+    m = paramjqp.a();
   }
 }
 

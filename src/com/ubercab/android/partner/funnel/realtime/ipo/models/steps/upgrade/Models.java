@@ -1,6 +1,7 @@
 package com.ubercab.android.partner.funnel.realtime.ipo.models.steps.upgrade;
 
 import android.os.Parcelable;
+import com.ubercab.android.partner.funnel.realtime.ipo.models.steps.models.Page;
 import com.ubercab.android.partner.funnel.realtime.ipo.models.steps.models.Subtitle;
 import com.ubercab.shape.Shape;
 import java.util.ArrayList;
@@ -11,9 +12,13 @@ public abstract class Models
 {
   public abstract ArrayList<City> getCities();
   
+  public abstract ArrayList<Page> getPages();
+  
   public abstract ArrayList<Subtitle> getSubtitles();
   
   abstract Models setCities(ArrayList<City> paramArrayList);
+  
+  abstract Models setPages(ArrayList<Page> paramArrayList);
   
   abstract Models setSubtitles(ArrayList<Subtitle> paramArrayList);
 }

@@ -1,5 +1,6 @@
 package com.ubercab.rider.realtime.response;
 
+import com.ubercab.rider.realtime.model.FamilyGroup;
 import com.ubercab.rider.realtime.model.FamilyUnsuccessfulInvite;
 import com.ubercab.shape.Shape;
 import java.util.List;
@@ -12,7 +13,11 @@ public abstract class CreateFamilyGroupResponse
     return new Shape_CreateFamilyGroupResponse();
   }
   
+  public abstract FamilyGroup getFamilyGroup();
+  
   public abstract List<FamilyUnsuccessfulInvite> getUnsuccessfulInvites();
+  
+  public abstract CreateFamilyGroupResponse setFamilyGroup(FamilyGroup paramFamilyGroup);
   
   public abstract CreateFamilyGroupResponse setUnsuccessfulInvites(List<FamilyUnsuccessfulInvite> paramList);
 }

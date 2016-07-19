@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import java.lang.ref.WeakReference;
 
-public class ViewPropertyAnimatorCompat
+public final class ViewPropertyAnimatorCompat
 {
   static final ViewPropertyAnimatorCompat.ViewPropertyAnimatorCompatImpl IMPL = new ViewPropertyAnimatorCompat.BaseViewPropertyAnimatorCompatImpl();
   static final int LISTENER_TAG_ID = 2113929216;
@@ -50,7 +50,7 @@ public class ViewPropertyAnimatorCompat
     mView = new WeakReference(paramView);
   }
   
-  public ViewPropertyAnimatorCompat alpha(float paramFloat)
+  public final ViewPropertyAnimatorCompat alpha(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -59,7 +59,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat alphaBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat alphaBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -68,7 +68,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public void cancel()
+  public final void cancel()
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -76,7 +76,7 @@ public class ViewPropertyAnimatorCompat
     }
   }
   
-  public long getDuration()
+  public final long getDuration()
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -85,7 +85,7 @@ public class ViewPropertyAnimatorCompat
     return 0L;
   }
   
-  public Interpolator getInterpolator()
+  public final Interpolator getInterpolator()
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -94,7 +94,7 @@ public class ViewPropertyAnimatorCompat
     return null;
   }
   
-  public long getStartDelay()
+  public final long getStartDelay()
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -103,7 +103,7 @@ public class ViewPropertyAnimatorCompat
     return 0L;
   }
   
-  public ViewPropertyAnimatorCompat rotation(float paramFloat)
+  public final ViewPropertyAnimatorCompat rotation(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -112,7 +112,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat rotationBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat rotationBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -121,7 +121,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat rotationX(float paramFloat)
+  public final ViewPropertyAnimatorCompat rotationX(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -130,7 +130,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat rotationXBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat rotationXBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -139,7 +139,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat rotationY(float paramFloat)
+  public final ViewPropertyAnimatorCompat rotationY(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -148,7 +148,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat rotationYBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat rotationYBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -157,7 +157,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat scaleX(float paramFloat)
+  public final ViewPropertyAnimatorCompat scaleX(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -166,7 +166,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat scaleXBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat scaleXBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -175,7 +175,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat scaleY(float paramFloat)
+  public final ViewPropertyAnimatorCompat scaleY(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -184,7 +184,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat scaleYBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat scaleYBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -193,7 +193,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat setDuration(long paramLong)
+  public final ViewPropertyAnimatorCompat setDuration(long paramLong)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -202,7 +202,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat setInterpolator(Interpolator paramInterpolator)
+  public final ViewPropertyAnimatorCompat setInterpolator(Interpolator paramInterpolator)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -211,7 +211,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat setListener(ViewPropertyAnimatorListener paramViewPropertyAnimatorListener)
+  public final ViewPropertyAnimatorCompat setListener(ViewPropertyAnimatorListener paramViewPropertyAnimatorListener)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -220,7 +220,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat setStartDelay(long paramLong)
+  public final ViewPropertyAnimatorCompat setStartDelay(long paramLong)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -229,7 +229,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat setUpdateListener(ViewPropertyAnimatorUpdateListener paramViewPropertyAnimatorUpdateListener)
+  public final ViewPropertyAnimatorCompat setUpdateListener(ViewPropertyAnimatorUpdateListener paramViewPropertyAnimatorUpdateListener)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -238,7 +238,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public void start()
+  public final void start()
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -246,7 +246,7 @@ public class ViewPropertyAnimatorCompat
     }
   }
   
-  public ViewPropertyAnimatorCompat translationX(float paramFloat)
+  public final ViewPropertyAnimatorCompat translationX(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -255,7 +255,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat translationXBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat translationXBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -264,7 +264,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat translationY(float paramFloat)
+  public final ViewPropertyAnimatorCompat translationY(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -273,7 +273,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat translationYBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat translationYBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -282,7 +282,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat translationZ(float paramFloat)
+  public final ViewPropertyAnimatorCompat translationZ(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -291,7 +291,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat translationZBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat translationZBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -300,7 +300,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat withEndAction(Runnable paramRunnable)
+  public final ViewPropertyAnimatorCompat withEndAction(Runnable paramRunnable)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -309,7 +309,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat withLayer()
+  public final ViewPropertyAnimatorCompat withLayer()
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -318,7 +318,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat withStartAction(Runnable paramRunnable)
+  public final ViewPropertyAnimatorCompat withStartAction(Runnable paramRunnable)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -327,7 +327,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat x(float paramFloat)
+  public final ViewPropertyAnimatorCompat x(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -336,7 +336,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat xBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat xBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -345,7 +345,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat y(float paramFloat)
+  public final ViewPropertyAnimatorCompat y(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -354,7 +354,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat yBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat yBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -363,7 +363,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat z(float paramFloat)
+  public final ViewPropertyAnimatorCompat z(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {
@@ -372,7 +372,7 @@ public class ViewPropertyAnimatorCompat
     return this;
   }
   
-  public ViewPropertyAnimatorCompat zBy(float paramFloat)
+  public final ViewPropertyAnimatorCompat zBy(float paramFloat)
   {
     View localView = (View)mView.get();
     if (localView != null) {

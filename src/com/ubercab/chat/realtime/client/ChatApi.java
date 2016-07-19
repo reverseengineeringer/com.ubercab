@@ -2,8 +2,9 @@ package com.ubercab.chat.realtime.client;
 
 import com.ubercab.chat.realtime.request.body.ChatMessageBody;
 import com.ubercab.chat.realtime.response.ChatMessages;
+import com.ubercab.chat.realtime.response.ChatThread;
 import com.ubercab.chat.realtime.response.PostChatMessageResponse;
-import kld;
+import odr;
 import retrofit.client.Response;
 import retrofit.http.Body;
 import retrofit.http.GET;
@@ -15,14 +16,17 @@ import retrofit.http.Streaming;
 public abstract interface ChatApi
 {
   @GET("/rt/communications/messages/{threadId}/{fromSequenceNumber}")
-  public abstract kld<ChatMessages> getMessages(@Header("x-uber-client-name") String paramString1, @Path("fromSequenceNumber") int paramInt, @Path("threadId") String paramString2);
+  public abstract odr<ChatMessages> getMessages(@Header("x-uber-client-name") String paramString1, @Path("fromSequenceNumber") int paramInt, @Path("threadId") String paramString2);
   
   @GET("/rt/communications/payload/{threadId}/{messageId}")
   @Streaming
-  public abstract kld<Response> getPayload(@Header("x-uber-client-name") String paramString1, @Path("messageId") String paramString2, @Path("threadId") String paramString3);
+  public abstract odr<Response> getPayload(@Header("x-uber-client-name") String paramString1, @Path("messageId") String paramString2, @Path("threadId") String paramString3);
+  
+  @GET("/rt/communications/messages/trip/{tripId}")
+  public abstract odr<ChatThread> getThread(@Header("x-uber-client-name") String paramString1, @Path("tripId") String paramString2);
   
   @POST("/rt/communications/message")
-  public abstract kld<PostChatMessageResponse> postMessage(@Header("x-uber-client-name") String paramString, @Body ChatMessageBody paramChatMessageBody);
+  public abstract odr<PostChatMessageResponse> postMessage(@Header("x-uber-client-name") String paramString, @Body ChatMessageBody paramChatMessageBody);
 }
 
 /* Location:

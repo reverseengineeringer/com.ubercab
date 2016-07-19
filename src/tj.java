@@ -1,329 +1,261 @@
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.view.View;
-import android.view.View.OnClickListener;
-import java.io.ByteArrayOutputStream;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import org.json.JSONObject;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.os.SystemClock;
+import java.util.Locale;
 
-@apl
+@aih
 public final class tj
 {
-  private static aji a(amh paramamh, amk paramamk, ta paramta)
+  private static final String a = String.format(Locale.US, "CREATE TABLE IF NOT EXISTS %s ( %s INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, %s TEXT NOT NULL, %s TEXT NOT NULL, %s INTEGER)", new Object[] { "InAppPurchase", "purchase_id", "product_id", "developer_payload", "record_time" });
+  private static final Object c = new Object();
+  private static tj d;
+  private final tk b;
+  
+  private tj(Context paramContext)
   {
-    return new tj.5(paramamh, paramta, paramamk);
+    b = new tk(this, paramContext, "google_inapp_purchase.db");
   }
   
-  private static aji a(CountDownLatch paramCountDownLatch)
+  private static ti a(Cursor paramCursor)
   {
-    return new tj.3(paramCountDownLatch);
-  }
-  
-  public static View a(aqj paramaqj)
-  {
-    if (paramaqj == null)
-    {
-      aqt.b("AdState is null");
+    if (paramCursor == null) {
       return null;
     }
-    if (b(paramaqj)) {
-      return b.b();
+    return new ti(paramCursor.getLong(0), paramCursor.getString(1), paramCursor.getString(2));
+  }
+  
+  public static tj a(Context paramContext)
+  {
+    synchronized (c)
+    {
+      if (d == null) {
+        d = new tj(paramContext);
+      }
+      paramContext = d;
+      return paramContext;
     }
+  }
+  
+  private SQLiteDatabase b()
+  {
     try
     {
-      paramaqj = o.a();
-      if (paramaqj == null)
-      {
-        aqt.d("View in mediation adapter is null.");
-        return null;
-      }
-      paramaqj = (View)adg.a(paramaqj);
-      return paramaqj;
+      SQLiteDatabase localSQLiteDatabase = b.getWritableDatabase();
+      return localSQLiteDatabase;
     }
-    catch (RemoteException paramaqj)
+    catch (SQLiteException localSQLiteException)
     {
-      aqt.d("Could not get View from mediation adapter.", paramaqj);
+      ain.d("Error opening writable conversion tracking database");
     }
     return null;
   }
   
-  static String a(ahs paramahs)
+  private int c()
   {
-    if (paramahs == null)
+    localObject4 = null;
+    Object localObject1 = null;
+    Object localObject5;
+    synchronized (c)
     {
-      aqt.d("Image is null. Returning empty string");
-      return "";
+      localObject5 = b();
+      if (localObject5 == null) {
+        return 0;
+      }
     }
     try
     {
-      Object localObject = paramahs.b();
-      if (localObject != null)
+      localObject5 = ((SQLiteDatabase)localObject5).rawQuery("select count(*) from InAppPurchase", null);
+      localObject1 = localObject5;
+      localObject4 = localObject5;
+      if (((Cursor)localObject5).moveToFirst())
       {
-        localObject = ((Uri)localObject).toString();
-        return (String)localObject;
+        localObject1 = localObject5;
+        localObject4 = localObject5;
+        int i = ((Cursor)localObject5).getInt(0);
+        if (localObject5 != null) {
+          ((Cursor)localObject5).close();
+        }
+        return i;
+        localObject2 = finally;
+        throw ((Throwable)localObject2);
       }
     }
-    catch (RemoteException localRemoteException)
-    {
-      aqt.d("Unable to get image uri. Trying data uri next");
-    }
-    return b(paramahs);
-  }
-  
-  private static String a(Bitmap paramBitmap)
-  {
-    ByteArrayOutputStream localByteArrayOutputStream = new ByteArrayOutputStream();
-    if (paramBitmap == null)
-    {
-      aqt.d("Bitmap is null. Returning empty string");
-      return "";
-    }
-    paramBitmap.compress(Bitmap.CompressFormat.PNG, 100, localByteArrayOutputStream);
-    paramBitmap = Base64.encodeToString(localByteArrayOutputStream.toByteArray(), 0);
-    return "data:image/png;base64," + paramBitmap;
-  }
-  
-  private static pa a(amh paramamh)
-  {
-    return new pa(paramamh.a(), paramamh.b(), paramamh.c(), paramamh.d(), paramamh.e(), paramamh.f(), paramamh.g(), paramamh.h(), null, paramamh.l());
-  }
-  
-  private static pb a(amk paramamk)
-  {
-    return new pb(paramamk.a(), paramamk.b(), paramamk.c(), paramamk.d(), paramamk.e(), paramamk.f(), null, paramamk.j());
-  }
-  
-  public static void a(aqj paramaqj, ta paramta)
-  {
-    asq localasq;
-    View localView;
-    if (b(paramaqj))
-    {
-      localasq = b;
-      localView = localasq.b();
-      if (localView == null) {
-        aqt.d("AdWebView is null");
-      }
-    }
-    else
-    {
-      return;
-    }
-    List localList;
-    try
-    {
-      localList = n.n;
-      if ((localList == null) || (localList.isEmpty()))
-      {
-        aqt.d("No template ids present in mediation response");
-        return;
-      }
-    }
-    catch (RemoteException paramaqj)
-    {
-      aqt.d("Error occurred while recording impression and registering for clicks", paramaqj);
-      return;
-    }
-    amh localamh = o.h();
-    paramaqj = o.i();
-    if ((localList.contains("2")) && (localamh != null))
-    {
-      localamh.b(adg.a(localView));
-      if (!localamh.j()) {
-        localamh.i();
-      }
-      localasq.l().a("/nativeExpressViewClicked", a(localamh, null, paramta));
-      return;
-    }
-    if ((localList.contains("1")) && (paramaqj != null))
-    {
-      paramaqj.b(adg.a(localView));
-      if (!paramaqj.h()) {
-        paramaqj.g();
-      }
-      localasq.l().a("/nativeExpressViewClicked", a(null, paramaqj, paramta));
-      return;
-    }
-    aqt.d("No matching template id and mapper");
-  }
-  
-  private static void a(asq paramasq, CountDownLatch paramCountDownLatch)
-  {
-    paramasq.l().a("/nativeExpressAssetsLoaded", a(paramCountDownLatch));
-    paramasq.l().a("/nativeExpressAssetsLoadingFailed", b(paramCountDownLatch));
-  }
-  
-  private static void a(asq paramasq, pa parampa, String paramString)
-  {
-    paramasq.l().a(new tj.1(parampa, paramString, paramasq));
-  }
-  
-  private static void a(asq paramasq, pb parampb, String paramString)
-  {
-    paramasq.l().a(new tj.2(parampb, paramString, paramasq));
-  }
-  
-  public static boolean a(asq paramasq, alo paramalo, CountDownLatch paramCountDownLatch)
-  {
-    boolean bool1 = false;
-    try
-    {
-      boolean bool2 = b(paramasq, paramalo, paramCountDownLatch);
-      bool1 = bool2;
-    }
-    catch (RemoteException paramasq)
+    catch (SQLiteException localSQLiteException)
     {
       for (;;)
       {
-        aqt.d("Unable to invoke load assets", paramasq);
-      }
-    }
-    catch (RuntimeException paramasq)
-    {
-      paramCountDownLatch.countDown();
-      throw paramasq;
-    }
-    if (!bool1) {
-      paramCountDownLatch.countDown();
-    }
-    return bool1;
-  }
-  
-  private static ahs b(Object paramObject)
-  {
-    if ((paramObject instanceof IBinder)) {
-      return aht.a((IBinder)paramObject);
-    }
-    return null;
-  }
-  
-  private static aji b(CountDownLatch paramCountDownLatch)
-  {
-    return new tj.4(paramCountDownLatch);
-  }
-  
-  private static String b(ahs paramahs)
-  {
-    try
-    {
-      paramahs = paramahs.a();
-      if (paramahs == null)
-      {
-        aqt.d("Drawable is null. Returning empty string");
-        return "";
-      }
-      paramahs = (Drawable)adg.a(paramahs);
-      if (!(paramahs instanceof BitmapDrawable))
-      {
-        aqt.d("Drawable is not an instance of BitmapDrawable. Returning empty string");
-        return "";
-      }
-    }
-    catch (RemoteException paramahs)
-    {
-      aqt.d("Unable to get drawable. Returning empty string");
-      return "";
-    }
-    return a(((BitmapDrawable)paramahs).getBitmap());
-  }
-  
-  private static JSONObject b(Bundle paramBundle, String paramString)
-  {
-    JSONObject localJSONObject = new JSONObject();
-    if ((paramBundle == null) || (TextUtils.isEmpty(paramString))) {
-      return localJSONObject;
-    }
-    paramString = new JSONObject(paramString);
-    Iterator localIterator = paramString.keys();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      if (paramBundle.containsKey(str)) {
-        if ("image".equals(paramString.getString(str)))
-        {
-          Object localObject = paramBundle.get(str);
-          if ((localObject instanceof Bitmap)) {
-            localJSONObject.put(str, a((Bitmap)localObject));
-          } else {
-            aqt.d("Invalid type. An image type extra should return a bitmap");
-          }
-        }
-        else if ((paramBundle.get(str) instanceof Bitmap))
-        {
-          aqt.d("Invalid asset type. Bitmap should be returned only for image type");
-        }
-        else
-        {
-          localJSONObject.put(str, String.valueOf(paramBundle.get(str)));
+        localObject4 = localObject2;
+        ain.d("Error getting record count" + localSQLiteException.getMessage());
+        if (localObject2 != null) {
+          ((Cursor)localObject2).close();
         }
       }
     }
-    return localJSONObject;
-  }
-  
-  private static void b(asq paramasq)
-  {
-    View.OnClickListener localOnClickListener = paramasq.A();
-    if (localOnClickListener != null) {
-      localOnClickListener.onClick(paramasq.b());
-    }
-  }
-  
-  public static boolean b(aqj paramaqj)
-  {
-    return (paramaqj != null) && (m) && (n != null) && (n.k != null);
-  }
-  
-  private static boolean b(asq paramasq, alo paramalo, CountDownLatch paramCountDownLatch)
-  {
-    Object localObject = paramasq.b();
-    if (localObject == null)
+    finally
     {
-      aqt.d("AdWebView is null");
-      return false;
-    }
-    ((View)localObject).setVisibility(4);
-    localObject = b.n;
-    if ((localObject == null) || (((List)localObject).isEmpty()))
-    {
-      aqt.d("No template ids present in mediation response");
-      return false;
-    }
-    a(paramasq, paramCountDownLatch);
-    paramCountDownLatch = c.h();
-    amk localamk = c.i();
-    if ((((List)localObject).contains("2")) && (paramCountDownLatch != null))
-    {
-      a(paramasq, a(paramCountDownLatch), b.m);
-      paramCountDownLatch = b.k;
-      paramalo = b.l;
-      if (paramalo == null) {
-        break label187;
+      if (localObject4 == null) {
+        break label160;
       }
-      paramasq.loadDataWithBaseURL(paramalo, paramCountDownLatch, "text/html", "UTF-8", null);
+      ((Cursor)localObject4).close();
     }
-    for (;;)
+    return 0;
+  }
+  
+  /* Error */
+  private void d()
+  {
+    // Byte code:
+    //   0: getstatic 46	tj:c	Ljava/lang/Object;
+    //   3: astore 4
+    //   5: aload 4
+    //   7: monitorenter
+    //   8: aload_0
+    //   9: invokespecial 95	tj:b	()Landroid/database/sqlite/SQLiteDatabase;
+    //   12: astore_1
+    //   13: aload_1
+    //   14: ifnonnull +7 -> 21
+    //   17: aload 4
+    //   19: monitorexit
+    //   20: return
+    //   21: aload_1
+    //   22: ldc 25
+    //   24: aconst_null
+    //   25: aconst_null
+    //   26: aconst_null
+    //   27: aconst_null
+    //   28: aconst_null
+    //   29: ldc -124
+    //   31: ldc -122
+    //   33: invokevirtual 138	android/database/sqlite/SQLiteDatabase:query	(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    //   36: astore_2
+    //   37: aload_2
+    //   38: ifnull +24 -> 62
+    //   41: aload_2
+    //   42: astore_1
+    //   43: aload_2
+    //   44: invokeinterface 107 1 0
+    //   49: ifeq +13 -> 62
+    //   52: aload_2
+    //   53: astore_1
+    //   54: aload_0
+    //   55: aload_2
+    //   56: invokestatic 140	tj:a	(Landroid/database/Cursor;)Lti;
+    //   59: invokevirtual 143	tj:a	(Lti;)V
+    //   62: aload_2
+    //   63: ifnull +9 -> 72
+    //   66: aload_2
+    //   67: invokeinterface 114 1 0
+    //   72: aload 4
+    //   74: monitorexit
+    //   75: return
+    //   76: astore_1
+    //   77: aload 4
+    //   79: monitorexit
+    //   80: aload_1
+    //   81: athrow
+    //   82: astore_3
+    //   83: aconst_null
+    //   84: astore_2
+    //   85: aload_2
+    //   86: astore_1
+    //   87: new 116	java/lang/StringBuilder
+    //   90: dup
+    //   91: ldc -111
+    //   93: invokespecial 120	java/lang/StringBuilder:<init>	(Ljava/lang/String;)V
+    //   96: aload_3
+    //   97: invokevirtual 123	android/database/sqlite/SQLiteException:getMessage	()Ljava/lang/String;
+    //   100: invokevirtual 127	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   103: invokevirtual 130	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   106: invokestatic 92	ain:d	(Ljava/lang/String;)V
+    //   109: aload_2
+    //   110: ifnull -38 -> 72
+    //   113: aload_2
+    //   114: invokeinterface 114 1 0
+    //   119: goto -47 -> 72
+    //   122: aload_1
+    //   123: ifnull +9 -> 132
+    //   126: aload_1
+    //   127: invokeinterface 114 1 0
+    //   132: aload_2
+    //   133: athrow
+    //   134: astore_2
+    //   135: goto -13 -> 122
+    //   138: astore_3
+    //   139: goto -54 -> 85
+    //   142: astore_2
+    //   143: aconst_null
+    //   144: astore_1
+    //   145: goto -23 -> 122
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	148	0	this	tj
+    //   12	42	1	localObject1	Object
+    //   76	5	1	localObject2	Object
+    //   86	59	1	localObject3	Object
+    //   36	97	2	localCursor	Cursor
+    //   134	1	2	localObject4	Object
+    //   142	1	2	localObject5	Object
+    //   82	15	3	localSQLiteException1	SQLiteException
+    //   138	1	3	localSQLiteException2	SQLiteException
+    //   3	75	4	localObject6	Object
+    // Exception table:
+    //   from	to	target	type
+    //   8	13	76	finally
+    //   17	20	76	finally
+    //   66	72	76	finally
+    //   72	75	76	finally
+    //   77	80	76	finally
+    //   113	119	76	finally
+    //   126	132	76	finally
+    //   132	134	76	finally
+    //   21	37	82	android/database/sqlite/SQLiteException
+    //   43	52	134	finally
+    //   54	62	134	finally
+    //   87	109	134	finally
+    //   43	52	138	android/database/sqlite/SQLiteException
+    //   54	62	138	android/database/sqlite/SQLiteException
+    //   21	37	142	finally
+  }
+  
+  public final void a(ti paramti)
+  {
+    if (paramti == null) {
+      return;
+    }
+    SQLiteDatabase localSQLiteDatabase;
+    synchronized (c)
     {
-      return true;
-      if ((((List)localObject).contains("1")) && (localamk != null))
-      {
-        a(paramasq, a(localamk), b.m);
-        break;
+      localSQLiteDatabase = b();
+      if (localSQLiteDatabase == null) {
+        return;
       }
-      aqt.d("No matching template id and mapper");
-      return false;
-      label187:
-      paramasq.loadData(paramCountDownLatch, "text/html", "UTF-8");
+    }
+    localSQLiteDatabase.delete("InAppPurchase", String.format(Locale.US, "%s = %d", new Object[] { "purchase_id", Long.valueOf(a) }), null);
+  }
+  
+  public final void b(ti paramti)
+  {
+    if (paramti == null) {
+      return;
+    }
+    SQLiteDatabase localSQLiteDatabase;
+    synchronized (c)
+    {
+      localSQLiteDatabase = b();
+      if (localSQLiteDatabase == null) {
+        return;
+      }
+    }
+    ContentValues localContentValues = new ContentValues();
+    localContentValues.put("product_id", c);
+    localContentValues.put("developer_payload", b);
+    localContentValues.put("record_time", Long.valueOf(SystemClock.elapsedRealtime()));
+    a = localSQLiteDatabase.insert("InAppPurchase", null, localContentValues);
+    if (c() > 20000L) {
+      d();
     }
   }
 }

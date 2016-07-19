@@ -1,245 +1,124 @@
-import android.content.Context;
-import android.net.Uri;
-import android.net.Uri.Builder;
-import android.os.Environment;
-import android.text.TextUtils;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
+import android.os.Binder;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
 
-@apl
-public final class ahb
+public abstract class ahb
+  extends Binder
+  implements aha
 {
-  BlockingQueue<ahi> a;
-  ExecutorService b;
-  LinkedHashMap<String, String> c = new LinkedHashMap();
-  Map<String, ahe> d = new HashMap();
-  String e;
-  final Context f;
-  final String g;
-  private AtomicBoolean h;
-  private File i;
-  
-  public ahb(Context paramContext, String paramString1, String paramString2, Map<String, String> paramMap)
+  public static aha a(IBinder paramIBinder)
   {
-    f = paramContext;
-    g = paramString1;
-    e = paramString2;
-    h = new AtomicBoolean(false);
-    h.set(((Boolean)agz.I.c()).booleanValue());
-    if (h.get())
-    {
-      paramContext = Environment.getExternalStorageDirectory();
-      if (paramContext != null) {
-        i = new File(paramContext, "sdk_csi_data.txt");
-      }
+    if (paramIBinder == null) {
+      return null;
     }
-    paramContext = paramMap.entrySet().iterator();
-    while (paramContext.hasNext())
-    {
-      paramString1 = (Map.Entry)paramContext.next();
-      c.put(paramString1.getKey(), paramString1.getValue());
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+    if ((localIInterface != null) && ((localIInterface instanceof aha))) {
+      return (aha)localIInterface;
     }
-    a = new ArrayBlockingQueue(30);
-    b = Executors.newSingleThreadExecutor();
-    b.execute(new Runnable()
+    return new ahc(paramIBinder);
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    int j = 0;
+    int i = 0;
+    boolean bool;
+    switch (paramInt1)
     {
-      public final void run()
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      paramParcel1 = a();
+      paramParcel2.writeNoException();
+      paramParcel2.writeString(paramParcel1);
+      return true;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      paramParcel1 = b();
+      paramParcel2.writeNoException();
+      paramParcel2.writeList(paramParcel1);
+      return true;
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      paramParcel1 = c();
+      paramParcel2.writeNoException();
+      paramParcel2.writeString(paramParcel1);
+      return true;
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      paramParcel1 = d();
+      paramParcel2.writeNoException();
+      if (paramParcel1 != null) {}
+      for (paramParcel1 = paramParcel1.asBinder();; paramParcel1 = null)
       {
-        ahb.a(ahb.this);
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
       }
-    });
-    d.put("action", ahe.b);
-    d.put("ad_format", ahe.b);
-    d.put("e", ahe.c);
-  }
-  
-  private static String a(String paramString1, Map<String, String> paramMap, String paramString2)
-  {
-    paramString1 = Uri.parse(paramString1).buildUpon();
-    paramMap = paramMap.entrySet().iterator();
-    while (paramMap.hasNext())
-    {
-      Map.Entry localEntry = (Map.Entry)paramMap.next();
-      paramString1.appendQueryParameter((String)localEntry.getKey(), (String)localEntry.getValue());
-    }
-    paramString1 = new StringBuilder(paramString1.build().toString());
-    paramString1.append("&it=").append(paramString2);
-    return paramString1.toString();
-  }
-  
-  private void a()
-  {
-    try
-    {
-      for (;;)
-      {
-        ahi localahi = (ahi)a.take();
-        String str = localahi.c();
-        if (!TextUtils.isEmpty(str)) {
-          a(a(c, localahi.d()), str);
-        }
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      paramParcel1 = e();
+      paramParcel2.writeNoException();
+      paramParcel2.writeString(paramParcel1);
+      return true;
+    case 7: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      paramParcel1 = f();
+      paramParcel2.writeNoException();
+      paramParcel2.writeString(paramParcel1);
+      return true;
+    case 8: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      g();
+      paramParcel2.writeNoException();
+      return true;
+    case 9: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      a(acq.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 10: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      b(acq.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 11: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      bool = h();
+      paramParcel2.writeNoException();
+      paramInt1 = i;
+      if (bool) {
+        paramInt1 = 1;
       }
-      return;
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 12: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+      bool = i();
+      paramParcel2.writeNoException();
+      paramInt1 = j;
+      if (bool) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
     }
-    catch (InterruptedException localInterruptedException)
+    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
+    paramParcel1 = j();
+    paramParcel2.writeNoException();
+    if (paramParcel1 != null)
     {
-      aqt.d("CsiReporter:reporter interrupted", localInterruptedException);
+      paramParcel2.writeInt(1);
+      paramParcel1.writeToParcel(paramParcel2, 1);
+      return true;
     }
-  }
-  
-  /* Error */
-  private static void a(File paramFile, String paramString)
-  {
-    // Byte code:
-    //   0: aload_0
-    //   1: ifnull +99 -> 100
-    //   4: new 244	java/io/FileOutputStream
-    //   7: dup
-    //   8: aload_0
-    //   9: iconst_1
-    //   10: invokespecial 247	java/io/FileOutputStream:<init>	(Ljava/io/File;Z)V
-    //   13: astore_2
-    //   14: aload_2
-    //   15: astore_0
-    //   16: aload_2
-    //   17: aload_1
-    //   18: invokevirtual 251	java/lang/String:getBytes	()[B
-    //   21: invokevirtual 255	java/io/FileOutputStream:write	([B)V
-    //   24: aload_2
-    //   25: astore_0
-    //   26: aload_2
-    //   27: bipush 10
-    //   29: invokevirtual 257	java/io/FileOutputStream:write	(I)V
-    //   32: aload_2
-    //   33: invokevirtual 260	java/io/FileOutputStream:close	()V
-    //   36: return
-    //   37: astore_0
-    //   38: ldc_w 262
-    //   41: aload_0
-    //   42: invokestatic 238	aqt:d	(Ljava/lang/String;Ljava/lang/Throwable;)V
-    //   45: return
-    //   46: astore_3
-    //   47: aconst_null
-    //   48: astore_1
-    //   49: aload_1
-    //   50: astore_0
-    //   51: ldc_w 264
-    //   54: aload_3
-    //   55: invokestatic 238	aqt:d	(Ljava/lang/String;Ljava/lang/Throwable;)V
-    //   58: aload_1
-    //   59: ifnull -23 -> 36
-    //   62: aload_1
-    //   63: invokevirtual 260	java/io/FileOutputStream:close	()V
-    //   66: return
-    //   67: astore_0
-    //   68: ldc_w 262
-    //   71: aload_0
-    //   72: invokestatic 238	aqt:d	(Ljava/lang/String;Ljava/lang/Throwable;)V
-    //   75: return
-    //   76: astore_1
-    //   77: aconst_null
-    //   78: astore_0
-    //   79: aload_0
-    //   80: ifnull +7 -> 87
-    //   83: aload_0
-    //   84: invokevirtual 260	java/io/FileOutputStream:close	()V
-    //   87: aload_1
-    //   88: athrow
-    //   89: astore_0
-    //   90: ldc_w 262
-    //   93: aload_0
-    //   94: invokestatic 238	aqt:d	(Ljava/lang/String;Ljava/lang/Throwable;)V
-    //   97: goto -10 -> 87
-    //   100: ldc_w 266
-    //   103: invokestatic 268	aqt:d	(Ljava/lang/String;)V
-    //   106: return
-    //   107: astore_1
-    //   108: goto -29 -> 79
-    //   111: astore_3
-    //   112: aload_2
-    //   113: astore_1
-    //   114: goto -65 -> 49
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	117	0	paramFile	File
-    //   0	117	1	paramString	String
-    //   13	100	2	localFileOutputStream	java.io.FileOutputStream
-    //   46	9	3	localIOException1	java.io.IOException
-    //   111	1	3	localIOException2	java.io.IOException
-    // Exception table:
-    //   from	to	target	type
-    //   32	36	37	java/io/IOException
-    //   4	14	46	java/io/IOException
-    //   62	66	67	java/io/IOException
-    //   4	14	76	finally
-    //   83	87	89	java/io/IOException
-    //   16	24	107	finally
-    //   26	32	107	finally
-    //   51	58	107	finally
-    //   16	24	111	java/io/IOException
-    //   26	32	111	java/io/IOException
-  }
-  
-  private void a(Map<String, String> paramMap, String paramString)
-  {
-    paramMap = a(e, paramMap, paramString);
-    if (h.get())
-    {
-      a(i, paramMap);
-      return;
-    }
-    tp.e();
-    aqz.a(f, g, paramMap);
-  }
-  
-  public final ahe a(String paramString)
-  {
-    paramString = (ahe)d.get(paramString);
-    if (paramString != null) {
-      return paramString;
-    }
-    return ahe.a;
-  }
-  
-  final Map<String, String> a(Map<String, String> paramMap1, Map<String, String> paramMap2)
-  {
-    paramMap1 = new LinkedHashMap(paramMap1);
-    if (paramMap2 == null) {
-      return paramMap1;
-    }
-    paramMap2 = paramMap2.entrySet().iterator();
-    while (paramMap2.hasNext())
-    {
-      Object localObject = (Map.Entry)paramMap2.next();
-      String str1 = (String)((Map.Entry)localObject).getKey();
-      localObject = (String)((Map.Entry)localObject).getValue();
-      String str2 = (String)paramMap1.get(str1);
-      paramMap1.put(str1, a(str1).a(str2, (String)localObject));
-    }
-    return paramMap1;
-  }
-  
-  public final void a(List<String> paramList)
-  {
-    if ((paramList != null) && (!paramList.isEmpty())) {
-      c.put("e", TextUtils.join(",", paramList));
-    }
-  }
-  
-  public final boolean a(ahi paramahi)
-  {
-    return a.offer(paramahi);
+    paramParcel2.writeInt(0);
+    return true;
   }
 }
 

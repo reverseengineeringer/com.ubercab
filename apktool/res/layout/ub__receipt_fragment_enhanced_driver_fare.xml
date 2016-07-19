@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="@dimen/ui__avatar_medium"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/ub__receipt_octane_extend_driver_photo_bounds" android:background="@color/ub__uber_white_10" android:layout_width="fill_parent" android:layout_height="@dimen/ub__action_bar_height" android:layout_marginTop="@dimen/ub__padding_small" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.CircleImageView android:id="@id/ub__receipt_octane_imageview_driver_photo" android:paddingBottom="@dimen/ub__padding_small" android:layout_width="@dimen/ub__action_bar_height" android:layout_height="@dimen/ub__action_bar_height" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:src="@drawable/ub__account_picture_placeholder" uber:circleImageBorderColor="@color/ub__uber_white_10" uber:circleImageBorderWidth="@dimen/ub__octane_receipt_circle_driver_photo_padding" />
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_marginTop="@dimen/ub__padding_small" android:layout_weight="1.0">
+            <com.ubercab.ui.TextView android:id="@id/ub__receipt_octane_textview_driver_name" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.DriverName" />
+            <com.ubercab.ui.TextView android:id="@id/ub__receipt_octane_textview_driver_vehicle" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.SubTitle" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/ub__receipt_octane_fare_layout" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <View android:layout_gravity="center_vertical" android:id="@id/ub__receipt_octane_vertical_fare_divider" android:background="@color/ub__uber_white_80" android:layout_width="@dimen/ub__octane_receipt_divider" android:layout_height="fill_parent" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" />
+            <com.ubercab.ui.TextView android:layout_gravity="center" android:id="@id/ub__receipt_octane_textview_fare" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__padding_small" android:layout_marginRight="@dimen/ui__spacing_unit_2x" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.DriverFare" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

@@ -1,32 +1,36 @@
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-@apl
+@aih
 public final class ahh
 {
-  private final Map<String, ahf> a;
-  private final ahi b;
+  private final boolean a;
+  private final boolean b;
+  private final boolean c;
+  private final boolean d;
+  private final boolean e;
   
-  public ahh(ahi paramahi)
+  private ahh(ahi paramahi)
   {
-    b = paramahi;
-    a = new HashMap();
+    a = ahi.a(paramahi);
+    b = ahi.b(paramahi);
+    c = ahi.c(paramahi);
+    d = ahi.d(paramahi);
+    e = ahi.e(paramahi);
   }
   
-  public final ahi a()
+  public final JSONObject a()
   {
-    return b;
-  }
-  
-  public final void a(String paramString, ahf paramahf)
-  {
-    a.put(paramString, paramahf);
-  }
-  
-  public final void a(String paramString1, String paramString2, long paramLong)
-  {
-    ahd.a(b, (ahf)a.get(paramString2), paramLong, new String[] { paramString1 });
-    a.put(paramString1, ahd.a(b, paramLong));
+    try
+    {
+      JSONObject localJSONObject = new JSONObject().put("sms", a).put("tel", b).put("calendar", c).put("storePicture", d).put("inlineVideo", e);
+      return localJSONObject;
+    }
+    catch (JSONException localJSONException)
+    {
+      ain.b("Error occured while obtaining the MRAID capabilities.", localJSONException);
+    }
+    return null;
   }
 }
 

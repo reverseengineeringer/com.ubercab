@@ -1,58 +1,55 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.Cart;
-import com.google.android.gms.wallet.FullWalletRequest;
+import java.util.HashSet;
+import java.util.Set;
 
 public final class bok
-  implements Parcelable.Creator<FullWalletRequest>
 {
-  private static FullWalletRequest a(Parcel paramParcel)
+  static Set<Integer> a()
   {
-    Cart localCart = null;
-    int j = zm.b(paramParcel);
-    String str1 = null;
-    int i = 0;
-    String str2 = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str1 = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        str2 = zm.n(paramParcel, k);
-        break;
-      case 4: 
-        localCart = (Cart)zm.a(paramParcel, k, Cart.CREATOR);
-      }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new FullWalletRequest(i, str1, str2, localCart);
-  }
-  
-  public static void a(FullWalletRequest paramFullWalletRequest, Parcel paramParcel, int paramInt)
-  {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramFullWalletRequest.b());
-    zo.a(paramParcel, 2, a, false);
-    zo.a(paramParcel, 3, b, false);
-    zo.a(paramParcel, 4, c, paramInt, false);
-    zo.a(paramParcel, i);
-  }
-  
-  private static FullWalletRequest[] a(int paramInt)
-  {
-    return new FullWalletRequest[paramInt];
+    HashSet localHashSet = new HashSet(57);
+    localHashSet.add(Integer.valueOf(7));
+    localHashSet.add(Integer.valueOf(27));
+    localHashSet.add(Integer.valueOf(30));
+    localHashSet.add(Integer.valueOf(31));
+    localHashSet.add(Integer.valueOf(34));
+    localHashSet.add(Integer.valueOf(36));
+    localHashSet.add(Integer.valueOf(43));
+    localHashSet.add(Integer.valueOf(44));
+    localHashSet.add(Integer.valueOf(49));
+    localHashSet.add(Integer.valueOf(54));
+    localHashSet.add(Integer.valueOf(55));
+    localHashSet.add(Integer.valueOf(58));
+    localHashSet.add(Integer.valueOf(61));
+    localHashSet.add(Integer.valueOf(62));
+    localHashSet.add(Integer.valueOf(63));
+    localHashSet.add(Integer.valueOf(66));
+    localHashSet.add(Integer.valueOf(81));
+    localHashSet.add(Integer.valueOf(84));
+    localHashSet.add(Integer.valueOf(90));
+    localHashSet.add(Integer.valueOf(91));
+    localHashSet.add(Integer.valueOf(94));
+    localHashSet.add(Integer.valueOf(95));
+    localHashSet.add(Integer.valueOf(255));
+    localHashSet.add(Integer.valueOf(350));
+    localHashSet.add(Integer.valueOf(351));
+    localHashSet.add(Integer.valueOf(352));
+    localHashSet.add(Integer.valueOf(358));
+    localHashSet.add(Integer.valueOf(359));
+    localHashSet.add(Integer.valueOf(372));
+    localHashSet.add(Integer.valueOf(373));
+    localHashSet.add(Integer.valueOf(380));
+    localHashSet.add(Integer.valueOf(381));
+    localHashSet.add(Integer.valueOf(385));
+    localHashSet.add(Integer.valueOf(505));
+    localHashSet.add(Integer.valueOf(506));
+    localHashSet.add(Integer.valueOf(595));
+    localHashSet.add(Integer.valueOf(675));
+    localHashSet.add(Integer.valueOf(676));
+    localHashSet.add(Integer.valueOf(679));
+    localHashSet.add(Integer.valueOf(855));
+    localHashSet.add(Integer.valueOf(971));
+    localHashSet.add(Integer.valueOf(972));
+    localHashSet.add(Integer.valueOf(995));
+    return localHashSet;
   }
 }
 

@@ -2,7 +2,7 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import iv;
+import ni;
 
 public class ActivityChooserView$InnerLayout
   extends LinearLayoutCompat
@@ -12,7 +12,7 @@ public class ActivityChooserView$InnerLayout
   public ActivityChooserView$InnerLayout(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    paramContext = iv.a(paramContext, paramAttributeSet, a);
+    paramContext = ni.a(paramContext, paramAttributeSet, a);
     setBackgroundDrawable(paramContext.a(0));
     paramContext.a();
   }

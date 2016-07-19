@@ -1,10 +1,11 @@
+import android.os.IInterface;
+
 public abstract interface aup
+  extends IInterface
 {
-  public abstract void a(atg<?> paramatg, atz<?> paramatz);
+  public abstract void a();
   
-  public abstract void a(atg<?> paramatg, atz<?> paramatz, Runnable paramRunnable);
-  
-  public abstract void a(atg<?> paramatg, awg paramawg);
+  public abstract void a(awx paramawx);
 }
 
 /* Location:

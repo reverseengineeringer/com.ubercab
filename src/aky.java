@@ -1,7 +1,22 @@
-final class aky
+import android.util.Base64;
+
+public final class aky
 {
-  static int a = 60000;
-  static int b = 10000;
+  public static String a(byte[] paramArrayOfByte)
+  {
+    if (paramArrayOfByte == null) {
+      return null;
+    }
+    return Base64.encodeToString(paramArrayOfByte, 0);
+  }
+  
+  public static String b(byte[] paramArrayOfByte)
+  {
+    if (paramArrayOfByte == null) {
+      return null;
+    }
+    return Base64.encodeToString(paramArrayOfByte, 10);
+  }
 }
 
 /* Location:

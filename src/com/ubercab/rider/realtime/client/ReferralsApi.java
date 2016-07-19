@@ -2,16 +2,16 @@ package com.ubercab.rider.realtime.client;
 
 import com.ubercab.rider.realtime.response.referrals.PartnerCampaignSummary;
 import com.ubercab.rider.realtime.response.referrals.ReferralData;
-import kld;
+import odr;
 import retrofit.http.GET;
 
 public abstract interface ReferralsApi
 {
   @GET("/rt/referrals/campaign")
-  public abstract kld<PartnerCampaignSummary> getCampaign();
+  public abstract odr<PartnerCampaignSummary> getCampaign();
   
   @GET("/rt/referrals/get-referral-info")
-  public abstract kld<ReferralData> getReferralInfo();
+  public abstract odr<ReferralData> getReferralInfo();
 }
 
 /* Location:

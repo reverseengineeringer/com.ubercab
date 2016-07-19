@@ -1,6 +1,20 @@
 public final class bmx
-  implements awj
-{}
+{
+  public static <T> T a(T paramT)
+  {
+    if (paramT == null) {
+      throw new NullPointerException();
+    }
+    return paramT;
+  }
+  
+  public static void a(boolean paramBoolean)
+  {
+    if (!paramBoolean) {
+      throw new IllegalArgumentException();
+    }
+  }
+}
 
 /* Location:
  * Qualified Name:     bmx

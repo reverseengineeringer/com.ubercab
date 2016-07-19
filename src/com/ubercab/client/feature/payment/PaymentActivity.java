@@ -8,17 +8,20 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.google.android.gms.wallet.MaskedWallet;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.ubercab.client.core.app.RiderActivity;
-import com.ubercab.client.core.model.Ping;
 import com.ubercab.client.core.model.RiderTripExpenseInfo;
 import com.ubercab.client.core.vendor.google.GoogleWalletActivity;
+import com.ubercab.client.feature.bounce.model.BouncePaymentOptions;
 import com.ubercab.client.feature.payment.expense.ExpenseInfoActivity;
+import com.ubercab.client.feature.profiles.ProfilesOnBoardingDialogFragment;
+import com.ubercab.client.feature.profiles.expensecode.ExpenseCodeConfigureActivity;
+import com.ubercab.client.feature.profiles.onboarding.OnBoardingIntroActivity;
 import com.ubercab.client.feature.promo.PromoFragment;
 import com.ubercab.client.feature.trip.TripActivity;
 import com.ubercab.payment.internal.model.PaymentEditOptions;
@@ -27,112 +30,143 @@ import com.ubercab.payment.model.PaymentAddOptions;
 import com.ubercab.payment.model.PaymentChargeOptions;
 import com.ubercab.payment.model.PaymentUserInfo;
 import com.ubercab.rider.realtime.model.City;
+import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.Profile;
-import com.ubercab.rider.realtime.model.Trip;
 import com.ubercab.rider.realtime.model.TripExpenseInfo;
 import com.ubercab.rider.realtime.model.UnpaidBill;
-import dta;
-import dtf;
-import dty;
-import due;
-import dux;
-import eav;
-import ebj;
-import ehl;
-import eja;
-import ejn;
-import eld;
-import eqg;
-import eqy;
-import erb;
-import eri;
-import etn;
-import fzm;
-import fzn;
-import gaq;
-import gar;
-import gas;
-import gat;
-import gau;
-import gav;
-import gbg;
-import gci;
-import gcl;
-import gco;
-import gcq;
-import gcr;
-import gcs;
-import gct;
-import gcu;
-import gcv;
-import gcx;
-import gif;
-import iae;
-import ife;
-import imp;
-import imr;
-import ipj;
+import com.ubercab.rider.realtime.request.body.ExtraPaymentData;
+import com.ubercab.rider.realtime.request.body.payment.PaymentBundle;
+import com.ubercab.rider.realtime.request.body.payment.PaymentTokenData;
+import duw;
+import dyn;
+import dys;
+import dzn;
+import eaj;
+import ehn;
+import eib;
+import esu;
+import ezd;
+import ezg;
+import ezm;
+import fbw;
+import fbx;
+import fio;
+import fpq;
+import fpx;
+import gud;
+import gue;
+import gvn;
+import gvo;
+import gvp;
+import gvq;
+import gvr;
+import gvs;
+import gwf;
+import hcb;
+import hce;
+import hch;
+import hcj;
+import hck;
+import hcl;
+import hcm;
+import hcn;
+import hco;
+import hcq;
+import hjm;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import jax;
-import jru;
-import jry;
-import jsg;
-import jsj;
-import kld;
-import klo;
-import kls;
-import p;
-import r;
+import kcj;
+import kco;
+import khv;
+import kia;
+import ldk;
+import ldm;
+import lgo;
+import lwp;
+import mwx;
+import mxd;
+import mxm;
+import mxp;
+import odr;
+import oed;
+import oeh;
+import z;
 
 public class PaymentActivity
-  extends RiderActivity<gat>
+  extends RiderActivity<gvq>
 {
-  private MaskedWallet A;
-  private Profile B;
-  private klo C;
-  private klo D;
-  private klo E;
-  private klo F;
-  private klo G;
-  public ckc g;
-  public jsg h;
-  public jsj i;
-  public ife j;
-  public dta k;
-  public jru l;
-  public imr m;
-  public PayPalConfiguration n;
+  private String A;
+  private RiderTripExpenseInfo B = RiderTripExpenseInfo.create();
+  private String C;
+  private boolean D;
+  private boolean E;
+  private ArrayList<UnpaidBill> F;
+  private MaskedWallet G;
+  private Profile H;
+  private oed I;
+  private oed J;
+  private oed K;
+  private oed L;
+  private oed M;
+  public ckt g;
+  public fbx h;
+  public khv i;
+  public fio j;
+  public kcj k;
+  public mxm l;
+  public mxp m;
+  public kia n;
+  public dyn o;
+  public mwx p;
+  public ldm q;
+  public PayPalConfiguration r;
   @Deprecated
-  public eld o;
-  @Deprecated
-  public ehl p;
-  public gif q;
-  public jry r;
-  public dty s;
-  private String t;
-  private String u;
-  private RiderTripExpenseInfo v = RiderTripExpenseInfo.create();
-  private String w;
-  private boolean x;
-  private boolean y;
-  private ArrayList<UnpaidBill> z;
+  public esu s;
+  public hjm t;
+  public mxd u;
+  public duw v;
+  public dzn w;
+  private String x;
+  private BouncePaymentOptions y;
+  private ArrayList<String> z;
+  
+  private void G()
+  {
+    Object localObject = getIntent().getStringExtra("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID");
+    if (TextUtils.isEmpty((CharSequence)localObject)) {}
+    for (localObject = null;; localObject = t.a((String)localObject))
+    {
+      H = ((Profile)localObject);
+      return;
+    }
+  }
+  
+  private void H()
+  {
+    PaymentUserInfo localPaymentUserInfo = PaymentUserInfo.create();
+    Object localObject = l.c();
+    if (localObject != null) {
+      localPaymentUserInfo.setEmail(((Client)localObject).getEmail()).setFirstName(((Client)localObject).getFirstName()).setLastName(((Client)localObject).getLastName()).setMobile(((Client)localObject).getMobileDigits()).setMobileCountryIso2(((Client)localObject).getMobileCountryIso2());
+    }
+    localObject = PaymentAddOptions.create().setCardScanFirst(true);
+    startActivityForResult(q.a("braintree").a(localPaymentUserInfo, (PaymentAddOptions)localObject), 5008);
+  }
   
   public static Intent a(Context paramContext)
   {
-    return new gau(paramContext, "com.ubercab.ACTION_AUTHORIZE_PAYMENT").a(null).a().putExtra("is_verify_mode", true);
+    return new gvr(paramContext, "com.ubercab.ACTION_AUTHORIZE_PAYMENT").a(null).a().putExtra("is_verify_mode", true);
   }
   
   public static Intent a(Context paramContext, com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile, Profile paramProfile)
   {
     Object localObject = null;
-    gau localgau = new gau(paramContext, "com.ubercab.CHANGE_DEFAULT_PAYMENT");
+    gvr localgvr = new gvr(paramContext, "com.ubercab.CHANGE_DEFAULT_PAYMENT");
     if (paramPaymentProfile != null) {}
     for (paramContext = paramPaymentProfile.getUuid();; paramContext = null)
     {
-      paramPaymentProfile = localgau.a(paramContext);
+      paramPaymentProfile = localgvr.a(paramContext);
       paramContext = (Context)localObject;
       if (paramProfile != null) {
         paramContext = paramProfile.getUuid();
@@ -141,44 +175,53 @@ public class PaymentActivity
     }
   }
   
-  public static Intent a(Context paramContext, TripExpenseInfo paramTripExpenseInfo, etn parametn, com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile, ArrayList<UnpaidBill> paramArrayList)
+  public static Intent a(Context paramContext, com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile, ArrayList<String> paramArrayList)
   {
-    iae.a(paramTripExpenseInfo);
-    iae.a(paramArrayList);
-    paramTripExpenseInfo = new gau(paramContext, "com.ubercab.ACTION_ARREARS").a(paramTripExpenseInfo).a(parametn);
+    gvr localgvr = new gvr(paramContext, "com.ubercab.CHANGE_DEFAULT_PAYMENT");
     if (paramPaymentProfile != null) {}
     for (paramContext = paramPaymentProfile.getUuid();; paramContext = null) {
-      return paramTripExpenseInfo.a(paramContext).a(paramArrayList).a();
+      return localgvr.a(paramContext).b(null).b(paramArrayList).a();
     }
   }
   
-  public static Intent a(Context paramContext, TripExpenseInfo paramTripExpenseInfo, etn parametn, com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile, boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3)
+  public static Intent a(Context paramContext, TripExpenseInfo paramTripExpenseInfo, fbw paramfbw, com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile, List<UnpaidBill> paramList)
   {
-    iae.a(paramTripExpenseInfo);
+    kco.a(paramTripExpenseInfo);
+    kco.a(paramList);
+    paramTripExpenseInfo = new gvr(paramContext, "com.ubercab.ACTION_ARREARS").a(paramTripExpenseInfo).a(paramfbw);
+    if (paramPaymentProfile != null) {}
+    for (paramContext = paramPaymentProfile.getUuid();; paramContext = null) {
+      return paramTripExpenseInfo.a(paramContext).a(new ArrayList(paramList)).a();
+    }
+  }
+  
+  public static Intent a(Context paramContext, TripExpenseInfo paramTripExpenseInfo, fbw paramfbw, com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile, boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3, BouncePaymentOptions paramBouncePaymentOptions)
+  {
+    kco.a(paramTripExpenseInfo);
     if (paramPaymentProfile != null) {}
     for (paramPaymentProfile = paramPaymentProfile.getUuid();; paramPaymentProfile = null) {
-      return new gau(paramContext, "com.ubercab.SELECT_PAYMENT").a(paramTripExpenseInfo).a(parametn).a(paramPaymentProfile).b(paramBoolean1).c(paramBoolean2).a(paramBoolean3).a();
+      return new gvr(paramContext, "com.ubercab.SELECT_PAYMENT").a(paramTripExpenseInfo).a(paramfbw).a(paramPaymentProfile).b(paramBoolean1).c(paramBoolean2).a(paramBoolean3).a(paramBouncePaymentOptions).a();
     }
   }
   
-  public static Intent a(Context paramContext, TripExpenseInfo paramTripExpenseInfo, boolean paramBoolean)
+  public static Intent a(Context paramContext, TripExpenseInfo paramTripExpenseInfo, boolean paramBoolean, BouncePaymentOptions paramBouncePaymentOptions)
   {
-    iae.a(paramTripExpenseInfo);
-    return new gau(paramContext, "com.ubercab.CHANGE_PAYMENT").a(paramTripExpenseInfo).b(paramBoolean).a();
+    kco.a(paramTripExpenseInfo);
+    return new gvr(paramContext, "com.ubercab.CHANGE_PAYMENT").a(paramTripExpenseInfo).b(paramBoolean).a(paramBouncePaymentOptions).a();
   }
   
-  public static Intent a(Context paramContext, etn parametn, boolean paramBoolean)
+  public static Intent a(Context paramContext, fbw paramfbw, boolean paramBoolean)
   {
-    return new gau(paramContext, "com.ubercab.MANAGE_PAYMENT").a(parametn).a(null).b(paramBoolean).a(null).a(false).a();
+    return new gvr(paramContext, "com.ubercab.MANAGE_PAYMENT").a(paramfbw).a(null).b(paramBoolean).a(null).a(false).a();
   }
   
   private void a(Intent paramIntent)
   {
-    a(v);
+    a(B);
     if (paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID"))
     {
       PaymentFragment localPaymentFragment = (PaymentFragment)a(PaymentFragment.class);
-      com.ubercab.rider.realtime.model.Client localClient = h.c();
+      Client localClient = l.c();
       if ((localPaymentFragment != null) && (localClient != null)) {
         c(localClient.findPaymentProfileByUuid(paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID")));
       }
@@ -189,50 +232,30 @@ public class PaymentActivity
   
   private void a(RiderTripExpenseInfo paramRiderTripExpenseInfo)
   {
-    C = r.a(paramRiderTripExpenseInfo.isExpenseTrip(), paramRiderTripExpenseInfo.getCode(), paramRiderTripExpenseInfo.getMemo()).a(kls.a()).b(new gaq(this, (byte)0));
-  }
-  
-  private void a(com.ubercab.rider.realtime.model.Client paramClient, Trip paramTrip, boolean paramBoolean1, String paramString, boolean paramBoolean2)
-  {
-    w();
-    if (!paramBoolean1)
-    {
-      g.a(p.hT);
-      if (paramBoolean2) {
-        eqg.a(this, p.ha, 5007, getString(2131166621), paramString, getString(2131166126));
-      }
-      while (TextUtils.isEmpty(paramString)) {
-        return;
-      }
-      a_(paramString);
-      return;
-    }
-    g.a(p.hU);
-    if ((paramTrip == null) || (paramClient == null) || (TextUtils.isEmpty(paramClient.getUuid())))
-    {
-      setResult(0);
-      finish();
-      return;
-    }
-    b(paramClient.findPaymentProfileByUuid(paramTrip.getPaymentProfileUUID()));
+    I = u.a(paramRiderTripExpenseInfo.isExpenseTrip(), paramRiderTripExpenseInfo.getCode(), paramRiderTripExpenseInfo.getMemo()).a(oeh.a()).b(new gvn(this, (byte)0));
   }
   
   private void a(com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile)
   {
-    if (t.equals("com.ubercab.ACTION_ARREARS")) {
+    if (x.equals("com.ubercab.ACTION_ARREARS")) {
       d(paramPaymentProfile);
     }
   }
   
-  private void a(gat paramgat)
+  private void a(gvq paramgvq)
   {
-    paramgat.a(this);
+    paramgvq.a(this);
   }
   
-  private void a(String paramString1, String paramString2)
+  private void a(String paramString1, String paramString2, ExtraPaymentData paramExtraPaymentData)
   {
-    b(getString(2131165291), null);
-    D = l.c(paramString2, paramString1).a(kls.a()).b(new gas(this, (byte)0));
+    b(getString(2131165295), null);
+    if (n.a(eaj.o, true))
+    {
+      J = p.a(paramString2, paramString1, paramExtraPaymentData).a(oeh.a()).b(new gvp(this, (byte)0));
+      return;
+    }
+    J = p.c(paramString2, paramString1).a(oeh.a()).b(new gvp(this, (byte)0));
   }
   
   private void a(String paramString, boolean paramBoolean)
@@ -242,12 +265,12 @@ public class PaymentActivity
   
   public static Intent b(Context paramContext)
   {
-    return new gau(paramContext, "com.ubercab.SCAN_CARD").a(null).a();
+    return new gvr(paramContext, "com.ubercab.SCAN_CARD").a(null).a();
   }
   
-  private gat b(ebj paramebj)
+  private gvq b(eib parameib)
   {
-    return fzm.a().a(new eav(this)).a(new gbg()).a(paramebj).a();
+    return gud.a().a(new ehn(this)).a(new gwf()).a(parameib).a();
   }
   
   private void b(Intent paramIntent)
@@ -258,7 +281,7 @@ public class PaymentActivity
   
   private void b(com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile)
   {
-    if (t.equals("com.ubercab.ACTION_ARREARS"))
+    if (x.equals("com.ubercab.ACTION_ARREARS"))
     {
       a(paramPaymentProfile);
       return;
@@ -266,22 +289,22 @@ public class PaymentActivity
     if (paramPaymentProfile == null) {}
     for (paramPaymentProfile = null;; paramPaymentProfile = paramPaymentProfile.getUuid())
     {
-      u = paramPaymentProfile;
-      b(g());
+      A = paramPaymentProfile;
+      b(h());
       return;
     }
   }
   
   private void c(Intent paramIntent)
   {
-    if ((u != null) && (!paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID"))) {
-      paramIntent.putExtra("com.ubercab.PAYMENT_PROFILE_UUID", u);
+    if ((A != null) && (!paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID"))) {
+      paramIntent.putExtra("com.ubercab.PAYMENT_PROFILE_UUID", A);
     }
-    paramIntent.putExtra("com.ubercab.EXPENSE_INFO", RiderTripExpenseInfo.create(v));
-    paramIntent.putExtra("com.ubercab.USE_CREDITS", x);
-    paramIntent.putExtra("com.ubercab.USE_POINTS", y);
-    if ((q.p()) && (B != null)) {
-      paramIntent.putExtra("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID", B.getUuid());
+    paramIntent.putExtra("com.ubercab.EXPENSE_INFO", RiderTripExpenseInfo.create(B));
+    paramIntent.putExtra("com.ubercab.USE_CREDITS", D);
+    paramIntent.putExtra("com.ubercab.USE_POINTS", E);
+    if ((t.o()) && (H != null)) {
+      paramIntent.putExtra("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID", H.getUuid());
     }
   }
   
@@ -292,94 +315,112 @@ public class PaymentActivity
     do
     {
       return;
-      b(getString(2131165342), null);
-      str = erb.a(paramPaymentProfile, this);
-      paramPaymentProfile = paramPaymentProfile.getUuid();
-    } while (paramPaymentProfile == null);
-    F = r.a(paramPaymentProfile, false, str).a(kls.a()).b(new gav(this, (byte)0));
+      if ((n.c(eaj.bq)) && ("android_pay".equals(paramPaymentProfile.getTokenType())))
+      {
+        j();
+        return;
+      }
+      b(getString(2131165387), null);
+      str = paramPaymentProfile.getUuid();
+    } while (str == null);
+    paramPaymentProfile = ezg.a(paramPaymentProfile, this);
+    L = u.a(str, false, paramPaymentProfile).a(oeh.a()).b(new gvs(this, (byte)0));
   }
   
   private void d(com.ubercab.rider.realtime.model.PaymentProfile paramPaymentProfile)
   {
-    if ((z.isEmpty()) || (paramPaymentProfile == null)) {
+    if ((F.isEmpty()) || (paramPaymentProfile == null)) {
       return;
     }
-    Object localObject = (UnpaidBill)z.get(0);
-    String str1 = ((UnpaidBill)localObject).getUuid();
-    String str2 = paramPaymentProfile.getTokenType();
-    imp localimp = m.a(str2);
-    localObject = PaymentChargeOptions.create(Math.abs(eqy.a(((UnpaidBill)localObject).getAmount())));
-    if ((str2 != null) && (str2.equals("zaakpay")))
+    Object localObject2 = (UnpaidBill)F.get(0);
+    String str = ((UnpaidBill)localObject2).getUuid();
+    Object localObject1 = paramPaymentProfile.getTokenType();
+    ldk localldk = q.a((String)localObject1);
+    localObject2 = PaymentChargeOptions.create(Math.abs(ezd.a(((UnpaidBill)localObject2).getAmount())));
+    if ((localObject1 != null) && (((String)localObject1).equals("zaakpay")))
     {
-      startActivityForResult(new jax(this).a(erb.a(paramPaymentProfile), str1, (PaymentChargeOptions)localObject), 5002);
+      startActivityForResult(new lwp(this).a(ezg.a(paramPaymentProfile), str, (PaymentChargeOptions)localObject2), 5002);
       return;
     }
-    if ((localimp != null) && (localimp.t()))
+    if ((localldk != null) && (localldk.w()))
     {
-      startActivityForResult(localimp.a(erb.a(paramPaymentProfile), str1, (PaymentChargeOptions)localObject), 5002);
+      startActivityForResult(localldk.a(ezg.a(paramPaymentProfile), str, (PaymentChargeOptions)localObject2), 5002);
       return;
     }
-    a(paramPaymentProfile.getUuid(), str1);
+    if ((n.a(eaj.o, true)) && (localldk != null) && ("android_pay".equals(localObject1)) && (h.f()))
+    {
+      localObject1 = f();
+      a(paramPaymentProfile.getUuid(), str, (ExtraPaymentData)localObject1);
+      return;
+    }
+    a(paramPaymentProfile.getUuid(), str, null);
   }
   
-  private void f()
+  private ExtraPaymentData f()
   {
-    startActivityForResult(new Intent(this, AddPaymentActivity.class), 5001);
+    PaymentBundle localPaymentBundle = PaymentBundle.create();
+    if (h.e() == null) {}
+    for (String str = "";; str = h.e())
+    {
+      localPaymentBundle.setToken(PaymentTokenData.create().setData(str));
+      localPaymentBundle.setClient(fbx.a(h.d()));
+      h.a();
+      return ExtraPaymentData.create().setPaymentType("android_pay").setPaymentBundle(localPaymentBundle);
+    }
   }
   
-  private Intent g()
+  private void g()
+  {
+    if (z != null) {}
+    for (Intent localIntent = AddPaymentActivity.a(this, ThirdPartyPaymentVisibilityConfig.z().a(z));; localIntent = new Intent(this, AddPaymentActivity.class))
+    {
+      startActivityForResult(localIntent, 5001);
+      return;
+    }
+  }
+  
+  private Intent h()
   {
     Intent localIntent = new Intent();
     c(localIntent);
     return localIntent;
   }
   
-  private void h()
-  {
-    if (v.isExpenseTrip()) {}
-    for (String str = getString(2131166638);; str = getString(2131166637))
-    {
-      b(str, null);
-      a(v);
-      return;
-    }
-  }
-  
   private void i()
   {
-    Intent localIntent = new Intent(this, PayPalService.class);
-    localIntent.putExtra("com.paypal.android.sdk.paypalConfiguration", n);
-    startService(localIntent);
+    if (B.isExpenseTrip()) {}
+    for (String str = getString(2131166893);; str = getString(2131166892))
+    {
+      b(str, null);
+      a(B);
+      return;
+    }
   }
   
   private void j()
   {
-    stopService(new Intent(this, PayPalService.class));
+    b_(getString(2131166353));
   }
   
   private void k()
   {
-    if (h.c() == null) {}
-    while (a(PaymentFragment.class) != null) {
-      return;
-    }
-    a(2131624935, PaymentFragment.a(z, u), true);
+    Intent localIntent = new Intent(this, PayPalService.class);
+    localIntent.putExtra("com.paypal.android.sdk.paypalConfiguration", r);
+    startService(localIntent);
   }
   
   private void l()
   {
-    if (a(PaymentFragment.class) != null) {
-      return;
-    }
-    a(2131624935, PaymentFragment.b(), true);
+    stopService(new Intent(this, PayPalService.class));
   }
   
   private void m()
   {
-    if (a(PaymentFragment.class) != null) {
+    if (l.c() == null) {}
+    while (a(PaymentFragment.class) != null) {
       return;
     }
-    a(2131624935, PaymentFragment.a(u), true);
+    a(2131625415, PaymentFragment.a(F, A), true);
   }
   
   private void n()
@@ -387,7 +428,7 @@ public class PaymentActivity
     if (a(PaymentFragment.class) != null) {
       return;
     }
-    a(2131624935, PaymentFragment.a(v), true);
+    a(2131625415, PaymentFragment.f(), true);
   }
   
   private void o()
@@ -395,7 +436,7 @@ public class PaymentActivity
     if (a(PaymentFragment.class) != null) {
       return;
     }
-    a(2131624935, PaymentFragment.a(u, x), true);
+    a(2131625415, PaymentFragment.a(A, z), true);
   }
   
   private void p()
@@ -403,8 +444,7 @@ public class PaymentActivity
     if (a(PaymentFragment.class) != null) {
       return;
     }
-    boolean bool = getIntent().getBooleanExtra("com.ubercab.SHOW_PROMO", false);
-    a(2131624935, PaymentFragment.a(u, x, y, v, bool), true);
+    a(2131625415, PaymentFragment.a(B, y), true);
   }
   
   private void q()
@@ -412,50 +452,55 @@ public class PaymentActivity
     if (a(PaymentFragment.class) != null) {
       return;
     }
-    a(2131624935, PaymentFragment.g(), true);
+    a(2131625415, PaymentFragment.a(A, D), true);
   }
   
   private void r()
   {
-    Object localObject = getIntent().getStringExtra("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID");
-    if (TextUtils.isEmpty((CharSequence)localObject)) {}
-    for (localObject = null;; localObject = q.a((String)localObject))
-    {
-      B = ((Profile)localObject);
+    if (a(PaymentFragment.class) != null) {
       return;
     }
+    boolean bool = getIntent().getBooleanExtra("com.ubercab.SHOW_PROMO", false);
+    a(2131625415, PaymentFragment.a(A, D, E, B, bool, y), true);
   }
   
   private void s()
   {
-    PaymentUserInfo localPaymentUserInfo = PaymentUserInfo.create();
-    Object localObject = h.c();
-    if (localObject != null) {
-      localPaymentUserInfo.setEmail(((com.ubercab.rider.realtime.model.Client)localObject).getEmail()).setFirstName(((com.ubercab.rider.realtime.model.Client)localObject).getFirstName()).setLastName(((com.ubercab.rider.realtime.model.Client)localObject).getLastName()).setMobile(((com.ubercab.rider.realtime.model.Client)localObject).getMobileDigits()).setMobileCountryIso2(((com.ubercab.rider.realtime.model.Client)localObject).getMobileCountryIso2());
+    if (a(PaymentFragment.class) != null) {
+      return;
     }
-    localObject = PaymentAddOptions.create().setCardScanFirst(true);
-    startActivityForResult(m.a("braintree").a(localPaymentUserInfo, (PaymentAddOptions)localObject), 5008);
+    a(2131625415, PaymentFragment.g(), true);
+  }
+  
+  public final void a(int paramInt1, int paramInt2, Bundle paramBundle)
+  {
+    super.a(paramInt1, paramInt2, paramBundle);
+    if ((paramInt1 == 2001) && (paramInt2 == -1)) {
+      startActivityForResult(OnBoardingIntroActivity.a(this), 5009);
+    }
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    i();
-    setContentView(2130903408);
+    k();
+    setContentView(2130903565);
     paramBundle = getIntent();
-    iae.a(paramBundle);
-    iae.a(paramBundle.getAction());
-    t = paramBundle.getAction();
-    v = ((RiderTripExpenseInfo)paramBundle.getParcelableExtra("com.ubercab.EXPENSE_INFO"));
-    x = paramBundle.getBooleanExtra("com.ubercab.USE_CREDITS", true);
-    y = paramBundle.getBooleanExtra("com.ubercab.USE_POINTS", false);
-    z = paramBundle.getParcelableArrayListExtra("com.ubercab.UNPAID_BILLS");
-    A = ((MaskedWallet)paramBundle.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
-    u = getIntent().getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
-    if (q.p()) {
-      r();
+    kco.a(paramBundle);
+    kco.a(paramBundle.getAction());
+    x = paramBundle.getAction();
+    B = ((RiderTripExpenseInfo)paramBundle.getParcelableExtra("com.ubercab.EXPENSE_INFO"));
+    y = ((BouncePaymentOptions)paramBundle.getParcelableExtra("com.ubercab.EXTRA_BOUNCE_PAYMENT_OPTIONS"));
+    D = paramBundle.getBooleanExtra("com.ubercab.USE_CREDITS", true);
+    E = paramBundle.getBooleanExtra("com.ubercab.USE_POINTS", false);
+    F = paramBundle.getParcelableArrayListExtra("com.ubercab.UNPAID_BILLS");
+    z = paramBundle.getStringArrayListExtra("com.ubercab.EXTRA_WHITELISTED_PAYMENT_TOKEN_TYPE");
+    G = ((MaskedWallet)paramBundle.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
+    A = getIntent().getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
+    if (t.o()) {
+      G();
     }
-    paramBundle = t;
+    paramBundle = x;
     int i1 = -1;
     switch (paramBundle.hashCode())
     {
@@ -503,19 +548,19 @@ public class PaymentActivity
         break;
       }
     }
-    l();
-    return;
     n();
-    return;
-    o();
     return;
     p();
     return;
+    q();
+    return;
+    r();
+    return;
+    o();
+    return;
     m();
     return;
-    k();
-    return;
-    q();
+    s();
   }
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -523,20 +568,20 @@ public class PaymentActivity
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
     if ((paramInt1 == 5006) && (paramInt2 == -1) && (paramIntent != null))
     {
-      s.a(true);
-      if (t.equals("com.ubercab.MANAGE_PAYMENT"))
+      w.a(true);
+      if (x.equals("com.ubercab.MANAGE_PAYMENT"))
       {
-        A = ((MaskedWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
+        G = ((MaskedWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
         setResult(paramInt2, paramIntent);
       }
     }
     do
     {
-      PaymentFragment localPaymentFragment;
-      com.ubercab.android.payment.realtime.model.PaymentProfile localPaymentProfile;
-      Object localObject;
       do
       {
+        PaymentFragment localPaymentFragment;
+        com.ubercab.android.payment.realtime.model.PaymentProfile localPaymentProfile;
+        Object localObject;
         do
         {
           do
@@ -545,84 +590,108 @@ public class PaymentActivity
             {
               do
               {
+                do
+                {
+                  return;
+                  if (x.equals("com.ubercab.SELECT_PAYMENT"))
+                  {
+                    G = ((MaskedWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
+                    A = com.ubercab.client.core.model.PaymentProfile.GOOGLE_WALLET.getUuid();
+                    c(paramIntent);
+                    b(paramIntent);
+                    return;
+                  }
+                  if (x.equals("com.ubercab.CHANGE_PAYMENT"))
+                  {
+                    C = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
+                    c(paramIntent);
+                    return;
+                  }
+                } while (!x.equals("com.ubercab.ACTION_ARREARS"));
+                C = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
                 return;
-                if (t.equals("com.ubercab.SELECT_PAYMENT"))
-                {
-                  A = ((MaskedWallet)paramIntent.getParcelableExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
-                  u = com.ubercab.client.core.model.PaymentProfile.GOOGLE_WALLET.getUuid();
-                  c(paramIntent);
-                  b(paramIntent);
-                  return;
+                if (((paramInt1 != 5003) && (paramInt1 != 5001)) || (paramInt2 != -1)) {
+                  break;
                 }
-                if (t.equals("com.ubercab.CHANGE_PAYMENT"))
-                {
-                  w = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
-                  c(paramIntent);
-                  return;
+                if ((n.c(eaj.L)) && (paramInt1 == 5001) && (paramIntent != null) && (ezg.a(paramIntent.getStringExtra("com.ubercab.PAYMENT_TYPE_KEY")))) {
+                  finish();
                 }
-              } while (!t.equals("com.ubercab.ACTION_ARREARS"));
-              w = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
+              } while ((!t.q()) || (paramInt1 != 5001) || (paramIntent == null));
+              w.c(kcj.b());
+              if (t.r())
+              {
+                paramIntent = ProfilesOnBoardingDialogFragment.d();
+                paramIntent.show(getSupportFragmentManager(), paramIntent.getClass().getName());
+                return;
+              }
+              fpx.a(this, g, l.c(), n, w, true, fpq.a().d(getString(2131165893)).c(getString(2131165892)).a(getString(2131166264)));
               return;
-              if (((paramInt1 != 5003) && (paramInt1 != 5001)) || (paramInt2 != -1)) {
+              if ((paramInt1 != 5004) || (paramInt2 != -1)) {
                 break;
               }
-            } while ((!j.b(dux.D)) || (paramInt1 != 5001) || (paramIntent == null) || (!erb.a(paramIntent.getStringExtra("com.ubercab.PAYMENT_TYPE_KEY"))));
-            finish();
-            return;
-            if ((paramInt1 != 5004) || (paramInt2 != -1)) {
-              break;
-            }
-            localPaymentFragment = (PaymentFragment)a(PaymentFragment.class);
-          } while (localPaymentFragment == null);
-          localPaymentProfile = ipj.a(paramIntent);
-          localObject = ipj.b(paramIntent);
-        } while ((localObject == null) || (localPaymentProfile == null));
-        localObject = ((PaymentEditResult)localObject).isSelectedAsPayment();
-      } while ((localObject == null) || (!((Boolean)localObject).booleanValue()));
-      u = localPaymentProfile.getUuid();
-      localPaymentFragment.d(localPaymentProfile.getUuid());
-      paramIntent.putExtra("com.ubercab.PAYMENT_PROFILE_UUID", localPaymentProfile.getUuid());
-      setResult(paramInt2, paramIntent);
-      return;
-      if (paramInt1 == 5005)
-      {
-        if ((paramInt2 == -1) && (paramIntent != null))
+              localPaymentFragment = (PaymentFragment)a(PaymentFragment.class);
+            } while (localPaymentFragment == null);
+            localPaymentProfile = lgo.a(paramIntent);
+            localObject = lgo.b(paramIntent);
+          } while ((localObject == null) || (localPaymentProfile == null));
+          localObject = ((PaymentEditResult)localObject).isSelectedAsPayment();
+        } while ((localObject == null) || (!((Boolean)localObject).booleanValue()));
+        A = localPaymentProfile.getUuid();
+        localPaymentFragment.d(localPaymentProfile.getUuid());
+        paramIntent.putExtra("com.ubercab.PAYMENT_PROFILE_UUID", localPaymentProfile.getUuid());
+        setResult(paramInt2, paramIntent);
+        return;
+        if (paramInt1 == 5005)
         {
-          v = ((RiderTripExpenseInfo)paramIntent.getParcelableExtra("com.ubercab.EXPENSE_INFO"));
-          if (paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID")) {
-            x = false;
-          }
-          c(paramIntent);
-          if (t.equals("com.ubercab.CHANGE_PAYMENT"))
+          if ((paramInt2 == -1) && (paramIntent != null))
           {
-            a(paramIntent);
+            B = ((RiderTripExpenseInfo)paramIntent.getParcelableExtra("com.ubercab.EXPENSE_INFO"));
+            if (paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID")) {
+              D = false;
+            }
+            c(paramIntent);
+            if (x.equals("com.ubercab.CHANGE_PAYMENT"))
+            {
+              a(paramIntent);
+              return;
+            }
+            b(paramIntent);
             return;
           }
-          b(paramIntent);
+          setResult(0, paramIntent);
           return;
         }
-        setResult(0, paramIntent);
-        return;
-      }
-      if ((paramInt1 == 5002) && (paramInt2 == -1))
-      {
-        finish();
-        return;
-      }
-    } while ((paramInt1 != 5008) || (paramInt2 != -1));
+        if ((paramInt1 == 5002) && (paramInt2 == -1))
+        {
+          finish();
+          return;
+        }
+        if ((paramInt1 == 5008) && (paramInt2 == -1))
+        {
+          finish();
+          return;
+        }
+        if ((paramInt1 != 7501) || (paramInt2 != -1) || (paramIntent == null)) {
+          break;
+        }
+        paramIntent = (com.ubercab.android.payment.realtime.model.PaymentProfile)paramIntent.getParcelableExtra("payment_profile");
+      } while (paramIntent == null);
+      onEditPaymentProfileEvent(new hce(ezg.a(paramIntent)));
+      return;
+    } while ((paramInt1 != 5009) || (paramInt2 != -1));
     finish();
   }
   
-  @cho
-  public void onChangePaymentProfileEvent(gci paramgci)
+  @chu
+  public void onChangePaymentProfileEvent(hcb paramhcb)
   {
-    c(paramgci.a());
+    c(paramhcb.a());
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    String str = t;
+    String str = x;
     int i1 = -1;
     switch (str.hashCode())
     {
@@ -632,7 +701,7 @@ public class PaymentActivity
       switch (i1)
       {
       default: 
-        getMenuInflater().inflate(2131755020, paramMenu);
+        getMenuInflater().inflate(2131755022, paramMenu);
       }
       return true;
       if (str.equals("com.ubercab.ACTION_AUTHORIZE_PAYMENT")) {
@@ -643,68 +712,86 @@ public class PaymentActivity
   
   protected void onDestroy()
   {
-    j();
+    l();
     super.onDestroy();
   }
   
-  @cho
-  public void onEditPaymentProfileEvent(gcl paramgcl)
+  @chu
+  public void onEditPaymentProfileEvent(hce paramhce)
   {
-    boolean bool2 = true;
-    com.ubercab.android.payment.realtime.model.PaymentProfile localPaymentProfile = erb.a(paramgcl.a());
+    com.ubercab.android.payment.realtime.model.PaymentProfile localPaymentProfile = ezg.a(paramhce.a());
     if (TextUtils.equals(localPaymentProfile.getCardType(), "Cash")) {
       return;
     }
-    boolean bool3;
-    int i1;
-    label124:
-    boolean bool1;
-    if (j.a(dux.E, true))
+    Object localObject;
+    if (n.a(eaj.M, true))
     {
       localObject = localPaymentProfile.getTokenType();
-      paramgcl = (gcl)localObject;
-      if (erb.a((String)localObject)) {
-        paramgcl = "alipay";
-      }
-      paramgcl = m.a(paramgcl);
-      bool3 = "com.ubercab.ACTION_AUTHORIZE_PAYMENT".equals(t);
-      if ((paramgcl == null) || (!paramgcl.r())) {
-        break label252;
-      }
-      localObject = h.c();
-      if ((localObject == null) || (((com.ubercab.rider.realtime.model.Client)localObject).getPaymentProfiles() == null)) {
-        break label236;
-      }
-      i1 = 1;
-      bool1 = bool2;
-      if (i1 != 0)
-      {
-        if (((com.ubercab.rider.realtime.model.Client)localObject).getPaymentProfiles().size() <= 1) {
-          break label241;
-        }
-        bool1 = bool2;
-      }
-      label150:
-      if (h.b() == null) {
-        break label246;
+      paramhce = (hce)localObject;
+      if (ezg.a((String)localObject)) {
+        paramhce = "alipay";
       }
     }
-    label236:
-    label241:
-    label246:
-    for (Object localObject = h.b().getCountryIso2();; localObject = null)
+    boolean bool2;
+    for (paramhce = q.a(paramhce);; paramhce = q.a(localPaymentProfile.getTokenType()))
     {
-      startActivityForResult(paramgcl.a(localPaymentProfile, PaymentEditOptions.create().setCountryIso2((String)localObject).setDeleteAllowed(bool1).setSelectAsPaymentAllowed(false).setVerificationMode(bool3).setConfirmationIntent(TripActivity.a(this))), 5004);
+      bool2 = "com.ubercab.ACTION_AUTHORIZE_PAYMENT".equals(x);
+      localObject = paramhce;
+      if (!n.c(eaj.bq)) {
+        break;
+      }
+      localObject = paramhce;
+      if (!n.a(eaj.p, true)) {
+        break;
+      }
+      localObject = paramhce;
+      if (!"FAKE-ANDROID-PAY-UUID".equals(localPaymentProfile.getUuid())) {
+        break;
+      }
+      paramhce = q.a("android_pay");
+      localObject = paramhce;
+      if (paramhce == null) {
+        break;
+      }
+      startActivityForResult(paramhce.a(null, null), 7501);
       return;
-      paramgcl = m.a(localPaymentProfile.getTokenType());
-      break;
-      i1 = 0;
-      break label124;
-      bool1 = false;
-      break label150;
     }
-    label252:
-    a(localPaymentProfile.getUuid(), bool3);
+    int i1;
+    boolean bool1;
+    if ((localObject != null) && (((ldk)localObject).u()))
+    {
+      paramhce = l.c();
+      if ((paramhce != null) && (paramhce.getPaymentProfiles() != null))
+      {
+        i1 = 1;
+        if (i1 == 0) {
+          break label339;
+        }
+        if (paramhce.getPaymentProfiles().size() <= 1) {
+          break label317;
+        }
+        bool1 = true;
+      }
+    }
+    for (;;)
+    {
+      label243:
+      if (l.b() != null) {}
+      for (paramhce = l.b().getCountryIso2();; paramhce = null)
+      {
+        startActivityForResult(((ldk)localObject).a(localPaymentProfile, PaymentEditOptions.create().setCountryIso2(paramhce).setDeleteAllowed(bool1).setSelectAsPaymentAllowed(false).setVerificationMode(bool2).setConfirmationIntent(TripActivity.a(this))), 5004);
+        return;
+        i1 = 0;
+        break;
+        label317:
+        bool1 = false;
+        break label243;
+      }
+      a(localPaymentProfile.getUuid(), bool2);
+      return;
+      label339:
+      bool1 = true;
+    }
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -719,15 +806,15 @@ public class PaymentActivity
       finish();
       return true;
     }
-    if (paramMenuItem.getItemId() == 2131626143)
+    if (paramMenuItem.getItemId() == 2131626898)
     {
-      if (t.equals("com.ubercab.SCAN_CARD"))
+      if (x.equals("com.ubercab.SCAN_CARD"))
       {
-        s();
+        H();
         return true;
       }
-      g.a(r.l);
-      f();
+      g.a(z.m);
+      g();
       return true;
     }
     return super.onOptionsItemSelected(paramMenuItem);
@@ -736,116 +823,118 @@ public class PaymentActivity
   public void onPause()
   {
     super.onPause();
-    G.c();
-    if (C != null) {
-      C.c();
+    M.af_();
+    if (I != null) {
+      I.af_();
     }
-    if (D != null) {
-      D.c();
+    if (J != null) {
+      J.af_();
     }
-    if (E != null) {
-      E.c();
+    if (K != null) {
+      K.af_();
     }
-    if (F != null) {
-      F.c();
+    if (L != null) {
+      L.af_();
+    }
+    if (j.g()) {
+      j.o();
     }
   }
-  
-  @cho
-  @Deprecated
-  public void onPayBillResponseEvent(eja parameja)
-  {
-    w();
-    if (!parameja.a())
-    {
-      g.a(p.hc);
-      a_(parameja.a(this));
-      return;
-    }
-    g.a(p.hd);
-    finish();
-  }
-  
-  @cho
-  @Deprecated
-  public void onPingEvent(due paramdue) {}
   
   protected void onRestoreInstanceState(Bundle paramBundle)
   {
     super.onRestoreInstanceState(paramBundle);
-    t = paramBundle.getString("com.ubercab.ACTION");
-    u = paramBundle.getString("com.ubercab.EXTRA_CURRENT_PAYMENT_UUID");
-    A = ((MaskedWallet)paramBundle.getParcelable("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
-    v = ((RiderTripExpenseInfo)paramBundle.getParcelable("com.ubercab.EXPENSE_INFO"));
-    x = paramBundle.getBoolean("com.ubercab.USE_CREDITS");
-    y = paramBundle.getBoolean("com.ubercab.USE_POINTS");
-    z = paramBundle.getParcelableArrayList("com.ubercab.UNPAID_BILLS");
-    if ((q != null) && (q.p())) {
-      r();
+    x = paramBundle.getString("com.ubercab.ACTION");
+    A = paramBundle.getString("com.ubercab.EXTRA_CURRENT_PAYMENT_UUID");
+    G = ((MaskedWallet)paramBundle.getParcelable("com.google.android.gms.wallet.EXTRA_MASKED_WALLET"));
+    B = ((RiderTripExpenseInfo)paramBundle.getParcelable("com.ubercab.EXPENSE_INFO"));
+    D = paramBundle.getBoolean("com.ubercab.USE_CREDITS");
+    E = paramBundle.getBoolean("com.ubercab.USE_POINTS");
+    F = paramBundle.getParcelableArrayList("com.ubercab.UNPAID_BILLS");
+    z = paramBundle.getStringArrayList("com.ubercab.EXTRA_WHITELISTED_PAYMENT_TOKEN_TYPE");
+    if ((t != null) && (t.o())) {
+      G();
     }
   }
   
   public void onResume()
   {
     super.onResume();
-    G = i.f().c(new gar(this, (byte)0));
-    r.a().b(eri.a());
-    if ((t.equals("com.ubercab.CHANGE_PAYMENT")) && (w != null))
+    M = m.f().c(new gvo(this, (byte)0));
+    u.a().b(ezm.a());
+    if ((x.equals("com.ubercab.CHANGE_PAYMENT")) && (C != null))
     {
-      b(getString(2131165342), null);
-      E = r.a(w, true, null).a(kls.a()).b(new gav(this, (byte)0));
-      w = null;
+      b(getString(2131165387), null);
+      K = u.a(C, true, null).a(oeh.a()).b(new gvs(this, (byte)0));
+      C = null;
     }
-    while ((!t.equals("com.ubercab.ACTION_ARREARS")) || (w == null) || (z.isEmpty())) {
+    for (;;)
+    {
+      if (j.g()) {
+        j.n();
+      }
       return;
+      if ((x.equals("com.ubercab.ACTION_ARREARS")) && (C != null))
+      {
+        if (F.isEmpty()) {
+          break;
+        }
+        String str = ((UnpaidBill)F.get(0)).getUuid();
+        a(C, str, null);
+        C = null;
+      }
     }
-    String str = ((UnpaidBill)z.get(0)).getUuid();
-    a(w, str);
-    w = null;
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putString("com.ubercab.ACTION", t);
-    paramBundle.putString("com.ubercab.EXTRA_CURRENT_PAYMENT_UUID", u);
-    paramBundle.putParcelable("com.google.android.gms.wallet.EXTRA_MASKED_WALLET", A);
-    paramBundle.putParcelable("com.ubercab.EXPENSE_INFO", RiderTripExpenseInfo.create(v));
-    paramBundle.putBoolean("com.ubercab.USE_CREDITS", x);
-    paramBundle.putBoolean("com.ubercab.USE_POINTS", y);
-    paramBundle.putParcelableArrayList("com.ubercab.UNPAID_BILLS", z);
-    if (B != null) {
-      paramBundle.putString("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID", B.getUuid());
+    paramBundle.putString("com.ubercab.ACTION", x);
+    paramBundle.putString("com.ubercab.EXTRA_CURRENT_PAYMENT_UUID", A);
+    paramBundle.putParcelable("com.google.android.gms.wallet.EXTRA_MASKED_WALLET", G);
+    paramBundle.putParcelable("com.ubercab.EXPENSE_INFO", RiderTripExpenseInfo.create(B));
+    paramBundle.putBoolean("com.ubercab.USE_CREDITS", D);
+    paramBundle.putBoolean("com.ubercab.USE_POINTS", E);
+    paramBundle.putParcelableArrayList("com.ubercab.UNPAID_BILLS", F);
+    paramBundle.putStringArrayList("com.ubercab.EXTRA_WHITELISTED_PAYMENT_TOKEN_TYPE", z);
+    if (H != null) {
+      paramBundle.putString("com.ubercab.client.feature.payment.SELECTED_PROFILE_UUID", H.getUuid());
     }
   }
   
-  @cho
-  public void onScanCardEvent(gcq paramgcq)
+  @chu
+  public void onScanCardEvent(hcj paramhcj)
   {
-    s();
+    H();
   }
   
-  @cho
-  public void onSelectExpenseInfoEvent(gcr paramgcr)
+  @chu
+  public void onSelectExpenseInfoEvent(hck paramhck)
   {
-    startActivityForResult(ExpenseInfoActivity.a(this, v, paramgcr.a(), paramgcr.c()), 5005);
-    g.a(r.aT);
-  }
-  
-  @cho
-  public void onSelectGoogleWalletEvent(gcs paramgcs)
-  {
-    if ((t.equals("com.ubercab.SELECT_PAYMENT")) && (A != null))
+    if (n.c(eaj.bX))
     {
-      paramgcs = g();
-      paramgcs.putExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET", A);
-      paramgcs.putExtra("com.ubercab.PAYMENT_PROFILE_UUID", com.ubercab.client.core.model.PaymentProfile.GOOGLE_WALLET.getUuid());
-      b(paramgcs);
+      startActivityForResult(ExpenseCodeConfigureActivity.a(this, t.c(), B, false), 5005);
+      g.a(z.bA);
       return;
     }
-    paramgcs = new Intent(this, GoogleWalletActivity.class);
-    paramgcs.putExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET", A);
-    String str = t;
+    startActivityForResult(ExpenseInfoActivity.a(this, B, paramhck.a(), paramhck.c()), 5005);
+    g.a(z.bA);
+  }
+  
+  @chu
+  public void onSelectGoogleWalletEvent(hcl paramhcl)
+  {
+    if ((x.equals("com.ubercab.SELECT_PAYMENT")) && (G != null))
+    {
+      paramhcl = h();
+      paramhcl.putExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET", G);
+      paramhcl.putExtra("com.ubercab.PAYMENT_PROFILE_UUID", com.ubercab.client.core.model.PaymentProfile.GOOGLE_WALLET.getUuid());
+      b(paramhcl);
+      return;
+    }
+    paramhcl = new Intent(this, GoogleWalletActivity.class);
+    paramhcl.putExtra("com.google.android.gms.wallet.EXTRA_MASKED_WALLET", G);
+    String str = x;
     int i1 = -1;
     switch (str.hashCode())
     {
@@ -857,7 +946,7 @@ public class PaymentActivity
     }
     for (;;)
     {
-      startActivityForResult(paramgcs, 5006);
+      startActivityForResult(paramhcl, 5006);
       return;
       if (!str.equals("com.ubercab.CHANGE_PAYMENT")) {
         break;
@@ -884,99 +973,74 @@ public class PaymentActivity
       }
       i1 = 4;
       break;
-      paramgcs.setAction("com.ubercab.ACTION_CREATE_PAYMENT_PROFILE");
+      paramhcl.setAction("com.ubercab.ACTION_CREATE_PAYMENT_PROFILE");
       continue;
-      paramgcs.setAction("com.ubercab.ACTION_CHANGE_MASKED_WALLET");
+      paramhcl.setAction("com.ubercab.ACTION_CHANGE_MASKED_WALLET");
       continue;
-      paramgcs.setAction("com.ubercab.ACTION_LOAD_MASKED_WALLET");
+      paramhcl.setAction("com.ubercab.ACTION_LOAD_MASKED_WALLET");
     }
   }
   
-  @cho
-  @Deprecated
-  public void onSelectPaymentProfileResponseEvent(ejn paramejn)
+  @chu
+  public void onSelectedPaymentProfileEvent(hch paramhch)
   {
-    Object localObject = null;
-    Ping localPing = (Ping)paramejn.c();
-    com.ubercab.client.core.model.Client localClient;
-    Trip localTrip;
-    label36:
-    boolean bool2;
-    String str;
-    if (localPing != null)
-    {
-      localClient = localPing.getClient();
-      if (localPing == null) {
-        break label97;
-      }
-      localTrip = localPing.getTrip();
-      bool2 = paramejn.a();
-      str = paramejn.a(this);
-      paramejn = (ejn)localObject;
-      if (localPing != null) {
-        paramejn = localPing.getErrorCode();
-      }
-      if ((paramejn == null) || (paramejn.intValue() != 460)) {
-        break label103;
-      }
-    }
-    label97:
-    label103:
-    for (boolean bool1 = true;; bool1 = false)
-    {
-      a(localClient, localTrip, bool2, str, bool1);
-      return;
-      localClient = null;
-      break;
-      localTrip = null;
-      break label36;
-    }
+    E = paramhch.b();
+    b(paramhch.a());
   }
   
-  @cho
-  public void onSelectedPaymentProfileEvent(gco paramgco)
-  {
-    y = paramgco.b();
-    b(paramgco.a());
-  }
-  
-  @cho
-  public void onSelectedPromoCodeEvent(gct paramgct)
+  @chu
+  public void onSelectedPromoCodeEvent(hcm paramhcm)
   {
     PromoFragment.a(this);
   }
   
-  @cho
-  public void onSendExpenseToggledEvent(gcu paramgcu)
+  @chu
+  public void onSendExpenseToggledEvent(hcn paramhcn)
   {
-    v.setExpenseTrip(paramgcu.a());
-    if (t.equals("com.ubercab.CHANGE_PAYMENT")) {
-      h();
+    B.setExpenseTrip(paramhcn.a());
+    if (x.equals("com.ubercab.CHANGE_PAYMENT")) {
+      i();
     }
-    setResult(-1, g());
+    setResult(-1, h());
   }
   
-  @cho
-  public void onShowIntlCcArrearsEvent(gcv paramgcv)
+  @chu
+  public void onShowIntlCcArrearsEvent(hco paramhco)
   {
     if (a(PaymentFragment.class) == null) {
-      a(2131624935, PaymentFragment.a(z, u));
+      a(2131625415, PaymentFragment.a(F, A));
     }
   }
   
-  @cho
-  public void onUseCreditsToggledEvent(gcx paramgcx)
+  public void onStart()
   {
-    x = paramgcx.a();
-    setResult(-1, g());
+    super.onStart();
+    if ((i.b(eaj.q)) && (h.g())) {
+      h.b();
+    }
   }
   
-  protected final Collection<dtf> t()
+  public void onStop()
   {
-    return Collections.singleton(k);
+    super.onStop();
+    if ((i.b(eaj.q)) && (h.g())) {
+      h.c();
+    }
   }
   
-  public final ckr u()
+  @chu
+  public void onUseCreditsToggledEvent(hcq paramhcq)
+  {
+    D = paramhcq.a();
+    setResult(-1, h());
+  }
+  
+  protected final Collection<dys> u()
+  {
+    return Collections.singleton(o);
+  }
+  
+  public final cli v()
   {
     return RiderActivity.a;
   }

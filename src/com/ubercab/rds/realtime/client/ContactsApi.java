@@ -6,7 +6,7 @@ import com.ubercab.rds.realtime.response.ContactPostMessageResponseV2;
 import com.ubercab.rds.realtime.response.ContactResponse;
 import com.ubercab.rds.realtime.response.ContactResponseV2;
 import com.ubercab.rds.realtime.response.ContactsResponse;
-import kld;
+import odr;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
@@ -16,22 +16,22 @@ import retrofit.http.Query;
 public abstract interface ContactsApi
 {
   @GET("/rt/contacts/{contactUuid}")
-  public abstract kld<ContactResponse> getContact(@Path("contactUuid") String paramString);
+  public abstract odr<ContactResponse> getContact(@Path("contactUuid") String paramString);
   
   @GET("/rt/contacts/v2/{contactUuid}")
-  public abstract kld<ContactResponseV2> getContactV2(@Path("contactUuid") String paramString);
+  public abstract odr<ContactResponseV2> getContactV2(@Path("contactUuid") String paramString);
   
   @GET("/rt/contacts/user/{userUuid}/contacts")
-  public abstract kld<ContactsResponse> getContacts(@Path("userUuid") String paramString);
+  public abstract odr<ContactsResponse> getContacts(@Path("userUuid") String paramString);
   
   @GET("/rt/contacts/user/{userUuid}/contacts")
-  public abstract kld<ContactsResponse> getContacts(@Path("userUuid") String paramString, @Query("limit") int paramInt1, @Query("offset") int paramInt2);
+  public abstract odr<ContactsResponse> getContacts(@Path("userUuid") String paramString, @Query("limit") int paramInt1, @Query("offset") int paramInt2);
   
   @POST("/rt/contacts/{contactUuid}")
-  public abstract kld<Void> postMessage(@Path("contactUuid") String paramString, @Body ContactBody paramContactBody);
+  public abstract odr<Void> postMessage(@Path("contactUuid") String paramString, @Body ContactBody paramContactBody);
   
   @POST("/rt/contacts/v2/{contactUuid}")
-  public abstract kld<ContactPostMessageResponseV2> postMessageV2(@Path("contactUuid") String paramString, @Body ContactBodyV2 paramContactBodyV2);
+  public abstract odr<ContactPostMessageResponseV2> postMessageV2(@Path("contactUuid") String paramString, @Body ContactBodyV2 paramContactBodyV2);
 }
 
 /* Location:

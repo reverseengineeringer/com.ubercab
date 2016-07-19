@@ -1,17 +1,8 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.PaymentConfirmActivity;
+import android.os.Parcelable.Creator;
 
 public final class ccx
-  implements DialogInterface.OnClickListener
-{
-  public ccx(PaymentConfirmActivity paramPaymentConfirmActivity) {}
-  
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
-  {
-    a.onBackPressed();
-  }
-}
+  implements Parcelable.Creator
+{}
 
 /* Location:
  * Qualified Name:     ccx

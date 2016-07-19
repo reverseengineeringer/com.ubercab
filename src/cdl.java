@@ -1,8 +1,17 @@
-import android.os.Parcelable.Creator;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import com.paypal.android.sdk.payments.PaymentConfirmActivity;
 
 public final class cdl
-  implements Parcelable.Creator
-{}
+  implements DialogInterface.OnClickListener
+{
+  public cdl(PaymentConfirmActivity paramPaymentConfirmActivity) {}
+  
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  {
+    a.onBackPressed();
+  }
+}
 
 /* Location:
  * Qualified Name:     cdl

@@ -10,18 +10,18 @@ import com.google.android.now.NowAuthService.HaveTokenAlreadyException;
 import com.google.android.now.NowAuthService.TooManyRequestsException;
 import com.google.android.now.NowAuthService.UnauthorizedException;
 import com.ubercab.client.core.app.RiderApplication;
-import ebj;
-import ets;
-import etv;
-import ife;
+import eib;
+import fcc;
+import fcf;
 import java.io.IOException;
-import kul;
+import kia;
+import opc;
 
 public class NowAuthIntentService
   extends IntentService
 {
-  public ife a;
-  public ets b;
+  public kia a;
+  public fcc b;
   
   public NowAuthIntentService()
   {
@@ -53,13 +53,13 @@ public class NowAuthIntentService
       if (!TextUtils.isEmpty((CharSequence)localObject)) {
         break label48;
       }
-      kul.d("Method is required", new Object[0]);
+      opc.d("Method is required", new Object[0]);
       return null;
       paramIntent = paramIntent.getExtras();
       break;
     }
     label48:
-    kul.b("Received Work Intent: %s", new Object[] { localObject });
+    opc.b("Received Work Intent: %s", new Object[] { localObject });
     int i = -1;
     switch (((String)localObject).hashCode())
     {
@@ -69,7 +69,7 @@ public class NowAuthIntentService
       switch (i)
       {
       default: 
-        kul.d("Unknown method: " + (String)localObject, new Object[0]);
+        opc.d("Unknown method: " + (String)localObject, new Object[0]);
         return null;
         if (((String)localObject).equals("GetAuthCode"))
         {
@@ -131,7 +131,7 @@ public class NowAuthIntentService
     try
     {
       paramBundle = b.a(this);
-      kul.b("Successfully retrieved auth code", new Object[0]);
+      opc.b("Successfully retrieved auth code", new Object[0]);
       localBundle.putString("authCode", paramBundle);
       i = 200;
     }
@@ -139,7 +139,7 @@ public class NowAuthIntentService
     {
       for (;;)
       {
-        kul.b(paramBundle, "Failed to retrieve auth code", new Object[0]);
+        opc.c(paramBundle, "Failed to retrieve auth code", new Object[0]);
         i = 0;
       }
     }
@@ -147,7 +147,7 @@ public class NowAuthIntentService
     {
       for (;;)
       {
-        kul.d("Already have auth code.", new Object[0]);
+        opc.d("Already have auth code.", new Object[0]);
         localBundle.putString("accessToken", paramBundle.getAccessToken());
         int i = 400;
       }
@@ -171,7 +171,7 @@ public class NowAuthIntentService
   {
     super.onCreate();
     ((RiderApplication)getApplication()).b().a(this);
-    if (!etv.a(a)) {}
+    if (!fcf.a(a)) {}
     try
     {
       b.b(this);
@@ -179,13 +179,13 @@ public class NowAuthIntentService
     }
     catch (RuntimeException localRuntimeException)
     {
-      kul.c(localRuntimeException, "Unable to unschedule credential check.", new Object[0]);
+      opc.d(localRuntimeException, "Unable to unschedule credential check.", new Object[0]);
     }
   }
   
   protected void onHandleIntent(Intent paramIntent)
   {
-    if (!etv.a(a)) {}
+    if (!fcf.a(a)) {}
     do
     {
       return;

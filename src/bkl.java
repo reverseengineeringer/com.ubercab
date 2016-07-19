@@ -1,30 +1,69 @@
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
+import java.util.Map.Entry;
 
-final class bkl<V>
-  extends FutureTask<V>
+final class bkl<K, V>
+  extends biv<K, V>
 {
-  private final String b;
+  final transient K b;
+  final transient V c;
+  transient biv<V, K> d;
   
-  bkl(bkk parambkk, Runnable paramRunnable, String paramString)
+  bkl(K paramK, V paramV)
   {
-    super(paramRunnable, null);
-    abs.a(paramString);
-    b = paramString;
+    bio.a(paramK, paramV);
+    b = paramK;
+    c = paramV;
   }
   
-  bkl(Callable<V> paramCallable, String paramString)
+  private bkl(K paramK, V paramV, biv<V, K> parambiv)
   {
-    super(paramString);
-    Object localObject;
-    abs.a(localObject);
-    b = ((String)localObject);
+    b = paramK;
+    c = paramV;
+    d = parambiv;
   }
   
-  protected final void setException(Throwable paramThrowable)
+  public final biv<V, K> b()
   {
-    a.s().b().a(b, paramThrowable);
-    super.setException(paramThrowable);
+    biv localbiv = d;
+    Object localObject = localbiv;
+    if (localbiv == null)
+    {
+      localObject = new bkl(c, b, this);
+      d = ((biv)localObject);
+    }
+    return (biv<V, K>)localObject;
+  }
+  
+  public final boolean containsKey(Object paramObject)
+  {
+    return b.equals(paramObject);
+  }
+  
+  public final boolean containsValue(Object paramObject)
+  {
+    return c.equals(paramObject);
+  }
+  
+  final bjr<Map.Entry<K, V>> g()
+  {
+    return bjr.a(bjx.a(b, c));
+  }
+  
+  public final V get(Object paramObject)
+  {
+    if (b.equals(paramObject)) {
+      return (V)c;
+    }
+    return null;
+  }
+  
+  final bjr<K> i()
+  {
+    return bjr.a(b);
+  }
+  
+  public final int size()
+  {
+    return 1;
   }
 }
 

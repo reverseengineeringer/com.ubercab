@@ -1,24 +1,17 @@
-import java.util.Map;
+import com.google.android.gms.location.LocationRequest;
 
 final class app$1
-  implements aji
+  extends apq
 {
-  app$1(app paramapp) {}
-  
-  public final void a(asq arg1, Map<String, String> paramMap)
+  app$1(app paramapp, wj paramwj, LocationRequest paramLocationRequest, api paramapi)
   {
-    synchronized (app.a(a))
-    {
-      if (app.b(a).isDone()) {
-        return;
-      }
-      if (!app.c(a).equals(paramMap.get("request_id"))) {
-        return;
-      }
-    }
-    paramMap = new aps(1, paramMap);
-    aqt.d("Invalid " + paramMap.e() + " request error: " + paramMap.b());
-    app.b(a).b(paramMap);
+    super(paramwj);
+  }
+  
+  private void a(aqk paramaqk)
+  {
+    apr localapr = new apr(this);
+    paramaqk.a(b, c, localapr);
   }
 }
 

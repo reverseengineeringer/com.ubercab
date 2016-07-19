@@ -1,14 +1,49 @@
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.identity.intents.UserAddressRequest;
+import com.google.android.gms.identity.intents.model.CountrySpecification;
+import java.util.ArrayList;
+
 public final class adj
-  extends Exception
+  implements Parcelable.Creator<UserAddressRequest>
 {
-  public adj(String paramString)
+  private static UserAddressRequest a(Parcel paramParcel)
   {
-    super(paramString);
+    int j = zd.b(paramParcel);
+    int i = 0;
+    ArrayList localArrayList = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        localArrayList = zd.c(paramParcel, k, CountrySpecification.CREATOR);
+      }
+    }
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new UserAddressRequest(i, localArrayList);
   }
   
-  public adj(String paramString, Throwable paramThrowable)
+  public static void a(UserAddressRequest paramUserAddressRequest, Parcel paramParcel)
   {
-    super(paramString, paramThrowable);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramUserAddressRequest.a());
+    zf.b(paramParcel, 2, a, false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static UserAddressRequest[] a(int paramInt)
+  {
+    return new UserAddressRequest[paramInt];
   }
 }
 

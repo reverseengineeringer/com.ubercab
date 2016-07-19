@@ -2,11 +2,11 @@ package com.ubercab.rider.realtime.request.param;
 
 import com.ubercab.rider.realtime.model.ProfileTheme;
 import com.ubercab.shape.Shape;
-import juc;
+import mzk;
 
 @Shape
 public abstract class UpdateProfileTheme
-  implements juc
+  implements mzk
 {
   public static UpdateProfileTheme create(ProfileTheme paramProfileTheme)
   {

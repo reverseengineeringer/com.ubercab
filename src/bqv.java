@@ -1,21 +1,33 @@
-final class bqv
-  implements CharSequence
+import android.content.Intent;
+import android.os.Bundle;
+
+public class bqv
+  extends bqy
 {
-  char[] a;
+  private static final String a = bqv.class.getSimpleName();
   
-  public final char charAt(int paramInt)
+  public static Intent a(String paramString1, bqw parambqw, bqx parambqx, String paramString2)
   {
-    return a[paramInt];
+    paramString1 = b(paramString1, parambqw, parambqx, paramString2);
+    paramString1.putExtra("scope", "https://uri.paypal.com/services/payments/basic");
+    return paramString1;
   }
   
-  public final int length()
+  public static Intent b(String paramString1, bqw parambqw, bqx parambqx, String paramString2)
   {
-    return a.length;
-  }
-  
-  public final CharSequence subSequence(int paramInt1, int paramInt2)
-  {
-    return new String(a, paramInt1, paramInt2 - paramInt1);
+    Intent localIntent = a("com.paypal.android.p2pmobile.Sdk", "com.paypal.android.lib.authenticator.activity.SdkActivity");
+    Bundle localBundle = new Bundle();
+    localBundle.putString("target_client_id", paramString1);
+    if (parambqw != null) {
+      localBundle.putString("token_request_type", parambqw.toString());
+    }
+    if (parambqx != null) {
+      localBundle.putString("response_type", parambqx.toString());
+    }
+    localBundle.putString("app_guid", paramString2);
+    new StringBuilder("launching authenticator with bundle:").append(localBundle);
+    localIntent.putExtras(localBundle);
+    return localIntent;
   }
 }
 

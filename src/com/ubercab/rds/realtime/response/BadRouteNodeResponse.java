@@ -11,6 +11,8 @@ public abstract class BadRouteNodeResponse
     return new Shape_BadRouteNodeResponse();
   }
   
+  public abstract List<BadRouteReasonResponse> getAdjustmentReasons();
+  
   public abstract List<BadRouteReceiptItemResponse> getAdjustmentReceipt();
   
   public abstract String getBody();
@@ -20,6 +22,8 @@ public abstract class BadRouteNodeResponse
   public abstract String getRequestStatus();
   
   public abstract String getTitle();
+  
+  public abstract BadRouteNodeResponse setAdjustmentReasons(List<BadRouteReasonResponse> paramList);
   
   public abstract BadRouteNodeResponse setAdjustmentReceipt(List<BadRouteReceiptItemResponse> paramList);
   

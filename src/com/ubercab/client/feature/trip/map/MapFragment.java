@@ -13,21 +13,16 @@ import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageButton;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import android.widget.LinearLayout;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
-import cnw;
-import cny;
-import coa;
-import coe;
-import cog;
-import coh;
-import cok;
+import chn;
+import chu;
+import ckt;
+import cli;
+import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.android.location.UberLatLng;
+import com.ubercab.android.map.CameraPosition;
 import com.ubercab.android.map.MapView;
 import com.ubercab.android.map.Marker;
 import com.ubercab.client.core.app.RiderActivity;
@@ -35,121 +30,523 @@ import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.client.core.location.RiderLocation;
 import com.ubercab.client.feature.map.MapViewExtension;
 import com.ubercab.client.feature.trip.event.PanelSlideEvent;
-import cop;
-import cow;
-import dsh;
-import dso;
-import dtx;
-import dud;
-import dux;
-import dyw;
-import ebj;
-import efr;
-import egd;
-import egl;
-import eqv;
-import foa;
-import foc;
-import fod;
-import fof;
-import foi;
-import gel;
-import gfk;
-import hch;
-import hdg;
-import hgp;
-import hha;
-import hkr;
-import hmq;
-import hmx;
-import hnk;
-import hno;
-import hnp;
-import hnq;
-import hnr;
-import hnx;
-import hny;
-import hoa;
-import hoc;
-import hoe;
-import hof;
-import hpj;
-import hzz;
-import idk;
-import ife;
-import ijv;
-import ijw;
-import ijy;
-import ijz;
+import cpr;
+import cqw;
+import cqy;
+import cqz;
+import crc;
+import crr;
+import csk;
+import dxm;
+import dxw;
+import dyb;
+import dzm;
+import dzs;
+import eaj;
+import ebl;
+import efb;
+import eib;
+import enk;
+import enz;
+import eor;
+import eyz;
+import ezl;
+import gft;
+import gfv;
+import gfx;
+import gga;
+import hep;
+import hfr;
+import itf;
+import iuk;
+import iyz;
+import izk;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import kul;
-import r;
+import jef;
+import jgz;
+import jhg;
+import jht;
+import jhz;
+import jia;
+import jib;
+import jic;
+import jii;
+import jij;
+import jil;
+import jin;
+import jip;
+import jir;
+import jis;
+import jkm;
+import kcj;
+import kgc;
+import kia;
+import kof;
+import kog;
+import koi;
+import koj;
+import opc;
+import opf;
+import x;
+import z;
 
 public class MapFragment
-  extends dsh<hoc>
-  implements ViewTreeObserver.OnGlobalLayoutListener, cog, coh, cok, foa, foc, fof, hch, hkr
+  extends dxm<jip>
+  implements ViewTreeObserver.OnGlobalLayoutListener, cqy, cqz, crc, gft, gfx, itf, jef
 {
   public static final UberLatLng c = new UberLatLng(0.0D, 0.0D);
   private boolean A;
   private boolean B;
   private boolean C;
-  private boolean D = false;
+  private boolean D;
   private int E = Integer.MIN_VALUE;
   private int F;
   private int G;
   private Bundle H;
   private Rect I;
   private Rect J;
-  private fod K;
-  private final List<foa> L = new CopyOnWriteArrayList();
-  private final List<coh> M = new CopyOnWriteArrayList();
-  private final List<foi> N = new ArrayList();
-  private final ijw O = ijw.a();
+  private gfv K;
+  private final List<gft> L = new CopyOnWriteArrayList();
+  private final List<cqz> M = new CopyOnWriteArrayList();
+  private final kog N = kog.a();
   public Application d;
-  public ckc e;
-  public chh f;
-  public hzz g;
-  public ife h;
-  public gfk i;
-  public hnx j;
-  public hny k;
-  public eqv l;
-  public idk m;
-  @InjectView(2131625760)
-  ImageButton mButtonMyLocation;
-  @InjectView(2131625759)
-  MapView mViewMap;
-  @InjectView(2131625758)
-  MapViewExtension mViewMapExtension;
+  public ckt e;
+  public chn f;
+  public kcj g;
+  public kia h;
+  public hfr i;
+  public jii j;
+  public jij k;
+  public eyz l;
+  public kgc m;
+  @BindView
+  public ImageButton mButtonMyLocation;
+  @BindView
+  public ImageButton mButtonTraffic;
+  @BindView
+  public LinearLayout mMapTools;
+  @BindView
+  public MapView mViewMap;
+  @BindView
+  public MapViewExtension mViewMapExtension;
   public RiderApplication n;
-  public gel o;
-  public dtx p;
-  public egl q;
-  public ijv r;
-  public hgp s;
-  public hha t;
-  dyw u;
-  boolean v;
-  coa w;
-  hpj x;
-  coe y;
-  private boolean z;
+  public hep o;
+  public dzm p;
+  public dxw q;
+  public eor r;
+  public List<kof> s;
+  public iyz t;
+  public izk u;
+  efb v;
+  final List<gga> w = new ArrayList();
+  boolean x;
+  jkm y;
+  cqw z;
   
-  private void A()
+  private void a(View paramView, boolean paramBoolean)
+  {
+    if (paramBoolean)
+    {
+      paramView.setAlpha(0.0F);
+      paramView.setVisibility(0);
+      paramView.animate().alpha(1.0F).setListener(null).setDuration(F).start();
+      return;
+    }
+    paramView.animate().alpha(0.0F).setDuration(F).setListener(new MapFragment.2(this, paramView)).start();
+  }
+  
+  private void a(cpr paramcpr)
+  {
+    if (!t()) {
+      return;
+    }
+    A = true;
+    z.b(paramcpr);
+    A = false;
+    w();
+    v();
+  }
+  
+  private void a(cqw paramcqw, Bundle paramBundle)
+  {
+    RiderLocation localRiderLocation2 = p.b();
+    RiderLocation localRiderLocation1 = localRiderLocation2;
+    if (localRiderLocation2 == null) {
+      localRiderLocation1 = p.c();
+    }
+    if ((localRiderLocation1 == null) || (paramcqw.b() == null)) {
+      return;
+    }
+    localRiderLocation1.getUberLatLng();
+    if (h.a(eaj.ju, true)) {
+      a(cpr.a(localRiderLocation1.getUberLatLng(), 15.0F));
+    }
+    for (;;)
+    {
+      a(false);
+      return;
+      if ((paramBundle != null) && (paramBundle.containsKey("com.ubercab.CAMERA_POSITION")))
+      {
+        paramcqw = (CameraPosition)paramBundle.getParcelable("com.ubercab.CAMERA_POSITION");
+        a(cpr.a(paramcqw.a(), paramcqw.b()));
+      }
+      else
+      {
+        a(cpr.a(localRiderLocation1.getUberLatLng(), 15.0F));
+      }
+    }
+  }
+  
+  private void a(jip paramjip)
+  {
+    paramjip.a(this);
+  }
+  
+  private void a(koi paramkoi)
+  {
+    if (r()) {
+      N.a(koj.a, paramkoi);
+    }
+  }
+  
+  private void a(boolean paramBoolean)
+  {
+    boolean bool4 = true;
+    boolean bool2 = true;
+    boolean bool3 = false;
+    boolean bool1 = bool3;
+    if (!x) {
+      bool1 = bool3;
+    }
+    switch (MapFragment.6.a[k.e().ordinal()])
+    {
+    default: 
+      opc.d(new Exception(), "Error: Unhandled state %d in switch statement in %s.", new Object[] { k.e(), getClass().getSimpleName() });
+      bool1 = bool3;
+    case 1: 
+    case 2: 
+    case 11: 
+    case 12: 
+      if (((bool1) && (mButtonMyLocation.getVisibility() == 0)) || ((!bool1) && (mButtonMyLocation.getVisibility() == 8))) {
+        return;
+      }
+      break;
+    case 3: 
+    case 4: 
+    case 5: 
+    case 6: 
+    case 7: 
+    case 8: 
+    case 9: 
+      if (!k.f()) {}
+      for (bool1 = bool2;; bool1 = false) {
+        break;
+      }
+    case 10: 
+      int i1;
+      if ((u.i() != null) && (u.a()))
+      {
+        i1 = 1;
+        label214:
+        if ((k.f()) || (i1 != 0)) {
+          break label239;
+        }
+      }
+      label239:
+      for (bool1 = bool4;; bool1 = false)
+      {
+        break;
+        i1 = 0;
+        break label214;
+      }
+    }
+    if (paramBoolean)
+    {
+      a(mButtonMyLocation, bool1);
+      return;
+    }
+    b(mButtonMyLocation, bool1);
+  }
+  
+  private void a(boolean paramBoolean1, boolean paramBoolean2)
+  {
+    b(paramBoolean1, paramBoolean2);
+    b(paramBoolean2);
+  }
+  
+  private jip b(eib parameib)
+  {
+    v = new efb(this);
+    return jhz.a().a(parameib).a(v).a(new enk(this)).a();
+  }
+  
+  private static void b(View paramView, boolean paramBoolean)
+  {
+    if (paramBoolean)
+    {
+      paramView.setAlpha(1.0F);
+      paramView.setVisibility(0);
+      return;
+    }
+    paramView.setAlpha(0.0F);
+    paramView.setVisibility(8);
+  }
+  
+  private void b(cpr paramcpr)
+  {
+    if (!t()) {
+      return;
+    }
+    A = true;
+    z.a(paramcpr, F, new MapFragment.4(this));
+    mViewMap.postDelayed(new MapFragment.5(this), F + 500);
+  }
+  
+  private void b(cqw paramcqw, Bundle paramBundle)
+  {
+    boolean bool = false;
+    if (paramBundle != null) {
+      bool = paramBundle.getBoolean("com.ubercab.STATE_SHOW_DESTINATION_ETA_TIME", false);
+    }
+    paramcqw = jib.a().a(v).a((iuk)((dyb)getActivity()).d()).a(new jis(g, paramcqw, this, getActivity(), bool)).a();
+    w.add(paramcqw.b());
+    w.add(paramcqw.k());
+    w.add(paramcqw.j());
+    w.add(paramcqw.h());
+    w.add(paramcqw.f());
+    w.add(paramcqw.e());
+    w.add(paramcqw.d());
+    w.add(paramcqw.l());
+    w.add(paramcqw.c());
+    w.add(paramcqw.n());
+    w.add(paramcqw.o());
+    if (h.c(eaj.mL)) {
+      w.add(paramcqw.m());
+    }
+    y = paramcqw.i();
+    w.add(y);
+    if (i.k())
+    {
+      paramcqw = paramcqw.g().a();
+      mViewMapExtension.a(paramcqw);
+    }
+  }
+  
+  private void b(gfv paramgfv)
+  {
+    cpr localcpr = paramgfv.a(D);
+    if (h.c(eaj.gt))
+    {
+      if (!isResumed()) {}
+      do
+      {
+        return;
+        if ((mViewMap.getWidth() != 0) && (mViewMap.getHeight() != 0)) {
+          break;
+        }
+      } while (!mViewMap.getViewTreeObserver().isAlive());
+      D = false;
+      K = paramgfv;
+      mViewMap.getViewTreeObserver().addOnGlobalLayoutListener(this);
+      return;
+      try
+      {
+        if (paramgfv.b())
+        {
+          b(localcpr);
+          return;
+        }
+      }
+      catch (IllegalStateException localIllegalStateException)
+      {
+        if (mViewMap.getViewTreeObserver().isAlive())
+        {
+          D = false;
+          K = paramgfv;
+          mViewMap.getViewTreeObserver().addOnGlobalLayoutListener(this);
+        }
+        opc.a(eaj.gu.name()).d(localIllegalStateException, "Map Size Exception --> , w: " + mViewMap.getWidth() + ", h: " + mViewMap.getHeight() + ", , isAlive: " + mViewMap.getViewTreeObserver().isAlive() + ", isResumed: " + isResumed(), new Object[0]);
+        return;
+      }
+      a(localIllegalStateException);
+      return;
+    }
+    if (paramgfv.b())
+    {
+      b(localIllegalStateException);
+      return;
+    }
+    a(localIllegalStateException);
+  }
+  
+  private void b(koi paramkoi)
+  {
+    N.b(paramkoi);
+    N.a((kof[])s.toArray(new kof[s.size()]));
+  }
+  
+  private void b(boolean paramBoolean)
+  {
+    if ((z != null) && (z.g() != paramBoolean))
+    {
+      z.b(paramBoolean);
+      Iterator localIterator = w.iterator();
+      while (localIterator.hasNext()) {
+        ((gga)localIterator.next()).R_();
+      }
+    }
+  }
+  
+  private void b(boolean paramBoolean1, boolean paramBoolean2)
+  {
+    if (paramBoolean1) {
+      mButtonTraffic.setSelected(paramBoolean2);
+    }
+  }
+  
+  private void c(int paramInt)
+  {
+    if ((!t()) || (z.c() == null)) {
+      return;
+    }
+    boolean bool = d(paramInt);
+    z.c().a(bool);
+    z.c().b(bool);
+  }
+  
+  private boolean d(int paramInt)
+  {
+    return (paramInt != 1) && ((paramInt != 2) || (i.a())) && ((paramInt != 5) || (!o.u()));
+  }
+  
+  private void p()
+  {
+    a(true);
+    q();
+  }
+  
+  private void q()
+  {
+    boolean bool1 = false;
+    boolean bool3 = false;
+    if (!h.c(eaj.dS)) {
+      return;
+    }
+    boolean bool2 = h.a(eaj.dS, ebl.a);
+    Object localObject = k.e();
+    if ((localObject == jil.i) || (localObject == jil.k))
+    {
+      bool1 = bool3;
+      if (!x) {
+        bool1 = true;
+      }
+      if (q.E()) {
+        bool2 = q.D();
+      }
+    }
+    for (;;)
+    {
+      a(mButtonTraffic, bool1);
+      a(bool1, bool2);
+      if (!bool1) {
+        break;
+      }
+      ckt localckt = e;
+      AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression").setName(x.nX);
+      if (bool2) {}
+      for (localObject = "on";; localObject = "off")
+      {
+        localckt.a(localAnalyticsEvent.setValue((String)localObject));
+        return;
+      }
+      bool3 = false;
+      bool2 = bool1;
+      bool1 = bool3;
+    }
+  }
+  
+  private boolean r()
+  {
+    return (h.c(eaj.ai)) && (r.a(MapFragment.class));
+  }
+  
+  private void s()
+  {
+    jil localjil = k.e();
+    if (h.a(eaj.fb, true))
+    {
+      Iterator localIterator = w.iterator();
+      while (localIterator.hasNext()) {
+        if (((gga)localIterator.next()).a(localjil))
+        {
+          k.a(true);
+          e.a(z.eq);
+          return;
+        }
+      }
+    }
+    if ((localjil == jil.c) || (localjil == jil.g) || (localjil == jil.e))
+    {
+      f.c(new jhg());
+      e.a(z.eq);
+      return;
+    }
+    if ((!h.a(eaj.fb, true)) && (localjil == jil.d) && (y != null))
+    {
+      y.d();
+      k.a(true);
+      a(true);
+      return;
+    }
+    k.a(true);
+  }
+  
+  private boolean t()
+  {
+    return z != null;
+  }
+  
+  private void u()
+  {
+    a(enz.n);
+    mViewMap.a(new MapFragment.3(this));
+  }
+  
+  private void v()
+  {
+    gfv localgfv = K;
+    if (localgfv != null)
+    {
+      K = null;
+      b(localgfv);
+    }
+  }
+  
+  private void w()
+  {
+    Rect localRect = J;
+    if (localRect != null)
+    {
+      J = null;
+      a(left, top, right, bottom);
+    }
+  }
+  
+  private void x()
   {
     Object localObject2 = p.c();
     if (localObject2 == null) {
       return;
     }
-    hoa localhoa = k.e();
+    jil localjil = k.e();
     Object localObject1 = p.b();
     if (localObject1 != null)
     {
       localObject1 = ((RiderLocation)localObject1).getUberLatLng();
-      if ((localhoa != hoa.c) && (localhoa != hoa.g)) {
+      if ((localjil != jil.c) && (localjil != jil.g)) {
         break label92;
       }
       localObject2 = ((RiderLocation)localObject2).getUberLatLng();
@@ -170,301 +567,40 @@ public class MapFragment
     }
   }
   
-  private void a(cny paramcny)
+  public final List<UberLatLng> K_()
   {
-    if (!v()) {
-      return;
-    }
-    z = true;
-    y.b(paramcny);
-    z = false;
-    z();
-    y();
-  }
-  
-  private void a(coe paramcoe, Bundle paramBundle)
-  {
-    Object localObject2 = p.b();
-    Object localObject1 = localObject2;
-    if (localObject2 == null) {
-      localObject1 = p.c();
-    }
-    if ((localObject1 == null) || (paramcoe.b() == null)) {
-      return;
-    }
-    localObject2 = ((RiderLocation)localObject1).getUberLatLng();
-    if ((paramBundle != null) && (paramBundle.containsKey("com.ubercab.CAMERA_POSITION")))
+    ArrayList localArrayList = new ArrayList();
+    Iterator localIterator = w.iterator();
+    while (localIterator.hasNext())
     {
-      paramBundle = new cnw("com.ubercab.CAMERA_POSITION", paramBundle);
-      a(coa.a(paramBundle.b(), paramBundle.d()));
-    }
-    for (;;)
-    {
-      mViewMapExtension.a(paramcoe.b().a((UberLatLng)localObject2));
-      a(false);
-      return;
-      a(coa.a(((RiderLocation)localObject1).getUberLatLng(), 15.0F));
-    }
-  }
-  
-  private void a(hoc paramhoc)
-  {
-    paramhoc.a(this);
-  }
-  
-  private void a(ijy paramijy)
-  {
-    if (t()) {
-      O.a(ijz.a, paramijy);
-    }
-  }
-  
-  private void a(boolean paramBoolean)
-  {
-    int i1 = 1;
-    if (!v) {}
-    switch (MapFragment.6.a[k.e().ordinal()])
-    {
-    default: 
-      kul.c(new Exception(), "Error: Unhandled state %d in switch statement in %s.", new Object[] { k.e(), getClass().getSimpleName() });
-      i1 = 0;
-    }
-    for (;;)
-    {
-      if (((i1 == 0) || (mButtonMyLocation.getVisibility() != 0)) && ((i1 != 0) || (mButtonMyLocation.getVisibility() != 8))) {
-        break label252;
-      }
-      return;
-      i1 = 0;
-      continue;
-      if (k.f())
-      {
-        i1 = 0;
-        continue;
-        if (!h.a(dux.fh, true)) {
-          break;
-        }
-        if (k.f())
-        {
-          i1 = 0;
-          continue;
-          if ((t.i() != null) && (t.a())) {}
-          for (int i2 = 1; (k.f()) || (i2 != 0); i2 = 0)
-          {
-            i1 = 0;
-            break;
-          }
-          i1 = 0;
-        }
+      List localList = ((gga)localIterator.next()).b();
+      if (localList != null) {
+        localArrayList.addAll(localList);
       }
     }
-    label252:
-    if (paramBoolean)
+    return localArrayList;
+  }
+  
+  public final List<UberLatLng> L_()
+  {
+    ArrayList localArrayList = new ArrayList();
+    Iterator localIterator = w.iterator();
+    while (localIterator.hasNext())
     {
-      if (i1 != 0)
-      {
-        mButtonMyLocation.setAlpha(0.0F);
-        mButtonMyLocation.setVisibility(0);
-        mButtonMyLocation.animate().alpha(1.0F).setListener(null).setDuration(F).start();
-        return;
-      }
-      mButtonMyLocation.animate().alpha(0.0F).setDuration(F).setListener(new MapFragment.2(this)).start();
-      return;
-    }
-    if (i1 != 0)
-    {
-      mButtonMyLocation.setAlpha(1.0F);
-      mButtonMyLocation.setVisibility(0);
-      return;
-    }
-    mButtonMyLocation.setAlpha(0.0F);
-    mButtonMyLocation.setVisibility(8);
-  }
-  
-  private hoc b(ebj paramebj)
-  {
-    u = new dyw(this);
-    return hno.a().a(paramebj).a(u).a(new efr(this)).a();
-  }
-  
-  private void b(cny paramcny)
-  {
-    if (!v()) {
-      return;
-    }
-    z = true;
-    y.a(paramcny, F, new MapFragment.4(this));
-    mViewMap.postDelayed(new MapFragment.5(this), F + 500);
-  }
-  
-  private void b(coe paramcoe, Bundle paramBundle)
-  {
-    boolean bool = false;
-    if (paramBundle != null) {
-      bool = paramBundle.getBoolean("com.ubercab.STATE_SHOW_DESTINATION_ETA_TIME", false);
-    }
-    paramcoe = hnq.a().a(u).a((hdg)((dso)getActivity()).d()).a(new hof(g, paramcoe, this, getActivity(), bool)).a();
-    N.add(paramcoe.b());
-    N.add(paramcoe.i());
-    N.add(paramcoe.h());
-    N.add(paramcoe.f());
-    N.add(paramcoe.e());
-    N.add(paramcoe.d());
-    N.add(paramcoe.c());
-    N.add(paramcoe.j());
-    x = paramcoe.g();
-    N.add(x);
-  }
-  
-  private void b(fod paramfod)
-  {
-    cny localcny = paramfod.a(C);
-    if (paramfod.b())
-    {
-      b(localcny);
-      return;
-    }
-    a(localcny);
-  }
-  
-  private void b(ijy paramijy)
-  {
-    O.b(paramijy);
-    O.a(r);
-  }
-  
-  private void c(int paramInt)
-  {
-    if ((!v()) || (y.c() == null)) {
-      return;
-    }
-    boolean bool = d(paramInt);
-    y.c().a(bool);
-    y.c().b(bool);
-  }
-  
-  private boolean d(int paramInt)
-  {
-    return (paramInt != 1) && (paramInt != 2) && ((paramInt != 5) || (!o.p()));
-  }
-  
-  private boolean t()
-  {
-    return (h.b(dux.ak)) && (q.a(MapFragment.class));
-  }
-  
-  private void u()
-  {
-    hoa localhoa = k.e();
-    if ((localhoa == hoa.c) || (localhoa == hoa.g) || (localhoa == hoa.e))
-    {
-      f.c(new hmx());
-      e.a(r.cy);
-      return;
-    }
-    if ((h.a(dux.fh, true)) && (localhoa == hoa.d) && (x != null))
-    {
-      x.h();
-      k.a(true);
-      a(true);
-      return;
-    }
-    k.a(true);
-  }
-  
-  private boolean v()
-  {
-    return y != null;
-  }
-  
-  private boolean w()
-  {
-    return (y != null) && (y.c() != null) && (y.c().a());
-  }
-  
-  private void x()
-  {
-    a(egd.n);
-    mViewMap.a(new MapFragment.3(this));
-  }
-  
-  private void y()
-  {
-    fod localfod = K;
-    if (localfod != null)
-    {
-      K = null;
-      b(localfod);
-    }
-  }
-  
-  private void z()
-  {
-    Rect localRect = J;
-    if (localRect != null)
-    {
-      J = null;
-      a(left, top, right, bottom);
-    }
-  }
-  
-  public final boolean H_()
-  {
-    k.a(false);
-    if ((v()) && (!A))
-    {
-      localObject = y.a();
-      if (localObject != null)
-      {
-        UberLatLng localUberLatLng = ((cnw)localObject).b();
-        RiderLocation localRiderLocation = p.b();
-        if ((localRiderLocation != null) && (!localUberLatLng.b(localRiderLocation.getUberLatLng())))
-        {
-          A = true;
-          a((cnw)localObject);
-        }
+      List localList = ((gga)localIterator.next()).c();
+      if (localList != null) {
+        localArrayList.addAll(localList);
       }
     }
-    Object localObject = L.iterator();
-    while (((Iterator)localObject).hasNext()) {
-      if (((foa)((Iterator)localObject).next()).H_()) {
-        return true;
-      }
-    }
-    localObject = N.iterator();
-    while (((Iterator)localObject).hasNext()) {
-      ((foi)((Iterator)localObject).next()).d();
-    }
-    return false;
-  }
-  
-  public final boolean I_()
-  {
-    A = false;
-    Iterator localIterator = L.iterator();
-    while (localIterator.hasNext()) {
-      if (((foa)localIterator.next()).I_()) {
-        return true;
-      }
-    }
-    localIterator = N.iterator();
-    while (localIterator.hasNext()) {
-      ((foi)localIterator.next()).e();
-    }
-    return false;
-  }
-  
-  public final void N_()
-  {
-    y.a(coa.b());
+    return localArrayList;
   }
   
   public final View a(Marker paramMarker)
   {
-    Iterator localIterator = N.iterator();
+    Iterator localIterator = w.iterator();
     while (localIterator.hasNext())
     {
-      View localView = ((foi)localIterator.next()).b(paramMarker);
+      View localView = ((gga)localIterator.next()).b(paramMarker);
       if (localView != null) {
         return localView;
       }
@@ -474,23 +610,21 @@ public class MapFragment
   
   public final void a()
   {
-    if (y.c() != null) {
-      y.c().a(false);
-    }
+    a(true);
   }
   
   public final void a(int paramInt)
   {
     if (paramInt == 3)
     {
-      v = true;
-      a(true);
+      x = true;
+      p();
     }
     while (paramInt != 2) {
       return;
     }
-    v = false;
-    a(true);
+    x = false;
+    p();
   }
   
   public final void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
@@ -500,7 +634,7 @@ public class MapFragment
     for (;;)
     {
       return;
-      if ((!v()) || (z))
+      if ((!t()) || (A))
       {
         J = ((Rect)localObject);
         return;
@@ -509,169 +643,124 @@ public class MapFragment
       mViewMap.a(paramInt1, paramInt2, paramInt3, paramInt4);
       if (K != null)
       {
-        y();
+        v();
         return;
       }
       k.a();
-      localObject = N.iterator();
+      localObject = w.iterator();
       while (((Iterator)localObject).hasNext()) {
-        ((foi)((Iterator)localObject).next()).a(I);
+        ((gga)((Iterator)localObject).next()).Q_();
       }
     }
   }
   
-  public final void a(cnw paramcnw)
+  public final void a(CameraPosition paramCameraPosition)
   {
-    if ((!v()) || (z)) {}
+    if ((!t()) || (A)) {}
     for (;;)
     {
       return;
-      if (y.b() != null)
+      if (z.b() != null)
       {
-        Iterator localIterator = N.iterator();
+        Iterator localIterator = w.iterator();
         while (localIterator.hasNext()) {
-          ((foi)localIterator.next()).a(paramcnw);
+          ((gga)localIterator.next()).a(paramCameraPosition);
         }
-        mViewMapExtension.a(y.b().a(paramcnw.b()));
         localIterator = M.iterator();
         while (localIterator.hasNext()) {
-          ((coh)localIterator.next()).a(paramcnw);
+          ((cqz)localIterator.next()).a(paramCameraPosition);
         }
       }
     }
   }
   
-  public final void a(coh paramcoh)
+  public final void a(cqz paramcqz)
   {
-    M.add(paramcoh);
+    M.add(paramcqz);
   }
   
-  public final void a(foa paramfoa)
+  public final void a(gft paramgft)
   {
-    L.add(paramfoa);
+    L.add(paramgft);
   }
   
-  public final void a(fod paramfod)
+  public final void a(gfv paramgfv)
   {
-    if (z)
+    if (A)
     {
-      K = paramfod;
+      K = paramgfv;
       return;
     }
-    b(paramfod);
+    b(paramgfv);
   }
   
   public final boolean a(Point paramPoint)
   {
     K = null;
-    v = false;
-    if ((o.h()) && (t.g() == 5) && (o.p())) {
-      v = true;
+    x = false;
+    if ((o.i()) && (u.g() == 5) && (o.u())) {
+      x = true;
     }
     Iterator localIterator = L.iterator();
     while (localIterator.hasNext()) {
-      if (((foa)localIterator.next()).a(paramPoint)) {
+      if (((gft)localIterator.next()).a(paramPoint)) {
         return true;
       }
     }
-    localIterator = N.iterator();
+    localIterator = w.iterator();
     while (localIterator.hasNext()) {
-      ((foi)localIterator.next()).b(paramPoint);
+      ((gga)localIterator.next()).b(paramPoint);
     }
     return false;
   }
   
-  public final void b()
-  {
-    if (y.c() != null)
-    {
-      boolean bool = d(t.g());
-      y.c().a(bool);
-    }
-  }
-  
   public final void b(int paramInt)
   {
-    mButtonMyLocation.animate().translationY(paramInt).setInterpolator(new DecelerateInterpolator()).setDuration(F).start();
+    mMapTools.animate().translationY(paramInt).setInterpolator(new DecelerateInterpolator()).setDuration(F).start();
   }
   
-  public final void b(coh paramcoh)
+  public final void b(cqz paramcqz)
   {
-    M.remove(paramcoh);
+    M.remove(paramcqz);
   }
   
-  public final void b(foa paramfoa)
+  public final void b(gft paramgft)
   {
-    L.remove(paramfoa);
+    L.remove(paramgft);
   }
   
   public final boolean b(Point paramPoint)
   {
-    A = false;
+    B = false;
     Iterator localIterator = L.iterator();
     while (localIterator.hasNext()) {
-      if (((foa)localIterator.next()).b(paramPoint)) {
+      if (((gft)localIterator.next()).b(paramPoint)) {
         return true;
       }
     }
-    localIterator = N.iterator();
+    localIterator = w.iterator();
     while (localIterator.hasNext()) {
-      ((foi)localIterator.next()).a(paramPoint);
+      ((gga)localIterator.next()).a(paramPoint);
     }
     return false;
   }
   
   public final boolean b(Marker paramMarker)
   {
-    Iterator localIterator = N.iterator();
+    Iterator localIterator = w.iterator();
     while (localIterator.hasNext()) {
-      ((foi)localIterator.next()).a(paramMarker);
+      ((gga)localIterator.next()).a(paramMarker);
     }
     return true;
   }
   
-  public final ckr f()
-  {
-    return dsh.a;
-  }
-  
-  public final void g()
-  {
-    if (h.a(dux.fL)) {}
-    float f1;
-    do
-    {
-      do
-      {
-        return;
-      } while ((!w()) || (y.a() == null));
-      f1 = y.a().d() - 0.075F;
-    } while (f1 <= 0.0F);
-    y.b(coa.a(f1));
-  }
-  
-  public final void h()
-  {
-    if (h.a(dux.fL)) {}
-    while ((!w()) || (y.a() == null)) {
-      return;
-    }
-    float f1 = y.a().d();
-    y.b(coa.a(f1 + 0.075F));
-  }
-  
-  public final void i()
-  {
-    a(true);
-  }
-  
-  public final List<UberLatLng> j()
+  public final List<UberLatLng> d()
   {
     ArrayList localArrayList = new ArrayList();
-    Iterator localIterator = N.iterator();
+    Iterator localIterator = w.iterator();
     while (localIterator.hasNext())
     {
-      List localList = ((foi)localIterator.next()).b();
+      List localList = ((gga)localIterator.next()).e();
       if (localList != null) {
         localArrayList.addAll(localList);
       }
@@ -679,138 +768,216 @@ public class MapFragment
     return localArrayList;
   }
   
-  public final List<UberLatLng> k()
+  public final cli e()
   {
-    ArrayList localArrayList = new ArrayList();
-    Iterator localIterator = N.iterator();
-    while (localIterator.hasNext()) {
-      localIterator.next();
-    }
-    return localArrayList;
+    return dxm.a;
   }
   
-  public final List<UberLatLng> l()
-  {
-    ArrayList localArrayList = new ArrayList();
-    Iterator localIterator = N.iterator();
-    while (localIterator.hasNext())
-    {
-      List localList = ((foi)localIterator.next()).c();
-      if (localList != null) {
-        localArrayList.addAll(localList);
-      }
-    }
-    return localArrayList;
-  }
-  
-  public final MapView m()
+  public final MapView f()
   {
     return mViewMap;
   }
   
-  public final void n()
+  public final boolean g()
   {
-    if (v()) {
-      y.c().a(false);
-    }
-  }
-  
-  public final void o()
-  {
-    if (v())
+    k.a(false);
+    if ((t()) && (!B))
     {
-      boolean bool = d(t.g());
-      y.c().a(bool);
+      localObject = z.a();
+      if (localObject != null)
+      {
+        UberLatLng localUberLatLng = ((CameraPosition)localObject).a();
+        RiderLocation localRiderLocation = p.b();
+        if ((localRiderLocation != null) && (!localUberLatLng.b(localRiderLocation.getUberLatLng())))
+        {
+          B = true;
+          a((CameraPosition)localObject);
+        }
+      }
+    }
+    Object localObject = L.iterator();
+    while (((Iterator)localObject).hasNext()) {
+      if (((gft)((Iterator)localObject).next()).g()) {
+        return true;
+      }
+    }
+    localObject = w.iterator();
+    while (((Iterator)localObject).hasNext()) {
+      ((gga)((Iterator)localObject).next()).g();
+    }
+    return false;
+  }
+  
+  public final boolean h()
+  {
+    B = false;
+    Iterator localIterator = L.iterator();
+    while (localIterator.hasNext()) {
+      if (((gft)localIterator.next()).h()) {
+        return true;
+      }
+    }
+    localIterator = w.iterator();
+    while (localIterator.hasNext()) {
+      ((gga)localIterator.next()).h();
+    }
+    return false;
+  }
+  
+  public final Rect i()
+  {
+    return I;
+  }
+  
+  public final void j()
+  {
+    if (t()) {
+      z.c().a(false);
     }
   }
   
-  @OnClick({2131625760})
+  public final void k()
+  {
+    if (t())
+    {
+      boolean bool = d(u.g());
+      z.c().a(bool);
+    }
+  }
+  
+  public final void l()
+  {
+    Iterator localIterator = w.iterator();
+    while (localIterator.hasNext()) {
+      localIterator.next();
+    }
+  }
+  
+  public final UberLatLng m()
+  {
+    if (!t()) {}
+    CameraPosition localCameraPosition;
+    do
+    {
+      return null;
+      localCameraPosition = z.a();
+    } while (localCameraPosition == null);
+    return localCameraPosition.a();
+  }
+  
+  public final float n()
+  {
+    if (!t()) {
+      return 0.0F;
+    }
+    return z.a().b();
+  }
+  
+  final void o()
+  {
+    if (!t()) {
+      return;
+    }
+    k.c();
+    Iterator localIterator = w.iterator();
+    while (localIterator.hasNext()) {
+      ((gga)localIterator.next()).k();
+    }
+    j.a();
+    L.add(j);
+    M.add(j);
+    b(enz.m);
+    b(enz.z);
+  }
+  
+  @OnClick
   public void onClickMyLocationButton()
   {
-    if (h.a(dux.fZ, true)) {
-      u();
+    if (h.a(eaj.jE, true)) {
+      s();
     }
     RiderActivity localRiderActivity;
     do
     {
       return;
-      if (idk.a(getContext(), "android.permission.ACCESS_FINE_LOCATION"))
+      if (kgc.a(getContext(), "android.permission.ACCESS_FINE_LOCATION"))
       {
-        u();
+        s();
         return;
       }
-      localRiderActivity = d();
+      localRiderActivity = b();
     } while (localRiderActivity == null);
     m.a(localRiderActivity, 108, new MapFragment.1(this, localRiderActivity), new String[] { "android.permission.ACCESS_FINE_LOCATION" });
   }
   
   public void onCreate(Bundle paramBundle)
   {
-    O.b(egd.v);
-    O.a(ijz.a, egd.m);
+    N.b(enz.v);
+    N.a(koj.a, enz.m);
     super.onCreate(paramBundle);
-    if (!t()) {
-      O.a(egd.values());
+    if (!r()) {
+      N.a(enz.values());
     }
     Resources localResources = getResources();
-    F = localResources.getInteger(2131427345);
-    G = localResources.getDimensionPixelSize(2131296465);
-    w = new coa();
+    F = localResources.getInteger(2131427347);
+    G = localResources.getDimensionPixelSize(2131296608);
     k.a(paramBundle);
     H = paramBundle;
-    D = h.b(dux.dX);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903647, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903863, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
   }
   
-  @cho
-  public void onDestinationChangedEvent(hmq paramhmq)
+  @chu
+  public void onDestinationChangedEvent(jgz paramjgz)
   {
     k.b();
-    a(true);
+    p();
   }
   
   public void onDestroyView()
   {
-    super.onDestroyView();
     mViewMapExtension.b(this);
-    mViewMapExtension.b(this);
-    mViewMap.b();
-    if (y != null)
+    mViewMap.c();
+    if (z != null)
     {
-      y.b(false);
-      y = null;
+      z.a(false);
+      z = null;
     }
-    ButterKnife.reset(this);
+    super.onDestroyView();
   }
   
   public void onGlobalLayout()
   {
-    C = true;
+    D = true;
+    if (h.c(eaj.gt))
+    {
+      ezl.a(mViewMap, this);
+      return;
+    }
     mViewMap.getViewTreeObserver().removeGlobalOnLayoutListener(this);
   }
   
   public void onLowMemory()
   {
     super.onLowMemory();
-    mViewMap.c();
+    mViewMap.d();
   }
   
-  @cho
+  @chu
   public void onPanelSlideEvent(PanelSlideEvent paramPanelSlideEvent)
   {
     if (!paramPanelSlideEvent.c()) {}
     for (boolean bool = true;; bool = false)
     {
-      if (bool != v)
+      if (bool != x)
       {
-        v = bool;
-        a(true);
+        x = bool;
+        p();
       }
       return;
     }
@@ -819,81 +986,107 @@ public class MapFragment
   public void onPause()
   {
     super.onPause();
-    mViewMap.d();
-    if (v())
+    mViewMap.b();
+    if (t())
     {
       k.d();
       j.b();
-      Iterator localIterator = N.iterator();
+      Iterator localIterator = w.iterator();
       while (localIterator.hasNext()) {
-        ((foi)localIterator.next()).g();
+        ((gga)localIterator.next()).l();
       }
     }
-    B = false;
+    C = false;
     L.remove(j);
     M.remove(j);
-    O.a(egd.values());
+    N.a(enz.values());
   }
   
-  @cho
-  public void onPinLocationEvent(dud paramdud)
+  @chu
+  public void onPinLocationEvent(dzs paramdzs)
   {
-    if (!v()) {
+    if (!t()) {
       return;
     }
-    A();
+    x();
   }
   
   public void onResume()
   {
     super.onResume();
-    mViewMap.e();
-    s();
-    B = true;
+    mViewMap.a();
+    o();
+    C = true;
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    Object localObject = mViewMap.a();
-    if ((localObject != null) && (((coe)localObject).a() != null))
+    mViewMap.a(paramBundle);
+    if (t())
     {
-      ((coe)localObject).a().a("com.ubercab.CAMERA_POSITION", paramBundle);
       k.b(paramBundle);
-      localObject = N.iterator();
-      while (((Iterator)localObject).hasNext()) {
-        ((foi)((Iterator)localObject).next()).a(paramBundle);
+      Iterator localIterator = w.iterator();
+      while (localIterator.hasNext()) {
+        ((gga)localIterator.next()).a(paramBundle);
       }
     }
   }
   
-  @cho
-  public void onTripUiStateChangedEvent(hnk paramhnk)
+  @OnClick
+  public void onTrafficButtonClicked()
   {
-    if (!v()) {
+    boolean bool;
+    ckt localckt;
+    AnalyticsEvent localAnalyticsEvent;
+    if (!mButtonTraffic.isSelected())
+    {
+      bool = true;
+      a(true, bool);
+      q.m(bool);
+      localckt = e;
+      localAnalyticsEvent = AnalyticsEvent.create("tap").setName(z.jw);
+      if (!bool) {
+        break label69;
+      }
+    }
+    label69:
+    for (String str = "on";; str = "off")
+    {
+      localckt.a(localAnalyticsEvent.setValue(str));
+      return;
+      bool = false;
+      break;
+    }
+  }
+  
+  @chu
+  public void onTripUiStateChangedEvent(jht paramjht)
+  {
+    if (!t()) {
       return;
     }
-    int i1 = t.g();
-    boolean bool1 = hha.c(E);
-    boolean bool2 = hha.c(i1);
+    int i1 = u.g();
+    boolean bool1 = izk.e(E);
+    boolean bool2 = izk.e(i1);
     E = i1;
-    if ((o.h()) && ((i1 == 5) || (i1 == 4)) && (o.p()))
+    if ((o.i()) && ((i1 == 5) || (i1 == 4)) && (o.u()))
     {
-      paramhnk = coa.a(o.k(), G);
+      paramjht = cpr.a(o.n(), G);
       if (i1 == 4)
       {
-        b(paramhnk);
+        b(paramjht);
         if (i1 == 5)
         {
-          v = true;
-          if ((y != null) && (y.b() != null) && (y.a() != null))
+          x = true;
+          if ((z != null) && (z.b() != null) && (z.a() != null))
           {
-            paramhnk = y.b().a(y.a().b());
-            if (paramhnk != null)
+            paramjht = z.b().a(z.a().a());
+            if (paramjht != null)
             {
               int i2 = y;
-              int i3 = o.n();
-              a(coa.a(y.b().a(new Point(x, y + (i2 - i3)))));
+              int i3 = o.s();
+              a(cpr.a(z.b().a(new Point(x, y + (i2 - i3)))));
             }
           }
         }
@@ -902,16 +1095,18 @@ public class MapFragment
     for (;;)
     {
       c(i1);
-      a(true);
+      p();
       return;
-      a(paramhnk);
+      a(paramjht);
       break;
       if (i1 == 2) {
         k.a(false);
       } else if ((!bool1) && (bool2)) {
         k.a(true);
+      } else if (i1 == 10) {
+        k.a(false);
       } else {
-        A();
+        x();
       }
     }
   }
@@ -919,63 +1114,11 @@ public class MapFragment
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
-    a(egd.o);
+    a(enz.o);
     mViewMap.a(H, l.a());
-    paramView = mViewMapExtension;
-    if (!D) {}
-    for (boolean bool = true;; bool = false)
-    {
-      paramView.a(bool);
-      mViewMap.getViewTreeObserver().addOnGlobalLayoutListener(this);
-      b(egd.o);
-      x();
-      return;
-    }
-  }
-  
-  public final void p()
-  {
-    Iterator localIterator = N.iterator();
-    while (localIterator.hasNext()) {
-      localIterator.next();
-    }
-  }
-  
-  public final UberLatLng q()
-  {
-    if (!v()) {}
-    cnw localcnw;
-    do
-    {
-      return null;
-      localcnw = y.a();
-    } while (localcnw == null);
-    return localcnw.b();
-  }
-  
-  public final float r()
-  {
-    if (!v()) {
-      return 0.0F;
-    }
-    return y.a().d();
-  }
-  
-  final void s()
-  {
-    if (!v()) {
-      return;
-    }
-    k.c();
-    Iterator localIterator = N.iterator();
-    while (localIterator.hasNext()) {
-      ((foi)localIterator.next()).f();
-    }
-    j.a();
-    L.add(j);
-    M.add(j);
-    b(egd.m);
-    b(egd.z);
+    mViewMap.getViewTreeObserver().addOnGlobalLayoutListener(this);
+    b(enz.o);
+    u();
   }
 }
 

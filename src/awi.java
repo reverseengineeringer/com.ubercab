@@ -1,14 +1,9 @@
-import android.os.Bundle;
+import android.os.IInterface;
 
-public final class awi
-  implements wi
+public abstract interface awi
+  extends IInterface
 {
-  private final Bundle a;
-  
-  public final Bundle a()
-  {
-    return a;
-  }
+  public abstract void a(azl paramazl);
 }
 
 /* Location:

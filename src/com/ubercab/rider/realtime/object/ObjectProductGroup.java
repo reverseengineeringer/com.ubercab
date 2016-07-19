@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jua;
+import mzi;
 
 @Shape
 abstract class ObjectProductGroup
-  implements jua
+  implements mzi
 {}
 
 /* Location:

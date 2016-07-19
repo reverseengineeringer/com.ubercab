@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ub__payment_rewards_progress_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:id="@id/ub__payment_rewards_progress_short_headline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__card_offers_payment_rewards_listitem_vertical_margin" android:layout_marginBottom="@dimen/ub__card_offers_payment_rewards_listitem_vertical_margin" android:textAllCaps="false" style="@style/Uber.TextAppearance.H3" />
+    <include android:id="@id/ub__payment_rewards_status" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ub__card_offers_progress_bar_margin_right" android:layout_marginEnd="@dimen/ub__card_offers_progress_bar_margin_right" layout="@layout/ub__card_offers_progress_bar" />
+    <com.ubercab.ui.TextView android:id="@id/ub__payment_rewards_not_towards_next_ride_cta" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__card_offers_payment_rewards_listitem_vertical_margin" android:text="@string/card_offers_not_count_towards_next_ride" android:textAllCaps="false" style="@style/Uber.TextAppearance.H3" />
+</LinearLayout>

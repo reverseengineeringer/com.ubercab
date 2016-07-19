@@ -1,14 +1,19 @@
 package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface ManagedBusinessProfileAttributes
 {
+  public static final String EXPENSE_CODE_REQUIRED_MODE_NOT_REQUIRED = "NOT_REQUIRED";
+  public static final String EXPENSE_CODE_REQUIRED_MODE_REQUIRED = "REQUIRED";
+  
   public abstract String getBillingMode();
   
   public abstract String getName();
+  
+  public abstract RidePolicy getRidePolicy();
   
   public abstract ProfileTheme getTheme();
 }

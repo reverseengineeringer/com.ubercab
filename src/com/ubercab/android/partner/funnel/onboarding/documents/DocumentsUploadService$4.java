@@ -1,17 +1,17 @@
 package com.ubercab.android.partner.funnel.onboarding.documents;
 
 import com.ubercab.android.partner.funnel.realtime.models.steps.documents.DocumentUploadResult;
-import kml;
-import kuc;
+import ofa;
+import oot;
 
 final class DocumentsUploadService$4
-  implements kml<DocumentUploadResult>
+  implements ofa<DocumentUploadResult>
 {
   DocumentsUploadService$4(DocumentsUploadService paramDocumentsUploadService) {}
   
   private void a()
   {
-    if (DocumentsUploadService.b(a).b()) {
+    if (DocumentsUploadService.b(a).d()) {
       a.a(true);
     }
   }

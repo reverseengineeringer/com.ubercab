@@ -1,10 +1,10 @@
 package com.ubercab.client.core.vendor.google.model;
 
-import bqa;
+import bmu;
 
 public class OverviewPolyline
 {
-  @bqa(a="points")
+  @bmu(a="points")
   private String mPoints;
   
   public boolean equals(Object paramObject)

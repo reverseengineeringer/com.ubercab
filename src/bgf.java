@@ -1,45 +1,47 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Parcel;
-import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.wallet.CountrySpecification;
 
-public abstract class bgf
-  extends Binder
-  implements bge
+public final class bgf
+  implements Parcelable.Creator<CountrySpecification>
 {
-  public static bge a(IBinder paramIBinder)
+  private static CountrySpecification a(Parcel paramParcel)
   {
-    if (paramIBinder == null) {
-      return null;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    String str = null;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        str = zd.n(paramParcel, k);
+      }
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
-    if ((localIInterface != null) && ((localIInterface instanceof bge))) {
-      return (bge)localIInterface;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new bgg(paramIBinder);
+    return new CountrySpecification(i, str);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static void a(CountrySpecification paramCountrySpecification, Parcel paramParcel)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
-    if (paramParcel1.readInt() != 0) {
-      bih localbih = StreetViewPanoramaLocation.CREATOR;
-    }
-    for (paramParcel1 = bih.a(paramParcel1);; paramParcel1 = null)
-    {
-      a(paramParcel1);
-      paramParcel2.writeNoException();
-      return true;
-    }
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramCountrySpecification.a());
+    zf.a(paramParcel, 2, a, false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static CountrySpecification[] a(int paramInt)
+  {
+    return new CountrySpecification[paramInt];
   }
 }
 

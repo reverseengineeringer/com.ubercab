@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="?android:selectableItemBackground" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Funnel.TextAppearance.Byline" android:textSize="@dimen/ub__partner_funnel_city_picker_item_index_textsize" android:textColor="@color/ub__uber_blue_80" android:gravity="center" android:id="@id/ub_partner_funnel_citypicker_index_textview" android:layout_width="@dimen/ub__partner_funnel_city_picker_item_index_width" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:paddingRight="@dimen/ub__partner_funnel_padding_list_cell" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Funnel.TextAppearance.Byline" android:textSize="@dimen/ub__text_size_medium" android:textColor="@color/ub__uber_black_90" android:id="@id/ub_partner_funnel_citypicker_content_textview" android:background="?android:selectableItemBackground" android:paddingTop="@dimen/ub__partner_funnel_padding_list_cell" android:paddingBottom="@dimen/ub__partner_funnel_padding_list_cell" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <View android:id="@id/ub__partner_funnel_citypicker_divider" android:background="@color/ub__uber_white_60" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    </LinearLayout>
+</LinearLayout>

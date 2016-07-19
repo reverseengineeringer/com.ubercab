@@ -1,142 +1,21 @@
-import android.content.ContentProviderClient;
-import android.content.Context;
-import android.location.Location;
-import android.os.RemoteException;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.internal.LocationRequestInternal;
-import com.google.android.gms.location.internal.LocationRequestUpdateData;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import android.os.IBinder;
+import android.os.IInterface;
+import java.util.List;
 
-public final class azo
+public abstract interface azo
+  extends IInterface
 {
-  private final azw<azi> a;
-  private final Context b;
-  private ContentProviderClient c = null;
-  private boolean d = false;
-  private Map<ayq, azr> e = new HashMap();
-  private Map<Object, azp> f = new HashMap();
+  public abstract int a();
   
-  public azo(Context paramContext, azw<azi> paramazw)
-  {
-    b = paramContext;
-    a = paramazw;
-  }
+  public abstract boolean a(azo paramazo);
   
-  private azr a(ayq paramayq)
-  {
-    synchronized (e)
-    {
-      azr localazr2 = (azr)e.get(paramayq);
-      azr localazr1 = localazr2;
-      if (localazr2 == null) {
-        localazr1 = new azr(paramayq);
-      }
-      e.put(paramayq, localazr1);
-      return localazr1;
-    }
-  }
+  public abstract int b();
   
-  private void d()
-  {
-    a.a();
-    ((azi)a.b()).a(false);
-    d = false;
-  }
+  public abstract List<IBinder> c();
   
-  public final Location a()
-  {
-    a.a();
-    try
-    {
-      Location localLocation = ((azi)a.b()).b(b.getPackageName());
-      return localLocation;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new IllegalStateException(localRemoteException);
-    }
-  }
+  public abstract boolean d();
   
-  public final void a(ayq paramayq, azc paramazc)
-  {
-    a.a();
-    abs.a(paramayq, "Invalid null listener");
-    synchronized (e)
-    {
-      paramayq = (azr)e.remove(paramayq);
-      if ((c != null) && (e.isEmpty()))
-      {
-        c.release();
-        c = null;
-      }
-      if (paramayq != null)
-      {
-        paramayq.a();
-        ((azi)a.b()).a(LocationRequestUpdateData.a(paramayq, paramazc));
-      }
-      return;
-    }
-  }
-  
-  public final void a(LocationRequest paramLocationRequest, ayq paramayq, azc paramazc)
-  {
-    a.a();
-    paramayq = a(paramayq);
-    ((azi)a.b()).a(LocationRequestUpdateData.a(LocationRequestInternal.a(paramLocationRequest), paramayq, paramazc));
-  }
-  
-  public final void b()
-  {
-    Object localObject3;
-    try
-    {
-      synchronized (e)
-      {
-        Iterator localIterator1 = e.values().iterator();
-        while (localIterator1.hasNext())
-        {
-          localObject3 = (azr)localIterator1.next();
-          if (localObject3 != null) {
-            ((azi)a.b()).a(LocationRequestUpdateData.a((bbb)localObject3, null));
-          }
-        }
-      }
-      e.clear();
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new IllegalStateException(localRemoteException);
-    }
-    synchronized (f)
-    {
-      Iterator localIterator2 = f.values().iterator();
-      while (localIterator2.hasNext())
-      {
-        localObject3 = (azp)localIterator2.next();
-        if (localObject3 != null) {
-          ((azi)a.b()).a(LocationRequestUpdateData.a((bay)localObject3));
-        }
-      }
-    }
-    f.clear();
-  }
-  
-  public final void c()
-  {
-    if (d) {}
-    try
-    {
-      d();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new IllegalStateException(localRemoteException);
-    }
-  }
+  public abstract int e();
 }
 
 /* Location:

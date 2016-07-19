@@ -9,6 +9,7 @@ public abstract class UpgradeStep
   extends BaseStep
   implements Parcelable
 {
+  public static final String POST_CITY_NAME = "cityName";
   public static final String POST_FLOW_TYPE_CITY_ID = "flowTypeCityId";
   public static final String POST_REFERRAL_CODE = "referralCode";
   public static final String TYPE = "upgrade";

@@ -1,34 +1,62 @@
-import android.os.Bundle;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.Future;
-import org.json.JSONObject;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.location.LocationAvailability;
 
-@apl
 public final class aph
-  implements ape<pb>
+  implements Parcelable.Creator<LocationAvailability>
 {
-  private final boolean a;
-  private final boolean b;
-  
-  public aph(boolean paramBoolean1, boolean paramBoolean2)
+  public static LocationAvailability a(Parcel paramParcel)
   {
-    a = paramBoolean1;
-    b = paramBoolean2;
+    int i = 1;
+    int n = zd.b(paramParcel);
+    int m = 0;
+    int k = 1000;
+    long l = 0L;
+    int j = 1;
+    while (paramParcel.dataPosition() < n)
+    {
+      int i1 = zd.a(paramParcel);
+      switch (zd.a(i1))
+      {
+      default: 
+        zd.a(paramParcel, i1);
+        break;
+      case 1: 
+        j = zd.e(paramParcel, i1);
+        break;
+      case 1000: 
+        m = zd.e(paramParcel, i1);
+        break;
+      case 2: 
+        i = zd.e(paramParcel, i1);
+        break;
+      case 3: 
+        l = zd.g(paramParcel, i1);
+        break;
+      case 4: 
+        k = zd.e(paramParcel, i1);
+      }
+    }
+    if (paramParcel.dataPosition() != n) {
+      throw new ze("Overread allowed size end=" + n, paramParcel);
+    }
+    return new LocationAvailability(m, k, j, i, l);
   }
   
-  private pb b(apd paramapd, JSONObject paramJSONObject)
+  public static void a(LocationAvailability paramLocationAvailability, Parcel paramParcel)
   {
-    Object localObject = paramapd.a(paramJSONObject, "images", true, a, b);
-    asd localasd = paramapd.a(paramJSONObject, "secondary_image", false, a);
-    paramapd = paramapd.a(paramJSONObject);
-    ArrayList localArrayList = new ArrayList();
-    localObject = ((List)localObject).iterator();
-    while (((Iterator)localObject).hasNext()) {
-      localArrayList.add(((asd)((Iterator)localObject).next()).get());
-    }
-    return new pb(paramJSONObject.getString("headline"), localArrayList, paramJSONObject.getString("body"), (ahs)localasd.get(), paramJSONObject.getString("call_to_action"), paramJSONObject.getString("advertiser"), (ox)paramapd.get(), new Bundle());
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 1000, paramLocationAvailability.a());
+    zf.a(paramParcel, 2, b);
+    zf.a(paramParcel, 3, c);
+    zf.a(paramParcel, 4, d);
+    zf.a(paramParcel, i);
+  }
+  
+  private static LocationAvailability[] a(int paramInt)
+  {
+    return new LocationAvailability[paramInt];
   }
 }
 

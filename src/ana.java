@@ -1,36 +1,13 @@
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.Bundle;
 
-@apl
 public final class ana
+  implements vy
 {
-  private final boolean a;
-  private final boolean b;
-  private final boolean c;
-  private final boolean d;
-  private final boolean e;
+  private final Bundle a;
   
-  private ana(anb paramanb)
+  public final Bundle a()
   {
-    a = anb.a(paramanb);
-    b = anb.b(paramanb);
-    c = anb.c(paramanb);
-    d = anb.d(paramanb);
-    e = anb.e(paramanb);
-  }
-  
-  public final JSONObject a()
-  {
-    try
-    {
-      JSONObject localJSONObject = new JSONObject().put("sms", a).put("tel", b).put("calendar", c).put("storePicture", d).put("inlineVideo", e);
-      return localJSONObject;
-    }
-    catch (JSONException localJSONException)
-    {
-      aqt.b("Error occured while obtaining the MRAID capabilities.", localJSONException);
-    }
-    return null;
+    return a;
   }
 }
 

@@ -2,14 +2,14 @@ package com.ubercab.rider.realtime.client;
 
 import com.ubercab.rider.realtime.request.body.ShoppingCartChargesBody;
 import com.ubercab.rider.realtime.response.ShoppingCartCharges;
-import kld;
+import odr;
 import retrofit.http.Body;
 import retrofit.http.POST;
 
 public abstract interface FareApi
 {
   @POST("/rt/fare/eats_estimate")
-  public abstract kld<ShoppingCartCharges> postEatsEstimate(@Body ShoppingCartChargesBody paramShoppingCartChargesBody);
+  public abstract odr<ShoppingCartCharges> postEatsEstimate(@Body ShoppingCartChargesBody paramShoppingCartChargesBody);
 }
 
 /* Location:

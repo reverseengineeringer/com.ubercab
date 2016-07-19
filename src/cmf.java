@@ -1,58 +1,61 @@
-final class cmf<E>
+import com.ubercab.android.location.UberLocation;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
+
+public abstract class cmf
 {
-  private final int a;
-  private int b;
-  private int c;
-  private E[] d;
+  protected final Set<cmk> a = new CopyOnWriteArraySet();
+  private cmj b;
   
-  public cmf(int paramInt)
+  public cmf(cmj paramcmj)
   {
-    a = paramInt;
-    d = ((Object[])new Object[paramInt]);
+    b = paramcmj;
   }
   
-  public final int a()
-  {
-    return b;
-  }
+  public abstract UberLocation a();
   
-  public final void a(E paramE)
+  public void a(cmj paramcmj)
   {
-    int i = c;
-    int j = b;
-    int k = d.length;
-    d[((i + j) % k)] = paramE;
-    if (b == d.length)
+    try
     {
-      c = ((c + 1) % d.length);
+      b = paramcmj;
       return;
     }
-    b += 1;
-  }
-  
-  public final E b()
-  {
-    if (b == 0) {
-      return null;
+    finally
+    {
+      paramcmj = finally;
+      throw paramcmj;
     }
-    b -= 1;
-    Object localObject = d[c];
-    d[c] = null;
-    c = ((c + 1) % d.length);
-    return (E)localObject;
   }
   
-  public final boolean c()
+  public final void a(cmk paramcmk)
   {
-    return b == 0;
+    a.add(paramcmk);
   }
   
-  public final E d()
+  public final void b(cmk paramcmk)
   {
-    if (b > 0) {
-      return (E)d[c];
+    a.remove(paramcmk);
+  }
+  
+  public abstract boolean b();
+  
+  public abstract void c();
+  
+  public abstract void d();
+  
+  public final cmj e()
+  {
+    try
+    {
+      cmj localcmj = b;
+      return localcmj;
     }
-    return null;
+    finally
+    {
+      localObject = finally;
+      throw ((Throwable)localObject);
+    }
   }
 }
 

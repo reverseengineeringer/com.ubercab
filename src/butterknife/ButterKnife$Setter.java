@@ -2,10 +2,7 @@ package butterknife;
 
 import android.view.View;
 
-public abstract interface ButterKnife$Setter<T extends View, V>
-{
-  public abstract void set(T paramT, V paramV, int paramInt);
-}
+public abstract interface ButterKnife$Setter<T extends View, V> {}
 
 /* Location:
  * Qualified Name:     butterknife.ButterKnife.Setter

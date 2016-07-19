@@ -1,54 +1,55 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.LocationSettingsResult;
-import com.google.android.gms.location.LocationSettingsStates;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import com.google.android.gms.measurement.AppMeasurementReceiver;
+import com.google.android.gms.measurement.AppMeasurementService;
 
 public final class bbg
-  implements Parcelable.Creator<LocationSettingsResult>
+  extends bcz
 {
-  private static LocationSettingsResult a(Parcel paramParcel)
+  private boolean a;
+  private final AlarmManager b = (AlarmManager)m().getSystemService("alarm");
+  
+  protected bbg(bcv parambcv)
   {
-    int j = zm.b(paramParcel);
-    Status localStatus = null;
-    int i = 0;
-    LocationSettingsStates localLocationSettingsStates = null;
-    while (paramParcel.dataPosition() < j)
+    super(parambcv);
+  }
+  
+  private PendingIntent c()
+  {
+    Intent localIntent = new Intent(m(), AppMeasurementReceiver.class);
+    localIntent.setAction("com.google.android.gms.measurement.UPLOAD");
+    return PendingIntent.getBroadcast(m(), 0, localIntent, 0);
+  }
+  
+  protected final void a()
+  {
+    b.cancel(c());
+  }
+  
+  public final void a(long paramLong)
+  {
+    E();
+    if (paramLong > 0L) {}
+    for (boolean bool = true;; bool = false)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        localStatus = (Status)zm.a(paramParcel, k, Status.CREATOR);
-        break;
-      case 1000: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        localLocationSettingsStates = (LocationSettingsStates)zm.a(paramParcel, k, LocationSettingsStates.CREATOR);
-      }
+      abe.b(bool);
+      abe.a(AppMeasurementReceiver.a(m()), "Receiver not registered/enabled");
+      abe.a(AppMeasurementService.a(m()), "Service not registered/enabled");
+      b();
+      long l = l().b();
+      a = true;
+      b.setInexactRepeating(2, l + paramLong, Math.max(bbm.Z(), paramLong), c());
+      return;
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new LocationSettingsResult(i, localStatus, localLocationSettingsStates);
   }
   
-  public static void a(LocationSettingsResult paramLocationSettingsResult, Parcel paramParcel, int paramInt)
+  public final void b()
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramLocationSettingsResult.a(), paramInt, false);
-    zo.a(paramParcel, 1000, paramLocationSettingsResult.b());
-    zo.a(paramParcel, 2, paramLocationSettingsResult.c(), paramInt, false);
-    zo.a(paramParcel, i);
-  }
-  
-  private static LocationSettingsResult[] a(int paramInt)
-  {
-    return new LocationSettingsResult[paramInt];
+    E();
+    a = false;
+    b.cancel(c());
   }
 }
 

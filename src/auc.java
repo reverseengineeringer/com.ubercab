@@ -1,62 +1,92 @@
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.widget.FrameLayout;
+import com.google.android.gms.maps.GoogleMapOptions;
 
 public final class auc
+  extends FrameLayout
 {
-  public static Bitmap a(Bitmap paramBitmap)
+  private final aue a;
+  private atv b;
+  
+  public auc(Context paramContext)
   {
-    int i = 0;
-    if (paramBitmap == null) {
+    super(paramContext);
+    a = new aue(this, paramContext, null);
+    f();
+  }
+  
+  public auc(Context paramContext, GoogleMapOptions paramGoogleMapOptions)
+  {
+    super(paramContext);
+    a = new aue(this, paramContext, paramGoogleMapOptions);
+    f();
+  }
+  
+  private void f()
+  {
+    setClickable(true);
+  }
+  
+  @Deprecated
+  public final atv a()
+  {
+    if (b != null) {
+      return b;
+    }
+    a.f();
+    if (a.a() == null) {
       return null;
     }
-    int j = paramBitmap.getWidth();
-    int m = paramBitmap.getHeight();
-    int k;
-    if (j >= m)
+    try
     {
-      k = (m - j) / 2;
-      j = m;
+      b = new atv(((aud)a.a()).e().a());
+      return b;
     }
-    for (;;)
+    catch (RemoteException localRemoteException)
     {
-      Bitmap localBitmap = Bitmap.createBitmap(j, j, Bitmap.Config.ARGB_8888);
-      Canvas localCanvas = new Canvas(localBitmap);
-      Paint localPaint = new Paint(1);
-      localPaint.setColor(-16777216);
-      localCanvas.drawCircle(j / 2, j / 2, j / 2, localPaint);
-      localPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-      localCanvas.drawBitmap(paramBitmap, k, i, localPaint);
-      return localBitmap;
-      i = (j - m) / 2;
-      k = 0;
+      throw new ayz(localRemoteException);
     }
   }
   
-  private static Bitmap a(Drawable paramDrawable)
+  public final void a(Bundle paramBundle)
   {
-    if (paramDrawable == null) {
-      return null;
+    a.a(paramBundle);
+    if (a.a() == null) {
+      acn.a(this);
     }
-    if ((paramDrawable instanceof BitmapDrawable)) {
-      return ((BitmapDrawable)paramDrawable).getBitmap();
-    }
-    Bitmap localBitmap = Bitmap.createBitmap(paramDrawable.getIntrinsicWidth(), paramDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-    Canvas localCanvas = new Canvas(localBitmap);
-    paramDrawable.setBounds(0, 0, localCanvas.getWidth(), localCanvas.getHeight());
-    paramDrawable.draw(localCanvas);
-    return localBitmap;
   }
   
-  public static Drawable a(Resources paramResources, Drawable paramDrawable)
+  public final void a(aug paramaug)
   {
-    return new BitmapDrawable(paramResources, a(a(paramDrawable)));
+    abe.b("getMapAsync() must be called on the main thread");
+    a.a(paramaug);
+  }
+  
+  public final void b()
+  {
+    a.b();
+  }
+  
+  public final void b(Bundle paramBundle)
+  {
+    a.b(paramBundle);
+  }
+  
+  public final void c()
+  {
+    a.c();
+  }
+  
+  public final void d()
+  {
+    a.d();
+  }
+  
+  public final void e()
+  {
+    a.e();
   }
 }
 

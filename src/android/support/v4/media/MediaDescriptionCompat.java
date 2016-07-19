@@ -27,6 +27,8 @@ public final class MediaDescriptionCompat
       return new MediaDescriptionCompat[paramAnonymousInt];
     }
   };
+  public static final String DESCRIPTION_KEY_MEDIA_URI = "android.support.v4.media.description.MEDIA_URI";
+  public static final String DESCRIPTION_KEY_NULL_BUNDLE_FLAG = "android.support.v4.media.description.NULL_BUNDLE_FLAG";
   private final CharSequence mDescription;
   private Object mDescriptionObj;
   private final Bundle mExtras;
@@ -66,20 +68,49 @@ public final class MediaDescriptionCompat
     if ((paramObject == null) || (Build.VERSION.SDK_INT < 21)) {
       return null;
     }
-    Object localObject = new MediaDescriptionCompat.Builder();
-    ((MediaDescriptionCompat.Builder)localObject).setMediaId(MediaDescriptionCompatApi21.getMediaId(paramObject));
-    ((MediaDescriptionCompat.Builder)localObject).setTitle(MediaDescriptionCompatApi21.getTitle(paramObject));
-    ((MediaDescriptionCompat.Builder)localObject).setSubtitle(MediaDescriptionCompatApi21.getSubtitle(paramObject));
-    ((MediaDescriptionCompat.Builder)localObject).setDescription(MediaDescriptionCompatApi21.getDescription(paramObject));
-    ((MediaDescriptionCompat.Builder)localObject).setIconBitmap(MediaDescriptionCompatApi21.getIconBitmap(paramObject));
-    ((MediaDescriptionCompat.Builder)localObject).setIconUri(MediaDescriptionCompatApi21.getIconUri(paramObject));
-    ((MediaDescriptionCompat.Builder)localObject).setExtras(MediaDescriptionCompatApi21.getExtras(paramObject));
-    if (Build.VERSION.SDK_INT >= 23) {
-      ((MediaDescriptionCompat.Builder)localObject).setMediaUri(MediaDescriptionCompatApi23.getMediaUri(paramObject));
+    MediaDescriptionCompat.Builder localBuilder = new MediaDescriptionCompat.Builder();
+    localBuilder.setMediaId(MediaDescriptionCompatApi21.getMediaId(paramObject));
+    localBuilder.setTitle(MediaDescriptionCompatApi21.getTitle(paramObject));
+    localBuilder.setSubtitle(MediaDescriptionCompatApi21.getSubtitle(paramObject));
+    localBuilder.setDescription(MediaDescriptionCompatApi21.getDescription(paramObject));
+    localBuilder.setIconBitmap(MediaDescriptionCompatApi21.getIconBitmap(paramObject));
+    localBuilder.setIconUri(MediaDescriptionCompatApi21.getIconUri(paramObject));
+    Bundle localBundle = MediaDescriptionCompatApi21.getExtras(paramObject);
+    Object localObject;
+    if (localBundle == null)
+    {
+      localObject = null;
+      if (localObject == null) {
+        break label163;
+      }
+      if ((!localBundle.containsKey("android.support.v4.media.description.NULL_BUNDLE_FLAG")) || (localBundle.size() != 2)) {
+        break label151;
+      }
+      localBundle = null;
+      label110:
+      localBuilder.setExtras(localBundle);
+      if (localObject == null) {
+        break label166;
+      }
+      localBuilder.setMediaUri((Uri)localObject);
     }
-    localObject = ((MediaDescriptionCompat.Builder)localObject).build();
-    mDescriptionObj = paramObject;
-    return (MediaDescriptionCompat)localObject;
+    for (;;)
+    {
+      localObject = localBuilder.build();
+      mDescriptionObj = paramObject;
+      return (MediaDescriptionCompat)localObject;
+      localObject = (Uri)localBundle.getParcelable("android.support.v4.media.description.MEDIA_URI");
+      break;
+      label151:
+      localBundle.remove("android.support.v4.media.description.MEDIA_URI");
+      localBundle.remove("android.support.v4.media.description.NULL_BUNDLE_FLAG");
+      label163:
+      break label110;
+      label166:
+      if (Build.VERSION.SDK_INT >= 23) {
+        localBuilder.setMediaUri(MediaDescriptionCompatApi23.getMediaUri(paramObject));
+      }
+    }
   }
   
   public final int describeContents()
@@ -119,7 +150,23 @@ public final class MediaDescriptionCompat
     MediaDescriptionCompatApi21.Builder.setDescription(localObject, mDescription);
     MediaDescriptionCompatApi21.Builder.setIconBitmap(localObject, mIcon);
     MediaDescriptionCompatApi21.Builder.setIconUri(localObject, mIconUri);
-    MediaDescriptionCompatApi21.Builder.setExtras(localObject, mExtras);
+    Bundle localBundle2 = mExtras;
+    Bundle localBundle1 = localBundle2;
+    if (Build.VERSION.SDK_INT < 23)
+    {
+      localBundle1 = localBundle2;
+      if (mMediaUri != null)
+      {
+        localBundle1 = localBundle2;
+        if (localBundle2 == null)
+        {
+          localBundle1 = new Bundle();
+          localBundle1.putBoolean("android.support.v4.media.description.NULL_BUNDLE_FLAG", true);
+        }
+        localBundle1.putParcelable("android.support.v4.media.description.MEDIA_URI", mMediaUri);
+      }
+    }
+    MediaDescriptionCompatApi21.Builder.setExtras(localObject, localBundle1);
     if (Build.VERSION.SDK_INT >= 23) {
       MediaDescriptionCompatApi23.Builder.setMediaUri(localObject, mMediaUri);
     }
@@ -163,6 +210,7 @@ public final class MediaDescriptionCompat
       paramParcel.writeParcelable(mIcon, paramInt);
       paramParcel.writeParcelable(mIconUri, paramInt);
       paramParcel.writeBundle(mExtras);
+      paramParcel.writeParcelable(mMediaUri, paramInt);
       return;
     }
     MediaDescriptionCompatApi21.writeToParcel(getMediaDescription(), paramParcel, paramInt);

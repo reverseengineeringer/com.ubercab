@@ -1,8 +1,15 @@
-public final class cd
+import android.view.animation.Animation;
+
+final class cd
 {
-  public static final int CardView = 2131361991;
-  public static final int CardView_Dark = 2131361992;
-  public static final int CardView_Light = 2131361993;
+  final int[] a;
+  final Animation b;
+  
+  private cd(int[] paramArrayOfInt, Animation paramAnimation)
+  {
+    a = paramArrayOfInt;
+    b = paramAnimation;
+  }
 }
 
 /* Location:

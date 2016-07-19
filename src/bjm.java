@@ -1,94 +1,32 @@
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.google.android.gms.measurement.internal.EventParams;
-import java.util.Iterator;
-import java.util.Set;
+import com.google.j2objc.annotations.Weak;
+import java.util.Map.Entry;
 
-public final class bjm
+final class bjm<K, V>
+  extends bjk<K, V>
 {
-  final String a;
-  final String b;
-  final String c;
-  final long d;
-  final long e;
-  final EventParams f;
+  @Weak
+  private final transient bje<K, V> a;
+  private final transient Map.Entry<K, V>[] b;
   
-  private bjm(bko parambko, String paramString1, String paramString2, String paramString3, long paramLong1, long paramLong2, EventParams paramEventParams)
+  bjm(bje<K, V> parambje, Map.Entry<K, V>[] paramArrayOfEntry)
   {
-    abs.a(paramString2);
-    abs.a(paramString3);
-    abs.a(paramEventParams);
-    a = paramString2;
-    b = paramString3;
-    paramString2 = paramString1;
-    if (TextUtils.isEmpty(paramString1)) {
-      paramString2 = null;
-    }
-    c = paramString2;
-    d = paramLong1;
-    e = paramLong2;
-    if ((e != 0L) && (e > d)) {
-      parambko.f().c().a("Event created with reverse previous/current timestamps");
-    }
-    f = paramEventParams;
+    a = parambje;
+    b = paramArrayOfEntry;
   }
   
-  bjm(bko parambko, String paramString1, String paramString2, String paramString3, long paramLong, Bundle paramBundle)
+  final bje<K, V> a()
   {
-    abs.a(paramString2);
-    abs.a(paramString3);
-    a = paramString2;
-    b = paramString3;
-    paramString2 = paramString1;
-    if (TextUtils.isEmpty(paramString1)) {
-      paramString2 = null;
-    }
-    c = paramString2;
-    d = paramLong;
-    e = 0L;
-    if ((e != 0L) && (e > d)) {
-      parambko.f().c().a("Event created with reverse previous/current timestamps");
-    }
-    f = a(parambko, paramBundle);
+    return a;
   }
   
-  private static EventParams a(bko parambko, Bundle paramBundle)
+  public final bkp<Map.Entry<K, V>> b()
   {
-    if ((paramBundle != null) && (!paramBundle.isEmpty()))
-    {
-      paramBundle = new Bundle(paramBundle);
-      Iterator localIterator = paramBundle.keySet().iterator();
-      while (localIterator.hasNext())
-      {
-        String str = (String)localIterator.next();
-        if (str == null)
-        {
-          localIterator.remove();
-        }
-        else
-        {
-          parambko.n();
-          Object localObject = bjc.a(str, paramBundle.get(str));
-          if (localObject == null) {
-            localIterator.remove();
-          } else {
-            parambko.n().a(paramBundle, str, localObject);
-          }
-        }
-      }
-      return new EventParams(paramBundle);
-    }
-    return new EventParams(new Bundle());
+    return c().b();
   }
   
-  final bjm a(bko parambko, long paramLong)
+  final bjb<Map.Entry<K, V>> d()
   {
-    return new bjm(parambko, c, a, b, d, paramLong, f);
-  }
-  
-  public final String toString()
-  {
-    return "Event{appId='" + a + '\'' + ", name='" + b + '\'' + ", params=" + f + '}';
+    return new bkc(this, b);
   }
 }
 

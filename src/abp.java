@@ -1,45 +1,53 @@
-import java.util.Iterator;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.server.response.FieldMappingDictionary;
+import com.google.android.gms.common.server.response.SafeParcelResponse;
 
 public final class abp
+  implements Parcelable.Creator<SafeParcelResponse>
 {
-  private final String a;
-  
-  private abp(String paramString)
+  public static SafeParcelResponse a(Parcel paramParcel)
   {
-    a = paramString;
-  }
-  
-  public static abp a(String paramString)
-  {
-    return new abp(paramString);
-  }
-  
-  private static CharSequence a(Object paramObject)
-  {
-    if ((paramObject instanceof CharSequence)) {
-      return (CharSequence)paramObject;
-    }
-    return paramObject.toString();
-  }
-  
-  private StringBuilder a(StringBuilder paramStringBuilder, Iterable<?> paramIterable)
-  {
-    paramIterable = paramIterable.iterator();
-    if (paramIterable.hasNext())
+    FieldMappingDictionary localFieldMappingDictionary = null;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    Parcel localParcel = null;
+    while (paramParcel.dataPosition() < j)
     {
-      paramStringBuilder.append(a(paramIterable.next()));
-      while (paramIterable.hasNext())
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
-        paramStringBuilder.append(a);
-        paramStringBuilder.append(a(paramIterable.next()));
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        localParcel = zd.C(paramParcel, k);
+        break;
+      case 3: 
+        localFieldMappingDictionary = (FieldMappingDictionary)zd.a(paramParcel, k, FieldMappingDictionary.CREATOR);
       }
     }
-    return paramStringBuilder;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new SafeParcelResponse(i, localParcel, localFieldMappingDictionary);
   }
   
-  public final String a(Iterable<?> paramIterable)
+  public static void a(SafeParcelResponse paramSafeParcelResponse, Parcel paramParcel, int paramInt)
   {
-    return a(new StringBuilder(), paramIterable).toString();
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramSafeParcelResponse.d());
+    zf.a(paramParcel, paramSafeParcelResponse.e());
+    zf.a(paramParcel, 3, paramSafeParcelResponse.f(), paramInt, false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static SafeParcelResponse[] a(int paramInt)
+  {
+    return new SafeParcelResponse[paramInt];
   }
 }
 

@@ -10,9 +10,21 @@ public abstract class ClientCapabilities
     return new Shape_ClientCapabilities();
   }
   
+  public abstract InAppMessage getInAppMessage();
+  
+  @Deprecated
   public abstract boolean getInAppMessaging();
   
+  public abstract ClientCapabilities setInAppMessage(InAppMessage paramInAppMessage);
+  
+  @Deprecated
   public abstract ClientCapabilities setInAppMessaging(boolean paramBoolean);
+  
+  @Deprecated
+  public ClientCapabilities setInAppMessagingAudio(boolean paramBoolean)
+  {
+    return setInAppMessaging(paramBoolean);
+  }
 }
 
 /* Location:

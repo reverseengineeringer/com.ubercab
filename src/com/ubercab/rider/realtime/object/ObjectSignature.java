@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import juk;
+import mzs;
 
 @Shape
 abstract class ObjectSignature
-  implements juk
+  implements mzs
 {}
 
 /* Location:

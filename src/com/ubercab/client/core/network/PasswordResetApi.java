@@ -1,7 +1,7 @@
 package com.ubercab.client.core.network;
 
+import com.ubercab.client.core.model.MobileAccountResponse;
 import com.ubercab.client.core.model.PasswordResetData;
-import com.ubercab.client.core.model.PasswordResetResponse;
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.POST;
@@ -9,7 +9,7 @@ import retrofit.http.POST;
 public abstract interface PasswordResetApi
 {
   @POST("/rt/users/reset-password")
-  public abstract void requestNextAction(@Body PasswordResetData paramPasswordResetData, Callback<PasswordResetResponse> paramCallback);
+  public abstract void requestNextAction(@Body PasswordResetData paramPasswordResetData, Callback<MobileAccountResponse> paramCallback);
 }
 
 /* Location:

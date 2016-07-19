@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.Button android:id="@id/ub__referrals_contact_picker_bottom_send" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:text="@string/ub__partner_referrals_contact_picker_send_invites" style="@style/Uber.Partner.Referrals.ContactPicker.BottomSendButton"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

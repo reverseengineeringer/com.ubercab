@@ -9,198 +9,202 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.feature.signup.PhoneNumber;
 import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.EditText;
 import com.ubercab.ui.TextView;
-import dsh;
-import dty;
-import dux;
-import ebj;
-import efr;
-import ego;
-import ejg;
-import erc;
-import eri;
-import hym;
-import hyn;
-import hza;
-import hzh;
-import hzi;
-import hzj;
-import hzk;
-import hzu;
-import hzv;
-import ife;
+import dxm;
+import dzn;
+import eaj;
+import eib;
+import enk;
+import eoz;
+import erj;
+import ezh;
+import ezm;
 import java.util.Locale;
-import jry;
-import jse;
-import jsg;
-import kld;
-import klo;
-import kls;
-import p;
-import r;
+import kan;
+import kao;
+import kbd;
+import kbm;
+import kbn;
+import kbo;
+import kbr;
+import kbs;
+import kce;
+import kcf;
+import khv;
+import kia;
+import mwo;
+import mxd;
+import mxk;
+import mxm;
+import odr;
+import oed;
+import oeh;
+import x;
+import z;
 
 public class MobileVerificationTokenFragment
-  extends dsh<hzi>
+  extends dxm<kbo>
 {
   public Handler c = new Handler();
-  public ego d;
-  public ckc e;
-  public chh f;
-  public jsg g;
-  public ife h;
-  public hza i;
-  public jry j;
-  public dty k;
-  public jse l;
-  private klo m;
-  @InjectView(2131626100)
-  Button mButtonCallAgain;
-  @InjectView(2131626096)
-  Button mButtonChangeNumber;
-  @InjectView(2131626087)
-  Button mButtonDialog;
-  @InjectView(2131626099)
-  Button mButtonResendSms;
-  @InjectView(2131626098)
+  public eoz d;
+  public ckt e;
+  public chn f;
+  public khv g;
+  public mxm h;
+  public kia i;
+  public mwo j;
+  public kbd k;
+  public mxd l;
+  public dzn m;
+  @BindView
+  public Button mButtonCallAgain;
+  @BindView
+  public Button mButtonChangeNumber;
+  @BindView
+  public Button mButtonDialog;
+  @BindView
+  public Button mButtonResendSms;
+  @BindView
   public EditText mEditTextToken;
-  @InjectView(2131624922)
-  TextView mTextViewTokenMessage;
-  private klo n;
-  private String o;
+  @BindView
+  public TextView mTextViewTokenMessage;
+  public mxk n;
+  private oed o;
+  private oed p;
+  private String q;
   
   public static MobileVerificationTokenFragment a()
   {
     return new MobileVerificationTokenFragment();
   }
   
-  private void a(hzi paramhzi)
-  {
-    paramhzi.a(this);
-  }
-  
   private void a(String paramString)
   {
-    b(getString(2131167229));
-    m = l.b(paramString, "default_verification").a(kls.a()).b(new hzh(this, (byte)0));
+    a_(getString(2131167608));
+    o = n.b(paramString, "default_verification").a(oeh.a()).b(new kbm(this, (byte)0));
   }
   
   private void a(String paramString1, String paramString2)
   {
-    o = erc.b(paramString1, paramString2);
-    if (!TextUtils.isEmpty(o))
+    q = ezh.b(paramString1, paramString2);
+    if (!TextUtils.isEmpty(q))
     {
-      if ((h.b(dux.cB)) && (i.e())) {
-        mTextViewTokenMessage.setText(getString(2131167231, new Object[] { o }));
+      if ((i.c(eaj.dw)) && (k.e())) {
+        mTextViewTokenMessage.setText(getString(2131167610, new Object[] { q }));
       }
     }
     else {
       return;
     }
-    mTextViewTokenMessage.setText(getString(2131167223, new Object[] { o }));
+    mTextViewTokenMessage.setText(getString(2131167602, new Object[] { q }));
   }
   
-  private hzi b(ebj paramebj)
+  private void a(kbo paramkbo)
   {
-    return hym.a().a(new efr(this)).a(paramebj).a();
+    paramkbo.a(this);
+  }
+  
+  private kbo b(eib parameib)
+  {
+    return kan.a().a(new enk(this)).a(parameib).a();
   }
   
   private void d(String paramString)
   {
-    m = l.b(paramString, "voice_verification").a(kls.a()).b(new hzk(this, (byte)0));
+    o = n.b(paramString, "voice_verification").a(oeh.a()).b(new kbs(this, (byte)0));
   }
   
-  public final ckr f()
+  private void f()
   {
-    return p.pG;
+    j.a().a(oeh.a()).b(new kbn(this, (byte)0));
   }
   
-  @OnClick({2131626096})
+  public final cli e()
+  {
+    return x.ul;
+  }
+  
+  @OnClick
   public void onClickButtonChangeNumber()
   {
-    f.c(new hzv());
-    e.a(r.oa);
+    mEditTextToken.setText("");
+    f.c(new kcf());
+    e.a(z.rN);
   }
   
-  @OnClick({2131626100})
+  @OnClick
   public void onClickButtonReCall()
   {
-    e.a(r.nY);
-    f.c(new hzu());
+    e.a(z.rL);
+    f.c(new kce());
   }
   
-  @OnClick({2131626099})
+  @OnClick
   public void onClickButtonResendToken()
   {
-    b(getString(2131166325));
-    n = l.c("default_verification", Locale.getDefault().getCountry()).a(kls.a()).b(new hzj(this, (byte)0));
-    e.a(r.of);
+    a_(getString(2131166506));
+    p = n.c("default_verification", Locale.getDefault().getCountry()).a(oeh.a()).b(new kbr(this, (byte)0));
+    e.a(z.rU);
   }
   
-  @OnClick({2131626087})
+  @OnClick
   public void onClickButtonVerificationOptionsDialog()
   {
-    MobileVerificationDialogFragment.a(d(), o);
+    MobileVerificationDialogFragment.a(b(), q);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903737, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903975, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public void onPause()
   {
     super.onPause();
-    if (m != null) {
-      m.c();
+    if (o != null) {
+      o.af_();
     }
-    if (n != null) {
-      n.c();
+    if (p != null) {
+      p.af_();
     }
-    i.h();
+    k.h();
   }
   
-  @cho
-  public void onRequestMobileVerificationResponseEvent(ejg paramejg)
+  @chu
+  public void onRequestMobileVerificationResponseEvent(erj paramerj)
   {
-    e();
-    j.a().b(eri.a());
+    M_();
+    l.a().b(ezm.a());
   }
   
   public void onResume()
   {
     super.onResume();
-    d().b().a(getString(2131167197));
-    Object localObject = i.k();
+    b().b().a(getString(2131167575));
+    Object localObject = k.k();
     if (localObject != null) {
       a(((PhoneNumber)localObject).a(), ((PhoneNumber)localObject).b());
     }
     do
     {
       return;
-      localObject = g.c();
+      localObject = h.c();
     } while (localObject == null);
     String str = ((Client)localObject).getMobileCountryIso2();
-    a(erc.d(((Client)localObject).getCurrentMobile(), str), str);
+    a(ezh.d(((Client)localObject).getCurrentMobile(), str), str);
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)
@@ -208,16 +212,16 @@ public class MobileVerificationTokenFragment
     super.onViewCreated(paramView, paramBundle);
     mEditTextToken.setFilters(new InputFilter[] { new InputFilter.LengthFilter(4) });
     mEditTextToken.addTextChangedListener(new MobileVerificationTokenFragment.1(this));
-    if (h.a(dux.aP))
+    if (i.b(eaj.bb))
     {
       mButtonDialog.setVisibility(8);
       mButtonChangeNumber.setVisibility(0);
       mButtonResendSms.setVisibility(0);
-      if ((h.b(dux.cB)) && (i.e()))
+      if ((i.c(eaj.dw)) && (k.e()))
       {
         mButtonCallAgain.setVisibility(0);
         mButtonResendSms.setVisibility(8);
-        mTextViewTokenMessage.setText(getString(2131167231, new Object[] { o }));
+        mTextViewTokenMessage.setText(getString(2131167610, new Object[] { q }));
       }
     }
   }

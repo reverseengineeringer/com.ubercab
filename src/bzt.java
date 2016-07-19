@@ -1,183 +1,127 @@
-import java.util.ArrayList;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
+import java.util.TimeZone;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public class bzt
+public final class bzt
 {
-  private static final String a;
-  private static final Map b;
-  private static final Set c;
-  private Map d = new LinkedHashMap();
-  private bzw e;
-  private Class f;
+  private final byv a;
+  private final bzz b;
+  private bzu c;
   
-  static
+  public bzt(byv parambyv, bzz parambzz)
   {
-    if (!bzt.class.desiredAssertionStatus()) {}
-    for (boolean bool = true;; bool = false)
+    a = parambyv;
+    b = parambzz;
+  }
+  
+  private static int a()
+  {
+    return new GregorianCalendar().getTimeZone().getRawOffset();
+  }
+  
+  private static JSONObject a(Map<String, String> paramMap)
+  {
+    JSONObject localJSONObject = new JSONObject();
+    Iterator localIterator = paramMap.keySet().iterator();
+    while (localIterator.hasNext())
     {
-      g = bool;
-      a = bzt.class.getSimpleName();
-      b = new HashMap();
-      c = new HashSet();
-      b.put("zh_CN", "zh-Hans");
-      b.put("zh_TW", "zh-Hant_TW");
-      b.put("zh_HK", "zh-Hant");
-      b.put("en_UK", "en_GB");
-      b.put("en_IE", "en_GB");
-      b.put("iw_IL", "he");
-      b.put("no", "nb");
-      c.add("he");
-      c.add("ar");
+      String str = (String)localIterator.next();
+      localJSONObject.accumulate(str, paramMap.get(str));
+    }
+    return localJSONObject;
+  }
+  
+  private void a(final String paramString)
+  {
+    new Handler(Looper.getMainLooper()).postDelayed(new Runnable()new Random
+    {
+      public final void run()
+      {
+        bzt.a(bzt.this).a("tracking/events", paramString, null);
+      }
+    }, (new Random().nextInt(190) + 10) * 1000);
+  }
+  
+  private static String b()
+  {
+    return Integer.toString(a() / 1000 / 60);
+  }
+  
+  public final void a(bzv parambzv, String paramString, Map<String, String> paramMap, bzl parambzl)
+  {
+    if (bzw.a(paramString)) {
       return;
     }
-  }
-  
-  public bzt(Class paramClass, List paramList)
-  {
-    f = paramClass;
-    paramClass = paramList.iterator();
-    while (paramClass.hasNext())
+    if ((c == null) || (!c.a())) {
+      c = new bzu();
+    }
+    long l = System.currentTimeMillis();
+    String str = byx.a(a.a());
+    Object localObject = new StringBuilder("mobile:otc:").append(parambzv.a()).append(":");
+    if (parambzl != null)
     {
-      paramList = (bzw)paramClass.next();
-      String str = paramList.a();
-      if (d.containsKey(str)) {
-        throw new RuntimeException("Locale " + str + " already added");
-      }
-      d.put(str, paramList);
-      b(str);
-    }
-    a(null);
-  }
-  
-  private String a(Enum paramEnum, bzw parambzw)
-  {
-    String str = Locale.getDefault().getCountry().toUpperCase(Locale.US);
-    Object localObject = parambzw.a(paramEnum, str);
-    parambzw = (bzw)localObject;
-    if (localObject == null)
-    {
-      new StringBuilder("Missing localized string for [").append(e.a()).append(",Key.").append(paramEnum.toString()).append("]");
-      parambzw = ((bzw)d.get("en")).a(paramEnum, str);
-    }
-    localObject = parambzw;
-    if (parambzw == null)
-    {
-      new StringBuilder("Missing localized string for [en,Key.").append(paramEnum.toString()).append("], so defaulting to keyname");
-      localObject = paramEnum.toString();
-    }
-    return (String)localObject;
-  }
-  
-  private void b(String paramString)
-  {
-    bzw localbzw = (bzw)d.get(paramString);
-    ArrayList localArrayList = new ArrayList();
-    Enum[] arrayOfEnum = (Enum[])f.getEnumConstants();
-    int j = arrayOfEnum.length;
-    int i = 0;
-    while (i < j)
-    {
-      Enum localEnum = arrayOfEnum[i];
-      String str = "[" + paramString + "," + localEnum + "]";
-      if (localbzw.a(localEnum, null) == null) {
-        localArrayList.add("Missing " + str);
-      }
-      i += 1;
-    }
-    paramString = localArrayList.iterator();
-    while (paramString.hasNext()) {
-      paramString.next();
-    }
-  }
-  
-  private bzw c(String paramString)
-  {
-    bzw localbzw = null;
-    if (paramString != null) {
-      localbzw = d(paramString);
-    }
-    Object localObject = localbzw;
-    if (localbzw == null)
-    {
-      localObject = Locale.getDefault().toString();
-      new StringBuilder().append(paramString).append(" not found.  Attempting to look for ").append((String)localObject);
-      localObject = d((String)localObject);
-    }
-    paramString = (String)localObject;
-    if (localObject == null) {
-      paramString = (bzw)d.get("en");
-    }
-    if ((!g) && (paramString == null)) {
-      throw new AssertionError();
-    }
-    return paramString;
-  }
-  
-  private bzw d(String paramString)
-  {
-    Object localObject3 = null;
-    Object localObject2 = null;
-    Object localObject1 = localObject2;
-    if (paramString != null)
-    {
-      if (paramString.length() < 2) {
-        localObject1 = localObject2;
+      parambzl = parambzl.name();
+      parambzl = parambzl;
+      localObject = "Android:" + paramString + ":";
+      localObject = new StringBuilder().append(parambzl).append(":").append((String)localObject);
+      if (!parambzv.b()) {
+        break label591;
       }
     }
-    else {
-      return (bzw)localObject1;
-    }
-    localObject2 = localObject3;
-    if (b.containsKey(paramString))
+    label591:
+    for (parambzv = "|error";; parambzv = "")
     {
-      localObject1 = (String)b.get(paramString);
-      localObject2 = (bzw)d.get(localObject1);
-      new StringBuilder("Overriding locale specifier ").append(paramString).append(" with ").append((String)localObject1);
-    }
-    localObject1 = localObject2;
-    if (localObject2 == null) {
-      if (!paramString.contains("_")) {
-        break label166;
+      localObject = parambzv;
+      parambzv = new HashMap(paramMap);
+      parambzv.put("apid", byw.a(a.b()) + "|2.3.2-24-g28cd595-dirty|" + a.b().getPackageName());
+      parambzv.put("bchn", "otc");
+      parambzv.put("bzsr", "mobile");
+      parambzv.put("dsid", str);
+      parambzv.put("e", "im");
+      parambzv.put("g", b());
+      parambzv.put("lgin", "out");
+      parambzv.put("mapv", "2.3.2-24-g28cd595-dirty");
+      parambzv.put("mcar", byw.b(a.b()));
+      parambzv.put("mdvs", byw.a());
+      parambzv.put("mosv", byw.b());
+      parambzv.put("page", localObject);
+      parambzv.put("pgrp", parambzl);
+      parambzv.put("rsta", Locale.getDefault().toString());
+      parambzv.put("srce", "otc");
+      parambzv.put("sv", "mobile");
+      parambzv.put("t", Long.toString(l - a()));
+      parambzv.put("vers", "Android:" + paramString + ":");
+      parambzv.put("vid", c.a);
+      try
+      {
+        paramString = new JSONObject();
+        paramString.accumulate("tracking_visitor_id", str);
+        paramString.accumulate("tracking_visit_id", c.a);
+        paramMap = new JSONObject();
+        paramMap.accumulate("actor", paramString);
+        paramMap.accumulate("channel", "mobile");
+        paramMap.accumulate("tracking_event", Long.toString(l));
+        paramMap.accumulate("event_params", a(parambzv));
+        a(new JSONObject().accumulate("events", paramMap).toString());
+        return;
       }
-    }
-    label166:
-    for (localObject1 = paramString;; localObject1 = paramString + "_" + Locale.getDefault().getCountry())
-    {
-      localObject1 = (bzw)d.get(localObject1);
-      localObject2 = localObject1;
-      if (localObject1 == null) {
-        localObject2 = (bzw)d.get(paramString);
+      catch (JSONException parambzv)
+      {
+        return;
       }
-      localObject1 = localObject2;
-      if (localObject2 != null) {
-        break;
-      }
-      paramString = paramString.substring(0, 2);
-      return (bzw)d.get(paramString);
+      parambzl = "";
+      break;
     }
-  }
-  
-  public final String a(Enum paramEnum)
-  {
-    return a(paramEnum, e);
-  }
-  
-  public final void a(String paramString)
-  {
-    new StringBuilder("setLanguage(").append(paramString).append(")");
-    e = null;
-    e = c(paramString);
-    if ((!g) && (e == null)) {
-      throw new AssertionError();
-    }
-    new StringBuilder("setting locale to:").append(e.a());
   }
 }
 

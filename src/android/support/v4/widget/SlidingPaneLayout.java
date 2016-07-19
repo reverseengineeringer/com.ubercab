@@ -1006,6 +1006,11 @@ public class SlidingPaneLayout
   
   protected void onRestoreInstanceState(Parcelable paramParcelable)
   {
+    if (!(paramParcelable instanceof SlidingPaneLayout.SavedState))
+    {
+      super.onRestoreInstanceState(paramParcelable);
+      return;
+    }
     paramParcelable = (SlidingPaneLayout.SavedState)paramParcelable;
     super.onRestoreInstanceState(paramParcelable.getSuperState());
     if (isOpen) {

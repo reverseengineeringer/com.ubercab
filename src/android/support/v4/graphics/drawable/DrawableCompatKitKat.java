@@ -4,6 +4,11 @@ import android.graphics.drawable.Drawable;
 
 class DrawableCompatKitKat
 {
+  public static int getAlpha(Drawable paramDrawable)
+  {
+    return paramDrawable.getAlpha();
+  }
+  
   public static boolean isAutoMirrored(Drawable paramDrawable)
   {
     return paramDrawable.isAutoMirrored();
@@ -17,7 +22,7 @@ class DrawableCompatKitKat
   public static Drawable wrapForTinting(Drawable paramDrawable)
   {
     Object localObject = paramDrawable;
-    if (!(paramDrawable instanceof DrawableWrapperKitKat)) {
+    if (!(paramDrawable instanceof TintAwareDrawable)) {
       localObject = new DrawableWrapperKitKat(paramDrawable);
     }
     return (Drawable)localObject;

@@ -1,70 +1,51 @@
+import com.ubercab.android.location.UberLatLng;
+import com.ubercab.android.location.UberLocation;
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Random;
+
 public final class clt
 {
-  private long a = 600000L;
-  private long b = 3600000L;
-  private int c = 0;
+  private final NumberFormat a = NumberFormat.getInstance(Locale.US);
+  private final Random b;
+  private final UberLatLng c;
   
-  public static clt d()
+  public clt(UberLocation paramUberLocation)
   {
-    return new clt();
+    this(paramUberLocation, new Random());
   }
   
-  public final long a()
+  private clt(UberLocation paramUberLocation, Random paramRandom)
   {
-    return a;
+    a.setMaximumFractionDigits(6);
+    b = paramRandom;
+    c = a(paramUberLocation.g());
   }
   
-  public final clt a(int paramInt)
+  private UberLatLng a(UberLatLng paramUberLatLng)
   {
-    c = paramInt;
-    return this;
+    double d1 = Math.sqrt(b.nextDouble()) * 0.0071877807726864335D;
+    double d3 = 6.283185307179586D * b.nextDouble();
+    double d2 = Math.cos(d3);
+    d3 = Math.sin(d3);
+    double d4 = paramUberLatLng.a();
+    d2 = Math.min(Math.max(d2 * d1 / Math.cos(paramUberLatLng.a()), -0.0071877807726864335D), 0.0071877807726864335D);
+    return new UberLatLng(d4 + d1 * d3, paramUberLatLng.b() + d2, paramUberLatLng.c());
   }
   
-  public final clt a(long paramLong)
+  public final double a()
   {
-    a = paramLong;
-    return this;
+    return Double.valueOf(a.format(c.a())).doubleValue();
   }
   
-  public final long b()
+  public final double b()
   {
-    return b;
+    return Double.valueOf(a.format(c.b())).doubleValue();
   }
   
-  public final clt b(long paramLong)
-  {
-    b = paramLong;
-    return this;
-  }
-  
-  public final int c()
+  public final UberLatLng c()
   {
     return c;
-  }
-  
-  public final boolean equals(Object paramObject)
-  {
-    if (this == paramObject) {}
-    do
-    {
-      return true;
-      if ((paramObject == null) || (getClass() != paramObject.getClass())) {
-        return false;
-      }
-      paramObject = (clt)paramObject;
-      if (a != a) {
-        return false;
-      }
-      if (b != b) {
-        return false;
-      }
-    } while (c == c);
-    return false;
-  }
-  
-  public final int hashCode()
-  {
-    return ((int)(a ^ a >>> 32) * 31 + (int)(b ^ b >>> 32)) * 31 + c;
   }
 }
 

@@ -1,11 +1,14 @@
-import java.lang.annotation.Annotation;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-@Retention(RetentionPolicy.RUNTIME)
-@Target({java.lang.annotation.ElementType.METHOD})
-public @interface cho {}
+final class cho
+{
+  final Object a;
+  final chq b;
+  
+  public cho(Object paramObject, chq paramchq)
+  {
+    a = paramObject;
+    b = paramchq;
+  }
+}
 
 /* Location:
  * Qualified Name:     cho

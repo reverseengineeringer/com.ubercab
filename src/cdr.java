@@ -1,31 +1,15 @@
-import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Timer;
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.PaymentMethodActivity;
 
 public final class cdr
-  implements ccj
+  implements View.OnClickListener
 {
-  public cdr(PayPalFuturePaymentActivity paramPayPalFuturePaymentActivity) {}
+  public cdr(PaymentMethodActivity paramPaymentMethodActivity) {}
   
-  public final void a()
+  public final void onClick(View paramView)
   {
-    Date localDate = Calendar.getInstance().getTime();
-    if (PayPalFuturePaymentActivity.d(a).compareTo(localDate) > 0)
-    {
-      long l = PayPalFuturePaymentActivity.d(a).getTime() - localDate.getTime();
-      PayPalFuturePaymentActivity.a();
-      new StringBuilder("Delaying ").append(l).append(" milliseconds so user doesn't see flicker.");
-      PayPalFuturePaymentActivity.a(a, new Timer());
-      PayPalFuturePaymentActivity.f(a).schedule(new cds(this), l);
-      return;
-    }
-    PayPalFuturePaymentActivity.e(a);
-  }
-  
-  public final void a(cck paramcck)
-  {
-    cfa.a(a, paramcck);
+    PaymentMethodActivity.c(a);
   }
 }
 

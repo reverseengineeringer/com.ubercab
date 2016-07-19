@@ -1,20 +1,10 @@
-import com.google.android.gms.common.ConnectionResult;
+import android.accounts.Account;
+import android.os.IInterface;
 
-public final class aam
-  implements ww
+public abstract interface aam
+  extends IInterface
 {
-  public aam(aag paramaag) {}
-  
-  public final void a(ConnectionResult paramConnectionResult)
-  {
-    if (paramConnectionResult.b()) {
-      a.a(null, aag.e(a));
-    }
-    while (aag.f(a) == null) {
-      return;
-    }
-    aag.f(a).a(paramConnectionResult);
-  }
+  public abstract Account a();
 }
 
 /* Location:

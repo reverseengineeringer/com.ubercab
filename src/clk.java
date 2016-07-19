@@ -1,19 +1,6 @@
-import android.content.Context;
-
-public final class clk
-  extends clu
-{
-  public clk(Context paramContext)
-  {
-    super(paramContext);
-    a(paramContext, true);
-  }
-  
-  public final clo a(clp paramclp)
-  {
-    return new cli(a, paramclp);
-  }
-}
+public abstract interface clk
+  extends clg
+{}
 
 /* Location:
  * Qualified Name:     clk

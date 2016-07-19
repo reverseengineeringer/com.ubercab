@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.Button android:id="@id/ub__enroll_button_enroll" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x" android:text="@string/local_offer_enroll" style="@style/Uber.Widget.Button.Accent" />
+    <com.ubercab.ui.TextView android:textColor="?colorAccent" android:id="@id/ub__enroll_button_enrolled" android:background="@color/ub__transparent" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/local_offer_enrolled" android:drawableRight="@drawable/ub__check" android:drawablePadding="@dimen/ui__spacing_unit_1x" android:layout_centerInParent="true" style="@style/Uber.Widget.Button.Accent" />
+</RelativeLayout>

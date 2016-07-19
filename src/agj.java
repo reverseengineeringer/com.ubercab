@@ -1,15 +1,5 @@
-@apl
-final class agj
-{
-  final int a;
-  final int b;
-  
-  agj(agi paramagi, int paramInt1, int paramInt2)
-  {
-    a = paramInt1;
-    b = paramInt2;
-  }
-}
+@aih
+public final class agj {}
 
 /* Location:
  * Qualified Name:     agj

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:color="@color/ub__partner_funnel_onboarding_black_40_semi_transparent" />
+    <item android:color="@color/ub__uber_blue_120" />
+</selector>

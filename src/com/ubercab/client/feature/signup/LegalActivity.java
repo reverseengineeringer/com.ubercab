@@ -4,43 +4,43 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
-import cho;
-import ckr;
+import chu;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.feature.about.WebViewFragment;
-import eav;
-import ebj;
-import euj;
-import evi;
-import gww;
-import gwx;
-import gxu;
-import gyv;
+import ehn;
+import eib;
+import fcv;
+import fdx;
+import iie;
+import iif;
+import ijc;
+import iki;
 
 public class LegalActivity
-  extends RiderActivity<gxu>
+  extends RiderActivity<ijc>
 {
-  private void a(gxu paramgxu)
+  private void a(ijc paramijc)
   {
-    paramgxu.a(this);
+    paramijc.a(this);
   }
   
-  private gxu b(ebj paramebj)
+  private ijc b(eib parameib)
   {
-    return gww.a().a(new eav(this)).a(paramebj).a();
+    return iie.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void f()
   {
-    if (a(euj.class) == null) {
-      a(2131624556, gyv.a(), true);
+    if (a(fcv.class) == null) {
+      a(2131624792, iki.a(), true);
     }
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903249);
+    setContentView(2130903324);
     b().b(true);
     f();
   }
@@ -61,15 +61,15 @@ public class LegalActivity
     return super.onOptionsItemSelected(paramMenuItem);
   }
   
-  @cho
-  public void onSelectWebViewEvent(evi paramevi)
+  @chu
+  public void onSelectWebViewEvent(fdx paramfdx)
   {
     if (a(WebViewFragment.class) == null) {
-      a(2131624556, WebViewFragment.a(paramevi.a(), paramevi.b()));
+      a(2131624792, WebViewFragment.a(paramfdx.a(), paramfdx.b()));
     }
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

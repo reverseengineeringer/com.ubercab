@@ -1,370 +1,199 @@
-import android.os.IBinder;
-import android.os.Parcel;
-import java.util.ArrayList;
-import java.util.List;
-
-final class amm
-  implements amk
+public final class amm
+  extends aoi
 {
-  private IBinder a;
+  private static volatile amm[] e;
+  public Integer a;
+  public amr b;
+  public amr c;
+  public Boolean d;
   
-  amm(IBinder paramIBinder)
+  public amm()
   {
-    a = paramIBinder;
+    e();
   }
   
-  public final String a()
+  private amm b(anz paramanz)
   {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
+    for (;;)
     {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
-      a.transact(2, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      String str = localParcel2.readString();
-      return str;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  /* Error */
-  public final void a(add paramadd)
-  {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +43 -> 58
-    //   18: aload_1
-    //   19: invokeinterface 51 1 0
-    //   24: astore_1
-    //   25: aload_2
-    //   26: aload_1
-    //   27: invokevirtual 54	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   30: aload_0
-    //   31: getfield 15	amm:a	Landroid/os/IBinder;
-    //   34: bipush 9
-    //   36: aload_2
-    //   37: aload_3
-    //   38: iconst_0
-    //   39: invokeinterface 35 5 0
-    //   44: pop
-    //   45: aload_3
-    //   46: invokevirtual 38	android/os/Parcel:readException	()V
-    //   49: aload_3
-    //   50: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   53: aload_2
-    //   54: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   57: return
-    //   58: aconst_null
-    //   59: astore_1
-    //   60: goto -35 -> 25
-    //   63: astore_1
-    //   64: aload_3
-    //   65: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   68: aload_2
-    //   69: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   72: aload_1
-    //   73: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	74	0	this	amm
-    //   0	74	1	paramadd	add
-    //   3	66	2	localParcel1	Parcel
-    //   7	58	3	localParcel2	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	63	finally
-    //   18	25	63	finally
-    //   25	49	63	finally
-  }
-  
-  public final IBinder asBinder()
-  {
-    return a;
-  }
-  
-  public final List b()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
-      a.transact(3, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      ArrayList localArrayList = localParcel2.readArrayList(getClass().getClassLoader());
-      return localArrayList;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  /* Error */
-  public final void b(add paramadd)
-  {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +43 -> 58
-    //   18: aload_1
-    //   19: invokeinterface 51 1 0
-    //   24: astore_1
-    //   25: aload_2
-    //   26: aload_1
-    //   27: invokevirtual 54	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   30: aload_0
-    //   31: getfield 15	amm:a	Landroid/os/IBinder;
-    //   34: bipush 10
-    //   36: aload_2
-    //   37: aload_3
-    //   38: iconst_0
-    //   39: invokeinterface 35 5 0
-    //   44: pop
-    //   45: aload_3
-    //   46: invokevirtual 38	android/os/Parcel:readException	()V
-    //   49: aload_3
-    //   50: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   53: aload_2
-    //   54: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   57: return
-    //   58: aconst_null
-    //   59: astore_1
-    //   60: goto -35 -> 25
-    //   63: astore_1
-    //   64: aload_3
-    //   65: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   68: aload_2
-    //   69: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   72: aload_1
-    //   73: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	74	0	this	amm
-    //   0	74	1	paramadd	add
-    //   3	66	2	localParcel1	Parcel
-    //   7	58	3	localParcel2	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	63	finally
-    //   18	25	63	finally
-    //   25	49	63	finally
-  }
-  
-  public final String c()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
-      a.transact(4, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      String str = localParcel2.readString();
-      return str;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final ahs d()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
-      a.transact(5, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      ahs localahs = aht.a(localParcel2.readStrongBinder());
-      return localahs;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final String e()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
-      a.transact(6, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      String str = localParcel2.readString();
-      return str;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final String f()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
-      a.transact(7, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      String str = localParcel2.readString();
-      return str;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final void g()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
-      a.transact(8, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final boolean h()
-  {
-    boolean bool = false;
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
-      a.transact(11, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      int i = localParcel2.readInt();
-      if (i != 0) {
-        bool = true;
+      int i = paramanz.a();
+      switch (i)
+      {
+      default: 
+        if (aol.a(paramanz, i)) {}
+        break;
+      case 0: 
+        return this;
+      case 8: 
+        a = Integer.valueOf(paramanz.e());
+        break;
+      case 18: 
+        if (b == null) {
+          b = new amr();
+        }
+        paramanz.a(b);
+        break;
+      case 26: 
+        if (c == null) {
+          c = new amr();
+        }
+        paramanz.a(c);
+        break;
+      case 32: 
+        d = Boolean.valueOf(paramanz.f());
       }
-      return bool;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
     }
   }
   
-  public final boolean i()
+  private amm e()
   {
-    boolean bool = false;
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
+    a = null;
+    b = null;
+    c = null;
+    d = null;
+    B = -1;
+    return this;
+  }
+  
+  public static amm[] g_()
+  {
+    if (e == null) {}
+    synchronized (aog.a)
     {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.INativeContentAdMapper");
-      a.transact(12, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      int i = localParcel2.readInt();
-      if (i != 0) {
-        bool = true;
+      if (e == null) {
+        e = new amm[0];
       }
-      return bool;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
+      return e;
     }
   }
   
-  /* Error */
-  public final android.os.Bundle j()
+  public final void a(aoa paramaoa)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_0
-    //   15: getfield 15	amm:a	Landroid/os/IBinder;
-    //   18: bipush 13
-    //   20: aload_2
-    //   21: aload_3
-    //   22: iconst_0
-    //   23: invokeinterface 35 5 0
-    //   28: pop
-    //   29: aload_3
-    //   30: invokevirtual 38	android/os/Parcel:readException	()V
-    //   33: aload_3
-    //   34: invokevirtual 90	android/os/Parcel:readInt	()I
-    //   37: ifeq +26 -> 63
-    //   40: getstatic 99	android/os/Bundle:CREATOR	Landroid/os/Parcelable$Creator;
-    //   43: aload_3
-    //   44: invokeinterface 105 2 0
-    //   49: checkcast 95	android/os/Bundle
-    //   52: astore_1
-    //   53: aload_3
-    //   54: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   57: aload_2
-    //   58: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   61: aload_1
-    //   62: areturn
-    //   63: aconst_null
-    //   64: astore_1
-    //   65: goto -12 -> 53
-    //   68: astore_1
-    //   69: aload_3
-    //   70: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   73: aload_2
-    //   74: invokevirtual 44	android/os/Parcel:recycle	()V
-    //   77: aload_1
-    //   78: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	79	0	this	amm
-    //   52	13	1	localBundle	android.os.Bundle
-    //   68	10	1	localObject	Object
-    //   3	71	2	localParcel1	Parcel
-    //   7	63	3	localParcel2	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	53	68	finally
+    if (a != null) {
+      paramaoa.a(1, a.intValue());
+    }
+    if (b != null) {
+      paramaoa.a(2, b);
+    }
+    if (c != null) {
+      paramaoa.a(3, c);
+    }
+    if (d != null) {
+      paramaoa.a(4, d.booleanValue());
+    }
+    super.a(paramaoa);
+  }
+  
+  protected final int b()
+  {
+    int j = super.b();
+    int i = j;
+    if (a != null) {
+      i = j + aoa.b(1, a.intValue());
+    }
+    j = i;
+    if (b != null) {
+      j = i + aoa.c(2, b);
+    }
+    i = j;
+    if (c != null) {
+      i = j + aoa.c(3, c);
+    }
+    j = i;
+    if (d != null)
+    {
+      d.booleanValue();
+      j = i + aoa.b(4);
+    }
+    return j;
+  }
+  
+  public final boolean equals(Object paramObject)
+  {
+    if (paramObject == this) {}
+    do
+    {
+      do
+      {
+        return true;
+        if (!(paramObject instanceof amm)) {
+          return false;
+        }
+        paramObject = (amm)paramObject;
+        if (a == null)
+        {
+          if (a != null) {
+            return false;
+          }
+        }
+        else if (!a.equals(a)) {
+          return false;
+        }
+        if (b == null)
+        {
+          if (b != null) {
+            return false;
+          }
+        }
+        else if (!b.equals(b)) {
+          return false;
+        }
+        if (c == null)
+        {
+          if (c != null) {
+            return false;
+          }
+        }
+        else if (!c.equals(c)) {
+          return false;
+        }
+        if (d != null) {
+          break;
+        }
+      } while (d == null);
+      return false;
+    } while (d.equals(d));
+    return false;
+  }
+  
+  public final int hashCode()
+  {
+    int m = 0;
+    int n = getClass().getName().hashCode();
+    int i;
+    int j;
+    label33:
+    int k;
+    if (a == null)
+    {
+      i = 0;
+      if (b != null) {
+        break label88;
+      }
+      j = 0;
+      if (c != null) {
+        break label99;
+      }
+      k = 0;
+      label42:
+      if (d != null) {
+        break label110;
+      }
+    }
+    for (;;)
+    {
+      return (k + (j + (i + (n + 527) * 31) * 31) * 31) * 31 + m;
+      i = a.hashCode();
+      break;
+      label88:
+      j = b.hashCode();
+      break label33;
+      label99:
+      k = c.hashCode();
+      break label42;
+      label110:
+      m = d.hashCode();
+    }
   }
 }
 

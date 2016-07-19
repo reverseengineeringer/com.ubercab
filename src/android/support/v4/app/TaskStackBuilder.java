@@ -13,7 +13,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class TaskStackBuilder
+public final class TaskStackBuilder
   implements Iterable<Intent>
 {
   private static final TaskStackBuilder.TaskStackBuilderImpl IMPL = new TaskStackBuilder.TaskStackBuilderImplBase();
@@ -45,13 +45,13 @@ public class TaskStackBuilder
     return create(paramContext);
   }
   
-  public TaskStackBuilder addNextIntent(Intent paramIntent)
+  public final TaskStackBuilder addNextIntent(Intent paramIntent)
   {
     mIntents.add(paramIntent);
     return this;
   }
   
-  public TaskStackBuilder addNextIntentWithParentStack(Intent paramIntent)
+  public final TaskStackBuilder addNextIntentWithParentStack(Intent paramIntent)
   {
     ComponentName localComponentName2 = paramIntent.getComponent();
     ComponentName localComponentName1 = localComponentName2;
@@ -65,7 +65,7 @@ public class TaskStackBuilder
     return this;
   }
   
-  public TaskStackBuilder addParentStack(Activity paramActivity)
+  public final TaskStackBuilder addParentStack(Activity paramActivity)
   {
     Object localObject = null;
     if ((paramActivity instanceof TaskStackBuilder.SupportParentable)) {
@@ -88,7 +88,7 @@ public class TaskStackBuilder
     }
   }
   
-  public TaskStackBuilder addParentStack(ComponentName paramComponentName)
+  public final TaskStackBuilder addParentStack(ComponentName paramComponentName)
   {
     int i = mIntents.size();
     try
@@ -105,27 +105,27 @@ public class TaskStackBuilder
     }
   }
   
-  public TaskStackBuilder addParentStack(Class<?> paramClass)
+  public final TaskStackBuilder addParentStack(Class<?> paramClass)
   {
     return addParentStack(new ComponentName(mSourceContext, paramClass));
   }
   
-  public Intent editIntentAt(int paramInt)
+  public final Intent editIntentAt(int paramInt)
   {
     return (Intent)mIntents.get(paramInt);
   }
   
-  public Intent getIntent(int paramInt)
+  public final Intent getIntent(int paramInt)
   {
     return editIntentAt(paramInt);
   }
   
-  public int getIntentCount()
+  public final int getIntentCount()
   {
     return mIntents.size();
   }
   
-  public Intent[] getIntents()
+  public final Intent[] getIntents()
   {
     Intent[] arrayOfIntent = new Intent[mIntents.size()];
     if (arrayOfIntent.length == 0) {
@@ -141,12 +141,12 @@ public class TaskStackBuilder
     return arrayOfIntent;
   }
   
-  public PendingIntent getPendingIntent(int paramInt1, int paramInt2)
+  public final PendingIntent getPendingIntent(int paramInt1, int paramInt2)
   {
     return getPendingIntent(paramInt1, paramInt2, null);
   }
   
-  public PendingIntent getPendingIntent(int paramInt1, int paramInt2, Bundle paramBundle)
+  public final PendingIntent getPendingIntent(int paramInt1, int paramInt2, Bundle paramBundle)
   {
     if (mIntents.isEmpty()) {
       throw new IllegalStateException("No intents added to TaskStackBuilder; cannot getPendingIntent");
@@ -156,17 +156,17 @@ public class TaskStackBuilder
     return IMPL.getPendingIntent(mSourceContext, arrayOfIntent, paramInt1, paramInt2, paramBundle);
   }
   
-  public Iterator<Intent> iterator()
+  public final Iterator<Intent> iterator()
   {
     return mIntents.iterator();
   }
   
-  public void startActivities()
+  public final void startActivities()
   {
     startActivities(null);
   }
   
-  public void startActivities(Bundle paramBundle)
+  public final void startActivities(Bundle paramBundle)
   {
     if (mIntents.isEmpty()) {
       throw new IllegalStateException("No intents added to TaskStackBuilder; cannot startActivities");

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.ui.TextView android:textColor="@color/ub__black" android:gravity="center_vertical" android:background="@drawable/ub__partner_referrals_dashboard_share_row_background" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/ub__partner_referrals_dashboard_plain_button_height" android:drawablePadding="@dimen/ui__spacing_unit_4x" style="@style/Uber.Partner.Referrals.Alloy.TextAppearance.P.Bold"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

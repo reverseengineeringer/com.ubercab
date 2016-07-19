@@ -1,47 +1,37 @@
-import com.paypal.android.sdk.bB;
-import com.paypal.android.sdk.bI;
-import com.paypal.android.sdk.bK;
-import com.paypal.android.sdk.bN;
-import com.paypal.android.sdk.cz;
-import java.util.UUID;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class bxe
+  implements bxq
 {
-  public bN a = new bN();
-  public cz b = new cz();
-  public bI c;
-  public String d;
-  public bB e;
-  public bK f;
-  public bvw g;
-  public bI h;
-  public boolean i;
-  public String j;
-  private String k;
+  private static Map a = new HashMap();
+  private static Map b = new HashMap();
   
   public bxe()
   {
-    a();
+    a.put(bxp.a, "İptal");
+    a.put(bxp.b, "American Express");
+    a.put(bxp.c, "Discover");
+    a.put(bxp.d, "JCB");
+    a.put(bxp.e, "MasterCard");
+    a.put(bxp.f, "Visa");
+    a.put(bxp.g, "Bitti");
+    a.put(bxp.h, "CVV");
+    a.put(bxp.i, "Posta Kodu");
+    a.put(bxp.j, "Son kullanma tarihi");
+    a.put(bxp.k, "AA/YY");
+    a.put(bxp.l, "Kartınızı buraya tutun.\nOtomatik olarak taranacaktır.");
+    a.put(bxp.m, "Klavye…");
+    a.put(bxp.n, "Kart Numarası");
+    a.put(bxp.o, "Kart Ayrıntıları");
+    a.put(bxp.p, "Bu cihazın kamerası kart rakamlarını okuyamaz.");
+    a.put(bxp.q, "Cihaz kamerası kullanılamıyor.");
+    a.put(bxp.r, "Cihaz kamerayı açarken beklenmedik bir hata verdi.");
   }
   
-  public final void a()
+  public final String a()
   {
-    k = UUID.randomUUID().toString();
-  }
-  
-  public final String b()
-  {
-    return k;
-  }
-  
-  public final boolean c()
-  {
-    return (c != null) && (c.c());
-  }
-  
-  public final String toString()
-  {
-    return "BackendState(accessTokenState:" + c + " loginAccessToken:" + h + ")";
+    return "tr";
   }
 }
 

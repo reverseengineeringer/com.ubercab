@@ -1,58 +1,49 @@
-import java.util.concurrent.TimeUnit;
+import android.location.Location;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.location.LocationResult;
+import java.util.List;
 
-final class atp
+public final class atp
+  implements Parcelable.Creator<LocationResult>
 {
-  private int a = 0;
-  
-  public final void a()
+  private static LocationResult a(Parcel paramParcel)
   {
-    try
+    int j = zd.b(paramParcel);
+    int i = 0;
+    Object localObject = LocationResult.a;
+    while (paramParcel.dataPosition() < j)
     {
-      a += 1;
-      return;
-    }
-    finally
-    {
-      localObject = finally;
-      throw ((Throwable)localObject);
-    }
-  }
-  
-  public final boolean a(TimeUnit paramTimeUnit)
-  {
-    long l2 = System.currentTimeMillis();
-    long l1 = TimeUnit.MILLISECONDS.convert(100L, paramTimeUnit);
-    for (;;)
-    {
-      try
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
-        if (a == 0) {
-          return true;
-        }
-        if (l1 <= 0L) {
-          return false;
-        }
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        localObject = zd.c(paramParcel, k, Location.CREATOR);
+        break;
+      case 1000: 
+        i = zd.e(paramParcel, k);
       }
-      finally {}
-      wait(l1);
-      long l3 = System.currentTimeMillis();
-      l1 -= l3 - l2;
     }
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new LocationResult(i, (List)localObject);
   }
   
-  public final void b()
+  public static void a(LocationResult paramLocationResult, Parcel paramParcel)
   {
-    try
-    {
-      if (a == 0) {
-        throw new RuntimeException("too many decrements");
-      }
-    }
-    finally {}
-    a -= 1;
-    if (a == 0) {
-      notifyAll();
-    }
+    int i = zf.a(paramParcel);
+    zf.b(paramParcel, 1, paramLocationResult.a(), false);
+    zf.a(paramParcel, 1000, paramLocationResult.b());
+    zf.a(paramParcel, i);
+  }
+  
+  private static LocationResult[] a(int paramInt)
+  {
+    return new LocationResult[paramInt];
   }
 }
 

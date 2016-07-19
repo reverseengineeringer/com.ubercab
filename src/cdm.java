@@ -1,8 +1,16 @@
-import android.os.Parcelable.Creator;
+import com.paypal.android.sdk.bI;
 
 public final class cdm
-  implements Parcelable.Creator
-{}
+{
+  public String a;
+  public bI b;
+  
+  public cdm(String paramString, bI parambI)
+  {
+    a = paramString;
+    b = parambI;
+  }
+}
 
 /* Location:
  * Qualified Name:     cdm

@@ -1,19 +1,6 @@
-import com.paypal.android.sdk.payments.LoginActivity;
-
-public final class cbp
-  implements cch
+public abstract interface cbp
 {
-  public cbp(LoginActivity paramLoginActivity) {}
-  
-  public final void a(cck paramcck)
-  {
-    LoginActivity.a(a, paramcck);
-  }
-  
-  public final void a(Object paramObject)
-  {
-    LoginActivity.i(a);
-  }
+  public abstract void a();
 }
 
 /* Location:

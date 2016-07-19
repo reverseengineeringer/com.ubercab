@@ -1,69 +1,26 @@
-import android.content.Context;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-@apl
-public final class asp
+public abstract class asp
 {
-  private final asq a;
-  private final Context b;
-  private final ViewGroup c;
-  private px d;
-  
-  public asp(Context paramContext, ViewGroup paramViewGroup, asq paramasq)
+  public static <E> Set<E> a(List<E> paramList)
   {
-    this(paramContext, paramViewGroup, paramasq, (byte)0);
-  }
-  
-  private asp(Context paramContext, ViewGroup paramViewGroup, asq paramasq, byte paramByte)
-  {
-    b = paramContext;
-    c = paramViewGroup;
-    a = paramasq;
-    d = null;
-  }
-  
-  public final px a()
-  {
-    abs.b("getAdVideoUnderlay must be called from the UI thread.");
-    return d;
-  }
-  
-  public final void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
-  {
-    abs.b("The underlay may only be modified from the UI thread.");
-    if (d != null) {
-      d.a(paramInt1, paramInt2, paramInt3, paramInt4);
+    if ((paramList == null) || (paramList.isEmpty())) {
+      return Collections.emptySet();
     }
+    return Collections.unmodifiableSet(new HashSet(paramList));
   }
   
-  public final void b()
+  public static <E> List<E> c(Collection<E> paramCollection)
   {
-    abs.b("onPause must be called from the UI thread.");
-    if (d != null) {
-      d.g();
+    if ((paramCollection == null) || (paramCollection.isEmpty())) {
+      return Collections.emptyList();
     }
-  }
-  
-  public final void b(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
-  {
-    if (d != null) {
-      return;
-    }
-    ahd.a(a.x().a(), a.w(), new String[] { "vpr" });
-    ahf localahf = ahd.a(a.x().a());
-    d = new px(b, a, a.x().a(), localahf);
-    c.addView(d, 0, new ViewGroup.LayoutParams(-1, -1));
-    d.a(paramInt1, paramInt2, paramInt3, paramInt4);
-    a.l().a(false);
-  }
-  
-  public final void c()
-  {
-    abs.b("onDestroy must be called from the UI thread.");
-    if (d != null) {
-      d.l();
-    }
+    return new ArrayList(paramCollection);
   }
 }
 

@@ -1,13 +1,13 @@
 package com.ubercab.client.core.vendor.google.model;
 
-import bqa;
+import bmu;
 import java.util.List;
 
 public class Route
 {
-  @bqa(a="legs")
+  @bmu(a="legs")
   private List<Leg> mLegs;
-  @bqa(a="overview_polyline")
+  @bmu(a="overview_polyline")
   private OverviewPolyline mOverviewPolyline;
   
   public boolean equals(Object paramObject)

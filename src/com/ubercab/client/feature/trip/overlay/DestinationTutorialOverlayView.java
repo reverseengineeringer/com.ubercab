@@ -11,36 +11,36 @@ import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout.LayoutParams;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
-import ckc;
+import ckt;
 import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.client.feature.trip.address.AddressView;
-import dty;
-import ebj;
-import hrw;
+import dzn;
+import eib;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import p;
+import jnt;
+import x;
 
 @Deprecated
 public class DestinationTutorialOverlayView
   extends FrameLayout
   implements View.OnClickListener
 {
-  public ckc a;
-  public dty b;
+  public ckt a;
+  public dzn b;
   private int c;
   private ObjectAnimator d;
-  private List<hrw> e = new CopyOnWriteArrayList();
-  @InjectView(2131624104)
-  AddressView mAddressView;
-  @InjectView(2131624105)
-  CoachMarkPathView mCoachMarkPathView;
-  @InjectView(2131624107)
-  ViewGroup mViewGroupText;
+  private List<jnt> e = new CopyOnWriteArrayList();
+  @BindView
+  public AddressView mAddressView;
+  @BindView
+  public CoachMarkPathView mCoachMarkPathView;
+  @BindView
+  public ViewGroup mViewGroupText;
   
   public DestinationTutorialOverlayView(Context paramContext)
   {
@@ -65,7 +65,7 @@ public class DestinationTutorialOverlayView
     setVisibility(8);
     Iterator localIterator = e.iterator();
     while (localIterator.hasNext()) {
-      ((hrw)localIterator.next()).b();
+      ((jnt)localIterator.next()).b();
     }
   }
   
@@ -73,7 +73,7 @@ public class DestinationTutorialOverlayView
   {
     Iterator localIterator = e.iterator();
     while (localIterator.hasNext()) {
-      ((hrw)localIterator.next()).c();
+      ((jnt)localIterator.next()).c();
     }
   }
   
@@ -89,26 +89,26 @@ public class DestinationTutorialOverlayView
     d.start();
     mCoachMarkPathView.a();
     mViewGroupText.animate().alpha(1.0F).setDuration(c).setStartDelay(c).start();
-    a.a(p.bC);
+    a.a(x.cj);
     b();
   }
   
-  public final void a(hrw paramhrw)
+  public final void a(jnt paramjnt)
   {
-    e.add(paramhrw);
+    e.add(paramjnt);
   }
   
-  public final void b(hrw paramhrw)
+  public final void b(jnt paramjnt)
   {
-    e.remove(paramhrw);
+    e.remove(paramjnt);
   }
   
-  @OnClick({2131624104})
+  @OnClick
   public void onAddressClick()
   {
     Iterator localIterator = e.iterator();
     while (localIterator.hasNext()) {
-      ((hrw)localIterator.next()).a();
+      ((jnt)localIterator.next()).a();
     }
     a();
   }
@@ -124,16 +124,16 @@ public class DestinationTutorialOverlayView
     if (isInEditMode()) {
       return;
     }
-    ButterKnife.inject(this);
+    ButterKnife.a(this);
     setOnClickListener(this);
-    mAddressView.c(8);
+    mAddressView.d(8);
     mAddressView.a(0);
-    mAddressView.b(0);
+    mAddressView.c(0);
     Context localContext = getContext();
-    mAddressView.c(localContext.getString(2131165702));
+    mAddressView.c(localContext.getString(2131165762));
     d = ObjectAnimator.ofInt(getBackground(), "alpha", new int[] { 0, 255 });
-    d.setDuration(getResources().getInteger(2131427338));
-    c = getResources().getInteger(2131427339);
+    d.setDuration(getResources().getInteger(2131427340));
+    c = getResources().getInteger(2131427341);
   }
 }
 

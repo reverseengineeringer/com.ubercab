@@ -1,74 +1,37 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 
-public class byi
+public final class byi
+  implements bxq
 {
-  private static List a;
-  private static Pattern b;
-  private static Pattern c;
-  private static Pattern d;
-  private static Pattern e;
-  private static Pattern f;
+  private static Map a = new HashMap();
+  private static Map b = new HashMap();
   
-  static
+  public byi()
   {
-    if (!byi.class.desiredAssertionStatus()) {}
-    for (boolean bool = true;; bool = false)
-    {
-      g = bool;
-      a = Arrays.asList(new String[] { "AU", "BR", "CA", "ES", "FR", "GB", "IT", "MY", "SG", "US" });
-      b = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,} *$");
-      c = Pattern.compile("^[0-9]{4,8}$");
-      d = Pattern.compile("^\\+?[0-9]{7,14}$");
-      e = Pattern.compile("[ .\\-\\(\\)]*");
-      f = Pattern.compile("^\\+?0+$");
-      return;
-    }
+    a.put(bxp.a, "Annuleren");
+    a.put(bxp.b, "American Express");
+    a.put(bxp.c, "Discover");
+    a.put(bxp.d, "JCB");
+    a.put(bxp.e, "MasterCard");
+    a.put(bxp.f, "Visa");
+    a.put(bxp.g, "Gereed");
+    a.put(bxp.h, "CVV");
+    a.put(bxp.i, "Postcode");
+    a.put(bxp.j, "Vervaldatum");
+    a.put(bxp.k, "MM/JJ");
+    a.put(bxp.l, "Houd uw kaart hier.\nScannen gaat automatisch.");
+    a.put(bxp.m, "Toetsenbord…");
+    a.put(bxp.n, "Creditcardnummer");
+    a.put(bxp.o, "Kaartgegevens");
+    a.put(bxp.p, "Met de camera van dit apparaat kunnen geen kaartnummers worden gelezen.");
+    a.put(bxp.q, "Camera apparaat niet beschikbaar.");
+    a.put(bxp.r, "Er is een onverwachte fout opgetreden bij het starten van de camera.");
   }
   
-  public static boolean a(String paramString)
+  public final String a()
   {
-    if ((!g) && (paramString == null)) {
-      throw new AssertionError();
-    }
-    return b.matcher(paramString).matches();
-  }
-  
-  public static boolean b(String paramString)
-  {
-    if ((!g) && (paramString == null)) {
-      throw new AssertionError();
-    }
-    return c.matcher(paramString).matches();
-  }
-  
-  public static boolean c(String paramString)
-  {
-    return paramString.length() >= 8;
-  }
-  
-  public static boolean d(String paramString)
-  {
-    if ((!g) && (paramString == null)) {
-      throw new AssertionError();
-    }
-    paramString = e.matcher(paramString).replaceAll("");
-    return (d.matcher(paramString).matches()) && (!f.matcher(paramString).matches());
-  }
-  
-  public static String e(String paramString)
-  {
-    return e.matcher(paramString).replaceAll("");
-  }
-  
-  public static boolean f(String paramString)
-  {
-    if (bze.c(paramString)) {
-      return false;
-    }
-    return a.contains(paramString.toUpperCase());
+    return "nl";
   }
 }
 

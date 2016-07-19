@@ -3,7 +3,7 @@ package android.support.v4.widget;
 import android.os.Build.VERSION;
 import android.view.View.OnTouchListener;
 
-public class PopupMenuCompat
+public final class PopupMenuCompat
 {
   static final PopupMenuCompat.PopupMenuImpl IMPL = new PopupMenuCompat.BasePopupMenuImpl();
   

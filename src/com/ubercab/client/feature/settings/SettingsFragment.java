@@ -14,30 +14,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import chh;
-import cho;
-import ciu;
-import cjg;
-import ckc;
-import ckr;
+import butterknife.BindView;
+import chn;
+import chu;
+import cja;
+import cjm;
+import ckt;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.model.LocationSearchResult;
-import com.ubercab.client.core.model.Ping;
 import com.ubercab.client.core.model.RiderAccount;
 import com.ubercab.client.core.model.TaggedLocationsResponse;
 import com.ubercab.client.feature.commute.CommuteToggleActivity;
 import com.ubercab.client.feature.commute.rideoptions.RideOptionsAdapter;
 import com.ubercab.client.feature.family.FamilyGroupSettingsActivity;
-import com.ubercab.client.feature.family.FamilyProfileSettingsActivity;
 import com.ubercab.client.feature.music.MusicProviderAdapter;
 import com.ubercab.client.feature.profiles.ProfileSettingsActivity;
 import com.ubercab.client.feature.profiles.ProfilesAdapter;
 import com.ubercab.client.feature.profiles.onboarding.OnBoardingIntroActivity;
 import com.ubercab.client.feature.safetynet.SafetyNetActivity;
-import com.ubercab.client.feature.safetynet.SafetyNetProfileSectionAdapter;
 import com.ubercab.client.feature.search.LocationSearchAdapter;
 import com.ubercab.locale.name.NameInput;
 import com.ubercab.locale.phone.PhoneNumberView;
@@ -45,94 +41,89 @@ import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.Profile;
 import com.ubercab.ui.CircleImageView;
 import com.ubercab.ui.FloatingLabelEditText;
-import dsh;
-import dty;
-import due;
-import dux;
-import dwd;
-import ebj;
-import efr;
-import egw;
-import ejp;
-import ejq;
-import ejr;
-import eld;
-import emx;
-import epa;
-import eqq;
-import erc;
-import eri;
-import eyy;
-import eyz;
-import fcj;
-import gia;
-import gif;
-import gio;
-import gqf;
-import grc;
-import grv;
-import gsj;
-import gsq;
-import gsr;
-import gsy;
-import gsz;
-import gte;
-import gtf;
-import gtg;
-import iae;
-import ife;
-import iik;
-import ijd;
+import dxm;
+import dzn;
+import eaj;
+import ebw;
+import eib;
+import enk;
+import epj;
+import erm;
+import eun;
+import exc;
+import eyt;
+import ezh;
+import ezm;
+import ezz;
+import fmh;
+import fmi;
+import fpx;
+import hje;
+import hjm;
+import hjy;
+import hzo;
+import iar;
+import ibn;
+import icb;
+import ici;
+import icj;
+import icr;
+import ics;
+import ida;
+import idb;
+import idc;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import jry;
-import jsg;
-import jsj;
-import kld;
-import klo;
-import kls;
-import p;
-import r;
+import kco;
+import khv;
+import kia;
+import kmj;
+import knc;
+import mxm;
+import mxp;
+import odr;
+import oed;
+import oeh;
+import x;
+import z;
 
 public class SettingsFragment
-  extends dsh<gtg>
-  implements eyz, gia
+  extends dxm<idc>
+  implements fmi, hje
 {
-  public ckc c;
-  public emx d;
-  public chh e;
-  public jsg f;
-  public jsj g;
-  public ife h;
-  public egw i;
-  public ciu j;
-  public eld k;
-  public dwd l;
-  public gif m;
-  @InjectView(2131624112)
-  FloatingLabelEditText mEditTextEmail;
-  @InjectView(2131624110)
-  CircleImageView mImageViewPicture;
-  @InjectView(2131624111)
-  NameInput mNameInput;
-  @InjectView(2131624113)
-  PhoneNumberView mPhoneNumberView;
-  public jry n;
-  public gqf o;
-  public dty p;
-  ListView q;
-  ProfilesAdapter r;
-  private klo s;
-  private klo t;
-  private LocationSearchAdapter u;
-  private MusicProviderAdapter v;
-  private ListAdapter w;
-  private RideOptionsAdapter x;
-  private RiderAccount y;
+  public ckt c;
+  public eun d;
+  public chn e;
+  public khv f;
+  public mxm g;
+  public mxp h;
+  public kia i;
+  public epj j;
+  public cja k;
+  public ebw l;
+  public hjm m;
+  @BindView
+  public FloatingLabelEditText mEditTextEmail;
+  @BindView
+  public CircleImageView mImageViewPicture;
+  @BindView
+  public NameInput mNameInput;
+  @BindView
+  public PhoneNumberView mPhoneNumberView;
+  public hzo n;
+  public dzn o;
+  ListView p;
+  ProfilesAdapter q;
+  private oed r;
+  private LocationSearchAdapter s;
+  private MusicProviderAdapter t;
+  private ListAdapter u;
+  private RideOptionsAdapter v;
+  private RiderAccount w;
   
   static SettingsFragment a(RiderAccount paramRiderAccount)
   {
@@ -143,7 +134,7 @@ public class SettingsFragment
     return paramRiderAccount;
   }
   
-  private static List<grv> a(Map<String, LocationSearchResult> paramMap)
+  private static List<ibn> a(Map<String, LocationSearchResult> paramMap)
   {
     ArrayList localArrayList = new ArrayList();
     String[] arrayOfString = LocationSearchResult.HOME_WORK_TAGS;
@@ -154,13 +145,13 @@ public class SettingsFragment
       String str = arrayOfString[i1];
       LocationSearchResult localLocationSearchResult = (LocationSearchResult)paramMap.get(str);
       if (localLocationSearchResult != null) {
-        localArrayList.add(new grv(localLocationSearchResult));
+        localArrayList.add(new ibn(localLocationSearchResult));
       }
       for (;;)
       {
         i1 += 1;
         break;
-        localArrayList.add(new grv(str));
+        localArrayList.add(new ibn(str));
       }
     }
     return localArrayList;
@@ -168,50 +159,41 @@ public class SettingsFragment
   
   private void a(Context paramContext, ListView paramListView)
   {
-    paramListView.addHeaderView(LayoutInflater.from(paramContext).inflate(2130903090, paramListView, false));
+    paramListView.addHeaderView(LayoutInflater.from(paramContext).inflate(2130903115, paramListView, false));
     ArrayList localArrayList1 = new ArrayList();
     ArrayList localArrayList2 = new ArrayList();
     a(localArrayList2, localArrayList1);
     c(paramContext, localArrayList1, localArrayList2);
-    if (h.b(dux.hd)) {
+    if (i.c(eaj.lA)) {
       a(paramContext, localArrayList2, localArrayList1);
     }
-    if (h.b(dux.ay))
-    {
-      d(paramContext, localArrayList2, localArrayList1);
-      b(paramContext, localArrayList2, localArrayList1);
-      q.setOnItemClickListener(new SettingsFragment.1(this));
+    d(paramContext, localArrayList2, localArrayList1);
+    b(paramContext, localArrayList2, localArrayList1);
+    p.setOnItemClickListener(new SettingsFragment.1(this));
+    paramContext = new exc(paramContext, localArrayList2, localArrayList1);
+    if (((m.o()) || (m.u())) && (u != null)) {
+      paramContext.a(u);
     }
-    for (;;)
-    {
-      paramContext = new epa(paramContext, localArrayList2, localArrayList1);
-      if (((m.p()) || (m.s())) && (w != null)) {
-        paramContext.a(w);
-      }
-      paramContext.c((int)getResources().getDimension(2131297192));
-      paramListView.setAdapter(paramContext);
-      return;
-      e(paramContext, localArrayList2, localArrayList1);
-      d(paramContext, localArrayList2, localArrayList1);
-    }
+    paramContext.c((int)getResources().getDimension(2131297540));
+    paramListView.setAdapter(paramContext);
   }
   
   private void a(Context paramContext, List<ListAdapter> paramList, List<String> paramList1)
   {
-    x = new RideOptionsAdapter(paramContext, this);
-    if (h.b(dux.gN)) {
-      x.a(eyy.a().e().f().a("commute_toggle"));
+    v = new RideOptionsAdapter(paramContext, this);
+    if (i.c(eaj.ld)) {
+      v.a(fmh.a().e().f().a("commute_toggle"));
     }
-    if (x.getCount() > 0)
+    if (v.getCount() > 0)
     {
-      ((List)iae.a(paramList)).add(x);
-      ((List)iae.a(paramList1)).add(getString(2131166403));
+      ((List)kco.a(paramList)).add(v);
+      ((List)kco.a(paramList1)).add(getString(2131166638));
     }
   }
   
-  private void a(gtg paramgtg)
+  private void a(idc paramidc)
   {
-    paramgtg.a(this);
+    paramidc.a(this);
   }
   
   private void a(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6)
@@ -224,125 +206,92 @@ public class SettingsFragment
       paramString1 = "";
     }
     paramString2.d(paramString1);
-    paramString1 = erc.d(paramString5, paramString4);
+    paramString1 = ezh.d(paramString5, paramString4);
     mPhoneNumberView.a(paramString1, paramString4);
     if (!TextUtils.isEmpty(paramString6))
     {
-      paramString1 = gsj.a(getResources());
-      j.a(paramString6).a(paramString1).b(2130837650).a(mImageViewPicture);
+      paramString1 = icb.a(getResources());
+      ezz.a(k, paramString6).a(paramString1).b(2130837697).a(mImageViewPicture);
       return;
     }
-    mImageViewPicture.setImageResource(2130837650);
+    mImageViewPicture.setImageResource(2130837697);
   }
   
   private void a(List<ListAdapter> paramList, List<String> paramList1)
   {
-    paramList1.add(getString(2131165385));
-    paramList.add(v);
-    c.a(p.na);
+    paramList1.add(getString(2131165441));
+    paramList.add(t);
+    c.a(x.re);
   }
   
-  private boolean a(Profile paramProfile)
+  private idc b(eib parameib)
   {
-    int i1;
-    if ((h.b(dux.gD)) && (h.a(dux.gF, true)))
-    {
-      i1 = 1;
-      if (eqq.a(paramProfile)) {
-        break label70;
-      }
-    }
-    label70:
-    for (boolean bool = h.b(dux.gJ);; bool = true)
-    {
-      if ((i1 != 0) && (bool))
-      {
-        return true;
-        i1 = 0;
-        break;
-      }
-      return false;
-    }
-  }
-  
-  private gtg b(ebj paramebj)
-  {
-    return gsq.a().a(new efr(this)).a(paramebj).a();
-  }
-  
-  private void b()
-  {
-    Intent localIntent = new Intent(getActivity(), SafetyNetActivity.class);
-    if (!o.j()) {
-      localIntent.putExtra("start_fragment", 1);
-    }
-    getActivity().startActivity(localIntent);
-    c.a(r.hy);
+    return ici.a().a(new enk(this)).a(parameib).a();
   }
   
   private void b(Context paramContext, List<ListAdapter> paramList, List<String> paramList1)
   {
     ArrayList localArrayList = new ArrayList();
-    if (h.b(dux.hu)) {
-      localArrayList.add(new gsz(101, getString(2131166354)));
+    if (i.c(eaj.mo)) {
+      localArrayList.add(new ics(101, getString(2131166589)));
     }
-    if (p.c()) {
-      localArrayList.add(new gsz(102, getString(2131165398)));
+    if (o.c()) {
+      localArrayList.add(new ics(102, getString(2131165454)));
     }
-    if ((h.b(dux.aw)) || (h.b(dux.aJ))) {
-      localArrayList.add(new gsz(100, getString(2131166521)));
+    if ((i.c(eaj.ax)) || (i.c(eaj.aR))) {
+      localArrayList.add(new ics(100, getString(2131166770)));
     }
     if (localArrayList.size() > 0)
     {
-      paramList1.add(getString(2131166203));
-      paramList.add(new gsy(paramContext, localArrayList));
+      paramList1.add(getString(2131166364));
+      paramList.add(new icr(paramContext, localArrayList));
     }
   }
   
   private void c(Context paramContext, List<String> paramList, List<ListAdapter> paramList1)
   {
-    boolean bool1 = m.s();
-    boolean bool2 = m.p();
+    boolean bool1 = m.u();
+    boolean bool2 = m.o();
     if ((bool2) || (bool1))
     {
-      paramList.add(getString(2131166254));
-      r = new ProfilesAdapter(paramContext, this, gio.b, m, h, j, f, c);
-      paramList1.add(r);
-      int i1 = 2131166400;
+      paramList.add(getString(2131166415));
+      q = new ProfilesAdapter(f, paramContext, this, hjy.b, m, i, k, g, c);
+      paramList1.add(q);
+      int i1 = 2131166635;
       if (g()) {
-        i1 = 2131166401;
+        i1 = 2131166636;
       }
       paramContext = getActivity();
       if (bool2) {
-        i1 = 2131166402;
+        i1 = 2131166637;
       }
-      w = new SettingsFragment.2(this, paramContext, new String[] { getString(i1) });
-      paramList1.add(w);
+      u = new SettingsFragment.2(this, paramContext, new String[] { getString(i1) });
+      paramList1.add(u);
       paramList.add("");
     }
   }
   
   private void d(Context paramContext, List<ListAdapter> paramList, List<String> paramList1)
   {
-    u = new LocationSearchAdapter(paramContext, e, false, false, h, j);
-    paramList.add(u);
-    paramList1.add(getString(2131166224));
-    i.b();
+    s = new LocationSearchAdapter(paramContext, e, false, false, i, k);
+    paramList.add(s);
+    paramList1.add(getString(2131166385));
+    j.b();
   }
   
-  @Deprecated
-  private void e(Context paramContext, List<ListAdapter> paramList, List<String> paramList1)
+  private void f()
   {
-    if (!h.b(dux.hu)) {
-      return;
+    Intent localIntent = new Intent(getActivity(), SafetyNetActivity.class);
+    if (!n.j()) {
+      localIntent.putExtra("start_fragment", 1);
     }
-    paramList1.add(getString(2131165394));
-    paramList.add(new SafetyNetProfileSectionAdapter(paramContext, e, getString(2131166354)));
+    getActivity().startActivity(localIntent);
+    c.a(z.kE);
   }
   
   private boolean g()
   {
-    return (h.b(dux.gD)) && (h.b(dux.gK));
+    return i.c(eaj.kS);
   }
   
   public final void a()
@@ -353,7 +302,7 @@ public class SettingsFragment
   public final void a(Client paramClient)
   {
     if (paramClient != null) {
-      v.a(paramClient.getThirdPartyIdentities());
+      t.a(paramClient.getThirdPartyIdentities());
     }
   }
   
@@ -362,38 +311,38 @@ public class SettingsFragment
     if (!paramBoolean) {
       if (paramProfile.getType().equals("ManagedFamily"))
       {
-        c.a(r.bc);
-        if (a(paramProfile))
-        {
-          if (!h.a(dux.gL, true)) {
-            break label66;
-          }
-          startActivity(FamilyGroupSettingsActivity.a(getActivity(), paramProfile));
-        }
+        c.a(z.cq);
+        startActivity(FamilyGroupSettingsActivity.a(getActivity(), paramProfile));
       }
     }
-    label66:
     do
     {
-      return;
-      startActivity(FamilyProfileSettingsActivity.a(getActivity(), paramProfile));
       return;
       startActivity(ProfileSettingsActivity.a(getActivity(), paramProfile));
       return;
       if (!paramProfile.getType().equals("ManagedFamily")) {
         break;
       }
-      c.a(r.aZ);
+      eyt.a(c, i, m, z.cg, z.cf);
     } while (!g());
-    fcj.a(getContext(), c);
-    return;
-    c.a(r.nr);
+    paramProfile = getContext();
+    ckt localckt = c;
+    Client localClient = g.c();
+    kia localkia = i;
+    dzn localdzn = o;
+    if ((f.c(eaj.kM)) || (g.c() == null)) {}
+    for (paramBoolean = true;; paramBoolean = false)
+    {
+      fpx.a(paramProfile, localckt, localClient, localkia, localdzn, paramBoolean);
+      return;
+    }
+    c.a(z.qZ);
     a();
   }
   
   public final void a(String paramString)
   {
-    paramString = (String)iae.a(paramString);
+    paramString = (String)kco.a(paramString);
     switch (paramString.hashCode())
     {
     }
@@ -413,20 +362,20 @@ public class SettingsFragment
   
   public final void b(RiderAccount paramRiderAccount)
   {
-    y = paramRiderAccount;
+    w = paramRiderAccount;
     a(paramRiderAccount.getFirstName(), paramRiderAccount.getLastName(), paramRiderAccount.getEmail(), paramRiderAccount.getMobileCountryIso2(), paramRiderAccount.getCurrentMobile(), paramRiderAccount.getPictureUrl());
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return p.jB;
+    return x.ng;
   }
   
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    if (y != null) {
-      b(y);
+    if (w != null) {
+      b(w);
     }
   }
   
@@ -443,49 +392,52 @@ public class SettingsFragment
     super.onCreate(paramBundle);
     setHasOptionsMenu(true);
     if (getArguments() != null) {
-      y = ((RiderAccount)getArguments().getParcelable("rider_account"));
+      w = ((RiderAccount)getArguments().getParcelable("rider_account"));
     }
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903560, paramViewGroup, false);
-    v = new MusicProviderAdapter(paramLayoutInflater.getContext(), e, h);
-    q = ((ListView)paramLayoutInflater.findViewById(2131625473));
-    a(paramLayoutInflater.getContext(), q);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903770, paramViewGroup, false);
+    t = new MusicProviderAdapter(paramLayoutInflater.getContext(), e, i);
+    p = ((ListView)paramLayoutInflater.findViewById(2131626121));
+    a(paramLayoutInflater.getContext(), p);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public void onPause()
   {
     super.onPause();
-    eri.a(s);
-    eri.a(t);
+    ezm.a(r);
   }
-  
-  @cho
-  @Deprecated
-  public void onPingEvent(due paramdue) {}
   
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
-    paramMenu = paramMenu.findItem(2131626159);
-    if (paramMenu != null) {
-      if ((y == null) || (!y.isClient())) {
-        break label42;
+    boolean bool2 = true;
+    boolean bool1 = true;
+    paramMenu = paramMenu.findItem(2131626915);
+    if (paramMenu != null)
+    {
+      if (!i.a(eaj.dx, true)) {
+        break label55;
+      }
+      if (w == null) {
+        break label50;
       }
     }
-    label42:
-    for (boolean bool = true;; bool = false)
+    for (;;)
     {
-      paramMenu.setVisible(bool);
+      paramMenu.setVisible(bool1);
+      return;
+      label50:
+      bool1 = false;
+    }
+    label55:
+    if ((w != null) && (w.isClient())) {}
+    for (bool1 = bool2;; bool1 = false)
+    {
+      paramMenu.setVisible(bool1);
       return;
     }
   }
@@ -493,74 +445,57 @@ public class SettingsFragment
   public void onResume()
   {
     super.onResume();
-    d().b().a(getString(2131166399));
-    s = kld.a(g.d(), g.a(), new gtf((byte)0)).a(kls.a()).c(new gte(this, (byte)0));
-    if ((m.p()) && (r != null)) {
-      r.notifyDataSetChanged();
+    b().b().a(getString(2131166634));
+    r = odr.a(h.d(), h.a(), new idb((byte)0)).a(oeh.a()).c(new ida(this, (byte)0));
+    if (q != null) {
+      q.notifyDataSetChanged();
     }
   }
   
-  @cho
-  public void onSafetyNetClickedEvent(grc paramgrc)
+  @chu
+  public void onSafetyNetClickedEvent(iar paramiar)
   {
-    b();
+    f();
   }
   
-  @cho
-  public void onTaggedLocationsResponseEvent(ejp paramejp)
+  @chu
+  public void onTaggedLocationsResponseEvent(erm paramerm)
   {
-    if (paramejp.i())
+    if (paramerm.i())
     {
-      localObject1 = ((TaggedLocationsResponse)paramejp.g()).getResults();
+      localObject1 = ((TaggedLocationsResponse)paramerm.g()).getResults();
       if (localObject1 != null) {}
     }
     else
     {
       return;
     }
-    paramejp = new HashMap();
+    paramerm = new HashMap();
     Object localObject1 = ((List)localObject1).iterator();
     Object localObject2;
     while (((Iterator)localObject1).hasNext())
     {
       localObject2 = (LocationSearchResult)((Iterator)localObject1).next();
-      paramejp.put(((LocationSearchResult)localObject2).getTag(), localObject2);
+      paramerm.put(((LocationSearchResult)localObject2).getTag(), localObject2);
     }
-    localObject1 = a(paramejp);
-    u.a((List)localObject1, null);
+    localObject1 = a(paramerm);
+    s.a((List)localObject1, null);
     int i1 = 0;
     label91:
     if (i1 < ((List)localObject1).size())
     {
-      localObject2 = (grv)((List)localObject1).get(i1);
-      if (((grv)localObject2).c() != null) {
+      localObject2 = (ibn)((List)localObject1).get(i1);
+      if (((ibn)localObject2).c() != null) {
         break label165;
       }
     }
     label165:
-    for (paramejp = p.cP;; paramejp = p.cQ)
+    for (paramerm = x.er;; paramerm = x.es)
     {
-      c.a(AnalyticsEvent.create("impression").setName(paramejp).setValue(((grv)localObject2).b()).setValuePosition(Long.valueOf(i1)));
+      c.a(AnalyticsEvent.create("impression").setName(paramerm).setValue(((ibn)localObject2).b()).setValuePosition(Long.valueOf(i1)));
       i1 += 1;
       break label91;
       break;
-    }
-  }
-  
-  @cho
-  @Deprecated
-  public void onThirdPartyAuthResponseEvent(ejq paramejq)
-  {
-    if (paramejq.a()) {
-      a(((Ping)paramejq.c()).getClient());
-    }
-  }
-  
-  @cho
-  public void onThirdPartyDeleteResponseEvent(ejr paramejr)
-  {
-    if (paramejr.a()) {
-      t = n.a().b(eri.a());
     }
   }
   
@@ -568,8 +503,8 @@ public class SettingsFragment
   {
     super.onViewCreated(paramView, paramBundle);
     paramView = mNameInput;
-    if (("CHINA".equals(l.a())) && (ijd.a(Locale.getDefault()))) {}
-    for (int i1 = iik.b;; i1 = iik.a)
+    if (("CHINA".equals(l.a())) && (knc.a(Locale.getDefault()))) {}
+    for (int i1 = kmj.b;; i1 = kmj.a)
     {
       paramView.a(i1);
       mNameInput.setEnabled(false);

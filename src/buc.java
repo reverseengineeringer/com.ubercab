@@ -1,24 +1,40 @@
-import java.io.InputStream;
-import java.util.zip.GZIPInputStream;
-import org.apache.http.HttpEntity;
-import org.apache.http.entity.HttpEntityWrapper;
+import android.util.Log;
+import org.json.JSONException;
 
-final class buc
-  extends HttpEntityWrapper
+public abstract class buc
+  implements buo
 {
-  public buc(HttpEntity paramHttpEntity)
+  private static final String a = buc.class.getSimpleName();
+  
+  protected static void a(bur parambur)
   {
-    super(paramHttpEntity);
+    try
+    {
+      new StringBuilder("parsing success response\n:").append(parambur.h());
+      parambur.c();
+      return;
+    }
+    catch (Exception localException)
+    {
+      Log.e("paypal.sdk", "Exception parsing server response", localException);
+      parambur.a(new bro(brn.c, localException));
+    }
   }
   
-  public final InputStream getContent()
+  protected static void a(bur parambur, int paramInt)
   {
-    return new GZIPInputStream(wrappedEntity.getContent());
-  }
-  
-  public final long getContentLength()
-  {
-    return -1L;
+    parambur.a(Integer.valueOf(paramInt));
+    try
+    {
+      new StringBuilder("parsing error response:\n").append(parambur.h());
+      parambur.d();
+      return;
+    }
+    catch (JSONException localJSONException)
+    {
+      Log.e("paypal.sdk", "Exception parsing server response", localJSONException);
+      parambur.b(brn.a.toString(), paramInt + " http response received.  Response not parsable: " + localJSONException.getMessage());
+    }
   }
 }
 

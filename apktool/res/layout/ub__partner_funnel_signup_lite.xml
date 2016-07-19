@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/ub__uber_white_20" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ub__partner_funnel_step_standard_header_margin" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:uber="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Funnel.TextAppearance.Step.Header" android:id="@id/ub__partner_funnel_signup_lite_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:text="@string/ub__partner_funnel_sign_up_fill_in_info" />
+            <com.ubercab.ui.TextView android:textColor="@color/ub__partner_funnel_red" android:id="@id/ub__partner_funnel_signup_lite_error_message" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" />
+            <com.ubercab.ui.FloatingLabelEditText android:id="@id/ub__partner_funnel_signup_lite_password" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:maxLines="1" android:singleLine="true" android:maxLength="140" android:inputType="textPassword" uber:floatingLabelLabelText="@string/ub__partner_funnel_password" />
+            <com.ubercab.android.partner.funnel.signuplite.CityFlowTypePickerLayout android:id="@id/ub__partner_funnel_signup_lite_city_flow_type_picker_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <com.ubercab.ui.FloatingLabelEditText android:id="@id/ub__partner_funnel_signup_lite_referral_code" android:layout_width="fill_parent" android:layout_height="0.0dip" android:maxLines="1" android:singleLine="true" android:maxLength="140" android:layout_weight="1.0" uber:floatingLabelLabelText="@string/ub__partner_funnel_invite_code_optional" />
+        </LinearLayout>
+    </ScrollView>
+    <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ub__partner_funnel_step_standard_footer" />
+</LinearLayout>

@@ -7,32 +7,31 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import ckc;
-import ckr;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.ui.FloatingLabelEditText;
-import dsf;
-import dty;
-import ebj;
-import efm;
-import ewp;
-import ewq;
-import exg;
-import p;
-import r;
+import dxk;
+import dzn;
+import eib;
+import enf;
+import ffg;
+import ffh;
+import fgf;
+import x;
+import z;
 
 public class InviteContactsCustomizeInviteDialogFragment
-  extends dsf<exg>
+  extends dxk<fgf>
 {
-  public ckc a;
-  public dty b;
+  public ckt a;
+  public dzn b;
   private String d;
   private String e;
-  @InjectView(2131624530)
-  FloatingLabelEditText mEditText;
+  @BindView
+  public FloatingLabelEditText mEditText;
   
   private static InviteContactsCustomizeInviteDialogFragment a(String paramString)
   {
@@ -65,19 +64,19 @@ public class InviteContactsCustomizeInviteDialogFragment
     a(paramString1, paramString2).show(paramRiderActivity.getSupportFragmentManager(), InviteContactsCustomizeInviteDialogFragment.class.getName());
   }
   
-  private void a(exg paramexg)
+  private void a(fgf paramfgf)
   {
-    paramexg.a(this);
+    paramfgf.a(this);
   }
   
-  private exg b(ebj paramebj)
+  private fgf b(eib parameib)
   {
-    return ewp.a().a(new efm(this)).a(paramebj).a();
+    return ffg.a().a(new enf(this)).a(parameib).a();
   }
   
-  public final ckr a()
+  public final cli a()
   {
-    return p.ef;
+    return x.gc;
   }
   
   public final void c(int paramInt)
@@ -86,24 +85,24 @@ public class InviteContactsCustomizeInviteDialogFragment
     dismiss();
   }
   
-  @OnClick({2131624532})
+  @OnClick
   public void onClickCancel()
   {
-    a.a(r.cf);
+    a.a(z.dM);
     c(0);
   }
   
-  @OnClick({2131624531})
+  @OnClick
   public void onClickRestore()
   {
-    a.a(r.cg);
+    a.a(z.dN);
     mEditText.d(d);
   }
   
-  @OnClick({2131624533})
+  @OnClick
   public void onClickSave()
   {
-    a.a(r.ch);
+    a.a(z.dO);
     CharSequence localCharSequence = mEditText.i();
     if (localCharSequence == null) {
       return;
@@ -124,8 +123,8 @@ public class InviteContactsCustomizeInviteDialogFragment
   public Dialog onCreateDialog(Bundle paramBundle)
   {
     AlertDialog.Builder localBuilder = new AlertDialog.Builder(getActivity());
-    View localView = getActivity().getLayoutInflater().inflate(2130903239, null);
-    ButterKnife.inject(this, localView);
+    View localView = getActivity().getLayoutInflater().inflate(2130903317, null);
+    a(localView);
     paramBundle = getArguments().getString("promoCode");
     String str1 = getArguments().getString("promoUrl");
     String str2 = getArguments().getString("promoMessage");
@@ -144,15 +143,9 @@ public class InviteContactsCustomizeInviteDialogFragment
       mEditText.b(paramBundle.length());
       localBuilder.setView(localView);
       return localBuilder.create();
-      d = getResources().getString(2131165993, new Object[] { paramBundle, str1 });
+      d = getResources().getString(2131166103, new Object[] { paramBundle, str1 });
       break;
     }
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
 }
 

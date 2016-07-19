@@ -3,7 +3,7 @@ package android.support.v4.graphics.drawable;
 import android.graphics.drawable.Drawable;
 
 class DrawableCompat$HoneycombDrawableImpl
-  extends DrawableCompat.BaseDrawableImpl
+  extends DrawableCompat.EclairDrawableImpl
 {
   public void jumpToCurrentState(Drawable paramDrawable)
   {

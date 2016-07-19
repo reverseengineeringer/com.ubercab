@@ -1,7 +1,20 @@
-public final class ach
+import java.util.Arrays;
+
+final class ach
+  extends acg
 {
-  public static atx<Integer> a = atx.a("gms:common:stats:max_num_of_events", Integer.valueOf(100));
-  public static atx<Integer> b = atx.a("gms:common:stats:max_chunk_size", Integer.valueOf(100));
+  private final byte[] a;
+  
+  ach(byte[] paramArrayOfByte)
+  {
+    super(Arrays.copyOfRange(paramArrayOfByte, 0, 25));
+    a = paramArrayOfByte;
+  }
+  
+  final byte[] a()
+  {
+    return a;
+  }
 }
 
 /* Location:

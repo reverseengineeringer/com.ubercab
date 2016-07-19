@@ -1,45 +1,42 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Parcel;
-import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.wallet.IsReadyToPayRequest;
 
-public abstract class bgl
-  extends Binder
-  implements bgk
+public final class bgl
+  implements Parcelable.Creator<IsReadyToPayRequest>
 {
-  public static bgk a(IBinder paramIBinder)
+  private static IsReadyToPayRequest a(Parcel paramParcel)
   {
-    if (paramIBinder == null) {
-      return null;
+    int j = zd.b(paramParcel);
+    int i = 0;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+      }
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaLongClickListener");
-    if ((localIInterface != null) && ((localIInterface instanceof bgk))) {
-      return (bgk)localIInterface;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new bgm(paramIBinder);
+    return new IsReadyToPayRequest(i);
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static void a(IsReadyToPayRequest paramIsReadyToPayRequest, Parcel paramParcel)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnStreetViewPanoramaLongClickListener");
-      return true;
-    }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaLongClickListener");
-    if (paramParcel1.readInt() != 0) {
-      bii localbii = StreetViewPanoramaOrientation.CREATOR;
-    }
-    for (paramParcel1 = bii.a(paramParcel1);; paramParcel1 = null)
-    {
-      a(paramParcel1);
-      paramParcel2.writeNoException();
-      return true;
-    }
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramIsReadyToPayRequest.b());
+    zf.a(paramParcel, i);
+  }
+  
+  private static IsReadyToPayRequest[] a(int paramInt)
+  {
+    return new IsReadyToPayRequest[paramInt];
   }
 }
 

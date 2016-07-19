@@ -1,59 +1,39 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.StreetViewPanoramaLink;
-import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
+import java.io.Serializable;
 
-public final class bih
-  implements Parcelable.Creator<StreetViewPanoramaLocation>
+final class bih<T>
+  implements bif<T>, Serializable
 {
-  public static StreetViewPanoramaLocation a(Parcel paramParcel)
+  private static final long serialVersionUID = 0L;
+  final T a;
+  
+  bih(T paramT)
   {
-    int j = zm.b(paramParcel);
-    LatLng localLatLng = null;
-    StreetViewPanoramaLink[] arrayOfStreetViewPanoramaLink = null;
-    int i = 0;
-    String str = null;
-    while (paramParcel.dataPosition() < j)
+    a = paramT;
+  }
+  
+  public final T a()
+  {
+    return (T)a;
+  }
+  
+  public final boolean equals(Object paramObject)
+  {
+    if ((paramObject instanceof bih))
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        arrayOfStreetViewPanoramaLink = (StreetViewPanoramaLink[])zm.b(paramParcel, k, StreetViewPanoramaLink.CREATOR);
-        break;
-      case 3: 
-        localLatLng = (LatLng)zm.a(paramParcel, k, LatLng.CREATOR);
-        break;
-      case 4: 
-        str = zm.n(paramParcel, k);
-      }
+      paramObject = (bih)paramObject;
+      return bhv.a(a, a);
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new StreetViewPanoramaLocation(i, arrayOfStreetViewPanoramaLink, localLatLng, str);
+    return false;
   }
   
-  public static void a(StreetViewPanoramaLocation paramStreetViewPanoramaLocation, Parcel paramParcel, int paramInt)
+  public final int hashCode()
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramStreetViewPanoramaLocation.a());
-    zo.a(paramParcel, 2, a, paramInt);
-    zo.a(paramParcel, 3, b, paramInt, false);
-    zo.a(paramParcel, 4, c, false);
-    zo.a(paramParcel, i);
+    return bhv.a(new Object[] { a });
   }
   
-  private static StreetViewPanoramaLocation[] a(int paramInt)
+  public final String toString()
   {
-    return new StreetViewPanoramaLocation[paramInt];
+    return "Suppliers.ofInstance(" + a + ")";
   }
 }
 

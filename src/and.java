@@ -1,105 +1,52 @@
-import org.json.JSONException;
-import org.json.JSONObject;
-
-@apl
-public class and
+public final class and
+  implements wa
 {
-  private final asq a;
-  private final String b;
+  public static final and a = new ane().a();
+  private final boolean b;
+  private final boolean c;
+  private final String d;
+  private final boolean e;
+  private final String f;
+  private final boolean g;
   
-  public and(asq paramasq)
+  private and(boolean paramBoolean1, boolean paramBoolean2, String paramString1, boolean paramBoolean3, String paramString2, boolean paramBoolean4)
   {
-    this(paramasq, "");
+    b = paramBoolean1;
+    c = paramBoolean2;
+    d = paramString1;
+    e = paramBoolean3;
+    g = paramBoolean4;
+    f = paramString2;
   }
   
-  public and(asq paramasq, String paramString)
+  public final boolean a()
   {
-    a = paramasq;
-    b = paramString;
+    return b;
   }
   
-  public final void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+  public final boolean b()
   {
-    try
-    {
-      JSONObject localJSONObject = new JSONObject().put("x", paramInt1).put("y", paramInt2).put("width", paramInt3).put("height", paramInt4);
-      a.b("onSizeChanged", localJSONObject);
-      return;
-    }
-    catch (JSONException localJSONException)
-    {
-      aqt.b("Error occured while dispatching size change.", localJSONException);
-    }
+    return c;
   }
   
-  public final void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, float paramFloat, int paramInt5)
+  public final String c()
   {
-    try
-    {
-      JSONObject localJSONObject = new JSONObject().put("width", paramInt1).put("height", paramInt2).put("maxSizeWidth", paramInt3).put("maxSizeHeight", paramInt4).put("density", paramFloat).put("rotation", paramInt5);
-      a.b("onScreenInfoChanged", localJSONObject);
-      return;
-    }
-    catch (JSONException localJSONException)
-    {
-      aqt.b("Error occured while obtaining screen information.", localJSONException);
-    }
+    return d;
   }
   
-  public final void a(String paramString)
+  public final boolean d()
   {
-    try
-    {
-      paramString = new JSONObject().put("message", paramString).put("action", b);
-      a.b("onError", paramString);
-      return;
-    }
-    catch (JSONException paramString)
-    {
-      aqt.b("Error occurred while dispatching error event.", paramString);
-    }
+    return e;
   }
   
-  public final void b(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+  public final String e()
   {
-    try
-    {
-      JSONObject localJSONObject = new JSONObject().put("x", paramInt1).put("y", paramInt2).put("width", paramInt3).put("height", paramInt4);
-      a.b("onDefaultPositionReceived", localJSONObject);
-      return;
-    }
-    catch (JSONException localJSONException)
-    {
-      aqt.b("Error occured while dispatching default position.", localJSONException);
-    }
+    return f;
   }
   
-  public final void b(String paramString)
+  public final boolean f()
   {
-    try
-    {
-      paramString = new JSONObject().put("js", paramString);
-      a.b("onReadyEventReceived", paramString);
-      return;
-    }
-    catch (JSONException paramString)
-    {
-      aqt.b("Error occured while dispatching ready Event.", paramString);
-    }
-  }
-  
-  public final void c(String paramString)
-  {
-    try
-    {
-      paramString = new JSONObject().put("state", paramString);
-      a.b("onStateChanged", paramString);
-      return;
-    }
-    catch (JSONException paramString)
-    {
-      aqt.b("Error occured while dispatching state change.", paramString);
-    }
+    return g;
   }
 }
 

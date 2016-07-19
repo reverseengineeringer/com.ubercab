@@ -8,19 +8,20 @@ import com.ubercab.rider.realtime.model.Profile;
 import com.ubercab.rider.realtime.model.RecentFareSplitter;
 import com.ubercab.rider.realtime.model.ThirdPartyIdentity;
 import com.ubercab.rider.realtime.model.TripBalance;
+import com.ubercab.rider.realtime.model.TripPendingRouteToDestination;
 import com.ubercab.rider.realtime.response.ProfileType;
-import iad;
-import ian;
-import ije;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import jdh;
+import kcn;
+import kcx;
+import knd;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class Client
   implements com.ubercab.rider.realtime.model.Client
 {
@@ -36,6 +37,7 @@ public class Client
   boolean hasAmericanMobile = false;
   boolean hasConfirmedMobile = false;
   String hasConfirmedMobileStatus = "No";
+  boolean hasNoPassword = false;
   boolean hasToOptInSmsNotifications = false;
   List<PaymentProfile> inactivePaymentProfiles;
   boolean isAdmin = false;
@@ -66,8 +68,10 @@ public class Client
   String status = "";
   Map<String, ThirdPartyIdentity> thirdPartyIdentities = new HashMap();
   String token = "";
+  int totalCompletedRidersTripsCount = 0;
   List<TripBalance> tripBalances = new ArrayList();
   TripPendingRating tripPendingRating = null;
+  TripPendingRouteToDestination tripPendingRouteToDestination = null;
   String uuid = "";
   
   public boolean equals(Object paramObject)
@@ -86,6 +90,9 @@ public class Client
       if (mobileCountryId != mobileCountryId) {
         return false;
       }
+      if (totalCompletedRidersTripsCount != totalCompletedRidersTripsCount) {
+        return false;
+      }
       if (isAdmin != isAdmin) {
         return false;
       }
@@ -93,6 +100,9 @@ public class Client
         return false;
       }
       if (hasConfirmedMobile != hasConfirmedMobile) {
+        return false;
+      }
+      if (hasNoPassword != hasNoPassword) {
         return false;
       }
       if (hasToOptInSmsNotifications != hasToOptInSmsNotifications) {
@@ -335,6 +345,15 @@ public class Client
           return false;
         }
       }
+      if (tripPendingRouteToDestination != null)
+      {
+        if (tripPendingRouteToDestination.equals(tripPendingRouteToDestination)) {}
+      }
+      else {
+        while (tripPendingRouteToDestination != null) {
+          return false;
+        }
+      }
       if (creditBalances != null)
       {
         if (creditBalances.equals(creditBalances)) {}
@@ -405,7 +424,7 @@ public class Client
       }
       localList = getPaymentProfiles();
     } while (localList == null);
-    return (com.ubercab.rider.realtime.model.PaymentProfile)ian.d(localList, new Client.1(this, paramString)).d();
+    return (com.ubercab.rider.realtime.model.PaymentProfile)kcx.d(localList, new Client.1(this, paramString)).d();
   }
   
   public String getClaimedMobile()
@@ -443,7 +462,7 @@ public class Client
   
   public String getFormattedName()
   {
-    return ije.a(getFirstName(), getLastName(), Locale.getDefault());
+    return knd.a(getFirstName(), getLastName(), Locale.getDefault());
   }
   
   public boolean getHasAmericanMobile()
@@ -459,6 +478,11 @@ public class Client
   public String getHasConfirmedMobileStatus()
   {
     return hasConfirmedMobileStatus;
+  }
+  
+  public boolean getHasNoPassword()
+  {
+    return hasNoPassword;
   }
   
   public boolean getHasToOptInSmsNotifications()
@@ -634,6 +658,12 @@ public class Client
     return token;
   }
   
+  @Deprecated
+  public int getTotalCompletedRidersTripsCount()
+  {
+    return totalCompletedRidersTripsCount;
+  }
+  
   public List<TripBalance> getTripBalances()
   {
     return tripBalances;
@@ -645,6 +675,12 @@ public class Client
     return tripPendingRating;
   }
   
+  @Deprecated
+  public TripPendingRouteToDestination getTripPendingRouteToDestination()
+  {
+    return tripPendingRouteToDestination;
+  }
+  
   public String getUuid()
   {
     return uuid;
@@ -652,19 +688,20 @@ public class Client
   
   public int hashCode()
   {
-    int n = 1;
-    int i32 = 0;
-    int i33 = countryId;
-    int i34 = mobileCountryId;
+    int i1 = 1;
+    int i34 = 0;
+    int i35 = countryId;
+    int i36 = mobileCountryId;
+    int i37 = totalCompletedRidersTripsCount;
     int i;
     int j;
-    label36:
+    label42:
     int k;
-    label45:
+    label51:
     int m;
-    label55:
-    label62:
-    int i1;
+    label61:
+    int n;
+    label71:
     label78:
     int i2;
     label94:
@@ -695,7 +732,7 @@ public class Client
     int i15;
     label302:
     int i16;
-    label320:
+    label318:
     int i17;
     label336:
     int i18;
@@ -717,206 +754,220 @@ public class Client
     int i26;
     label480:
     int i27;
-    label498:
+    label496:
     int i28;
-    label516:
+    label512:
     int i29;
-    label534:
+    label530:
     int i30;
+    label548:
+    int i31;
+    label566:
+    int i32;
     if (isAdmin)
     {
       i = 1;
       if (!hasAmericanMobile) {
-        break label821;
+        break label871;
       }
       j = 1;
       if (!hasConfirmedMobile) {
-        break label826;
+        break label876;
       }
       k = 1;
-      if (!hasToOptInSmsNotifications) {
-        break label831;
+      if (!hasNoPassword) {
+        break label881;
       }
       m = 1;
+      if (!hasToOptInSmsNotifications) {
+        break label887;
+      }
+      n = 1;
       if (!lastSelectedPaymentProfileIsGoogleWallet) {
-        break label837;
+        break label893;
       }
       if (email == null) {
-        break label843;
+        break label899;
       }
-      i1 = email.hashCode();
+      i2 = email.hashCode();
       if (firstName == null) {
-        break label849;
+        break label905;
       }
-      i2 = firstName.hashCode();
+      i3 = firstName.hashCode();
       if (uuid == null) {
-        break label855;
+        break label911;
       }
-      i3 = uuid.hashCode();
+      i4 = uuid.hashCode();
       if (lastName == null) {
-        break label861;
+        break label917;
       }
-      i4 = lastName.hashCode();
+      i5 = lastName.hashCode();
       if (lastRequestMsg == null) {
-        break label867;
+        break label923;
       }
-      i5 = lastRequestMsg.hashCode();
+      i6 = lastRequestMsg.hashCode();
       if (lastRequestNote == null) {
-        break label873;
+        break label929;
       }
-      i6 = lastRequestNote.hashCode();
+      i7 = lastRequestNote.hashCode();
       if (lastSelectedPaymentProfileId == null) {
-        break label879;
+        break label935;
       }
-      i7 = lastSelectedPaymentProfileId.hashCode();
+      i8 = lastSelectedPaymentProfileId.hashCode();
       if (mobile == null) {
-        break label885;
+        break label941;
       }
-      i8 = mobile.hashCode();
+      i9 = mobile.hashCode();
       if (claimedMobile == null) {
-        break label891;
+        break label947;
       }
-      i9 = claimedMobile.hashCode();
+      i10 = claimedMobile.hashCode();
       if (mobileCountryCode == null) {
-        break label897;
+        break label953;
       }
-      i10 = mobileCountryCode.hashCode();
+      i11 = mobileCountryCode.hashCode();
       if (mobileCountryIso2 == null) {
-        break label903;
+        break label959;
       }
-      i11 = mobileCountryIso2.hashCode();
+      i12 = mobileCountryIso2.hashCode();
       if (mobileDigits == null) {
-        break label909;
+        break label965;
       }
-      i12 = mobileDigits.hashCode();
+      i13 = mobileDigits.hashCode();
       if (pictureUrl == null) {
-        break label915;
+        break label971;
       }
-      i13 = pictureUrl.hashCode();
+      i14 = pictureUrl.hashCode();
       if (profileType == null) {
-        break label921;
+        break label977;
       }
-      i14 = profileType.hashCode();
+      i15 = profileType.hashCode();
       if (promotion == null) {
-        break label927;
+        break label983;
       }
-      i15 = promotion.hashCode();
+      i16 = promotion.hashCode();
       if (profiles == null) {
-        break label933;
+        break label989;
       }
-      i16 = profiles.hashCode();
+      i17 = profiles.hashCode();
       if (referralCode == null) {
-        break label939;
+        break label995;
       }
-      i17 = referralCode.hashCode();
+      i18 = referralCode.hashCode();
       if (referralUrl == null) {
-        break label945;
+        break label1001;
       }
-      i18 = referralUrl.hashCode();
+      i19 = referralUrl.hashCode();
       if (role == null) {
-        break label951;
+        break label1007;
       }
-      i19 = role.hashCode();
+      i20 = role.hashCode();
       if (status == null) {
-        break label957;
+        break label1013;
       }
-      i20 = status.hashCode();
+      i21 = status.hashCode();
       if (token == null) {
-        break label963;
+        break label1019;
       }
-      i21 = token.hashCode();
+      i22 = token.hashCode();
       if (lastSelectedPaymentProfileUUID == null) {
-        break label969;
+        break label1025;
       }
-      i22 = lastSelectedPaymentProfileUUID.hashCode();
+      i23 = lastSelectedPaymentProfileUUID.hashCode();
       if (lastEstimatedTrip == null) {
-        break label975;
+        break label1031;
       }
-      i23 = lastEstimatedTrip.hashCode();
+      i24 = lastEstimatedTrip.hashCode();
       if (lastExpenseInfo == null) {
-        break label981;
+        break label1037;
       }
-      i24 = lastExpenseInfo.hashCode();
+      i25 = lastExpenseInfo.hashCode();
       if (reverseGeocode == null) {
-        break label987;
+        break label1043;
       }
-      i25 = reverseGeocode.hashCode();
+      i26 = reverseGeocode.hashCode();
       if (tripPendingRating == null) {
-        break label993;
+        break label1049;
       }
-      i26 = tripPendingRating.hashCode();
+      i27 = tripPendingRating.hashCode();
+      if (tripPendingRouteToDestination == null) {
+        break label1055;
+      }
+      i28 = tripPendingRouteToDestination.hashCode();
       if (creditBalances == null) {
-        break label999;
+        break label1061;
       }
-      i27 = creditBalances.hashCode();
+      i29 = creditBalances.hashCode();
       if (tripBalances == null) {
-        break label1005;
+        break label1067;
       }
-      i28 = tripBalances.hashCode();
+      i30 = tripBalances.hashCode();
       if (paymentProfiles == null) {
-        break label1011;
+        break label1073;
       }
-      i29 = paymentProfiles.hashCode();
+      i31 = paymentProfiles.hashCode();
       if (inactivePaymentProfiles == null) {
-        break label1017;
+        break label1079;
       }
-      i30 = inactivePaymentProfiles.hashCode();
-      label552:
+      i32 = inactivePaymentProfiles.hashCode();
+      label584:
       if (recentFareSplitters == null) {
-        break label1023;
+        break label1085;
       }
     }
-    label821:
-    label826:
-    label831:
-    label837:
-    label843:
-    label849:
-    label855:
-    label861:
-    label867:
-    label873:
-    label879:
-    label885:
-    label891:
-    label897:
-    label903:
-    label909:
-    label915:
-    label921:
-    label927:
-    label933:
-    label939:
-    label945:
-    label951:
-    label957:
-    label963:
-    label969:
-    label975:
-    label981:
-    label987:
-    label993:
-    label999:
-    label1005:
-    label1011:
-    label1017:
-    label1023:
-    for (int i31 = recentFareSplitters.hashCode();; i31 = 0)
+    label871:
+    label876:
+    label881:
+    label887:
+    label893:
+    label899:
+    label905:
+    label911:
+    label917:
+    label923:
+    label929:
+    label935:
+    label941:
+    label947:
+    label953:
+    label959:
+    label965:
+    label971:
+    label977:
+    label983:
+    label989:
+    label995:
+    label1001:
+    label1007:
+    label1013:
+    label1019:
+    label1025:
+    label1031:
+    label1037:
+    label1043:
+    label1049:
+    label1055:
+    label1061:
+    label1067:
+    label1073:
+    label1079:
+    label1085:
+    for (int i33 = recentFareSplitters.hashCode();; i33 = 0)
     {
       if (thirdPartyIdentities != null) {
-        i32 = thirdPartyIdentities.hashCode();
+        i34 = thirdPartyIdentities.hashCode();
       }
-      return (i31 + (i30 + (i29 + (i28 + (i27 + (i26 + (i25 + (i24 + (i23 + (i22 + (i21 + (i20 + (i19 + (i18 + (i17 + (i16 + (i15 + (i14 + (i13 + (i12 + (i11 + (i10 + (i9 + (i8 + (i7 + (i6 + (i5 + (i4 + (i3 + (i2 + (i1 + ((m + (k + (j + (i + (i33 * 31 + i34) * 31) * 31) * 31) * 31) * 31 + n) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i32;
+      return (i33 + (i32 + (i31 + (i30 + (i29 + (i28 + (i27 + (i26 + (i25 + (i24 + (i23 + (i22 + (i21 + (i20 + (i19 + (i18 + (i17 + (i16 + (i15 + (i14 + (i13 + (i12 + (i11 + (i10 + (i9 + (i8 + (i7 + (i6 + (i5 + (i4 + (i3 + (i2 + ((n + (m + (k + (j + (i + ((i35 * 31 + i36) * 31 + i37) * 31) * 31) * 31) * 31) * 31) * 31 + i1) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31) * 31 + i34;
       i = 0;
       break;
       j = 0;
-      break label36;
+      break label42;
       k = 0;
-      break label45;
+      break label51;
       m = 0;
-      break label55;
+      break label61;
       n = 0;
-      break label62;
+      break label71;
       i1 = 0;
       break label78;
       i2 = 0;
@@ -948,7 +999,7 @@ public class Client
       i15 = 0;
       break label302;
       i16 = 0;
-      break label320;
+      break label318;
       i17 = 0;
       break label336;
       i18 = 0;
@@ -970,13 +1021,17 @@ public class Client
       i26 = 0;
       break label480;
       i27 = 0;
-      break label498;
+      break label496;
       i28 = 0;
-      break label516;
+      break label512;
       i29 = 0;
-      break label534;
+      break label530;
       i30 = 0;
-      break label552;
+      break label548;
+      i31 = 0;
+      break label566;
+      i32 = 0;
+      break label584;
     }
   }
   

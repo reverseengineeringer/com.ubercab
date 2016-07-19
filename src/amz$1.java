@@ -1,25 +1,15 @@
-import android.app.DownloadManager;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
+import android.os.Looper;
 
 final class amz$1
-  implements DialogInterface.OnClickListener
+  extends wb<beu, and>
 {
-  amz$1(amz paramamz, String paramString1, String paramString2) {}
-  
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  private static beu a(Context paramContext, Looper paramLooper, zq paramzq, and paramand, wl paramwl, wm paramwm)
   {
-    paramDialogInterface = (DownloadManager)amz.a(c).getSystemService("download");
-    try
-    {
-      paramDialogInterface.enqueue(amz.a(a, b));
-      return;
+    if (paramand == null) {
+      paramand = and.a;
     }
-    catch (IllegalStateException paramDialogInterface)
-    {
-      c.a("Could not store picture.");
-    }
+    return new beu(paramContext, paramLooper, paramzq, paramwl, paramwm);
   }
 }
 

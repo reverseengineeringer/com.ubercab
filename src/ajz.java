@@ -1,43 +1,20 @@
-import android.os.Handler;
+import android.annotation.TargetApi;
+import android.view.View;
+import android.webkit.WebChromeClient.CustomViewCallback;
 
-@apl
+@aih
+@TargetApi(14)
 public final class ajz
-  extends aqs
+  extends ajx
 {
-  final asq a;
-  final akb b;
-  private final String c;
-  
-  ajz(asq paramasq, akb paramakb, String paramString)
+  public ajz(ajm paramajm)
   {
-    a = paramasq;
-    b = paramakb;
-    c = paramString;
-    tp.t().a(this);
+    super(paramajm);
   }
   
-  public final void a()
+  public final void onShowCustomView(View paramView, int paramInt, WebChromeClient.CustomViewCallback paramCustomViewCallback)
   {
-    try
-    {
-      b.a(c);
-      return;
-    }
-    finally
-    {
-      aqz.a.post(new Runnable()
-      {
-        public final void run()
-        {
-          tp.t().b(ajz.this);
-        }
-      });
-    }
-  }
-  
-  public final void b()
-  {
-    b.b();
+    a(paramView, paramInt, paramCustomViewCallback);
   }
 }
 

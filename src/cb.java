@@ -1,9 +1,14 @@
-public final class cb
+import java.lang.ref.WeakReference;
+
+final class cb
 {
-  public static final int cardview_dark_background = 2131558418;
-  public static final int cardview_light_background = 2131558419;
-  public static final int cardview_shadow_end_color = 2131558420;
-  public static final int cardview_shadow_start_color = 2131558421;
+  private final WeakReference<ca> a;
+  private int b;
+  
+  final boolean a(ca paramca)
+  {
+    return (paramca != null) && (a.get() == paramca);
+  }
 }
 
 /* Location:

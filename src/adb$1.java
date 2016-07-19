@@ -1,20 +1,15 @@
-import java.util.Iterator;
-import java.util.LinkedList;
+import android.content.Context;
+import android.content.SharedPreferences;
+import java.util.concurrent.Callable;
 
 final class adb$1
-  implements adh<T>
+  implements Callable<SharedPreferences>
 {
-  adb$1(adb paramadb) {}
+  adb$1(Context paramContext) {}
   
-  public final void a(T paramT)
+  private SharedPreferences a()
   {
-    adb.a(a, paramT);
-    paramT = adb.a(a).iterator();
-    while (paramT.hasNext()) {
-      ((adc)paramT.next()).b();
-    }
-    adb.a(a).clear();
-    adb.c(a);
+    return a.getSharedPreferences("google_sdk_flags", 1);
   }
 }
 

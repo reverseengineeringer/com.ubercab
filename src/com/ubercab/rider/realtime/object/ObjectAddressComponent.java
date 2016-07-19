@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsl;
+import mxr;
 
 @Shape
 abstract class ObjectAddressComponent
-  implements jsl
+  implements mxr
 {}
 
 /* Location:

@@ -2,14 +2,14 @@ package com.ubercab.android.partner.funnel.onboarding.documents.network;
 
 import com.ubercab.android.partner.funnel.realtime.models.steps.documents.DocumentUploadResult;
 import java.util.Map;
-import kld;
+import odr;
 import retrofit.http.Body;
 import retrofit.http.POST;
 
 public abstract interface DocumentUploadApi
 {
   @POST("/rt/onboarding/documents")
-  public abstract kld<DocumentUploadResult> postDocument(@Body Map<String, Object> paramMap);
+  public abstract odr<DocumentUploadResult> postDocument(@Body Map<String, Object> paramMap);
 }
 
 /* Location:

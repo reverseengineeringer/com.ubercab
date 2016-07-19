@@ -1,40 +1,12 @@
-import com.ubercab.android.location.UberLatLng;
-
-public final class cnx
+public abstract interface cnx
 {
-  private float a;
-  private UberLatLng b;
-  private float c;
-  private float d;
+  public abstract long a();
   
-  public final cnw a()
-  {
-    return new cnw(a, b, c, d);
-  }
+  public abstract void b();
   
-  public final cnx a(float paramFloat)
-  {
-    a = paramFloat;
-    return this;
-  }
+  public abstract int c();
   
-  public final cnx a(UberLatLng paramUberLatLng)
-  {
-    b = paramUberLatLng;
-    return this;
-  }
-  
-  public final cnx b(float paramFloat)
-  {
-    c = paramFloat;
-    return this;
-  }
-  
-  public final cnx c(float paramFloat)
-  {
-    d = paramFloat;
-    return this;
-  }
+  public abstract void d();
 }
 
 /* Location:

@@ -10,7 +10,8 @@ public abstract class PagerAdapter
 {
   public static final int POSITION_NONE = -2;
   public static final int POSITION_UNCHANGED = -1;
-  private DataSetObservable mObservable = new DataSetObservable();
+  private final DataSetObservable mObservable = new DataSetObservable();
+  private DataSetObserver mViewPagerObserver;
   
   public void destroyItem(View paramView, int paramInt, Object paramObject)
   {
@@ -60,7 +61,15 @@ public abstract class PagerAdapter
   
   public void notifyDataSetChanged()
   {
-    mObservable.notifyChanged();
+    try
+    {
+      if (mViewPagerObserver != null) {
+        mViewPagerObserver.onChanged();
+      }
+      mObservable.notifyChanged();
+      return;
+    }
+    finally {}
   }
   
   public void registerDataSetObserver(DataSetObserver paramDataSetObserver)
@@ -80,6 +89,16 @@ public abstract class PagerAdapter
   public void setPrimaryItem(ViewGroup paramViewGroup, int paramInt, Object paramObject)
   {
     setPrimaryItem(paramViewGroup, paramInt, paramObject);
+  }
+  
+  void setViewPagerObserver(DataSetObserver paramDataSetObserver)
+  {
+    try
+    {
+      mViewPagerObserver = paramDataSetObserver;
+      return;
+    }
+    finally {}
   }
   
   public void startUpdate(View paramView) {}

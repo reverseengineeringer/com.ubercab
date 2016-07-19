@@ -1,8 +1,8 @@
-import java.util.Map;
-
 public abstract interface cky
 {
-  public abstract Map<String, Object> a();
+  public abstract long a();
+  
+  public abstract void b();
 }
 
 /* Location:

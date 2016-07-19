@@ -1,37 +1,45 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import java.util.Iterator;
 
-public abstract class abb
-  extends Binder
-  implements aba
+public final class abb
 {
-  public static aba a(IBinder paramIBinder)
+  private final String a;
+  
+  private abb(String paramString)
   {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.common.internal.ICancelToken");
-    if ((localIInterface != null) && ((localIInterface instanceof aba))) {
-      return (aba)localIInterface;
-    }
-    return new abc(paramIBinder);
+    a = paramString;
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  public static abb a(String paramString)
   {
-    switch (paramInt1)
-    {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.common.internal.ICancelToken");
-      return true;
+    return new abb(paramString);
+  }
+  
+  private static CharSequence a(Object paramObject)
+  {
+    if ((paramObject instanceof CharSequence)) {
+      return (CharSequence)paramObject;
     }
-    paramParcel1.enforceInterface("com.google.android.gms.common.internal.ICancelToken");
-    a();
-    return true;
+    return paramObject.toString();
+  }
+  
+  private StringBuilder a(StringBuilder paramStringBuilder, Iterable<?> paramIterable)
+  {
+    paramIterable = paramIterable.iterator();
+    if (paramIterable.hasNext())
+    {
+      paramStringBuilder.append(a(paramIterable.next()));
+      while (paramIterable.hasNext())
+      {
+        paramStringBuilder.append(a);
+        paramStringBuilder.append(a(paramIterable.next()));
+      }
+    }
+    return paramStringBuilder;
+  }
+  
+  public final String a(Iterable<?> paramIterable)
+  {
+    return a(new StringBuilder(), paramIterable).toString();
   }
 }
 

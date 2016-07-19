@@ -2,19 +2,19 @@ package com.ubercab.core.app;
 
 import android.app.Application;
 import android.content.Context;
-import idk;
+import kgc;
 
 public class CoreApplication
   extends Application
 {
-  private static final idk a = ;
+  private static final kgc a = ;
   
   public static CoreApplication b(Context paramContext)
   {
     return (CoreApplication)paramContext.getApplicationContext();
   }
   
-  public static idk o()
+  public static kgc s()
   {
     return a;
   }

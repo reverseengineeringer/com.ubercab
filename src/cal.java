@@ -1,41 +1,17 @@
-import java.util.ArrayList;
-import java.util.List;
+import com.paypal.android.sdk.g;
 
-public final class cal
+public class cal
 {
-  public static final List a;
+  private static final String a = cal.class.getSimpleName();
   
-  static
+  public static String a()
   {
-    ArrayList localArrayList = new ArrayList();
-    a = localArrayList;
-    localArrayList.add(new bzx());
-    a.add(new bzy());
-    a.add(new bzz());
-    a.add(new caa());
-    a.add(new cab());
-    a.add(new cac());
-    a.add(new cad());
-    a.add(new cae());
-    a.add(new caf());
-    a.add(new cag());
-    a.add(new cah());
-    a.add(new cai());
-    a.add(new caj());
-    a.add(new cak());
-    a.add(new cam());
-    a.add(new can());
-    a.add(new cao());
-    a.add(new cap());
-    a.add(new bzf());
-    a.add(new bzg());
-    a.add(new bzh());
-    a.add(new bzi());
-    a.add(new bzj());
-    a.add(new bzk());
-    a.add(new bzl());
-    a.add(new bzm());
-    a.add(new bzn());
+    String str1 = buv.a().c().a();
+    if ((bwy.c(str1)) || (str1.equalsIgnoreCase("US"))) {
+      return "https://www.paypal.com/webapps/accountrecovery/passwordrecovery";
+    }
+    String str2 = bvf.c(str1);
+    return String.format("https://www.paypal.com/%s/cgi-bin/webscr?cmd=_account-recovery&from=%s&locale.x=%s", new Object[] { str1.toLowerCase(), "PayPalMPL", str2 });
   }
 }
 

@@ -1,21 +1,27 @@
 import java.util.Map;
 
 final class afr$4
-  implements aji
+  implements afs
 {
-  afr$4(afr paramafr) {}
-  
-  public final void a(asq paramasq, Map<String, String> paramMap)
+  public final void a(ajm paramajm, Map<String, String> paramMap)
   {
-    if (!a.a(paramMap)) {}
-    while (!paramMap.containsKey("isVisible")) {
+    String str1 = (String)paramMap.get("tx");
+    String str2 = (String)paramMap.get("ty");
+    paramMap = (String)paramMap.get("td");
+    try
+    {
+      Integer.parseInt(str1);
+      Integer.parseInt(str2);
+      Integer.parseInt(paramMap);
+      paramajm = paramajm.m();
+      if (paramajm != null) {
+        paramajm.a();
+      }
       return;
     }
-    if (("1".equals(paramMap.get("isVisible"))) || ("true".equals(paramMap.get("isVisible")))) {}
-    for (boolean bool = true;; bool = false)
+    catch (NumberFormatException paramajm)
     {
-      a.a(Boolean.valueOf(bool).booleanValue());
-      return;
+      ain.d("Could not parse touch parameters from gmsg.");
     }
   }
 }

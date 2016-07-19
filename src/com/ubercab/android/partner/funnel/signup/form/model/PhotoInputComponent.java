@@ -1,8 +1,8 @@
 package com.ubercab.android.partner.funnel.signup.form.model;
 
 import android.os.Parcelable;
-import bpg;
-import bpj;
+import bma;
+import bmd;
 import com.ubercab.form.model.FieldComponent;
 import com.ubercab.shape.Shape;
 import java.util.ArrayList;
@@ -41,9 +41,9 @@ public abstract class PhotoInputComponent
   {
     if ((mDocumentUrl == null) && (getOptions() != null))
     {
-      bpj localbpj = (bpj)getOptions().get("document_url");
-      if (localbpj != null) {
-        mDocumentUrl = localbpj.b();
+      bmd localbmd = (bmd)getOptions().get("document_url");
+      if (localbmd != null) {
+        mDocumentUrl = localbmd.b();
       }
     }
     return mDocumentUrl;
@@ -53,9 +53,9 @@ public abstract class PhotoInputComponent
   {
     if ((mMetadataAlertMandatory == null) && (getOptions() != null))
     {
-      bpj localbpj = (bpj)getOptions().get("metadata_alert_mandatory");
-      if (localbpj != null) {
-        mMetadataAlertMandatory = Boolean.valueOf(localbpj.f());
+      bmd localbmd = (bmd)getOptions().get("metadata_alert_mandatory");
+      if (localbmd != null) {
+        mMetadataAlertMandatory = Boolean.valueOf(localbmd.f());
       }
     }
     if (mMetadataAlertMandatory == null) {
@@ -68,9 +68,9 @@ public abstract class PhotoInputComponent
   {
     if ((mMetadataAlertMessage == null) && (getOptions() != null))
     {
-      bpj localbpj = (bpj)getOptions().get("metadata_alert_message");
-      if (localbpj != null) {
-        mMetadataAlertMessage = localbpj.b();
+      bmd localbmd = (bmd)getOptions().get("metadata_alert_message");
+      if (localbmd != null) {
+        mMetadataAlertMessage = localbmd.b();
       }
     }
     return mMetadataAlertMessage;
@@ -80,9 +80,9 @@ public abstract class PhotoInputComponent
   {
     if ((mRequiredDocumentId == null) && (getOptions() != null))
     {
-      bpj localbpj = (bpj)getOptions().get("required_document_id");
-      if (localbpj != null) {
-        mRequiredDocumentId = Integer.valueOf(localbpj.e());
+      bmd localbmd = (bmd)getOptions().get("required_document_id");
+      if (localbmd != null) {
+        mRequiredDocumentId = Integer.valueOf(localbmd.e());
       }
     }
     return mRequiredDocumentId;
@@ -92,9 +92,9 @@ public abstract class PhotoInputComponent
   {
     if ((mRequiredDocumentUuid == null) && (getOptions() != null))
     {
-      bpj localbpj = (bpj)getOptions().get("required_document_uuid");
-      if (localbpj != null) {
-        mRequiredDocumentUuid = localbpj.b();
+      bmd localbmd = (bmd)getOptions().get("required_document_uuid");
+      if (localbmd != null) {
+        mRequiredDocumentUuid = localbmd.b();
       }
     }
     return mRequiredDocumentUuid;
@@ -104,9 +104,9 @@ public abstract class PhotoInputComponent
   {
     if ((mSerializedMetadataForm == null) && (getOptions() != null))
     {
-      bpj localbpj = (bpj)getOptions().get("metadata_form");
-      if (localbpj != null) {
-        mSerializedMetadataForm = localbpj.toString();
+      bmd localbmd = (bmd)getOptions().get("metadata_form");
+      if (localbmd != null) {
+        mSerializedMetadataForm = localbmd.toString();
       }
     }
     return mSerializedMetadataForm;
@@ -117,12 +117,12 @@ public abstract class PhotoInputComponent
     ArrayList localArrayList = new ArrayList();
     if (getOptions() != null)
     {
-      Object localObject = (bpj)getOptions().get("subtitles");
+      Object localObject = (bmd)getOptions().get("subtitles");
       if (localObject != null)
       {
-        localObject = ((bpj)localObject).l().iterator();
+        localObject = ((bmd)localObject).l().iterator();
         while (((Iterator)localObject).hasNext()) {
-          localArrayList.add(((bpj)((Iterator)localObject).next()).b());
+          localArrayList.add(((bmd)((Iterator)localObject).next()).b());
         }
       }
     }
@@ -133,9 +133,9 @@ public abstract class PhotoInputComponent
   {
     if ((mVehicleUuid == null) && (getOptions() != null))
     {
-      bpj localbpj = (bpj)getOptions().get("vehicle_uuid");
-      if (localbpj != null) {
-        mVehicleUuid = localbpj.b();
+      bmd localbmd = (bmd)getOptions().get("vehicle_uuid");
+      if (localbmd != null) {
+        mVehicleUuid = localbmd.b();
       }
     }
     return mVehicleUuid;

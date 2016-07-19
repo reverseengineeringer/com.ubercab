@@ -1,25 +1,31 @@
-import android.app.Application;
-import android.os.Handler;
-import android.os.Looper;
-import com.ubercab.analytics.model.AnalyticsEvent;
-
 public final class dxg
-  implements cke
 {
-  private Application a;
-  private Handler b;
+  private final kcj a;
+  private final kia b;
+  private final kog c;
   
-  public dxg(Application paramApplication)
+  public dxg(kia paramkia, kcj paramkcj, kog paramkog)
   {
-    a = paramApplication;
+    b = paramkia;
+    a = paramkcj;
+    c = paramkog;
   }
   
-  public final void a(AnalyticsEvent paramAnalyticsEvent)
+  public final void a(long paramLong)
   {
-    if (b == null) {
-      b = new Handler(Looper.getMainLooper());
+    paramLong = kcj.b() - paramLong;
+    if ((paramLong > 0L) && (paramLong <= 2000.0D) && (b.c(eaj.gB)))
+    {
+      double d = b.a(eaj.gB, "applicationDelayFactorKey", 1.0D);
+      c.a(eaj.gB.name(), enz.values());
+      paramLong = (paramLong * d);
     }
-    b.post(new dxg.1(this, paramAnalyticsEvent));
+    try
+    {
+      Thread.sleep(paramLong);
+      return;
+    }
+    catch (InterruptedException localInterruptedException) {}
   }
 }
 

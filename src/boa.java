@@ -1,52 +1,78 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.wobs.TextModuleData;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public final class boa
-  implements Parcelable.Creator<TextModuleData>
+  extends bmq<Object>
 {
-  private static TextModuleData a(Parcel paramParcel)
+  public static final bmr a = new bmr()
   {
-    String str2 = null;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    String str1 = null;
-    while (paramParcel.dataPosition() < j)
+    public final <T> bmq<T> create(blw paramAnonymousblw, boj<T> paramAnonymousboj)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str1 = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        str2 = zm.n(paramParcel, k);
+      if (paramAnonymousboj.getRawType() == Object.class) {
+        return new boa(paramAnonymousblw, (byte)0);
       }
+      return null;
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new TextModuleData(i, str1, str2);
+  };
+  private final blw b;
+  
+  private boa(blw paramblw)
+  {
+    b = paramblw;
   }
   
-  public static void a(TextModuleData paramTextModuleData, Parcel paramParcel)
+  public final Object read(JsonReader paramJsonReader)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramTextModuleData.a());
-    zo.a(paramParcel, 2, a, false);
-    zo.a(paramParcel, 3, b, false);
-    zo.a(paramParcel, i);
+    Object localObject = paramJsonReader.peek();
+    switch (boa.2.a[localObject.ordinal()])
+    {
+    default: 
+      throw new IllegalStateException();
+    case 1: 
+      localObject = new ArrayList();
+      paramJsonReader.beginArray();
+      while (paramJsonReader.hasNext()) {
+        ((List)localObject).add(read(paramJsonReader));
+      }
+      paramJsonReader.endArray();
+      return localObject;
+    case 2: 
+      localObject = new bng();
+      paramJsonReader.beginObject();
+      while (paramJsonReader.hasNext()) {
+        ((Map)localObject).put(paramJsonReader.nextName(), read(paramJsonReader));
+      }
+      paramJsonReader.endObject();
+      return localObject;
+    case 3: 
+      return paramJsonReader.nextString();
+    case 4: 
+      return Double.valueOf(paramJsonReader.nextDouble());
+    case 5: 
+      return Boolean.valueOf(paramJsonReader.nextBoolean());
+    }
+    paramJsonReader.nextNull();
+    return null;
   }
   
-  private static TextModuleData[] a(int paramInt)
+  public final void write(JsonWriter paramJsonWriter, Object paramObject)
   {
-    return new TextModuleData[paramInt];
+    if (paramObject == null)
+    {
+      paramJsonWriter.nullValue();
+      return;
+    }
+    bmq localbmq = b.a(paramObject.getClass());
+    if ((localbmq instanceof boa))
+    {
+      paramJsonWriter.beginObject();
+      paramJsonWriter.endObject();
+      return;
+    }
+    localbmq.write(paramJsonWriter, paramObject);
   }
 }
 

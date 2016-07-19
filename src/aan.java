@@ -1,54 +1,50 @@
-import android.os.Bundle;
+import android.accounts.Account;
+import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
-import android.os.RemoteException;
-import android.util.Log;
-import com.google.android.gms.common.ConnectionResult;
+import android.os.Parcel;
 
-public final class aan
-  extends aag<T>.aah
+public abstract class aan
+  extends Binder
+  implements aam
 {
-  public final IBinder e;
-  
-  public aan(aag paramaag, int paramInt, IBinder paramIBinder, Bundle paramBundle)
+  public static aam a(IBinder paramIBinder)
   {
-    super(paramaag, paramInt, paramBundle);
-    e = paramIBinder;
-  }
-  
-  protected final void a(ConnectionResult paramConnectionResult)
-  {
-    if (aag.f(f) != null) {
-      aag.f(f).a(paramConnectionResult);
+    if (paramIBinder == null) {
+      return null;
     }
-    f.a(paramConnectionResult);
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.common.internal.IAccountAccessor");
+    if ((localIInterface != null) && ((localIInterface instanceof aam))) {
+      return (aam)localIInterface;
+    }
+    return new aao(paramIBinder);
   }
   
-  protected final boolean a()
+  public IBinder asBinder()
   {
-    IInterface localIInterface;
-    do
+    return this;
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    switch (paramInt1)
     {
-      try
-      {
-        String str = e.getInterfaceDescriptor();
-        if (!f.b().equals(str))
-        {
-          Log.e("GmsClient", "service descriptor mismatch: " + f.b() + " vs. " + str);
-          return false;
-        }
-      }
-      catch (RemoteException localRemoteException)
-      {
-        Log.w("GmsClient", "service probably died");
-        return false;
-      }
-      localIInterface = f.a(e);
-    } while ((localIInterface == null) || (!aag.a(f, 2, 3, localIInterface)));
-    aag.o();
-    if (aag.c(f) != null) {
-      aag.c(f).a(null);
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.common.internal.IAccountAccessor");
+      return true;
     }
+    paramParcel1.enforceInterface("com.google.android.gms.common.internal.IAccountAccessor");
+    paramParcel1 = a();
+    paramParcel2.writeNoException();
+    if (paramParcel1 != null)
+    {
+      paramParcel2.writeInt(1);
+      paramParcel1.writeToParcel(paramParcel2, 1);
+      return true;
+    }
+    paramParcel2.writeInt(0);
     return true;
   }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@color/ub__uber_white_20" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.collection.RecyclerView android:id="@id/ub__trip_history_recyclerview" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/Uber.RDS.RecyclerView.CardStyle" />
+    <include layout="@layout/ub__support_loading_view" />
+    <include layout="@layout/ub__error_support" />
+</FrameLayout>

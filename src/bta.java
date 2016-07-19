@@ -1,17 +1,25 @@
-import java.util.HashSet;
+import android.content.Context;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient.Info;
 
 final class bta
-  extends HashSet
+  implements Runnable
 {
-  bta()
+  bta(Context paramContext, brd parambrd) {}
+  
+  public final void run()
   {
-    bsy[] arrayOfbsy = bsy.values();
-    int j = arrayOfbsy.length;
-    int i = 0;
-    while (i < j)
+    try
     {
-      add(arrayOfbsy[i].a());
-      i += 1;
+      AdvertisingIdClient.Info localInfo = AdvertisingIdClient.getAdvertisingIdInfo(a);
+      b.W = localInfo.getId();
+      return;
+    }
+    catch (Throwable localThrowable)
+    {
+      bsz.h();
+      localThrowable.getLocalizedMessage();
+      bsz.a();
     }
   }
 }

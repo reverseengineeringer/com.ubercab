@@ -3,79 +3,79 @@ package com.ubercab.client.feature.safetynet;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.MenuItem;
-import chn;
-import cho;
-import ckr;
+import cht;
+import chu;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.feature.safetynet.contactpicker.ContactPickerFragment;
-import dpf;
-import dta;
-import dtf;
-import eav;
-import ebj;
-import gpt;
-import gpu;
-import gqf;
-import gqm;
-import gqn;
-import gqy;
-import gra;
-import gre;
-import grj;
-import grk;
+import dua;
+import dyn;
+import dys;
+import ehn;
+import eib;
+import hyy;
+import hyz;
+import hzo;
+import hzy;
+import hzz;
+import ian;
+import iap;
+import iat;
+import iay;
+import iaz;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import jsj;
-import kld;
-import klo;
+import mxp;
+import odr;
+import oed;
 
 public class SafetyNetShareTripActivity
-  extends RiderActivity<gqn>
+  extends RiderActivity<hzz>
 {
-  public jsj g;
-  public dta h;
-  public gqf i;
-  private gqy j;
-  private klo k;
+  public mxp g;
+  public dyn h;
+  public hzo i;
+  private ian j;
+  private oed k;
   
   private void a(int paramInt, ArrayList<String> paramArrayList)
   {
     if (a(ContactPickerFragment.class) == null) {
-      a(2131625425, ContactPickerFragment.a(paramInt, paramArrayList));
+      a(2131626073, ContactPickerFragment.a(paramInt, paramArrayList));
     }
   }
   
-  private void a(gqn paramgqn)
+  private void a(hzz paramhzz)
   {
-    paramgqn.a(this);
+    paramhzz.a(this);
   }
   
-  private gqn b(ebj paramebj)
+  private hzz b(eib parameib)
   {
-    return gpt.a().a(new eav(this)).a(paramebj).a();
+    return hyy.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void f()
   {
     if (a(SafetyNetConfiguredShareTripFragment.class) == null)
     {
-      D();
-      a(2131625425, new SafetyNetConfiguredShareTripFragment(), true);
+      F();
+      a(2131626073, new SafetyNetConfiguredShareTripFragment(), true);
     }
   }
   
   private void g()
   {
     if (a(SafetyNetNotConfiguredShareTripFragment.class) == null) {
-      a(2131625425, new SafetyNetNotConfiguredShareTripFragment(), true);
+      a(2131626073, new SafetyNetNotConfiguredShareTripFragment(), true);
     }
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903548);
+    setContentView(2130903758);
     i.h();
     if (i.j())
     {
@@ -85,24 +85,24 @@ public class SafetyNetShareTripActivity
     g();
   }
   
-  @cho
-  public void onAddContactsClickedEvent(gra paramgra)
+  @chu
+  public void onAddContactsClickedEvent(iap paramiap)
   {
-    a(paramgra.a(), paramgra.b());
+    a(paramiap.a(), paramiap.b());
   }
   
-  @cho
-  public void onContactsAddedEvent(gqy paramgqy)
+  @chu
+  public void onContactsAddedEvent(ian paramian)
   {
-    j = paramgqy;
-    C();
+    j = paramian;
+    E();
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
     if ((paramMenuItem.getItemId() == 16908332) && (a(ContactPickerFragment.class) != null) && (getFragmentManager().getBackStackEntryCount() > 0))
     {
-      C();
+      E();
       return true;
     }
     return super.onOptionsItemSelected(paramMenuItem);
@@ -111,20 +111,20 @@ public class SafetyNetShareTripActivity
   public void onPause()
   {
     super.onPause();
-    k.c();
+    k.af_();
   }
   
   public void onResume()
   {
     super.onResume();
-    k = g.f().c(new gqm(this, (byte)0));
+    k = g.f().c(new hzy(this, (byte)0));
   }
   
-  @cho
-  public void onSafetyNetNetworkErrorEvent(gre paramgre)
+  @chu
+  public void onSafetyNetNetworkErrorEvent(iat paramiat)
   {
-    w();
-    switch (paramgre.a())
+    x();
+    switch (paramiat.a())
     {
     case 1: 
     case 2: 
@@ -132,40 +132,40 @@ public class SafetyNetShareTripActivity
       return;
     case 0: 
     case 4: 
-      dpf.a(this, 2131166349);
+      dua.a(this, 2131166584);
       finish();
       return;
     }
-    dpf.a(this, 2131166350);
+    dua.a(this, 2131166585);
   }
   
-  @cho
-  public void onSafetyNetTripSharedSuccessfullyEvent(grj paramgrj)
+  @chu
+  public void onSafetyNetTripSharedSuccessfullyEvent(iay paramiay)
   {
-    w();
-    dpf.a(this, getString(2131166360));
+    x();
+    dua.b(this, getString(2131166594));
     finish();
   }
   
-  @cho
-  public void onShareTripClickedEvent(grk paramgrk)
+  @chu
+  public void onShareTripClickedEvent(iaz paramiaz)
   {
-    b(getString(2131166015), null);
-    i.b(paramgrk.a());
+    b(getString(2131166127), null);
+    i.b(paramiaz.a());
   }
   
-  @chn
-  public gqy produceContactsAdded()
+  @cht
+  public ian produceContactsAdded()
   {
     return j;
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
     return Collections.singleton(h);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

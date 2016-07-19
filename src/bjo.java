@@ -1,48 +1,19 @@
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.measurement.internal.EventParams;
+import java.io.Serializable;
 
-public final class bjo
-  implements Parcelable.Creator<EventParams>
+final class bjo<K>
+  implements Serializable
 {
-  private static EventParams a(Parcel paramParcel)
+  private static final long serialVersionUID = 0L;
+  final bje<K, ?> a;
+  
+  bjo(bje<K, ?> parambje)
   {
-    int j = zm.b(paramParcel);
-    int i = 0;
-    Bundle localBundle = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        localBundle = zm.p(paramParcel, k);
-      }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new EventParams(i, localBundle);
+    a = parambje;
   }
   
-  public static void a(EventParams paramEventParams, Parcel paramParcel)
+  final Object readResolve()
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, a);
-    zo.a(paramParcel, 2, paramEventParams.b());
-    zo.a(paramParcel, i);
-  }
-  
-  private static EventParams[] a(int paramInt)
-  {
-    return new EventParams[paramInt];
+    return a.h();
   }
 }
 

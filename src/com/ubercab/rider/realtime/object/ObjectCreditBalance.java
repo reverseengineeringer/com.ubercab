@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsw;
+import myd;
 
 @Shape
 abstract class ObjectCreditBalance
-  implements jsw
+  implements myd
 {}
 
 /* Location:

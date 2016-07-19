@@ -5,6 +5,11 @@ import com.ubercab.shape.Shape;
 @Shape
 public abstract class GiveGetReceiverPromotion
 {
+  public static GiveGetReceiverPromotion create()
+  {
+    return new Shape_GiveGetReceiverPromotion();
+  }
+  
   public abstract String getDetails();
   
   public abstract String getHeadline();

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ubercab.client.feature.chronicle.ChronicleTrayView android:orientation="horizontal" android:background="@drawable/ub__trip_tray_action_button_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_3x" android:layout_marginRight="@dimen/ui__spacing_unit_3x">
+        <ImageView android:id="@id/ub__chronicle_imageview_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__megaphone" />
+    </FrameLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minHeight="@dimen/ui__spacing_unit_5x" android:layout_weight="1.0">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:textColor="@color/ub__uber_black_80" android:gravity="center" android:id="@id/ub__chronicle_textview_tray" android:paddingRight="@dimen/ui__spacing_unit_6x" android:layout_width="wrap_content" android:layout_height="0.0dip" android:text="@string/employee_driver_feedback" android:layout_weight="1.0" />
+    </LinearLayout>
+</com.ubercab.client.feature.chronicle.ChronicleTrayView>

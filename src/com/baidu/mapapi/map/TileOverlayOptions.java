@@ -102,7 +102,7 @@ public final class TileOverlayOptions
       b = paramTileProvider;
       k = paramTileProvider.getMaxDisLevel();
       m = paramTileProvider.getMinDisLevel();
-      if ((k <= 20) && (m >= 3)) {
+      if ((k <= 21) && (m >= 3)) {
         break label156;
       }
       Log.e(j, "display level is illegal");

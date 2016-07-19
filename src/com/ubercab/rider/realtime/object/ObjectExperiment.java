@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsy;
+import myg;
 
 @Shape
 abstract class ObjectExperiment
-  implements jsy
+  implements myg
 {}
 
 /* Location:

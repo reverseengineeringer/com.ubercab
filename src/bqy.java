@@ -1,25 +1,44 @@
-import java.lang.reflect.Type;
-import java.util.Collection;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import java.util.List;
 
-public final class bqy
-  implements bpx
+public class bqy
+  extends bqr
 {
-  private final bqi a;
+  private static final String a = bqy.class.getSimpleName();
   
-  public bqy(bqi parambqi)
+  protected static Intent a(String paramString1, String paramString2)
   {
-    a = parambqi;
+    paramString1 = new Intent(paramString1);
+    paramString1.setComponent(ComponentName.unflattenFromString(paramString2));
+    paramString1.setPackage("com.paypal.android.p2pmobile");
+    return paramString1;
   }
   
-  public final <T> bpw<T> create(bpc parambpc, brp<T> parambrp)
+  public static boolean a(Context paramContext, String paramString1, String paramString2)
   {
-    Type localType = parambrp.getType();
-    Class localClass = parambrp.getRawType();
-    if (!Collection.class.isAssignableFrom(localClass)) {
-      return null;
+    boolean bool2 = false;
+    Intent localIntent = a(paramString1, paramString2);
+    paramContext = paramContext.getPackageManager().queryIntentActivities(localIntent, 0);
+    boolean bool1 = bool2;
+    if (paramContext != null)
+    {
+      bool1 = bool2;
+      if (paramContext.size() > 0) {
+        bool1 = true;
+      }
     }
-    localType = bqe.a(localType, localClass);
-    return new bqz(parambpc, localType, parambpc.a(brp.get(localType)), a.a(parambrp));
+    if (!bool1) {
+      new StringBuilder("PayPal wallet app will not accept intent to: [action:").append(paramString1).append(", class:").append(paramString2).append("]");
+    }
+    return bool1;
+  }
+  
+  public static boolean a(Context paramContext, boolean paramBoolean, String paramString)
+  {
+    return a(paramContext, paramBoolean, paramString, "O=Paypal", "O=Paypal");
   }
 }
 

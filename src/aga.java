@@ -1,47 +1,30 @@
-import android.content.Context;
-import com.google.android.gms.ads.internal.client.AdSizeParcel;
-import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
-import org.json.JSONObject;
+import android.os.Handler;
 
-@apl
+@aih
 public final class aga
-  extends afr
+  extends aim
 {
-  private final ald d;
+  final ajm a;
+  final agc b;
+  private final String c;
   
-  public aga(Context paramContext, AdSizeParcel paramAdSizeParcel, aqj paramaqj, VersionInfoParcel paramVersionInfoParcel, age paramage, ald paramald)
+  aga(ajm paramajm, agc paramagc, String paramString)
   {
-    super(paramContext, paramAdSizeParcel, paramaqj, paramVersionInfoParcel, paramage);
-    d = paramald;
-    a(d);
-    a();
-    b(false);
-    aqt.a("Tracking ad unit: " + b.d());
+    a = paramajm;
+    b = paramagc;
+    c = paramString;
+    ul.k().a(this);
   }
   
-  protected final void b()
+  public final void a()
   {
-    synchronized (a)
+    aiq.a.post(new Runnable()
     {
-      super.b();
-      b(d);
-      return;
-    }
-  }
-  
-  protected final void b(JSONObject paramJSONObject)
-  {
-    d.a("AFMA_updateActiveView", paramJSONObject);
-  }
-  
-  public final void c()
-  {
-    b();
-  }
-  
-  protected final boolean f()
-  {
-    return true;
+      public final void run()
+      {
+        ul.k().b(aga.this);
+      }
+    });
   }
 }
 

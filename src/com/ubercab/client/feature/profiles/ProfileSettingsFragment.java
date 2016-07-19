@@ -12,88 +12,97 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import chh;
-import cho;
-import ciu;
-import ckc;
-import ckr;
+import butterknife.BindView;
+import chn;
+import chu;
+import cja;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.feature.payment.AddPaymentActivity;
 import com.ubercab.client.feature.payment.PaymentActivity;
 import com.ubercab.client.feature.profiles.expenseprovider.ExpenseProviderActivity;
 import com.ubercab.client.feature.profiles.model.TypedProfile;
-import com.ubercab.client.feature.profiles.model.TypedProfileFactory;
 import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.PaymentProfile;
 import com.ubercab.rider.realtime.model.Profile;
+import com.ubercab.rider.realtime.model.ProfileTheme;
+import com.ubercab.rider.realtime.model.ProfileThemeOption;
 import com.ubercab.ui.TextView;
-import dpf;
-import dsh;
-import dty;
-import dux;
-import ebj;
-import efr;
-import ejv;
-import epu;
-import epw;
-import erb;
-import erf;
-import eri;
-import gdh;
-import ggu;
-import ggv;
-import ghi;
-import ghu;
-import ghv;
-import gif;
-import gik;
-import gip;
-import giq;
-import giy;
-import giz;
-import gke;
-import gkm;
-import iad;
-import iae;
-import ife;
+import dua;
+import dxm;
+import dzn;
+import eaj;
+import eib;
+import enk;
+import exu;
+import exw;
+import eyo;
+import ezg;
+import ezj;
+import ezm;
+import hdc;
+import hhp;
+import hhq;
+import hig;
+import hiw;
+import hix;
+import hiy;
+import hiz;
+import hjm;
+import hjo;
+import hju;
+import hka;
+import hkb;
+import hkr;
+import hms;
+import hnc;
 import java.util.ArrayList;
 import java.util.List;
-import jsg;
-import kld;
-import klo;
-import kul;
-import r;
+import kcn;
+import kco;
+import khv;
+import kia;
+import mxm;
+import mxp;
+import odr;
+import oed;
+import opc;
+import z;
 
 public class ProfileSettingsFragment
-  extends dsh<ghv>
+  extends dxm<hiw>
 {
-  public ckc c;
-  public chh d;
-  public jsg e;
-  public gkm f;
-  public ife g;
-  public ciu h;
-  public gif i;
-  public dty j;
-  public TypedProfileFactory k;
-  private PaymentProfile l;
+  public ckt c;
+  public chn d;
+  public khv e;
+  public mxm f;
+  public mxp g;
+  public hnc h;
+  public kia i;
+  public cja j;
+  public hjm k;
+  public dzn l;
   private TroyProfilePreferencesAdapter m;
-  @InjectView(2131625299)
-  FrameLayout mFrameLayout;
-  @InjectView(2131625300)
-  ListView mListView;
-  private View n;
-  private ProgressDialog o;
-  private Profile p;
-  private TypedProfile q;
+  @BindView
+  public FrameLayout mFrameLayout;
+  @BindView
+  public ListView mListView;
+  private oed n;
+  private oed o;
+  private oed p;
+  private PaymentProfile q;
   private ProgressDialog r;
-  private klo s;
+  private View s;
+  private ProgressDialog t;
+  private Profile u;
+  private TypedProfile v;
+  private ProgressDialog w;
+  private oed x;
   
   private static View a(ListView paramListView, LayoutInflater paramLayoutInflater)
   {
-    return paramLayoutInflater.inflate(2130903263, paramListView, false);
+    return paramLayoutInflater.inflate(2130903689, paramListView, false);
   }
   
   static ProfileSettingsFragment a(Profile paramProfile)
@@ -105,282 +114,384 @@ public class ProfileSettingsFragment
     return paramProfile;
   }
   
-  private static String a(Resources paramResources, List<String> paramList, boolean paramBoolean)
+  private static String a(Resources paramResources, List<String> paramList)
   {
-    if (paramBoolean) {
-      return ghu.a(paramResources, paramList);
-    }
     if (paramList == null) {
-      return paramResources.getString(2131166085);
+      return paramResources.getString(2131166217);
     }
     if ((paramList.contains("Monthly")) && (paramList.contains("Weekly"))) {
-      return paramResources.getString(2131167236);
+      return paramResources.getString(2131167617);
     }
     if (paramList.contains("Monthly")) {
-      return paramResources.getString(2131166055);
+      return paramResources.getString(2131166174);
     }
     if (paramList.contains("Weekly")) {
-      return paramResources.getString(2131167235);
+      return paramResources.getString(2131167616);
     }
-    return paramResources.getString(2131166085);
+    return paramResources.getString(2131166217);
+  }
+  
+  private List<hka> a()
+  {
+    ArrayList localArrayList = new ArrayList();
+    hka localhka1 = new hka(hkb.d, getString(2131165827)).a(u.getEmail());
+    hka localhka2 = new hka(hkb.c, getString(2131165745)).a(g());
+    label168:
+    boolean bool;
+    if (v.isEmailEditable())
+    {
+      localArrayList.add(localhka1.a(true));
+      if (v.hasReportIntervalOption()) {
+        localArrayList.add(new hka(hkb.f, getString(2131166862)).a(true).a(a(getResources(), u.getSelectedSummaryPeriods())));
+      }
+      if (v.isPaymentEditable()) {
+        break label244;
+      }
+      localArrayList.add(localhka2.a(getString(2131166159)));
+      if (v.hasExpensingOption())
+      {
+        bool = k();
+        if ((!k.k()) || (bool)) {
+          break label260;
+        }
+        localArrayList.add(new hka(hkb.b, getString(2131165881)).a(true).a(f()));
+      }
+    }
+    label244:
+    label260:
+    while (!bool)
+    {
+      return localArrayList;
+      localArrayList.add(localhka1);
+      break;
+      localArrayList.add(localhka2.a(true));
+      break label168;
+    }
+    localArrayList.add(new hka(hkb.a, getString(2131166624)).g().b(u.getIsExpensingEnabled()));
+    return localArrayList;
   }
   
   private void a(Context paramContext, ListView paramListView)
   {
-    if (i.j())
+    if (k.k())
     {
-      iae.a(paramContext);
-      iae.a(paramListView);
+      kco.a(paramContext);
+      kco.a(paramListView);
     }
-    paramContext = LayoutInflater.from(paramContext);
-    n = paramContext.inflate(2130903519, paramListView, false);
-    if (erf.t(p)) {
-      n.setOnClickListener(new ProfileSettingsFragment.3(this));
+    Object localObject = LayoutInflater.from(paramContext);
+    s = ((LayoutInflater)localObject).inflate(2130903704, paramListView, false);
+    if (v.isBadgeEditable()) {
+      s.setOnClickListener(new ProfileSettingsFragment.9(this));
     }
-    paramListView.addHeaderView(n, null, erf.t(p));
-    paramListView.addHeaderView(a(paramListView, paramContext), null, false);
-    paramListView.addFooterView(a(paramListView, paramContext), null, false);
-    paramContext = paramContext.inflate(2130903518, paramListView, false);
-    paramListView.addFooterView(paramContext, null, false);
-    a(n, paramContext);
-  }
-  
-  private void a(View paramView)
-  {
-    ((TextView)paramView.findViewById(2131625295)).setText(erf.a(p, getActivity()));
-    gik.a((BadgeView)paramView.findViewById(2131625294), p, h);
+    paramListView.addHeaderView(s, null, v.isBadgeEditable());
+    paramListView.addHeaderView(a(paramListView, (LayoutInflater)localObject), null, false);
+    paramListView.addFooterView(a(paramListView, (LayoutInflater)localObject), null, false);
+    if (v.shouldShowSettingsFooterExplanation())
+    {
+      paramContext = ((LayoutInflater)localObject).inflate(2130903703, paramListView, false);
+      paramListView.addFooterView(paramContext, null, false);
+    }
+    for (;;)
+    {
+      if (m())
+      {
+        localObject = ((LayoutInflater)localObject).inflate(2130903700, paramListView, false);
+        paramListView.addFooterView((View)localObject, null, false);
+        paramListView = ((View)localObject).findViewById(2131625864);
+        d(paramListView);
+        c(paramListView);
+      }
+      a(s, paramContext);
+      return;
+      paramContext = null;
+    }
   }
   
   private void a(View paramView1, View paramView2)
   {
-    a(paramView1);
-    if (!erf.t(p))
+    b(paramView1);
+    if (!v.isBadgeEditable())
     {
-      ((TextView)paramView2.findViewById(2131625292)).setText(2131166250);
-      ((TextView)paramView1.findViewById(2131625290)).setText(2131166041);
-      paramView1.findViewById(2131625296).setVisibility(8);
+      if (paramView2 != null) {
+        ((TextView)paramView2.findViewById(2131625870)).setText(2131166411);
+      }
+      ((TextView)paramView1.findViewById(2131625868)).setText(2131166158);
+      paramView1.findViewById(2131625874).setVisibility(8);
     }
   }
   
-  private void a(ghv paramghv)
+  private void a(hiw paramhiw)
   {
-    paramghv.a(this);
+    paramhiw.a(this);
   }
   
   private void a(String paramString)
   {
-    ((RiderActivity)getActivity()).a_(paramString);
+    ((RiderActivity)getActivity()).b_(paramString);
   }
   
   private void a(boolean paramBoolean)
   {
-    i.a(p, paramBoolean);
-  }
-  
-  private boolean a()
-  {
-    return g.a(dux.gY, true);
+    k.b(u).a(paramBoolean).a().b(new hiy(this, (byte)0));
   }
   
   private boolean a(Intent paramIntent)
   {
-    if ((paramIntent != null) && (paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID")))
+    boolean bool2 = false;
+    boolean bool1 = bool2;
+    if (paramIntent != null)
     {
-      paramIntent = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
-      i.a(p, paramIntent);
-      return true;
+      bool1 = bool2;
+      if (paramIntent.hasExtra("com.ubercab.PAYMENT_PROFILE_UUID"))
+      {
+        paramIntent = paramIntent.getStringExtra("com.ubercab.PAYMENT_PROFILE_UUID");
+        k.b(u).a(paramIntent).a().b(new hiy(this, (byte)0));
+        bool1 = true;
+      }
     }
-    return false;
+    return bool1;
   }
   
   private static View b(ViewGroup paramViewGroup, LayoutInflater paramLayoutInflater)
   {
-    iae.a(paramLayoutInflater);
-    iae.a(paramViewGroup);
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903517, paramViewGroup, false);
-    paramLayoutInflater.findViewById(2131625291).setOnClickListener(new ProfileSettingsFragment.2(paramViewGroup, paramLayoutInflater));
+    kco.a(paramLayoutInflater);
+    kco.a(paramViewGroup);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903702, paramViewGroup, false);
+    paramLayoutInflater.findViewById(2131625869).setOnClickListener(new ProfileSettingsFragment.7(paramViewGroup, paramLayoutInflater));
     return paramLayoutInflater;
   }
   
-  private ghv b(ebj paramebj)
+  private hiw b(eib parameib)
   {
-    return ggu.a().a(new efr(this)).a(paramebj).a();
-  }
-  
-  private List<gip> b()
-  {
-    Object localObject;
-    if (a()) {
-      localObject = ghu.a(getContext(), q, e.c(), i, f);
-    }
-    ArrayList localArrayList;
-    label123:
-    boolean bool;
-    label290:
-    label305:
-    do
-    {
-      return (List<gip>)localObject;
-      localArrayList = new ArrayList();
-      localObject = new gip(giq.d, getString(2131165761)).a(p.getEmail());
-      gip localgip = new gip(giq.c, getString(2131165686)).a(h());
-      if (erf.e(p))
-      {
-        localArrayList.add(((gip)localObject).g());
-        if (erf.d(p)) {
-          localArrayList.add(new gip(giq.f, getString(2131166617)).g().a(a(getResources(), p.getSelectedSummaryPeriods(), a())));
-        }
-        if (!erf.g(p)) {
-          break label290;
-        }
-        localArrayList.add(localgip.a(getString(2131166042)));
-      }
-      for (;;)
-      {
-        localObject = localArrayList;
-        if (!erf.b(p)) {
-          break;
-        }
-        bool = j();
-        if ((!i.j()) || (bool)) {
-          break label305;
-        }
-        localArrayList.add(new gip(giq.b, getString(2131165807)).g().a(g()));
-        return localArrayList;
-        localArrayList.add(localObject);
-        break label123;
-        localArrayList.add(localgip.g());
-      }
-      localObject = localArrayList;
-    } while (!bool);
-    localArrayList.add(new gip(giq.a, getString(2131166389)).h().a(p.getIsExpensingEnabled()));
-    return localArrayList;
+    return hhp.a().a(new enk(this)).a(parameib).a();
   }
   
   private void b(Context paramContext, ListView paramListView)
   {
-    if (i.j())
+    if (k.k())
     {
-      iae.a(paramContext);
-      iae.a(paramListView);
+      kco.a(paramContext);
+      kco.a(paramListView);
     }
-    m = new TroyProfilePreferencesAdapter(paramContext, b(), d);
+    m = new TroyProfilePreferencesAdapter(paramContext, a(), d);
     a(paramContext, paramListView);
     paramListView.setAdapter(m);
   }
   
-  private String g()
+  private void c(View paramView)
   {
-    if (a()) {
-      return ghu.a(f, q, getResources());
-    }
-    Object localObject = erf.a(p);
-    if (((iad)localObject).b())
-    {
-      localObject = (String)((iad)localObject).c();
-      localObject = f.a((String)localObject);
-      if (((iad)localObject).b()) {
-        return getString(((gke)((iad)localObject).c()).c());
+    paramView.setOnClickListener(new ProfileSettingsFragment.10(this));
+  }
+  
+  private void c(Profile paramProfile)
+  {
+    Object localObject2 = null;
+    int i1 = hju.b(getContext(), paramProfile);
+    Object localObject1 = k.c(paramProfile);
+    ProfileTheme localProfileTheme = paramProfile.getTheme();
+    if (localObject1 != null) {
+      if (((ProfileThemeOption)localObject1).getBrandColor() != null) {
+        i1 = eyo.a(((ProfileThemeOption)localObject1).getBrandColor());
       }
     }
-    return getString(2131166086);
+    for (paramProfile = ((ProfileThemeOption)localObject1).getLogos();; paramProfile = null)
+    {
+      int i2;
+      if ((localProfileTheme != null) && (paramProfile == null))
+      {
+        String str1 = localProfileTheme.getIcon();
+        String str2 = localProfileTheme.getInitials();
+        i2 = i1;
+        localObject1 = str1;
+        localObject2 = str2;
+        if (localProfileTheme.getColor() != null) {
+          if (str1 == null)
+          {
+            i2 = i1;
+            localObject1 = str1;
+            localObject2 = str2;
+            if (str2 == null) {}
+          }
+          else
+          {
+            i2 = eyo.a(localProfileTheme.getColor());
+            localObject2 = str2;
+            localObject1 = str1;
+          }
+        }
+      }
+      for (;;)
+      {
+        o = k.a(u, u.getName(), i2, (String)localObject1, (String)localObject2, paramProfile).b(new hix(this, (byte)0));
+        return;
+        localObject1 = null;
+        i2 = i1;
+      }
+    }
   }
   
-  private String h()
+  private void d(View paramView)
   {
-    if (a()) {
-      return ghu.a(getContext(), q, e.c(), i);
+    n = g.e().b(new ProfileSettingsFragment.13(this, paramView));
+  }
+  
+  private String f()
+  {
+    Object localObject = ezj.a(u);
+    if (((kcn)localObject).b())
+    {
+      localObject = (String)((kcn)localObject).c();
+      localObject = h.a((String)localObject);
+      if (((kcn)localObject).b()) {
+        return getString(((hms)((kcn)localObject).c()).c());
+      }
     }
-    Object localObject = e.c();
+    return getString(2131166218);
+  }
+  
+  private String g()
+  {
+    Object localObject = f.c();
     if (localObject != null) {}
-    for (localObject = ((Client)localObject).getPaymentProfiles(); (localObject == null) || (l == null); localObject = null) {
-      return getString(2131165371);
+    for (localObject = ((Client)localObject).getPaymentProfiles(); (localObject == null) || (q == null); localObject = null) {
+      return getString(2131165425);
     }
     FragmentActivity localFragmentActivity = getActivity();
-    PaymentProfile localPaymentProfile = l;
-    if (!i.p()) {}
+    PaymentProfile localPaymentProfile = q;
+    if (!k.o()) {}
     for (boolean bool = true;; bool = false) {
-      return erb.a(localFragmentActivity, localPaymentProfile, (List)localObject, bool);
+      return ezg.a(localFragmentActivity, localPaymentProfile, (List)localObject, bool);
     }
   }
   
-  private void i()
+  private void h()
   {
-    if (i.l())
+    if (t != null) {
+      t.dismiss();
+    }
+    if (k.c(u) == null)
     {
-      s = i.u().b(new ProfileSettingsFragment.4(this));
-      return;
-    }
-    i.u();
-  }
-  
-  private boolean j()
-  {
-    return erb.a(gdh.a.a(), e.c());
-  }
-  
-  private void k()
-  {
-    if (o != null) {
-      o.dismiss();
-    }
-    if (i.b(p) == null)
-    {
-      kul.e("Unable to get Theme Options for Profile Uuid = %s", new Object[] { p.getUuid() });
-      AlertDialog localAlertDialog = epu.a(getActivity());
-      localAlertDialog.setMessage(getString(2131167164));
-      localAlertDialog.setButton(-1, getActivity().getString(2131166126), new ProfileSettingsFragment.5(this));
+      opc.e("Unable to get Theme Options for Profile Uuid = %s", new Object[] { u.getUuid() });
+      AlertDialog localAlertDialog = exu.a(getActivity());
+      localAlertDialog.setMessage(getString(2131167537));
+      localAlertDialog.setButton(-1, getActivity().getString(2131166260), new ProfileSettingsFragment.8(this));
       localAlertDialog.show();
       return;
     }
-    q();
+    t();
+  }
+  
+  private boolean i()
+  {
+    return (!k.n()) || (u != null);
+  }
+  
+  private void j()
+  {
+    r = exw.c(getActivity(), getString(2131165755));
+    r.show();
+    k.a(u).c(new ProfileSettingsFragment.12(this)).b(new ProfileSettingsFragment.11(this));
+  }
+  
+  private boolean k()
+  {
+    return ezg.a(hdc.a.a(), f.c());
   }
   
   private void l()
   {
-    Client localClient = e.c();
+    Client localClient = f.c();
     if (localClient != null) {
-      l = localClient.findPaymentProfileByUuid(p.getDefaultPaymentProfileUuid());
+      q = localClient.findPaymentProfileByUuid(u.getDefaultPaymentProfileUuid());
     }
   }
   
-  private void m()
+  private boolean m()
   {
-    AlertDialog localAlertDialog = epu.a(getActivity());
-    localAlertDialog.setTitle(getString(2131165292));
-    localAlertDialog.setMessage(getString(2131165754));
-    localAlertDialog.setButton(-2, getActivity().getString(2131165320), new ProfileSettingsFragment.6(this));
-    localAlertDialog.setButton(-1, getActivity().getString(2131166247), new ProfileSettingsFragment.7(this));
+    return (i.c(eaj.lR)) && (v.shouldAllowProfileDeletion());
+  }
+  
+  private void n()
+  {
+    AlertDialog localAlertDialog = exu.a(getActivity());
+    localAlertDialog.setMessage(getString(2131165298));
+    localAlertDialog.setButton(-2, getActivity().getString(2131165344), new ProfileSettingsFragment.14(this));
+    localAlertDialog.setButton(-1, getActivity().getString(2131167629), new ProfileSettingsFragment.2(this));
     localAlertDialog.show();
   }
   
-  private boolean n()
+  private void o()
   {
-    return (i.j()) && (erf.a(p).b());
-  }
-  
-  private boolean o()
-  {
-    return (i.j()) && (!j.i()) && (erf.b(p)) && (!j());
+    dua.a(getActivity(), 2131167537);
   }
   
   private void p()
   {
-    r = epw.a(getActivity(), getString(2131167175));
-    r.show();
+    AlertDialog localAlertDialog = exu.a(getActivity());
+    localAlertDialog.setTitle(getString(2131165296));
+    localAlertDialog.setMessage(getString(2131165821));
+    localAlertDialog.setButton(-2, getActivity().getString(2131165344), new ProfileSettingsFragment.3(this));
+    localAlertDialog.setButton(-1, getActivity().getString(2131166408), new ProfileSettingsFragment.4(this));
+    localAlertDialog.show();
   }
   
-  private void q()
+  private boolean q()
   {
-    startActivityForResult(EditBadgeActivity.a(getActivity(), p), 2007);
+    return (k.k()) && (ezj.a(u).b());
   }
   
-  private void r()
+  private boolean r()
   {
-    startActivityForResult(EditProfileFieldActivity.a(getActivity(), p, ghi.a), 2006);
+    return (k.k()) && (!l.p()) && (v.hasExpensingOption()) && (!k());
   }
   
-  public final ckr f()
+  private void s()
+  {
+    w = exw.b(getActivity(), getString(2131167548));
+    w.show();
+  }
+  
+  private void t()
+  {
+    startActivityForResult(EditBadgeActivity.a(getActivity(), u), 2007);
+  }
+  
+  private void u()
+  {
+    startActivityForResult(EditProfileFieldActivity.a(getActivity(), u, hig.a), 2006);
+  }
+  
+  private void v()
+  {
+    x = k.v().b(new ProfileSettingsFragment.5(this));
+  }
+  
+  private void w()
+  {
+    if ((v.shouldUsePersonalIcons()) || (m.a(hkb.d).b().equalsIgnoreCase(u.getEmail()))) {
+      return;
+    }
+    p = k.v().b(new hiz(this, (byte)0));
+  }
+  
+  public final void b(View paramView)
+  {
+    ((TextView)paramView.findViewById(2131625873)).setText(ezj.a(u, getActivity()));
+    hju.a((BadgeView)paramView.findViewById(2131625872), u, j);
+  }
+  
+  public final void b(Profile paramProfile)
+  {
+    u = k.a(paramProfile.getUuid());
+    l();
+    m.a(hkb.c).a(g());
+    if ((v.hasExpensingOption()) && (m.a(hkb.a) != null)) {
+      m.a(hkb.a).b(paramProfile.getIsExpensingEnabled());
+    }
+    m.notifyDataSetChanged();
+  }
+  
+  public final cli e()
   {
     return RiderActivity.a;
   }
@@ -390,15 +501,15 @@ public class ProfileSettingsFragment
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
     if (paramInt2 == -99)
     {
-      a(getString(2131167164));
+      a(getString(2131167537));
       return;
     }
-    if (p != null) {
-      p = i.a(p.getUuid());
+    if (u != null) {
+      u = k.a(u.getUuid());
     }
-    if ((i.j()) && (p == null))
+    if ((k.k()) && (u == null))
     {
-      a(getString(2131167164));
+      a(getString(2131167537));
       getActivity().finish();
       return;
     }
@@ -411,22 +522,25 @@ public class ProfileSettingsFragment
       return;
       if (a(paramIntent))
       {
-        p();
+        s();
         continue;
-        m.a(giq.d).a(p.getEmail());
-        if (n())
+        if (e.b(eaj.cp)) {
+          w();
+        }
+        m.a(hkb.d).a(u.getEmail());
+        if (q())
         {
-          i.d(p).b(eri.a());
+          k.e(u).b(ezm.a());
           continue;
-          m.a(giq.f).a(a(getResources(), p.getSelectedSummaryPeriods(), a()));
+          m.a(hkb.f).a(a(getResources(), u.getSelectedSummaryPeriods()));
           continue;
-          a(n);
+          b(s);
           continue;
-          m.a(giq.b).a(g());
-          if ((g.a(dux.bz, true)) && (paramIntent != null))
+          m.a(hkb.b).a(f());
+          if (paramIntent != null)
           {
             paramIntent = paramIntent.getStringExtra("EXTRA_EXPENSE_PROVIDER_RESULT_MSG");
-            dpf.a(getActivity(), paramIntent);
+            dua.b(getActivity(), paramIntent);
           }
         }
       }
@@ -436,114 +550,96 @@ public class ProfileSettingsFragment
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    p = i.a(getArguments().getString("EXTRA_TROY_PROFILE_UUID"));
-    if (a()) {
-      q = k.createTypedProfile(p);
+    u = k.a(getArguments().getString("EXTRA_TROY_PROFILE_UUID"));
+    if ((k.n()) && (u == null))
+    {
+      dua.a(getActivity(), 2131167537);
+      getActivity().finish();
+      return;
     }
+    v = k.d(u);
     l();
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903521, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
-    b(paramLayoutInflater.getContext(), mListView);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903706, paramViewGroup, false);
+    a(paramLayoutInflater);
+    if (i()) {
+      b(paramLayoutInflater.getContext(), mListView);
+    }
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public void onPause()
   {
     super.onPause();
-    if ((i.l()) && (getActivity().isFinishing())) {
-      eri.a(s);
+    if (getActivity().isFinishing())
+    {
+      ezm.a(x);
+      if (i.c(eaj.lR)) {
+        ezm.a(n);
+      }
+      if (e.b(eaj.cp))
+      {
+        ezm.a(o);
+        ezm.a(p);
+      }
     }
   }
   
-  @cho
-  public void onProfilePreferencesItemSelectEvent(giy paramgiy)
+  @chu
+  public void onProfilePreferencesItemSelectEvent(hkr paramhkr)
   {
-    switch (ProfileSettingsFragment.8.a[paramgiy.a().ordinal()])
+    switch (ProfileSettingsFragment.6.a[paramhkr.a().ordinal()])
     {
     default: 
-      paramgiy = null;
+      paramhkr = null;
     }
     for (;;)
     {
-      if ((c != null) && (paramgiy != null)) {
-        c.a(paramgiy);
+      if ((c != null) && (paramhkr != null)) {
+        c.a(paramhkr);
       }
       return;
-      if ((!erf.g(p)) && (!erb.a(e.c())))
+      if ((v.isPaymentEditable()) && (!ezg.a(f.c(), e)))
       {
-        paramgiy = r.nC;
+        paramhkr = z.rl;
         startActivityForResult(AddPaymentActivity.a(getActivity(), null), 3003);
       }
       else
       {
-        paramgiy = r.nB;
-        startActivityForResult(PaymentActivity.a(getActivity(), l, null), 2005);
+        paramhkr = z.rk;
+        startActivityForResult(PaymentActivity.a(getActivity(), q, null), 2005);
         continue;
-        paramgiy = r.nG;
-        startActivityForResult(EditProfileFieldActivity.a(getActivity(), p), 2004);
+        paramhkr = z.rp;
+        startActivityForResult(EditProfileFieldActivity.a(getActivity(), u), 2004);
         continue;
-        paramgiy = r.nv;
-        if (n())
+        paramhkr = z.re;
+        if (q())
         {
-          m();
+          p();
         }
         else
         {
-          r();
+          u();
           continue;
-          r localr = r.nu;
-          p();
-          a(paramgiy.b());
-          paramgiy = localr;
+          z localz = z.rd;
+          s();
+          a(paramhkr.b());
+          paramhkr = localz;
           continue;
-          paramgiy = r.nA;
-          startActivityForResult(ExpenseProviderActivity.a(getActivity(), p), 2008);
+          paramhkr = z.rj;
+          startActivityForResult(ExpenseProviderActivity.a(getActivity(), u), 2008);
         }
       }
     }
-  }
-  
-  @cho
-  @Deprecated
-  public void onProfileThemeOptionsUpdateEvent(giz paramgiz)
-  {
-    k();
-  }
-  
-  @cho
-  public void onUpdateProfileResponseEvent(ejv paramejv)
-  {
-    if (r != null) {
-      r.dismiss();
-    }
-    if ((paramejv.k()) || (paramejv.b() == null))
-    {
-      a(getString(2131167173));
-      return;
-    }
-    p = i.a(paramejv.b().getUuid());
-    l();
-    m.a(giq.c).a(h());
-    if ((erf.b(p)) && (m.a(giq.a) != null)) {
-      m.a(giq.a).a(paramejv.b().getIsExpensingEnabled());
-    }
-    m.notifyDataSetChanged();
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
-    if (o()) {
+    if ((i()) && (r())) {
       mFrameLayout.addOnLayoutChangeListener(new ProfileSettingsFragment.1(this));
     }
   }

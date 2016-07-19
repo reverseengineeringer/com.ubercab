@@ -1,15 +1,15 @@
-import android.view.View;
-import android.view.View.OnClickListener;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import com.paypal.android.sdk.payments.LoginActivity;
 
-final class cbb
-  implements View.OnClickListener
+public final class cbb
+  implements DialogInterface.OnClickListener
 {
-  cbb(cfm paramcfm) {}
+  public cbb(LoginActivity paramLoginActivity) {}
   
-  public final void onClick(View paramView)
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
   {
-    paramView.setEnabled(false);
-    cfm.f(a);
+    LoginActivity.n(a);
   }
 }
 

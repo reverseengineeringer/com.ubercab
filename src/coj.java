@@ -1,8 +1,8 @@
-import com.ubercab.android.location.UberLatLng;
+import com.ubercab.android.m4.pipeline.model.Metric;
 
-public abstract interface coj
+abstract interface coj
 {
-  public abstract void a(UberLatLng paramUberLatLng);
+  public abstract void a(Metric paramMetric);
 }
 
 /* Location:

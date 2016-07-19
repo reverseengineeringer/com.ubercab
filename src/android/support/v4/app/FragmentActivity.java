@@ -12,6 +12,7 @@ import android.os.Message;
 import android.os.Parcelable;
 import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.util.SimpleArrayMap;
+import android.support.v4.util.SparseArrayCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -22,17 +23,20 @@ import android.view.ViewGroup;
 import android.view.Window;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentActivity
   extends BaseFragmentActivityHoneycomb
   implements ActivityCompat.OnRequestPermissionsResultCallback, ActivityCompatApi23.RequestPermissionsRequestCodeValidator
 {
+  static final String ALLOCATED_REQUEST_INDICIES_TAG = "android:support:request_indicies";
   static final String FRAGMENTS_TAG = "android:support:fragments";
   private static final int HONEYCOMB = 11;
+  static final int MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS = 65534;
   static final int MSG_REALLY_STOPPED = 1;
   static final int MSG_RESUME_PENDING = 2;
+  static final String NEXT_CANDIDATE_REQUEST_INDEX_TAG = "android:support:next_request_index";
+  static final String REQUEST_FRAGMENT_WHO_TAG = "android:support:request_fragment_who";
   private static final String TAG = "FragmentActivity";
   boolean mCreated;
   final FragmentController mFragments = FragmentController.createController(new FragmentActivity.HostCallbacks(this));
@@ -57,12 +61,29 @@ public class FragmentActivity
     }
   };
   MediaControllerCompat mMediaController;
+  int mNextCandidateRequestIndex;
   boolean mOptionsMenuInvalidated;
+  SparseArrayCompat<String> mPendingFragmentActivityResults;
   boolean mReallyStopped;
   boolean mRequestedPermissionsFromFragment;
   boolean mResumed;
   boolean mRetaining;
+  boolean mStartedActivityFromFragment;
   boolean mStopped;
+  
+  private int allocateRequestIndex(Fragment paramFragment)
+  {
+    if (mPendingFragmentActivityResults.size() >= 65534) {
+      throw new IllegalStateException("Too many pending Fragment activity results.");
+    }
+    while (mPendingFragmentActivityResults.indexOfKey(mNextCandidateRequestIndex) >= 0) {
+      mNextCandidateRequestIndex = ((mNextCandidateRequestIndex + 1) % 65534);
+    }
+    int i = mNextCandidateRequestIndex;
+    mPendingFragmentActivityResults.put(i, mWho);
+    mNextCandidateRequestIndex = ((mNextCandidateRequestIndex + 1) % 65534);
+    return i;
+  }
   
   private void dumpViewHierarchy(String paramString, PrintWriter paramPrintWriter, View paramView)
   {
@@ -99,11 +120,19 @@ public class FragmentActivity
       ActivityCompat.requestPermissions(this, paramArrayOfString, paramInt);
       return;
     }
-    if ((paramInt & 0xFF00) != 0) {
-      throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
+    if ((0xFFFF0000 & paramInt) != 0) {
+      throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
     }
-    mRequestedPermissionsFromFragment = true;
-    ActivityCompat.requestPermissions(this, paramArrayOfString, (mIndex + 1 << 8) + (paramInt & 0xFF));
+    try
+    {
+      mRequestedPermissionsFromFragment = true;
+      ActivityCompat.requestPermissions(this, paramArrayOfString, (allocateRequestIndex(paramFragment) + 1 << 16) + (0xFFFF & paramInt));
+      return;
+    }
+    finally
+    {
+      mRequestedPermissionsFromFragment = false;
+    }
   }
   
   private static String viewToString(View paramView)
@@ -136,43 +165,43 @@ public class FragmentActivity
         c1 = 'F';
         localStringBuilder.append(c1);
         if (!paramView.isEnabled()) {
-          break label562;
+          break label570;
         }
         c1 = 'E';
         localStringBuilder.append(c1);
         if (!paramView.willNotDraw()) {
-          break label568;
+          break label576;
         }
         c1 = '.';
         localStringBuilder.append(c1);
         if (!paramView.isHorizontalScrollBarEnabled()) {
-          break label574;
+          break label582;
         }
         c1 = 'H';
         localStringBuilder.append(c1);
         if (!paramView.isVerticalScrollBarEnabled()) {
-          break label580;
+          break label588;
         }
         c1 = 'V';
         localStringBuilder.append(c1);
         if (!paramView.isClickable()) {
-          break label586;
+          break label594;
         }
         c1 = 'C';
         localStringBuilder.append(c1);
         if (!paramView.isLongClickable()) {
-          break label592;
+          break label600;
         }
         c1 = 'L';
         localStringBuilder.append(c1);
         localStringBuilder.append(' ');
         if (!paramView.isFocused()) {
-          break label598;
+          break label606;
         }
         c1 = c3;
         localStringBuilder.append(c1);
         if (!paramView.isSelected()) {
-          break label604;
+          break label612;
         }
         c1 = 'S';
         localStringBuilder.append(c1);
@@ -220,14 +249,14 @@ public class FragmentActivity
       }
       catch (Resources.NotFoundException paramView)
       {
-        label562:
-        label568:
-        label574:
-        label580:
-        label586:
-        label592:
-        label598:
-        label604:
+        label570:
+        label576:
+        label582:
+        label588:
+        label594:
+        label600:
+        label606:
+        label612:
         continue;
       }
       localStringBuilder.append("}");
@@ -333,16 +362,17 @@ public class FragmentActivity
     if (i != 0)
     {
       i -= 1;
-      int j = mFragments.getActiveFragmentsCount();
-      if ((j == 0) || (i < 0) || (i >= j))
+      String str = (String)mPendingFragmentActivityResults.get(i);
+      mPendingFragmentActivityResults.remove(i);
+      if (str == null)
       {
-        Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(paramInt1));
+        Log.w("FragmentActivity", "Activity result delivered for unknown Fragment.");
         return;
       }
-      Fragment localFragment = (Fragment)mFragments.getActiveFragments(new ArrayList(j)).get(i);
+      Fragment localFragment = mFragments.findFragmentByWho(str);
       if (localFragment == null)
       {
-        Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(paramInt1));
+        Log.w("FragmentActivity", "Activity result no fragment exists for who: " + str);
         return;
       }
       localFragment.onActivityResult(0xFFFF & paramInt1, paramInt2, paramIntent);
@@ -356,7 +386,7 @@ public class FragmentActivity
   public void onBackPressed()
   {
     if (!mFragments.getSupportFragmentManager().popBackStackImmediate()) {
-      supportFinishAfterTransition();
+      onBackPressedNotHandled();
     }
   }
   
@@ -370,26 +400,50 @@ public class FragmentActivity
   {
     mFragments.attachHost(null);
     super.onCreate(paramBundle);
-    FragmentActivity.NonConfigurationInstances localNonConfigurationInstances = (FragmentActivity.NonConfigurationInstances)getLastNonConfigurationInstance();
-    if (localNonConfigurationInstances != null) {
+    Object localObject = (FragmentActivity.NonConfigurationInstances)getLastNonConfigurationInstance();
+    if (localObject != null) {
       mFragments.restoreLoaderNonConfig(loaders);
     }
-    Parcelable localParcelable;
-    FragmentController localFragmentController;
     if (paramBundle != null)
     {
-      localParcelable = paramBundle.getParcelable("android:support:fragments");
-      localFragmentController = mFragments;
-      if (localNonConfigurationInstances == null) {
-        break label80;
+      Parcelable localParcelable = paramBundle.getParcelable("android:support:fragments");
+      FragmentController localFragmentController = mFragments;
+      if (localObject == null) {
+        break label159;
+      }
+      localObject = fragments;
+      localFragmentController.restoreAllState(localParcelable, (List)localObject);
+      if (paramBundle.containsKey("android:support:next_request_index"))
+      {
+        mNextCandidateRequestIndex = paramBundle.getInt("android:support:next_request_index");
+        localObject = paramBundle.getIntArray("android:support:request_indicies");
+        paramBundle = paramBundle.getStringArray("android:support:request_fragment_who");
+        if ((localObject != null) && (paramBundle != null) && (localObject.length == paramBundle.length)) {
+          break label164;
+        }
+        Log.w("FragmentActivity", "Invalid requestCode mapping in savedInstanceState.");
       }
     }
-    label80:
-    for (paramBundle = fragments;; paramBundle = null)
+    for (;;)
     {
-      localFragmentController.restoreAllState(localParcelable, paramBundle);
+      if (mPendingFragmentActivityResults == null)
+      {
+        mPendingFragmentActivityResults = new SparseArrayCompat();
+        mNextCandidateRequestIndex = 0;
+      }
       mFragments.dispatchCreate();
       return;
+      label159:
+      localObject = null;
+      break;
+      label164:
+      mPendingFragmentActivityResults = new SparseArrayCompat(localObject.length);
+      int i = 0;
+      while (i < localObject.length)
+      {
+        mPendingFragmentActivityResults.put(localObject[i], paramBundle[i]);
+        i += 1;
+      }
     }
   }
   
@@ -513,27 +567,28 @@ public class FragmentActivity
   
   public void onRequestPermissionsResult(int paramInt, String[] paramArrayOfString, int[] paramArrayOfInt)
   {
-    int i = paramInt >> 8 & 0xFF;
-    int j;
+    int i = paramInt >> 16 & 0xFFFF;
+    String str;
     if (i != 0)
     {
       i -= 1;
-      j = mFragments.getActiveFragmentsCount();
-      if ((j == 0) || (i < 0) || (i >= j)) {
-        Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(paramInt));
+      str = (String)mPendingFragmentActivityResults.get(i);
+      mPendingFragmentActivityResults.remove(i);
+      if (str == null) {
+        Log.w("FragmentActivity", "Activity result delivered for unknown Fragment.");
       }
     }
     else
     {
       return;
     }
-    Fragment localFragment = (Fragment)mFragments.getActiveFragments(new ArrayList(j)).get(i);
+    Fragment localFragment = mFragments.findFragmentByWho(str);
     if (localFragment == null)
     {
-      Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(paramInt));
+      Log.w("FragmentActivity", "Activity result no fragment exists for who: " + str);
       return;
     }
-    localFragment.onRequestPermissionsResult(paramInt & 0xFF, paramArrayOfString, paramArrayOfInt);
+    localFragment.onRequestPermissionsResult(paramInt & 0xFFFF, paramArrayOfString, paramArrayOfInt);
   }
   
   public void onResume()
@@ -575,9 +630,24 @@ public class FragmentActivity
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    Parcelable localParcelable = mFragments.saveAllState();
-    if (localParcelable != null) {
-      paramBundle.putParcelable("android:support:fragments", localParcelable);
+    Object localObject = mFragments.saveAllState();
+    if (localObject != null) {
+      paramBundle.putParcelable("android:support:fragments", (Parcelable)localObject);
+    }
+    if (mPendingFragmentActivityResults.size() > 0)
+    {
+      paramBundle.putInt("android:support:next_request_index", mNextCandidateRequestIndex);
+      localObject = new int[mPendingFragmentActivityResults.size()];
+      String[] arrayOfString = new String[mPendingFragmentActivityResults.size()];
+      int i = 0;
+      while (i < mPendingFragmentActivityResults.size())
+      {
+        localObject[i] = mPendingFragmentActivityResults.keyAt(i);
+        arrayOfString[i] = ((String)mPendingFragmentActivityResults.valueAt(i));
+        i += 1;
+      }
+      paramBundle.putIntArray("android:support:request_indicies", (int[])localObject);
+      paramBundle.putStringArray("android:support:request_fragment_who", arrayOfString);
     }
   }
   
@@ -632,7 +702,7 @@ public class FragmentActivity
   
   public void startActivityForResult(Intent paramIntent, int paramInt)
   {
-    if ((paramInt != -1) && ((0xFFFF0000 & paramInt) != 0)) {
+    if ((!mStartedActivityFromFragment) && (paramInt != -1) && ((0xFFFF0000 & paramInt) != 0)) {
       throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
     }
     super.startActivityForResult(paramIntent, paramInt);
@@ -640,15 +710,27 @@ public class FragmentActivity
   
   public void startActivityFromFragment(Fragment paramFragment, Intent paramIntent, int paramInt)
   {
-    if (paramInt == -1)
+    startActivityFromFragment(paramFragment, paramIntent, paramInt, null);
+  }
+  
+  public void startActivityFromFragment(Fragment paramFragment, Intent paramIntent, int paramInt, Bundle paramBundle)
+  {
+    mStartedActivityFromFragment = true;
+    if (paramInt == -1) {}
+    try
     {
-      super.startActivityForResult(paramIntent, -1);
+      ActivityCompat.startActivityForResult(this, paramIntent, -1, paramBundle);
       return;
+    }
+    finally
+    {
+      mStartedActivityFromFragment = false;
     }
     if ((0xFFFF0000 & paramInt) != 0) {
       throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
     }
-    super.startActivityForResult(paramIntent, (mIndex + 1 << 16) + (0xFFFF & paramInt));
+    ActivityCompat.startActivityForResult(this, paramIntent, (allocateRequestIndex(paramFragment) + 1 << 16) + (0xFFFF & paramInt), paramBundle);
+    mStartedActivityFromFragment = false;
   }
   
   public void supportFinishAfterTransition()
@@ -678,13 +760,9 @@ public class FragmentActivity
   
   public final void validateRequestPermissionsRequestCode(int paramInt)
   {
-    if (mRequestedPermissionsFromFragment) {
-      mRequestedPermissionsFromFragment = false;
+    if ((!mRequestedPermissionsFromFragment) && (paramInt != -1) && ((0xFFFF0000 & paramInt) != 0)) {
+      throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
     }
-    while ((paramInt & 0xFF00) == 0) {
-      return;
-    }
-    throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
   }
 }
 

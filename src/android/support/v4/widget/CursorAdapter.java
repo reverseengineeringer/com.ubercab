@@ -19,8 +19,8 @@ public abstract class CursorAdapter
   public static final int FLAG_REGISTER_CONTENT_OBSERVER = 2;
   protected boolean mAutoRequery;
   protected CursorAdapter.ChangeObserver mChangeObserver;
-  public Context mContext;
-  public Cursor mCursor;
+  protected Context mContext;
+  protected Cursor mCursor;
   protected CursorFilter mCursorFilter;
   protected DataSetObserver mDataSetObserver;
   protected boolean mDataValid;

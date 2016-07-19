@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/ub__chronicle_survey_view" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/ui__spacing_unit_3x" android:layout_marginTop="@dimen/ui__spacing_unit_5x" android:layout_marginRight="@dimen/ui__spacing_unit_3x" android:layout_marginBottom="@dimen/ui__spacing_unit_5x" android:layout_centerInParent="true" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/ub__chronicle_survey_thanks" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" layout="@layout/ub__chronicle_survey_thanks" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/ub__chronicle_survey_edit_feedback_view" android:background="@drawable/ub__chronicle_survey_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/ui__spacing_unit_3x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_3x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+            <LinearLayout android:gravity="left" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_medium" android:textColor="@color/ub__uber_black_100" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__rds__why_or_why_not" style="@style/Uber.RDS.Chronicle.SurveyTitle" fontPath="@string/ub__font_medium" />
+            </LinearLayout>
+            <RelativeLayout android:gravity="right" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <com.ubercab.ui.TextView android:id="@id/ub__chronicle_survey_textview_done" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__rds__done" style="@style/Uber.RDS.Chronicle.DoneActionText" />
+            </RelativeLayout>
+        </LinearLayout>
+        <View android:background="@color/ub__uber_white_80" android:layout_width="fill_parent" android:layout_height="@dimen/ub__rds__divider" />
+        <com.ubercab.ui.EditText android:id="@id/ub__chronicle_survey_edittext_feedback" android:background="@drawable/ub__chronicle_footer_background" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" style="@style/Uber.RDS.Chronicle.EditText" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/ub__chronicle_survey_main_view" android:clipChildren="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" android:animateLayoutChanges="true">
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/ub__chronicle_survey_header_background_blue" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/ub__rds__chronicle_survey_header_height">
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.RDS.Chronicle.SurveyHeader" android:gravity="center" android:id="@id/ub__survey_list_question_title" android:padding="@dimen/ui__spacing_unit_3x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__rds__employee_driver_feedback" />
+        </LinearLayout>
+        <LinearLayout android:background="@color/ub__white" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="@dimen/ub__rds__chronicle_survey_driver_section_height">
+            <FrameLayout android:clipChildren="false" android:clipToPadding="false" style="@style/Uber.RDS.Chronicle.Image.Container">
+                <com.ubercab.ui.CircleImageView android:id="@id/ub__chronicle_survey_driver_icon" android:layout_width="@dimen/ub__action_bar_height" android:layout_height="@dimen/ub__action_bar_height" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:src="@drawable/ub__icon_support_account" />
+            </FrameLayout>
+            <com.ubercab.ui.TextView android:gravity="center|left" android:id="@id/ub__chronicle_survey_driver_name" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/Uber.RDS.Chronicle.DriverName" />
+        </LinearLayout>
+        <include layout="@layout/ub__chronicle_divider" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@color/ub__uber_white_40" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_small" android:textColor="@color/ub__uber_black_60" android:gravity="left" android:paddingLeft="@dimen/ui__spacing_unit_1x" android:paddingTop="@dimen/ui__spacing_unit_3x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__rds__answer" style="@style/Uber.RDS.Chronicle.SurveyButton" />
+        </LinearLayout>
+        <include layout="@layout/ub__chronicle_divider" />
+        <LinearLayout android:orientation="vertical" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ub__chronicle_survey_yes" android:background="@drawable/ub__chronicle_answer_background_selector" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/ub__rds__chronicle_survey_answer_section_height">
+                <ImageView android:id="@id/ub__chronicle_survey_yes_check" android:paddingLeft="@dimen/ui__spacing_unit_3x" android:paddingRight="@dimen/ui__spacing_unit_3x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__check" />
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.RDS.Chronicle.SurveyQuestion" android:paddingTop="@dimen/ui__spacing_unit_3x" android:paddingBottom="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__rds__yes" />
+            </LinearLayout>
+            <include android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="@dimen/ui__spacing_unit_6x" layout="@layout/ub__chronicle_divider" />
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ub__chronicle_survey_no" android:background="@drawable/ub__chronicle_answer_background_selector" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/ub__rds__chronicle_survey_answer_section_height">
+                <ImageView android:id="@id/ub__chronicle_survey_no_check" android:paddingLeft="@dimen/ui__spacing_unit_3x" android:paddingRight="@dimen/ui__spacing_unit_3x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ub__check" />
+                <com.ubercab.ui.TextView android:textAppearance="@style/Uber.RDS.Chronicle.SurveyQuestion" android:paddingTop="@dimen/ui__spacing_unit_3x" android:paddingBottom="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__rds__no" />
+            </LinearLayout>
+        </LinearLayout>
+        <include layout="@layout/ub__chronicle_divider" />
+        <LinearLayout android:orientation="vertical" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true">
+            <LinearLayout android:orientation="vertical" android:id="@id/ub__chronicle_survey_view_feedback" android:background="@color/ub__white" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <View android:gravity="center" android:background="@color/ub__uber_white_40" android:layout_width="fill_parent" android:layout_height="@dimen/ub__rds__chronicle_survey_blank_section_height" />
+                <include layout="@layout/ub__chronicle_divider" />
+                <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_40" android:gravity="left" android:id="@id/ub__chronicle_survey_whynot_textview" android:paddingLeft="@dimen/ui__spacing_unit_3x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_3x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/ub__rds__chronicle_survey_driver_section_height" android:text="@string/ub__rds__why_or_why_not" android:singleLine="true" style="@style/Uber.RDS.Chronicle.SurveyQuestion" />
+            </LinearLayout>
+        </LinearLayout>
+        <include layout="@layout/ub__chronicle_divider" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@color/ub__uber_white_40" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.ubercab.ui.TextView android:textSize="@dimen/ub__text_size_small" android:textColor="@color/ub__uber_black_60" android:paddingTop="@dimen/ui__spacing_unit_3x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__rds__feedback_is_only_visible_to_admins" fontPath="@string/ub__font_news" />
+        </LinearLayout>
+        <include layout="@layout/ub__chronicle_divider" />
+        <LinearLayout android:gravity="center" android:background="@drawable/ub__chronicle_footer_background" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:divider="@drawable/ub__chronicle_survey_divider" android:minHeight="@dimen/ui__spacing_unit_5x" android:showDividers="middle">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ub__chronicle_survey_cancel" android:background="@drawable/ub__chronicle_left_footer_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <com.ubercab.ui.TextView android:textColor="@color/ub__uber_black_60" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__rds__cancel" style="@style/Uber.RDS.Chronicle.SurveyButton" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ub__chronicle_survey_submit" android:background="@drawable/ub__chronicle_right_footer_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <com.ubercab.ui.TextView android:textColor="@color/ub__textcolor_link" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__rds__submit" style="@style/Uber.RDS.Chronicle.SurveyButton" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

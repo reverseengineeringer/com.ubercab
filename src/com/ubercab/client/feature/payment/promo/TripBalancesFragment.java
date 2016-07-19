@@ -7,96 +7,89 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import chh;
-import cho;
-import ckr;
+import butterknife.BindView;
+import chn;
+import chu;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.model.RiderBalance;
 import com.ubercab.ui.TextView;
-import dsh;
-import dty;
-import ebj;
-import efr;
-import egn;
-import eip;
-import geb;
-import gec;
-import geg;
-import p;
+import dxm;
+import dzn;
+import eib;
+import enk;
+import eoy;
+import eqx;
+import hdw;
+import hdx;
+import hee;
+import x;
 
 public class TripBalancesFragment
-  extends dsh<geg>
+  extends dxm<hee>
 {
-  public egn c;
-  public chh d;
-  public dty e;
+  public eoy c;
+  public chn d;
+  public dzn e;
   TripBalancesAdapter f;
-  @InjectView(2131625129)
-  ListView mListViewBalances;
-  @InjectView(2131625131)
-  ProgressBar mProgressBar;
-  @InjectView(2131625130)
-  TextView mTextViewFooter;
+  @BindView
+  public ListView mListViewBalances;
+  @BindView
+  public ProgressBar mProgressBar;
+  @BindView
+  public TextView mTextViewFooter;
   
   public static TripBalancesFragment a()
   {
     return new TripBalancesFragment();
   }
   
-  private void a(geg paramgeg)
+  private void a(hee paramhee)
   {
-    paramgeg.a(this);
+    paramhee.a(this);
   }
   
-  private geg b(ebj paramebj)
+  private hee b(eib parameib)
   {
-    return geb.a().a(new efr(this)).a(paramebj).a();
+    return hdw.a().a(new enk(this)).a(parameib).a();
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return p.hO;
+    return x.kJ;
   }
   
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    d().b().a(getString(2131166200).toUpperCase());
+    b().b().a(getString(2131166361).toUpperCase());
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903465, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
-    mTextViewFooter.setText(getString(2131166196));
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903641, paramViewGroup, false);
+    a(paramLayoutInflater);
+    mTextViewFooter.setText(getString(2131166357));
     f = new TripBalancesAdapter(getActivity());
     mListViewBalances.setAdapter(f);
     mProgressBar.setVisibility(0);
-    c.b(e.y());
+    c.b(e.N());
     return paramLayoutInflater;
   }
   
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
-  }
-  
-  @cho
-  public void onGetCreditBalanceResponseEvent(eip parameip)
+  @chu
+  public void onGetCreditBalanceResponseEvent(eqx parameqx)
   {
     mProgressBar.setVisibility(8);
-    if (!parameip.i()) {
-      d().a_(getString(2131166328));
+    if (!parameqx.i()) {
+      b().b_(getString(2131166561));
     }
     do
     {
       return;
-      parameip = (RiderBalance)parameip.g();
-    } while (parameip == null);
-    f.a(parameip.getTripCreditBalanceStrings());
+      parameqx = (RiderBalance)parameqx.g();
+    } while (parameqx == null);
+    f.a(parameqx.getTripCreditBalanceStrings());
   }
 }
 

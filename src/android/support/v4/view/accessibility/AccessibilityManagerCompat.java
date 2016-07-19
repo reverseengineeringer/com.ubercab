@@ -5,7 +5,7 @@ import android.os.Build.VERSION;
 import android.view.accessibility.AccessibilityManager;
 import java.util.List;
 
-public class AccessibilityManagerCompat
+public final class AccessibilityManagerCompat
 {
   private static final AccessibilityManagerCompat.AccessibilityManagerVersionImpl IMPL = new AccessibilityManagerCompat.AccessibilityManagerStubImpl();
   

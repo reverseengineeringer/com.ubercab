@@ -2,9 +2,9 @@ package com.ubercab.client.core.model;
 
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import java.util.List;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public final class TaggedLocationsResponse
 {
   private List<LocationSearchResult> results;

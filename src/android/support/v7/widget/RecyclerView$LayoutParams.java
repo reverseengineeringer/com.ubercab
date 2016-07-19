@@ -5,19 +5,19 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
-import hu;
+import mo;
 
 public class RecyclerView$LayoutParams
   extends ViewGroup.MarginLayoutParams
 {
-  public hu a;
+  public mo a;
   public final Rect b = new Rect();
   public boolean c = true;
   public boolean d = false;
   
-  public RecyclerView$LayoutParams(int paramInt)
+  public RecyclerView$LayoutParams(int paramInt1, int paramInt2)
   {
-    super(paramInt, -2);
+    super(paramInt1, paramInt2);
   }
   
   public RecyclerView$LayoutParams(Context paramContext, AttributeSet paramAttributeSet)

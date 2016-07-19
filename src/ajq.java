@@ -1,8 +1,26 @@
-public abstract interface ajq
+final class ajq
+  implements su
 {
-  public abstract void a(boolean paramBoolean, float paramFloat);
+  private ajm a;
+  private su b;
   
-  public abstract void b(boolean paramBoolean);
+  public ajq(ajm paramajm, su paramsu)
+  {
+    a = paramajm;
+    b = paramsu;
+  }
+  
+  public final void a()
+  {
+    b.a();
+    a.c();
+  }
+  
+  public final void b()
+  {
+    b.b();
+    a.d();
+  }
 }
 
 /* Location:

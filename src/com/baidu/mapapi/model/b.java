@@ -4,18 +4,16 @@ import android.os.Parcel;
 import android.os.Parcelable.Creator;
 
 final class b
-  implements Parcelable.Creator<ParcelItem>
+  implements Parcelable.Creator<LatLngBounds>
 {
-  public final ParcelItem a(Parcel paramParcel)
+  public final LatLngBounds a(Parcel paramParcel)
   {
-    ParcelItem localParcelItem = new ParcelItem();
-    localParcelItem.setBundle(paramParcel.readBundle());
-    return localParcelItem;
+    return new LatLngBounds(paramParcel);
   }
   
-  public final ParcelItem[] a(int paramInt)
+  public final LatLngBounds[] a(int paramInt)
   {
-    return new ParcelItem[paramInt];
+    return new LatLngBounds[paramInt];
   }
 }
 

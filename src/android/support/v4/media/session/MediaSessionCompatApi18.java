@@ -15,7 +15,7 @@ class MediaSessionCompatApi18
   private static final String TAG = "MediaSessionCompatApi18";
   private static boolean sIsMbrPendingIntentSupported = true;
   
-  public static Object createPlaybackPositionUpdateListener(MediaSessionCompatApi14.Callback paramCallback)
+  public static Object createPlaybackPositionUpdateListener(MediaSessionCompatApi18.Callback paramCallback)
   {
     return new MediaSessionCompatApi18.OnPlaybackPositionUpdateListener(paramCallback);
   }

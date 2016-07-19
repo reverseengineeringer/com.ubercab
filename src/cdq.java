@@ -1,13 +1,15 @@
-import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.PaymentMethodActivity;
 
-final class cdq
-  implements ccm
+public final class cdq
+  implements View.OnClickListener
 {
-  cdq(cdp paramcdp) {}
+  public cdq(PaymentMethodActivity paramPaymentMethodActivity) {}
   
-  public final void a()
+  public final void onClick(View paramView)
   {
-    PayPalFuturePaymentActivity.c(a.a);
+    PaymentMethodActivity.b(a);
   }
 }
 

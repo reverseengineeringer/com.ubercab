@@ -3,8 +3,8 @@ package com.ubercab.client.feature.survey.model;
 import com.ubercab.shape.Shape;
 import java.util.ArrayList;
 import java.util.List;
-import p;
-import r;
+import x;
+import z;
 
 @Shape
 public abstract class Question
@@ -30,11 +30,17 @@ public abstract class Question
   
   public abstract String getId();
   
-  public abstract p getImpressionEvent();
+  public abstract x getImpressionEvent();
+  
+  public abstract String getSkipNextQuestionId();
+  
+  public abstract String getSkipText();
+  
+  public abstract String getSubmitText();
   
   public abstract String getSubtitle();
   
-  public abstract r getTapEvent();
+  public abstract z getTapEvent();
   
   public abstract String getTitle();
   
@@ -48,11 +54,17 @@ public abstract class Question
   
   public abstract Question setId(String paramString);
   
-  public abstract Question setImpressionEvent(p paramp);
+  public abstract Question setImpressionEvent(x paramx);
+  
+  public abstract Question setSkipNextQuestionId(String paramString);
+  
+  public abstract Question setSkipText(String paramString);
+  
+  public abstract Question setSubmitText(String paramString);
   
   public abstract Question setSubtitle(String paramString);
   
-  public abstract Question setTapEvent(r paramr);
+  public abstract Question setTapEvent(z paramz);
   
   public abstract Question setTitle(String paramString);
   

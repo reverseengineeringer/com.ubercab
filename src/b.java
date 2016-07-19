@@ -1,5 +1,5 @@
 public enum b
-  implements ckr
+  implements cli
 {
   private b() {}
 }

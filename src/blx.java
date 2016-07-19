@@ -1,11 +1,34 @@
-import android.os.IInterface;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
-public abstract interface blx
-  extends IInterface
+final class blx<T>
+  extends bmq<T>
 {
-  public abstract add a(add paramadd, int paramInt1, int paramInt2, String paramString, int paramInt3);
+  private bmq<T> a;
   
-  public abstract add a(add paramadd, int paramInt1, int paramInt2, String paramString1, String paramString2);
+  public final void a(bmq<T> parambmq)
+  {
+    if (a != null) {
+      throw new AssertionError();
+    }
+    a = parambmq;
+  }
+  
+  public final T read(JsonReader paramJsonReader)
+  {
+    if (a == null) {
+      throw new IllegalStateException();
+    }
+    return (T)a.read(paramJsonReader);
+  }
+  
+  public final void write(JsonWriter paramJsonWriter, T paramT)
+  {
+    if (a == null) {
+      throw new IllegalStateException();
+    }
+    a.write(paramJsonWriter, paramT);
+  }
 }
 
 /* Location:

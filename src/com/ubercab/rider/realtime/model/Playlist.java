@@ -6,14 +6,14 @@ import com.ubercab.shape.Shape;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import jdh;
-import jvq;
-import jvr;
+import lzo;
+import nba;
+import nbb;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class Playlist
-  extends jvq<Playlist>
+  extends nba<Playlist>
   implements Parcelable
 {
   public static Playlist create()
@@ -42,12 +42,12 @@ public abstract class Playlist
   
   public abstract String getType();
   
-  protected Object onGet(jvr<Playlist> paramjvr, Object paramObject)
+  protected Object onGet(nbb<Playlist> paramnbb, Object paramObject)
   {
     if (paramObject != null) {
       return paramObject;
     }
-    switch (Playlist.1.$SwitchMap$com$ubercab$rider$realtime$model$Shape_Playlist$Property[((Shape_Playlist.Property)paramjvr).ordinal()])
+    switch (Playlist.1.$SwitchMap$com$ubercab$rider$realtime$model$Shape_Playlist$Property[((Shape_Playlist.Property)paramnbb).ordinal()])
     {
     default: 
       return null;

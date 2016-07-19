@@ -10,49 +10,48 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.FloatingLabelEditText;
 import com.ubercab.ui.TextView;
-import dps;
-import dsf;
-import dux;
-import ebj;
-import efm;
-import ego;
-import eka;
-import gss;
-import gst;
-import gtk;
-import gtm;
-import ife;
-import p;
-import r;
+import duq;
+import dxk;
+import eaj;
+import eib;
+import enf;
+import eoz;
+import ers;
+import ick;
+import icl;
+import idh;
+import idj;
+import kia;
+import x;
+import z;
 
 public class VerifyPasswordDialogFragment
-  extends dsf<gtk>
+  extends dxk<idh>
 {
-  public ego a;
-  public ckc b;
-  public chh d;
-  public ife e;
-  @InjectView(2131626106)
-  Button mButtonSubmit;
-  @InjectView(2131626103)
-  FloatingLabelEditText mEditTextPassword;
-  @InjectView(2131626107)
-  ProgressBar mProgressBarLoading;
-  @InjectView(2131626104)
-  TextView mTextViewForgotPassword;
-  @InjectView(2131625475)
-  ViewGroup mViewGroupContent;
+  public eoz a;
+  public ckt b;
+  public chn d;
+  public kia e;
+  @BindView
+  public Button mButtonSubmit;
+  @BindView
+  public FloatingLabelEditText mEditTextPassword;
+  @BindView
+  public ProgressBar mProgressBarLoading;
+  @BindView
+  public TextView mTextViewForgotPassword;
+  @BindView
+  public ViewGroup mViewGroupContent;
   
   static void a(RiderActivity paramRiderActivity, String paramString)
   {
@@ -63,9 +62,9 @@ public class VerifyPasswordDialogFragment
     paramString.show(paramRiderActivity.getSupportFragmentManager(), VerifyPasswordDialogFragment.class.getName());
   }
   
-  private void a(gtk paramgtk)
+  private void a(idh paramidh)
   {
-    paramgtk.a(this);
+    paramidh.a(this);
   }
   
   private void a(boolean paramBoolean)
@@ -80,81 +79,75 @@ public class VerifyPasswordDialogFragment
     mProgressBarLoading.setVisibility(4);
   }
   
-  private gtk b(ebj paramebj)
+  private idh b(eib parameib)
   {
-    return gss.a().a(new efm(this)).a(paramebj).a();
+    return ick.a().a(new enf(this)).a(parameib).a();
   }
   
   private void d()
   {
-    dps.a(getActivity(), mEditTextPassword);
+    duq.a(getActivity(), mEditTextPassword);
   }
   
   private void e()
   {
-    dps.b(getActivity(), mEditTextPassword);
+    duq.b(getActivity(), mEditTextPassword);
   }
   
-  public final ckr a()
+  public final cli a()
   {
-    return p.jG;
+    return x.nm;
   }
   
   public void dismiss()
   {
     super.dismiss();
-    if (e.a(dux.cD, true)) {
+    if (e.a(eaj.dz, true)) {
       mEditTextPassword.d();
     }
   }
   
-  @OnClick({2131626106})
+  @OnClick
   public void onClickApply()
   {
     a(true);
-    a.b(mEditTextPassword.i().toString());
+    a.a(mEditTextPassword.i().toString());
   }
   
-  @OnClick({2131626105})
+  @OnClick
   public void onClickCancel()
   {
     e();
     dismiss();
   }
   
-  @OnClick({2131626104})
+  @OnClick
   public void onClickForgotPassword()
   {
     String str = getArguments().getString("arg_account_type");
     if (("facebook".equals(str)) || ("google".equals(str))) {
-      b.a(r.gh);
+      b.a(z.iQ);
     }
     for (;;)
     {
-      startActivity(new Intent("android.intent.action.VIEW", Uri.parse(getString(2131167554))));
+      startActivity(new Intent("android.intent.action.VIEW", Uri.parse(getString(2131168079))));
       return;
-      b.a(r.gi);
+      b.a(z.iR);
     }
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setStyle(1, 2131362220);
+    setStyle(1, 2131362293);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903739, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903977, paramViewGroup, false);
+    a(paramLayoutInflater);
     getDialog().setCanceledOnTouchOutside(false);
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public void onPause()
@@ -171,22 +164,22 @@ public class VerifyPasswordDialogFragment
     mEditTextPassword.requestFocus();
   }
   
-  @cho
-  public void onVerifyPasswordResponseEvent(eka parameka)
+  @chu
+  public void onVerifyPasswordResponseEvent(ers paramers)
   {
     a(false);
-    if (parameka.i())
+    if (paramers.i())
     {
       e();
       dismiss();
-      d.c(new gtm());
+      d.c(new idj());
       return;
     }
-    if (parameka.n() == 401) {}
-    for (int i = 2131165790;; i = 2131165797)
+    if (paramers.n() == 401) {}
+    for (int i = 2131165860;; i = 2131165867)
     {
-      parameka = getString(i);
-      mEditTextPassword.a(parameka);
+      paramers = getString(i);
+      mEditTextPassword.a(paramers);
       return;
     }
   }
@@ -201,7 +194,7 @@ public class VerifyPasswordDialogFragment
       mEditTextPassword.a(new VerifyPasswordDialogFragment.1(this));
       paramView = getArguments().getString("arg_account_type");
       if (("facebook".equals(paramView)) || ("google".equals(paramView))) {
-        mTextViewForgotPassword.setText(getString(2131165883));
+        mTextViewForgotPassword.setText(getString(2131165980));
       }
       return;
     }

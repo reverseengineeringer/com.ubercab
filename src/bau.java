@@ -1,63 +1,89 @@
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.location.places.PlaceFilter;
-import com.google.android.gms.location.places.PlaceRequest;
+import com.google.android.gms.maps.StreetViewPanoramaOptions;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 
 public final class bau
-  implements Parcelable.Creator<PlaceRequest>
+  implements Parcelable.Creator<StreetViewPanoramaOptions>
 {
-  private static PlaceRequest a(Parcel paramParcel)
+  public static StreetViewPanoramaOptions a(Parcel paramParcel)
   {
-    int k = zm.b(paramParcel);
-    int j = 0;
-    PlaceFilter localPlaceFilter = null;
-    long l2 = PlaceRequest.a;
-    int i = 102;
-    long l1 = Long.MAX_VALUE;
-    while (paramParcel.dataPosition() < k)
+    Integer localInteger = null;
+    byte b1 = 0;
+    int j = zd.b(paramParcel);
+    byte b2 = 0;
+    byte b3 = 0;
+    byte b4 = 0;
+    byte b5 = 0;
+    LatLng localLatLng = null;
+    String str = null;
+    StreetViewPanoramaCamera localStreetViewPanoramaCamera = null;
+    int i = 0;
+    while (paramParcel.dataPosition() < j)
     {
-      int m = zm.a(paramParcel);
-      switch (zm.a(m))
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
       default: 
-        zm.a(paramParcel, m);
+        zd.a(paramParcel, k);
         break;
-      case 1000: 
-        j = zm.e(paramParcel, m);
+      case 1: 
+        i = zd.e(paramParcel, k);
         break;
       case 2: 
-        localPlaceFilter = (PlaceFilter)zm.a(paramParcel, m, PlaceFilter.CREATOR);
+        localStreetViewPanoramaCamera = (StreetViewPanoramaCamera)zd.a(paramParcel, k, StreetViewPanoramaCamera.CREATOR);
         break;
       case 3: 
-        l2 = zm.g(paramParcel, m);
+        str = zd.n(paramParcel, k);
         break;
       case 4: 
-        i = zm.e(paramParcel, m);
+        localLatLng = (LatLng)zd.a(paramParcel, k, LatLng.CREATOR);
         break;
       case 5: 
-        l1 = zm.g(paramParcel, m);
+        localInteger = zd.f(paramParcel, k);
+        break;
+      case 6: 
+        b5 = zd.c(paramParcel, k);
+        break;
+      case 7: 
+        b4 = zd.c(paramParcel, k);
+        break;
+      case 8: 
+        b3 = zd.c(paramParcel, k);
+        break;
+      case 9: 
+        b2 = zd.c(paramParcel, k);
+        break;
+      case 10: 
+        b1 = zd.c(paramParcel, k);
       }
     }
-    if (paramParcel.dataPosition() != k) {
-      throw new zn("Overread allowed size end=" + k, paramParcel);
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new PlaceRequest(j, localPlaceFilter, l2, i, l1);
+    return new StreetViewPanoramaOptions(i, localStreetViewPanoramaCamera, str, localLatLng, localInteger, b5, b4, b3, b2, b1);
   }
   
-  public static void a(PlaceRequest paramPlaceRequest, Parcel paramParcel, int paramInt)
+  public static void a(StreetViewPanoramaOptions paramStreetViewPanoramaOptions, Parcel paramParcel, int paramInt)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1000, b);
-    zo.a(paramParcel, 2, paramPlaceRequest.a(), paramInt, false);
-    zo.a(paramParcel, 3, paramPlaceRequest.b());
-    zo.a(paramParcel, 4, paramPlaceRequest.c());
-    zo.a(paramParcel, 5, paramPlaceRequest.d());
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramStreetViewPanoramaOptions.a());
+    zf.a(paramParcel, 2, paramStreetViewPanoramaOptions.g(), paramInt, false);
+    zf.a(paramParcel, 3, paramStreetViewPanoramaOptions.j(), false);
+    zf.a(paramParcel, 4, paramStreetViewPanoramaOptions.h(), paramInt, false);
+    zf.a(paramParcel, 5, paramStreetViewPanoramaOptions.i());
+    zf.a(paramParcel, 6, paramStreetViewPanoramaOptions.b());
+    zf.a(paramParcel, 7, paramStreetViewPanoramaOptions.c());
+    zf.a(paramParcel, 8, paramStreetViewPanoramaOptions.d());
+    zf.a(paramParcel, 9, paramStreetViewPanoramaOptions.e());
+    zf.a(paramParcel, 10, paramStreetViewPanoramaOptions.f());
+    zf.a(paramParcel, i);
   }
   
-  private static PlaceRequest[] a(int paramInt)
+  private static StreetViewPanoramaOptions[] a(int paramInt)
   {
-    return new PlaceRequest[paramInt];
+    return new StreetViewPanoramaOptions[paramInt];
   }
 }
 

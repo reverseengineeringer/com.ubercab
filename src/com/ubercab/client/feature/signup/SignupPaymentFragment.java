@@ -14,18 +14,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import bpa;
-import bpc;
-import bpe;
-import bps;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import blu;
+import blw;
+import bly;
+import bmm;
+import butterknife.BindView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ciu;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.paypal.android.sdk.payments.PayPalAuthorization;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
@@ -45,108 +43,109 @@ import com.ubercab.locale.country.CountryButton;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.TextView;
 import com.ubercab.ui.deprecated.view.ZipEditText;
-import dps;
-import dpy;
-import dse;
-import dsh;
-import dsq;
-import dux;
-import dwd;
-import efr;
-import ehl;
-import ehq;
-import eke;
-import eqz;
-import era;
-import euc;
-import gbn;
-import gdk;
-import gxk;
-import gxl;
-import gxv;
-import gxz;
-import gye;
-import gyl;
-import gyz;
-import gzt;
-import iab;
-import idj;
-import idk;
-import ife;
-import iie;
+import duq;
+import duw;
+import dxj;
+import dxm;
+import dyd;
+import eaj;
+import ebw;
+import enk;
+import eqc;
+import erw;
+import eze;
+import ezf;
+import fcm;
+import gwr;
+import hdf;
+import iis;
+import iit;
+import ijd;
+import iji;
+import ijn;
+import ijx;
+import iko;
+import ill;
+import iln;
 import io.card.payment.CardIOActivity;
 import io.card.payment.CreditCard;
-import iov;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-import jvv;
-import jwl;
-import jwm;
-import jzb;
-import jzo;
-import o;
-import p;
-import r;
+import kcl;
+import kgb;
+import kgc;
+import kia;
+import kmd;
+import lga;
+import lnc;
+import nbd;
+import ndc;
+import ndd;
+import nfu;
+import ngf;
+import w;
+import x;
+import z;
 
 public class SignupPaymentFragment
-  extends dsh<gyz>
-  implements gdk, gxz, gyl, iie
+  extends dxm<iko>
+  implements hdf, iji, ijx, kmd
 {
-  private static final long q = TimeUnit.MINUTES.toMillis(30L);
-  public ckc c;
-  public gbn d;
-  public chh e;
-  public ife f;
+  private static final long o = TimeUnit.MINUTES.toMillis(30L);
+  public ckt c;
+  public gwr d;
+  public chn e;
+  public kia f;
   public PayPalConfiguration g;
-  public idk h;
-  public ciu i;
-  public eke j;
-  public dwd k;
-  public dse l;
-  public ehl m;
-  @InjectView(2131625587)
-  ImageButton mButtonAlipay;
-  @InjectView(2131625584)
-  Button mButtonDone;
-  @InjectView(2131625586)
-  ImageButton mButtonGoogleWallet;
-  @InjectView(2131625592)
-  Button mButtonLegal;
-  @InjectView(2131625585)
-  ImageButton mButtonPaypal;
-  @InjectView(2131625579)
-  Button mButtonScanCard;
-  @InjectView(2131625583)
-  CountryButton mCountryButton;
-  @InjectView(2131625581)
-  SecurityCodeEditText mEditTextCardCode;
-  @InjectView(2131625577)
-  CreditCardEditText mEditTextCardNumber;
-  @InjectView(2131625578)
-  MonthEditText mEditTextMonth;
-  @InjectView(2131625580)
-  YearEditText mEditTextYear;
-  @InjectView(2131625582)
-  ZipEditText mEditTextZip;
-  @InjectView(2131625589)
-  TextView mTextViewSkip;
-  @InjectView(2131624919)
-  DividerWithText mViewDivider;
-  @InjectView(2131625614)
-  ViewGroup mViewGroupTos;
-  @InjectView(2131625588)
-  View mViewLineSkip;
-  public dpy n;
-  public ehq o;
-  public jvv p;
+  public kgc h;
+  public erw i;
+  public ebw j;
+  public dxj k;
+  public duw l;
+  public eqc m;
+  @BindView
+  public ImageButton mButtonAlipay;
+  @BindView
+  public Button mButtonCampusCard;
+  @BindView
+  public Button mButtonDone;
+  @BindView
+  public ImageButton mButtonGoogleWallet;
+  @BindView
+  public Button mButtonLegal;
+  @BindView
+  public ImageButton mButtonPaypal;
+  @BindView
+  public Button mButtonScanCard;
+  @BindView
+  public CountryButton mCountryButton;
+  @BindView
+  public SecurityCodeEditText mEditTextCardCode;
+  @BindView
+  public CreditCardEditText mEditTextCardNumber;
+  @BindView
+  public MonthEditText mEditTextMonth;
+  @BindView
+  public YearEditText mEditTextYear;
+  @BindView
+  public ZipEditText mEditTextZip;
+  @BindView
+  public TextView mTextViewSkip;
+  @BindView
+  public DividerWithText mViewDivider;
+  @BindView
+  public ViewGroup mViewGroupTos;
+  @BindView
+  public View mViewLineSkip;
+  public nbd n;
+  private boolean p;
+  private kgb q;
   private boolean r;
-  private idj s;
-  private boolean t;
-  private SignupData u;
-  private PromoBarFragment v;
+  private SignupData s;
+  private PromoBarFragment t;
   
   public static SignupPaymentFragment a(SignupData paramSignupData)
   {
@@ -159,18 +158,18 @@ public class SignupPaymentFragment
   
   private void a(Activity paramActivity)
   {
-    c.a(p.hp);
-    new jwm(getContext(), jwl.a).a(new SignupPaymentFragment.3(this, paramActivity)).a(new SignupPaymentFragment.2(this)).a();
+    c.a(x.ki);
+    new ndd(getContext(), ndc.a).a(new SignupPaymentFragment.3(this, paramActivity)).a(new SignupPaymentFragment.2(this)).a();
   }
   
-  private void a(gyz paramgyz)
+  private void a(iko paramiko)
   {
-    paramgyz.a(this);
+    paramiko.a(this);
   }
   
-  private void b()
+  private void f()
   {
-    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression").setName(p.mh);
+    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("impression").setName(x.qi);
     ArrayList localArrayList = new ArrayList();
     localArrayList.add("braintree");
     if (mButtonAlipay.getVisibility() == 0) {
@@ -179,22 +178,25 @@ public class SignupPaymentFragment
     if (mButtonPaypal.getVisibility() == 0) {
       localArrayList.add("paypal");
     }
-    localAnalyticsEvent.setValue(iab.a(":").a(localArrayList));
+    if (mButtonCampusCard.getVisibility() == 0) {
+      localArrayList.add("blackboard");
+    }
+    localAnalyticsEvent.setValue(kcl.a(":").a(localArrayList));
     c.a(localAnalyticsEvent);
   }
   
   private void g()
   {
-    b(getString(2131166492));
+    a_(getString(2131166744));
     String str1;
     Object localObject;
     String str2;
     label52:
     String str3;
-    if (u.h() != null)
+    if (s.h() != null)
     {
-      str1 = u.h().a();
-      localObject = u.m();
+      str1 = s.h().a();
+      localObject = s.o();
       if (localObject == null) {
         break label249;
       }
@@ -214,7 +216,7 @@ public class SignupPaymentFragment
     for (long l1 = ((ThirdPartyToken)localObject).b();; l1 = 0L)
     {
       localObject = mEditTextCardNumber.getText().toString();
-      o.a(u.a(), u.b(), u.c(), u.e(), u.f(), d.a((String)localObject), d.a(mEditTextCardCode.getText().toString()), d.a(mEditTextMonth.getText().toString()), d.a(mEditTextYear.getText().toString()), mEditTextZip.getText().toString(), mCountryButton.a(), "personal", str1, t, u.d(), u.j(), str2, str3, l1, iov.d((String)localObject), iov.e((String)localObject));
+      m.a(s.a(), s.b(), s.c(), s.e(), s.f(), d.a((String)localObject), d.a(mEditTextCardCode.getText().toString()), d.a(mEditTextMonth.getText().toString()), d.a(mEditTextYear.getText().toString()), mEditTextZip.getText().toString(), mCountryButton.a(), "personal", str1, r, s.d(), s.j(), str2, str3, l1, lga.d((String)localObject), lga.e((String)localObject));
       return;
       str1 = null;
       break;
@@ -227,16 +229,16 @@ public class SignupPaymentFragment
   
   private void h()
   {
-    b(getString(2131166492));
+    a_(getString(2131166744));
     String str1;
     ThirdPartyToken localThirdPartyToken;
     String str2;
     label52:
     String str3;
-    if (u.h() != null)
+    if (s.h() != null)
     {
-      str1 = u.h().a();
-      localThirdPartyToken = u.m();
+      str1 = s.h().a();
+      localThirdPartyToken = s.o();
       if (localThirdPartyToken == null) {
         break label143;
       }
@@ -255,7 +257,7 @@ public class SignupPaymentFragment
     label155:
     for (long l1 = localThirdPartyToken.b();; l1 = 0L)
     {
-      o.c(u.a(), u.b(), u.c(), u.e(), u.f(), str1, u.d(), u.j(), str2, str3, l1);
+      m.c(s.a(), s.b(), s.c(), s.e(), s.f(), str1, s.d(), s.j(), str2, str3, l1);
       return;
       str1 = null;
       break;
@@ -268,16 +270,16 @@ public class SignupPaymentFragment
   
   private void i()
   {
-    b(getString(2131166492));
+    a_(getString(2131166744));
     String str1;
     ThirdPartyToken localThirdPartyToken;
     String str2;
     label52:
     String str3;
-    if (u.h() != null)
+    if (s.h() != null)
     {
-      str1 = u.h().a();
-      localThirdPartyToken = u.m();
+      str1 = s.h().a();
+      localThirdPartyToken = s.o();
       if (localThirdPartyToken == null) {
         break label157;
       }
@@ -296,7 +298,7 @@ public class SignupPaymentFragment
     label169:
     for (long l1 = localThirdPartyToken.b();; l1 = 0L)
     {
-      o.a(u.a(), u.b(), u.c(), u.e(), u.f(), u.i(), str1, u.d(), u.j(), str2, str3, l1, euc.a(getActivity()));
+      m.a(s.a(), s.b(), s.c(), s.e(), s.f(), s.i(), str1, s.d(), s.j(), str2, str3, l1, fcm.a(getActivity()));
       return;
       str1 = null;
       break;
@@ -309,11 +311,11 @@ public class SignupPaymentFragment
   
   private void j()
   {
-    b(getString(2131166492));
-    if (u.h() != null) {}
-    for (String str = u.h().a();; str = null)
+    a_(getString(2131166744));
+    if (s.h() != null) {}
+    for (String str = s.h().a();; str = null)
     {
-      o.a(u.a(), u.b(), u.c(), u.e(), u.f(), u.k(), u.l(), str, u.d());
+      m.a(s.a(), s.b(), s.c(), s.e(), s.f(), s.k(), s.l(), str, s.d());
       return;
     }
   }
@@ -327,19 +329,19 @@ public class SignupPaymentFragment
   
   private String l()
   {
-    bpc localbpc = new bpe().a(bpa.d).d();
+    blw localblw = new bly().a(blu.d).d();
     try
     {
-      PreloadData localPreloadData2 = (PreloadData)localbpc.a(URLDecoder.decode(dse.d()), PreloadData.class);
+      PreloadData localPreloadData2 = (PreloadData)localblw.a(URLDecoder.decode(dxj.e()), PreloadData.class);
       PreloadData localPreloadData1 = localPreloadData2;
       if (localPreloadData2 == null)
       {
         localPreloadData1 = localPreloadData2;
-        if (j != null)
+        if (i != null)
         {
           localPreloadData1 = localPreloadData2;
-          if (j.g() != null) {
-            localPreloadData1 = (PreloadData)localbpc.a(URLDecoder.decode(j.g()), PreloadData.class);
+          if (i.c() != null) {
+            localPreloadData1 = (PreloadData)localblw.a(URLDecoder.decode(i.c()), PreloadData.class);
           }
         }
       }
@@ -347,31 +349,31 @@ public class SignupPaymentFragment
         return "";
       }
     }
-    catch (bps localbps)
+    catch (bmm localbmm)
     {
       return "";
     }
-    if (localbps.getPromoCode() == null) {
+    if (localbmm.getPromoCode() == null) {
       return "";
     }
-    return localbps.getPromoCode();
+    return localbmm.getPromoCode();
   }
   
-  private gyz m()
+  private iko m()
   {
-    return gxk.a().a(new efr(this)).a((gye)((SignupActivity)getActivity()).d()).a();
+    return iis.a().a(new enk(this)).a((ijn)((SignupActivity)getActivity()).d()).a();
   }
   
   public final void a()
   {
-    Object localObject = new gxv(mEditTextCardNumber.getText().toString(), mEditTextCardCode.getText().toString(), mEditTextMonth.getText().toString(), mEditTextYear.getText().toString());
-    localObject = AnalyticsEvent.create("tap").setName(r.ja).setValue(u.p() + ":" + ((gxv)localObject).a());
+    Object localObject = new ijd(mEditTextCardNumber.getText().toString(), mEditTextCardCode.getText().toString(), mEditTextMonth.getText().toString(), mEditTextYear.getText().toString());
+    localObject = AnalyticsEvent.create("tap").setName(z.mp).setValue(s.r() + ":" + ((ijd)localObject).a());
     c.a((AnalyticsEvent)localObject);
   }
   
   public final void a(CreditCardEditText paramCreditCardEditText, boolean paramBoolean, String paramString)
   {
-    t = false;
+    r = false;
     if (mEditTextCardCode != null) {
       mEditTextCardCode.a(paramString);
     }
@@ -380,7 +382,7 @@ public class SignupPaymentFragment
   public final void a(SignupData.PromoCode paramPromoCode)
   {
     if (paramPromoCode != null) {
-      u.a(paramPromoCode);
+      s.a(paramPromoCode);
     }
   }
   
@@ -393,17 +395,17 @@ public class SignupPaymentFragment
   {
     if ((paramInt1 == 100) && (paramInt2 == -1))
     {
-      c.a(o.h);
-      u = ((SignupData)paramBundle.getParcelable("signup_data"));
-      v.a(u.h());
+      c.a(w.h);
+      s = ((SignupData)paramBundle.getParcelable("signup_data"));
+      t.a(s.h());
       return true;
     }
     return false;
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return p.mm;
+    return x.qn;
   }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -415,16 +417,16 @@ public class SignupPaymentFragment
         paramIntent = (PayPalAuthorization)paramIntent.getParcelableExtra("com.paypal.android.sdk.authorization");
         if (paramIntent != null)
         {
-          u.h(paramIntent.a());
-          r = true;
-          c.a(p.mp);
+          s.h(paramIntent.a());
+          p = true;
+          c.a(x.qs);
         }
       }
     }
     do
     {
       return;
-      c.a(p.mo);
+      c.a(x.qr);
       return;
       if ((paramInt1 == 300) && (paramInt2 == -1))
       {
@@ -434,8 +436,8 @@ public class SignupPaymentFragment
       if ((paramInt1 == 500) && (paramInt2 == -1))
       {
         paramIntent = (AlipayCredentials)paramIntent.getParcelableExtra("alipay_credentials");
-        u.j(paramIntent.getAccountId());
-        u.k(paramIntent.getMobile());
+        s.j(paramIntent.getAccountId());
+        s.k(paramIntent.getMobile());
         j();
         return;
       }
@@ -447,78 +449,86 @@ public class SignupPaymentFragment
       mEditTextMonth.setText(String.format(Locale.getDefault(), "%d", new Object[] { Integer.valueOf(expiryMonth) }));
       mEditTextYear.setText(String.format(Locale.getDefault(), "%d", new Object[] { Integer.valueOf(expiryYear) }).substring(2));
     }
-    t = true;
+    r = true;
   }
   
-  @OnClick({2131625587})
+  @OnClick
   public void onClickAlipay()
   {
-    c.a(r.jr);
-    if (f.b(dux.bs)) {
-      p.a(AlipayVerificationCodeReceiver.class, q);
+    c.a(z.mG);
+    if (f.c(eaj.bQ)) {
+      n.a(AlipayVerificationCodeReceiver.class, o);
     }
     startActivityForResult(new Intent(getActivity(), AddAlipayActivity.class), 500);
   }
   
-  @OnClick({2131625584})
+  @OnClick
+  public void onClickButtonCampusCard()
+  {
+    c.a(z.mH);
+    e.c(new ill(new lnc(getActivity()), s));
+  }
+  
+  @OnClick
   public void onClickDone()
   {
-    c.a(r.jn);
-    jzo localjzo = new jzo();
-    localjzo.a(mEditTextCardNumber, getString(2131165980));
-    localjzo.a(mEditTextMonth, getString(2131165979));
-    localjzo.a(mEditTextYear, getString(2131165981));
-    localjzo.a(mEditTextCardCode, getString(2131165978));
-    localjzo.a(mEditTextZip, getString(2131165982));
-    if (!localjzo.a()) {
+    c.a(z.mC);
+    ngf localngf = new ngf();
+    localngf.a(mEditTextCardNumber, getString(2131166090));
+    localngf.a(mEditTextMonth, getString(2131166089));
+    localngf.a(mEditTextYear, getString(2131166091));
+    localngf.a(mEditTextCardCode, getString(2131166088));
+    localngf.a(mEditTextZip, getString(2131166092));
+    if (!localngf.a()) {
       return;
     }
     g();
   }
   
-  @OnClick({2131625583})
+  @OnClick
   public void onClickFlag()
   {
-    c.a(r.js);
+    c.a(z.mI);
   }
   
-  @OnClick({2131625586})
+  @OnClick
   public void onClickGoogleWallet()
   {
-    c.a(r.jv);
+    c.a(z.mL);
     k();
   }
   
-  @OnClick({2131625592})
+  @OnClick
   public void onClickLegal()
   {
-    c.a(r.jw);
+    c.a(z.mM);
     startActivity(new Intent(getActivity(), LegalActivity.class));
   }
   
-  @OnClick({2131625585})
+  @OnClick
   public void onClickPayPal()
   {
-    c.a(r.jt);
+    c.a(z.mJ);
     Intent localIntent = new Intent(getActivity(), PayPalFuturePaymentActivity.class);
     localIntent.putExtra("com.paypal.android.sdk.paypalConfiguration", g);
     startActivityForResult(localIntent, 200);
   }
   
-  @OnClick({2131625579})
+  @OnClick
   public void onClickScanCard()
   {
-    c.a(r.ju);
-    RiderActivity localRiderActivity = d();
+    c.a(z.mK);
+    RiderActivity localRiderActivity = b();
     if ((localRiderActivity != null) && (!localRiderActivity.isFinishing())) {
-      s = h.a(localRiderActivity, 106, new SignupPaymentFragment.1(this, localRiderActivity), new String[] { "android.permission.CAMERA" });
+      q = h.a(localRiderActivity, 106, new SignupPaymentFragment.1(this, localRiderActivity), new String[] { "android.permission.CAMERA" });
     }
   }
   
-  @OnClick({2131625589})
+  @OnClick
   public void onClickSkip()
   {
-    e.c(new gzt(u));
+    c.a(z.hn);
+    e.c(new iln(s));
   }
   
   public void onCreate(Bundle paramBundle)
@@ -527,43 +537,43 @@ public class SignupPaymentFragment
     setHasOptionsMenu(true);
     if (paramBundle != null)
     {
-      u = ((SignupData)paramBundle.getParcelable("signup_data"));
-      t = paramBundle.getBoolean("using_cardio");
+      s = ((SignupData)paramBundle.getParcelable("signup_data"));
+      r = paramBundle.getBoolean("using_cardio");
       return;
     }
-    u = ((SignupData)getArguments().getParcelable("signup_data"));
+    s = ((SignupData)getArguments().getParcelable("signup_data"));
   }
   
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
-    paramMenuInflater.inflate(2131755036, paramMenu);
+    paramMenuInflater.inflate(2131755039, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903588, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903801, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
   }
   
   public void onDestroyView()
   {
-    super.onDestroyView();
-    if ((f.a(dux.aT, true)) && (s != null))
+    if (q != null)
     {
-      s.a();
-      s = null;
+      q.a();
+      q = null;
     }
-    ButterKnife.reset(this);
+    mCountryButton.a(null);
+    super.onDestroyView();
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131626162)
+    if (paramMenuItem.getItemId() == 2131626918)
     {
-      dps.a(getActivity());
-      c.a(r.jx);
-      SignupPromoFragment.a(u).show(getFragmentManager(), SignupPromoFragment.class.getName());
+      duq.a(getActivity());
+      c.a(z.mN);
+      SignupPromoFragment.a(s).show(getFragmentManager(), SignupPromoFragment.class.getName());
       return true;
     }
     return super.onOptionsItemSelected(paramMenuItem);
@@ -572,16 +582,16 @@ public class SignupPaymentFragment
   public void onResume()
   {
     super.onResume();
-    d().b().a(getString(2131166177));
-    b();
+    b().b().a(getString(2131166335));
+    f();
   }
   
-  @cho
-  public void onRiderPersistentConnectionManagerReadyEvent(dsq paramdsq)
+  @chu
+  public void onRiderPersistentConnectionManagerReadyEvent(dyd paramdyd)
   {
-    if (r)
+    if (p)
     {
-      r = false;
+      p = false;
       i();
     }
   }
@@ -589,8 +599,8 @@ public class SignupPaymentFragment
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putParcelable("signup_data", u);
-    paramBundle.putBoolean("using_cardio", t);
+    paramBundle.putParcelable("signup_data", s);
+    paramBundle.putBoolean("using_cardio", r);
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)
@@ -598,43 +608,50 @@ public class SignupPaymentFragment
     int i3 = 1;
     int i2 = 0;
     super.onViewCreated(paramView, paramBundle);
-    mButtonDone.setText(getString(2131166302));
-    mEditTextZip.setHint(getString(2131167255));
-    mEditTextCardNumber.addTextChangedListener(new jzb(mEditTextCardNumber));
-    mEditTextMonth.addTextChangedListener(new jzb(mEditTextMonth));
-    mEditTextYear.addTextChangedListener(new jzb(mEditTextYear));
-    mEditTextCardCode.addTextChangedListener(new jzb(mEditTextCardCode));
-    mEditTextZip.addTextChangedListener(new jzb(mEditTextZip));
+    mButtonDone.setText(getString(2131166481));
+    mEditTextZip.setHint(getString(2131167656));
+    mEditTextCardNumber.addTextChangedListener(new nfu(mEditTextCardNumber));
+    mEditTextMonth.addTextChangedListener(new nfu(mEditTextMonth));
+    mEditTextYear.addTextChangedListener(new nfu(mEditTextYear));
+    mEditTextCardCode.addTextChangedListener(new nfu(mEditTextCardCode));
+    mEditTextZip.addTextChangedListener(new nfu(mEditTextZip));
     mButtonLegal.setPaintFlags(mButtonLegal.getPaintFlags() | 0x8);
-    paramView = u.c();
+    paramView = s.c();
     mCountryButton.a(paramView);
     mEditTextZip.a(paramView);
     mEditTextCardNumber.a(this);
     mCountryButton.a(this);
     int i1;
-    if (!eqz.b(f, paramView)) {
-      if (euc.a(paramView, k.a(), f))
+    if (!eze.b(f, paramView)) {
+      if (fcm.a(paramView, j.a(), f))
       {
-        mButtonPaypal.setContentDescription(getString(2131166202));
+        mButtonPaypal.setContentDescription(getString(2131167667));
         mButtonPaypal.setVisibility(0);
         i1 = 1;
-        if (eqz.a(f, era.a, getActivity(), n, k.a()))
+        if (eze.a(f, ezf.a, getActivity(), l, j.a()))
         {
-          mButtonGoogleWallet.setContentDescription(getString(2131165906));
+          mButtonGoogleWallet.setContentDescription(getString(2131167658));
           mButtonGoogleWallet.setVisibility(0);
           i1 = 1;
         }
-        if (eqz.a(f, era.a, k.a()))
+        if (eze.a(f, ezf.a, j.a()))
         {
-          mButtonAlipay.setContentDescription(getString(2131165273));
+          mButtonAlipay.setContentDescription(getString(2131167676));
           mButtonAlipay.setVisibility(0);
+          i1 = 1;
+        }
+        mButtonCampusCard.setVisibility(8);
+        if (eze.h(f, ezf.a))
+        {
+          mButtonCampusCard.setContentDescription(getString(2131165460));
+          mButtonCampusCard.setVisibility(0);
           i1 = i3;
         }
       }
     }
     for (;;)
     {
-      if (!f.a(dux.aH))
+      if (!f.b(eaj.aN))
       {
         mViewGroupTos.setVisibility(8);
         mTextViewSkip.setVisibility(0);
@@ -645,21 +662,21 @@ public class SignupPaymentFragment
       for (i1 = i2;; i1 = 4)
       {
         paramView.setVisibility(i1);
-        if (f.b(dux.P)) {
+        if (f.c(eaj.Z)) {
           mButtonScanCard.setVisibility(8);
         }
-        v = ((PromoBarFragment)getChildFragmentManager().findFragmentById(2131625576));
-        v.a(this);
+        t = ((PromoBarFragment)getChildFragmentManager().findFragmentById(2131626235));
+        t.a(this);
         paramView = l();
         if (!TextUtils.isEmpty(paramView)) {
           break;
         }
-        v.a(u.h());
-        v.a();
+        t.a(s.h());
+        t.a();
         return;
       }
-      v.a(SignupData.PromoCode.a(paramView, null));
-      v.a(paramView);
+      t.a(SignupData.PromoCode.a(paramView, null));
+      t.a(paramView);
       return;
       continue;
       i1 = 0;

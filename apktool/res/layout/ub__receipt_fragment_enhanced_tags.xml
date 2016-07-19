@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/ub__uber_white_10" android:paddingLeft="@dimen/ui__spacing_unit_1x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_1x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:layout_gravity="center" android:id="@id/ub__receipt_octane_textview_tags_cta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:text="@string/what_went_wrong_prompt" style="@style/Style.Rider.Octane.ReceiptDialog.Tag.CtaText" />
+    <com.ubercab.ui.TextView android:layout_gravity="center" android:id="@id/ub__receipt_octane_textview_mandatory" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_1x" android:text="@string/receipt_feedback_choose_one" style="@style/Style.Rider.TextAppearance.Octane.ReceiptDialog.SubTitle" />
+    <GridView android:id="@id/ub__receipt_octane_gridview_tags" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="@null" android:numColumns="2" />
+</LinearLayout>

@@ -3,10 +3,10 @@ package com.ubercab.android.payment.realtime.response.body;
 import com.ubercab.android.payment.realtime.internal.validator.PaymentValidatorFactory;
 import com.ubercab.android.payment.realtime.model.PaymentProfile;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=PaymentValidatorFactory.class)
+@lzo(a=PaymentValidatorFactory.class)
 public abstract class CreatePaymentProfileResponse
 {
   public static CreatePaymentProfileResponse create(PaymentProfile paramPaymentProfile)

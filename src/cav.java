@@ -1,10 +1,19 @@
-public abstract interface cav
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import com.paypal.android.sdk.payments.LoginActivity;
+import java.util.List;
+
+final class cav
+  implements DialogInterface.OnClickListener
 {
-  public abstract String a();
+  cav(cau paramcau) {}
   
-  public abstract String a(Enum paramEnum, String paramString);
-  
-  public abstract String a(String paramString);
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  {
+    LoginActivity.a(a.c, paramInt);
+    a.a.a(paramInt);
+    ka.c).o.a((String)a.b.get(paramInt));
+  }
 }
 
 /* Location:

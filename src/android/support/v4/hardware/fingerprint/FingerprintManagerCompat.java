@@ -5,7 +5,7 @@ import android.os.Build.VERSION;
 import android.os.Handler;
 import android.support.v4.os.CancellationSignal;
 
-public class FingerprintManagerCompat
+public final class FingerprintManagerCompat
 {
   static final FingerprintManagerCompat.FingerprintManagerCompatImpl IMPL = new FingerprintManagerCompat.LegacyFingerprintManagerCompatImpl();
   private Context mContext;
@@ -29,17 +29,17 @@ public class FingerprintManagerCompat
     return new FingerprintManagerCompat(paramContext);
   }
   
-  public void authenticate(FingerprintManagerCompat.CryptoObject paramCryptoObject, int paramInt, CancellationSignal paramCancellationSignal, FingerprintManagerCompat.AuthenticationCallback paramAuthenticationCallback, Handler paramHandler)
+  public final void authenticate(FingerprintManagerCompat.CryptoObject paramCryptoObject, int paramInt, CancellationSignal paramCancellationSignal, FingerprintManagerCompat.AuthenticationCallback paramAuthenticationCallback, Handler paramHandler)
   {
     IMPL.authenticate(mContext, paramCryptoObject, paramInt, paramCancellationSignal, paramAuthenticationCallback, paramHandler);
   }
   
-  public boolean hasEnrolledFingerprints()
+  public final boolean hasEnrolledFingerprints()
   {
     return IMPL.hasEnrolledFingerprints(mContext);
   }
   
-  public boolean isHardwareDetected()
+  public final boolean isHardwareDetected()
   {
     return IMPL.isHardwareDetected(mContext);
   }

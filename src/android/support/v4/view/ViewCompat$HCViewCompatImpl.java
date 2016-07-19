@@ -101,6 +101,16 @@ class ViewCompat$HCViewCompatImpl
     ViewCompatHC.jumpDrawablesToCurrentState(paramView);
   }
   
+  public void offsetLeftAndRight(View paramView, int paramInt)
+  {
+    ViewCompatHC.offsetLeftAndRight(paramView, paramInt);
+  }
+  
+  public void offsetTopAndBottom(View paramView, int paramInt)
+  {
+    ViewCompatHC.offsetTopAndBottom(paramView, paramInt);
+  }
+  
   public int resolveSizeAndState(int paramInt1, int paramInt2, int paramInt3)
   {
     return ViewCompatHC.resolveSizeAndState(paramInt1, paramInt2, paramInt3);

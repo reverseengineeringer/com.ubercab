@@ -1,4 +1,7 @@
-final class act {}
+public abstract interface act<T extends acm>
+{
+  public abstract void a(T paramT);
+}
 
 /* Location:
  * Qualified Name:     act

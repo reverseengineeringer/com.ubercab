@@ -3,10 +3,10 @@ package com.ubercab.client.core.model;
 import android.os.Parcelable;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class AnonymousPhoneNumberResponse
   implements Parcelable
 {
@@ -15,14 +15,10 @@ public abstract class AnonymousPhoneNumberResponse
     return new Shape_AnonymousPhoneNumberResponse();
   }
   
-  public static AnonymousPhoneNumberResponse create(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6)
+  public static AnonymousPhoneNumberResponse create(String paramString1, String paramString2, String paramString3, String paramString4)
   {
-    return new Shape_AnonymousPhoneNumberResponse().setAnonymousNumber(paramString1).setAnonymousNumberFormatted(paramString2).setAnonymousSmsNumber(paramString5).setAnonymousSmsNumberFormatted(paramString6).setAnonymousVoiceNumber(paramString3).setAnonymousVoiceNumberFormatted(paramString4);
+    return new Shape_AnonymousPhoneNumberResponse().setAnonymousSmsNumber(paramString3).setAnonymousSmsNumberFormatted(paramString4).setAnonymousVoiceNumber(paramString1).setAnonymousVoiceNumberFormatted(paramString2);
   }
-  
-  public abstract String getAnonymousNumber();
-  
-  public abstract String getAnonymousNumberFormatted();
   
   public abstract String getAnonymousSmsNumber();
   
@@ -31,10 +27,6 @@ public abstract class AnonymousPhoneNumberResponse
   public abstract String getAnonymousVoiceNumber();
   
   public abstract String getAnonymousVoiceNumberFormatted();
-  
-  abstract AnonymousPhoneNumberResponse setAnonymousNumber(String paramString);
-  
-  abstract AnonymousPhoneNumberResponse setAnonymousNumberFormatted(String paramString);
   
   abstract AnonymousPhoneNumberResponse setAnonymousSmsNumber(String paramString);
   

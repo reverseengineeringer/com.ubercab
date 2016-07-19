@@ -1,50 +1,21 @@
-import android.app.ActionBar;
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-
-final class ag
-  implements ab
+public final class ag
 {
-  final Activity a;
-  aj b;
-  
-  private ag(Activity paramActivity)
-  {
-    a = paramActivity;
-  }
-  
-  public final Drawable a()
-  {
-    return ai.a(a);
-  }
-  
-  public final void a(int paramInt)
-  {
-    b = ai.a(b, a, paramInt);
-  }
-  
-  public final void a(Drawable paramDrawable, int paramInt)
-  {
-    a.getActionBar().setDisplayShowHomeEnabled(true);
-    b = ai.a(a, paramDrawable, paramInt);
-    a.getActionBar().setDisplayShowHomeEnabled(false);
-  }
-  
-  public final Context b()
-  {
-    ActionBar localActionBar = a.getActionBar();
-    if (localActionBar != null) {
-      return localActionBar.getThemedContext();
-    }
-    return a;
-  }
-  
-  public final boolean c()
-  {
-    ActionBar localActionBar = a.getActionBar();
-    return (localActionBar != null) && ((localActionBar.getDisplayOptions() & 0x4) != 0);
-  }
+  public static final int abc_fade_in = 2130968576;
+  public static final int abc_fade_out = 2130968577;
+  public static final int abc_grow_fade_in_from_bottom = 2130968578;
+  public static final int abc_popup_enter = 2130968579;
+  public static final int abc_popup_exit = 2130968580;
+  public static final int abc_shrink_fade_out_from_bottom = 2130968581;
+  public static final int abc_slide_in_bottom = 2130968582;
+  public static final int abc_slide_in_top = 2130968583;
+  public static final int abc_slide_out_bottom = 2130968584;
+  public static final int abc_slide_out_top = 2130968585;
+  public static final int design_bottom_sheet_slide_in = 2130968589;
+  public static final int design_bottom_sheet_slide_out = 2130968590;
+  public static final int design_fab_in = 2130968591;
+  public static final int design_fab_out = 2130968592;
+  public static final int design_snackbar_in = 2130968593;
+  public static final int design_snackbar_out = 2130968594;
 }
 
 /* Location:

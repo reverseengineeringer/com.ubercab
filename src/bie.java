@@ -1,79 +1,116 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.PolylineOptions;
-import java.util.ArrayList;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public final class bie
-  implements Parcelable.Creator<PolylineOptions>
 {
-  public static PolylineOptions a(Parcel paramParcel)
+  private final bij a;
+  private boolean b;
+  private long c;
+  private long d;
+  
+  bie()
   {
-    float f1 = 0.0F;
-    boolean bool1 = false;
-    int k = zm.b(paramParcel);
-    ArrayList localArrayList = null;
-    boolean bool2 = false;
-    boolean bool3 = false;
-    int i = 0;
-    float f2 = 0.0F;
-    int j = 0;
-    while (paramParcel.dataPosition() < k)
+    a = bij.b();
+  }
+  
+  private bie(bij parambij)
+  {
+    a = ((bij)bhx.a(parambij, "ticker"));
+  }
+  
+  public static bie a()
+  {
+    return new bie();
+  }
+  
+  public static bie a(bij parambij)
+  {
+    return new bie(parambij).b();
+  }
+  
+  private static TimeUnit a(long paramLong)
+  {
+    if (TimeUnit.DAYS.convert(paramLong, TimeUnit.NANOSECONDS) > 0L) {
+      return TimeUnit.DAYS;
+    }
+    if (TimeUnit.HOURS.convert(paramLong, TimeUnit.NANOSECONDS) > 0L) {
+      return TimeUnit.HOURS;
+    }
+    if (TimeUnit.MINUTES.convert(paramLong, TimeUnit.NANOSECONDS) > 0L) {
+      return TimeUnit.MINUTES;
+    }
+    if (TimeUnit.SECONDS.convert(paramLong, TimeUnit.NANOSECONDS) > 0L) {
+      return TimeUnit.SECONDS;
+    }
+    if (TimeUnit.MILLISECONDS.convert(paramLong, TimeUnit.NANOSECONDS) > 0L) {
+      return TimeUnit.MILLISECONDS;
+    }
+    if (TimeUnit.MICROSECONDS.convert(paramLong, TimeUnit.NANOSECONDS) > 0L) {
+      return TimeUnit.MICROSECONDS;
+    }
+    return TimeUnit.NANOSECONDS;
+  }
+  
+  private static String b(TimeUnit paramTimeUnit)
+  {
+    switch (bie.1.a[paramTimeUnit.ordinal()])
     {
-      int m = zm.a(paramParcel);
-      switch (zm.a(m))
-      {
-      default: 
-        zm.a(paramParcel, m);
-        break;
-      case 1: 
-        j = zm.e(paramParcel, m);
-        break;
-      case 2: 
-        localArrayList = zm.c(paramParcel, m, LatLng.CREATOR);
-        break;
-      case 3: 
-        f2 = zm.j(paramParcel, m);
-        break;
-      case 4: 
-        i = zm.e(paramParcel, m);
-        break;
-      case 5: 
-        f1 = zm.j(paramParcel, m);
-        break;
-      case 6: 
-        bool3 = zm.b(paramParcel, m);
-        break;
-      case 7: 
-        bool2 = zm.b(paramParcel, m);
-        break;
-      case 8: 
-        bool1 = zm.b(paramParcel, m);
-      }
+    default: 
+      throw new AssertionError();
+    case 1: 
+      return "ns";
+    case 2: 
+      return "μs";
+    case 3: 
+      return "ms";
+    case 4: 
+      return "s";
+    case 5: 
+      return "min";
+    case 6: 
+      return "h";
     }
-    if (paramParcel.dataPosition() != k) {
-      throw new zn("Overread allowed size end=" + k, paramParcel);
-    }
-    return new PolylineOptions(j, localArrayList, f2, i, f1, bool3, bool2, bool1);
+    return "d";
   }
   
-  public static void a(PolylineOptions paramPolylineOptions, Parcel paramParcel)
+  private long d()
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramPolylineOptions.a());
-    zo.b(paramParcel, 2, paramPolylineOptions.b(), false);
-    zo.a(paramParcel, 3, paramPolylineOptions.c());
-    zo.a(paramParcel, 4, paramPolylineOptions.d());
-    zo.a(paramParcel, 5, paramPolylineOptions.e());
-    zo.a(paramParcel, 6, paramPolylineOptions.f());
-    zo.a(paramParcel, 7, paramPolylineOptions.g());
-    zo.a(paramParcel, 8, paramPolylineOptions.h());
-    zo.a(paramParcel, i);
+    if (b) {
+      return a.a() - d + c;
+    }
+    return c;
   }
   
-  private static PolylineOptions[] a(int paramInt)
+  public final long a(TimeUnit paramTimeUnit)
   {
-    return new PolylineOptions[paramInt];
+    return paramTimeUnit.convert(d(), TimeUnit.NANOSECONDS);
+  }
+  
+  public final bie b()
+  {
+    if (!b) {}
+    for (boolean bool = true;; bool = false)
+    {
+      bhx.b(bool, "This stopwatch is already running.");
+      b = true;
+      d = a.a();
+      return this;
+    }
+  }
+  
+  public final bie c()
+  {
+    c = 0L;
+    b = false;
+    return this;
+  }
+  
+  public final String toString()
+  {
+    long l = d();
+    TimeUnit localTimeUnit = a(l);
+    double d1 = l / TimeUnit.NANOSECONDS.convert(1L, localTimeUnit);
+    return String.format(Locale.ROOT, "%.4g %s", new Object[] { Double.valueOf(d1), b(localTimeUnit) });
   }
 }
 

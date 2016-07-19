@@ -1,25 +1,10 @@
+import java.lang.reflect.Array;
+
 final class bkb
-  implements Runnable
 {
-  private final bka a;
-  private final int b;
-  private final Throwable c;
-  private final byte[] d;
-  private final String e;
-  
-  private bkb(String paramString, bka parambka, int paramInt, Throwable paramThrowable, byte[] paramArrayOfByte)
+  static <T> T[] a(T[] paramArrayOfT, int paramInt)
   {
-    abs.a(parambka);
-    a = parambka;
-    b = paramInt;
-    c = paramThrowable;
-    d = paramArrayOfByte;
-    e = paramString;
-  }
-  
-  public final void run()
-  {
-    a.a(e, b, c, d);
+    return (Object[])Array.newInstance(paramArrayOfT.getClass().getComponentType(), paramInt);
   }
 }
 

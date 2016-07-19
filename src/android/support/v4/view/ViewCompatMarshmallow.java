@@ -9,6 +9,16 @@ class ViewCompatMarshmallow
     return paramView.getScrollIndicators();
   }
   
+  static void offsetLeftAndRight(View paramView, int paramInt)
+  {
+    paramView.offsetLeftAndRight(paramInt);
+  }
+  
+  static void offsetTopAndBottom(View paramView, int paramInt)
+  {
+    paramView.offsetTopAndBottom(paramInt);
+  }
+  
   public static void setScrollIndicators(View paramView, int paramInt)
   {
     paramView.setScrollIndicators(paramInt);

@@ -1,49 +1,50 @@
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-public final class bxl
+public class bxl
 {
-  public static boolean a;
-  private static final cau b = new cau(bxn.class, cgf.a);
-  private static Set c = new bxm();
+  private static final List a = Arrays.asList(new String[] { "android.permission.ACCESS_NETWORK_STATE", "android.permission.INTERNET" });
+  private final Context b;
   
-  public static String a(bxn parambxn)
+  static
   {
-    return b.a(parambxn);
+    bxl.class.getSimpleName();
   }
   
-  public static String a(String paramString)
+  public bxl(Context paramContext)
   {
-    if (paramString.equals(btt.b.toString())) {
-      return b.a(bxn.aK);
-    }
-    if (paramString.equals(btt.a.toString())) {
-      return b.a("INTERNAL_SERVICE_ERROR", bxn.aQ);
-    }
-    if (paramString.equals(btt.c.toString())) {
-      return b.a(bxn.bu);
-    }
-    return b.a(paramString, bxn.aQ);
+    b = paramContext;
   }
   
-  public static void b(String paramString)
+  public final void a()
   {
-    b.a(paramString);
-    if ((bze.d(paramString)) && (c.contains(paramString))) {}
-    for (boolean bool = true;; bool = false)
+    try
     {
-      a = bool;
-      return;
+      HashSet localHashSet = new HashSet(a);
+      String[] arrayOfString = b.getPackageManager().getPackageInfo(b.getPackageName(), 4096).requestedPermissions;
+      if (arrayOfString != null)
+      {
+        int i = 0;
+        while (i < arrayOfString.length)
+        {
+          localHashSet.remove(arrayOfString[i]);
+          i += 1;
+        }
+      }
+      if (!localHashSet.isEmpty()) {
+        throw new RuntimeException("Missing required permissions in manifest:" + localHashSet);
+      }
     }
-  }
-  
-  public static String c(String paramString)
-  {
-    String str2 = b.a();
-    String str1 = str2;
-    if (!str2.contains("_")) {
-      str1 = str2 + "_" + paramString;
+    catch (PackageManager.NameNotFoundException localNameNotFoundException)
+    {
+      throw new RuntimeException("Exception loading manifest" + localNameNotFoundException.getMessage());
     }
-    return str1;
   }
 }
 

@@ -1,54 +1,69 @@
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.common.data.BitmapTeleporter;
-import com.google.android.gms.location.places.PlacePhotoResult;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.VisibleRegion;
 
 public final class bas
-  implements Parcelable.Creator<PlacePhotoResult>
+  implements Parcelable.Creator<VisibleRegion>
 {
-  private static PlacePhotoResult a(Parcel paramParcel)
+  public static VisibleRegion a(Parcel paramParcel)
   {
-    int j = zm.b(paramParcel);
-    Status localStatus = null;
+    LatLngBounds localLatLngBounds = null;
+    int j = zd.b(paramParcel);
     int i = 0;
-    BitmapTeleporter localBitmapTeleporter = null;
+    LatLng localLatLng1 = null;
+    LatLng localLatLng2 = null;
+    LatLng localLatLng3 = null;
+    LatLng localLatLng4 = null;
     while (paramParcel.dataPosition() < j)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
       default: 
-        zm.a(paramParcel, k);
+        zd.a(paramParcel, k);
         break;
       case 1: 
-        localStatus = (Status)zm.a(paramParcel, k, Status.CREATOR);
-        break;
-      case 1000: 
-        i = zm.e(paramParcel, k);
+        i = zd.e(paramParcel, k);
         break;
       case 2: 
-        localBitmapTeleporter = (BitmapTeleporter)zm.a(paramParcel, k, BitmapTeleporter.CREATOR);
+        localLatLng4 = (LatLng)zd.a(paramParcel, k, LatLng.CREATOR);
+        break;
+      case 3: 
+        localLatLng3 = (LatLng)zd.a(paramParcel, k, LatLng.CREATOR);
+        break;
+      case 4: 
+        localLatLng2 = (LatLng)zd.a(paramParcel, k, LatLng.CREATOR);
+        break;
+      case 5: 
+        localLatLng1 = (LatLng)zd.a(paramParcel, k, LatLng.CREATOR);
+        break;
+      case 6: 
+        localLatLngBounds = (LatLngBounds)zd.a(paramParcel, k, LatLngBounds.CREATOR);
       }
     }
     if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new PlacePhotoResult(i, localStatus, localBitmapTeleporter);
+    return new VisibleRegion(i, localLatLng4, localLatLng3, localLatLng2, localLatLng1, localLatLngBounds);
   }
   
-  public static void a(PlacePhotoResult paramPlacePhotoResult, Parcel paramParcel, int paramInt)
+  public static void a(VisibleRegion paramVisibleRegion, Parcel paramParcel, int paramInt)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramPlacePhotoResult.a(), paramInt, false);
-    zo.a(paramParcel, 1000, a);
-    zo.a(paramParcel, 2, b, paramInt, false);
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramVisibleRegion.a());
+    zf.a(paramParcel, 2, a, paramInt, false);
+    zf.a(paramParcel, 3, b, paramInt, false);
+    zf.a(paramParcel, 4, c, paramInt, false);
+    zf.a(paramParcel, 5, d, paramInt, false);
+    zf.a(paramParcel, 6, e, paramInt, false);
+    zf.a(paramParcel, i);
   }
   
-  private static PlacePhotoResult[] a(int paramInt)
+  private static VisibleRegion[] a(int paramInt)
   {
-    return new PlacePhotoResult[paramInt];
+    return new VisibleRegion[paramInt];
   }
 }
 

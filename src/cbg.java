@@ -1,15 +1,34 @@
+import android.content.Context;
 import android.content.Intent;
-import java.util.ArrayList;
+import com.paypal.android.sdk.payments.PayPalService;
+import java.util.Iterator;
+import java.util.List;
 
-final class cbg
+public final class cbg
+  implements Runnable
 {
-  final Intent a;
-  final ArrayList b;
+  public cbg(Context paramContext) {}
   
-  cbg(Intent paramIntent, ArrayList paramArrayList)
+  public final void run()
   {
-    a = paramIntent;
-    b = paramArrayList;
+    PayPalService.y();
+    Object localObject = a;
+    new cel();
+    localObject = new btf((Context)localObject, "AndroidBasePrefs");
+    btt.a((btf)localObject);
+    btw.a((btf)localObject);
+    Iterator localIterator = new cbh().iterator();
+    while (localIterator.hasNext())
+    {
+      String str = (String)localIterator.next();
+      btg localbtg = new btg((btf)localObject, str);
+      localbtg.b();
+      localbtg.c();
+      buz.b(str);
+    }
+    localObject = new Intent("com.paypal.android.sdk.clearAllUserData");
+    cah.a(a).a((Intent)localObject);
+    PayPalService.y();
   }
 }
 

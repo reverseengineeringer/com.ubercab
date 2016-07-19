@@ -1,8 +1,29 @@
-import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
+import android.location.Location;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 
-public abstract interface aqi
+final class aqi
+  extends Handler
 {
-  public abstract String a(AdRequestInfoParcel paramAdRequestInfoParcel);
+  private final api a;
+  
+  public aqi(api paramapi)
+  {
+    a = paramapi;
+  }
+  
+  public final void handleMessage(Message paramMessage)
+  {
+    switch (what)
+    {
+    default: 
+      Log.e("LocationClientHelper", "unknown message in LocationHandler.handleMessage");
+      return;
+    }
+    paramMessage = new Location((Location)obj);
+    a.a(paramMessage);
+  }
 }
 
 /* Location:

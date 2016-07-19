@@ -1,10 +1,6 @@
-public abstract interface chd
+public enum chd
 {
-  public abstract void a(int paramInt, String paramString, boolean paramBoolean);
-  
-  public abstract void a(Exception paramException);
-  
-  public abstract void b(String paramString);
+  private chd() {}
 }
 
 /* Location:

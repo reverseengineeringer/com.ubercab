@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" style="@style/Style.Rider.Trip.Section"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <com.ubercab.ui.TextView android:id="@id/ub__trip_tracker_driver_name_text_view" style="@style/Style.Rider.TripTracker.Driver.Text" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.ubercab.ui.TextView android:id="@id/ub__trip_tracker_driver_rating_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/Style.Rider.TripTracker.Driver.Text.Weak" />
+                <com.ubercab.ui.TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__star" style="@style/Style.Rider.TripTracker.Driver.Text.Weak" />
+            </LinearLayout>
+        </LinearLayout>
+        <FrameLayout style="@style/Style.Rider.Trip.Driver.Image.Container">
+            <ImageView android:id="@id/ub__trip_tracker_driver_image" android:src="@drawable/ub__emptystate_profile" android:contentDescription="@string/ub__driver_image" style="@style/Style.Rider.Trip.Driver.Circle" />
+            <LinearLayout style="@style/Style.Rider.Trip.Driver.BoxGroup">
+                <com.ubercab.ui.TextView android:id="@id/ub__trip_tracker_license_plate_text_view" style="@style/Style.Rider.Trip.Driver.BoxText" />
+            </LinearLayout>
+        </FrameLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <com.ubercab.ui.TextView android:id="@id/ub__trip_tracker_vehicle_make_text_view" style="@style/Style.Rider.TripTracker.Driver.Text" />
+            <com.ubercab.ui.TextView android:id="@id/ub__trip_tracker_vehicle_model_text_view" style="@style/Style.Rider.TripTracker.Driver.Text.Weak" />
+        </LinearLayout>
+    </LinearLayout>
+    <View android:id="@id/ub__trip_tracker_driver_info_divider" android:background="@color/ub__uber_black_60" android:layout_width="fill_parent" android:layout_height="@dimen/ub__rate_card_divider_line_height" />
+    <LinearLayout android:gravity="center" android:id="@id/ub__trip_tracker_contact_section_view" android:paddingTop="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:textSize="@dimen/ub__trip_tracker_driver_contact_text_size" android:gravity="center" android:paddingLeft="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/contact" android:textAllCaps="true" fontPath="@string/ub__font_narrow_medium" />
+        <com.ubercab.ui.Button android:id="@id/ub__trip_tracker_contact_driver_button" android:layout_width="wrap_content" android:layout_height="@dimen/ub__trip_tray_contact_height" android:text="@string/driver" style="@style/Style.Rider.TripTracker.Button.Contact.Driver" />
+        <com.ubercab.ui.Button android:id="@id/ub__trip_tracker_contact_rider_button" android:layout_width="wrap_content" android:layout_height="@dimen/ub__trip_tray_contact_height" android:text="@string/rider" style="@style/Style.Rider.TripTracker.Button.Contact.Driver" />
+        <com.ubercab.ui.Button android:id="@id/ub__trip_tracker_contact_support_button" android:layout_width="wrap_content" android:layout_height="@dimen/ub__trip_tray_contact_height" android:text="@string/support" style="@style/Style.Rider.TripTracker.Button.Contact.Driver" />
+    </LinearLayout>
+</LinearLayout>

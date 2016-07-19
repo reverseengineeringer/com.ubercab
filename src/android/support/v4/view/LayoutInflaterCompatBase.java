@@ -4,6 +4,15 @@ import android.view.LayoutInflater;
 
 class LayoutInflaterCompatBase
 {
+  static LayoutInflaterFactory getFactory(LayoutInflater paramLayoutInflater)
+  {
+    paramLayoutInflater = paramLayoutInflater.getFactory();
+    if ((paramLayoutInflater instanceof LayoutInflaterCompatBase.FactoryWrapper)) {
+      return mDelegateFactory;
+    }
+    return null;
+  }
+  
   static void setFactory(LayoutInflater paramLayoutInflater, LayoutInflaterFactory paramLayoutInflaterFactory)
   {
     if (paramLayoutInflaterFactory != null) {}

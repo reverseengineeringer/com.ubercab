@@ -1,5 +1,6 @@
 package com.ubercab.client.feature.payment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -15,134 +16,159 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import cja;
+import cjm;
+import ckt;
+import cli;
+import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.ui.MonthEditText;
 import com.ubercab.client.core.ui.YearEditText;
+import com.ubercab.client.feature.cardoffers.CardOfferDetailsActivity;
 import com.ubercab.client.feature.payment.legacy.CreditCardEditText;
 import com.ubercab.client.feature.payment.legacy.SecurityCodeEditText;
 import com.ubercab.locale.country.CountryButton;
+import com.ubercab.rider.realtime.model.CardOffer;
+import com.ubercab.rider.realtime.model.CardOfferEnrollment;
 import com.ubercab.rider.realtime.model.City;
 import com.ubercab.rider.realtime.model.Client;
+import com.ubercab.rider.realtime.model.Image;
 import com.ubercab.rider.realtime.model.PaymentProfile;
 import com.ubercab.rider.realtime.model.RewardInfo;
 import com.ubercab.ui.Button;
 import com.ubercab.ui.deprecated.view.ZipEditText;
-import dps;
-import dsh;
-import dty;
-import due;
-import efr;
-import eld;
-import epe;
-import epy;
-import erb;
-import eri;
-import fzc;
-import fzd;
-import fzq;
-import fzs;
-import fzt;
-import fzu;
-import fzv;
-import fzw;
-import fzx;
-import fzy;
-import gad;
-import gbm;
-import gbn;
-import gcc;
-import gck;
-import gdl;
-import gdx;
-import gif;
-import iaj;
-import iie;
-import iov;
+import duq;
+import dxm;
+import enk;
+import esu;
+import exg;
+import exw;
+import exz;
+import ezg;
+import ezm;
+import ezz;
+import fio;
+import fix;
+import gtt;
+import gtu;
+import guh;
+import guj;
+import gum;
+import gun;
+import guo;
+import gup;
+import guq;
+import gur;
+import gux;
+import gwp;
+import gwr;
+import gxj;
+import hcd;
+import hdg;
+import hds;
+import hjm;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import jru;
-import jry;
-import jsg;
-import jsj;
-import jzv;
-import kld;
-import klo;
-import kls;
-import p;
-import r;
+import kcn;
+import kct;
+import khv;
+import kia;
+import kmd;
+import lga;
+import mwx;
+import mxd;
+import mxm;
+import mxp;
+import ngm;
+import odr;
+import oed;
+import oeh;
+import opc;
+import x;
+import z;
 
 public class EditCreditCardFragment
-  extends dsh<fzw>
-  implements View.OnClickListener, epe, epy, gdx, iie, jzv
+  extends dxm<gup>
+  implements View.OnClickListener, exg, exz, hds, kmd, ngm
 {
-  public ckc c;
-  public gbn d;
-  public chh e;
-  public jsg f;
-  public jsj g;
-  public fzq h;
-  public jru i;
+  private String A;
+  private ProgressDialog B;
+  private oed C;
+  private oed D;
+  private oed E;
+  private Boolean F;
+  public ckt c;
+  public gwr d;
+  public chn e;
+  public khv f;
+  public fio g;
+  public mxm h;
+  public mxp i;
+  public guh j;
+  public kia k;
+  public mwx l;
+  public cja m;
+  @BindView
+  public CountryButton mButtonCountry;
+  @BindView
+  public Button mButtonDelete;
+  @BindView
+  public Button mButtonEnrollMe;
+  @BindView
+  public SecurityCodeEditText mEditTextCreditCardCode;
+  @BindView
+  public CreditCardEditText mEditTextCreditCardNumber;
+  @BindView
+  public MonthEditText mEditTextExpirationMonth;
+  @BindView
+  public YearEditText mEditTextExpirationYear;
+  @BindView
+  public ZipEditText mEditTextZip;
+  @BindView
+  public com.ubercab.ui.TextView mPaymentRewardsDescriptionDetails;
+  @BindView
+  public LinearLayout mPaymentRewardsLayout;
+  @BindView
+  public ImageView mPaymentRewardsLogo;
+  @BindView
+  public Spinner mSpinnerUseCase;
+  @BindView
+  public Switch mSwitchUsePoints;
+  @BindView
+  public com.ubercab.ui.TextView mTextViewRewardLink;
+  @BindView
+  public com.ubercab.ui.TextView mTextViewRewardRestrictions;
+  @BindView
+  public com.ubercab.ui.TextView mTextViewRewardsStatus;
+  @BindView
+  public com.ubercab.ui.TextView mTextViewUsePoints;
+  @BindView
+  public ViewGroup mViewGroupRewardRestrictions;
+  @BindView
+  public ViewGroup mViewGroupUsePoints;
   @Deprecated
-  public eld j;
-  public gif k;
-  public jry l;
-  public dty m;
-  @InjectView(2131624991)
-  CountryButton mButtonCountry;
-  @InjectView(2131624998)
-  Button mButtonDelete;
-  @InjectView(2131624997)
-  Button mButtonEnrollMe;
-  @InjectView(2131624989)
-  SecurityCodeEditText mEditTextCreditCardCode;
-  @InjectView(2131624986)
-  CreditCardEditText mEditTextCreditCardNumber;
-  @InjectView(2131624987)
-  MonthEditText mEditTextExpirationMonth;
-  @InjectView(2131624988)
-  YearEditText mEditTextExpirationYear;
-  @InjectView(2131624990)
-  ZipEditText mEditTextZip;
-  @InjectView(2131624992)
-  Spinner mSpinnerUseCase;
-  @InjectView(2131624996)
-  Switch mSwitchUsePoints;
-  @InjectView(2131625002)
-  com.ubercab.ui.TextView mTextViewRewardLink;
-  @InjectView(2131625001)
-  com.ubercab.ui.TextView mTextViewRewardRestrictions;
-  @InjectView(2131624993)
-  com.ubercab.ui.TextView mTextViewRewardsStatus;
-  @InjectView(2131624995)
-  com.ubercab.ui.TextView mTextViewUsePoints;
-  @InjectView(2131625000)
-  ViewGroup mViewGroupRewardRestrictions;
-  @InjectView(2131624994)
-  ViewGroup mViewGroupUsePoints;
-  private EditCreditCardFragment.ActionViewHolder n;
-  private gbm o;
-  private String p;
-  private klo q;
-  private boolean r;
-  private boolean s = false;
-  private fzs t;
-  private MenuItem u;
-  private String v;
-  private klo w;
-  private klo x;
-  private klo y;
-  private Boolean z;
+  public esu n;
+  public hjm o;
+  public mxd p;
+  private EditCreditCardFragment.ActionViewHolder q;
+  private CardOffer r;
+  private gwp s;
+  private String t;
+  private oed u;
+  private boolean v;
+  private boolean w = false;
+  private boolean x = false;
+  private guj y;
+  private MenuItem z;
   
   public static EditCreditCardFragment a(String paramString, boolean paramBoolean)
   {
@@ -166,13 +192,13 @@ public class EditCreditCardFragment
     mEditTextExpirationMonth.a(this);
     mEditTextZip.setText((CharSequence)localObject);
     mEditTextZip.a(this);
-    localObject = gdl.a(getActivity(), str2);
+    localObject = hdg.a(getActivity(), str2);
     mEditTextCreditCardNumber.setCompoundDrawablesWithIntrinsicBounds((Drawable)localObject, null, null, null);
-    str2 = gdl.d(str2, str3);
+    str2 = hdg.d(str2, str3);
     mEditTextCreditCardNumber.setText(str2);
     mEditTextCreditCardCode.a(paramPaymentProfile.getCardType());
     mEditTextCreditCardCode.a(this);
-    mSpinnerUseCase.setSelection(gbm.a.indexOf(str1));
+    mSpinnerUseCase.setSelection(gwp.a.indexOf(str1));
     paramPaymentProfile = paramPaymentProfile.getRewardInfo();
     if ((paramPaymentProfile == null) || (!a(paramCity)))
     {
@@ -183,38 +209,38 @@ public class EditCreditCardFragment
     {
       if (paramPaymentProfile.isEarnOnly())
       {
-        mTextViewRewardsStatus.setText(getString(2131165777));
+        mTextViewRewardsStatus.setText(getString(2131165846));
         mViewGroupUsePoints.setVisibility(8);
       }
       for (;;)
       {
         mTextViewRewardsStatus.setVisibility(0);
         mButtonEnrollMe.setVisibility(8);
-        j();
+        l();
         return;
-        mTextViewRewardsStatus.setText(getString(2131165778));
-        mTextViewUsePoints.setText(getString(2131166487));
+        mTextViewRewardsStatus.setText(getString(2131165847));
+        mTextViewUsePoints.setText(getString(2131166739));
         mViewGroupUsePoints.setVisibility(0);
-        if (z == null)
+        if (F == null)
         {
           mSwitchUsePoints.setChecked(paramPaymentProfile.isEnabled());
-          z = Boolean.valueOf(paramPaymentProfile.isEnabled());
+          F = Boolean.valueOf(paramPaymentProfile.isEnabled());
         }
       }
     }
     if (paramPaymentProfile.isEligible())
     {
       if (paramPaymentProfile.isEarnOnly()) {
-        mTextViewRewardsStatus.setText(getString(2131165750));
+        mTextViewRewardsStatus.setText(getString(2131165817));
       }
       for (;;)
       {
         mTextViewRewardsStatus.setVisibility(0);
-        mButtonEnrollMe.setText(getString(2131165768));
+        mButtonEnrollMe.setText(getString(2131165837));
         mButtonEnrollMe.setVisibility(0);
-        j();
+        l();
         return;
-        mTextViewRewardsStatus.setText(getString(2131165751));
+        mTextViewRewardsStatus.setText(getString(2131165818));
       }
     }
     mViewGroupRewardRestrictions.setVisibility(8);
@@ -222,26 +248,43 @@ public class EditCreditCardFragment
     mButtonEnrollMe.setVisibility(8);
   }
   
-  private void a(fzw paramfzw)
+  private void a(gup paramgup)
   {
-    paramfzw.a(this);
+    paramgup.a(this);
+  }
+  
+  private void a(Boolean paramBoolean1, Boolean paramBoolean2)
+  {
+    E = l.a(A, "amex_reward", paramBoolean1, paramBoolean2).a(oeh.a()).b(new gur(this, (byte)0));
+  }
+  
+  private void a(x paramx, String paramString)
+  {
+    paramx = AnalyticsEvent.create("impression").setName(paramx).setValue(paramString);
+    c.a(paramx);
+  }
+  
+  private void a(z paramz, String paramString)
+  {
+    paramz = AnalyticsEvent.create("tap").setName(paramz).setValue(paramString);
+    c.a(paramz);
   }
   
   private static boolean a(City paramCity)
   {
-    return (paramCity != null) && (gcc.a(paramCity.getCountryIso2()));
+    return (paramCity != null) && (gxj.a(paramCity.getCountryIso2()));
   }
   
   private boolean a(List<PaymentProfile> paramList)
   {
     Object localObject = paramList;
-    if (k.p()) {
+    if (o.o()) {
       if (paramList != null) {}
     }
     while ((localObject == null) || (((List)localObject).size() <= 1))
     {
       return false;
-      localObject = erb.a(paramList);
+      localObject = ezg.a(paramList, f);
     }
     return true;
   }
@@ -249,34 +292,34 @@ public class EditCreditCardFragment
   private void c(boolean paramBoolean)
   {
     int i2 = 0;
-    r = paramBoolean;
-    Object localObject1 = f.c();
+    v = paramBoolean;
+    Object localObject1 = h.c();
     if (localObject1 == null) {
       return;
     }
-    Object localObject3 = ((Client)localObject1).findPaymentProfileByUuid(v);
+    Object localObject3 = ((Client)localObject1).findPaymentProfileByUuid(A);
     if (localObject3 == null)
     {
-      e.c(new gck());
+      e.c(new hcd());
       return;
     }
-    RiderActivity localRiderActivity = d();
+    RiderActivity localRiderActivity = b();
     Object localObject2 = localRiderActivity.b();
     if (paramBoolean)
     {
-      localObject3 = LayoutInflater.from(localRiderActivity).inflate(2130903407, null);
-      n = new EditCreditCardFragment.ActionViewHolder((View)localObject3, (byte)0);
-      n.textViewConfirm.setText(getString(2131166368));
-      n.textViewCancel.setText(getString(2131165320));
-      n.actionButtonConfirm.setOnClickListener(this);
-      n.actionButtonCancel.setOnClickListener(this);
+      localObject3 = LayoutInflater.from(localRiderActivity).inflate(2130903564, null);
+      q = new EditCreditCardFragment.ActionViewHolder((View)localObject3, (byte)0);
+      q.textViewConfirm.setText(getString(2131166602));
+      q.textViewCancel.setText(getString(2131165344));
+      q.actionButtonConfirm.setOnClickListener(this);
+      q.actionButtonCancel.setOnClickListener(this);
       ((ActionBar)localObject2).a(16, 26);
       ((ActionBar)localObject2).a((View)localObject3, new ActionBar.LayoutParams(-1, -1));
       ((ActionBar)localObject2).b(false);
     }
     for (;;)
     {
-      localObject2 = iaj.a(mSpinnerUseCase, mEditTextZip, mEditTextExpirationYear, mEditTextExpirationMonth, mButtonCountry).a();
+      localObject2 = kct.a(mSpinnerUseCase, mEditTextZip, mEditTextExpirationYear, mEditTextExpirationMonth, mButtonCountry).a();
       while (((Iterator)localObject2).hasNext())
       {
         localObject3 = (View)((Iterator)localObject2).next();
@@ -285,19 +328,19 @@ public class EditCreditCardFragment
           ((android.widget.TextView)localObject3).setError(null);
         }
       }
-      if (n != null)
+      if (q != null)
       {
-        n.actionButtonConfirm.setOnClickListener(null);
-        n.actionButtonCancel.setOnClickListener(null);
-        n = null;
+        q.actionButtonConfirm.setOnClickListener(null);
+        q.actionButtonCancel.setOnClickListener(null);
+        q = null;
       }
       ((ActionBar)localObject2).d(false);
       ((ActionBar)localObject2).c(true);
       ((ActionBar)localObject2).b(true);
       ((ActionBar)localObject2).a(true);
-      ((ActionBar)localObject2).a(getString(2131166177));
+      ((ActionBar)localObject2).a(getString(2131166335));
       mEditTextCreditCardCode.setText(null);
-      a((PaymentProfile)localObject3, f.b());
+      a((PaymentProfile)localObject3, h.b());
     }
     localObject2 = mEditTextCreditCardCode;
     if (paramBoolean)
@@ -336,74 +379,122 @@ public class EditCreditCardFragment
     if (TextUtils.isEmpty(paramString)) {
       str = Locale.getDefault().getCountry().toUpperCase(Locale.US);
     }
-    p = str;
+    t = str;
     mEditTextZip.a(str);
     mButtonCountry.a(str);
   }
   
+  private void f(String paramString)
+  {
+    if ((getActivity() != null) && (!getActivity().isFinishing()))
+    {
+      B = exw.a(getActivity(), paramString, false, null);
+      B.show();
+    }
+  }
+  
   private void g()
   {
-    e();
-    l.a().b(eri.a());
-    c.a(p.hM);
+    k();
+    p.a().b(ezm.a());
+    c.a(x.kH);
   }
   
   private void h()
   {
-    b(getString(2131165696));
-    q = i.a(v).a(kls.a()).b(new fzv(this, (byte)0));
+    kcn localkcn = kcn.e();
+    Iterator localIterator = g.b().iterator();
+    if (localIterator.hasNext())
+    {
+      CardOfferEnrollment localCardOfferEnrollment = (CardOfferEnrollment)localIterator.next();
+      if (!g.a(localCardOfferEnrollment, A)) {
+        break label156;
+      }
+      localkcn = fix.a(g.a(), localCardOfferEnrollment);
+    }
+    label156:
+    for (;;)
+    {
+      break;
+      if (!localkcn.b()) {
+        return;
+      }
+      r = ((CardOffer)localkcn.c());
+      mPaymentRewardsLayout.setVisibility(0);
+      ezz.a(m, r.getLogo().getUrl()).a(mPaymentRewardsLogo);
+      if (r.getPaymentDetailText() != null) {
+        mPaymentRewardsDescriptionDetails.setText(r.getPaymentDetailText());
+      }
+      a(x.kP, r.getUuid());
+      return;
+    }
   }
   
   private void i()
   {
-    c.a(r.eq);
-    dps.b(getActivity(), getActivity().getCurrentFocus());
-    b(getString(2131167175));
-    String str1 = d.a(mEditTextExpirationMonth.getText().toString());
-    String str2 = d.a(mEditTextExpirationYear.getText().toString());
-    String str3 = d.a(mEditTextCreditCardCode.getText().toString());
-    String str4 = mEditTextZip.getText().toString();
-    String str5 = o.a(mSpinnerUseCase.getSelectedItemPosition());
-    String str8 = mEditTextCreditCardNumber.getText().toString();
-    String str6 = d.a(str8);
-    String str7 = iov.d(str8);
-    str8 = iov.e(str8);
-    x = i.a(v, str6, str3, str1, str2, p, str4, str5, str7, str8).a(kls.a()).b(new fzx(this, (byte)0));
+    f(getString(2131165755));
+    u = l.a(A).a(oeh.a()).b(new guo(this, (byte)0));
   }
   
   private void j()
   {
-    mTextViewRewardRestrictions.setText(getString(2131166327));
-    mTextViewRewardLink.setText(getString(2131167317));
-    mViewGroupRewardRestrictions.setVisibility(0);
+    c.a(z.gJ);
+    duq.b(getActivity(), getActivity().getCurrentFocus());
+    f(getString(2131167548));
+    String str1 = d.a(mEditTextExpirationMonth.getText().toString());
+    String str2 = d.a(mEditTextExpirationYear.getText().toString());
+    String str3 = d.a(mEditTextCreditCardCode.getText().toString());
+    String str4 = mEditTextZip.getText().toString();
+    String str5 = s.a(mSpinnerUseCase.getSelectedItemPosition());
+    String str8 = mEditTextCreditCardNumber.getText().toString();
+    String str6 = d.a(str8);
+    String str7 = lga.d(str8);
+    str8 = lga.e(str8);
+    D = l.a(A, str6, str3, str1, str2, t, str4, str5, str7, str8).a(oeh.a()).b(new guq(this, (byte)0));
   }
   
   private void k()
   {
-    if ((mEditTextExpirationYear.V_()) && (mEditTextExpirationMonth.V_())) {}
+    if ((B != null) && (B.isShowing()))
+    {
+      B.dismiss();
+      B = null;
+    }
+  }
+  
+  private void l()
+  {
+    mTextViewRewardRestrictions.setText(getString(2131166560));
+    mTextViewRewardLink.setText(getString(2131167824));
+    mViewGroupRewardRestrictions.setVisibility(0);
+  }
+  
+  private void m()
+  {
+    if ((mEditTextExpirationYear.Z_()) && (mEditTextExpirationMonth.Z_())) {}
     for (boolean bool = true;; bool = false)
     {
-      if (n != null) {
-        n.actionButtonConfirm.setEnabled(bool);
+      if (q != null) {
+        q.actionButtonConfirm.setEnabled(bool);
       }
       return;
     }
   }
   
-  private fzw l()
+  private gup n()
   {
-    return fzc.a().a(new efr(this)).a((gad)((EditPaymentProfileActivity)getActivity()).d()).a();
+    return gtt.a().a(new enk(this)).a((gux)((EditPaymentProfileActivity)getActivity()).d()).a();
   }
   
   public final void a()
   {
-    k();
+    m();
   }
   
   final void a(int paramInt1, int paramInt2)
   {
     if ((paramInt1 == 1) && (paramInt2 == -1)) {
-      h();
+      i();
     }
   }
   
@@ -414,79 +505,91 @@ public class EditCreditCardFragment
   
   public final void a(boolean paramBoolean)
   {
-    k();
+    m();
   }
   
   public final void b(boolean paramBoolean)
   {
-    k();
+    m();
   }
   
-  public final boolean b()
+  public final void d(boolean paramBoolean)
+  {
+    m();
+  }
+  
+  public final cli e()
+  {
+    return dxm.a;
+  }
+  
+  public final boolean f()
   {
     boolean bool = false;
-    if (r)
+    if (v)
     {
       c(false);
-      c.a(r.eJ);
+      c.a(z.hc);
       bool = true;
     }
     return bool;
   }
   
-  public final void d(boolean paramBoolean)
-  {
-    k();
-  }
-  
-  public final ckr f()
-  {
-    return dsh.a;
-  }
-  
   public void onClick(View paramView)
   {
-    if (paramView == n.actionButtonConfirm) {
+    if (paramView == q.actionButtonConfirm) {
       if (TextUtils.isEmpty(mEditTextCreditCardCode.getText()))
       {
-        mEditTextCreditCardCode.setError(getString(2131165676));
+        mEditTextCreditCardCode.setError(getString(2131165735));
         mEditTextCreditCardCode.requestFocus();
       }
     }
-    while (paramView != n.actionButtonCancel)
+    while (paramView != q.actionButtonCancel)
     {
       return;
       mEditTextCreditCardCode.setError(null);
-      i();
+      j();
       return;
     }
-    if (s)
+    if (x)
     {
-      d().finish();
+      b().finish();
       return;
     }
-    c.a(r.eJ);
+    c.a(z.hc);
     c(false);
   }
   
-  @OnClick({2131624998})
+  @OnClick
   public void onClickButtonDelete()
   {
-    c.a(p.hJ);
-    fzq.a(d());
+    c.a(x.kE);
+    guh.a(b());
   }
   
-  @OnClick({2131624997})
+  @OnClick
   public void onClickEnrollMe()
   {
-    b(getString(2131165773));
-    y = i.a(v, "amex_reward", null, Boolean.valueOf(true)).a(kls.a()).b(new fzy(this, (byte)0));
+    f(getString(2131165842));
+    a(null, Boolean.valueOf(true));
   }
   
-  @OnClick({2131625000})
+  @OnClick
+  public void onClickPaymentRewardsSeeDetails()
+  {
+    if (r != null)
+    {
+      a(z.hk, r.getUuid());
+      startActivity(CardOfferDetailsActivity.a(getActivity(), r.getUuid()));
+      return;
+    }
+    opc.e("Attempting to show card offer details for a non-enrolled offer", new Object[0]);
+  }
+  
+  @OnClick
   public void onClickTerms()
   {
-    startActivity(new Intent("android.intent.action.VIEW", Uri.parse(getString(2131167316))));
+    startActivity(new Intent("android.intent.action.VIEW", Uri.parse(getString(2131167823))));
   }
   
   public void onCreate(Bundle paramBundle)
@@ -496,40 +599,48 @@ public class EditCreditCardFragment
     Bundle localBundle = getArguments();
     if (localBundle != null)
     {
-      v = localBundle.getString("payment_profile_uuid");
-      s = localBundle.getBoolean("is_verify_mode", false);
+      A = localBundle.getString("payment_profile_uuid");
+      x = localBundle.getBoolean("is_verify_mode", false);
     }
     if (paramBundle != null) {
-      r = paramBundle.getBoolean("is_edit_mode", false);
+      v = paramBundle.getBoolean("is_edit_mode", false);
     }
   }
   
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
-    paramMenuInflater.inflate(2131755026, paramMenu);
-    u = paramMenu.findItem(2131626145);
-    u.setTitle(getString(2131165742));
+    paramMenuInflater.inflate(2131755028, paramMenu);
+    z = paramMenu.findItem(2131626900);
+    z.setTitle(getString(2131165807));
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903452, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903619, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
   }
   
-  public void onDestroyView()
+  public void onDestroy()
   {
-    super.onDestroyView();
-    ButterKnife.reset(this);
+    super.onDestroy();
+    if (u != null) {
+      u.af_();
+    }
+    if (D != null) {
+      D.af_();
+    }
+    if (E != null) {
+      E.af_();
+    }
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131626145)
+    if (paramMenuItem.getItemId() == 2131626900)
     {
       c(true);
-      c.a(r.eL);
+      c.a(z.he);
       return true;
     }
     return false;
@@ -538,28 +649,16 @@ public class EditCreditCardFragment
   public void onPause()
   {
     super.onPause();
-    t = null;
-    w.c();
-    if (q != null) {
-      q.c();
-    }
-    if (x != null) {
-      x.c();
-    }
-    if (y != null) {
-      y.c();
-    }
+    w = false;
+    y = null;
+    C.af_();
   }
-  
-  @cho
-  @Deprecated
-  public void onPingEvent(due paramdue) {}
   
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
     super.onPrepareOptionsMenu(paramMenu);
-    paramMenu = u;
-    if (!r) {}
+    paramMenu = z;
+    if (!v) {}
     for (boolean bool = true;; bool = false)
     {
       paramMenu.setVisible(bool);
@@ -570,30 +669,29 @@ public class EditCreditCardFragment
   public void onResume()
   {
     super.onResume();
-    t = ((fzs)getActivity());
-    w = kld.a(g.b(), g.d(), new fzu((byte)0)).a(kls.a()).c(new fzt(this, (byte)0));
-    c(r);
-    if (s)
-    {
-      r = true;
-      c(r);
+    w = true;
+    y = ((guj)getActivity());
+    C = odr.a(i.b(), i.d(), new gun((byte)0)).a(oeh.a()).c(new gum(this, (byte)0));
+    c(v);
+    if (x) {
+      v = true;
     }
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putBoolean("is_edit_mode", r);
-    paramBundle.putString("com.ubercab.client.feature.payment.COUNTRY_ISO2", p);
+    paramBundle.putBoolean("is_edit_mode", v);
+    paramBundle.putString("com.ubercab.client.feature.payment.COUNTRY_ISO2", t);
   }
   
-  @OnCheckedChanged({2131624996})
-  void onUsePointsToggled(boolean paramBoolean)
+  @OnCheckedChanged
+  public void onUsePointsToggled(boolean paramBoolean)
   {
-    if ((z != null) && (z.booleanValue() != paramBoolean))
+    if ((F != null) && (F.booleanValue() != paramBoolean))
     {
-      z = Boolean.valueOf(paramBoolean);
-      y = i.a(v, "amex_reward", Boolean.valueOf(paramBoolean), null).a(kls.a()).b(new fzy(this, (byte)0));
+      F = Boolean.valueOf(paramBoolean);
+      a(Boolean.valueOf(paramBoolean), null);
     }
   }
   
@@ -602,11 +700,14 @@ public class EditCreditCardFragment
     if (paramBundle != null) {
       e(paramBundle.getString("com.ubercab.client.feature.payment.COUNTRY_ISO2"));
     }
-    mButtonDelete.setText(getString(2131165692));
-    o = new gbm(getActivity());
-    mSpinnerUseCase.setAdapter(o);
-    mEditTextZip.setHint(getString(2131167255));
+    mButtonDelete.setText(getString(2131165751));
+    s = new gwp(getActivity());
+    mSpinnerUseCase.setAdapter(s);
+    mEditTextZip.setHint(getString(2131167656));
     mButtonCountry.a(this);
+    if (g.g()) {
+      h();
+    }
   }
 }
 

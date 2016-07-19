@@ -1,184 +1,198 @@
-import android.os.IBinder;
-import android.os.Parcel;
-
-final class amc
-  implements ama
+public final class amc
+  extends aoi
 {
-  private IBinder a;
+  private static volatile amc[] e;
+  public amf a;
+  public amd b;
+  public Boolean c;
+  public String d;
   
-  amc(IBinder paramIBinder)
+  public amc()
   {
-    a = paramIBinder;
+    e();
   }
   
-  public final void a()
+  private amc b(anz paramanz)
   {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
+    for (;;)
     {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
-      a.transact(1, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  public final void a(int paramInt)
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
-      localParcel1.writeInt(paramInt);
-      a.transact(3, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
-  }
-  
-  /* Error */
-  public final void a(ame paramame)
-  {
-    // Byte code:
-    //   0: invokestatic 22	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 22	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 24
-    //   11: invokevirtual 28	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +43 -> 58
-    //   18: aload_1
-    //   19: invokeinterface 51 1 0
-    //   24: astore_1
-    //   25: aload_2
-    //   26: aload_1
-    //   27: invokevirtual 54	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   30: aload_0
-    //   31: getfield 15	amc:a	Landroid/os/IBinder;
-    //   34: bipush 7
-    //   36: aload_2
-    //   37: aload_3
-    //   38: iconst_0
-    //   39: invokeinterface 34 5 0
-    //   44: pop
-    //   45: aload_3
-    //   46: invokevirtual 37	android/os/Parcel:readException	()V
-    //   49: aload_3
-    //   50: invokevirtual 40	android/os/Parcel:recycle	()V
-    //   53: aload_2
-    //   54: invokevirtual 40	android/os/Parcel:recycle	()V
-    //   57: return
-    //   58: aconst_null
-    //   59: astore_1
-    //   60: goto -35 -> 25
-    //   63: astore_1
-    //   64: aload_3
-    //   65: invokevirtual 40	android/os/Parcel:recycle	()V
-    //   68: aload_2
-    //   69: invokevirtual 40	android/os/Parcel:recycle	()V
-    //   72: aload_1
-    //   73: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	74	0	this	amc
-    //   0	74	1	paramame	ame
-    //   3	66	2	localParcel1	Parcel
-    //   7	58	3	localParcel2	Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	63	finally
-    //   18	25	63	finally
-    //   25	49	63	finally
-  }
-  
-  public final IBinder asBinder()
-  {
-    return a;
-  }
-  
-  public final void b()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
-      a.transact(2, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
+      int i = paramanz.a();
+      switch (i)
+      {
+      default: 
+        if (aol.a(paramanz, i)) {}
+        break;
+      case 0: 
+        return this;
+      case 10: 
+        if (a == null) {
+          a = new amf();
+        }
+        paramanz.a(a);
+        break;
+      case 18: 
+        if (b == null) {
+          b = new amd();
+        }
+        paramanz.a(b);
+        break;
+      case 24: 
+        c = Boolean.valueOf(paramanz.f());
+        break;
+      case 34: 
+        d = paramanz.g();
+      }
     }
   }
   
-  public final void c()
+  public static amc[] c_()
   {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
+    if (e == null) {}
+    synchronized (aog.a)
     {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
-      a.transact(4, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
+      if (e == null) {
+        e = new amc[0];
+      }
+      return e;
     }
   }
   
-  public final void d()
+  private amc e()
   {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
-      a.transact(5, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
+    a = null;
+    b = null;
+    c = null;
+    d = null;
+    B = -1;
+    return this;
   }
   
-  public final void e()
+  public final void a(aoa paramaoa)
   {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
-      a.transact(6, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
+    if (a != null) {
+      paramaoa.a(1, a);
     }
-    finally
+    if (b != null) {
+      paramaoa.a(2, b);
+    }
+    if (c != null) {
+      paramaoa.a(3, c.booleanValue());
+    }
+    if (d != null) {
+      paramaoa.a(4, d);
+    }
+    super.a(paramaoa);
+  }
+  
+  protected final int b()
+  {
+    int j = super.b();
+    int i = j;
+    if (a != null) {
+      i = j + aoa.c(1, a);
+    }
+    j = i;
+    if (b != null) {
+      j = i + aoa.c(2, b);
+    }
+    i = j;
+    if (c != null)
     {
-      localParcel2.recycle();
-      localParcel1.recycle();
+      c.booleanValue();
+      i = j + aoa.b(3);
+    }
+    j = i;
+    if (d != null) {
+      j = i + aoa.b(4, d);
+    }
+    return j;
+  }
+  
+  public final boolean equals(Object paramObject)
+  {
+    if (paramObject == this) {}
+    do
+    {
+      do
+      {
+        return true;
+        if (!(paramObject instanceof amc)) {
+          return false;
+        }
+        paramObject = (amc)paramObject;
+        if (a == null)
+        {
+          if (a != null) {
+            return false;
+          }
+        }
+        else if (!a.equals(a)) {
+          return false;
+        }
+        if (b == null)
+        {
+          if (b != null) {
+            return false;
+          }
+        }
+        else if (!b.equals(b)) {
+          return false;
+        }
+        if (c == null)
+        {
+          if (c != null) {
+            return false;
+          }
+        }
+        else if (!c.equals(c)) {
+          return false;
+        }
+        if (d != null) {
+          break;
+        }
+      } while (d == null);
+      return false;
+    } while (d.equals(d));
+    return false;
+  }
+  
+  public final int hashCode()
+  {
+    int m = 0;
+    int n = getClass().getName().hashCode();
+    int i;
+    int j;
+    label33:
+    int k;
+    if (a == null)
+    {
+      i = 0;
+      if (b != null) {
+        break label88;
+      }
+      j = 0;
+      if (c != null) {
+        break label99;
+      }
+      k = 0;
+      label42:
+      if (d != null) {
+        break label110;
+      }
+    }
+    for (;;)
+    {
+      return (k + (j + (i + (n + 527) * 31) * 31) * 31) * 31 + m;
+      i = a.hashCode();
+      break;
+      label88:
+      j = b.hashCode();
+      break label33;
+      label99:
+      k = c.hashCode();
+      break label42;
+      label110:
+      m = d.hashCode();
     }
   }
 }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:layout_gravity="center|left" android:id="@id/ub__partner_referrals_shared_textview_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ub__partner_referrals_base_padding" />
+    <LinearLayout android:layout_gravity="center|right" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__partner_referrals_base_margin" android:layout_marginBottom="@dimen/ub__partner_referrals_base_margin">
+        <View android:background="@color/ub__uber_black_60" android:layout_width="1.0px" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/ub__partner_referrals_base_margin" android:layout_marginRight="@dimen/ub__partner_referrals_base_margin" />
+        <ImageView android:id="@id/ub__partner_referrals_shared_imageview_icon" android:padding="@dimen/ub__partner_referrals_base_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ub__partner_referrals_base_margin" />
+    </LinearLayout>
+</merge>

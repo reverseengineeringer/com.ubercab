@@ -1,55 +1,48 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Parcel;
-import com.google.android.gms.maps.model.LatLng;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.internal.ResolveAccountRequest;
+import com.google.android.gms.signin.internal.SignInRequest;
 
-public abstract class bev
-  extends Binder
-  implements beu
+public final class bev
+  implements Parcelable.Creator<SignInRequest>
 {
-  public bev()
+  private static SignInRequest a(Parcel paramParcel)
   {
-    attachInterface(this, "com.google.android.gms.maps.internal.IOnMapClickListener");
-  }
-  
-  public static beu a(IBinder paramIBinder)
-  {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnMapClickListener");
-    if ((localIInterface != null) && ((localIInterface instanceof beu))) {
-      return (beu)localIInterface;
-    }
-    return new bew(paramIBinder);
-  }
-  
-  public IBinder asBinder()
-  {
-    return this;
-  }
-  
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
+    int j = zd.b(paramParcel);
+    int i = 0;
+    ResolveAccountRequest localResolveAccountRequest = null;
+    while (paramParcel.dataPosition() < j)
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnMapClickListener");
-      return true;
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        localResolveAccountRequest = (ResolveAccountRequest)zd.a(paramParcel, k, ResolveAccountRequest.CREATOR);
+      }
     }
-    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMapClickListener");
-    if (paramParcel1.readInt() != 0) {
-      bia localbia = LatLng.CREATOR;
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    for (paramParcel1 = bia.a(paramParcel1);; paramParcel1 = null)
-    {
-      a(paramParcel1);
-      paramParcel2.writeNoException();
-      return true;
-    }
+    return new SignInRequest(i, localResolveAccountRequest);
+  }
+  
+  public static void a(SignInRequest paramSignInRequest, Parcel paramParcel, int paramInt)
+  {
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, paramSignInRequest.a(), paramInt, false);
+    zf.a(paramParcel, i);
+  }
+  
+  private static SignInRequest[] a(int paramInt)
+  {
+    return new SignInRequest[paramInt];
   }
 }
 

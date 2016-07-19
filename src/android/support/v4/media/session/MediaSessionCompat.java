@@ -20,6 +20,9 @@ import java.util.List;
 
 public class MediaSessionCompat
 {
+  public static final String ACTION_ARGUMENT_EXTRAS = "android.support.v4.media.session.action.ARGUMENT_EXTRAS";
+  public static final String ACTION_ARGUMENT_URI = "android.support.v4.media.session.action.ARGUMENT_URI";
+  public static final String ACTION_PLAY_FROM_URI = "android.support.v4.media.session.action.PLAY_FROM_URI";
   public static final int FLAG_HANDLES_MEDIA_BUTTONS = 1;
   public static final int FLAG_HANDLES_TRANSPORT_CONTROLS = 2;
   private static final String TAG = "MediaSessionCompat";

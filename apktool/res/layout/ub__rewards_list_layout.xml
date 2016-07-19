@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:background="@color/ub__uber_white_60" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/ub__rewards_background" />
+    <com.ubercab.ui.collection.RecyclerView android:id="@id/ub__recyclerview_rewards_list" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" />
+</merge>

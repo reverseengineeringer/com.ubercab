@@ -3,9 +3,9 @@ package com.ubercab.rider.realtime.model;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import java.util.List;
 import java.util.Map;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface Trip
   extends Model
 {
@@ -21,14 +21,19 @@ public abstract interface Trip
   
   public abstract String getCancelDialog();
   
+  public abstract TripContactInfo getContact();
+  
   public abstract int getCurrentLegIndex();
   
   public abstract String getCurrentLegStatus();
   
   public abstract String getCurrentRoute();
   
+  public abstract Long getDepartureTimestampSecond();
+  
   public abstract Location getDestination();
   
+  @Deprecated
   public abstract Location getDestinationLocation();
   
   public abstract String getDestinationSetBy();
@@ -42,6 +47,8 @@ public abstract interface Trip
   public abstract String getDisplayedRouteToPickup();
   
   public abstract TripDriver getDriver();
+  
+  public abstract DynamicDropoff getDynamicDropoff();
   
   public abstract DynamicPickup getDynamicPickup();
   
@@ -75,6 +82,8 @@ public abstract interface Trip
   
   public abstract List<FeedbackType> getFeedbackTypes();
   
+  public abstract boolean getIsDispatching();
+  
   public abstract boolean getIsZeroTolerance();
   
   public abstract List<TripLeg> getLegs();
@@ -89,6 +98,8 @@ public abstract interface Trip
   
   public abstract Location getPickupLocation();
   
+  public abstract String getProfileUUID();
+  
   public abstract List<TripLeg> getRemainingLegs();
   
   public abstract float getRequestedTime();
@@ -96,6 +107,8 @@ public abstract interface Trip
   public abstract String getRouteToDestination();
   
   public abstract String getShareUrl();
+  
+  public abstract Float getSurgeMultiplier();
   
   public abstract boolean getUseCredits();
   

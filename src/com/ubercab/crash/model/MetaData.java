@@ -3,10 +3,10 @@ package com.ubercab.crash.model;
 import com.ubercab.crash.internal.validator.CrashValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.Set;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=CrashValidatorFactory.class)
+@lzo(a=CrashValidatorFactory.class)
 public abstract class MetaData
 {
   public static MetaData create(MetaData.ApplicationName paramApplicationName, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, Long paramLong, Double paramDouble1, Double paramDouble2, String paramString6)

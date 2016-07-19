@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/cb_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/cb_border" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="30.0dip">
+            <TextView android:textColor="@color/cb_textColor" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/cb_eight" android:layout_marginBottom="@dimen/cb_eighteen" android:drawableTop="@drawable/cb_slider" />
+        </LinearLayout>
+        <TextView android:textSize="18.0sp" android:textColor="@color/cb_dark_grey" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/cb_sixteen" android:text="@string/cb_card_not_registered_with_pin" />
+        <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/cb_eight" android:paddingRight="@dimen/cb_eight" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/cb_thirtysix">
+            <Button android:textSize="17.0dip" android:id="@id/pin" android:background="@drawable/cb_approve_otp_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/cb_eight" android:text="@string/cb_register_for_pin" android:layout_weight="1.0" style="@style/cb_approve_otp" />
+            <Button android:textSize="17.0dip" android:id="@id/otp" android:background="@drawable/cb_approve_otp_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/cb_eight" android:text="@string/cb_use_sms_otp" android:layout_weight="1.0" style="@style/cb_approve_otp" />
+        </LinearLayout>
+        <RelativeLayout android:gravity="bottom" android:layout_gravity="bottom" android:orientation="horizontal" android:background="@drawable/cb_rectangle_box" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="left" android:orientation="horizontal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="30.0dip" android:layout_alignParentLeft="true">
+                <TextView android:textSize="@dimen/cb_twelveScaled" android:textStyle="bold" android:textColor="@color/cb_textColor" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginLeft="5.0dip" android:drawableRight="@drawable/cb_trusticon" android:drawablePadding="@dimen/cb_four" />
+                <TextView android:textSize="15.0sp" android:textStyle="normal" android:textColor="@color/cb_textColor" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_marginLeft="@dimen/cb_four" android:text="@string/cb_powered_by" android:drawablePadding="@dimen/cb_four" />
+                <TextView android:textSize="@dimen/cb_twelveScaled" android:textStyle="bold" android:textColor="@color/cb_textColor" android:gravity="center" android:layout_width="wrap_content" android:layout_height="20.0dip" android:layout_marginLeft="@dimen/cb_four" android:drawablePadding="@dimen/cb_four" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="30.0dip" android:layout_alignParentRight="true">
+                <ImageView android:layout_gravity="center|right" android:id="@id/bank_logo" android:paddingRight="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/cb_bank_logo" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

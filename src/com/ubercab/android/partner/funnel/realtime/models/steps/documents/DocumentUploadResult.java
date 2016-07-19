@@ -10,9 +10,9 @@ public abstract class DocumentUploadResult
     return new Shape_DocumentUploadResult();
   }
   
-  public abstract String getId();
+  public abstract String getUuid();
   
-  public abstract DocumentUploadResult setId(String paramString);
+  public abstract DocumentUploadResult setUuid(String paramString);
 }
 
 /* Location:

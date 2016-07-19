@@ -12,6 +12,7 @@ public final class Shape_UnpaidBill
   private String amountString;
   private String clientBillUuid;
   private String createdAt;
+  private UnpaidBillTrip trip;
   private String uuid;
   
   Shape_UnpaidBill() {}
@@ -23,6 +24,7 @@ public final class Shape_UnpaidBill
     createdAt = ((String)paramParcel.readValue(PARCELABLE_CL));
     uuid = ((String)paramParcel.readValue(PARCELABLE_CL));
     clientBillUuid = ((String)paramParcel.readValue(PARCELABLE_CL));
+    trip = ((UnpaidBillTrip)paramParcel.readValue(PARCELABLE_CL));
   }
   
   public final int describeContents()
@@ -76,14 +78,23 @@ public final class Shape_UnpaidBill
           return false;
         }
       }
-      if (((UnpaidBill)paramObject).getClientBillUuid() == null) {
+      if (((UnpaidBill)paramObject).getClientBillUuid() != null)
+      {
+        if (((UnpaidBill)paramObject).getClientBillUuid().equals(getClientBillUuid())) {}
+      }
+      else {
+        while (getClientBillUuid() != null) {
+          return false;
+        }
+      }
+      if (((UnpaidBill)paramObject).getTrip() == null) {
         break;
       }
-    } while (((UnpaidBill)paramObject).getClientBillUuid().equals(getClientBillUuid()));
+    } while (((UnpaidBill)paramObject).getTrip().equals(getTrip()));
     for (;;)
     {
       return false;
-      if (getClientBillUuid() == null) {
+      if (getTrip() == null) {
         break;
       }
     }
@@ -109,6 +120,11 @@ public final class Shape_UnpaidBill
     return createdAt;
   }
   
+  public final UnpaidBillTrip getTrip()
+  {
+    return trip;
+  }
+  
   @Deprecated
   public final String getUuid()
   {
@@ -117,49 +133,58 @@ public final class Shape_UnpaidBill
   
   public final int hashCode()
   {
-    int n = 0;
+    int i1 = 0;
     int i;
     int j;
     label21:
     int k;
     label30:
     int m;
+    label40:
+    int n;
     if (amount == null)
     {
       i = 0;
       if (amountString != null) {
-        break label85;
+        break label101;
       }
       j = 0;
       if (createdAt != null) {
-        break label96;
+        break label112;
       }
       k = 0;
       if (uuid != null) {
-        break label107;
+        break label123;
       }
       m = 0;
-      label40:
       if (clientBillUuid != null) {
-        break label119;
+        break label135;
+      }
+      n = 0;
+      label50:
+      if (trip != null) {
+        break label147;
       }
     }
     for (;;)
     {
-      return (m ^ (k ^ (j ^ (i ^ 0xF4243) * 1000003) * 1000003) * 1000003) * 1000003 ^ n;
+      return (n ^ (m ^ (k ^ (j ^ (i ^ 0xF4243) * 1000003) * 1000003) * 1000003) * 1000003) * 1000003 ^ i1;
       i = amount.hashCode();
       break;
-      label85:
+      label101:
       j = amountString.hashCode();
       break label21;
-      label96:
+      label112:
       k = createdAt.hashCode();
       break label30;
-      label107:
+      label123:
       m = uuid.hashCode();
       break label40;
-      label119:
+      label135:
       n = clientBillUuid.hashCode();
+      break label50;
+      label147:
+      i1 = trip.hashCode();
     }
   }
   
@@ -187,6 +212,12 @@ public final class Shape_UnpaidBill
     return this;
   }
   
+  final UnpaidBill setTrip(UnpaidBillTrip paramUnpaidBillTrip)
+  {
+    trip = paramUnpaidBillTrip;
+    return this;
+  }
+  
   @Deprecated
   final UnpaidBill setUuid(String paramString)
   {
@@ -196,7 +227,7 @@ public final class Shape_UnpaidBill
   
   public final String toString()
   {
-    return "UnpaidBill{amount=" + amount + ", amountString=" + amountString + ", createdAt=" + createdAt + ", uuid=" + uuid + ", clientBillUuid=" + clientBillUuid + "}";
+    return "UnpaidBill{amount=" + amount + ", amountString=" + amountString + ", createdAt=" + createdAt + ", uuid=" + uuid + ", clientBillUuid=" + clientBillUuid + ", trip=" + trip + "}";
   }
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
@@ -206,6 +237,7 @@ public final class Shape_UnpaidBill
     paramParcel.writeValue(createdAt);
     paramParcel.writeValue(uuid);
     paramParcel.writeValue(clientBillUuid);
+    paramParcel.writeValue(trip);
   }
 }
 

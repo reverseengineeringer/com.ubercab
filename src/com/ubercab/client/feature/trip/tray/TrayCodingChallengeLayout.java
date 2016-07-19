@@ -5,34 +5,37 @@ import android.content.res.Resources;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
-import chh;
-import cho;
-import ckc;
+import chn;
+import chu;
+import ckt;
 import com.ubercab.client.feature.hiring.CodingChallengeActivity;
 import com.ubercab.client.feature.trip.TripActivity;
 import com.ubercab.ui.TextView;
-import flb;
-import fln;
-import flo;
-import hdg;
-import huh;
-import hvk;
-import r;
+import gag;
+import gaz;
+import gba;
+import iuk;
+import jrs;
+import jtl;
+import z;
 
 public class TrayCodingChallengeLayout
   extends FrameLayout
 {
-  public ckc a;
-  public chh b;
-  public flb c;
+  public ckt a;
+  public chn b;
+  public gag c;
   private boolean d;
-  private int e;
-  private huh f;
-  @InjectView(2131624457)
-  TextView mTrayActionTextView;
+  private boolean e;
+  private int f;
+  private jrs g;
+  @BindView
+  public TextView mTrayActionTextView;
+  @BindView
+  public TextView mTrayTitleTextView;
   
   public TrayCodingChallengeLayout(Context paramContext)
   {
@@ -48,23 +51,23 @@ public class TrayCodingChallengeLayout
   {
     super(paramContext, paramAttributeSet, paramInt);
     if ((!isInEditMode()) && ((paramContext instanceof TripActivity))) {
-      ((hdg)((TripActivity)paramContext).d()).a(this);
+      ((iuk)((TripActivity)paramContext).d()).a(this);
     }
   }
   
   private void a(boolean paramBoolean)
   {
     c.a(paramBoolean);
-    if ((f != null) && (f.k() != null)) {
-      f.k().b(true);
+    if ((g != null) && (g.k() != null)) {
+      g.k().b(true);
     }
   }
   
-  @OnClick({2131626018})
-  void clickTrayContent()
+  @OnClick
+  public void clickTrayContent()
   {
-    a.a(r.U);
-    getContext().startActivity(CodingChallengeActivity.a(getContext(), null, null, null));
+    a.a(z.al);
+    getContext().startActivity(CodingChallengeActivity.a(getContext(), null, null, null, null, null));
   }
   
   protected void onAttachedToWindow()
@@ -77,14 +80,14 @@ public class TrayCodingChallengeLayout
     }
   }
   
-  @cho
-  public void onCodingChallengeActivityCompletedEvent(fln paramfln)
+  @chu
+  public void onCodingChallengeActivityCompletedEvent(gaz paramgaz)
   {
     a(false);
   }
   
-  @cho
-  public void onCodingChallengeActivityStartedEvent(flo paramflo)
+  @chu
+  public void onCodingChallengeActivityStartedEvent(gba paramgba)
   {
     a(true);
   }
@@ -102,11 +105,11 @@ public class TrayCodingChallengeLayout
   protected void onFinishInflate()
   {
     super.onFinishInflate();
-    ButterKnife.inject(this);
-    mTrayActionTextView.setText(getContext().getString(2131165946));
-    e = getResources().getDimensionPixelSize(2131296395);
-    f = new huh(this, (byte)0);
-    hvk.a(this, f);
+    ButterKnife.a(this);
+    mTrayActionTextView.setText(getContext().getString(2131166054));
+    f = getResources().getDimensionPixelSize(2131296527);
+    g = new jrs(this, (byte)0);
+    jtl.a(this, g);
     setEnabled(false);
   }
   

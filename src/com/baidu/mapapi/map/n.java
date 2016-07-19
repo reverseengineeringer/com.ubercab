@@ -1,31 +1,21 @@
 package com.baidu.mapapi.map;
 
-import android.util.Log;
-import java.util.HashSet;
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.baidu.platform.comapi.map.B;
+import com.baidu.platform.comapi.map.C;
+import com.baidu.platform.comapi.map.c;
 
 class n
-  implements Runnable
+  implements View.OnClickListener
 {
-  n(TileOverlay paramTileOverlay, int paramInt1, int paramInt2, int paramInt3, String paramString) {}
+  n(TextureMapView paramTextureMapView) {}
   
-  public void run()
+  public void onClick(View paramView)
   {
-    Tile localTile = ((FileTileProvider)TileOverlay.a(e)).getTile(a, b, c);
-    if (localTile != null) {
-      if ((height == 256) && (height == 256))
-      {
-        String str = a + "_" + b + "_" + c;
-        TileOverlay.a(e, str, localTile);
-      }
-    }
-    for (;;)
-    {
-      TileOverlay.b(e).remove(d);
-      return;
-      Log.e(TileOverlay.c(), "FileTile pic must be 256 * 256");
-      continue;
-      Log.e(TileOverlay.c(), "FileTile pic is null");
-    }
+    paramView = TextureMapView.a(a).b().y();
+    a -= 1.0F;
+    TextureMapView.a(a).b().a(paramView, 300);
   }
 }
 

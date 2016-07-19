@@ -2,10 +2,10 @@ package com.ubercab.chat.model;
 
 import com.ubercab.chat.internal.validator.ChatValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=ChatValidatorFactory.class)
+@lzo(a=ChatValidatorFactory.class)
 public abstract class SendStatus
 {
   private Message mMessage;

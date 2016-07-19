@@ -1,72 +1,69 @@
-public final class cgk
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build.VERSION;
+import android.os.Message;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+public class cgk
+  extends WebViewClient
 {
-  public static final String a = ;
-  private static final String b = "?client=java-client&protocol=5&version=" + a;
-  private String c = "ws.pusherapp.com";
-  private int d = 80;
-  private int e = 443;
-  private boolean f = true;
-  private long g = 120000L;
-  private long h = 30000L;
-  private cgi i;
+  private cgf magicRetryFragment;
   
-  private static String f()
+  public cgk() {}
+  
+  public cgk(cgf paramcgf)
   {
-    return "0.3.1";
+    magicRetryFragment = paramcgf;
   }
   
-  public final cgk a()
+  public void onFormResubmission(WebView paramWebView, Message paramMessage1, Message paramMessage2)
   {
-    f = true;
-    return this;
+    paramMessage2.sendToTarget();
   }
   
-  public final cgk a(cgi paramcgi)
+  public void onPageFinished(WebView paramWebView, String paramString)
   {
-    i = paramcgi;
-    return this;
-  }
-  
-  public final String a(String paramString)
-  {
-    String str1;
-    String str2;
-    if (f)
-    {
-      str1 = "wss";
-      str2 = c;
-      if (!f) {
-        break label70;
-      }
-    }
-    label70:
-    for (int j = e;; j = d)
-    {
-      return String.format("%s://%s:%s/app/%s%s", new Object[] { str1, str2, Integer.valueOf(j), paramString, b });
-      str1 = "ws";
-      break;
+    cgc.a("#### PAYU", "MagicRetryWebViewClient.java: onPageFinished: URL " + paramString);
+    super.onPageFinished(paramWebView, paramString);
+    if (magicRetryFragment != null) {
+      magicRetryFragment.b();
     }
   }
   
-  public final cgi b()
+  public void onPageStarted(WebView paramWebView, String paramString, Bitmap paramBitmap)
   {
-    return i;
+    cgc.a("#### PAYU", "MagicRetryWebViewClient.java: onPageStarted: URL " + paramString);
+    super.onPageStarted(paramWebView, paramString, paramBitmap);
+    if (magicRetryFragment != null) {
+      cgf.a();
+    }
   }
   
-  public final cgk c()
+  public void onReceivedError(WebView paramWebView, int paramInt, String paramString1, String paramString2)
   {
-    e = 443;
-    return this;
+    super.onReceivedError(paramWebView, paramInt, paramString1, paramString2);
+    cgc.a("#### PAYU", "MagicRetryWebViewClient.java: onReceivedError: URL " + paramWebView.getUrl());
+    if ((Build.VERSION.SDK_INT < 23) && (magicRetryFragment != null)) {
+      magicRetryFragment.a(paramWebView, paramString2);
+    }
   }
   
-  public final long d()
+  public void onReceivedError(WebView paramWebView, WebResourceRequest paramWebResourceRequest, WebResourceError paramWebResourceError)
   {
-    return g;
+    super.onReceivedError(paramWebView, paramWebResourceRequest, paramWebResourceError);
+    cgc.a("#### PAYU", "MagicRetryWebViewClient.java: onReceivedError: URL " + paramWebView.getUrl());
+    if ((magicRetryFragment != null) && (paramWebResourceRequest.isForMainFrame())) {
+      magicRetryFragment.a(paramWebView, paramWebResourceRequest.getUrl().toString());
+    }
   }
   
-  public final long e()
+  public boolean shouldOverrideUrlLoading(WebView paramWebView, String paramString)
   {
-    return h;
+    cgc.a("#### PAYU", "MagicRetryWebViewClient.java: shouldOverrideUrlLoading: URL " + paramString);
+    return super.shouldOverrideUrlLoading(paramWebView, paramString);
   }
 }
 

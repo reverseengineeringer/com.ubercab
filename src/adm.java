@@ -1,19 +1,10 @@
-import android.content.SharedPreferences;
-import java.util.concurrent.Callable;
+import android.os.IInterface;
+import android.os.Message;
 
-public final class adm
-  extends adk<Integer>
+public abstract interface adm
+  extends IInterface
 {
-  public static Integer a(SharedPreferences paramSharedPreferences, final String paramString, final Integer paramInteger)
-  {
-    (Integer)avg.a(new Callable()
-    {
-      private Integer a()
-      {
-        return Integer.valueOf(getInt(paramString, paramInteger.intValue()));
-      }
-    });
-  }
+  public abstract void a(Message paramMessage);
 }
 
 /* Location:

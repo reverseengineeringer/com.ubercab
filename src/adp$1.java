@@ -1,15 +1,18 @@
-import android.content.Context;
-import android.content.SharedPreferences;
-import java.util.concurrent.Callable;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
 final class adp$1
-  implements Callable<SharedPreferences>
+  extends Handler
 {
-  adp$1(Context paramContext) {}
-  
-  private SharedPreferences a()
+  adp$1(adp paramadp, Looper paramLooper)
   {
-    return a.getSharedPreferences("google_sdk_flags", 1);
+    super(paramLooper);
+  }
+  
+  public final void handleMessage(Message paramMessage)
+  {
+    a.a(paramMessage);
   }
 }
 

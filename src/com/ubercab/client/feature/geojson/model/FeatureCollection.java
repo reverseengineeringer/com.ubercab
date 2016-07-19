@@ -3,9 +3,9 @@ package com.ubercab.client.feature.geojson.model;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.GeoJsonCollection;
 import java.util.List;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract interface FeatureCollection<T extends Feature>
   extends GeoJsonCollection<T>
 {

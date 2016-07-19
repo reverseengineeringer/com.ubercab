@@ -1,6 +1,7 @@
 package android.support.v4.media.session;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.ResultReceiver;
 import android.support.v4.media.RatingCompat;
@@ -17,6 +18,13 @@ class MediaSessionCompat$Callback$StubApi21
   
   public void onCustomAction(String paramString, Bundle paramBundle)
   {
+    if (paramString.equals("android.support.v4.media.session.action.PLAY_FROM_URI"))
+    {
+      paramString = (Uri)paramBundle.getParcelable("android.support.v4.media.session.action.ARGUMENT_URI");
+      paramBundle = (Bundle)paramBundle.getParcelable("android.support.v4.media.session.action.ARGUMENT_EXTRAS");
+      this$0.onPlayFromUri(paramString, paramBundle);
+      return;
+    }
     this$0.onCustomAction(paramString, paramBundle);
   }
   

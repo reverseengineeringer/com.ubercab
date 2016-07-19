@@ -1,0 +1,100 @@
+{
+  "articleUUID": "87654321-4321-4321-4321-123456789abc",
+  "category": 0,
+  "provider": "shangcheng",
+  "viewed": false,
+  "sections": [{
+    "sectionType": "slider",
+    "sectionData": {
+      "imageUrls": ["http://s3.cn-north-1.amazonaws.com.cn/uber-growth/taishan/uber-rewards/f06007bf-f2b1-4df2-bcfc-e53377b6eb65.jpg",
+        "http://s3.cn-north-1.amazonaws.com.cn/uber-growth/taishan/uber-rewards/243f8a6a-ba7c-490d-907f-00d03473a68b.jpg",
+        "http://s3.cn-north-1.amazonaws.com.cn/uber-growth/taishan/uber-rewards/06fce645-7868-4587-9e51-334f021e3fe1.jpg"
+      ]
+    },
+    "displayStyle": {
+      "aspectRatio": 1.5
+    }
+  }, {
+    "sectionType": "status",
+    "sectionData": {
+      "statusType": 3,
+      "statusText": "Used",
+      "text": "Expires in 3 days!"
+    },
+    "displayStyle": {
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "paddingTop": 8,
+      "paddingBottom": 8,
+      "alignment": "left"
+    }
+  }, {
+    "sectionType": "points",
+    "sectionData": {
+      "points": "160",
+      "iconUrl": "https://uber-static.s3.amazonaws.com/shangcheng/ub__life_uip_coin.png",
+      "text": "Enter lottery"
+    },
+    "displayStyle": {
+      "textStyle": "H1",
+      "paddingLeft": 16,
+      "paddingTop": 16,
+      "paddingRight": 16,
+      "paddingBottom": 16,
+      "alignment": "left"
+    }
+  }, {
+    "sectionType": "text",
+    "sectionData": {
+      "text": "Durian Butter Cake with Coffee Combo"
+    },
+    "displayStyle": {
+      "textStyle": "H1",
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "paddingBottom": 16,
+      "alignment": "left"
+    }
+  }, {
+    "sectionType": "text",
+    "sectionData": {
+      "text": "一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字一段介绍文字"
+    },
+    "displayStyle": {
+      "textStyle": "P",
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "paddingBottom": 16
+    }
+  }],
+  "actions": [{
+    "actionType": "redeem",
+    "buttonText": "Single",
+    "flowType": 1,
+    "actionData": {
+      "postClick": 1,
+      "confirmTitle": "Confirmation",
+      "confirmIconUrl": "https://uber-static.s3.amazonaws.com/shangcheng/ub__life_uip_coin.png",
+      "confirmIconValue": "234",
+      "confirmText": "Participating in item redemption!",
+      "confirmButtonText": "Confirm",
+      "confirmCancelButtonText": "Cancel"
+    }
+  }, {
+    "actionType": "redeem",
+    "buttonText": "Double",
+    "flowType": 2,
+    "actionData": {
+      "postClick" : 7,
+      "confirmTitle": "Confirmation",
+      "confirmIconUrl": "https://uber-static.s3.amazonaws.com/shangcheng/ub__life_uip_coin.png",
+      "confirmIconValue": "234",
+      "confirmText": "Prticipating in item redemption!",
+      "confirmButtonText": "Confirm",
+      "confirmCancelButtonText": "Cancel",
+      "preConfirmTitle": "123XYZ",
+      "preConfirmText": "Please share code above to redemption",
+      "preConfirmButtonText": "Code has been applied"
+    }
+  }]
+}

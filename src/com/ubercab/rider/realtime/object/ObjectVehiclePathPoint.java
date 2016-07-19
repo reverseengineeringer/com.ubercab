@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jvg;
+import naq;
 
 @Shape
 abstract class ObjectVehiclePathPoint
-  implements jvg
+  implements naq
 {
   public static ObjectVehiclePathPoint create()
   {

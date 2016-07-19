@@ -1,29 +1,91 @@
-import android.os.Handler;
-import android.os.Message;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-final class bvk
-  extends Handler
+public final class bvk
+  implements bvz
 {
-  private WeakReference a;
+  private String a = bvf.a(bvh.aC);
+  private bvn b;
   
-  public bvk(bvj parambvj)
+  private bvk(JSONObject paramJSONObject)
   {
-    a = new WeakReference(parambvj);
+    b = new bvn(paramJSONObject.optJSONArray("funding_sources"), paramJSONObject.optJSONObject("backup_funding_instrument"));
   }
   
-  public final void handleMessage(Message paramMessage)
+  public static ArrayList a(JSONObject paramJSONObject, JSONArray paramJSONArray)
   {
-    switch (what)
+    ArrayList localArrayList = new ArrayList();
+    if (paramJSONObject != null)
     {
+      paramJSONObject = new bvk(paramJSONObject);
+      if (paramJSONObject.h()) {
+        localArrayList.add(paramJSONObject);
+      }
     }
-    bvj localbvj;
-    do
+    int i;
+    if (paramJSONArray != null) {
+      i = 0;
+    }
+    for (;;)
     {
-      return;
-      localbvj = (bvj)a.get();
-    } while (localbvj == null);
-    bvj.a(localbvj, (bwx)obj);
+      if (i < paramJSONArray.length()) {}
+      try
+      {
+        paramJSONObject = new bvk(paramJSONArray.getJSONObject(i));
+        if (paramJSONObject.h()) {
+          localArrayList.add(paramJSONObject);
+        }
+        i += 1;
+        continue;
+        return localArrayList;
+      }
+      catch (JSONException paramJSONObject)
+      {
+        for (;;) {}
+      }
+    }
+  }
+  
+  private boolean h()
+  {
+    return b.f() > 0;
+  }
+  
+  public final String a()
+  {
+    return b.d();
+  }
+  
+  public final String b()
+  {
+    return a;
+  }
+  
+  public final String c()
+  {
+    return b.a();
+  }
+  
+  public final String d()
+  {
+    return b.c();
+  }
+  
+  public final boolean e()
+  {
+    return b.b();
+  }
+  
+  public final bvn f()
+  {
+    return b;
+  }
+  
+  public final boolean g()
+  {
+    return b.f() == 1;
   }
 }
 

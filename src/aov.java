@@ -1,95 +1,90 @@
-import android.content.Context;
-import android.os.Handler;
-import android.os.SystemClock;
-import com.google.android.gms.ads.internal.request.AdResponseParcel;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Map;
 
-@apl
-public abstract class aov
-  extends aqs
+final class aov
 {
-  protected final aoy a;
-  protected final Context b;
-  protected final Object c = new Object();
-  protected final Object d = new Object();
-  protected final aqk e;
-  protected AdResponseParcel f;
+  public long a;
+  public String b;
+  public String c;
+  public long d;
+  public long e;
+  public long f;
+  public long g;
+  public Map<String, String> h;
   
-  protected aov(Context paramContext, aqk paramaqk, aoy paramaoy)
+  private aov() {}
+  
+  public aov(String paramString, aef paramaef)
   {
-    super((byte)0);
-    b = paramContext;
-    e = paramaqk;
-    f = b;
-    a = paramaoy;
+    b = paramString;
+    a = a.length;
+    c = b;
+    d = c;
+    e = d;
+    f = e;
+    g = f;
+    h = g;
   }
   
-  protected abstract aqj a(int paramInt);
-  
-  public final void a()
+  public static aov a(InputStream paramInputStream)
   {
-    for (;;)
+    aov localaov = new aov();
+    if (aou.a(paramInputStream) != 538247942) {
+      throw new IOException();
+    }
+    b = aou.c(paramInputStream);
+    c = aou.c(paramInputStream);
+    if (c.equals("")) {
+      c = null;
+    }
+    d = aou.b(paramInputStream);
+    e = aou.b(paramInputStream);
+    f = aou.b(paramInputStream);
+    g = aou.b(paramInputStream);
+    h = aou.d(paramInputStream);
+    return localaov;
+  }
+  
+  public final aef a(byte[] paramArrayOfByte)
+  {
+    aef localaef = new aef();
+    a = paramArrayOfByte;
+    b = c;
+    c = d;
+    d = e;
+    e = f;
+    f = g;
+    g = h;
+    return localaef;
+  }
+  
+  public final boolean a(OutputStream paramOutputStream)
+  {
+    try
     {
-      int i;
-      synchronized (c)
+      aou.a(paramOutputStream, 538247942);
+      aou.a(paramOutputStream, b);
+      if (c == null) {}
+      for (String str = "";; str = c)
       {
-        aqt.a("AdRendererBackgroundTask started.");
-        i = e.e;
-        try
-        {
-          a(SystemClock.elapsedRealtime());
-          final aqj localaqj = a(i);
-          aqz.a.post(new Runnable()
-          {
-            public final void run()
-            {
-              synchronized (c)
-              {
-                a(localaqj);
-                return;
-              }
-            }
-          });
-          return;
-        }
-        catch (aow localaow)
-        {
-          i = localaow.a();
-          if (i == 3) {
-            continue;
-          }
-        }
-        if (i == -1)
-        {
-          aqt.c(localaow.getMessage());
-          if (f == null)
-          {
-            f = new AdResponseParcel(i);
-            aqz.a.post(new Runnable()
-            {
-              public final void run()
-              {
-                b();
-              }
-            });
-          }
-        }
-        else
-        {
-          aqt.d(localaow.getMessage());
-        }
+        aou.a(paramOutputStream, str);
+        aou.a(paramOutputStream, d);
+        aou.a(paramOutputStream, e);
+        aou.a(paramOutputStream, f);
+        aou.a(paramOutputStream, g);
+        aou.a(h, paramOutputStream);
+        paramOutputStream.flush();
+        return true;
       }
-      f = new AdResponseParcel(i, f.k);
+      return false;
+    }
+    catch (IOException paramOutputStream)
+    {
+      anj.b("%s", new Object[] { paramOutputStream.toString() });
     }
   }
-  
-  protected abstract void a(long paramLong);
-  
-  protected final void a(aqj paramaqj)
-  {
-    a.b(paramaqj);
-  }
-  
-  public void b() {}
 }
 
 /* Location:

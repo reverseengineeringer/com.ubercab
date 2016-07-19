@@ -1,17 +1,32 @@
-public final class aow
-  extends Exception
+import java.io.FilterInputStream;
+import java.io.InputStream;
+
+final class aow
+  extends FilterInputStream
 {
-  private final int a;
+  private int a = 0;
   
-  public aow(String paramString, int paramInt)
+  private aow(InputStream paramInputStream)
   {
-    super(paramString);
-    a = paramInt;
+    super(paramInputStream);
   }
   
-  public final int a()
+  public final int read()
   {
-    return a;
+    int i = super.read();
+    if (i != -1) {
+      a += 1;
+    }
+    return i;
+  }
+  
+  public final int read(byte[] paramArrayOfByte, int paramInt1, int paramInt2)
+  {
+    paramInt1 = super.read(paramArrayOfByte, paramInt1, paramInt2);
+    if (paramInt1 != -1) {
+      a += paramInt1;
+    }
+    return paramInt1;
   }
 }
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H1.White.Solid" android:gravity="center" android:layout_gravity="center" android:id="@id/ub__bad_routes_title_textview" android:background="@color/ub__uber_black_80" android:paddingLeft="@dimen/ui__spacing_unit_1x" android:paddingTop="@dimen/ui__spacing_unit_4x" android:paddingRight="@dimen/ui__spacing_unit_1x" android:paddingBottom="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:weightSum="2.0">
+            <FrameLayout android:background="@color/ub__uber_black_80" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        </LinearLayout>
+        <ImageView android:layout_gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/ub_bad_route_calculator" />
+    </FrameLayout>
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:gravity="center" android:layout_gravity="center" android:id="@id/ub__bad_routes_body_textview" android:padding="@dimen/ui__spacing_unit_3x" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ui__spacing_unit_4x">
+        <com.ubercab.ui.Button android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/ub__bad_routes_need_help_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__rds__need_help" style="@style/Uber.Widget.Button.Supporting" />
+    </FrameLayout>
+    <include layout="@layout/ub__divider_thin" />
+    <com.ubercab.ui.Button android:gravity="center" android:id="@id/ub__bad_routes_success_button_ok" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ub__rds__ok" style="@style/Uber.Widget.DialogButton" />
+</merge>

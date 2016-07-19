@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 
-public class ViewCompat
+public final class ViewCompat
 {
   public static final int ACCESSIBILITY_LIVE_REGION_ASSERTIVE = 2;
   public static final int ACCESSIBILITY_LIVE_REGION_NONE = 0;
@@ -401,18 +401,12 @@ public class ViewCompat
   
   public static void offsetLeftAndRight(View paramView, int paramInt)
   {
-    paramView.offsetLeftAndRight(paramInt);
-    if ((paramInt != 0) && (Build.VERSION.SDK_INT < 11)) {
-      paramView.invalidate();
-    }
+    IMPL.offsetLeftAndRight(paramView, paramInt);
   }
   
   public static void offsetTopAndBottom(View paramView, int paramInt)
   {
-    paramView.offsetTopAndBottom(paramInt);
-    if ((paramInt != 0) && (Build.VERSION.SDK_INT < 11)) {
-      paramView.invalidate();
-    }
+    IMPL.offsetTopAndBottom(paramView, paramInt);
   }
   
   public static WindowInsetsCompat onApplyWindowInsets(View paramView, WindowInsetsCompat paramWindowInsetsCompat)

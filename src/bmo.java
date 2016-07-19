@@ -1,21 +1,77 @@
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.signin.internal.AuthAccountResult;
-import com.google.android.gms.signin.internal.SignInResponse;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
-public class bmo
-  extends bmr
+final class bmo<T>
+  extends bmq<T>
 {
-  public final void a(ConnectionResult paramConnectionResult, AuthAccountResult paramAuthAccountResult) {}
+  private final bml<T> a;
+  private final bmc<T> b;
+  private final blw c;
+  private final boj<T> d;
+  private final bmr e;
+  private bmq<T> f;
   
-  public final void a(Status paramStatus) {}
+  private bmo(bml<T> parambml, bmc<T> parambmc, blw paramblw, boj<T> paramboj, bmr parambmr)
+  {
+    a = parambml;
+    b = parambmc;
+    c = paramblw;
+    d = paramboj;
+    e = parambmr;
+  }
   
-  public final void a(Status paramStatus, GoogleSignInAccount paramGoogleSignInAccount) {}
+  private bmq<T> a()
+  {
+    bmq localbmq = f;
+    if (localbmq != null) {
+      return localbmq;
+    }
+    localbmq = c.a(e, d);
+    f = localbmq;
+    return localbmq;
+  }
   
-  public void a(SignInResponse paramSignInResponse) {}
+  public static bmr a(boj<?> paramboj, Object paramObject)
+  {
+    return new bmp(paramObject, paramboj, false, (byte)0);
+  }
   
-  public final void b(Status paramStatus) {}
+  public static bmr b(boj<?> paramboj, Object paramObject)
+  {
+    if (paramboj.getType() == paramboj.getRawType()) {}
+    for (boolean bool = true;; bool = false) {
+      return new bmp(paramObject, paramboj, bool, (byte)0);
+    }
+  }
+  
+  public final T read(JsonReader paramJsonReader)
+  {
+    if (b == null) {
+      return (T)a().read(paramJsonReader);
+    }
+    paramJsonReader = bnn.a(paramJsonReader);
+    if (paramJsonReader.j()) {
+      return null;
+    }
+    return (T)b.deserialize(paramJsonReader, d.getType(), c.a);
+  }
+  
+  public final void write(JsonWriter paramJsonWriter, T paramT)
+  {
+    if (a == null)
+    {
+      a().write(paramJsonWriter, paramT);
+      return;
+    }
+    if (paramT == null)
+    {
+      paramJsonWriter.nullValue();
+      return;
+    }
+    bml localbml = a;
+    d.getType();
+    bnn.a(localbml.a(paramT), paramJsonWriter);
+  }
 }
 
 /* Location:

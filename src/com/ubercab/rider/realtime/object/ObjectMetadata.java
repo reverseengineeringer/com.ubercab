@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jtu;
+import mzc;
 
 @Shape
 abstract class ObjectMetadata
-  implements jtu
+  implements mzc
 {}
 
 /* Location:

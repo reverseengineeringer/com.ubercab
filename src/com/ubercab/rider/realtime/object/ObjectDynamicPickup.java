@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsx;
+import myf;
 
 @Shape
 public abstract class ObjectDynamicPickup
-  implements jsx
+  implements myf
 {}
 
 /* Location:

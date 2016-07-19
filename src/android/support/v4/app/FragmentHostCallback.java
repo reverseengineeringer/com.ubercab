@@ -3,6 +3,7 @@ package android.support.v4.app;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.util.SimpleArrayMap;
 import android.view.LayoutInflater;
@@ -223,6 +224,11 @@ public abstract class FragmentHostCallback<E>
   }
   
   public void onStartActivityFromFragment(Fragment paramFragment, Intent paramIntent, int paramInt)
+  {
+    onStartActivityFromFragment(paramFragment, paramIntent, paramInt, null);
+  }
+  
+  public void onStartActivityFromFragment(Fragment paramFragment, Intent paramIntent, int paramInt, Bundle paramBundle)
   {
     if (paramInt != -1) {
       throw new IllegalStateException("Starting activity with a requestCode requires a FragmentActivity host");

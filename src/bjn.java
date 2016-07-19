@@ -1,46 +1,40 @@
-final class bjn
+import com.google.j2objc.annotations.Weak;
+import java.util.Map.Entry;
+
+final class bjn<K, V>
+  extends bjs<K>
 {
-  final String a;
-  final String b;
-  final long c;
-  final long d;
-  final long e;
+  @Weak
+  private final bje<K, V> a;
   
-  bjn(String paramString1, String paramString2, long paramLong1, long paramLong2, long paramLong3)
+  bjn(bje<K, V> parambje)
   {
-    abs.a(paramString1);
-    abs.a(paramString2);
-    if (paramLong1 >= 0L)
-    {
-      bool1 = true;
-      abs.b(bool1);
-      if (paramLong2 < 0L) {
-        break label81;
-      }
-    }
-    label81:
-    for (boolean bool1 = bool2;; bool1 = false)
-    {
-      abs.b(bool1);
-      a = paramString1;
-      b = paramString2;
-      c = paramLong1;
-      d = paramLong2;
-      e = paramLong3;
-      return;
-      bool1 = false;
-      break;
-    }
+    a = parambje;
   }
   
-  final bjn a()
+  final K a(int paramInt)
   {
-    return new bjn(a, b, c + 1L, d + 1L, e);
+    return (K)((Map.Entry)a.f().c().get(paramInt)).getKey();
   }
   
-  final bjn a(long paramLong)
+  public final bkp<K> b()
   {
-    return new bjn(a, b, c, d, paramLong);
+    return a.j();
+  }
+  
+  public final boolean contains(Object paramObject)
+  {
+    return a.containsKey(paramObject);
+  }
+  
+  public final int size()
+  {
+    return a.size();
+  }
+  
+  final Object writeReplace()
+  {
+    return new bjo(a);
   }
 }
 

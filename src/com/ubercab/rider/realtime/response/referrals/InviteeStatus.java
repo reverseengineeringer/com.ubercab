@@ -2,10 +2,10 @@ package com.ubercab.rider.realtime.response.referrals;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class InviteeStatus
 {
   public static final String INVITEE_STATUS_NOT_A_USER = "no_user";

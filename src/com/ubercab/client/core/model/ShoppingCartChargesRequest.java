@@ -3,10 +3,10 @@ package com.ubercab.client.core.model;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.List;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class ShoppingCartChargesRequest
 {
   public static ShoppingCartChargesRequest create(List<ShoppingRequestedItem> paramList, String paramString1, String paramString2, Double paramDouble1, Double paramDouble2, String paramString3)

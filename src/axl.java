@@ -1,100 +1,75 @@
-import java.io.IOException;
-import java.lang.reflect.Array;
+import android.os.IBinder;
 
-public final class axl<M extends axk<M>, T>
+final class axl
+  implements axj
 {
-  protected final int a;
-  protected final Class<T> b;
-  public final int c;
-  protected final boolean d;
+  private IBinder a;
   
-  private int b(Object paramObject)
+  axl(IBinder paramIBinder)
   {
-    int j = 0;
-    int m = Array.getLength(paramObject);
-    int i = 0;
-    while (i < m)
-    {
-      int k = j;
-      if (Array.get(paramObject, i) != null) {
-        k = j + c(Array.get(paramObject, i));
-      }
-      i += 1;
-      j = k;
-    }
-    return j;
+    a = paramIBinder;
   }
   
-  private void b(Object paramObject, axi paramaxi)
+  /* Error */
+  public final void a(aum paramaum)
   {
-    for (;;)
-    {
-      try
-      {
-        paramaxi.d(c);
-        switch (a)
-        {
-        case 10: 
-          throw new IllegalArgumentException("Unknown type " + a);
-        }
-      }
-      catch (IOException paramObject)
-      {
-        throw new IllegalStateException((Throwable)paramObject);
-      }
-      paramObject = (axq)paramObject;
-      int i = axt.b(c);
-      paramaxi.a((axq)paramObject);
-      paramaxi.c(i, 4);
-      return;
-      paramaxi.b((axq)paramObject);
-      return;
-    }
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +42 -> 57
+    //   18: aload_1
+    //   19: invokeinterface 35 1 0
+    //   24: astore_1
+    //   25: aload_2
+    //   26: aload_1
+    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
+    //   30: aload_0
+    //   31: getfield 15	axl:a	Landroid/os/IBinder;
+    //   34: iconst_1
+    //   35: aload_2
+    //   36: aload_3
+    //   37: iconst_0
+    //   38: invokeinterface 44 5 0
+    //   43: pop
+    //   44: aload_3
+    //   45: invokevirtual 47	android/os/Parcel:readException	()V
+    //   48: aload_3
+    //   49: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   52: aload_2
+    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   56: return
+    //   57: aconst_null
+    //   58: astore_1
+    //   59: goto -34 -> 25
+    //   62: astore_1
+    //   63: aload_3
+    //   64: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   67: aload_2
+    //   68: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   71: aload_1
+    //   72: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	73	0	this	axl
+    //   0	73	1	paramaum	aum
+    //   3	65	2	localParcel1	android.os.Parcel
+    //   7	57	3	localParcel2	android.os.Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	62	finally
+    //   18	25	62	finally
+    //   25	48	62	finally
   }
   
-  private int c(Object paramObject)
+  public final IBinder asBinder()
   {
-    int i = axt.b(c);
-    switch (a)
-    {
-    default: 
-      throw new IllegalArgumentException("Unknown type " + a);
-    case 10: 
-      return axi.b(i, (axq)paramObject);
-    }
-    return axi.c(i, (axq)paramObject);
-  }
-  
-  private void c(Object paramObject, axi paramaxi)
-  {
-    int j = Array.getLength(paramObject);
-    int i = 0;
-    while (i < j)
-    {
-      Object localObject = Array.get(paramObject, i);
-      if (localObject != null) {
-        b(localObject, paramaxi);
-      }
-      i += 1;
-    }
-  }
-  
-  final int a(Object paramObject)
-  {
-    if (d) {
-      return b(paramObject);
-    }
-    return c(paramObject);
-  }
-  
-  final void a(Object paramObject, axi paramaxi)
-  {
-    if (d)
-    {
-      c(paramObject, paramaxi);
-      return;
-    }
-    b(paramObject, paramaxi);
+    return a;
   }
 }
 

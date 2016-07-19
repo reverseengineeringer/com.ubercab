@@ -1,9 +1,6 @@
-import java.util.HashSet;
-
-public abstract interface aqp
-{
-  public abstract void a(HashSet<aql> paramHashSet);
-}
+public final class aqp
+  implements apm
+{}
 
 /* Location:
  * Qualified Name:     aqp

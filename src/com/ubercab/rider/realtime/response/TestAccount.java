@@ -2,16 +2,16 @@ package com.ubercab.rider.realtime.response;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import iae;
-import jdh;
+import kco;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class TestAccount
 {
   public static TestAccount create(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6)
   {
-    return new Shape_TestAccount().setUuid((String)iae.a(paramString1)).setFirstName(paramString2).setLastName(paramString3).setEmail((String)iae.a(paramString4)).setToken((String)iae.a(paramString5)).setRole(paramString6);
+    return new Shape_TestAccount().setUuid((String)kco.a(paramString1)).setFirstName(paramString2).setLastName(paramString3).setEmail((String)kco.a(paramString4)).setToken((String)kco.a(paramString5)).setRole(paramString6);
   }
   
   public abstract String getEmail();

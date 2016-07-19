@@ -1,38 +1,8 @@
-public final class atz<T>
+import com.google.android.gms.maps.model.LatLng;
+
+public abstract interface atz
 {
-  public final T a;
-  public final agc b;
-  public final awg c;
-  public boolean d = false;
-  
-  private atz(awg paramawg)
-  {
-    a = null;
-    b = null;
-    c = paramawg;
-  }
-  
-  private atz(T paramT, agc paramagc)
-  {
-    a = paramT;
-    b = paramagc;
-    c = null;
-  }
-  
-  public static <T> atz<T> a(awg paramawg)
-  {
-    return new atz(paramawg);
-  }
-  
-  public static <T> atz<T> a(T paramT, agc paramagc)
-  {
-    return new atz(paramT, paramagc);
-  }
-  
-  public final boolean a()
-  {
-    return c == null;
-  }
+  public abstract void a(LatLng paramLatLng);
 }
 
 /* Location:

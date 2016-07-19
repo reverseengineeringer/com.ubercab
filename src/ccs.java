@@ -1,14 +1,32 @@
-import com.paypal.android.sdk.payments.PaymentActivity;
-import java.util.TimerTask;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
+import com.paypal.android.sdk.payments.PayPalService;
 
-final class ccs
-  extends TimerTask
+public final class ccs
+  implements ServiceConnection
 {
-  ccs(ccr paramccr) {}
+  public ccs(PayPalFuturePaymentActivity paramPayPalFuturePaymentActivity) {}
   
-  public final void run()
+  public final void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
   {
-    PaymentActivity.e(a.a);
+    new StringBuilder().append(PayPalFuturePaymentActivity.a()).append(".onServiceConnected");
+    if (a.isFinishing()) {
+      new StringBuilder().append(PayPalFuturePaymentActivity.a()).append(".onServiceConnected exit - isFinishing");
+    }
+    do
+    {
+      return;
+      PayPalFuturePaymentActivity.a(a, a);
+    } while (!PayPalFuturePaymentActivity.b(a).a(new cct(this)));
+    PayPalFuturePaymentActivity.c(a);
+  }
+  
+  public final void onServiceDisconnected(ComponentName paramComponentName)
+  {
+    PayPalFuturePaymentActivity.a(a, null);
+    PayPalFuturePaymentActivity.a();
   }
 }
 

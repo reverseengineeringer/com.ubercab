@@ -2,7 +2,7 @@ package com.ubercab.payment.internal.model;
 
 import android.text.TextUtils;
 import com.ubercab.shape.Shape;
-import iab;
+import kcl;
 
 @Shape
 public abstract class ApiError
@@ -25,7 +25,7 @@ public abstract class ApiError
       return getError();
     }
     if ((!TextUtils.isEmpty(getTitle())) && (!TextUtils.isEmpty(getSubhead()))) {
-      return iab.a("\n\n").a(getTitle(), getSubhead(), new Object[0]).trim();
+      return kcl.a("\n\n").a(getTitle(), getSubhead(), new Object[0]).trim();
     }
     if (!TextUtils.isEmpty(getTitle())) {
       return getTitle();

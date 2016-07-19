@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_2x" android:layout_weight="1.0">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.H5" android:textColor="@color/ub__uber_white_120" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__partner_referrals_your_invite_code" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.H2" android:id="@id/ub__partner_referrals_contact_picker_referral_code_top_banner_cta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAllCaps="true" />
+    </LinearLayout>
+    <View android:background="@color/ub__uber_white_120" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/ub__partner_referrals_contact_picker_referral_code_top_banner_copy_container" android:background="@drawable/ub__partner_referrals_selectable_item_background" android:paddingLeft="@dimen/ui__spacing_unit_2x" android:paddingTop="@dimen/ui__spacing_unit_1x" android:paddingRight="@dimen/ui__spacing_unit_2x" android:paddingBottom="@dimen/ui__spacing_unit_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:layout_marginTop="@dimen/ui__spacing_unit_1x" android:layout_marginRight="@dimen/ui__spacing_unit_1x" android:layout_marginBottom="@dimen/ui__spacing_unit_1x">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ub__partner_referrals_contact_picker_top_banner_copy_padding" android:src="@drawable/ub__partner_referrals_copy_black" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.H5.Dark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__partner_referrals_copy" android:textAllCaps="true" />
+    </LinearLayout>
+</merge>

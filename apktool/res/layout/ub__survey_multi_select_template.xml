@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ub__survey_multi_select_template" android:background="@color/ub__uber_white_10" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ub__survey_list_header" android:background="@drawable/ub__survey_header_background" android:padding="@dimen/ub__margin_medium" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/ub__survey_list_question_icon" android:layout_width="@dimen/ub__survey_dialog_icon_width_height" android:layout_height="@dimen/ub__survey_dialog_icon_width_height" android:layout_marginBottom="@dimen/ub__margin_small" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Style.Rider.TextAppearance.SurveyDialog.PreSurvey.H" android:gravity="center" android:id="@id/ub__survey_list_question_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Style.Rider.TextAppearance.SurveyDialog.PreSurvey.H2" android:gravity="center" android:id="@id/ub__survey_list_question_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__margin_small" />
+    </LinearLayout>
+    <GridView android:id="@id/ub__survey_grid_view" android:padding="@dimen/ub__margin_medium" android:layout_width="fill_parent" android:layout_height="0.0dip" android:horizontalSpacing="@dimen/ub__margin_medium" android:verticalSpacing="@dimen/ub__margin_small" android:numColumns="2" android:divider="@null" android:dividerHeight="0.0dip" android:layout_weight="1.0" style="@style/Uber.Lists" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.Button android:textSize="@dimen/ub__text_size_default" android:layout_gravity="center_vertical" android:id="@id/ub__survey_multi_select_skip_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/survey_driving_behavior_skip" android:textAllCaps="false" style="@style/Uber.Widget.DialogButton.Positive" />
+        <com.ubercab.ui.Button android:layout_gravity="center_vertical" android:id="@id/ub__survey_multi_select_submit_button" android:background="@drawable/ub__survey_multi_select_submit_button" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/submit" style="@style/Uber.Widget.Button.Accent" />
+    </FrameLayout>
+</LinearLayout>

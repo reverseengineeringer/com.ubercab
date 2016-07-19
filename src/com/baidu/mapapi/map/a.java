@@ -20,13 +20,16 @@ class a
       }
       BaiduMap.a(a).remove(paramOverlay);
     }
-    if ((paramOverlay != null) && (BaiduMap.c(a).contains(paramOverlay)))
+    if ((paramOverlay != null) && (BaiduMap.c(a).contains(paramOverlay))) {
+      BaiduMap.c(a).remove(paramOverlay);
+    }
+    if ((paramOverlay != null) && (BaiduMap.d(a).contains(paramOverlay)))
     {
       paramOverlay = (Marker)paramOverlay;
       if (n != null)
       {
-        BaiduMap.c(a).remove(paramOverlay);
-        if ((BaiduMap.c(a).size() == 0) && (BaiduMap.b(a) != null)) {
+        BaiduMap.d(a).remove(paramOverlay);
+        if ((BaiduMap.d(a).size() == 0) && (BaiduMap.b(a) != null)) {
           BaiduMap.b(a).b(false);
         }
       }
@@ -42,10 +45,10 @@ class a
         localObject = (Marker)paramOverlay;
         if ((n != null) && (n.size() != 0))
         {
-          if (BaiduMap.c(a).contains(localObject)) {
-            BaiduMap.c(a).remove(localObject);
+          if (BaiduMap.d(a).contains(localObject)) {
+            BaiduMap.d(a).remove(localObject);
           }
-          BaiduMap.c(a).add(localObject);
+          BaiduMap.d(a).add(localObject);
           if (BaiduMap.b(a) != null) {
             BaiduMap.b(a).b(true);
           }
@@ -55,6 +58,14 @@ class a
       if (BaiduMap.b(a) != null) {
         BaiduMap.b(a).c(paramOverlay.a((Bundle)localObject));
       }
+    }
+    if (BaiduMap.c(a).contains(paramOverlay)) {
+      BaiduMap.c(a).remove(paramOverlay);
+    }
+    if ((paramOverlay instanceof Marker))
+    {
+      paramOverlay = (Marker)paramOverlay;
+      BaiduMap.c(a).add(paramOverlay);
     }
   }
 }

@@ -1,44 +1,44 @@
 package com.google.android.gms.ads.internal.overlay;
 
-import add;
-import ade;
-import adg;
-import aje;
-import ajo;
+import acp;
+import acq;
+import acs;
+import afp;
+import aft;
+import aih;
+import ajm;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
-import apl;
-import asq;
 import com.google.android.gms.ads.internal.InterstitialAdParameterParcel;
 import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import ms;
-import ps;
-import pt;
-import qc;
+import rs;
+import st;
+import su;
+import tb;
 
-@apl
+@aih
 public final class AdOverlayInfoParcel
   implements SafeParcelable
 {
-  public static final ps CREATOR = new ps();
+  public static final st CREATOR = new st();
   public final int a;
   public final AdLauncherIntentInfoParcel b;
-  public final ms c;
-  public final pt d;
-  public final asq e;
-  public final aje f;
+  public final rs c;
+  public final su d;
+  public final ajm e;
+  public final afp f;
   public final String g;
   public final boolean h;
   public final String i;
-  public final qc j;
+  public final tb j;
   public final int k;
   public final int l;
   public final String m;
   public final VersionInfoParcel n;
-  public final ajo o;
+  public final aft o;
   public final String p;
   public final InterstitialAdParameterParcel q;
   
@@ -46,35 +46,35 @@ public final class AdOverlayInfoParcel
   {
     a = paramInt1;
     b = paramAdLauncherIntentInfoParcel;
-    c = ((ms)adg.a(ade.a(paramIBinder1)));
-    d = ((pt)adg.a(ade.a(paramIBinder2)));
-    e = ((asq)adg.a(ade.a(paramIBinder3)));
-    f = ((aje)adg.a(ade.a(paramIBinder4)));
+    c = ((rs)acs.a(acq.a(paramIBinder1)));
+    d = ((su)acs.a(acq.a(paramIBinder2)));
+    e = ((ajm)acs.a(acq.a(paramIBinder3)));
+    f = ((afp)acs.a(acq.a(paramIBinder4)));
     g = paramString1;
     h = paramBoolean;
     i = paramString2;
-    j = ((qc)adg.a(ade.a(paramIBinder5)));
+    j = ((tb)acs.a(acq.a(paramIBinder5)));
     k = paramInt2;
     l = paramInt3;
     m = paramString3;
     n = paramVersionInfoParcel;
-    o = ((ajo)adg.a(ade.a(paramIBinder6)));
+    o = ((aft)acs.a(acq.a(paramIBinder6)));
     p = paramString4;
     q = paramInterstitialAdParameterParcel;
   }
   
-  public AdOverlayInfoParcel(AdLauncherIntentInfoParcel paramAdLauncherIntentInfoParcel, ms paramms, pt parampt, qc paramqc, VersionInfoParcel paramVersionInfoParcel)
+  public AdOverlayInfoParcel(AdLauncherIntentInfoParcel paramAdLauncherIntentInfoParcel, rs paramrs, su paramsu, tb paramtb, VersionInfoParcel paramVersionInfoParcel)
   {
     a = 4;
     b = paramAdLauncherIntentInfoParcel;
-    c = paramms;
-    d = parampt;
+    c = paramrs;
+    d = paramsu;
     e = null;
     f = null;
     g = null;
     h = false;
     i = null;
-    j = paramqc;
+    j = paramtb;
     k = -1;
     l = 4;
     m = null;
@@ -84,81 +84,60 @@ public final class AdOverlayInfoParcel
     q = null;
   }
   
-  public AdOverlayInfoParcel(ms paramms, pt parampt, aje paramaje, qc paramqc, asq paramasq, boolean paramBoolean, int paramInt, String paramString, VersionInfoParcel paramVersionInfoParcel, ajo paramajo)
+  public AdOverlayInfoParcel(rs paramrs, su paramsu, afp paramafp, tb paramtb, ajm paramajm, boolean paramBoolean, int paramInt, String paramString, VersionInfoParcel paramVersionInfoParcel, aft paramaft)
   {
     a = 4;
     b = null;
-    c = paramms;
-    d = parampt;
-    e = paramasq;
-    f = paramaje;
+    c = paramrs;
+    d = paramsu;
+    e = paramajm;
+    f = paramafp;
     g = null;
     h = paramBoolean;
     i = null;
-    j = paramqc;
+    j = paramtb;
     k = paramInt;
     l = 3;
     m = paramString;
     n = paramVersionInfoParcel;
-    o = paramajo;
+    o = paramaft;
     p = null;
     q = null;
   }
   
-  public AdOverlayInfoParcel(ms paramms, pt parampt, aje paramaje, qc paramqc, asq paramasq, boolean paramBoolean, int paramInt, String paramString1, String paramString2, VersionInfoParcel paramVersionInfoParcel, ajo paramajo)
+  public AdOverlayInfoParcel(rs paramrs, su paramsu, afp paramafp, tb paramtb, ajm paramajm, boolean paramBoolean, int paramInt, String paramString1, String paramString2, VersionInfoParcel paramVersionInfoParcel, aft paramaft)
   {
     a = 4;
     b = null;
-    c = paramms;
-    d = parampt;
-    e = paramasq;
-    f = paramaje;
+    c = paramrs;
+    d = paramsu;
+    e = paramajm;
+    f = paramafp;
     g = paramString2;
     h = paramBoolean;
     i = paramString1;
-    j = paramqc;
+    j = paramtb;
     k = paramInt;
     l = 3;
     m = null;
     n = paramVersionInfoParcel;
-    o = paramajo;
+    o = paramaft;
     p = null;
     q = null;
   }
   
-  public AdOverlayInfoParcel(ms paramms, pt parampt, qc paramqc, asq paramasq, int paramInt, VersionInfoParcel paramVersionInfoParcel, String paramString, InterstitialAdParameterParcel paramInterstitialAdParameterParcel)
+  public AdOverlayInfoParcel(rs paramrs, su paramsu, tb paramtb, ajm paramajm, boolean paramBoolean, int paramInt, VersionInfoParcel paramVersionInfoParcel)
   {
     a = 4;
     b = null;
-    c = paramms;
-    d = parampt;
-    e = paramasq;
-    f = null;
-    g = null;
-    h = false;
-    i = null;
-    j = paramqc;
-    k = paramInt;
-    l = 1;
-    m = null;
-    n = paramVersionInfoParcel;
-    o = null;
-    p = paramString;
-    q = paramInterstitialAdParameterParcel;
-  }
-  
-  public AdOverlayInfoParcel(ms paramms, pt parampt, qc paramqc, asq paramasq, boolean paramBoolean, int paramInt, VersionInfoParcel paramVersionInfoParcel)
-  {
-    a = 4;
-    b = null;
-    c = paramms;
-    d = parampt;
-    e = paramasq;
+    c = paramrs;
+    d = paramsu;
+    e = paramajm;
     f = null;
     g = null;
     h = paramBoolean;
     i = null;
-    j = paramqc;
+    j = paramtb;
     k = paramInt;
     l = 2;
     m = null;
@@ -190,22 +169,22 @@ public final class AdOverlayInfoParcel
   
   public final IBinder a()
   {
-    return adg.a(c).asBinder();
+    return acs.a(c).asBinder();
   }
   
   public final IBinder b()
   {
-    return adg.a(d).asBinder();
+    return acs.a(d).asBinder();
   }
   
   public final IBinder c()
   {
-    return adg.a(e).asBinder();
+    return acs.a(e).asBinder();
   }
   
   public final IBinder d()
   {
-    return adg.a(f).asBinder();
+    return acs.a(f).asBinder();
   }
   
   public final int describeContents()
@@ -215,17 +194,17 @@ public final class AdOverlayInfoParcel
   
   public final IBinder e()
   {
-    return adg.a(o).asBinder();
+    return acs.a(o).asBinder();
   }
   
   public final IBinder f()
   {
-    return adg.a(j).asBinder();
+    return acs.a(j).asBinder();
   }
   
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    ps.a(this, paramParcel, paramInt);
+    st.a(this, paramParcel, paramInt);
   }
 }
 

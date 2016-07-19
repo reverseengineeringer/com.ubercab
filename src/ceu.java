@@ -1,13 +1,20 @@
-import com.paypal.android.sdk.payments.PaymentMethodActivity;
+import com.paypal.android.sdk.payments.PayPalService;
 
 final class ceu
-  implements ccm
+  implements cbm
 {
-  ceu(cet paramcet) {}
+  ceu(cep paramcep) {}
   
   public final void a()
   {
-    PaymentMethodActivity.i(a.a);
+    cep.b();
+    a.a.p();
+  }
+  
+  public final void a(cbn paramcbn)
+  {
+    cep.a(a);
+    ced.a(a, bvf.a(b), 1);
   }
 }
 

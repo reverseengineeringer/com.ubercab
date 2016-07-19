@@ -1,102 +1,220 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.identity.intents.model.UserAddress;
-import com.google.android.gms.wallet.Address;
-import com.google.android.gms.wallet.InstrumentInfo;
-import com.google.android.gms.wallet.LoyaltyWalletObject;
-import com.google.android.gms.wallet.MaskedWallet;
-import com.google.android.gms.wallet.OfferWalletObject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public final class boq
-  implements Parcelable.Creator<MaskedWallet>
+final class boq
+  implements bop
 {
-  private static MaskedWallet a(Parcel paramParcel)
+  private static final Logger a = Logger.getLogger(boq.class.getName());
+  private final Map<String, bpf> b = Collections.synchronizedMap(new HashMap());
+  private final Map<Integer, bpf> c = Collections.synchronizedMap(new HashMap());
+  private final String d;
+  private final bon e;
+  
+  public boq(bon parambon)
   {
-    InstrumentInfo[] arrayOfInstrumentInfo = null;
-    int j = zm.b(paramParcel);
-    int i = 0;
-    UserAddress localUserAddress1 = null;
-    UserAddress localUserAddress2 = null;
-    OfferWalletObject[] arrayOfOfferWalletObject = null;
-    LoyaltyWalletObject[] arrayOfLoyaltyWalletObject = null;
-    Address localAddress1 = null;
-    Address localAddress2 = null;
-    String str1 = null;
-    String[] arrayOfString = null;
-    String str2 = null;
-    String str3 = null;
-    while (paramParcel.dataPosition() < j)
+    this("/com/google/i18n/phonenumbers/data/PhoneNumberMetadataProto", parambon);
+  }
+  
+  private boq(String paramString, bon parambon)
+  {
+    d = paramString;
+    e = parambon;
+  }
+  
+  private static bpg a(ObjectInputStream paramObjectInputStream)
+  {
+    bpg localbpg = new bpg();
+    try
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      localbpg.b(boo.a(paramObjectInputStream));
+      try
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        str3 = zm.n(paramParcel, k);
-        break;
-      case 3: 
-        str2 = zm.n(paramParcel, k);
-        break;
-      case 4: 
-        arrayOfString = zm.z(paramParcel, k);
-        break;
-      case 5: 
-        str1 = zm.n(paramParcel, k);
-        break;
-      case 6: 
-        localAddress2 = (Address)zm.a(paramParcel, k, Address.CREATOR);
-        break;
-      case 7: 
-        localAddress1 = (Address)zm.a(paramParcel, k, Address.CREATOR);
-        break;
-      case 8: 
-        arrayOfLoyaltyWalletObject = (LoyaltyWalletObject[])zm.b(paramParcel, k, LoyaltyWalletObject.CREATOR);
-        break;
-      case 9: 
-        arrayOfOfferWalletObject = (OfferWalletObject[])zm.b(paramParcel, k, OfferWalletObject.CREATOR);
-        break;
-      case 10: 
-        localUserAddress2 = (UserAddress)zm.a(paramParcel, k, UserAddress.CREATOR);
-        break;
-      case 11: 
-        localUserAddress1 = (UserAddress)zm.a(paramParcel, k, UserAddress.CREATOR);
-        break;
-      case 12: 
-        arrayOfInstrumentInfo = (InstrumentInfo[])zm.b(paramParcel, k, InstrumentInfo.CREATOR);
+        paramObjectInputStream.close();
+        return localbpg;
+      }
+      catch (IOException paramObjectInputStream)
+      {
+        a.log(Level.WARNING, "error closing input stream (ignored)", paramObjectInputStream);
+        return localbpg;
+      }
+      try
+      {
+        paramObjectInputStream.close();
+        throw ((Throwable)localObject);
+      }
+      catch (IOException paramObjectInputStream)
+      {
+        for (;;)
+        {
+          a.log(Level.WARNING, "error closing input stream (ignored)", paramObjectInputStream);
+        }
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+    catch (IOException localIOException)
+    {
+      localIOException = localIOException;
+      a.log(Level.WARNING, "error reading input (ignored)", localIOException);
+      try
+      {
+        paramObjectInputStream.close();
+        return localbpg;
+      }
+      catch (IOException paramObjectInputStream)
+      {
+        a.log(Level.WARNING, "error closing input stream (ignored)", paramObjectInputStream);
+        return localbpg;
+      }
     }
-    return new MaskedWallet(i, str3, str2, arrayOfString, str1, localAddress2, localAddress1, arrayOfLoyaltyWalletObject, arrayOfOfferWalletObject, localUserAddress2, localUserAddress1, arrayOfInstrumentInfo);
+    finally {}
   }
   
-  public static void a(MaskedWallet paramMaskedWallet, Parcel paramParcel, int paramInt)
+  private void a(String paramString, int paramInt)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramMaskedWallet.a());
-    zo.a(paramParcel, 2, a, false);
-    zo.a(paramParcel, 3, b, false);
-    zo.a(paramParcel, 4, c);
-    zo.a(paramParcel, 5, d, false);
-    zo.a(paramParcel, 6, e, paramInt, false);
-    zo.a(paramParcel, 7, f, paramInt, false);
-    zo.a(paramParcel, 8, g, paramInt);
-    zo.a(paramParcel, 9, h, paramInt);
-    zo.a(paramParcel, 10, paramMaskedWallet.i, paramInt, false);
-    zo.a(paramParcel, 11, j, paramInt, false);
-    zo.a(paramParcel, 12, k, paramInt);
-    zo.a(paramParcel, i);
+    boolean bool = "001".equals(paramString);
+    String str2 = String.valueOf(String.valueOf(d));
+    Object localObject1;
+    Object localObject2;
+    if (bool)
+    {
+      localObject1 = String.valueOf(paramInt);
+      localObject1 = String.valueOf(String.valueOf(localObject1));
+      str2 = str2.length() + 1 + ((String)localObject1).length() + str2 + "_" + (String)localObject1;
+      localObject1 = e.a(str2);
+      if (localObject1 != null) {
+        break label196;
+      }
+      localObject1 = a;
+      localObject2 = Level.SEVERE;
+      paramString = String.valueOf(str2);
+      if (paramString.length() == 0) {
+        break label170;
+      }
+      paramString = "missing metadata: ".concat(paramString);
+      label127:
+      ((Logger)localObject1).log((Level)localObject2, paramString);
+      paramString = String.valueOf(str2);
+      if (paramString.length() == 0) {
+        break label183;
+      }
+    }
+    label170:
+    label183:
+    for (paramString = "missing metadata: ".concat(paramString);; paramString = new String("missing metadata: "))
+    {
+      throw new IllegalStateException(paramString);
+      localObject1 = paramString;
+      break;
+      paramString = new String("missing metadata: ");
+      break label127;
+    }
+    label196:
+    label277:
+    Object localObject3;
+    try
+    {
+      localObject2 = aObjectInputStreama;
+      if (localObject2.length != 0) {
+        break label385;
+      }
+      localObject1 = a;
+      localObject2 = Level.SEVERE;
+      paramString = String.valueOf(str2);
+      if (paramString.length() == 0) {
+        break label359;
+      }
+      paramString = "empty metadata: ".concat(paramString);
+      ((Logger)localObject1).log((Level)localObject2, paramString);
+      paramString = String.valueOf(str2);
+      if (paramString.length() == 0) {
+        break label372;
+      }
+      paramString = "empty metadata: ".concat(paramString);
+      throw new IllegalStateException(paramString);
+    }
+    catch (IOException localIOException)
+    {
+      localObject2 = a;
+      localObject3 = Level.SEVERE;
+      paramString = String.valueOf(str2);
+      if (paramString.length() == 0) {
+        break label490;
+      }
+    }
+    paramString = "cannot load/parse metadata: ".concat(paramString);
+    label318:
+    ((Logger)localObject2).log((Level)localObject3, paramString, localIOException);
+    paramString = String.valueOf(str2);
+    if (paramString.length() != 0) {}
+    for (paramString = "cannot load/parse metadata: ".concat(paramString);; paramString = new String("cannot load/parse metadata: "))
+    {
+      throw new RuntimeException(paramString, localIOException);
+      label359:
+      paramString = new String("empty metadata: ");
+      break;
+      label372:
+      paramString = new String("empty metadata: ");
+      break label277;
+      label385:
+      Level localLevel;
+      if (localObject2.length > 1)
+      {
+        localObject3 = a;
+        localLevel = Level.WARNING;
+        str1 = String.valueOf(str2);
+        if (str1.length() == 0) {
+          break label462;
+        }
+      }
+      label462:
+      for (String str1 = "invalid metadata (too many entries): ".concat(str1);; str1 = new String("invalid metadata (too many entries): "))
+      {
+        ((Logger)localObject3).log(localLevel, str1);
+        str1 = localObject2[0];
+        if (!bool) {
+          break;
+        }
+        c.put(Integer.valueOf(paramInt), str1);
+        return;
+      }
+      b.put(paramString, str1);
+      return;
+      label490:
+      paramString = new String("cannot load/parse metadata: ");
+      break label318;
+    }
   }
   
-  private static MaskedWallet[] a(int paramInt)
+  public final bpf a(int paramInt)
   {
-    return new MaskedWallet[paramInt];
+    synchronized (c)
+    {
+      if (!c.containsKey(Integer.valueOf(paramInt)))
+      {
+        List localList = (List)bom.a().get(Integer.valueOf(paramInt));
+        if ((localList.size() == 1) && ("001".equals(localList.get(0)))) {
+          a("001", paramInt);
+        }
+      }
+      return (bpf)c.get(Integer.valueOf(paramInt));
+    }
+  }
+  
+  public final bpf a(String paramString)
+  {
+    synchronized (b)
+    {
+      if (!b.containsKey(paramString)) {
+        a(paramString, 0);
+      }
+      return (bpf)b.get(paramString);
+    }
   }
 }
 

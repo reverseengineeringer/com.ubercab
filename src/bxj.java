@@ -1,80 +1,149 @@
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapFactory.Options;
+import android.graphics.drawable.Drawable;
+import android.os.Build.VERSION;
+import android.util.Base64;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup.MarginLayoutParams;
+import android.widget.Button;
+import android.widget.TextView;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class bxj
+public final class bxj
 {
-  private static final String a = bxj.class.getSimpleName();
-  private static final Map b;
-  private static final Set c;
+  private static final Map a;
+  private static Pattern b = Pattern.compile("^\\s*(\\d+(\\.\\d+)*)\\s*([a-zA-Z]+)\\s*$");
+  private static HashMap c = new HashMap();
   
   static
   {
-    Object localObject = new HashMap();
-    b = (Map)localObject;
-    ((Map)localObject).put("c14", "erpg");
-    b.put("c25", "page");
-    b.put("c26", "link");
-    b.put("c27", "pgln");
-    b.put("c29", "eccd");
-    b.put("c35", "lgin");
-    b.put("vers", "vers");
-    b.put("c50", "rsta");
-    b.put("gn", "pgrp");
-    b.put("v49", "mapv");
-    b.put("v51", "mcar");
-    b.put("v52", "mosv");
-    b.put("v53", "mdvs");
-    b.put("clid", "clid");
-    b.put("apid", "apid");
-    b.put("calc", "calc");
-    b.put("e", "e");
-    b.put("t", "t");
-    b.put("g", "g");
-    b.put("srce", "srce");
-    b.put("vid", "vid");
-    b.put("bchn", "bchn");
-    b.put("adte", "adte");
-    b.put("sv", "sv");
-    b.put("dsid", "dsid");
-    b.put("bzsr", "bzsr");
-    b.put("prid", "prid");
-    localObject = new HashSet();
-    c = (Set)localObject;
-    ((Set)localObject).add("v25");
-    c.add("v31");
-    c.add("c37");
+    HashMap localHashMap = new HashMap();
+    localHashMap.put("px", Integer.valueOf(0));
+    localHashMap.put("dip", Integer.valueOf(1));
+    localHashMap.put("dp", Integer.valueOf(1));
+    localHashMap.put("sp", Integer.valueOf(2));
+    localHashMap.put("pt", Integer.valueOf(3));
+    localHashMap.put("in", Integer.valueOf(4));
+    localHashMap.put("mm", Integer.valueOf(5));
+    a = Collections.unmodifiableMap(localHashMap);
   }
   
-  public static btn a(btn parambtn)
+  public static int a(String paramString, Context paramContext)
   {
-    Map localMap = b;
-    HashMap localHashMap = new HashMap();
-    Iterator localIterator = localMap.keySet().iterator();
-    while (localIterator.hasNext())
-    {
-      String str1 = (String)localIterator.next();
-      if (!bze.c(str1)) {
-        if (c.contains(str1))
-        {
-          new StringBuilder("SC key ").append(str1).append(" not used in FPTI, skipping");
-        }
-        else if (!b.containsKey(str1))
-        {
-          new StringBuilder("No mapping for SC key ").append(str1).append(", skipping");
-        }
-        else
-        {
-          String str2 = (String)b.get(str1);
-          if (str2 != null) {
-            localHashMap.put(str2, localMap.get(str1));
-          }
-        }
-      }
+    if (paramString == null) {
+      return 0;
     }
-    return new btn(a, localHashMap, c, d, false);
+    return (int)b(paramString, paramContext);
+  }
+  
+  public static void a(View paramView, int paramInt)
+  {
+    paramView = paramView.getLayoutParams();
+    width = paramInt;
+    height = -2;
+  }
+  
+  public static void a(View paramView, String paramString1, String paramString2, String paramString3, String paramString4)
+  {
+    Context localContext = paramView.getContext();
+    paramView.setPadding(a(paramString1, localContext), a(paramString2, localContext), a(paramString3, localContext), a(paramString4, localContext));
+  }
+  
+  public static void a(View paramView, boolean paramBoolean, Context paramContext)
+  {
+    a(paramView, -1);
+    a(paramView, "10dip", "0dip", "10dip", "0dip");
+    Drawable localDrawable;
+    if (paramBoolean)
+    {
+      localDrawable = bxi.a(paramContext);
+      if (Build.VERSION.SDK_INT < 16) {
+        break label111;
+      }
+      paramView.setBackground(localDrawable);
+    }
+    for (;;)
+    {
+      paramView.setFocusable(true);
+      paramView.setMinimumHeight(a("54dip", paramContext));
+      if ((paramView instanceof TextView))
+      {
+        paramContext = (TextView)paramView;
+        paramContext.setGravity(17);
+        paramContext.setTextColor(-1);
+        paramContext.setTextSize(20.0F);
+        paramContext.setTypeface(bxi.f);
+      }
+      if (!(paramView instanceof Button)) {
+        paramView.setClickable(true);
+      }
+      return;
+      localDrawable = bxi.b(paramContext);
+      break;
+      label111:
+      paramView.setBackgroundDrawable(localDrawable);
+    }
+  }
+  
+  public static float b(String paramString, Context paramContext)
+  {
+    if (paramString == null) {
+      return 0.0F;
+    }
+    String str = paramString.toLowerCase();
+    if (c.containsKey(str)) {
+      return ((Float)c.get(str)).floatValue();
+    }
+    paramString = b.matcher(str);
+    if (!paramString.matches()) {
+      throw new NumberFormatException();
+    }
+    float f = Float.parseFloat(paramString.group(1));
+    paramString = paramString.group(3).toLowerCase();
+    Integer localInteger = (Integer)a.get(paramString);
+    paramString = localInteger;
+    if (localInteger == null) {
+      paramString = Integer.valueOf(1);
+    }
+    f = TypedValue.applyDimension(paramString.intValue(), f, paramContext.getResources().getDisplayMetrics());
+    c.put(str, Float.valueOf(f));
+    return f;
+  }
+  
+  public static void b(View paramView, String paramString1, String paramString2, String paramString3, String paramString4)
+  {
+    Context localContext = paramView.getContext();
+    paramView = paramView.getLayoutParams();
+    if ((paramView instanceof ViewGroup.MarginLayoutParams)) {
+      ((ViewGroup.MarginLayoutParams)paramView).setMargins(a(paramString1, localContext), a(paramString2, localContext), a(paramString3, localContext), a(paramString4, localContext));
+    }
+  }
+  
+  public static Bitmap c(String paramString, Context paramContext)
+  {
+    return d(paramString, paramContext);
+  }
+  
+  public static Bitmap d(String paramString, Context paramContext)
+  {
+    BitmapFactory.Options localOptions = new BitmapFactory.Options();
+    if (paramContext != null) {}
+    for (inTargetDensity = getResourcesgetDisplayMetricsdensityDpi;; inTargetDensity = 160)
+    {
+      inDensity = 240;
+      inScaled = false;
+      paramString = Base64.decode(paramString, 0);
+      return BitmapFactory.decodeByteArray(paramString, 0, paramString.length, localOptions);
+    }
   }
 }
 

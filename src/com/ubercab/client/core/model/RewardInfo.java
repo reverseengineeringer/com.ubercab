@@ -2,10 +2,10 @@ package com.ubercab.client.core.model;
 
 import android.text.TextUtils;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import jdh;
+import lzo;
 
 @Deprecated
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class RewardInfo
   implements com.ubercab.rider.realtime.model.RewardInfo
 {
@@ -84,6 +84,9 @@ public class RewardInfo
   
   public boolean getEnabled()
   {
+    if (enabled == null) {
+      return false;
+    }
     return enabled.booleanValue();
   }
   

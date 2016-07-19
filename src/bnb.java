@@ -1,32 +1,90 @@
-import com.google.android.gms.wallet.Cart;
-import com.google.android.gms.wallet.LineItem;
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.lang.reflect.Type;
+import java.lang.reflect.WildcardType;
 
-public final class bnb
+final class bnb
+  implements Serializable, WildcardType
 {
-  private bnb(Cart paramCart) {}
+  private static final long serialVersionUID = 0L;
+  private final Type a;
+  private final Type b;
   
-  public final bnb a(LineItem paramLineItem)
+  public bnb(Type[] paramArrayOfType1, Type[] paramArrayOfType2)
   {
-    a.c.add(paramLineItem);
-    return this;
+    if (paramArrayOfType2.length <= 1)
+    {
+      bool1 = true;
+      bmx.a(bool1);
+      if (paramArrayOfType1.length != 1) {
+        break label87;
+      }
+      bool1 = true;
+      label27:
+      bmx.a(bool1);
+      if (paramArrayOfType2.length != 1) {
+        break label97;
+      }
+      bmx.a(paramArrayOfType2[0]);
+      bmy.e(paramArrayOfType2[0]);
+      if (paramArrayOfType1[0] != Object.class) {
+        break label92;
+      }
+    }
+    label87:
+    label92:
+    for (boolean bool1 = bool2;; bool1 = false)
+    {
+      bmx.a(bool1);
+      b = bmy.a(paramArrayOfType2[0]);
+      a = Object.class;
+      return;
+      bool1 = false;
+      break;
+      bool1 = false;
+      break label27;
+    }
+    label97:
+    bmx.a(paramArrayOfType1[0]);
+    bmy.e(paramArrayOfType1[0]);
+    b = null;
+    a = bmy.a(paramArrayOfType1[0]);
   }
   
-  public final bnb a(String paramString)
+  public final boolean equals(Object paramObject)
   {
-    a.a = paramString;
-    return this;
+    return ((paramObject instanceof WildcardType)) && (bmy.a(this, (WildcardType)paramObject));
   }
   
-  public final Cart a()
+  public final Type[] getLowerBounds()
   {
-    return a;
+    if (b != null) {
+      return new Type[] { b };
+    }
+    return bmy.a;
   }
   
-  public final bnb b(String paramString)
+  public final Type[] getUpperBounds()
   {
-    a.b = paramString;
-    return this;
+    return new Type[] { a };
+  }
+  
+  public final int hashCode()
+  {
+    if (b != null) {}
+    for (int i = b.hashCode() + 31;; i = 1) {
+      return i ^ a.hashCode() + 31;
+    }
+  }
+  
+  public final String toString()
+  {
+    if (b != null) {
+      return "? super " + bmy.c(b);
+    }
+    if (a == Object.class) {
+      return "?";
+    }
+    return "? extends " + bmy.c(a);
   }
 }
 

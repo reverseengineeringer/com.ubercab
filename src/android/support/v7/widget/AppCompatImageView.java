@@ -7,16 +7,22 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.view.TintableBackgroundView;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import fe;
-import fg;
-import it;
+import jr;
+import jt;
+import jy;
+import nf;
 
 public class AppCompatImageView
   extends ImageView
   implements TintableBackgroundView
 {
-  private fe a;
-  private fg b;
+  private jr a;
+  private jy b;
+  
+  public AppCompatImageView(Context paramContext)
+  {
+    this(paramContext, null);
+  }
   
   public AppCompatImageView(Context paramContext, AttributeSet paramAttributeSet)
   {
@@ -25,11 +31,11 @@ public class AppCompatImageView
   
   public AppCompatImageView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
-    super(paramContext, paramAttributeSet, paramInt);
-    paramContext = it.a(paramContext);
-    a = new fe(this, paramContext);
+    super(nf.a(paramContext), paramAttributeSet, paramInt);
+    paramContext = jt.a();
+    a = new jr(this, paramContext);
     a.a(paramAttributeSet, paramInt);
-    b = new fg(this, paramContext);
+    b = new jy(this, paramContext);
     b.a(paramAttributeSet, paramInt);
   }
   

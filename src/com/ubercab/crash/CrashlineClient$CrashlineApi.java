@@ -1,7 +1,7 @@
 package com.ubercab.crash;
 
 import com.ubercab.crash.internal.model.Request;
-import kld;
+import odr;
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.POST;
@@ -9,7 +9,7 @@ import retrofit.http.POST;
 abstract interface CrashlineClient$CrashlineApi
 {
   @POST("/spout/crash")
-  public abstract kld<Void> sendRequest(@Body Request paramRequest);
+  public abstract odr<Void> sendRequest(@Body Request paramRequest);
   
   @POST("/spout/crash")
   public abstract void sendRequest(@Body Request paramRequest, Callback<Void> paramCallback);

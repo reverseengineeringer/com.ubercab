@@ -1,51 +1,16 @@
-import android.content.Intent;
-import android.util.Log;
-import com.paypal.android.sdk.payments.PayPalConfiguration;
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.LoginActivity;
 
-public abstract class cbd
+public final class cbd
+  implements View.OnClickListener
 {
-  private Intent a;
-  private PayPalConfiguration b;
+  public cbd(LoginActivity paramLoginActivity) {}
   
-  cbd(Intent paramIntent, PayPalConfiguration paramPayPalConfiguration)
+  public final void onClick(View paramView)
   {
-    a = paramIntent;
-    b = paramPayPalConfiguration;
-    if (!a.hasExtra("com.paypal.android.sdk.paypalConfiguration")) {
-      Log.w(a(), "Please add PayPalService.EXTRA_PAYPAL_CONFIGURATION to this activity for restart resiliency.");
-    }
+    LoginActivity.b(a);
   }
-  
-  abstract String a();
-  
-  protected final void a(boolean paramBoolean, String paramString)
-  {
-    if (!paramBoolean) {
-      Log.e(a(), paramString + " is invalid.  Please see the docs.");
-    }
-  }
-  
-  final Intent b()
-  {
-    return a;
-  }
-  
-  final PayPalConfiguration c()
-  {
-    return b;
-  }
-  
-  public final boolean d()
-  {
-    if (!b.o())
-    {
-      Log.e(a(), "Service extra invalid.");
-      return false;
-    }
-    return true;
-  }
-  
-  abstract boolean e();
 }
 
 /* Location:

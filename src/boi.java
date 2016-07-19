@@ -1,60 +1,68 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.CreateWalletObjectsRequest;
-import com.google.android.gms.wallet.GiftCardWalletObject;
-import com.google.android.gms.wallet.LoyaltyWalletObject;
-import com.google.android.gms.wallet.OfferWalletObject;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 
-public final class boi
-  implements Parcelable.Creator<CreateWalletObjectsRequest>
+final class boi<T extends Enum<T>>
+  extends bmq<T>
 {
-  private static CreateWalletObjectsRequest a(Parcel paramParcel)
+  private final Map<String, T> a = new HashMap();
+  private final Map<T, String> b = new HashMap();
+  
+  public boi(Class<T> paramClass)
   {
-    int j = zm.b(paramParcel);
-    OfferWalletObject localOfferWalletObject = null;
-    LoyaltyWalletObject localLoyaltyWalletObject = null;
-    int i = 0;
-    GiftCardWalletObject localGiftCardWalletObject = null;
-    while (paramParcel.dataPosition() < j)
+    for (;;)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      try
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        localLoyaltyWalletObject = (LoyaltyWalletObject)zm.a(paramParcel, k, LoyaltyWalletObject.CREATOR);
-        break;
-      case 3: 
-        localOfferWalletObject = (OfferWalletObject)zm.a(paramParcel, k, OfferWalletObject.CREATOR);
-        break;
-      case 4: 
-        localGiftCardWalletObject = (GiftCardWalletObject)zm.a(paramParcel, k, GiftCardWalletObject.CREATOR);
+        Enum[] arrayOfEnum = (Enum[])paramClass.getEnumConstants();
+        int j = arrayOfEnum.length;
+        int i = 0;
+        if (i < j)
+        {
+          Enum localEnum = arrayOfEnum[i];
+          String str = localEnum.name();
+          bmu localbmu = (bmu)paramClass.getField(str).getAnnotation(bmu.class);
+          if (localbmu != null)
+          {
+            str = localbmu.a();
+            a.put(str, localEnum);
+            b.put(localEnum, str);
+            i += 1;
+          }
+        }
+        else
+        {
+          return;
+        }
+      }
+      catch (NoSuchFieldException paramClass)
+      {
+        throw new AssertionError();
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+  }
+  
+  private T a(JsonReader paramJsonReader)
+  {
+    if (paramJsonReader.peek() == JsonToken.NULL)
+    {
+      paramJsonReader.nextNull();
+      return null;
     }
-    return new CreateWalletObjectsRequest(i, localLoyaltyWalletObject, localOfferWalletObject, localGiftCardWalletObject);
+    return (Enum)a.get(paramJsonReader.nextString());
   }
   
-  public static void a(CreateWalletObjectsRequest paramCreateWalletObjectsRequest, Parcel paramParcel, int paramInt)
+  private void a(JsonWriter paramJsonWriter, T paramT)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramCreateWalletObjectsRequest.a());
-    zo.a(paramParcel, 2, a, paramInt, false);
-    zo.a(paramParcel, 3, b, paramInt, false);
-    zo.a(paramParcel, 4, c, paramInt, false);
-    zo.a(paramParcel, i);
-  }
-  
-  private static CreateWalletObjectsRequest[] a(int paramInt)
-  {
-    return new CreateWalletObjectsRequest[paramInt];
+    if (paramT == null) {}
+    for (paramT = null;; paramT = (String)b.get(paramT))
+    {
+      paramJsonWriter.value(paramT);
+      return;
+    }
   }
 }
 

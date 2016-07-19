@@ -1,9 +1,17 @@
 public abstract interface cgz
-  extends cgv
+  extends cgr, Comparable<cgz>
 {
-  public abstract void a(String paramString);
+  public abstract void a(cgs paramcgs);
   
-  public abstract void d();
+  public abstract void a(cgt paramcgt);
+  
+  public abstract void b(String paramString1, String paramString2);
+  
+  public abstract String c();
+  
+  public abstract String d();
+  
+  public abstract cgs e();
 }
 
 /* Location:

@@ -15,11 +15,11 @@ class MediaBrowserServiceCompat$1
   
   public void run()
   {
-    Iterator localIterator = MediaBrowserServiceCompat.access$100(this$0).keySet().iterator();
+    Iterator localIterator = MediaBrowserServiceCompat.access$500(this$0).keySet().iterator();
     while (localIterator.hasNext())
     {
       IBinder localIBinder = (IBinder)localIterator.next();
-      MediaBrowserServiceCompat.ConnectionRecord localConnectionRecord = (MediaBrowserServiceCompat.ConnectionRecord)MediaBrowserServiceCompat.access$100(this$0).get(localIBinder);
+      MediaBrowserServiceCompat.ConnectionRecord localConnectionRecord = (MediaBrowserServiceCompat.ConnectionRecord)MediaBrowserServiceCompat.access$500(this$0).get(localIBinder);
       try
       {
         callbacks.onConnect(root.getRootId(), val$token, root.getExtras());
@@ -27,7 +27,7 @@ class MediaBrowserServiceCompat$1
       catch (RemoteException localRemoteException)
       {
         Log.w("MediaBrowserServiceCompat", "Connection for " + pkg + " is no longer valid.");
-        MediaBrowserServiceCompat.access$100(this$0).remove(localIBinder);
+        MediaBrowserServiceCompat.access$500(this$0).remove(localIBinder);
       }
     }
   }

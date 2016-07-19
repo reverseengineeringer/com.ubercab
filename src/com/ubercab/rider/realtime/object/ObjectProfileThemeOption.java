@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jud;
+import mzl;
 
 @Shape
 abstract class ObjectProfileThemeOption
-  implements jud
+  implements mzl
 {}
 
 /* Location:

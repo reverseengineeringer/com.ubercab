@@ -3,14 +3,14 @@ package com.paypal.android.sdk;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
-import bvs;
-import bvu;
+import btm;
+import bto;
 
 public final class bI
-  extends bvu
+  extends bto
   implements Parcelable
 {
-  public static final Parcelable.Creator CREATOR = new bvs();
+  public static final Parcelable.Creator CREATOR = new btm();
   private boolean c;
   private String d;
   

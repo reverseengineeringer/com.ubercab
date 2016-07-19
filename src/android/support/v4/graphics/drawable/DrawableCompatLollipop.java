@@ -1,13 +1,36 @@
 package android.support.v4.graphics.drawable;
 
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.content.res.Resources.Theme;
+import android.graphics.ColorFilter;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.DrawableContainer;
-import android.graphics.drawable.GradientDrawable;
+import android.util.AttributeSet;
+import org.xmlpull.v1.XmlPullParser;
 
 class DrawableCompatLollipop
 {
+  public static void applyTheme(Drawable paramDrawable, Resources.Theme paramTheme)
+  {
+    paramDrawable.applyTheme(paramTheme);
+  }
+  
+  public static boolean canApplyTheme(Drawable paramDrawable)
+  {
+    return paramDrawable.canApplyTheme();
+  }
+  
+  public static ColorFilter getColorFilter(Drawable paramDrawable)
+  {
+    return paramDrawable.getColorFilter();
+  }
+  
+  public static void inflate(Drawable paramDrawable, Resources paramResources, XmlPullParser paramXmlPullParser, AttributeSet paramAttributeSet, Resources.Theme paramTheme)
+  {
+    paramDrawable.inflate(paramResources, paramXmlPullParser, paramAttributeSet, paramTheme);
+  }
+  
   public static void setHotspot(Drawable paramDrawable, float paramFloat1, float paramFloat2)
   {
     paramDrawable.setHotspot(paramFloat1, paramFloat2);
@@ -20,44 +43,23 @@ class DrawableCompatLollipop
   
   public static void setTint(Drawable paramDrawable, int paramInt)
   {
-    if ((paramDrawable instanceof DrawableWrapperLollipop))
-    {
-      DrawableCompatBase.setTint(paramDrawable, paramInt);
-      return;
-    }
     paramDrawable.setTint(paramInt);
   }
   
   public static void setTintList(Drawable paramDrawable, ColorStateList paramColorStateList)
   {
-    if ((paramDrawable instanceof DrawableWrapperLollipop))
-    {
-      DrawableCompatBase.setTintList(paramDrawable, paramColorStateList);
-      return;
-    }
     paramDrawable.setTintList(paramColorStateList);
   }
   
   public static void setTintMode(Drawable paramDrawable, PorterDuff.Mode paramMode)
   {
-    if ((paramDrawable instanceof DrawableWrapperLollipop))
-    {
-      DrawableCompatBase.setTintMode(paramDrawable, paramMode);
-      return;
-    }
     paramDrawable.setTintMode(paramMode);
   }
   
   public static Drawable wrapForTinting(Drawable paramDrawable)
   {
-    Object localObject;
-    if (!(paramDrawable instanceof GradientDrawable))
-    {
-      localObject = paramDrawable;
-      if (!(paramDrawable instanceof DrawableContainer)) {}
-    }
-    else
-    {
+    Object localObject = paramDrawable;
+    if (!(paramDrawable instanceof TintAwareDrawable)) {
       localObject = new DrawableWrapperLollipop(paramDrawable);
     }
     return (Drawable)localObject;

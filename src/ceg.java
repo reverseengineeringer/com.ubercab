@@ -1,15 +1,15 @@
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.PaymentConfirmActivity;
 
-public final class ceg
+final class ceg
   implements DialogInterface.OnClickListener
 {
-  public ceg(PaymentConfirmActivity paramPaymentConfirmActivity) {}
+  ceg(Activity paramActivity) {}
   
   public final void onClick(DialogInterface paramDialogInterface, int paramInt)
   {
-    PaymentConfirmActivity.j(a);
+    a.finish();
   }
 }
 

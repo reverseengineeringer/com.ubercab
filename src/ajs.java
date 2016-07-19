@@ -1,48 +1,16 @@
-import java.util.Map;
+import android.content.Context;
+import com.google.android.gms.ads.internal.client.AdSizeParcel;
+import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
 
-@apl
+@aih
 public final class ajs
-  implements aji
 {
-  static final Map<String, Integer> a = auk.a("resize", Integer.valueOf(1), "playVideo", Integer.valueOf(2), "storePicture", Integer.valueOf(3), "createCalendarEvent", Integer.valueOf(4), "setOrientationProperties", Integer.valueOf(5), "closeResizedAd", Integer.valueOf(6));
-  private final sw b;
-  private final amx c;
-  
-  public ajs(sw paramsw, amx paramamx)
+  public static ajm a(Context paramContext, AdSizeParcel paramAdSizeParcel, boolean paramBoolean, VersionInfoParcel paramVersionInfoParcel, uh paramuh)
   {
-    b = paramsw;
-    c = paramamx;
-  }
-  
-  public final void a(asq paramasq, Map<String, String> paramMap)
-  {
-    String str = (String)paramMap.get("a");
-    int i = ((Integer)a.get(str)).intValue();
-    if ((i != 5) && (b != null) && (!b.b()))
-    {
-      b.a(null);
-      return;
-    }
-    switch (i)
-    {
-    case 2: 
-    default: 
-      aqt.c("Unknown MRAID command called.");
-      return;
-    case 1: 
-      c.a(paramMap);
-      return;
-    case 4: 
-      new amw(paramasq, paramMap).a();
-      return;
-    case 3: 
-      new amz(paramasq, paramMap).a();
-      return;
-    case 5: 
-      new amy(paramasq, paramMap).a();
-      return;
-    }
-    c.a(true);
+    paramContext = new ajt(aju.a(paramContext, paramAdSizeParcel, paramVersionInfoParcel, paramuh));
+    paramContext.setWebViewClient(ul.e().a(paramContext, paramBoolean));
+    paramContext.setWebChromeClient(ul.e().c(paramContext));
+    return paramContext;
   }
 }
 

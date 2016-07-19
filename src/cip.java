@@ -1,21 +1,16 @@
-public enum cip
+import android.graphics.Bitmap;
+
+final class cip
+  extends chw<Void>
 {
-  final int c;
-  
-  private cip(int paramInt)
+  cip(cja paramcja, cjk paramcjk, int paramInt1, int paramInt2, Object paramObject, String paramString)
   {
-    c = paramInt;
+    super(paramcja, null, paramcjk, paramInt1, paramInt2, 0, null, paramString, paramObject, false);
   }
   
-  static boolean a(int paramInt)
-  {
-    return (ac & paramInt) == 0;
-  }
+  public final void a() {}
   
-  static boolean b(int paramInt)
-  {
-    return (bc & paramInt) == 0;
-  }
+  final void a(Bitmap paramBitmap, cje paramcje) {}
 }
 
 /* Location:

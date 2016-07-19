@@ -1,93 +1,72 @@
 import android.content.Context;
+import android.graphics.Bitmap.Config;
 import android.net.Uri;
-import android.os.Build.VERSION;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import android.widget.ImageView;
+import java.io.File;
+import java.util.List;
 
 public final class cjq
-  implements cie
+  extends cja
 {
-  static volatile Object a;
-  private static final Object b = new Object();
-  private static final ThreadLocal<StringBuilder> c = new ThreadLocal()
+  cjq(Context paramContext, cig paramcig, cia paramcia, cjd paramcjd, cjg paramcjg, List<cjn> paramList, cjs paramcjs, Bitmap.Config paramConfig, boolean paramBoolean1, boolean paramBoolean2)
   {
-    private static StringBuilder a()
+    super(paramContext.getApplicationContext(), (cig)d(paramcig), (cia)d(paramcia), paramcjd, (cjg)d(paramcjg), paramList, (cjs)d(paramcjs), paramConfig, paramBoolean1, paramBoolean2);
+  }
+  
+  private static <T> T d(T paramT)
+  {
+    if (paramT == null) {
+      throw new NullPointerException();
+    }
+    return paramT;
+  }
+  
+  public final cjm a(int paramInt)
+  {
+    return super.a(paramInt);
+  }
+  
+  public final cjm a(Uri paramUri)
+  {
+    return super.a(paramUri);
+  }
+  
+  public final cjm a(File paramFile)
+  {
+    return super.a(paramFile);
+  }
+  
+  public final cjm a(String paramString)
+  {
+    String str = paramString;
+    if (paramString != null)
     {
-      return new StringBuilder();
+      str = paramString;
+      if (paramString.trim().length() == 0) {
+        str = null;
+      }
     }
-  };
-  private final Context d;
-  
-  public cjq(Context paramContext)
-  {
-    d = paramContext.getApplicationContext();
+    return super.a(str);
   }
   
-  private static HttpURLConnection a(Uri paramUri)
+  public final void a(ImageView paramImageView)
   {
-    paramUri = (HttpURLConnection)new URL(paramUri.toString()).openConnection();
-    paramUri.setConnectTimeout(15000);
-    paramUri.setReadTimeout(20000);
-    return paramUri;
+    super.a((ImageView)d(paramImageView));
   }
   
-  private static void a(Context paramContext)
+  public final void a(cjv paramcjv)
   {
-    if (a == null) {
-      try
-      {
-        synchronized (b)
-        {
-          if (a == null) {
-            a = cjr.a(paramContext);
-          }
-          return;
-        }
-        return;
-      }
-      catch (IOException paramContext) {}
-    }
+    super.a((cjv)d(paramcjv));
   }
   
-  public final cif a(Uri paramUri, int paramInt)
+  public final void a(Object paramObject)
   {
-    if (Build.VERSION.SDK_INT >= 14) {
-      a(d);
-    }
-    HttpURLConnection localHttpURLConnection = a(paramUri);
-    localHttpURLConnection.setUseCaches(true);
-    if (paramInt != 0) {
-      if (!ciq.c(paramInt)) {
-        break label104;
-      }
-    }
-    for (paramUri = "only-if-cached,max-age=2147483647";; paramUri = paramUri.toString())
-    {
-      localHttpURLConnection.setRequestProperty("Cache-Control", paramUri);
-      int i = localHttpURLConnection.getResponseCode();
-      if (i < 300) {
-        break;
-      }
-      localHttpURLConnection.disconnect();
-      throw new cig(i + " " + localHttpURLConnection.getResponseMessage(), paramInt, i);
-      label104:
-      paramUri = (StringBuilder)c.get();
-      paramUri.setLength(0);
-      if (!ciq.a(paramInt)) {
-        paramUri.append("no-cache");
-      }
-      if (!ciq.b(paramInt))
-      {
-        if (paramUri.length() > 0) {
-          paramUri.append(',');
-        }
-        paramUri.append("no-store");
-      }
-    }
-    long l = localHttpURLConnection.getHeaderFieldInt("Content-Length", -1);
-    boolean bool = cjs.a(localHttpURLConnection.getHeaderField("X-Android-Response-Source"));
-    return new cif(localHttpURLConnection.getInputStream(), bool, l);
+    super.a(d(paramObject));
+  }
+  
+  public final void b(Object paramObject)
+  {
+    super.b(d(paramObject));
   }
 }
 

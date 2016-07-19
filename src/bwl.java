@@ -1,32 +1,30 @@
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-
-public abstract class bwl
-  extends bwi
+public final class bwl
+  extends bwt
 {
-  private static final String c = bwl.class.getSimpleName();
-  protected final bwy a;
-  protected final int b;
-  private ThreadPoolExecutor d;
+  private String a;
   
-  public bwl(int paramInt, bwy parambwy)
+  public bwl(bus parambus, bva parambva, String paramString1, String paramString2)
   {
-    b = paramInt;
-    a = parambwy;
-    d = ((ThreadPoolExecutor)Executors.newCachedThreadPool());
+    super(bux.k, parambus, parambva, paramString1);
+    a = paramString2;
   }
   
-  protected abstract String a();
-  
-  protected abstract int b();
-  
-  public final boolean b(bwx parambwx)
+  public final String b()
   {
-    d.submit(new bwm(this, parambwx));
-    return true;
+    return a;
   }
   
-  protected abstract boolean c(bwx parambwx);
+  public final void c() {}
+  
+  public final void d()
+  {
+    b(n());
+  }
+  
+  public final String e()
+  {
+    return "mockDeleteCreditCardResponse";
+  }
 }
 
 /* Location:

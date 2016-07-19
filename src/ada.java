@@ -1,18 +1,19 @@
-import android.os.Bundle;
+import android.content.SharedPreferences;
+import java.util.concurrent.Callable;
 
-public abstract interface ada
+public final class ada
+  extends acw<String>
 {
-  public abstract void a();
-  
-  public abstract void a(Bundle paramBundle);
-  
-  public abstract void b();
-  
-  public abstract void b(Bundle paramBundle);
-  
-  public abstract void c();
-  
-  public abstract void d();
+  public static String a(SharedPreferences paramSharedPreferences, final String paramString1, final String paramString2)
+  {
+    (String)aly.a(new Callable()
+    {
+      private String a()
+      {
+        return getString(paramString1, paramString2);
+      }
+    });
+  }
 }
 
 /* Location:

@@ -1,48 +1,73 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.firstparty.InitializeBuyFlowRequest;
+import java.io.ObjectInputStream;
+import java.io.ObjectStreamClass;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
-public final class bnq
-  implements Parcelable.Creator<InitializeBuyFlowRequest>
+public abstract class bnq
 {
-  private static InitializeBuyFlowRequest a(Parcel paramParcel)
+  public static bnq a()
   {
-    int j = zm.b(paramParcel);
-    int i = 0;
-    byte[][] arrayOfByte = null;
-    while (paramParcel.dataPosition() < j)
+    try
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      Object localObject1 = Class.forName("sun.misc.Unsafe");
+      final Object localObject4 = ((Class)localObject1).getDeclaredField("theUnsafe");
+      ((Field)localObject4).setAccessible(true);
+      localObject4 = ((Field)localObject4).get(null);
+      localObject1 = new bnq()
       {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        break;
-      case 2: 
-        arrayOfByte = zm.r(paramParcel, k);
+        public final <T> T a(Class<T> paramAnonymousClass)
+        {
+          return (T)invoke(localObject4, new Object[] { paramAnonymousClass });
+        }
+      };
+      return (bnq)localObject1;
+    }
+    catch (Exception localException1)
+    {
+      try
+      {
+        Object localObject2 = ObjectStreamClass.class.getDeclaredMethod("getConstructorId", new Class[] { Class.class });
+        ((Method)localObject2).setAccessible(true);
+        final int i = ((Integer)((Method)localObject2).invoke(null, new Object[] { Object.class })).intValue();
+        localObject2 = ObjectStreamClass.class.getDeclaredMethod("newInstance", new Class[] { Class.class, Integer.TYPE });
+        ((Method)localObject2).setAccessible(true);
+        localObject2 = new bnq()
+        {
+          public final <T> T a(Class<T> paramAnonymousClass)
+          {
+            return (T)invoke(null, new Object[] { paramAnonymousClass, Integer.valueOf(i) });
+          }
+        };
+        return (bnq)localObject2;
+      }
+      catch (Exception localException2)
+      {
+        try
+        {
+          Object localObject3 = ObjectInputStream.class.getDeclaredMethod("newInstance", new Class[] { Class.class, Class.class });
+          ((Method)localObject3).setAccessible(true);
+          localObject3 = new bnq()
+          {
+            public final <T> T a(Class<T> paramAnonymousClass)
+            {
+              return (T)invoke(null, new Object[] { paramAnonymousClass, Object.class });
+            }
+          };
+          return (bnq)localObject3;
+        }
+        catch (Exception localException3) {}
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new InitializeBuyFlowRequest(i, arrayOfByte);
+    new bnq()
+    {
+      public final <T> T a(Class<T> paramAnonymousClass)
+      {
+        throw new UnsupportedOperationException("Cannot allocate " + paramAnonymousClass);
+      }
+    };
   }
   
-  public static void a(InitializeBuyFlowRequest paramInitializeBuyFlowRequest, Parcel paramParcel)
-  {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramInitializeBuyFlowRequest.a());
-    zo.a(paramParcel, 2, a);
-    zo.a(paramParcel, i);
-  }
-  
-  private static InitializeBuyFlowRequest[] a(int paramInt)
-  {
-    return new InitializeBuyFlowRequest[paramInt];
-  }
+  public abstract <T> T a(Class<T> paramClass);
 }
 
 /* Location:

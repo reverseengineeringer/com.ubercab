@@ -1,10 +1,12 @@
-final class btq
+import java.util.Map;
+
+public final class btq
 {
-  public btr a;
+  public Map a;
   
-  public btq(btr parambtr)
+  public btq(Map paramMap)
   {
-    a = parambtr;
+    a = paramMap;
   }
 }
 

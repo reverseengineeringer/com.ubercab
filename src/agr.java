@@ -1,62 +1,68 @@
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build.VERSION;
-import android.os.Environment;
-import java.util.List;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
 
-@apl
-public final class agr
+public abstract class agr
+  extends Binder
+  implements agq
 {
-  private final Context a;
-  
-  public agr(Context paramContext)
+  public static agq a(IBinder paramIBinder)
   {
-    abs.a(paramContext, "Context can not be null");
-    a = paramContext;
-  }
-  
-  private boolean a(Intent paramIntent)
-  {
-    boolean bool = false;
-    abs.a(paramIntent, "Intent can not be null");
-    if (!a.getPackageManager().queryIntentActivities(paramIntent, 0).isEmpty()) {
-      bool = true;
+    if (paramIBinder == null) {
+      return null;
     }
-    return bool;
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
+    if ((localIInterface != null) && ((localIInterface instanceof agq))) {
+      return (agq)localIInterface;
+    }
+    return new ags(paramIBinder);
   }
   
-  private static boolean e()
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    return "mounted".equals(Environment.getExternalStorageState());
-  }
-  
-  public final boolean a()
-  {
-    Intent localIntent = new Intent("android.intent.action.DIAL");
-    localIntent.setData(Uri.parse("tel:"));
-    return a(localIntent);
-  }
-  
-  public final boolean b()
-  {
-    Intent localIntent = new Intent("android.intent.action.VIEW");
-    localIntent.setData(Uri.parse("sms:"));
-    return a(localIntent);
-  }
-  
-  public final boolean c()
-  {
-    return (e()) && (a.checkCallingOrSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0);
-  }
-  
-  @TargetApi(14)
-  public final boolean d()
-  {
-    Intent localIntent = new Intent("android.intent.action.INSERT").setType("vnd.android.cursor.dir/event");
-    return (Build.VERSION.SDK_INT >= 14) && (a(localIntent));
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
+      a();
+      paramParcel2.writeNoException();
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
+      b();
+      paramParcel2.writeNoException();
+      return true;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
+      a(paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      return true;
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
+      c();
+      paramParcel2.writeNoException();
+      return true;
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
+      d();
+      paramParcel2.writeNoException();
+      return true;
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
+      e();
+      paramParcel2.writeNoException();
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.IMediationAdapterListener");
+    a(agv.a(paramParcel1.readStrongBinder()));
+    paramParcel2.writeNoException();
+    return true;
   }
 }
 

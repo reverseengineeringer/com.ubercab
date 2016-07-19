@@ -3,21 +3,34 @@ package com.ubercab.rider.realtime.model;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
 import java.util.Map;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class EtdInfo
 {
   public static final String LATE = "Late";
   public static final String ON_TIME = "OnTime";
   public static final String SLIGHTLY_LATE = "SlightlyLate";
   
+  public static EtdInfo create()
+  {
+    return new Shape_EtdInfo();
+  }
+  
   public abstract EtdInfo.DeviceTimeData getDeviceTimeData();
+  
+  public abstract String getEtdTaglinePool();
+  
+  public abstract String getEtdTaglineX();
   
   public abstract String getLateArrivalCreditAmountText();
   
   public abstract String getLateArrivalDescriptionText();
+  
+  public abstract String getLateArrivalETADescriptionText();
+  
+  public abstract String getLateArrivalETDDescriptionText();
   
   public abstract String getLateArrivalMessage();
   
@@ -39,9 +52,17 @@ public abstract class EtdInfo
   
   public abstract void setDeviceTimeData(EtdInfo.DeviceTimeData paramDeviceTimeData);
   
+  abstract void setEtdTaglinePool(String paramString);
+  
+  abstract void setEtdTaglineX(String paramString);
+  
   abstract void setLateArrivalCreditAmountText(String paramString);
   
   abstract void setLateArrivalDescriptionText(String paramString);
+  
+  abstract void setLateArrivalETADescriptionText(String paramString);
+  
+  abstract void setLateArrivalETDDescriptionText(String paramString);
   
   abstract void setLateArrivalMessage(String paramString);
   

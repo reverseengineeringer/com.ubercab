@@ -1,13 +1,20 @@
 package com.ubercab.rider.realtime.response;
 
+import android.os.Parcelable;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract class LoginResponse
+  implements Parcelable
 {
+  public static LoginResponse create(String paramString1, String paramString2)
+  {
+    return new Shape_LoginResponse().setUuid(paramString1).setToken(paramString2);
+  }
+  
   public abstract String getPhoneNumberE164();
   
   public abstract String getToken();

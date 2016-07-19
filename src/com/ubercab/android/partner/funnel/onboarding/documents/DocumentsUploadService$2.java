@@ -1,10 +1,10 @@
 package com.ubercab.android.partner.funnel.onboarding.documents;
 
 import com.ubercab.android.partner.funnel.realtime.models.steps.documents.DocumentUploadResult;
-import kmp;
+import off;
 
 final class DocumentsUploadService$2
-  implements kmp<Throwable, DocumentUploadResult>
+  implements off<Throwable, DocumentUploadResult>
 {
   DocumentsUploadService$2(DocumentsUploadService paramDocumentsUploadService) {}
 }

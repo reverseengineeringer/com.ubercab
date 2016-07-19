@@ -1,107 +1,36 @@
-import com.ubercab.android.location.UberLatLng;
-import com.ubercab.android.location.UberLatLngBounds;
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Interceptor;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public final class cod
 {
-  Boolean a;
-  Integer b;
-  Integer c;
-  Integer d;
-  Float e;
-  Float f;
-  Float g;
-  cnu h;
-  UberLatLng i;
-  UberLatLngBounds j;
-  
-  public final cod a()
+  private static cob a(OkHttpClient paramOkHttpClient)
   {
-    e = Float.valueOf(0.5F);
-    f = Float.valueOf(0.5F);
-    return this;
+    new cob()
+    {
+      public final Response a(Request paramAnonymousRequest)
+      {
+        return newCall(paramAnonymousRequest).execute();
+      }
+    };
   }
   
-  public final cod a(float paramFloat)
+  public static cof a(Interceptor paramInterceptor, cmx<cnz> paramcmx, Executor paramExecutor)
   {
-    g = Float.valueOf(paramFloat);
-    return this;
-  }
-  
-  public final cod a(cnu paramcnu)
-  {
-    h = paramcnu;
-    return this;
-  }
-  
-  public final cod a(UberLatLng paramUberLatLng, int paramInt)
-  {
-    i = paramUberLatLng;
-    b = Integer.valueOf(paramInt);
-    return this;
-  }
-  
-  public final cod a(UberLatLng paramUberLatLng, int paramInt1, int paramInt2)
-  {
-    i = paramUberLatLng;
-    b = Integer.valueOf(paramInt1);
-    c = Integer.valueOf(paramInt2);
-    return this;
-  }
-  
-  public final Boolean b()
-  {
-    return a;
-  }
-  
-  public final cod c()
-  {
-    a = Boolean.valueOf(false);
-    return this;
-  }
-  
-  public final UberLatLngBounds d()
-  {
-    return j;
-  }
-  
-  public final Integer e()
-  {
-    return c;
-  }
-  
-  public final UberLatLng f()
-  {
-    return i;
-  }
-  
-  public final Float g()
-  {
-    return g;
-  }
-  
-  public final Integer h()
-  {
-    return b;
-  }
-  
-  public final Integer i()
-  {
-    return d;
-  }
-  
-  public final Float j()
-  {
-    return e;
-  }
-  
-  public final Float k()
-  {
-    return f;
-  }
-  
-  public final cnu l()
-  {
-    return h;
+    OkHttpClient localOkHttpClient = new OkHttpClient();
+    localOkHttpClient.setReadTimeout(2000L, TimeUnit.MILLISECONDS);
+    localOkHttpClient.setWriteTimeout(2000L, TimeUnit.MILLISECONDS);
+    localOkHttpClient.interceptors().add(paramInterceptor);
+    paramInterceptor = Executors.newSingleThreadScheduledExecutor();
+    ScheduledExecutorService localScheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+    return coa.a(a(localOkHttpClient), paramcmx, paramExecutor, paramInterceptor, localScheduledExecutorService);
   }
 }
 

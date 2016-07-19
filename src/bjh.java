@@ -1,8 +1,31 @@
-public final class bjh
+class bjh<K, V>
+  extends bja<K, V>
 {
-  long a;
-  long b;
-  long c;
+  bjh(K paramK, V paramV)
+  {
+    super(paramK, paramV);
+    bio.a(paramK, paramV);
+  }
+  
+  static <K, V> bjh<K, V>[] a(int paramInt)
+  {
+    return new bjh[paramInt];
+  }
+  
+  bjh<K, V> a()
+  {
+    return null;
+  }
+  
+  bjh<K, V> b()
+  {
+    return null;
+  }
+  
+  boolean c()
+  {
+    return true;
+  }
 }
 
 /* Location:

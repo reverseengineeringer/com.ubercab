@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jvl;
+import nav;
 
 @Shape
 abstract class ObjectVenueProperties
-  implements jvl
+  implements nav
 {}
 
 /* Location:

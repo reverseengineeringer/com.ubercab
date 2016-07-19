@@ -1,9 +1,8 @@
-import android.view.View;
-import com.ubercab.android.map.Marker;
-
 public abstract interface cog
 {
-  public abstract View a(Marker paramMarker);
+  public abstract void a();
+  
+  public abstract void b();
 }
 
 /* Location:

@@ -1,101 +1,65 @@
-import android.os.Bundle;
 import android.os.IBinder;
-import android.os.IInterface;
-import com.google.android.gms.common.internal.GetServiceRequest;
-import com.google.android.gms.common.internal.ValidateAccountRequest;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.internal.ResolveAccountResponse;
 
-public abstract interface abg
-  extends IInterface
+public final class abg
+  implements Parcelable.Creator<ResolveAccountResponse>
 {
-  public abstract void a();
+  private static ResolveAccountResponse a(Parcel paramParcel)
+  {
+    ConnectionResult localConnectionResult = null;
+    boolean bool1 = false;
+    int j = zd.b(paramParcel);
+    boolean bool2 = false;
+    IBinder localIBinder = null;
+    int i = 0;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        localIBinder = zd.o(paramParcel, k);
+        break;
+      case 3: 
+        localConnectionResult = (ConnectionResult)zd.a(paramParcel, k, ConnectionResult.CREATOR);
+        break;
+      case 4: 
+        bool2 = zd.b(paramParcel, k);
+        break;
+      case 5: 
+        bool1 = zd.b(paramParcel, k);
+      }
+    }
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new ResolveAccountResponse(i, localIBinder, localConnectionResult, bool2, bool1);
+  }
   
-  public abstract void a(abd paramabd, int paramInt);
+  public static void a(ResolveAccountResponse paramResolveAccountResponse, Parcel paramParcel, int paramInt)
+  {
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, a);
+    zf.a(paramParcel, 2, b);
+    zf.a(paramParcel, 3, paramResolveAccountResponse.b(), paramInt, false);
+    zf.a(paramParcel, 4, paramResolveAccountResponse.c());
+    zf.a(paramParcel, 5, paramResolveAccountResponse.d());
+    zf.a(paramParcel, i);
+  }
   
-  public abstract void a(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void a(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void a(abd paramabd, int paramInt, String paramString, IBinder paramIBinder, Bundle paramBundle);
-  
-  public abstract void a(abd paramabd, int paramInt, String paramString1, String paramString2);
-  
-  public abstract void a(abd paramabd, int paramInt, String paramString1, String paramString2, String paramString3, String[] paramArrayOfString);
-  
-  public abstract void a(abd paramabd, int paramInt, String paramString1, String paramString2, String[] paramArrayOfString);
-  
-  public abstract void a(abd paramabd, int paramInt, String paramString1, String paramString2, String[] paramArrayOfString, Bundle paramBundle);
-  
-  public abstract void a(abd paramabd, int paramInt, String paramString1, String paramString2, String[] paramArrayOfString, String paramString3, Bundle paramBundle);
-  
-  public abstract void a(abd paramabd, int paramInt, String paramString1, String paramString2, String[] paramArrayOfString, String paramString3, IBinder paramIBinder, String paramString4, Bundle paramBundle);
-  
-  public abstract void a(abd paramabd, int paramInt, String paramString1, String[] paramArrayOfString, String paramString2, Bundle paramBundle);
-  
-  public abstract void a(abd paramabd, GetServiceRequest paramGetServiceRequest);
-  
-  public abstract void a(abd paramabd, ValidateAccountRequest paramValidateAccountRequest);
-  
-  public abstract void b(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void b(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void c(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void c(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void d(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void d(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void e(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void e(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void f(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void f(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void g(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void g(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void h(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void h(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void i(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void i(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void j(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void j(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void k(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void k(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void l(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void l(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void m(abd paramabd, int paramInt, String paramString);
-  
-  public abstract void m(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void n(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void o(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void p(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void q(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void r(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void s(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
-  
-  public abstract void t(abd paramabd, int paramInt, String paramString, Bundle paramBundle);
+  private static ResolveAccountResponse[] a(int paramInt)
+  {
+    return new ResolveAccountResponse[paramInt];
+  }
 }
 
 /* Location:

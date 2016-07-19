@@ -3,9 +3,9 @@ package com.ubercab.rider.realtime.model;
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
 import java.util.List;
 import java.util.Map;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface VehicleView
 {
   public static final String CONFIRMATION_TYPE_FARE_ESTIMATE_TAGLINE = "FareEstimateTagline";
@@ -35,9 +35,13 @@ public abstract interface VehicleView
   
   public abstract String getConfirmationType();
   
+  public abstract boolean getDefaultToCommuterPaymentProfile();
+  
   public abstract String getDescription();
   
   public abstract String getDestinationEntry();
+  
+  public abstract boolean getDestinationOnLooking();
   
   public abstract String getDisplayName();
   
@@ -53,13 +57,11 @@ public abstract interface VehicleView
   
   public abstract String getGroupId();
   
-  public abstract String getHijackSavingTagline();
+  public abstract String getHopSetPickupArea();
   
-  public abstract String getHijackSharingTagline();
+  public abstract String getHopSetPickupAreaNotAvailable();
   
-  public abstract String getHijackTipTagline();
-  
-  public abstract String getHijackVehicleViewId();
+  public abstract Integer getHopVersion();
   
   public abstract String getId();
   
@@ -68,6 +70,8 @@ public abstract interface VehicleView
   public abstract boolean getIsCashOnly();
   
   public abstract boolean getIsInspecting();
+  
+  public abstract boolean getIsSchedulable();
   
   public abstract String getLinkedVehicleViewId();
   
@@ -83,6 +87,8 @@ public abstract interface VehicleView
   
   public abstract String getNoneAvailableString();
   
+  public abstract String getOverCapacityTagline();
+  
   public abstract String getParentId();
   
   public abstract String getPermittedPaymentMethodsError();
@@ -93,15 +99,25 @@ public abstract interface VehicleView
   
   public abstract String getPoolDispatchingTipMessage();
   
+  public abstract String getPoolDispatchingTipTitle();
+  
+  public abstract Integer getPredictedEta();
+  
   public abstract String getProductGroupUuid();
+  
+  public abstract String getPromoTagline();
   
   public abstract String getRequestPickupButtonString();
   
   public abstract String getRidePoolOption();
   
+  public abstract Integer getScheduleTimeWindowMS();
+  
   public abstract String getSetPickupLocationString();
   
   public abstract String getSharingTagline();
+  
+  public abstract boolean getShouldFetchUpfrontFare();
   
   public abstract String getSurgeTitle();
   

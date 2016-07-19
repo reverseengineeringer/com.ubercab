@@ -1,65 +1,26 @@
-import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Future;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Set;
 
-@apl
-public final class ajr
-  implements aji
+final class ajr
+  implements afs
 {
-  final HashMap<String, arz<JSONObject>> a = new HashMap();
+  private ajr(ajn paramajn) {}
   
-  private void a(String paramString1, String paramString2)
+  public final void a(ajm paramajm, Map<String, String> paramMap)
   {
-    aqt.a("Received ad from the cache.");
-    arz localarz = (arz)a.get(paramString1);
-    if (localarz == null)
+    if (paramMap.keySet().contains("start")) {
+      ajn.a(a);
+    }
+    do
     {
-      aqt.b("Could not find the ad request for the corresponding ad response.");
       return;
-    }
-    try
-    {
-      localarz.b(new JSONObject(paramString2));
-      return;
-    }
-    catch (JSONException paramString2)
-    {
-      aqt.b("Failed constructing JSON object from value passed from javascript", paramString2);
-      localarz.b(null);
-      return;
-    }
-    finally
-    {
-      a.remove(paramString1);
-    }
-  }
-  
-  public final Future<JSONObject> a(String paramString)
-  {
-    arz localarz = new arz();
-    a.put(paramString, localarz);
-    return localarz;
-  }
-  
-  public final void a(asq paramasq, Map<String, String> paramMap)
-  {
-    a((String)paramMap.get("request_id"), (String)paramMap.get("fetched_ad"));
-  }
-  
-  public final void b(String paramString)
-  {
-    arz localarz = (arz)a.get(paramString);
-    if (localarz == null)
-    {
-      aqt.b("Could not find the ad request for the corresponding ad response.");
-      return;
-    }
-    if (!localarz.isDone()) {
-      localarz.cancel(true);
-    }
-    a.remove(paramString);
+      if (paramMap.keySet().contains("stop"))
+      {
+        ajn.b(a);
+        return;
+      }
+    } while (!paramMap.keySet().contains("cancel"));
+    ajn.c(a);
   }
 }
 

@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jsu;
+import mya;
 
 @Shape
 abstract class ObjectCompanyBrand
-  implements jsu
+  implements mya
 {}
 
 /* Location:

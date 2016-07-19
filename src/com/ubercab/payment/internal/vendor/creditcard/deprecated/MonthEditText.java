@@ -3,18 +3,18 @@ package com.ubercab.payment.internal.vendor.creditcard.deprecated;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.ubercab.ui.EditText;
-import iwe;
-import iwf;
-import jzm;
+import lqc;
+import lqd;
+import ngd;
 
 @Deprecated
 public class MonthEditText
   extends EditText
-  implements jzm
+  implements ngd
 {
   private boolean a;
   private String b;
-  private iwf c;
+  private lqd c;
   
   public MonthEditText(Context paramContext)
   {
@@ -30,22 +30,22 @@ public class MonthEditText
   {
     super(paramContext, paramAttributeSet, paramInt);
     setInputType(2);
-    setHint(paramContext.getString(iwe.ub__payment_month));
+    setHint(paramContext.getString(lqc.ub__payment_month));
   }
   
-  public final boolean V_()
+  public final boolean Z_()
   {
     return a;
   }
   
-  public final void a(iwf paramiwf)
+  public final void a(lqd paramlqd)
   {
-    c = paramiwf;
+    c = paramlqd;
   }
   
   public final boolean c()
   {
-    return (V_()) && (length() > 1);
+    return (Z_()) && (length() > 1);
   }
   
   protected void onTextChanged(CharSequence paramCharSequence, int paramInt1, int paramInt2, int paramInt3)
@@ -79,7 +79,7 @@ public class MonthEditText
       }
       b = str;
       if (c != null) {
-        c.f();
+        c.h();
       }
       setText(str);
       if ((paramInt2 > 0) && (paramInt1 <= b.length()))

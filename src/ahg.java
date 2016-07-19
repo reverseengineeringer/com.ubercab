@@ -1,96 +1,102 @@
-import android.os.Process;
-import java.util.concurrent.BlockingQueue;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.DownloadManager;
+import android.app.DownloadManager.Request;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.net.Uri;
+import android.os.Environment;
+import android.text.TextUtils;
+import android.webkit.URLUtil;
+import java.util.Map;
 
+@aih
 public final class ahg
-  extends Thread
+  extends ahk
 {
-  private static final boolean a = awr.b;
-  private final BlockingQueue<atg<?>> b;
-  private final BlockingQueue<atg<?>> c;
-  private final agb d;
-  private final aup e;
-  private volatile boolean f = false;
+  private final Map<String, String> a;
+  private final Context b;
   
-  public ahg(BlockingQueue<atg<?>> paramBlockingQueue1, BlockingQueue<atg<?>> paramBlockingQueue2, agb paramagb, aup paramaup)
+  public ahg(ajm paramajm, Map<String, String> paramMap)
   {
-    b = paramBlockingQueue1;
-    c = paramBlockingQueue2;
-    d = paramagb;
-    e = paramaup;
+    super(paramajm, "storePicture");
+    a = paramMap;
+    b = paramajm.e();
+  }
+  
+  static DownloadManager.Request a(String paramString1, String paramString2)
+  {
+    paramString1 = new DownloadManager.Request(Uri.parse(paramString1));
+    paramString1.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, paramString2);
+    ul.e().a(paramString1);
+    return paramString1;
+  }
+  
+  private static String d(String paramString)
+  {
+    return Uri.parse(paramString).getLastPathSegment();
   }
   
   public final void a()
   {
-    f = true;
-    interrupt();
-  }
-  
-  public final void run()
-  {
-    if (a) {
-      awr.a("start new dispatcher", new Object[0]);
-    }
-    Process.setThreadPriority(10);
-    d.a();
-    for (;;)
+    if (b == null)
     {
-      try
-      {
-        atg localatg = (atg)b.take();
-        localatg.a("cache-queue-take");
-        if (!localatg.g()) {
-          break label73;
-        }
-        localatg.b("cache-discard-canceled");
-        continue;
-        if (!f) {
-          continue;
-        }
-      }
-      catch (InterruptedException localInterruptedException) {}
+      a("Activity context is not available");
       return;
-      label73:
-      agc localagc = d.a(localInterruptedException.e());
-      if (localagc == null)
-      {
-        localInterruptedException.a("cache-miss");
-        c.put(localInterruptedException);
-      }
-      else if (localagc.a())
-      {
-        localInterruptedException.a("cache-hit-expired");
-        localInterruptedException.a(localagc);
-        c.put(localInterruptedException);
-      }
-      else
-      {
-        localInterruptedException.a("cache-hit");
-        atz localatz = localInterruptedException.a(new aqe(a, g));
-        localInterruptedException.a("cache-hit-parsed");
-        if (!localagc.b())
-        {
-          e.a(localInterruptedException, localatz);
-        }
-        else
-        {
-          localInterruptedException.a("cache-hit-refresh-needed");
-          localInterruptedException.a(localagc);
-          d = true;
-          e.a(localInterruptedException, localatz, new Runnable()
-          {
-            public final void run()
-            {
-              try
-              {
-                ahg.a(ahg.this).put(localInterruptedException);
-                return;
-              }
-              catch (InterruptedException localInterruptedException) {}
-            }
-          });
-        }
-      }
     }
+    ul.c();
+    if (!aiq.c(b).c())
+    {
+      a("Feature is not supported by the device.");
+      return;
+    }
+    final String str1 = (String)a.get("iurl");
+    if (TextUtils.isEmpty(str1))
+    {
+      a("Image url cannot be empty.");
+      return;
+    }
+    if (!URLUtil.isValidUrl(str1))
+    {
+      a("Invalid image url: " + str1);
+      return;
+    }
+    final String str2 = d(str1);
+    ul.c();
+    if (!aiq.b(str2))
+    {
+      a("Image type not recognized: " + str2);
+      return;
+    }
+    ul.c();
+    AlertDialog.Builder localBuilder = aiq.b(b);
+    localBuilder.setTitle(ul.f().a(rj.store_picture_title, "Save image"));
+    localBuilder.setMessage(ul.f().a(rj.store_picture_message, "Allow Ad to store image in Picture gallery?"));
+    localBuilder.setPositiveButton(ul.f().a(rj.accept, "Accept"), new DialogInterface.OnClickListener()
+    {
+      public final void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+      {
+        paramAnonymousDialogInterface = (DownloadManager)ahg.a(ahg.this).getSystemService("download");
+        try
+        {
+          paramAnonymousDialogInterface.enqueue(ahg.a(str1, str2));
+          return;
+        }
+        catch (IllegalStateException paramAnonymousDialogInterface)
+        {
+          a("Could not store picture.");
+        }
+      }
+    });
+    localBuilder.setNegativeButton(ul.f().a(rj.decline, "Decline"), new DialogInterface.OnClickListener()
+    {
+      public final void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+      {
+        a("User canceled the download.");
+      }
+    });
+    localBuilder.create().show();
   }
 }
 

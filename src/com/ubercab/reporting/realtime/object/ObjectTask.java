@@ -1,11 +1,11 @@
 package com.ubercab.reporting.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jqw;
+import mpf;
 
 @Shape
 public abstract class ObjectTask
-  implements jqw
+  implements mpf
 {
   public static ObjectTask create()
   {

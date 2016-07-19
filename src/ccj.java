@@ -1,8 +1,16 @@
-public abstract interface ccj
+import android.view.View;
+import android.view.View.OnClickListener;
+import com.paypal.android.sdk.payments.LoginActivity;
+
+public final class ccj
+  implements View.OnClickListener
 {
-  public abstract void a();
+  public ccj(LoginActivity paramLoginActivity) {}
   
-  public abstract void a(cck paramcck);
+  public final void onClick(View paramView)
+  {
+    LoginActivity.e(a);
+  }
 }
 
 /* Location:

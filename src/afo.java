@@ -1,15 +1,25 @@
-import android.os.IInterface;
+import java.util.Map;
 
-public abstract interface afo
-  extends IInterface
+@aih
+public final class afo
+  implements afs
 {
-  public abstract String a();
+  private final afp a;
   
-  public abstract String a(String paramString);
+  public afo(afp paramafp)
+  {
+    a = paramafp;
+  }
   
-  public abstract void a(String paramString, boolean paramBoolean);
-  
-  public abstract boolean a(boolean paramBoolean);
+  public final void a(ajm paramajm, Map<String, String> paramMap)
+  {
+    if ((String)paramMap.get("name") == null)
+    {
+      ain.d("App event with no name parameter.");
+      return;
+    }
+    paramMap.get("info");
+  }
 }
 
 /* Location:

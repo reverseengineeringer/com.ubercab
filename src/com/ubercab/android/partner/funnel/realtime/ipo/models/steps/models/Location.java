@@ -14,11 +14,15 @@ public abstract class Location
   
   public abstract String getAddress();
   
+  public abstract Address getAddressDetails();
+  
   public abstract int getCostAmount();
   
   public abstract String getCurrencySymbol();
   
   public abstract int getIncentiveAmount();
+  
+  public abstract Boolean getIsOpen();
   
   public abstract double getLat();
   
@@ -38,11 +42,15 @@ public abstract class Location
   
   abstract Location setAddress(String paramString);
   
+  abstract Location setAddressDetails(Address paramAddress);
+  
   abstract Location setCostAmount(int paramInt);
   
   abstract Location setCurrencySymbol(String paramString);
   
   abstract Location setIncentiveAmount(int paramInt);
+  
+  abstract Location setIsOpen(Boolean paramBoolean);
   
   abstract Location setLat(double paramDouble);
   

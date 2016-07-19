@@ -1,55 +1,133 @@
-import android.content.Context;
-import android.os.RemoteException;
-import android.view.ViewGroup;
-import com.google.android.gms.maps.StreetViewPanoramaOptions;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import com.google.android.gms.measurement.internal.AppMetadata;
+import com.google.android.gms.measurement.internal.EventParcel;
+import com.google.android.gms.measurement.internal.UserAttributeParcel;
 
-public final class bca
-  extends adb<bbz>
+public abstract class bca
+  extends Binder
+  implements bbz
 {
-  protected adh<bbz> a;
-  private final ViewGroup b;
-  private final Context c;
-  private final StreetViewPanoramaOptions d;
-  private final List<bbw> e = new ArrayList();
-  
-  public bca(ViewGroup paramViewGroup, Context paramContext)
+  public bca()
   {
-    b = paramViewGroup;
-    c = paramContext;
-    d = null;
+    attachInterface(this, "com.google.android.gms.measurement.internal.IMeasurementService");
   }
   
-  private void f()
+  public static bbz a(IBinder paramIBinder)
   {
-    if ((a != null) && (a() == null)) {}
-    try
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.measurement.internal.IMeasurementService");
+    if ((localIInterface != null) && ((localIInterface instanceof bbz))) {
+      return (bbz)localIInterface;
+    }
+    return new bcb(paramIBinder);
+  }
+  
+  public IBinder asBinder()
+  {
+    return this;
+  }
+  
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  {
+    Object localObject3 = null;
+    Object localObject1 = null;
+    Object localObject4 = null;
+    Object localObject5 = null;
+    Object localObject6 = null;
+    Object localObject2 = null;
+    switch (paramInt1)
     {
-      Object localObject = bdp.a(c).a(adg.a(c), d);
-      a.a(new bbz(b, (bda)localObject));
-      localObject = e.iterator();
-      while (((Iterator)localObject).hasNext())
-      {
-        bbw localbbw = (bbw)((Iterator)localObject).next();
-        ((bbz)a()).a(localbbw);
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.measurement.internal.IMeasurementService");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.measurement.internal.IMeasurementService");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = EventParcel.CREATOR;
       }
-      return;
+      for (localObject1 = bbw.a(paramParcel1);; localObject1 = null)
+      {
+        if (paramParcel1.readInt() != 0)
+        {
+          localObject2 = AppMetadata.CREATOR;
+          localObject2 = bbk.a(paramParcel1);
+        }
+        a((EventParcel)localObject1, (AppMetadata)localObject2);
+        paramParcel2.writeNoException();
+        return true;
+      }
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.measurement.internal.IMeasurementService");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = UserAttributeParcel.CREATOR;
+      }
+      for (localObject1 = bbh.a(paramParcel1);; localObject1 = null)
+      {
+        localObject2 = localObject3;
+        if (paramParcel1.readInt() != 0)
+        {
+          localObject2 = AppMetadata.CREATOR;
+          localObject2 = bbk.a(paramParcel1);
+        }
+        a((UserAttributeParcel)localObject1, (AppMetadata)localObject2);
+        paramParcel2.writeNoException();
+        return true;
+      }
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.measurement.internal.IMeasurementService");
+      if (paramParcel1.readInt() != 0)
+      {
+        localObject1 = AppMetadata.CREATOR;
+        localObject1 = bbk.a(paramParcel1);
+      }
+      a((AppMetadata)localObject1);
+      paramParcel2.writeNoException();
+      return true;
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.measurement.internal.IMeasurementService");
+      localObject1 = localObject4;
+      if (paramParcel1.readInt() != 0)
+      {
+        localObject1 = EventParcel.CREATOR;
+        localObject1 = bbw.a(paramParcel1);
+      }
+      a((EventParcel)localObject1, paramParcel1.readString(), paramParcel1.readString());
+      paramParcel2.writeNoException();
+      return true;
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.measurement.internal.IMeasurementService");
+      localObject1 = localObject5;
+      if (paramParcel1.readInt() != 0)
+      {
+        localObject1 = AppMetadata.CREATOR;
+        localObject1 = bbk.a(paramParcel1);
+      }
+      b((AppMetadata)localObject1);
+      paramParcel2.writeNoException();
+      return true;
     }
-    catch (RemoteException localRemoteException)
+    paramParcel1.enforceInterface("com.google.android.gms.measurement.internal.IMeasurementService");
+    localObject1 = localObject6;
+    if (paramParcel1.readInt() != 0)
     {
-      throw new bgs(localRemoteException);
-      e.clear();
-      return;
+      localObject1 = AppMetadata.CREATOR;
+      localObject1 = bbk.a(paramParcel1);
     }
-    catch (wb localwb) {}
-  }
-  
-  protected final void a(adh<bbz> paramadh)
-  {
-    a = paramadh;
-    f();
+    if (paramParcel1.readInt() != 0) {}
+    for (boolean bool = true;; bool = false)
+    {
+      paramParcel1 = a((AppMetadata)localObject1, bool);
+      paramParcel2.writeNoException();
+      paramParcel2.writeTypedList(paramParcel1);
+      return true;
+    }
   }
 }
 

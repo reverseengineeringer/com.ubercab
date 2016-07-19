@@ -20,14 +20,20 @@ public class DrawerLayout$SavedState
       return new DrawerLayout.SavedState[paramAnonymousInt];
     }
   };
-  int lockModeLeft = 0;
-  int lockModeRight = 0;
+  int lockModeEnd;
+  int lockModeLeft;
+  int lockModeRight;
+  int lockModeStart;
   int openDrawerGravity = 0;
   
   public DrawerLayout$SavedState(Parcel paramParcel)
   {
     super(paramParcel);
     openDrawerGravity = paramParcel.readInt();
+    lockModeLeft = paramParcel.readInt();
+    lockModeRight = paramParcel.readInt();
+    lockModeStart = paramParcel.readInt();
+    lockModeEnd = paramParcel.readInt();
   }
   
   public DrawerLayout$SavedState(Parcelable paramParcelable)
@@ -39,6 +45,10 @@ public class DrawerLayout$SavedState
   {
     super.writeToParcel(paramParcel, paramInt);
     paramParcel.writeInt(openDrawerGravity);
+    paramParcel.writeInt(lockModeLeft);
+    paramParcel.writeInt(lockModeRight);
+    paramParcel.writeInt(lockModeStart);
+    paramParcel.writeInt(lockModeEnd);
   }
 }
 

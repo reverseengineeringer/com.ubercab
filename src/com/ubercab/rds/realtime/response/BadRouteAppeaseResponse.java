@@ -11,7 +11,7 @@ public abstract class BadRouteAppeaseResponse
     return new Shape_BadRouteAppeaseResponse();
   }
   
-  public abstract List<BadRouteReasonResponse> getAdjustmentReasons();
+  public abstract String getAdjustmentAmount();
   
   public abstract List<BadRouteReceiptItemResponse> getAdjustmentReceipt();
   
@@ -23,7 +23,7 @@ public abstract class BadRouteAppeaseResponse
   
   public abstract String getTitle();
   
-  public abstract BadRouteAppeaseResponse setAdjustmentReasons(List<BadRouteReasonResponse> paramList);
+  public abstract BadRouteAppeaseResponse setAdjustmentAmount(String paramString);
   
   public abstract BadRouteAppeaseResponse setAdjustmentReceipt(List<BadRouteReceiptItemResponse> paramList);
   

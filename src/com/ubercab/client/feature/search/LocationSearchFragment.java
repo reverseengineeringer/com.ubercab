@@ -21,15 +21,14 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnTouch;
-import chh;
-import cho;
-import ciu;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import cja;
+import ckt;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.android.location.UberLatLng;
 import com.ubercab.client.core.app.RiderActivity;
@@ -51,292 +50,225 @@ import com.ubercab.rider.realtime.model.City;
 import com.ubercab.rider.realtime.model.Reminder;
 import com.ubercab.rider.realtime.model.VehicleView;
 import com.ubercab.ui.TextView;
-import dps;
-import dsh;
-import dty;
-import dux;
-import dvi;
-import dwd;
-import dwi;
-import dwn;
-import ebj;
-import efr;
-import egw;
-import eik;
-import eit;
-import eiu;
-import eiw;
-import eix;
-import eiy;
-import ejw;
-import emx;
-import epw;
+import duq;
+import dxm;
+import dzn;
+import eaj;
+import ebc;
+import ebw;
+import ecb;
+import ecg;
+import eib;
+import enk;
+import epj;
+import equ;
+import erb;
+import erc;
+import ere;
+import erf;
 import erg;
-import eyh;
-import gif;
-import grn;
-import gro;
-import grr;
-import grs;
-import gru;
-import grv;
-import grw;
-import grx;
-import gry;
-import grz;
-import gsa;
-import gsb;
-import gsd;
-import gse;
-import gsf;
-import gsg;
-import hes;
-import hha;
-import iaj;
-import ian;
-import iap;
-import ife;
+import erq;
+import eun;
+import exw;
+import ezk;
+import flf;
+import hjm;
+import ibc;
+import ibd;
+import ibi;
+import ibk;
+import ibm;
+import ibn;
+import ibo;
+import ibp;
+import ibq;
+import ibr;
+import ibs;
+import ibt;
+import ibv;
+import ibw;
+import ibx;
+import iby;
+import iwo;
+import izk;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import jsg;
-import p;
-import r;
+import kct;
+import kcx;
+import kcz;
+import khv;
+import kia;
+import mxm;
+import x;
+import z;
 
 public class LocationSearchFragment
-  extends dsh<grs>
-  implements dwn, grr
+  extends dxm<ibk>
+  implements ecg, ibi
 {
   private String A;
   private String B;
-  private RiderLocation C;
-  private RiderLocation D;
-  private RiderLocation E;
-  private Runnable F;
-  private Handler G;
-  private TextWatcher H;
-  private LocationSearchFooterView I;
-  private LocationSearchAdapter J;
+  private String C;
+  private String D;
+  private String E;
+  private String F;
+  private RiderLocation G;
+  private RiderLocation H;
+  private RiderLocation I;
+  private LocationSearchFooterView J;
   private LocationSearchAdapter K;
   private LocationSearchAdapter L;
-  private grx M;
-  private List<grv> N = new ArrayList();
-  private List<grv> O = new ArrayList();
-  private AlertDialog P;
-  private ProgressDialog Q;
-  public ckc c;
-  public emx d;
+  private LocationSearchAdapter M;
+  private ibp N;
+  private List<ibn> O = new ArrayList();
+  private List<ibn> P = new ArrayList();
+  private AlertDialog Q;
+  private ProgressDialog R;
+  public ckt c;
+  public eun d;
   public Application e;
-  public chh f;
-  public jsg g;
-  public ife h;
-  public egw i;
-  public dwi j;
-  public ciu k;
-  public dwd l;
-  public gif m;
-  @InjectView(2131624584)
-  LocationSearchEditText mEditTextSearch;
-  @InjectView(2131624585)
-  ImageButton mImageButtonClear;
-  @InjectView(2131624588)
-  ListView mListViewLocation;
+  public chn f;
+  public khv g;
+  public mxm h;
+  public kia i;
+  public epj j;
+  public ecb k;
+  public cja l;
+  public ebw m;
+  @BindView
+  public LocationSearchEditText mEditTextSearch;
+  @BindView
+  public ImageButton mImageButtonClear;
+  @BindView
+  public ListView mListViewLocation;
   @Deprecated
-  @InjectView(2131624582)
-  LocationSearchIconView mSearchIcon;
-  @InjectView(2131624583)
-  SearchProgressIconView mSearchProgressIcon;
-  @InjectView(2131624591)
-  TextView mTextViewEmpty;
-  @InjectView(2131624586)
-  TextView mTextViewSkip;
-  @InjectView(2131624587)
-  ViewGroup mViewGroupContent;
-  @InjectView(2131624590)
-  LinearLayout mViewGroupEmpty;
-  @InjectView(2131624589)
-  ViewGroup mViewGroupLoading;
-  public dty n;
-  public hha o;
-  private boolean p;
-  private boolean q;
-  private boolean r;
-  private boolean s;
+  @BindView
+  public LocationSearchIconView mSearchIcon;
+  @BindView
+  public SearchProgressIconView mSearchProgressIcon;
+  @BindView
+  public TextView mTextViewEmpty;
+  @BindView
+  public TextView mTextViewSkip;
+  @BindView
+  public ViewGroup mViewGroupContent;
+  @BindView
+  public LinearLayout mViewGroupEmpty;
+  @BindView
+  public ViewGroup mViewGroupLoading;
+  public hjm n;
+  public dzn o;
+  public izk p;
+  Handler q;
+  Runnable r;
+  TextWatcher s;
   private boolean t;
   private boolean u;
-  private List<Reminder> v;
-  private String w;
-  private String x;
-  private String y;
-  private String z;
+  private boolean v;
+  private boolean w;
+  private boolean x;
+  private boolean y;
+  private List<Reminder> z;
   
   private void A()
   {
-    double d2 = 0.0D;
-    C();
-    double d1;
-    if (D != null)
-    {
-      d1 = D.getUberLatLng().a();
-      d2 = D.getUberLatLng().b();
-    }
-    for (;;)
-    {
-      if ((r) && (k()))
-      {
-        i.a();
-        return;
-      }
-      if ((t) && (l()))
-      {
-        i.c(d1, d2, B);
-        return;
-      }
-      j.b(this);
-      return;
-      d1 = 0.0D;
-    }
+    C().b();
   }
   
   private void B()
   {
-    int i3 = 8;
-    int i2 = 1;
-    label37:
-    Object localObject;
-    if (J.getCount() == 0)
-    {
-      i1 = 1;
-      if ((i1 == 0) || (H()) || (!q)) {
-        break label79;
-      }
-      i1 = i2;
-      localObject = mViewGroupEmpty;
-      if (i1 == 0) {
-        break label84;
-      }
-      i2 = 0;
-      label49:
-      ((LinearLayout)localObject).setVisibility(i2);
-      localObject = mViewGroupContent;
-      if (i1 == 0) {
-        break label90;
-      }
-    }
-    label79:
-    label84:
-    label90:
-    for (int i1 = i3;; i1 = 0)
-    {
-      ((ViewGroup)localObject).setVisibility(i1);
-      return;
-      i1 = 0;
-      break;
-      i1 = 0;
-      break label37;
-      i2 = 8;
-      break label49;
-    }
-  }
-  
-  private void C()
-  {
-    E().b();
-  }
-  
-  private void D()
-  {
-    E().a();
+    C().a();
   }
   
   @Deprecated
-  private grw E()
+  private ibo C()
   {
-    if (h.a(dux.gg, true)) {}
+    if (i.a(eaj.jO, true)) {}
     for (Object localObject = mSearchProgressIcon;; localObject = mSearchIcon) {
-      return (grw)localObject;
+      return (ibo)localObject;
     }
   }
   
   @SuppressLint({"StringFormatInvalid"})
-  private void F()
+  private void D()
   {
     boolean bool = true;
-    if ((H()) || (q))
+    if ((F()) || (u))
     {
-      I.d();
+      J.d();
       return;
     }
-    String str = getString(2131166025, new Object[] { G() });
-    if (J.getCount() > 0) {}
+    String str = getString(2131166142, new Object[] { E() });
+    if (K.getCount() > 0) {}
     for (;;)
     {
-      I.a(bool, str);
+      J.a(bool, str);
       return;
       bool = false;
     }
   }
   
-  private String G()
+  private String E()
   {
     return mEditTextSearch.getText().toString();
   }
   
-  private boolean H()
+  private boolean F()
   {
-    return (TextUtils.isEmpty(G().trim())) || (mEditTextSearch.getTag() != null);
+    return (TextUtils.isEmpty(E().trim())) || (mEditTextSearch.getTag() != null);
   }
   
-  private void I()
+  private void G()
   {
     String str = null;
-    Object localObject2 = K();
-    List localList = L();
+    Object localObject2 = I();
+    List localList = J();
     ArrayList localArrayList = new ArrayList((Collection)localObject2);
     localArrayList.addAll(localList);
-    L.a((List)localObject2, A);
-    K.a(localList, null);
-    Object localObject1 = iap.a(ian.a(N, 5));
-    if (r) {
-      localObject1 = a(N, localArrayList, 5);
+    M.a((List)localObject2, E);
+    L.a(localList, null);
+    Object localObject1 = kcz.a(kcx.a(O, 5));
+    if (v) {
+      localObject1 = a(O, localArrayList, 5);
     }
     int i1 = ((List)localObject2).size();
     a((List)localObject2, 0);
     a(localList, ((List)localObject1).size() + i1);
-    localObject2 = J;
+    localObject2 = K;
     if (i1 > 0) {}
     for (;;)
     {
       ((LocationSearchAdapter)localObject2).a((List)localObject1, str);
       return;
-      str = A;
+      str = E;
     }
   }
   
-  private void J()
+  private void H()
   {
+    M.a(null, null);
     L.a(null, null);
-    K.a(null, null);
   }
   
-  private List<grv> K()
+  private List<ibn> I()
   {
     Object localObject1;
-    if (!i()) {
+    if (!h()) {
       localObject1 = new ArrayList();
     }
     ArrayList localArrayList;
-    label129:
-    label152:
-    label182:
+    label128:
+    label151:
+    label181:
     do
     {
-      return (List<grv>)localObject1;
+      return (List<ibn>)localObject1;
       localArrayList = new ArrayList();
-      boolean bool1 = "com.ubercab.ACTION_PICKUP_LOCATION".equals(y);
-      boolean bool2 = "com.ubercab.ACTION_DESTINATION".equals(y);
+      boolean bool1 = "com.ubercab.ACTION_PICKUP_LOCATION".equals(C);
+      boolean bool2 = "com.ubercab.ACTION_DESTINATION".equals(C);
       localObject1 = LocationSearchResult.HOME_WORK_TAGS;
       int i4 = localObject1.length;
       int i1 = 0;
@@ -345,15 +277,15 @@ public class LocationSearchFragment
         Object localObject2 = localObject1[i1];
         int i2;
         int i3;
-        if (M.a((String)localObject2))
+        if (N.a((String)localObject2))
         {
-          localObject2 = M.b((String)localObject2);
-          LocationSearchResult localLocationSearchResult = ((grv)localObject2).c();
-          if ((bool1) && (M.a(D, localLocationSearchResult)))
+          localObject2 = N.b((String)localObject2);
+          LocationSearchResult localLocationSearchResult = ((ibn)localObject2).c();
+          if ((bool1) && (N.a(H, localLocationSearchResult)))
           {
             i2 = 1;
-            if ((!bool2) || (!M.b(D, localLocationSearchResult))) {
-              break label182;
+            if ((!bool2) || (!N.b(H, localLocationSearchResult))) {
+              break label181;
             }
             i3 = 1;
             if ((i2 != 0) || (i3 != 0)) {
@@ -366,47 +298,47 @@ public class LocationSearchFragment
           i1 += 1;
           break;
           i2 = 0;
-          break label129;
+          break label128;
           i3 = 0;
-          break label152;
-          localArrayList.add(new grv((String)localObject2));
+          break label151;
+          localArrayList.add(new ibn((String)localObject2));
         }
       }
       localObject1 = localArrayList;
-    } while (!eyh.a(h));
-    localArrayList.addAll(grv.b(v));
+    } while (!flf.a(i));
+    localArrayList.addAll(ibn.b(z));
     return localArrayList;
   }
   
-  private List<grv> L()
+  private List<ibn> J()
   {
     ArrayList localArrayList = new ArrayList();
-    if (j())
+    if (i())
     {
       String[] arrayOfString = LocationSearchResult.HOME_WORK_TAGS;
       int i2 = arrayOfString.length;
       int i1 = 0;
       while (i1 < i2)
       {
-        localArrayList.add(new grv(arrayOfString[i1]));
+        localArrayList.add(new ibn(arrayOfString[i1]));
         i1 += 1;
       }
     }
     return localArrayList;
   }
   
-  private void M()
+  private void K()
   {
-    D();
-    N();
+    B();
+    L();
   }
   
-  private void N()
+  private void L()
   {
-    if ((Q == null) || (!Q.isShowing())) {
+    if ((R == null) || (!R.isShowing())) {
       return;
     }
-    Q.hide();
+    R.hide();
   }
   
   public static LocationSearchFragment a(String paramString1, RiderLocation paramRiderLocation1, RiderLocation paramRiderLocation2, String paramString2, String paramString3, TaggedLocationDistanceConstraints paramTaggedLocationDistanceConstraints, boolean paramBoolean)
@@ -458,7 +390,7 @@ public class LocationSearchFragment
     return paramString1;
   }
   
-  private static List<grv> a(List<grv> paramList1, List<grv> paramList2, int paramInt)
+  private static List<ibn> a(List<ibn> paramList1, List<ibn> paramList2, int paramInt)
   {
     if (paramList1 == null)
     {
@@ -475,39 +407,39 @@ public class LocationSearchFragment
       if (i1 == 0) {
         break;
       }
-      return iap.a(ian.a(paramList1, paramInt));
+      return kcz.a(kcx.a(paramList1, paramInt));
     }
     label54:
     ArrayList localArrayList = new ArrayList();
     paramList1 = paramList1.iterator();
     while (paramList1.hasNext())
     {
-      grv localgrv = (grv)paramList1.next();
+      ibn localibn = (ibn)paramList1.next();
       if ((i1 != 0) && (localArrayList.size() >= paramInt)) {
         break;
       }
-      if (!ian.b(paramList2, new LocationSearchFragment.8(localgrv))) {
-        localArrayList.add(localgrv);
+      if (!kcx.b(paramList2, new LocationSearchFragment.6(localibn))) {
+        localArrayList.add(localibn);
       }
     }
     return localArrayList;
   }
   
-  private void a(int paramInt1, int paramInt2, int paramInt3, r paramr)
+  private void a(int paramInt1, int paramInt2, int paramInt3, z paramz)
   {
-    if (P == null) {
-      P = new AlertDialog.Builder(getActivity()).setTitle(paramInt1).setMessage(paramInt2).setPositiveButton(paramInt3, new LocationSearchFragment.11(this, paramr)).setNegativeButton(2131166632, new LocationSearchFragment.10(this, paramr)).show();
+    if (Q == null) {
+      Q = new AlertDialog.Builder(getActivity()).setTitle(paramInt1).setMessage(paramInt2).setPositiveButton(paramInt3, new LocationSearchFragment.9(this, paramz)).setNegativeButton(2131166886, new LocationSearchFragment.8(this, paramz)).show();
     }
   }
   
   private void a(int paramInt, boolean paramBoolean, String paramString)
   {
-    boolean bool1 = "com.ubercab.ACTION_PICKUP_LOCATION".equals(y);
-    boolean bool2 = "com.ubercab.ACTION_DESTINATION".equals(y);
+    boolean bool1 = "com.ubercab.ACTION_PICKUP_LOCATION".equals(C);
+    boolean bool2 = "com.ubercab.ACTION_DESTINATION".equals(C);
     if ((!bool1) && (!bool2)) {
       return;
     }
-    M.a(bool1, paramString, paramBoolean, paramInt);
+    N.a(bool1, paramString, paramBoolean, paramInt);
   }
   
   private void a(RiderLocation paramRiderLocation)
@@ -521,17 +453,17 @@ public class LocationSearchFragment
     if ((TextUtils.isEmpty(str)) || (!paramRiderLocation.startsWith(str))) {
       localStringBuilder.append(paramRiderLocation);
     }
-    z = localStringBuilder.toString();
-    s = true;
+    D = localStringBuilder.toString();
+    w = true;
     mEditTextSearch.setTag("autofill");
-    mEditTextSearch.a(z);
+    mEditTextSearch.a(D);
     mImageButtonClear.setVisibility(0);
   }
   
   private void a(LocationSearchResult paramLocationSearchResult)
   {
-    Object localObject1 = grv.a(J.a());
-    Object localObject3 = grv.a(L.a());
+    Object localObject1 = ibn.a(K.a());
+    Object localObject3 = ibn.a(M.a());
     String str = paramLocationSearchResult.getTag();
     Object localObject2;
     int i1;
@@ -541,8 +473,8 @@ public class LocationSearchFragment
     {
       localObject2 = Integer.valueOf(((List)localObject3).indexOf(paramLocationSearchResult));
       localObject1 = Integer.valueOf(((List)localObject3).indexOf(paramLocationSearchResult));
-      localObject3 = G();
-      if (!u) {
+      localObject3 = E();
+      if (!y) {
         break label248;
       }
       if (localObject3 != null) {
@@ -552,20 +484,20 @@ public class LocationSearchFragment
       localObject3 = Integer.valueOf(i1);
       localDouble = paramLocationSearchResult.getLatitude();
       paramLocationSearchResult = paramLocationSearchResult.getLongitude();
-      if (!k()) {
+      if (!j()) {
         break label253;
       }
-      localObject2 = erg.a(Locale.ENGLISH, "%s:%d:%d:%f:%f:%s", new Object[] { str, localObject3, localObject2, localDouble, paramLocationSearchResult, x });
-      paramLocationSearchResult = r.hL;
+      localObject2 = ezk.a(Locale.ENGLISH, "%s:%d:%d:%f:%f:%s", new Object[] { str, localObject3, localObject2, localDouble, paramLocationSearchResult, B });
+      paramLocationSearchResult = z.kU;
     }
     for (;;)
     {
       c.a(AnalyticsEvent.create("tap").setName(paramLocationSearchResult).setValue((String)localObject2).setValuePosition(Long.valueOf(((Integer)localObject1).intValue())));
       return;
       str = paramLocationSearchResult.getServiceType();
-      localObject2 = Integer.valueOf(hes.b((List)localObject1, paramLocationSearchResult));
-      i1 = L.getCount();
-      localObject1 = Integer.valueOf(hes.a((List)localObject1, paramLocationSearchResult) + i1);
+      localObject2 = Integer.valueOf(iwo.b((List)localObject1, paramLocationSearchResult));
+      i1 = M.getCount();
+      localObject1 = Integer.valueOf(iwo.a((List)localObject1, paramLocationSearchResult) + i1);
       break;
       label239:
       i1 = ((String)localObject3).length();
@@ -574,11 +506,11 @@ public class LocationSearchFragment
       i1 = 0;
       break label92;
       label253:
-      localObject2 = erg.a(Locale.ENGLISH, "%s:%d:%d:%f:%f", new Object[] { str, localObject3, localObject2, localDouble, paramLocationSearchResult });
-      if ("com.ubercab.ACTION_PICKUP_LOCATION".equals(y)) {
-        paramLocationSearchResult = r.hW;
+      localObject2 = ezk.a(Locale.ENGLISH, "%s:%d:%d:%f:%f", new Object[] { str, localObject3, localObject2, localDouble, paramLocationSearchResult });
+      if ("com.ubercab.ACTION_PICKUP_LOCATION".equals(C)) {
+        paramLocationSearchResult = z.lf;
       } else {
-        paramLocationSearchResult = r.hI;
+        paramLocationSearchResult = z.kR;
       }
     }
   }
@@ -586,7 +518,7 @@ public class LocationSearchFragment
   private void a(LocationSearchResult paramLocationSearchResult, FareInfo paramFareInfo)
   {
     RiderLocation localRiderLocation = RiderLocation.create(paramLocationSearchResult);
-    Object localObject = y;
+    Object localObject = C;
     int i1 = -1;
     switch (((String)localObject).hashCode())
     {
@@ -615,38 +547,38 @@ public class LocationSearchFragment
       }
       i1 = 2;
       break;
-      if (a(localRiderLocation, C))
+      if (a(localRiderLocation, G))
       {
-        c(getString(2131165725));
+        c(getString(2131165788));
         return;
       }
-      f.c(new gsd(localRiderLocation, null, null));
+      f.c(new ibv(localRiderLocation, null, null));
       continue;
-      if (a(localRiderLocation, D))
+      if (a(localRiderLocation, H))
       {
-        c(getString(2131165724));
+        c(getString(2131165787));
         return;
       }
-      if ((eyh.a(h)) && ("reminder".equals(paramLocationSearchResult.getTag())) && ((paramLocationSearchResult instanceof ReminderSearchResult)))
+      if ((flf.a(i)) && ("reminder".equals(paramLocationSearchResult.getTag())) && ((paramLocationSearchResult instanceof ReminderSearchResult)))
       {
         localObject = (ReminderSearchResult)paramLocationSearchResult;
-        f.c(new gsd(localRiderLocation, paramFareInfo, ((ReminderSearchResult)localObject).getClientId()));
+        f.c(new ibv(localRiderLocation, paramFareInfo, ((ReminderSearchResult)localObject).getClientId()));
       }
       else
       {
-        f.c(new gsd(localRiderLocation, paramFareInfo, null));
+        f.c(new ibv(localRiderLocation, paramFareInfo, null));
       }
     }
   }
   
   private void a(LocationSearchResult paramLocationSearchResult, FareInfo paramFareInfo, Activity paramActivity)
   {
-    if (k())
+    if (j())
     {
-      i.a(x, paramLocationSearchResult.getId(), paramLocationSearchResult.getReference(), paramLocationSearchResult.getType());
-      a(getString(2131166369), paramActivity);
-      if (r) {
-        j.b();
+      j.a(B, paramLocationSearchResult.getId(), paramLocationSearchResult.getReference(), paramLocationSearchResult.getType());
+      a(getString(2131166603), paramActivity);
+      if (v) {
+        k.b();
       }
       a(paramLocationSearchResult);
       return;
@@ -654,87 +586,79 @@ public class LocationSearchFragment
     a(paramLocationSearchResult, paramFareInfo);
   }
   
-  private void a(grs paramgrs)
+  private void a(ibk paramibk)
   {
-    paramgrs.a(this);
+    paramibk.a(this);
   }
   
   private void a(String paramString, Activity paramActivity)
   {
-    C();
+    A();
     b(paramString, paramActivity);
   }
   
   private void a(String paramString, boolean paramBoolean)
   {
     double d2 = 0.0D;
-    if (H()) {
+    if (F()) {
       return;
     }
-    C();
+    A();
     double d1;
-    if (D != null)
+    if (H != null)
     {
-      d1 = D.getUberLatLng().a();
-      d2 = D.getUberLatLng().b();
+      d1 = H.getUberLatLng().a();
+      d2 = H.getUberLatLng().b();
     }
     for (;;)
     {
       if (paramBoolean)
       {
-        i.b(d1, d2, paramString);
+        j.b(d1, d2, paramString);
         return;
       }
-      i.a(d1, d2, paramString);
+      j.a(d1, d2, paramString);
       return;
       d1 = 0.0D;
     }
   }
   
-  private void a(List<grv> paramList)
+  private void a(List<ibn> paramList)
   {
-    List localList = M.d(G());
+    List localList = N.d(E());
     int i1 = localList.size();
-    paramList = b(b(paramList, O, i1 + 5), localList, 5);
-    J.a(paramList, null);
-    if (h.a(dux.dd, true)) {
-      if ((paramList.isEmpty()) && ("com.ubercab.ACTION_DESTINATION".equals(y)))
-      {
-        if ((!w()) && (!v())) {
-          break label102;
-        }
-        s();
-      }
-    }
-    label102:
-    while (!paramList.isEmpty())
+    paramList = b(b(paramList, P, i1 + 5), localList, 5);
+    K.a(paramList, null);
+    if ((paramList.isEmpty()) && ("com.ubercab.ACTION_DESTINATION".equals(C)))
     {
-      do
-      {
-        return;
-      } while (!x());
-      if ((y()) && (!q))
-      {
-        a(G(), true);
-        c.a(p.kF);
-        return;
+      if ((!u()) && (!t())) {
+        break label86;
       }
-      t();
+      r();
+    }
+    label86:
+    while (!v()) {
       return;
     }
-    u();
+    if ((w()) && (!u))
+    {
+      a(E(), true);
+      c.a(x.oB);
+      return;
+    }
+    s();
   }
   
-  private void a(List<grv> paramList, int paramInt)
+  private void a(List<ibn> paramList, int paramInt)
   {
     int i1 = 0;
     if (i1 < paramList.size())
     {
-      grv localgrv = (grv)paramList.get(i1);
-      if (localgrv.c() != null) {}
+      ibn localibn = (ibn)paramList.get(i1);
+      if (localibn.c() != null) {}
       for (boolean bool = true;; bool = false)
       {
-        M.a(localgrv.b(), bool, i1 + paramInt);
+        N.a(localibn.b(), bool, i1 + paramInt);
         i1 += 1;
         break;
       }
@@ -769,7 +693,7 @@ public class LocationSearchFragment
   
   private boolean a(String paramString)
   {
-    City localCity = g.b();
+    City localCity = h.b();
     if ((localCity == null) || (d.a(AppConfigKey.d, false))) {}
     do
     {
@@ -779,12 +703,12 @@ public class LocationSearchFragment
     return true;
   }
   
-  private grs b(ebj paramebj)
+  private ibk b(eib parameib)
   {
-    return grn.a().a(new efr(this)).a(paramebj).a();
+    return ibc.a().a(new enk(this)).a(parameib).a();
   }
   
-  private static List<grv> b(List<grv> paramList1, List<grv> paramList2, int paramInt)
+  private static List<ibn> b(List<ibn> paramList1, List<ibn> paramList2, int paramInt)
   {
     int i1;
     if (paramInt != -1)
@@ -806,7 +730,7 @@ public class LocationSearchFragment
       i1 = 0;
       break;
       if (i1 != 0) {
-        return iap.a(ian.a(paramList2, paramInt));
+        return kcz.a(kcx.a(paramList2, paramInt));
       }
       return paramList2;
       if ((paramList2 != null) && (!paramList2.isEmpty())) {
@@ -814,9 +738,9 @@ public class LocationSearchFragment
       }
       paramList2 = paramList1;
     } while (i1 == 0);
-    return iap.a(ian.a(paramList1, paramInt));
+    return kcz.a(kcx.a(paramList1, paramInt));
     label82:
-    ArrayList localArrayList = iap.a(paramList2);
+    ArrayList localArrayList = kcz.a(paramList2);
     localArrayList.addAll(a(paramList1, paramList2, paramInt));
     return localArrayList;
   }
@@ -826,145 +750,157 @@ public class LocationSearchFragment
     if (paramLocationHistoryResponse == null) {
       return;
     }
-    LocationSearchResults localLocationSearchResults = paramLocationHistoryResponse.getDropoffs();
-    if ("com.ubercab.ACTION_PICKUP_LOCATION".equals(y))
-    {
-      localLocationSearchResults = paramLocationHistoryResponse.getPickups();
-      if (localLocationSearchResults != null)
+    LocationSearchResults localLocationSearchResults1 = paramLocationHistoryResponse.getDropoffs();
+    LocationSearchResults localLocationSearchResults2 = paramLocationHistoryResponse.getPickups();
+    if ("com.ubercab.ACTION_PICKUP_LOCATION".equals(C)) {
+      if (localLocationSearchResults2 != null)
       {
-        N = grv.a(localLocationSearchResults.getAllResults(), false);
-        c.a(AnalyticsEvent.create("impression").setName(p.kV).setValuePosition(Long.valueOf(N.size())));
+        O = ibn.a(localLocationSearchResults2.getAllResults(), false);
+        b(O);
       }
     }
     for (;;)
     {
       paramLocationHistoryResponse = paramLocationHistoryResponse.getTagged();
       if (paramLocationHistoryResponse != null) {
-        M.a(grv.a(paramLocationHistoryResponse, true));
+        N.a(ibn.a(paramLocationHistoryResponse, true));
       }
-      r();
+      q();
       return;
-      if (localLocationSearchResults != null)
+      if (localLocationSearchResults1 != null)
       {
-        N = grv.a(localLocationSearchResults.getAllResults(), false);
-        c.a(AnalyticsEvent.create("impression").setName(p.kU).setValuePosition(Long.valueOf(N.size())));
+        O = ibn.a(localLocationSearchResults1.getAllResults(), false);
+        b(O);
       }
     }
   }
   
   private void b(String paramString, Activity paramActivity)
   {
-    if ((Q != null) && (Q.isShowing())) {
+    if ((R != null) && (R.isShowing())) {
       return;
     }
-    Q = epw.b(paramActivity, paramString);
-    Q.show();
+    R = exw.e(paramActivity, paramString);
+    R.show();
   }
   
-  private boolean g()
+  private void b(List<ibn> paramList)
   {
-    return (a(o.n())) || (hha.b(o.f()));
+    if (paramList == null) {
+      return;
+    }
+    if ("com.ubercab.ACTION_PICKUP_LOCATION".equals(C)) {}
+    for (x localx = x.oR;; localx = x.oQ)
+    {
+      c.a(AnalyticsEvent.create("impression").setName(localx).setValuePosition(Long.valueOf(paramList.size())));
+      return;
+    }
   }
   
-  private void h()
+  private boolean f()
+  {
+    return (a(p.m())) || (izk.b(p.f()));
+  }
+  
+  private void g()
   {
     mEditTextSearch.setText("");
   }
   
+  private boolean h()
+  {
+    return (v) && (!j()) && (!N.b());
+  }
+  
   private boolean i()
   {
-    return (r) && (!k()) && (!M.b());
+    return (v) && (!j()) && (N.b());
   }
   
   private boolean j()
   {
-    return (r) && (!k()) && (M.b());
+    return ("com.ubercab.ACTION_ADD_TAGGED_LOCATION".equals(C)) || ("com.ubercab.ACTION_EDIT_TAGGED_LOCATION".equals(C));
   }
   
   private boolean k()
   {
-    return ("com.ubercab.ACTION_ADD_TAGGED_LOCATION".equals(y)) || ("com.ubercab.ACTION_EDIT_TAGGED_LOCATION".equals(y));
+    return ("com.ubercab.ACTION_DESTINATION".equals(C)) || ("com.ubercab.ACTION_DESTINATION_ETA".equals(C));
   }
   
-  private boolean l()
+  private void l()
   {
-    return ("com.ubercab.ACTION_DESTINATION".equals(y)) || ("com.ubercab.ACTION_DESTINATION_ETA".equals(y));
+    ActionBar localActionBar = b().b();
+    if (TextUtils.isEmpty(A))
+    {
+      localActionBar.g();
+      return;
+    }
+    localActionBar.a(A);
   }
   
   private void m()
   {
-    ActionBar localActionBar = d().b();
-    if (TextUtils.isEmpty(w))
-    {
-      localActionBar.e();
-      return;
+    if ("CHINA".equals(m.a())) {
+      J.a();
     }
-    localActionBar.a(w);
+    String str = "";
+    boolean bool = "com.ubercab.ACTION_EDIT_TAGGED_LOCATION".equals(C);
+    if (LocationSearchResult.isTagHome(B)) {
+      str = getString(2131166062);
+    }
+    while (bool)
+    {
+      J.a(str);
+      J.c();
+      J.d();
+      return;
+      if (LocationSearchResult.isTagWork(B)) {
+        str = getString(2131167625);
+      }
+    }
+    J.b();
   }
   
   private void n()
   {
-    if ("CHINA".equals(l.a())) {
-      I.a();
-    }
-    String str = "";
-    boolean bool = "com.ubercab.ACTION_EDIT_TAGGED_LOCATION".equals(y);
-    if (LocationSearchResult.isTagHome(x)) {
-      str = getString(2131165954);
-    }
-    while (bool)
+    int i2 = 2130838036;
+    int i1 = i2;
+    if (j())
     {
-      I.a(str);
-      I.c();
-      I.d();
+      if (!LocationSearchResult.isTagHome(B)) {
+        break label38;
+      }
+      i1 = 2130838129;
+    }
+    for (;;)
+    {
+      C().a(i1);
       return;
-      if (LocationSearchResult.isTagWork(x)) {
-        str = getString(2131167240);
+      label38:
+      i1 = i2;
+      if (LocationSearchResult.isTagWork(B)) {
+        i1 = 2130838175;
       }
     }
-    I.b();
   }
   
   private void o()
   {
-    int i2 = 2130837910;
-    int i1 = i2;
-    if (k())
-    {
-      if (!LocationSearchResult.isTagHome(x)) {
-        break label38;
-      }
-      i1 = 2130837977;
-    }
-    for (;;)
-    {
-      E().a(i1);
-      return;
-      label38:
-      i1 = i2;
-      if (LocationSearchResult.isTagWork(x)) {
-        i1 = 2130838010;
-      }
-    }
-  }
-  
-  private void p()
-  {
     int i1 = 0;
     Object localObject;
-    if (k())
+    if (j())
     {
       localObject = e.getResources();
-      String str = M.c(x);
-      mEditTextSearch.setHint(((Resources)localObject).getString(2131165872, new Object[] { str.toLowerCase() }));
+      String str = N.c(B);
+      mEditTextSearch.setHint(((Resources)localObject).getString(2131165967, new Object[] { str.toLowerCase() }));
     }
-    if (s) {}
+    if (w) {}
     label61:
     label104:
     do
     {
       return;
-      localObject = y;
+      localObject = C;
       switch (((String)localObject).hashCode())
       {
       default: 
@@ -977,10 +913,10 @@ public class LocationSearchFragment
         default: 
           return;
         case 0: 
-          if (D == null) {
+          if (H == null) {
             break label61;
           }
-          a(D);
+          a(H);
           return;
           if (!((String)localObject).equals("com.ubercab.ACTION_PICKUP_LOCATION")) {
             break label104;
@@ -997,211 +933,257 @@ public class LocationSearchFragment
           i1 = 2;
         }
       }
-    } while (C == null);
-    a(C);
+    } while (G == null);
+    a(G);
     return;
-    a(E);
+    a(I);
+  }
+  
+  private void p()
+  {
+    List localList = k.c();
+    if (localList.size() != 0)
+    {
+      N.a(ibn.a(localList, true));
+      q();
+    }
   }
   
   private void q()
   {
-    List localList = j.c();
-    if (localList.size() != 0)
-    {
-      M.a(grv.a(localList, true));
-      r();
+    String str1 = E();
+    if (F()) {
+      G();
     }
+    do
+    {
+      return;
+      H();
+      String str2 = str1.toLowerCase();
+      P = kcz.a(kcx.a(kcx.a(O, new LocationSearchFragment.7(this, str2)), 5));
+      if (P.size() <= 5) {
+        a(str1, false);
+      }
+    } while (P.isEmpty());
+    K.a(P, null);
   }
   
   private void r()
   {
-    String str1 = G();
-    if (H()) {
-      I();
-    }
-    do
-    {
+    if (i.c(eaj.E)) {
       return;
-      J();
-      String str2 = str1.toLowerCase();
-      O = iap.a(ian.a(ian.a(N, new LocationSearchFragment.9(this, str2)), 5));
-      if (O.size() <= 5) {
-        a(str1, false);
-      }
-    } while (O.isEmpty());
-    J.a(O, null);
+    }
+    c.a(x.mr);
+    a(2131165761, 2131166496, 2131166260, z.ij);
   }
   
   private void s()
   {
-    if (h.b(dux.x)) {
-      return;
-    }
-    c.a(p.ja);
-    a(2131165701, 2131166316, 2131166126, r.fG);
+    c.a(x.oC);
+    a(2131166208, 2131166278, 2131165461, z.kp);
   }
   
-  private void t()
+  private boolean t()
   {
-    c.a(p.kG);
-    a(2131166077, 2131166144, 2131165404, r.hj);
+    boolean bool = i.c(eaj.c);
+    VehicleView localVehicleView = x();
+    return (localVehicleView != null) && (localVehicleView.getLinkedVehicleViewId() != null) && (bool);
   }
   
-  @Deprecated
-  private void u()
+  private boolean u()
   {
-    if (h.b(dux.x)) {}
-    do
-    {
-      do
-      {
-        return;
-      } while ((!w()) && (!v()));
-      c.a(p.ja);
-    } while (P != null);
-    P = new AlertDialog.Builder(getActivity()).setTitle(2131165701).setMessage(2131166316).setPositiveButton(2131166126, new LocationSearchFragment.3(this)).setNegativeButton(2131166632, new LocationSearchFragment.2(this)).show();
+    VehicleView localVehicleView = x();
+    return (localVehicleView != null) && (localVehicleView.getAllowRidepool());
   }
   
   private boolean v()
   {
-    boolean bool = h.b(dux.b);
-    if ((n.T()) && (h.b(dux.c))) {}
-    for (int i1 = 1;; i1 = 0)
-    {
-      VehicleView localVehicleView = z();
-      if ((localVehicleView == null) || (((localVehicleView.getLinkedVehicleViewId() == null) || (!bool)) && ((localVehicleView.getHijackVehicleViewId() == null) || (i1 == 0)))) {
-        break;
-      }
-      return true;
-    }
-    return false;
+    VehicleView localVehicleView = x();
+    return (localVehicleView != null) && (localVehicleView.isDestinationOptional()) && (4 == p.g()) && ((i.a(eaj.mn, ebc.b)) || (i.a(eaj.mn, ebc.c)));
   }
   
   private boolean w()
   {
-    VehicleView localVehicleView = z();
-    return (localVehicleView != null) && (localVehicleView.getAllowRidepool());
+    return i.a(eaj.mn, ebc.c);
   }
   
-  private boolean x()
+  private VehicleView x()
   {
-    VehicleView localVehicleView = z();
-    return (localVehicleView != null) && (localVehicleView.isDestinationOptional()) && (4 == o.g()) && ((h.a(dux.ht, dvi.b)) || (h.a(dux.ht, dvi.c)));
-  }
-  
-  private boolean y()
-  {
-    return h.a(dux.ht, dvi.c);
-  }
-  
-  private VehicleView z()
-  {
-    City localCity = g.b();
+    City localCity = h.b();
     if (localCity != null) {
-      return localCity.findVehicleViewById(B);
+      return localCity.findVehicleViewById(F);
     }
     return null;
   }
   
-  public final void F_()
+  private void y()
   {
-    if (!r) {
+    double d2 = 0.0D;
+    A();
+    double d1;
+    if (H != null)
+    {
+      d1 = H.getUberLatLng().a();
+      d2 = H.getUberLatLng().b();
+    }
+    for (;;)
+    {
+      if ((v) && (j()))
+      {
+        j.a();
+        return;
+      }
+      if ((x) && (k()))
+      {
+        j.c(d1, d2, F);
+        return;
+      }
+      k.b(this);
+      return;
+      d1 = 0.0D;
+    }
+  }
+  
+  private void z()
+  {
+    int i3 = 8;
+    int i2 = 1;
+    label37:
+    Object localObject;
+    if (K.getCount() == 0)
+    {
+      i1 = 1;
+      if ((i1 == 0) || (F()) || (!u)) {
+        break label79;
+      }
+      i1 = i2;
+      localObject = mViewGroupEmpty;
+      if (i1 == 0) {
+        break label84;
+      }
+      i2 = 0;
+      label49:
+      ((LinearLayout)localObject).setVisibility(i2);
+      localObject = mViewGroupContent;
+      if (i1 == 0) {
+        break label90;
+      }
+    }
+    label79:
+    label84:
+    label90:
+    for (int i1 = i3;; i1 = 0)
+    {
+      ((ViewGroup)localObject).setVisibility(i1);
+      return;
+      i1 = 0;
+      break;
+      i1 = 0;
+      break label37;
+      i2 = 8;
+      break label49;
+    }
+  }
+  
+  public final void B_()
+  {
+    a(E(), true);
+    c.a(z.kW);
+  }
+  
+  public final void C_()
+  {
+    if (!v) {
       return;
     }
     if (getActivity() != null) {
-      a(getString(2131166311), getActivity());
+      a(getString(2131166490), getActivity());
     }
-    i.a(x);
-    M.f(x);
+    j.a(B);
+    N.f(B);
   }
   
   public final void a()
   {
-    j.a(this);
-    D();
+    k.a(this);
+    B();
     mViewGroupLoading.setVisibility(8);
-    q();
-    c(getString(2131166022));
+    p();
+    c(getString(2131166139));
   }
   
   public final void a(LocationHistoryResponse paramLocationHistoryResponse)
   {
-    j.a(this);
-    D();
+    k.a(this);
+    B();
     mViewGroupLoading.setVisibility(8);
     b(paramLocationHistoryResponse);
   }
   
-  public final void b()
+  public final cli e()
   {
-    a(G(), true);
-    c.a(r.hN);
+    return dxm.a;
   }
   
-  public final ckr f()
+  @chu
+  public void onAddTaggedLocationEvent(ibq paramibq)
   {
-    return dsh.a;
-  }
-  
-  @cho
-  public void onAddTaggedLocationEvent(gry paramgry)
-  {
-    int i2 = paramgry.b();
+    int i2 = paramibq.b();
     int i1 = i2;
-    if (M.b()) {
-      i1 = i2 + J.getCount();
+    if (N.b()) {
+      i1 = i2 + K.getCount();
     }
-    a(i1, true, paramgry.a());
+    a(i1, true, paramibq.a());
   }
   
-  @OnClick({2131624585})
+  @OnClick
   public void onClickImageButtonClear()
   {
-    h();
-    r();
+    g();
+    q();
   }
   
-  @OnClick({2131624582})
+  @OnClick
   public void onClickLocationSearchIcon()
   {
     mEditTextSearch.requestFocus();
   }
   
-  @OnClick({2131624586})
+  @OnClick
   public void onClickTextViewSkip()
   {
-    dps.b(getActivity(), getActivity().getCurrentFocus());
-    f.c(new gse());
+    duq.b(getActivity(), getActivity().getCurrentFocus());
+    f.c(new ibw());
   }
   
-  @cho
-  public void onCombinedLocationHistoryResponse(eik parameik)
+  @chu
+  public void onCombinedLocationHistoryResponse(equ paramequ)
   {
-    D();
+    B();
     mViewGroupLoading.setVisibility(8);
-    if (!parameik.i()) {
-      c(getString(2131166022));
+    if (!paramequ.i()) {
+      c(getString(2131166139));
     }
     do
     {
       return;
-      parameik = grv.a(((CombinedLocationHistoryResponse)parameik.g()).getResults(), false);
-    } while ((parameik == null) || (parameik.isEmpty()));
-    N = iap.a(ian.a(parameik, new LocationSearchFragment.7(this)));
-    r();
+      paramequ = ibn.a(((CombinedLocationHistoryResponse)paramequ.g()).getResults(), false);
+    } while ((paramequ == null) || (paramequ.isEmpty()));
+    O = kcz.a(kcx.a(paramequ, new LocationSearchFragment.5(this)));
+    q();
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
     Bundle localBundle = getArguments();
-    y = localBundle.getString("com.ubercab.ARG_ACTION");
-    w = localBundle.getString("com.ubercab.ARG_ACTION_BAR_TITLE");
-    C = ((RiderLocation)localBundle.getParcelable("com.ubercab.ARG_LOCATION_DESTINATION"));
-    r = localBundle.getBoolean("com.ubercab.ARG_TAGGED_LOCATIONS_DISPLAYED", true);
-    x = localBundle.getString("com.ubercab.ARG_TAG_OF_LOCATION");
-    D = ((RiderLocation)localBundle.getParcelable("com.ubercab.ARG_LOCATION_PICKUP"));
-    if (eyh.a(h))
+    C = localBundle.getString("com.ubercab.ARG_ACTION");
+    A = localBundle.getString("com.ubercab.ARG_ACTION_BAR_TITLE");
+    G = ((RiderLocation)localBundle.getParcelable("com.ubercab.ARG_LOCATION_DESTINATION"));
+    v = localBundle.getBoolean("com.ubercab.ARG_TAGGED_LOCATIONS_DISPLAYED", true);
+    B = localBundle.getString("com.ubercab.ARG_TAG_OF_LOCATION");
+    H = ((RiderLocation)localBundle.getParcelable("com.ubercab.ARG_LOCATION_PICKUP"));
+    if (flf.a(i))
     {
       ArrayList localArrayList = localBundle.getParcelableArrayList("com.ubercab.ARG_REMINDERS");
       paramBundle = localArrayList;
@@ -1209,158 +1191,161 @@ public class LocationSearchFragment
         paramBundle = new ArrayList();
       }
     }
-    for (v = paramBundle;; v = new ArrayList())
+    for (z = paramBundle;; z = new ArrayList())
     {
-      E = ((RiderLocation)localBundle.getParcelable("com.ubercab.ARG_LOCATION_TAGGED"));
-      t = localBundle.getBoolean("com.ubercab.ARG_SHOW_UPFRONT_PRICING", false);
-      B = localBundle.getString("com.ubercab.ARG_VEHICLE_VIEW_ID");
-      G = new Handler();
-      F = new LocationSearchFragment.1(this);
+      I = ((RiderLocation)localBundle.getParcelable("com.ubercab.ARG_LOCATION_TAGGED"));
+      x = localBundle.getBoolean("com.ubercab.ARG_SHOW_UPFRONT_PRICING", false);
+      F = localBundle.getString("com.ubercab.ARG_VEHICLE_VIEW_ID");
+      q = new Handler();
+      r = new LocationSearchFragment.1(this);
       paramBundle = (TaggedLocationDistanceConstraints)localBundle.getParcelable("com.ubercab.ARG_TAGGED_LOCATION_DESTINATION_CONSTRAINTS");
-      M = new grx(c, getResources(), n, paramBundle);
+      N = new ibp(c, getResources(), o, paramBundle);
       return;
     }
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903270, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903365, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
   }
   
   public void onDestroyView()
   {
+    mEditTextSearch.removeTextChangedListener(s);
+    k.a(this);
+    J.b(this);
     super.onDestroyView();
-    mEditTextSearch.removeTextChangedListener(H);
-    j.a(this);
-    I.b(this);
-    ButterKnife.reset(this);
   }
   
-  @cho
-  public void onEditTaggedLocationEvent(grz paramgrz)
+  @chu
+  public void onEditTaggedLocationEvent(ibr paramibr)
   {
-    a(paramgrz.b(), false, paramgrz.a());
+    a(paramibr.b(), false, paramibr.a());
   }
   
-  @cho
-  public void onGetLocationDetailsEvent(gsa paramgsa)
+  @chu
+  public void onGetLocationDetailsEvent(ibs paramibs)
   {
-    i.a(paramgsa.a(), paramgsa.b());
+    j.a(paramibs.a(), paramibs.b());
   }
   
-  @cho
-  public void onLocationAutocompleteEvent(eit parameit)
+  @chu
+  public void onLocationAutocompleteEvent(erb paramerb)
   {
-    D();
+    B();
     mViewGroupLoading.setVisibility(8);
-    String str = parameit.a();
-    if (!G().equals(str)) {
-      return;
-    }
-    if (!parameit.i())
+    String str = paramerb.a();
+    if (!E().equals(str)) {}
+    do
     {
-      c(getString(2131166021));
       return;
-    }
-    q = false;
-    a(grv.a(((LocationAutocompleteResponse)parameit.g()).getPredictions(), false));
+      if ((!paramerb.i()) || (paramerb.g() == null) || (((LocationAutocompleteResponse)paramerb.g()).getPredictions() == null))
+      {
+        c(getString(2131166138));
+        return;
+      }
+      u = false;
+      paramerb = ibn.a(((LocationAutocompleteResponse)paramerb.g()).getPredictions(), false);
+      a(paramerb);
+    } while (!i.a(eaj.jN, true));
+    b(paramerb);
   }
   
-  @cho
-  public void onLocationClickEvent(gsb paramgsb)
+  @chu
+  public void onLocationClickEvent(ibt paramibt)
   {
     if (getActivity() != null) {
-      a(paramgsb.a(), paramgsb.c(), getActivity());
+      a(paramibt.a(), paramibt.c(), getActivity());
     }
   }
   
-  @cho
-  public void onLocationDetailResponse(eiu parameiu)
+  @chu
+  public void onLocationDetailResponse(erc paramerc)
   {
-    if (!parameiu.i()) {
-      c(getString(2131166023));
+    if (!paramerc.i()) {
+      c(getString(2131166140));
     }
     do
     {
       return;
-      parameiu = (LocationSearchResult)parameiu.g();
-      q = false;
+      paramerc = (LocationSearchResult)paramerc.g();
+      u = false;
     } while (getActivity() == null);
-    a(parameiu, null, getActivity());
+    a(paramerc, null, getActivity());
   }
   
-  @cho
-  public void onLocationSearchEvent(eiw parameiw)
+  @chu
+  public void onLocationSearchEvent(ere paramere)
   {
-    D();
+    B();
     mViewGroupLoading.setVisibility(8);
-    String str = parameiw.a();
-    if (!G().equals(str)) {
+    String str = paramere.a();
+    if (!E().equals(str)) {
       return;
     }
-    if (!parameiw.i())
+    if (!paramere.i())
     {
-      c(getString(2131166021));
+      c(getString(2131166138));
       return;
     }
-    q = true;
-    a(grv.a(((LocationSearchResponse)parameiw.g()).getPredictions(), false));
+    u = true;
+    a(ibn.a(((LocationSearchResponse)paramere.g()).getPredictions(), false));
   }
   
-  @cho
-  public void onLocationTagAddResponseEvent(eix parameix)
+  @chu
+  public void onLocationTagAddResponseEvent(erf paramerf)
   {
-    M();
-    if (!parameix.i())
+    K();
+    if (!paramerf.i())
     {
-      c(getString(2131166026));
+      c(getString(2131166143));
       return;
     }
-    M.a(((LocationTagAddResponse)parameix.g()).getResult(), x);
-    if (m.q())
+    N.a(((LocationTagAddResponse)paramerf.g()).getResult(), B);
+    if (n.s())
     {
-      parameix = ((LocationTagAddResponse)parameix.g()).getResult();
-      chh localchh = f;
-      if (parameix != null) {}
-      for (parameix = parameix.getTag();; parameix = "")
+      paramerf = ((LocationTagAddResponse)paramerf.g()).getResult();
+      chn localchn = f;
+      if (paramerf != null) {}
+      for (paramerf = paramerf.getTag();; paramerf = "")
       {
-        localchh.c(new gsg(parameix));
+        localchn.c(new iby(paramerf));
         return;
       }
     }
-    f.c(new gsg());
+    f.c(new iby());
   }
   
-  @cho
-  public void onLocationTagDeleteResponseEvent(eiy parameiy)
+  @chu
+  public void onLocationTagDeleteResponseEvent(erg paramerg)
   {
-    M();
-    if (!parameiy.i())
+    K();
+    if (!paramerg.i())
     {
-      c(getString(2131166027));
+      c(getString(2131166144));
       return;
     }
-    j.b();
-    M.e(x);
-    f.c(new gsf());
+    k.b();
+    N.e(B);
+    f.c(new ibx());
   }
   
   public void onPause()
   {
     super.onPause();
-    if (Q != null)
+    if (R != null)
     {
-      Q.dismiss();
-      Q = null;
+      R.dismiss();
+      R = null;
     }
-    dps.b(e, mEditTextSearch);
+    duq.b(e, mEditTextSearch);
   }
   
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
-    paramMenu = paramMenu.findItem(2131626160);
+    paramMenu = paramMenu.findItem(2131626916);
     if (paramMenu != null) {
       paramMenu.setVisible(false);
     }
@@ -1369,82 +1354,82 @@ public class LocationSearchFragment
   public void onResume()
   {
     super.onResume();
-    m();
-    if (J.isEmpty())
+    l();
+    if (K.isEmpty())
     {
       mViewGroupLoading.setVisibility(0);
-      A();
+      y();
     }
-    M.a(r);
+    N.a(v);
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putBoolean("com.ubercab.BUNDLE_PREFILLED_TEXT_APPLIED", s);
-    M.a(paramBundle);
+    paramBundle.putBoolean("com.ubercab.BUNDLE_PREFILLED_TEXT_APPLIED", w);
+    N.a(paramBundle);
   }
   
-  @cho
-  public void onSelectTaggedLocation(gsg paramgsg)
+  @chu
+  public void onSelectTaggedLocation(iby paramiby)
   {
-    M.a();
-    dps.b(e, mEditTextSearch);
+    N.a();
+    duq.b(e, mEditTextSearch);
   }
   
-  @OnTouch({2131624588})
+  @OnTouch
   public boolean onTouchListViewLocations()
   {
-    dps.b(getActivity(), mEditTextSearch);
+    duq.b(getActivity(), mEditTextSearch);
     return false;
   }
   
-  @cho
-  public void onUpfrontFareResponse(ejw paramejw)
+  @chu
+  public void onUpfrontFareResponse(erq paramerq)
   {
-    D();
+    B();
     mViewGroupLoading.setVisibility(8);
-    if (!paramejw.i())
+    if (!paramerq.i())
     {
-      c(getString(2131166022));
+      c(getString(2131166139));
       return;
     }
-    paramejw = (UpfrontFareResponse)paramejw.g();
-    A = paramejw.getTagline();
-    N = grv.b(paramejw.getDropoffs().getResults(), false);
-    M.a(grv.b(paramejw.getTagged(), true));
-    r();
+    paramerq = (UpfrontFareResponse)paramerq.g();
+    E = paramerq.getTagline();
+    O = ibn.b(paramerq.getDropoffs().getResults(), false);
+    N.a(ibn.b(paramerq.getTagged(), true));
+    q();
   }
   
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
     setHasOptionsMenu(true);
-    if (h.a(dux.gg, true))
+    if (i.a(eaj.jO, true))
     {
       mSearchIcon.setVisibility(8);
       mSearchProgressIcon.setVisibility(0);
     }
     if (paramBundle != null)
     {
-      M.b(paramBundle);
-      s = paramBundle.getBoolean("com.ubercab.BUNDLE_PREFILLED_TEXT_APPLIED", false);
+      N.b(paramBundle);
+      w = paramBundle.getBoolean("com.ubercab.BUNDLE_PREFILLED_TEXT_APPLIED", false);
     }
-    if ((s) && (!k()))
+    if ((w) && (!j()))
     {
-      dps.b(e, mEditTextSearch);
+      duq.b(e, mEditTextSearch);
       paramView = paramView.getContext();
-      I = ((LocationSearchFooterView)LayoutInflater.from(paramView).inflate(2130903558, mListViewLocation, false));
-      I.a(this);
-      J = new LocationSearchAdapter(paramView, f, true, true, h, k);
-      L = new LocationSearchAdapter(paramView, f, true, true, h, k);
-      K = new LocationSearchAdapter(paramView, f, true, true, h, k);
-      paramView = new gru(paramView, iaj.a(L, J, K));
-      paramView.registerDataSetObserver(new LocationSearchFragment.4(this));
-      mTextViewEmpty.setText(getString(2131166080));
-      mListViewLocation.addFooterView(I, null, false);
+      J = ((LocationSearchFooterView)LayoutInflater.from(paramView).inflate(2130903768, mListViewLocation, false));
+      J.a(this);
+      K = new LocationSearchAdapter(paramView, f, true, true, i, l);
+      M = new LocationSearchAdapter(paramView, f, true, true, i, l);
+      L = new LocationSearchAdapter(paramView, f, true, true, i, l);
+      paramView = new ibm(paramView, kct.a(M, K, L));
+      paramView.registerDataSetObserver(new LocationSearchFragment.2(this));
+      mTextViewEmpty.setText(getString(2131166211));
+      mListViewLocation.addFooterView(J, null, false);
       mListViewLocation.setAdapter(paramView);
-      paramView = y;
+      paramView = C;
       i1 = -1;
       switch (paramView.hashCode())
       {
@@ -1454,11 +1439,11 @@ public class LocationSearchFragment
         default: 
           label324:
           label352:
-          p();
           o();
           n();
+          m();
           paramView = mTextViewSkip;
-          if (!p) {}
+          if (!t) {}
           break;
         }
         break;
@@ -1467,11 +1452,11 @@ public class LocationSearchFragment
     for (int i1 = 0;; i1 = 8)
     {
       paramView.setVisibility(i1);
-      mEditTextSearch.setOnEditorActionListener(new LocationSearchFragment.5(this));
-      H = new LocationSearchFragment.6(this);
-      mEditTextSearch.addTextChangedListener(H);
+      mEditTextSearch.setOnEditorActionListener(new LocationSearchFragment.3(this));
+      s = new LocationSearchFragment.4(this);
+      mEditTextSearch.addTextChangedListener(s);
       return;
-      dps.a(e, mEditTextSearch);
+      duq.a(e, mEditTextSearch);
       break;
       if (!paramView.equals("com.ubercab.ACTION_PICKUP_LOCATION")) {
         break label324;
@@ -1488,17 +1473,17 @@ public class LocationSearchFragment
       }
       i1 = 2;
       break label324;
-      if (g())
+      if (f())
       {
-        mEditTextSearch.setHint(getString(2131165698));
+        mEditTextSearch.setHint(getString(2131165757));
         break label352;
       }
-      mEditTextSearch.setHint(getString(2131166218));
+      mEditTextSearch.setHint(getString(2131166379));
       break label352;
-      mEditTextSearch.setHint(getString(2131165702));
+      mEditTextSearch.setHint(getString(2131165762));
       break label352;
-      mEditTextSearch.setHint(getString(2131165702));
-      p = true;
+      mEditTextSearch.setHint(getString(2131165762));
+      t = true;
       break label352;
     }
   }

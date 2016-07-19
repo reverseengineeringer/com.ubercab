@@ -31,12 +31,12 @@ public class HeatMap
   private static final float[] e;
   private static int r = 0;
   BaiduMap a;
-  private j<WeightedLatLng> f;
+  private l<WeightedLatLng> f;
   private Collection<WeightedLatLng> g;
   private int h;
   private Gradient i;
   private double j;
-  private e k;
+  private f k;
   private int[] l;
   private double[] m;
   private double[] n;
@@ -81,7 +81,7 @@ public class HeatMap
     b(g);
   }
   
-  private static double a(Collection<WeightedLatLng> paramCollection, e parame, int paramInt1, int paramInt2)
+  private static double a(Collection<WeightedLatLng> paramCollection, f paramf, int paramInt1, int paramInt2)
   {
     double d2 = a;
     double d1 = c;
@@ -117,15 +117,15 @@ public class HeatMap
     for (;;)
     {
       Double localDouble = (Double)paramCollection.get(paramInt2);
-      parame = localDouble;
+      paramf = localDouble;
       if (localDouble == null) {
-        parame = Double.valueOf(0.0D);
+        paramf = Double.valueOf(0.0D);
       }
-      d5 = parame.doubleValue();
-      parame = Double.valueOf(intensity + d5);
-      paramCollection.put(paramInt2, parame);
-      if (parame.doubleValue() > d1) {
-        d1 = parame.doubleValue();
+      d5 = paramf.doubleValue();
+      paramf = Double.valueOf(intensity + d5);
+      paramCollection.put(paramInt2, paramf);
+      if (paramf.doubleValue() > d1) {
+        d1 = paramf.doubleValue();
       }
       for (;;)
       {
@@ -368,9 +368,9 @@ public class HeatMap
           double d5 = paramInt1 + 1;
           double d6 = paramInt2;
           d7 = d1 * (paramInt2 + 1) + d2;
-          localObject1 = new e(d4, d5 * d1 + d2, d6 * d1 - d2, d7);
-        } while (!((e)localObject1).a(new e(k.a - d2, k.c + d2, k.b - d2, d2 + k.d)));
-        localObject2 = f.a((e)localObject1);
+          localObject1 = new f(d4, d5 * d1 + d2, d6 * d1 - d2, d7);
+        } while (!((f)localObject1).a(new f(k.a - d2, k.c + d2, k.b - d2, d2 + k.d)));
+        localObject2 = f.a((f)localObject1);
       } while (((Collection)localObject2).isEmpty());
       int i1 = h;
       int i2 = h;
@@ -425,7 +425,7 @@ public class HeatMap
       throw new IllegalArgumentException("No input points.");
     }
     k = d(g);
-    f = new j(k);
+    f = new l(k);
     paramCollection = g.iterator();
     while (paramCollection.hasNext())
     {
@@ -491,7 +491,7 @@ public class HeatMap
     return localArrayList;
   }
   
-  private static e d(Collection<WeightedLatLng> paramCollection)
+  private static f d(Collection<WeightedLatLng> paramCollection)
   {
     paramCollection = paramCollection.iterator();
     WeightedLatLng localWeightedLatLng = (WeightedLatLng)paramCollection.next();
@@ -527,7 +527,7 @@ public class HeatMap
         d2 = d8;
       }
     }
-    return new e(d7, d3, d2, d1);
+    return new f(d7, d3, d2, d1);
   }
   
   private void d()
@@ -566,7 +566,7 @@ public class HeatMap
     }
     try
     {
-      p.execute(new f(this, paramInt1, paramInt2, paramInt3));
+      p.execute(new g(this, paramInt1, paramInt2, paramInt3));
       b(str);
       return null;
     }

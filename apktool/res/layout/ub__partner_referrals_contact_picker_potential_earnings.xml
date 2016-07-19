@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@color/ub__uber_black_100" android:padding="@dimen/ui__spacing_unit_2x" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ui__spacing_unit_4x">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.H2.White" android:id="@id/ub__partner_referrals_contact_picker_potential_earnings_counter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAllCaps="true" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.Partner.Referrals.Alloy.TextAppearance.H5.White" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ub__partner_referrals_contact_picker_potential_earnings" />
+    </LinearLayout>
+    <com.ubercab.ui.Button android:id="@id/ub__referrals_contact_picker_bottom_send" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ub__partner_referrals_contact_picker_send_invites" android:layout_weight="1.0" style="@style/Uber.Widget.Button.Accent" />
+</LinearLayout>

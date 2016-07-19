@@ -1,75 +1,57 @@
-import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.location.places.AddPlaceRequest;
-import com.google.android.gms.maps.model.LatLng;
-import java.util.ArrayList;
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 
 public final class bam
-  implements Parcelable.Creator<AddPlaceRequest>
+  implements Parcelable.Creator<StreetViewPanoramaCamera>
 {
-  private static AddPlaceRequest a(Parcel paramParcel)
+  public static StreetViewPanoramaCamera a(Parcel paramParcel)
   {
-    Uri localUri = null;
-    int j = zm.b(paramParcel);
+    float f3 = 0.0F;
+    int j = zd.b(paramParcel);
+    float f1 = 0.0F;
     int i = 0;
-    String str1 = null;
-    ArrayList localArrayList = null;
-    String str2 = null;
-    LatLng localLatLng = null;
-    String str3 = null;
+    float f2 = 0.0F;
     while (paramParcel.dataPosition() < j)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
       default: 
-        zm.a(paramParcel, k);
+        zd.a(paramParcel, k);
         break;
       case 1: 
-        str3 = zm.n(paramParcel, k);
-        break;
-      case 1000: 
-        i = zm.e(paramParcel, k);
+        i = zd.e(paramParcel, k);
         break;
       case 2: 
-        localLatLng = (LatLng)zm.a(paramParcel, k, LatLng.CREATOR);
+        f1 = zd.j(paramParcel, k);
         break;
       case 3: 
-        str2 = zm.n(paramParcel, k);
+        f2 = zd.j(paramParcel, k);
         break;
       case 4: 
-        localArrayList = zm.A(paramParcel, k);
-        break;
-      case 5: 
-        str1 = zm.n(paramParcel, k);
-        break;
-      case 6: 
-        localUri = (Uri)zm.a(paramParcel, k, Uri.CREATOR);
+        f3 = zd.j(paramParcel, k);
       }
     }
     if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new AddPlaceRequest(i, str3, localLatLng, str2, localArrayList, str1, localUri);
+    return new StreetViewPanoramaCamera(i, f1, f2, f3);
   }
   
-  public static void a(AddPlaceRequest paramAddPlaceRequest, Parcel paramParcel, int paramInt)
+  public static void a(StreetViewPanoramaCamera paramStreetViewPanoramaCamera, Parcel paramParcel)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramAddPlaceRequest.a(), false);
-    zo.a(paramParcel, 1000, a);
-    zo.a(paramParcel, 2, paramAddPlaceRequest.b(), paramInt, false);
-    zo.a(paramParcel, 3, paramAddPlaceRequest.c(), false);
-    zo.a(paramParcel, 4, paramAddPlaceRequest.d());
-    zo.a(paramParcel, 5, paramAddPlaceRequest.e(), false);
-    zo.a(paramParcel, 6, paramAddPlaceRequest.f(), paramInt, false);
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramStreetViewPanoramaCamera.a());
+    zf.a(paramParcel, 2, a);
+    zf.a(paramParcel, 3, b);
+    zf.a(paramParcel, 4, c);
+    zf.a(paramParcel, i);
   }
   
-  private static AddPlaceRequest[] a(int paramInt)
+  private static StreetViewPanoramaCamera[] a(int paramInt)
   {
-    return new AddPlaceRequest[paramInt];
+    return new StreetViewPanoramaCamera[paramInt];
   }
 }
 

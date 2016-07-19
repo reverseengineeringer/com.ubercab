@@ -1,8 +1,8 @@
 package com.google.android.gms.location.internal;
 
-import abq;
+import abc;
 import android.os.Parcel;
-import azt;
+import aql;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.location.LocationRequest;
 import java.util.Collections;
@@ -11,7 +11,7 @@ import java.util.List;
 public class LocationRequestInternal
   implements SafeParcelable
 {
-  public static final azt CREATOR = new azt();
+  public static final aql CREATOR = new aql();
   public static final List<ClientIdentity> a = ;
   public LocationRequest b;
   public boolean c;
@@ -62,7 +62,7 @@ public class LocationRequestInternal
     {
       return false;
       paramObject = (LocationRequestInternal)paramObject;
-    } while ((!abq.a(b, b)) || (c != c) || (d != d) || (e != e) || (h != h) || (!abq.a(f, f)));
+    } while ((!abc.a(b, b)) || (c != c) || (d != d) || (e != e) || (h != h) || (!abc.a(f, f)));
     return true;
   }
   
@@ -88,7 +88,7 @@ public class LocationRequestInternal
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    azt.a(this, paramParcel, paramInt);
+    aql.a(this, paramParcel, paramInt);
   }
 }
 

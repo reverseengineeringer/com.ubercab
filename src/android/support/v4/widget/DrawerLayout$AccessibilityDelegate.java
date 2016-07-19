@@ -25,7 +25,7 @@ class DrawerLayout$AccessibilityDelegate
     while (i < j)
     {
       View localView = paramViewGroup.getChildAt(i);
-      if (DrawerLayout.access$400(localView)) {
+      if (DrawerLayout.access$700(localView)) {
         paramAccessibilityNodeInfoCompat.addChild(localView);
       }
       i += 1;
@@ -58,7 +58,7 @@ class DrawerLayout$AccessibilityDelegate
     if (paramAccessibilityEvent.getEventType() == 32)
     {
       paramView = paramAccessibilityEvent.getText();
-      paramAccessibilityEvent = DrawerLayout.access$300(this$0);
+      paramAccessibilityEvent = DrawerLayout.access$600(this$0);
       if (paramAccessibilityEvent != null)
       {
         int i = this$0.getDrawerViewAbsoluteGravity(paramAccessibilityEvent);
@@ -80,7 +80,7 @@ class DrawerLayout$AccessibilityDelegate
   
   public void onInitializeAccessibilityNodeInfo(View paramView, AccessibilityNodeInfoCompat paramAccessibilityNodeInfoCompat)
   {
-    if (DrawerLayout.access$200()) {
+    if (DrawerLayout.access$500()) {
       super.onInitializeAccessibilityNodeInfo(paramView, paramAccessibilityNodeInfoCompat);
     }
     for (;;)
@@ -106,7 +106,7 @@ class DrawerLayout$AccessibilityDelegate
   
   public boolean onRequestSendAccessibilityEvent(ViewGroup paramViewGroup, View paramView, AccessibilityEvent paramAccessibilityEvent)
   {
-    if ((DrawerLayout.access$200()) || (DrawerLayout.access$400(paramView))) {
+    if ((DrawerLayout.access$500()) || (DrawerLayout.access$700(paramView))) {
       return super.onRequestSendAccessibilityEvent(paramViewGroup, paramView, paramAccessibilityEvent);
     }
     return false;

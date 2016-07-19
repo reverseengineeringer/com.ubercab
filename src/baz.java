@@ -1,61 +1,241 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.location.LocationAvailability;
-import com.google.android.gms.location.LocationResult;
+import android.annotation.TargetApi;
+import android.app.Application;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.google.android.gms.measurement.internal.EventParams;
+import com.google.android.gms.measurement.internal.EventParcel;
+import com.google.android.gms.measurement.internal.UserAttributeParcel;
+import java.lang.reflect.Method;
+import java.util.Iterator;
+import java.util.Set;
 
-public abstract class baz
-  extends Binder
-  implements bay
+public final class baz
+  extends bcz
 {
-  public static bay a(IBinder paramIBinder)
+  private bba a;
+  private baw b;
+  private boolean c;
+  
+  protected baz(bcv parambcv)
   {
-    if (paramIBinder == null) {
-      return null;
-    }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.location.ILocationCallback");
-    if ((localIInterface != null) && ((localIInterface instanceof bay))) {
-      return (bay)localIInterface;
-    }
-    return new bba(paramIBinder);
+    super(parambcv);
   }
   
-  public IBinder asBinder()
+  private void a(Class<?> paramClass)
   {
-    return this;
-  }
-  
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    Object localObject2 = null;
-    Object localObject1 = null;
-    switch (paramInt1)
+    try
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.location.ILocationCallback");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.location.ILocationCallback");
-      paramParcel2 = (Parcel)localObject1;
-      if (paramParcel1.readInt() != 0) {
-        paramParcel2 = (LocationResult)LocationResult.CREATOR.createFromParcel(paramParcel1);
+      paramClass.getDeclaredMethod("initialize", new Class[] { Context.class }).invoke(null, new Object[] { m() });
+      return;
+    }
+    catch (Exception paramClass)
+    {
+      s().c().a("Failed to invoke Tag Manager's initialize() method", paramClass);
+    }
+  }
+  
+  private void a(final String paramString1, final String paramString2, final long paramLong, Bundle paramBundle)
+  {
+    abe.a(paramBundle);
+    r().a(new Runnable()
+    {
+      public final void run()
+      {
+        baz.a(baz.this, paramString1, paramString2, paramLong, d, e, f);
       }
-      a(paramParcel2);
-      return true;
+    });
+  }
+  
+  private void a(String paramString1, String paramString2, long paramLong, Bundle paramBundle, boolean paramBoolean, String paramString3)
+  {
+    abe.a(paramString1);
+    abe.a(paramString2);
+    abe.a(paramBundle);
+    f();
+    E();
+    if (!t().w()) {
+      s().y().a("Event not sent since app measurement is disabled");
     }
-    paramParcel1.enforceInterface("com.google.android.gms.location.ILocationCallback");
-    paramParcel2 = (Parcel)localObject2;
-    if (paramParcel1.readInt() != 0)
+    do
     {
-      paramParcel2 = LocationAvailability.CREATOR;
-      paramParcel2 = ayp.a(paramParcel1);
+      return;
+      if (!c)
+      {
+        c = true;
+        v();
+      }
+      if ((paramBoolean) && (b != null) && (!bbj.g(paramString2)))
+      {
+        s().y().a("Passing event to registered event handler (FE)", paramString2, paramBundle);
+        return;
+      }
+    } while (!n.b());
+    s().y().a("Logging event (FE)", paramString2, paramBundle);
+    paramString1 = new EventParcel(paramString2, new EventParams(paramBundle), paramString1, paramLong);
+    k().a(paramString1, paramString3);
+  }
+  
+  private void a(final String paramString1, final String paramString2, final long paramLong, final Object paramObject)
+  {
+    r().a(new Runnable()
+    {
+      public final void run()
+      {
+        baz.a(baz.this, paramString1, paramString2, paramObject, paramLong);
+      }
+    });
+  }
+  
+  private void a(String paramString1, String paramString2, Bundle paramBundle, long paramLong)
+  {
+    abe.a(paramString1);
+    o();
+    bbj.b(paramString2);
+    Bundle localBundle = new Bundle();
+    if (paramBundle != null)
+    {
+      bbm.b();
+      Iterator localIterator = paramBundle.keySet().iterator();
+      int i = 0;
+      if (localIterator.hasNext())
+      {
+        String str = (String)localIterator.next();
+        o();
+        bbj.d(str);
+        int j = i;
+        if (bbj.a(str))
+        {
+          j = i + 1;
+          if (j > 25) {
+            break label159;
+          }
+        }
+        label159:
+        for (boolean bool = true;; bool = false)
+        {
+          abe.b(bool, "Event can't contain more then 25 params");
+          o();
+          Object localObject = bbj.a(str, paramBundle.get(str));
+          i = j;
+          if (localObject == null) {
+            break;
+          }
+          o().a(localBundle, str, localObject);
+          i = j;
+          break;
+        }
+      }
     }
-    a(paramParcel2);
-    return true;
+    bbm.w();
+    if (paramString1.length() <= 36) {}
+    for (paramBundle = paramString1;; paramBundle = paramString1.substring(0, 36))
+    {
+      localBundle.putString("_o", paramBundle);
+      a(paramString1, paramString2, paramLong, localBundle);
+      return;
+    }
+  }
+  
+  private void a(String paramString1, String paramString2, Object paramObject, long paramLong)
+  {
+    abe.a(paramString1);
+    abe.a(paramString2);
+    f();
+    d();
+    E();
+    if (!t().w()) {
+      s().y().a("User property not set since app measurement is disabled");
+    }
+    while (!n.b()) {
+      return;
+    }
+    s().y().a("Setting user property (FE)", paramString2, paramObject);
+    paramString1 = new UserAttributeParcel(paramString2, paramLong, paramObject, paramString1);
+    k().a(paramString1);
+  }
+  
+  private void b(String paramString1, String paramString2, Bundle paramBundle)
+  {
+    a(paramString1, paramString2, paramBundle, l().a());
+  }
+  
+  private void v()
+  {
+    try
+    {
+      a(Class.forName(w()));
+      return;
+    }
+    catch (ClassNotFoundException localClassNotFoundException)
+    {
+      s().x().a("Tag Manager is not found and thus will not be used");
+    }
+  }
+  
+  private static String w()
+  {
+    return "com.google.android.gms.tagmanager.TagManagerService";
+  }
+  
+  protected final void a() {}
+  
+  public final void a(String paramString1, String paramString2, Bundle paramBundle)
+  {
+    d();
+    b(paramString1, paramString2, paramBundle);
+  }
+  
+  public final void a(String paramString1, String paramString2, Object paramObject)
+  {
+    abe.a(paramString1);
+    long l = l().a();
+    o();
+    bbj.c(paramString2);
+    if (paramObject != null)
+    {
+      o().b(paramString2, paramObject);
+      o();
+      paramObject = bbj.c(paramString2, paramObject);
+      if (paramObject != null) {
+        a(paramString1, paramString2, l, paramObject);
+      }
+      return;
+    }
+    a(paramString1, paramString2, l, null);
+  }
+  
+  @TargetApi(14)
+  public final void b()
+  {
+    if ((m().getApplicationContext() instanceof Application))
+    {
+      Application localApplication = (Application)m().getApplicationContext();
+      if (a == null) {
+        a = new bba(this, (byte)0);
+      }
+      localApplication.unregisterActivityLifecycleCallbacks(a);
+      localApplication.registerActivityLifecycleCallbacks(a);
+      s().z().a("Registered activity lifecycle callback");
+    }
+  }
+  
+  public final void c()
+  {
+    f();
+    d();
+    E();
+    if (!n.b()) {}
+    String str;
+    do
+    {
+      return;
+      k().c();
+      str = t().x();
+    } while ((TextUtils.isEmpty(str)) || (str.equals(j().c())));
+    Bundle localBundle = new Bundle();
+    localBundle.putString("_po", str);
+    a("auto", "_ou", localBundle);
   }
 }
 

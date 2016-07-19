@@ -1,55 +1,65 @@
-import android.os.IBinder;
 import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.plus.internal.model.people.PersonEntity.PlacesLivedEntity;
+import java.util.HashSet;
+import java.util.Set;
 
-final class bds
-  implements bdq
+public final class bds
+  implements Parcelable.Creator<PersonEntity.PlacesLivedEntity>
 {
-  private IBinder a;
-  
-  bds(IBinder paramIBinder)
+  private static PersonEntity.PlacesLivedEntity a(Parcel paramParcel)
   {
-    a = paramIBinder;
+    boolean bool = false;
+    int j = zd.b(paramParcel);
+    HashSet localHashSet = new HashSet();
+    String str = null;
+    int i = 0;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, k);
+        localHashSet.add(Integer.valueOf(1));
+        break;
+      case 2: 
+        bool = zd.b(paramParcel, k);
+        localHashSet.add(Integer.valueOf(2));
+        break;
+      case 3: 
+        str = zd.n(paramParcel, k);
+        localHashSet.add(Integer.valueOf(3));
+      }
+    }
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new PersonEntity.PlacesLivedEntity(localHashSet, i, bool, str);
   }
   
-  public final void a()
+  public static void a(PersonEntity.PlacesLivedEntity paramPlacesLivedEntity, Parcel paramParcel)
   {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.ICancelableCallback");
-      a.transact(1, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
+    int i = zf.a(paramParcel);
+    Set localSet = a;
+    if (localSet.contains(Integer.valueOf(1))) {
+      zf.a(paramParcel, 1, b);
     }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
+    if (localSet.contains(Integer.valueOf(2))) {
+      zf.a(paramParcel, 2, c);
     }
+    if (localSet.contains(Integer.valueOf(3))) {
+      zf.a(paramParcel, 3, d, true);
+    }
+    zf.a(paramParcel, i);
   }
   
-  public final IBinder asBinder()
+  private static PersonEntity.PlacesLivedEntity[] a(int paramInt)
   {
-    return a;
-  }
-  
-  public final void b()
-  {
-    Parcel localParcel1 = Parcel.obtain();
-    Parcel localParcel2 = Parcel.obtain();
-    try
-    {
-      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.ICancelableCallback");
-      a.transact(2, localParcel1, localParcel2, 0);
-      localParcel2.readException();
-      return;
-    }
-    finally
-    {
-      localParcel2.recycle();
-      localParcel1.recycle();
-    }
+    return new PersonEntity.PlacesLivedEntity[paramInt];
   }
 }
 

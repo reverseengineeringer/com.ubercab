@@ -1,69 +1,48 @@
-import com.ubercab.android.m4.pipeline.model.Metric;
-import java.util.Arrays;
-import java.util.List;
+import com.ubercab.android.location.UberLocation;
 
 final class cmo
-  extends cmm
+  implements cmk
 {
-  private List<Metric> a;
-  private byte[] b;
+  private final oec<? super cmr> a;
+  private final cmf b;
   
-  final cmm a(List<Metric> paramList)
+  private cmo(cmf paramcmf, oec<? super cmr> paramoec)
   {
-    a = paramList;
-    return this;
+    a = paramoec;
+    b = paramcmf;
   }
   
-  final cmm a(byte[] paramArrayOfByte)
+  public final void a(cmi paramcmi)
   {
-    b = paramArrayOfByte;
-    return this;
+    if (a.w_()) {
+      return;
+    }
+    a.a(new cmr(paramcmi));
   }
   
-  final List<Metric> a()
+  public final void a(UberLocation paramUberLocation)
   {
-    return a;
+    if (a.w_()) {
+      return;
+    }
+    if (paramUberLocation == null)
+    {
+      a.a(new cmr(new cmi(0, 2)));
+      return;
+    }
+    a.a(new cmr(paramUberLocation, -1));
   }
   
-  final byte[] b()
+  public final void s_()
   {
-    return b;
-  }
-  
-  public final boolean equals(Object paramObject)
-  {
-    if (this == paramObject) {}
+    if (a.w_()) {}
+    UberLocation localUberLocation;
     do
     {
-      return true;
-      if ((paramObject == null) || (getClass() != paramObject.getClass())) {
-        return false;
-      }
-      paramObject = (cmm)paramObject;
-      if (((cmm)paramObject).a() != null)
-      {
-        if (((cmm)paramObject).a().equals(a())) {}
-      }
-      else {
-        while (a() != null) {
-          return false;
-        }
-      }
-    } while (Arrays.equals(((cmm)paramObject).b(), b()));
-    return false;
-  }
-  
-  public final int hashCode()
-  {
-    if (a == null) {}
-    for (int i = 0;; i = a.hashCode()) {
-      return (i ^ 0xF4243) * 1000003 ^ Arrays.hashCode(b);
-    }
-  }
-  
-  public final String toString()
-  {
-    return "Result{metrics=" + a + ", bytes=" + Arrays.toString(b) + "}";
+      return;
+      localUberLocation = b.a();
+    } while (localUberLocation == null);
+    a.a(new cmr(localUberLocation, 1));
   }
 }
 

@@ -5,56 +5,56 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ProgressBar;
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
-import chh;
-import cho;
-import ckc;
-import ckr;
+import chn;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.network.uspout.UspoutClient;
 import com.ubercab.rider.realtime.model.MobileMessage;
-import dty;
-import eav;
-import ebj;
-import foj;
-import fok;
-import fos;
-import foz;
-import fpf;
-import fph;
-import fpi;
-import hh;
-import ife;
+import dzn;
+import ehn;
+import eib;
+import ggb;
+import ggc;
+import ggk;
+import ggs;
+import ghc;
+import ghe;
+import ghf;
 import java.util.Iterator;
 import java.util.List;
-import jsg;
-import p;
+import khv;
+import ma;
+import mxm;
+import x;
 
 public class MobileMessageNotificationsActivity
-  extends RiderActivity<foz>
+  extends RiderActivity<ggs>
 {
-  public ckc g;
-  public chh h;
-  public jsg i;
-  public ife j;
-  public fos k;
+  public ckt g;
+  public chn h;
+  public mxm i;
+  public khv j;
+  public ggk k;
   public RiderApplication l;
-  public dty m;
-  @InjectView(2131624645)
-  RecyclerView mListMobileMessages;
-  @InjectView(2131624646)
-  ProgressBar mLoadingProgress;
+  public dzn m;
+  @BindView
+  public RecyclerView mListMobileMessages;
+  @BindView
+  public ProgressBar mLoadingProgress;
   public UspoutClient n;
   MobileMessagePopupWindow o;
   private MobileMessageNotificationsAdapter p;
   private String q;
   
-  private void a(foz paramfoz)
+  private void a(ggs paramggs)
   {
-    paramfoz.a(this);
+    paramggs.a(this);
   }
   
   private void a(List<MobileMessage> paramList)
@@ -63,7 +63,7 @@ public class MobileMessageNotificationsActivity
     while (paramList.hasNext())
     {
       Object localObject = (MobileMessage)paramList.next();
-      localObject = AnalyticsEvent.create("impression").setName(p.fk).setValue(((MobileMessage)localObject).getId());
+      localObject = AnalyticsEvent.create("impression").setName(x.ht).setValue(((MobileMessage)localObject).getId());
       g.a((AnalyticsEvent)localObject);
     }
   }
@@ -73,13 +73,13 @@ public class MobileMessageNotificationsActivity
     if ((o != null) && ((o.isShowing()) || (o.d()))) {
       return false;
     }
-    o = new MobileMessagePopupWindow(this, g, h, i, j, k, l, m, n);
+    o = new MobileMessagePopupWindow(this, g, h, i, j, k, m, n);
     return o.a(paramMobileMessage);
   }
   
-  private foz b(ebj paramebj)
+  private ggs b(eib parameib)
   {
-    return foj.a().a(new eav(this)).a(paramebj).a();
+    return ggb.a().a(new ehn(this)).a(parameib).a();
   }
   
   private void b(String paramString)
@@ -96,11 +96,11 @@ public class MobileMessageNotificationsActivity
   
   private void f()
   {
-    Object localObject = new LinearLayoutManager();
-    mListMobileMessages.a((hh)localObject);
-    if (k.d())
+    Object localObject = new LinearLayoutManager(this);
+    mListMobileMessages.a((ma)localObject);
+    if (k.e())
     {
-      localObject = k.f();
+      localObject = k.g();
       p = new MobileMessageNotificationsAdapter(this, h, (List)localObject);
       a((List)localObject);
       mListMobileMessages.a(p);
@@ -110,8 +110,8 @@ public class MobileMessageNotificationsActivity
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903281);
-    ButterKnife.inject(this);
+    setContentView(2130903375);
+    ButterKnife.a(this);
     if (getIntent().hasExtra("notifications")) {
       q = getIntent().getStringExtra("notifications");
     }
@@ -128,26 +128,26 @@ public class MobileMessageNotificationsActivity
     super.onBackPressed();
   }
   
-  @cho
-  public void onMobileMessageCacheInitializedEvent(fpf paramfpf)
+  @chu
+  public void onMobileMessageCacheInitializedEvent(ghc paramghc)
   {
-    paramfpf = k.f();
+    paramghc = k.g();
     if (p == null)
     {
-      p = new MobileMessageNotificationsAdapter(this, h, paramfpf);
+      p = new MobileMessageNotificationsAdapter(this, h, paramghc);
       mListMobileMessages.a(p);
-      a(paramfpf);
+      a(paramghc);
     }
   }
   
-  @cho
-  public void onMobileMessageForLookingEvent(fph paramfph)
+  @chu
+  public void onMobileMessageForLookingEvent(ghe paramghe)
   {
-    a(paramfph.a());
+    a(paramghe.a());
   }
   
-  @cho
-  public void onMobileMessageNotificationsReadyEvent(fpi paramfpi)
+  @chu
+  public void onMobileMessageNotificationsReadyEvent(ghf paramghf)
   {
     mListMobileMessages.setVisibility(0);
     mLoadingProgress.setVisibility(8);
@@ -156,7 +156,7 @@ public class MobileMessageNotificationsActivity
     }
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

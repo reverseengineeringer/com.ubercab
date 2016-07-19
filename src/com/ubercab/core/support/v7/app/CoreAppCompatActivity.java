@@ -2,7 +2,7 @@ package com.ubercab.core.support.v7.app;
 
 import android.support.v7.app.AppCompatActivity;
 import com.ubercab.core.app.CoreApplication;
-import idk;
+import kgc;
 
 public abstract class CoreAppCompatActivity
   extends AppCompatActivity
@@ -11,7 +11,7 @@ public abstract class CoreAppCompatActivity
   {
     super.onRequestPermissionsResult(paramInt, paramArrayOfString, paramArrayOfInt);
     CoreApplication.b(this);
-    CoreApplication.o().a(this, paramArrayOfString, paramArrayOfInt);
+    CoreApplication.s().a(this, paramArrayOfString, paramArrayOfInt);
   }
 }
 

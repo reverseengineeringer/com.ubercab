@@ -9,7 +9,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build.VERSION;
 import android.support.v4.content.IntentCompat;
 
-public class NavUtils
+public final class NavUtils
 {
   private static final NavUtils.NavUtilsImpl IMPL = new NavUtils.NavUtilsImplBase();
   public static final String PARENT_ACTIVITY = "android.support.PARENT_ACTIVITY";

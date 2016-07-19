@@ -3,17 +3,17 @@ package com.paypal.android.sdk;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
-import bvn;
-import bvo;
-import bze;
+import bth;
+import bti;
+import bwy;
 
 public final class bB
   implements Parcelable
 {
-  public static final Parcelable.Creator CREATOR = new bvn();
+  public static final Parcelable.Creator CREATOR = new bth();
   private ce a;
   private String b;
-  private bvo c;
+  private bti c;
   
   public bB() {}
   
@@ -21,14 +21,14 @@ public final class bB
   {
     a = ((ce)paramParcel.readParcelable(ce.class.getClassLoader()));
     b = paramParcel.readString();
-    c = ((bvo)paramParcel.readSerializable());
+    c = ((bti)paramParcel.readSerializable());
   }
   
-  public bB(String paramString, ce paramce, bvo parambvo)
+  public bB(String paramString, ce paramce, bti parambti)
   {
     b = paramString;
     a = paramce;
-    c = parambvo;
+    c = parambti;
   }
   
   public final ce a()
@@ -36,9 +36,9 @@ public final class bB
     return a;
   }
   
-  public final void a(bvo parambvo)
+  public final void a(bti parambti)
   {
-    c = parambvo;
+    c = parambti;
   }
   
   public final void a(ce paramce)
@@ -56,14 +56,14 @@ public final class bB
     return b;
   }
   
-  public final bvo c()
+  public final bti c()
   {
     return c;
   }
   
   public final boolean d()
   {
-    if ((c == null) || ((a == null) && (c.equals(bvo.b))) || ((bze.a(b)) && (c.equals(bvo.a)))) {}
+    if ((c == null) || ((a == null) && (c.equals(bti.b))) || ((bwy.a(b)) && (c.equals(bti.a)))) {}
     for (int i = 1; i == 0; i = 0) {
       return true;
     }

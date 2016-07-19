@@ -1,8 +1,10 @@
 package com.ubercab.rider.realtime.request.body;
 
 import com.ubercab.rider.realtime.model.FareInfo;
+import com.ubercab.rider.realtime.model.UserExperiment;
 import com.ubercab.rider.realtime.request.param.Location;
 import com.ubercab.shape.Shape;
+import java.util.List;
 
 @Shape
 public abstract class FareEstimateBody
@@ -16,13 +18,22 @@ public abstract class FareEstimateBody
   
   public abstract Location getDestination();
   
+  @Deprecated
   public abstract Long getFareId();
   
   public abstract FareInfo getFareInfo();
   
+  public abstract String getFareUuid();
+  
   public abstract FixedRoute getFixedRoute();
   
+  public abstract Integer getHopVersion();
+  
+  public abstract String getPaymentProfileUUID();
+  
   public abstract Location getPickupLocation();
+  
+  public abstract List<UserExperiment> getUserExperiments();
   
   public abstract int getVehicleViewId();
   
@@ -30,13 +41,22 @@ public abstract class FareEstimateBody
   
   abstract FareEstimateBody setDestination(Location paramLocation);
   
+  @Deprecated
   public abstract FareEstimateBody setFareId(Long paramLong);
   
   public abstract FareEstimateBody setFareInfo(FareInfo paramFareInfo);
   
+  public abstract FareEstimateBody setFareUuid(String paramString);
+  
   public abstract FareEstimateBody setFixedRoute(FixedRoute paramFixedRoute);
   
+  public abstract FareEstimateBody setHopVersion(Integer paramInteger);
+  
+  public abstract FareEstimateBody setPaymentProfileUUID(String paramString);
+  
   abstract FareEstimateBody setPickupLocation(Location paramLocation);
+  
+  public abstract FareEstimateBody setUserExperiments(List<UserExperiment> paramList);
   
   abstract FareEstimateBody setVehicleViewId(int paramInt);
 }

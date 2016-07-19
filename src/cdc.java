@@ -1,15 +1,13 @@
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import com.paypal.android.sdk.payments.LoginActivity;
+import com.paypal.android.sdk.g;
 
-public final class cdc
-  implements DialogInterface.OnClickListener
+public class cdc
 {
-  public cdc(LoginActivity paramLoginActivity) {}
+  private static final String a = cdc.class.getSimpleName();
   
-  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
+  public static String a()
   {
-    a.onBackPressed();
+    String str = buv.a().c().a();
+    return String.format("https://www.paypal.com/signup/account?country.x=%s&locale.x=%s", new Object[] { str, bvf.c(str) });
   }
 }
 

@@ -4,35 +4,35 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.model.PaymentProfile;
-import dta;
-import dtf;
-import eav;
-import ebj;
-import fzg;
-import fzh;
-import fzs;
-import gad;
-import gbg;
-import gck;
+import dyn;
+import dys;
+import ehn;
+import eib;
+import gtx;
+import gty;
+import guj;
+import gux;
+import gwf;
+import hcd;
 import java.util.Collection;
 import java.util.Collections;
-import jsg;
-import p;
-import r;
+import mxm;
+import x;
+import z;
 
 public class EditPaymentProfileActivity
-  extends RiderActivity<gad>
-  implements fzs
+  extends RiderActivity<gux>
+  implements guj
 {
-  public ckc g;
-  public jsg h;
-  public dta i;
+  public ckt g;
+  public mxm h;
+  public dyn i;
   private PaymentProfile j;
   
   public static Intent a(Context paramContext, String paramString)
@@ -40,17 +40,17 @@ public class EditPaymentProfileActivity
     return new Intent(paramContext, EditPaymentProfileActivity.class).putExtra("payment_profile_uuid", paramString);
   }
   
-  private void a(gad paramgad)
+  private void a(gux paramgux)
   {
-    paramgad.a(this);
+    paramgux.a(this);
   }
   
   private void a(String paramString, boolean paramBoolean)
   {
-    g.a(p.hN);
+    g.a(x.kI);
     if (("PayPal".equals(j.getCardType())) || ("Baidu Wallet".equals(j.getCardType())) || ("Alipay".equals(j.getCardType()))) {
       if ((EditThirdPartyPaymentProviderFragment)a(EditThirdPartyPaymentProviderFragment.class) == null) {
-        a(2131624935, EditThirdPartyPaymentProviderFragment.a(paramString), true);
+        a(2131625415, EditThirdPartyPaymentProviderFragment.a(paramString), true);
       }
     }
     do
@@ -62,15 +62,15 @@ public class EditPaymentProfileActivity
           break;
         }
       } while ((EditDelegatePaymentProfileFragment)a(EditDelegatePaymentProfileFragment.class) != null);
-      a(2131624935, EditDelegatePaymentProfileFragment.a(paramString), true);
+      a(2131625415, EditDelegatePaymentProfileFragment.a(paramString), true);
       return;
     } while ((EditCreditCardFragment)a(EditCreditCardFragment.class) != null);
-    a(2131624935, EditCreditCardFragment.a(paramString, paramBoolean), true);
+    a(2131625415, EditCreditCardFragment.a(paramString, paramBoolean), true);
   }
   
-  private gad b(ebj paramebj)
+  private gux b(eib parameib)
   {
-    return fzg.a().a(new eav(this)).a(new gbg()).a(paramebj).a();
+    return gtx.a().a(new ehn(this)).a(new gwf()).a(parameib).a();
   }
   
   public final void a()
@@ -94,7 +94,7 @@ public class EditPaymentProfileActivity
   {
     int m = 0;
     super.b(paramBundle);
-    setContentView(2130903431);
+    setContentView(2130903594);
     paramBundle = getIntent().getStringExtra("payment_profile_uuid");
     boolean bool = getIntent().getBooleanExtra("is_verify_mode", false);
     Client localClient = h.c();
@@ -120,16 +120,16 @@ public class EditPaymentProfileActivity
   public void onBackPressed()
   {
     EditCreditCardFragment localEditCreditCardFragment = (EditCreditCardFragment)a(EditCreditCardFragment.class);
-    if ((localEditCreditCardFragment != null) && (localEditCreditCardFragment.b())) {
+    if ((localEditCreditCardFragment != null) && (localEditCreditCardFragment.f())) {
       return;
     }
-    g.a(r.eI);
+    g.a(z.hb);
     super.onBackPressed();
   }
   
-  @cho
+  @chu
   @Deprecated
-  public void onDeletedPaymentProfileEvent(gck paramgck)
+  public void onDeletedPaymentProfileEvent(hcd paramhcd)
   {
     setResult(-1);
     finish();
@@ -145,12 +145,12 @@ public class EditPaymentProfileActivity
     return super.onOptionsItemSelected(paramMenuItem);
   }
   
-  protected final Collection<dtf> t()
+  protected final Collection<dys> u()
   {
     return Collections.singleton(i);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }

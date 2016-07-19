@@ -6,7 +6,7 @@ import android.util.Log;
 import java.io.File;
 import java.io.IOException;
 
-public class EnvironmentCompat
+public final class EnvironmentCompat
 {
   public static final String MEDIA_UNKNOWN = "unknown";
   private static final String TAG = "EnvironmentCompat";

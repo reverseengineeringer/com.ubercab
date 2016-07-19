@@ -1,14 +1,17 @@
 package com.ubercab.analytics.model;
 
-import cki;
+import ckz;
+import com.ubercab.analytics.internal.AnalyticsValidatorFactory;
 import com.ubercab.shape.Shape;
+import lzo;
 
 @Shape
+@lzo(a=AnalyticsValidatorFactory.class)
 public abstract class AnalyticsLocation
 {
-  public static AnalyticsLocation create(cki paramcki)
+  public static AnalyticsLocation create(ckz paramckz)
   {
-    return new Shape_AnalyticsLocation().setLat(paramcki.a()).setLng(paramcki.b()).setCourse(paramcki.c()).setSpeed(paramcki.d()).setAltitude(paramcki.e()).setHorizontalAccuracy(paramcki.f()).setVerticalAccuracy(paramcki.g()).setGpsTimeMs(paramcki.h());
+    return new Shape_AnalyticsLocation().setLat(paramckz.a()).setLng(paramckz.b()).setCourse(paramckz.c()).setSpeed(paramckz.d()).setAltitude(paramckz.e()).setHorizontalAccuracy(paramckz.f()).setVerticalAccuracy(paramckz.g()).setGpsTimeMs(paramckz.h());
   }
   
   public abstract Double getAltitude();

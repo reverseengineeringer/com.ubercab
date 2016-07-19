@@ -1,54 +1,21 @@
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.google.gson.stream.MalformedJsonException;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.Writer;
+import java.util.HashSet;
 
-public final class bqt
+final class bqt
+  extends HashSet
 {
-  public static bpj a(JsonReader paramJsonReader)
+  bqt()
   {
-    int i = 1;
-    try
+    bqs[] arrayOfbqs = bqs.values();
+    int j = arrayOfbqs.length;
+    int i = 0;
+    while (i < j)
     {
-      paramJsonReader.peek();
-      i = 0;
-      paramJsonReader = (bpj)brn.P.a(paramJsonReader);
-      return paramJsonReader;
-    }
-    catch (EOFException paramJsonReader)
-    {
-      if (i != 0) {
-        return bpl.a;
+      bqs localbqs = arrayOfbqs[i];
+      if (bqs.a(localbqs)) {
+        add(localbqs.a());
       }
-      throw new bps(paramJsonReader);
+      i += 1;
     }
-    catch (MalformedJsonException paramJsonReader)
-    {
-      throw new bps(paramJsonReader);
-    }
-    catch (IOException paramJsonReader)
-    {
-      throw new bpk(paramJsonReader);
-    }
-    catch (NumberFormatException paramJsonReader)
-    {
-      throw new bps(paramJsonReader);
-    }
-  }
-  
-  public static Writer a(Appendable paramAppendable)
-  {
-    if ((paramAppendable instanceof Writer)) {
-      return (Writer)paramAppendable;
-    }
-    return new bqu(paramAppendable, (byte)0);
-  }
-  
-  public static void a(bpj parambpj, JsonWriter paramJsonWriter)
-  {
-    brn.P.a(paramJsonWriter, parambpj);
   }
 }
 

@@ -1,226 +1,189 @@
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import android.os.IBinder;
 
-public final class axr
+final class axr
+  implements axp
 {
-  public static <T extends axq> String a(T paramT)
+  private IBinder a;
+  
+  axr(IBinder paramIBinder)
   {
-    if (paramT == null) {
-      return "";
-    }
-    StringBuffer localStringBuffer = new StringBuffer();
-    try
-    {
-      a(null, paramT, new StringBuffer(), localStringBuffer);
-      return localStringBuffer.toString();
-    }
-    catch (IllegalAccessException paramT)
-    {
-      return "Error printing proto: " + paramT.getMessage();
-    }
-    catch (InvocationTargetException paramT) {}
-    return "Error printing proto: " + paramT.getMessage();
+    a = paramIBinder;
   }
   
-  private static String a(String paramString)
+  /* Error */
+  public final void a(azr paramazr)
   {
-    StringBuffer localStringBuffer = new StringBuffer();
-    int i = 0;
-    if (i < paramString.length())
-    {
-      char c = paramString.charAt(i);
-      if (i == 0) {
-        localStringBuffer.append(Character.toLowerCase(c));
-      }
-      for (;;)
-      {
-        i += 1;
-        break;
-        if (Character.isUpperCase(c)) {
-          localStringBuffer.append('_').append(Character.toLowerCase(c));
-        } else {
-          localStringBuffer.append(c);
-        }
-      }
-    }
-    return localStringBuffer.toString();
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +42 -> 57
+    //   18: aload_1
+    //   19: invokeinterface 35 1 0
+    //   24: astore_1
+    //   25: aload_2
+    //   26: aload_1
+    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
+    //   30: aload_0
+    //   31: getfield 15	axr:a	Landroid/os/IBinder;
+    //   34: iconst_1
+    //   35: aload_2
+    //   36: aload_3
+    //   37: iconst_0
+    //   38: invokeinterface 44 5 0
+    //   43: pop
+    //   44: aload_3
+    //   45: invokevirtual 47	android/os/Parcel:readException	()V
+    //   48: aload_3
+    //   49: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   52: aload_2
+    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   56: return
+    //   57: aconst_null
+    //   58: astore_1
+    //   59: goto -34 -> 25
+    //   62: astore_1
+    //   63: aload_3
+    //   64: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   67: aload_2
+    //   68: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   71: aload_1
+    //   72: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	73	0	this	axr
+    //   0	73	1	paramazr	azr
+    //   3	65	2	localParcel1	android.os.Parcel
+    //   7	57	3	localParcel2	android.os.Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	62	finally
+    //   18	25	62	finally
+    //   25	48	62	finally
   }
   
-  private static void a(String paramString, Object paramObject, StringBuffer paramStringBuffer1, StringBuffer paramStringBuffer2)
+  public final IBinder asBinder()
   {
-    if (paramObject != null)
-    {
-      if (!(paramObject instanceof axq)) {
-        break label431;
-      }
-      int m = paramStringBuffer1.length();
-      if (paramString != null)
-      {
-        paramStringBuffer2.append(paramStringBuffer1).append(a(paramString)).append(" <\n");
-        paramStringBuffer1.append("  ");
-      }
-      Class localClass = paramObject.getClass();
-      Object localObject1 = localClass.getFields();
-      int n = localObject1.length;
-      int i = 0;
-      String str;
-      Object localObject2;
-      if (i < n)
-      {
-        Object localObject3 = localObject1[i];
-        j = ((Field)localObject3).getModifiers();
-        str = ((Field)localObject3).getName();
-        if ((!"cachedSize".equals(str)) && ((j & 0x1) == 1) && ((j & 0x8) != 8) && (!str.startsWith("_")) && (!str.endsWith("_")))
-        {
-          localObject2 = ((Field)localObject3).getType();
-          localObject3 = ((Field)localObject3).get(paramObject);
-          if (!((Class)localObject2).isArray()) {
-            break label246;
-          }
-          if (((Class)localObject2).getComponentType() != Byte.TYPE) {
-            break label195;
-          }
-          a(str, localObject3, paramStringBuffer1, paramStringBuffer2);
-        }
-        for (;;)
-        {
-          i += 1;
-          break;
-          label195:
-          if (localObject3 == null) {}
-          for (j = 0;; j = Array.getLength(localObject3))
-          {
-            int k = 0;
-            while (k < j)
-            {
-              a(str, Array.get(localObject3, k), paramStringBuffer1, paramStringBuffer2);
-              k += 1;
-            }
-            break;
-          }
-          label246:
-          a(str, localObject3, paramStringBuffer1, paramStringBuffer2);
-        }
-      }
-      localObject1 = localClass.getMethods();
-      int j = localObject1.length;
-      i = 0;
-      while (i < j)
-      {
-        str = localObject1[i].getName();
-        if (str.startsWith("set")) {
-          str = str.substring(3);
-        }
-        for (;;)
-        {
-          try
-          {
-            localObject2 = localClass.getMethod("has" + str, new Class[0]);
-            if (!((Boolean)((Method)localObject2).invoke(paramObject, new Object[0])).booleanValue()) {}
-          }
-          catch (NoSuchMethodException localNoSuchMethodException2)
-          {
-            continue;
-          }
-          try
-          {
-            localObject2 = localClass.getMethod("get" + str, new Class[0]);
-            a(str, ((Method)localObject2).invoke(paramObject, new Object[0]), paramStringBuffer1, paramStringBuffer2);
-          }
-          catch (NoSuchMethodException localNoSuchMethodException1) {}
-        }
-        i += 1;
-      }
-      if (paramString != null)
-      {
-        paramStringBuffer1.setLength(m);
-        paramStringBuffer2.append(paramStringBuffer1).append(">\n");
-      }
-    }
-    return;
-    label431:
-    paramString = a(paramString);
-    paramStringBuffer2.append(paramStringBuffer1).append(paramString).append(": ");
-    if ((paramObject instanceof String))
-    {
-      paramString = b((String)paramObject);
-      paramStringBuffer2.append("\"").append(paramString).append("\"");
-    }
-    for (;;)
-    {
-      paramStringBuffer2.append("\n");
-      return;
-      if ((paramObject instanceof byte[])) {
-        a((byte[])paramObject, paramStringBuffer2);
-      } else {
-        paramStringBuffer2.append(paramObject);
-      }
-    }
+    return a;
   }
   
-  private static void a(byte[] paramArrayOfByte, StringBuffer paramStringBuffer)
+  /* Error */
+  public final void b(azr paramazr)
   {
-    if (paramArrayOfByte == null)
-    {
-      paramStringBuffer.append("\"\"");
-      return;
-    }
-    paramStringBuffer.append('"');
-    int i = 0;
-    if (i < paramArrayOfByte.length)
-    {
-      int j = paramArrayOfByte[i] & 0xFF;
-      if ((j == 92) || (j == 34)) {
-        paramStringBuffer.append('\\').append((char)j);
-      }
-      for (;;)
-      {
-        i += 1;
-        break;
-        if ((j >= 32) && (j < 127)) {
-          paramStringBuffer.append((char)j);
-        } else {
-          paramStringBuffer.append(String.format("\\%03o", new Object[] { Integer.valueOf(j) }));
-        }
-      }
-    }
-    paramStringBuffer.append('"');
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +42 -> 57
+    //   18: aload_1
+    //   19: invokeinterface 35 1 0
+    //   24: astore_1
+    //   25: aload_2
+    //   26: aload_1
+    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
+    //   30: aload_0
+    //   31: getfield 15	axr:a	Landroid/os/IBinder;
+    //   34: iconst_2
+    //   35: aload_2
+    //   36: aload_3
+    //   37: iconst_0
+    //   38: invokeinterface 44 5 0
+    //   43: pop
+    //   44: aload_3
+    //   45: invokevirtual 47	android/os/Parcel:readException	()V
+    //   48: aload_3
+    //   49: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   52: aload_2
+    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   56: return
+    //   57: aconst_null
+    //   58: astore_1
+    //   59: goto -34 -> 25
+    //   62: astore_1
+    //   63: aload_3
+    //   64: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   67: aload_2
+    //   68: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   71: aload_1
+    //   72: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	73	0	this	axr
+    //   0	73	1	paramazr	azr
+    //   3	65	2	localParcel1	android.os.Parcel
+    //   7	57	3	localParcel2	android.os.Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	62	finally
+    //   18	25	62	finally
+    //   25	48	62	finally
   }
   
-  private static String b(String paramString)
+  /* Error */
+  public final void c(azr paramazr)
   {
-    String str = paramString;
-    if (!paramString.startsWith("http"))
-    {
-      str = paramString;
-      if (paramString.length() > 200) {
-        str = paramString.substring(0, 200) + "[...]";
-      }
-    }
-    return c(str);
-  }
-  
-  private static String c(String paramString)
-  {
-    int j = paramString.length();
-    StringBuilder localStringBuilder = new StringBuilder(j);
-    int i = 0;
-    if (i < j)
-    {
-      char c = paramString.charAt(i);
-      if ((c >= ' ') && (c <= '~') && (c != '"') && (c != '\'')) {
-        localStringBuilder.append(c);
-      }
-      for (;;)
-      {
-        i += 1;
-        break;
-        localStringBuilder.append(String.format("\\u%04x", new Object[] { Integer.valueOf(c) }));
-      }
-    }
-    return localStringBuilder.toString();
+    // Byte code:
+    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   3: astore_2
+    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   7: astore_3
+    //   8: aload_2
+    //   9: ldc 25
+    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   14: aload_1
+    //   15: ifnull +42 -> 57
+    //   18: aload_1
+    //   19: invokeinterface 35 1 0
+    //   24: astore_1
+    //   25: aload_2
+    //   26: aload_1
+    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
+    //   30: aload_0
+    //   31: getfield 15	axr:a	Landroid/os/IBinder;
+    //   34: iconst_3
+    //   35: aload_2
+    //   36: aload_3
+    //   37: iconst_0
+    //   38: invokeinterface 44 5 0
+    //   43: pop
+    //   44: aload_3
+    //   45: invokevirtual 47	android/os/Parcel:readException	()V
+    //   48: aload_3
+    //   49: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   52: aload_2
+    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   56: return
+    //   57: aconst_null
+    //   58: astore_1
+    //   59: goto -34 -> 25
+    //   62: astore_1
+    //   63: aload_3
+    //   64: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   67: aload_2
+    //   68: invokevirtual 50	android/os/Parcel:recycle	()V
+    //   71: aload_1
+    //   72: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	73	0	this	axr
+    //   0	73	1	paramazr	azr
+    //   3	65	2	localParcel1	android.os.Parcel
+    //   7	57	3	localParcel2	android.os.Parcel
+    // Exception table:
+    //   from	to	target	type
+    //   8	14	62	finally
+    //   18	25	62	finally
+    //   25	48	62	finally
   }
 }
 

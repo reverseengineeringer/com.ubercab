@@ -1,11 +1,7 @@
 package butterknife;
 
-import butterknife.internal.ListenerMethod;
-
 public enum OnItemSelected$Callback
 {
-  ITEM_SELECTED,  NOTHING_SELECTED;
-  
   private OnItemSelected$Callback() {}
 }
 

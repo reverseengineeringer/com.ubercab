@@ -7,9 +7,18 @@ import com.ubercab.shape.Shape;
 public abstract class City
   implements Parcelable
 {
+  public static City create(Integer paramInteger, String paramString1, String paramString2)
+  {
+    return new Shape_City().setFlowTypeCityId(paramInteger).setDisplayName(paramString1).setCityName(paramString2);
+  }
+  
+  public abstract String getCityName();
+  
   public abstract String getDisplayName();
   
   public abstract Integer getFlowTypeCityId();
+  
+  abstract City setCityName(String paramString);
   
   abstract City setDisplayName(String paramString);
   

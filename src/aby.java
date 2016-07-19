@@ -1,6 +1,17 @@
-public abstract interface aby<I, O>
+public abstract class aby
 {
-  public abstract I a(O paramO);
+  public abstract long a();
+  
+  public abstract int b();
+  
+  public abstract long i();
+  
+  public abstract String l();
+  
+  public String toString()
+  {
+    return a() + "\t" + b() + "\t" + i() + l();
+  }
 }
 
 /* Location:

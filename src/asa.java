@@ -1,47 +1,53 @@
-import java.util.concurrent.TimeUnit;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.location.places.internal.PlaceImpl;
+import com.google.android.gms.location.places.internal.PlaceLikelihoodEntity;
 
-@apl
-public final class asa<T>
-  implements asd<T>
+public final class asa
+  implements Parcelable.Creator<PlaceLikelihoodEntity>
 {
-  private final T a;
-  private final ase b;
-  
-  public asa(T paramT)
+  private static PlaceLikelihoodEntity a(Parcel paramParcel)
   {
-    a = paramT;
-    b = new ase();
-    b.a();
+    int j = zd.b(paramParcel);
+    int i = 0;
+    PlaceImpl localPlaceImpl = null;
+    float f = 0.0F;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
+      {
+      default: 
+        zd.a(paramParcel, k);
+        break;
+      case 1: 
+        localPlaceImpl = (PlaceImpl)zd.a(paramParcel, k, PlaceImpl.CREATOR);
+        break;
+      case 1000: 
+        i = zd.e(paramParcel, k);
+        break;
+      case 2: 
+        f = zd.j(paramParcel, k);
+      }
+    }
+    if (paramParcel.dataPosition() != j) {
+      throw new ze("Overread allowed size end=" + j, paramParcel);
+    }
+    return new PlaceLikelihoodEntity(i, localPlaceImpl, f);
   }
   
-  public final void a(Runnable paramRunnable)
+  public static void a(PlaceLikelihoodEntity paramPlaceLikelihoodEntity, Parcel paramParcel, int paramInt)
   {
-    b.a(paramRunnable);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, b, paramInt, false);
+    zf.a(paramParcel, 1000, a);
+    zf.a(paramParcel, 2, c);
+    zf.a(paramParcel, i);
   }
   
-  public final boolean cancel(boolean paramBoolean)
+  private static PlaceLikelihoodEntity[] a(int paramInt)
   {
-    return false;
-  }
-  
-  public final T get()
-  {
-    return (T)a;
-  }
-  
-  public final T get(long paramLong, TimeUnit paramTimeUnit)
-  {
-    return (T)a;
-  }
-  
-  public final boolean isCancelled()
-  {
-    return false;
-  }
-  
-  public final boolean isDone()
-  {
-    return true;
+    return new PlaceLikelihoodEntity[paramInt];
   }
 }
 

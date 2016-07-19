@@ -1,4 +1,10 @@
-public abstract interface avp {}
+import android.os.IInterface;
+
+public abstract interface avp
+  extends IInterface
+{
+  public abstract void a(avb paramavb);
+}
 
 /* Location:
  * Qualified Name:     avp

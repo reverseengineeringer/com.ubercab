@@ -6,12 +6,12 @@ import android.text.TextUtils;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.Group;
 import com.ubercab.shape.Shape;
-import ful;
+import gnf;
 import java.util.List;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class TunesProvider
   implements Parcelable
 {
@@ -75,7 +75,7 @@ public abstract class TunesProvider
   public String getAuthRedirectUri()
   {
     if ("spotify".equals(getId())) {
-      return ful.b();
+      return gnf.b();
     }
     return null;
   }
@@ -83,7 +83,7 @@ public abstract class TunesProvider
   public String getAuthUrl(Resources paramResources, String paramString)
   {
     if ("spotify".equals(getId())) {
-      return ful.a(paramResources);
+      return gnf.a(paramResources);
     }
     return null;
   }
@@ -91,7 +91,7 @@ public abstract class TunesProvider
   public String getAuthorizationCode(String paramString)
   {
     if ("spotify".equals(getId())) {
-      return ful.a(paramString);
+      return gnf.a(paramString);
     }
     return null;
   }
@@ -110,9 +110,9 @@ public abstract class TunesProvider
     if ("spotify".equals(getId()))
     {
       if (paramBoolean) {
-        return 2130838169;
+        return 2130838357;
       }
-      return 2130838168;
+      return 2130838356;
     }
     return -1;
   }
@@ -124,13 +124,13 @@ public abstract class TunesProvider
   public int getLogoDisplayHeightResourceId()
   {
     if ("spotify".equals(getId())) {}
-    return 2131296627;
+    return 2131296853;
   }
   
   public int getLogoResourceId()
   {
     if ("spotify".equals(getId())) {
-      return 2130838170;
+      return 2130838358;
     }
     return -1;
   }
@@ -140,7 +140,7 @@ public abstract class TunesProvider
   public int getTaglineResource()
   {
     if ("spotify".equals(getId())) {
-      return 2131166404;
+      return 2131166639;
     }
     return -1;
   }

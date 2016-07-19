@@ -60,7 +60,9 @@ class MediaControllerCompat$Callback$MessageHandler
   
   public void post(int paramInt, Object paramObject, Bundle paramBundle)
   {
-    obtainMessage(paramInt, paramObject).sendToTarget();
+    paramObject = obtainMessage(paramInt, paramObject);
+    ((Message)paramObject).setData(paramBundle);
+    ((Message)paramObject).sendToTarget();
   }
 }
 

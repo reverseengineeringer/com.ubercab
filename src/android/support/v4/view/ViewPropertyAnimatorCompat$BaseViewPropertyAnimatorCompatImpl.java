@@ -46,18 +46,20 @@ class ViewPropertyAnimatorCompat$BaseViewPropertyAnimatorCompatImpl
     if ((localObject instanceof ViewPropertyAnimatorListener)) {}
     for (localObject = (ViewPropertyAnimatorListener)localObject;; localObject = null)
     {
-      Runnable localRunnable = ViewPropertyAnimatorCompat.access$100(paramViewPropertyAnimatorCompat);
-      paramViewPropertyAnimatorCompat = ViewPropertyAnimatorCompat.access$000(paramViewPropertyAnimatorCompat);
-      if (localRunnable != null) {
-        localRunnable.run();
+      Runnable localRunnable1 = ViewPropertyAnimatorCompat.access$100(paramViewPropertyAnimatorCompat);
+      Runnable localRunnable2 = ViewPropertyAnimatorCompat.access$000(paramViewPropertyAnimatorCompat);
+      ViewPropertyAnimatorCompat.access$102(paramViewPropertyAnimatorCompat, null);
+      ViewPropertyAnimatorCompat.access$002(paramViewPropertyAnimatorCompat, null);
+      if (localRunnable1 != null) {
+        localRunnable1.run();
       }
       if (localObject != null)
       {
         ((ViewPropertyAnimatorListener)localObject).onAnimationStart(paramView);
         ((ViewPropertyAnimatorListener)localObject).onAnimationEnd(paramView);
       }
-      if (paramViewPropertyAnimatorCompat != null) {
-        paramViewPropertyAnimatorCompat.run();
+      if (localRunnable2 != null) {
+        localRunnable2.run();
       }
       if (mStarterMap != null) {
         mStarterMap.remove(paramView);

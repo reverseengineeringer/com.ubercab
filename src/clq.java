@@ -1,17 +1,6 @@
-public final class clq
+public abstract interface clq
 {
-  private boolean a;
-  
-  public final clp a()
-  {
-    return new clp(this, (byte)0);
-  }
-  
-  public final clq a(boolean paramBoolean)
-  {
-    a = paramBoolean;
-    return this;
-  }
+  public abstract void a();
 }
 
 /* Location:

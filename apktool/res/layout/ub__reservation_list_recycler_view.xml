@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.ubercab.ui.card.view.CardRecyclerView android:id="@id/ub__reservation_list_recycler_view" android:background="@color/ub__uber_white_20" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <RelativeLayout android:id="@id/ub__reservation_no_trip_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.ubercab.ui.Button android:id="@id/ub__reservation_empty_list_add" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_2x" android:layout_marginRight="@dimen/ui__spacing_unit_2x" android:text="@string/reservation_schedule_new_trip_for_empty_list" android:layout_centerInParent="true" style="@style/Uber.Widget.Button.Accent" />
+        <com.ubercab.ui.TextView android:id="@id/ub__reservation_empty_list_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" android:text="@string/reservation_no_upcoming_trips" android:layout_above="@id/ub__reservation_empty_list_add" android:layout_centerHorizontal="true" />
+        <ImageView android:layout_width="@dimen/ub__reservation_placeholder_icon_size" android:layout_height="@dimen/ub__reservation_placeholder_icon_size" android:layout_above="@id/ub__reservation_empty_list_description" android:layout_centerHorizontal="true" app:srcCompat="@drawable/ub__trips_schedule_placeholder_icon" />
+        <LinearLayout android:gravity="center" android:id="@id/ub__reservation_scheduling_fee_free" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_below="@id/ub__reservation_empty_list_add">
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/ub__reservation_confirm_dialog_one_space" android:text="@string/reservation_scheduling_fee" />
+            <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:textColor="@color/ub__green" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/reservation_scheduling_fee_free" />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

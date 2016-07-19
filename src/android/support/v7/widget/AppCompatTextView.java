@@ -7,17 +7,18 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.view.TintableBackgroundView;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import fe;
-import fl;
-import it;
+import jr;
+import jt;
+import kd;
+import nf;
 
 public class AppCompatTextView
   extends TextView
   implements TintableBackgroundView
 {
-  private it a = it.a(getContext());
-  private fe b = new fe(this, a);
-  private fl c;
+  private jt a = jt.a();
+  private jr b = new jr(this, a);
+  private kd c;
   
   public AppCompatTextView(Context paramContext)
   {
@@ -31,9 +32,9 @@ public class AppCompatTextView
   
   public AppCompatTextView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
-    super(paramContext, paramAttributeSet, paramInt);
+    super(nf.a(paramContext), paramAttributeSet, paramInt);
     b.a(paramAttributeSet, paramInt);
-    c = fl.a(this);
+    c = kd.a(this);
     c.a(paramAttributeSet, paramInt);
     c.a();
   }

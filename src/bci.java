@@ -1,11 +1,26 @@
-import android.os.IInterface;
-
-public abstract interface bci
-  extends IInterface
+final class bci
+  implements Runnable
 {
-  public abstract void a();
+  private final bch a;
+  private final int b;
+  private final Throwable c;
+  private final byte[] d;
+  private final String e;
   
-  public abstract void a(ber paramber);
+  private bci(String paramString, bch parambch, int paramInt, Throwable paramThrowable, byte[] paramArrayOfByte)
+  {
+    abe.a(parambch);
+    a = parambch;
+    b = paramInt;
+    c = paramThrowable;
+    d = paramArrayOfByte;
+    e = paramString;
+  }
+  
+  public final void run()
+  {
+    a.a(e, b, c, d);
+  }
 }
 
 /* Location:

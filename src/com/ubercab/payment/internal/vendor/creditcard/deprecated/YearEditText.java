@@ -3,18 +3,18 @@ package com.ubercab.payment.internal.vendor.creditcard.deprecated;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.ubercab.ui.EditText;
-import iwe;
-import iwg;
-import jzm;
+import lqc;
+import lqe;
+import ngd;
 
 @Deprecated
 public class YearEditText
   extends EditText
-  implements jzm
+  implements ngd
 {
   private boolean a;
   private String b;
-  private iwg c;
+  private lqe c;
   
   public YearEditText(Context paramContext)
   {
@@ -30,22 +30,22 @@ public class YearEditText
   {
     super(paramContext, paramAttributeSet, paramInt);
     setInputType(2);
-    setHint(paramContext.getString(iwe.ub__payment_year));
+    setHint(paramContext.getString(lqc.ub__payment_year));
   }
   
-  public final boolean V_()
+  public final boolean Z_()
   {
     return a;
   }
   
-  public final void a(iwg paramiwg)
+  public final void a(lqe paramlqe)
   {
-    c = paramiwg;
+    c = paramlqe;
   }
   
   public final boolean c()
   {
-    return (V_()) && (length() > 1);
+    return (Z_()) && (length() > 1);
   }
   
   protected void onTextChanged(CharSequence paramCharSequence, int paramInt1, int paramInt2, int paramInt3)
@@ -78,7 +78,7 @@ public class YearEditText
       }
       b = str;
       if (c != null) {
-        c.h();
+        c.i();
       }
       setText(str);
       if ((paramInt2 > 0) && (paramInt1 <= b.length()))

@@ -1,128 +1,53 @@
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.PriorityQueue;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
 
-@apl
-public final class agl
+public abstract class agl
+  extends Binder
+  implements agk
 {
-  private final int a;
-  private final int b;
-  private final int c;
-  private final agk d = new ago();
-  
-  public agl(int paramInt)
+  public static agk a(IBinder paramIBinder)
   {
-    b = paramInt;
-    a = 6;
-    c = 0;
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.mediation.client.IAdapterCreator");
+    if ((localIInterface != null) && ((localIInterface instanceof agk))) {
+      return (agk)localIInterface;
+    }
+    return new agm(paramIBinder);
   }
   
-  private static agm a()
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    return new agm();
-  }
-  
-  private String a(String paramString)
-  {
-    String[] arrayOfString = paramString.split("\n");
-    if (arrayOfString.length == 0) {
-      return "";
-    }
-    paramString = a();
-    Arrays.sort(arrayOfString, new Comparator()
-    {
-      private static int a(String paramAnonymousString1, String paramAnonymousString2)
-      {
-        return paramAnonymousString2.length() - paramAnonymousString1.length();
-      }
-    });
-    int i = 0;
-    for (;;)
-    {
-      if ((i < arrayOfString.length) && (i < b))
-      {
-        if (arrayOfString[i].trim().length() != 0) {}
-        try
-        {
-          paramString.a(d.a(arrayOfString[i]));
-          i += 1;
-        }
-        catch (IOException localIOException)
-        {
-          aqt.b("Error while writing hash to byteStream", localIOException);
-        }
-      }
-    }
-    return paramString.toString();
-  }
-  
-  private String b(String paramString)
-  {
-    Object localObject1 = paramString.split("\n");
-    if (localObject1.length == 0) {
-      return "";
-    }
-    paramString = a();
-    Object localObject2 = new PriorityQueue(b, new Comparator()
-    {
-      private static int a(agq paramAnonymousagq1, agq paramAnonymousagq2)
-      {
-        int i = c - c;
-        if (i != 0) {
-          return i;
-        }
-        return (int)(a - a);
-      }
-    });
-    int i = 0;
-    while (i < localObject1.length)
-    {
-      String[] arrayOfString = agn.b(localObject1[i]);
-      if (arrayOfString.length != 0) {
-        agp.a(arrayOfString, b, a, (PriorityQueue)localObject2);
-      }
-      i += 1;
-    }
-    localObject1 = ((PriorityQueue)localObject2).iterator();
-    for (;;)
-    {
-      if (((Iterator)localObject1).hasNext())
-      {
-        localObject2 = (agq)((Iterator)localObject1).next();
-        try
-        {
-          paramString.a(d.a(b));
-        }
-        catch (IOException localIOException)
-        {
-          aqt.b("Error while writing hash to byteStream", localIOException);
-        }
-      }
-    }
-    return paramString.toString();
-  }
-  
-  public final String a(ArrayList<String> paramArrayList)
-  {
-    StringBuffer localStringBuffer = new StringBuffer();
-    paramArrayList = paramArrayList.iterator();
-    while (paramArrayList.hasNext())
-    {
-      localStringBuffer.append(((String)paramArrayList.next()).toLowerCase(Locale.US));
-      localStringBuffer.append('\n');
-    }
-    switch (c)
+    switch (paramInt1)
     {
     default: 
-      return "";
-    case 0: 
-      return b(localStringBuffer.toString());
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.ads.internal.mediation.client.IAdapterCreator");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.IAdapterCreator");
+      paramParcel1 = a(paramParcel1.readString());
+      paramParcel2.writeNoException();
+      if (paramParcel1 != null) {}
+      for (paramParcel1 = paramParcel1.asBinder();; paramParcel1 = null)
+      {
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
     }
-    return a(localStringBuffer.toString());
+    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.IAdapterCreator");
+    boolean bool = b(paramParcel1.readString());
+    paramParcel2.writeNoException();
+    if (bool) {}
+    for (paramInt1 = 1;; paramInt1 = 0)
+    {
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    }
   }
 }
 

@@ -1,15 +1,16 @@
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.paypal.android.sdk.payments.LoginActivity;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import com.paypal.android.sdk.payments.PaymentConfirmActivity;
 
-public final class cdh
-  implements View.OnClickListener
+final class cdh
+  implements DialogInterface.OnClickListener
 {
-  public cdh(LoginActivity paramLoginActivity) {}
+  cdh(cdg paramcdg) {}
   
-  public final void onClick(View paramView)
+  public final void onClick(DialogInterface paramDialogInterface, int paramInt)
   {
-    LoginActivity.f(a);
+    a.a.a(paramInt);
+    PaymentConfirmActivity.b(a.c, a.b, paramInt);
   }
 }
 

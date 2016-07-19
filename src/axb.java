@@ -1,133 +1,55 @@
-import android.accounts.Account;
-import android.content.Context;
-import android.os.Bundle;
+import android.os.Binder;
 import android.os.IBinder;
-import android.os.Looper;
-import android.os.RemoteException;
-import android.text.TextUtils;
-import android.util.Log;
-import com.google.android.gms.wallet.FullWalletRequest;
-import com.google.android.gms.wallet.MaskedWalletRequest;
+import android.os.IInterface;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.LatLng;
 
-public final class axb
-  extends aag<awo>
+public abstract class axb
+  extends Binder
+  implements axa
 {
-  private final Context a;
-  private final int e;
-  private final String f;
-  private final int g;
-  private final boolean h;
-  
-  public axb(Context paramContext, Looper paramLooper, aab paramaab, wu paramwu, wv paramwv, int paramInt1, int paramInt2, boolean paramBoolean)
+  public axb()
   {
-    super(paramContext, paramLooper, 4, paramaab, paramwu, paramwv);
-    a = paramContext;
-    e = paramInt1;
-    f = paramaab.a();
-    g = paramInt2;
-    h = paramBoolean;
+    attachInterface(this, "com.google.android.gms.maps.internal.IOnMapClickListener");
   }
   
-  private static Bundle a(int paramInt1, String paramString1, String paramString2, int paramInt2, boolean paramBoolean)
+  public static axa a(IBinder paramIBinder)
   {
-    Bundle localBundle = new Bundle();
-    localBundle.putInt("com.google.android.gms.wallet.EXTRA_ENVIRONMENT", paramInt1);
-    localBundle.putBoolean("com.google.android.gms.wallet.EXTRA_USING_ANDROID_PAY_BRAND", paramBoolean);
-    localBundle.putString("androidPackageName", paramString1);
-    if (!TextUtils.isEmpty(paramString2)) {
-      localBundle.putParcelable("com.google.android.gms.wallet.EXTRA_BUYER_ACCOUNT", new Account(paramString2, "com.google"));
+    if (paramIBinder == null) {
+      return null;
     }
-    localBundle.putInt("com.google.android.gms.wallet.EXTRA_THEME", paramInt2);
-    return localBundle;
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnMapClickListener");
+    if ((localIInterface != null) && ((localIInterface instanceof axa))) {
+      return (axa)localIInterface;
+    }
+    return new axc(paramIBinder);
   }
   
-  private static awo b(IBinder paramIBinder)
+  public IBinder asBinder()
   {
-    return awp.a(paramIBinder);
+    return this;
   }
   
-  private Bundle c()
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    return a(e, a.getPackageName(), f, g, h);
-  }
-  
-  protected final String a()
-  {
-    return "com.google.android.gms.wallet.service.BIND";
-  }
-  
-  public final void a(FullWalletRequest paramFullWalletRequest, int paramInt)
-  {
-    axd localaxd = new axd(a, paramInt);
-    Bundle localBundle = c();
-    try
+    switch (paramInt1)
     {
-      ((awo)p()).a(paramFullWalletRequest, localBundle, localaxd);
-      return;
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.IOnMapClickListener");
+      return true;
     }
-    catch (RemoteException paramFullWalletRequest)
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IOnMapClickListener");
+    if (paramParcel1.readInt() != 0) {
+      bah localbah = LatLng.CREATOR;
+    }
+    for (paramParcel1 = bah.a(paramParcel1);; paramParcel1 = null)
     {
-      Log.e("WalletClientImpl", "RemoteException getting full wallet", paramFullWalletRequest);
-      localaxd.a(8, null, Bundle.EMPTY);
+      a(paramParcel1);
+      paramParcel2.writeNoException();
+      return true;
     }
-  }
-  
-  public final void a(MaskedWalletRequest paramMaskedWalletRequest, int paramInt)
-  {
-    Bundle localBundle = c();
-    axd localaxd = new axd(a, paramInt);
-    try
-    {
-      ((awo)p()).a(paramMaskedWalletRequest, localBundle, localaxd);
-      return;
-    }
-    catch (RemoteException paramMaskedWalletRequest)
-    {
-      Log.e("WalletClientImpl", "RemoteException getting masked wallet", paramMaskedWalletRequest);
-      localaxd.a(8, null, Bundle.EMPTY);
-    }
-  }
-  
-  public final void a(String paramString1, String paramString2, int paramInt)
-  {
-    Bundle localBundle = c();
-    axd localaxd = new axd(a, paramInt);
-    try
-    {
-      ((awo)p()).a(paramString1, paramString2, localBundle, localaxd);
-      return;
-    }
-    catch (RemoteException paramString1)
-    {
-      Log.e("WalletClientImpl", "RemoteException changing masked wallet", paramString1);
-      localaxd.a(8, null, Bundle.EMPTY);
-    }
-  }
-  
-  protected final String b()
-  {
-    return "com.google.android.gms.wallet.internal.IOwService";
-  }
-  
-  public final void b(int paramInt)
-  {
-    Bundle localBundle = c();
-    axd localaxd = new axd(a, paramInt);
-    try
-    {
-      ((awo)p()).a(localBundle, localaxd);
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      Log.e("WalletClientImpl", "RemoteException during checkForPreAuthorization", localRemoteException);
-      localaxd.a(8, false, Bundle.EMPTY);
-    }
-  }
-  
-  public final boolean q()
-  {
-    return true;
   }
 }
 

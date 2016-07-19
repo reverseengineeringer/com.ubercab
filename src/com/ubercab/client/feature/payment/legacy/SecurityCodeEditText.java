@@ -6,19 +6,19 @@ import android.text.InputFilter;
 import android.text.InputFilter.LengthFilter;
 import android.util.AttributeSet;
 import android.widget.EditText;
-import gdl;
-import gdx;
-import jzm;
+import hdg;
+import hds;
+import ngd;
 
 @Deprecated
 public class SecurityCodeEditText
   extends EditText
-  implements jzm
+  implements ngd
 {
   private String a;
   private boolean b;
   private String c;
-  private gdx d;
+  private hds d;
   
   public SecurityCodeEditText(Context paramContext)
   {
@@ -35,26 +35,26 @@ public class SecurityCodeEditText
     super(paramContext, paramAttributeSet, paramInt);
   }
   
-  public final boolean V_()
+  public final boolean Z_()
   {
     return b;
   }
   
-  public final void a(gdx paramgdx)
+  public final void a(hds paramhds)
   {
-    d = paramgdx;
+    d = paramhds;
   }
   
   public final void a(String paramString)
   {
     c = paramString;
-    setFilters(new InputFilter[] { new InputFilter.LengthFilter(gdl.b(paramString)) });
+    setFilters(new InputFilter[] { new InputFilter.LengthFilter(hdg.b(paramString)) });
   }
   
   public final boolean c()
   {
-    int i = gdl.b(c);
-    return (V_()) && (length() == i);
+    int i = hdg.b(c);
+    return (Z_()) && (length() == i);
   }
   
   protected void onFinishInflate()
@@ -62,7 +62,7 @@ public class SecurityCodeEditText
     super.onFinishInflate();
     setInputType(2);
     if (!isInEditMode()) {
-      setHint(2131166937);
+      setHint(2131167298);
     }
   }
   
@@ -80,12 +80,12 @@ public class SecurityCodeEditText
     if (str.equals(a)) {
       return;
     }
-    paramInt3 = gdl.b(c);
+    paramInt3 = hdg.b(c);
     paramCharSequence = str;
     if (str.length() > paramInt3) {
       paramCharSequence = str.substring(0, paramInt3);
     }
-    b = gdl.b(c, paramCharSequence);
+    b = hdg.b(c, paramCharSequence);
     a = paramCharSequence;
     if (d != null) {
       d.d(b);

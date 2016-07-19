@@ -9,10 +9,10 @@ class MediaBrowserCompat$MediaBrowserImplBase$1
   
   public void run()
   {
-    if (val$thisConnection == MediaBrowserCompat.MediaBrowserImplBase.access$200(this$0))
+    if (val$thisConnection == MediaBrowserCompat.MediaBrowserImplBase.access$700(this$0))
     {
-      MediaBrowserCompat.MediaBrowserImplBase.access$300(this$0);
-      MediaBrowserCompat.MediaBrowserImplBase.access$400(this$0).onConnectionFailed();
+      MediaBrowserCompat.MediaBrowserImplBase.access$800(this$0);
+      MediaBrowserCompat.MediaBrowserImplBase.access$900(this$0).onConnectionFailed();
     }
   }
 }

@@ -1,371 +1,388 @@
-import java.util.HashMap;
-import java.util.Map;
+import android.os.Handler;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 
 public final class bso
-  implements cav
+  extends bsp
 {
-  private static final Map a = new HashMap();
-  private static final Map b = new HashMap();
-  private static final Map c = new HashMap();
+  private String a;
+  private List b;
+  private List c;
+  private Handler d;
+  private boolean e;
+  private SSLSocketFactory f;
   
-  public bso()
+  public bso(String paramString, List paramList, Handler paramHandler, boolean paramBoolean)
   {
-    a.put(bxn.a, "Concordar e pagar");
-    a.put(bxn.b, "& outros");
-    a.put(bxn.c, "A autenticar");
-    a.put(bxn.d, "Voltar");
-    a.put(bxn.e, "Reserva");
-    a.put(bxn.f, "Cancelar");
-    a.put(bxn.g, "American Express");
-    a.put(bxn.h, "Carta Aura");
-    a.put(bxn.i, "Carte Aurore");
-    a.put(bxn.j, "Carta Prepagata PayPal");
-    a.put(bxn.k, "Carte Bancaire");
-    a.put(bxn.l, "Cofinoga");
-    a.put(bxn.m, "Delta");
-    a.put(bxn.n, "Discover");
-    a.put(bxn.o, "Electron");
-    a.put(bxn.p, "JCB");
-    a.put(bxn.q, "Maestro");
-    a.put(bxn.r, "MasterCard");
-    a.put(bxn.s, "Postepay");
-    a.put(bxn.t, "4 étoiles");
-    a.put(bxn.u, "Tarjeta Aurora");
-    a.put(bxn.v, "Visa");
-    a.put(bxn.w, "Alterar meio de pagamento");
-    a.put(bxn.x, "Corrente");
-    a.put(bxn.y, "A verificar o dispositivo…");
-    a.put(bxn.z, "Apagar informações do cartão");
-    a.put(bxn.A, "Confirmar");
-    a.put(bxn.B, "Tem a certeza de que pretende apagar os dados do seu cartão?");
-    a.put(bxn.C, "Debitar no cartão");
-    a.put(bxn.D, "Tem a certeza de que pretende terminar a sessão no PayPal?");
-    a.put(bxn.E, "Pagar");
-    a.put(bxn.F, "Concordo");
-    a.put(bxn.G, "Data de criação da conta");
-    a.put(bxn.H, "Estado da conta");
-    a.put(bxn.I, "Tipo de conta");
-    a.put(bxn.J, "Morada");
-    a.put(bxn.K, "Faixa etária");
-    a.put(bxn.L, "Data de nascimento");
-    a.put(bxn.M, "Endereço de e-mail");
-    a.put(bxn.N, "Nome completo");
-    a.put(bxn.O, "Sexo");
-    a.put(bxn.P, "Idioma");
-    a.put(bxn.Q, "Local");
-    a.put(bxn.R, "Telefone");
-    a.put(bxn.S, "Fuso horário");
-    a.put(bxn.T, "Partilhar o seguinte: %s.");
-    a.put(bxn.U, "Usar Express Checkout.");
-    a.put(bxn.V, "%s pede-lhe para:");
-    a.put(bxn.W, "Partilhar os <a href='%1$s'>meios de pagamento</a> associados à sua conta PayPal.");
-    a.put(bxn.X, "Ativar a exibição das suas opções de financiamento para que possa fazer uma escolha.");
-    a.put(bxn.Y, "<a href='%1$s'>Autorizar débitos</a> para compras futuras feitas em %2$s pagas com PayPal. Está a dar ao PayPal instruções para pagar todos os montantes solicitados por %3$s.");
-    a.put(bxn.Z, "Permitir que adicionem e façam a gestão do respetivo cartão de fidelização na sua carteira PayPal.");
-    a.put(bxn.aa, "Concordar com a <a href='%2$s'>Política de Privacidade</a> e o <a href='%3$s'>Contrato do Utilizador</a> de %1$s.");
-    a.put(bxn.ab, "Permitir que <a href='%1$s'>solicitem dinheiro</a> em seu nome até que retire o seu consentimento.");
-    a.put(bxn.ac, "Permitir que <a href='%1$s'>enviem dinheiro</a> em seu nome até que retire o seu consentimento.");
-    a.put(bxn.ad, "Autorizar");
-    a.put(bxn.ae, "E-mail");
-    a.put(bxn.af, "Dados fictícios");
-    a.put(bxn.ag, "Sandbox");
-    a.put(bxn.ah, "Validade");
-    a.put(bxn.ai, "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais dos seus meios de pagamento estão disponíveis para utilização.</p>");
-    a.put(bxn.aj, "Esqueceu-se da palavra-passe?");
-    a.put(bxn.ak, "De");
-    a.put(bxn.al, "De que forma gostaria de financiar os pagamentos futuros a %1$s?");
-    a.put(bxn.am, "<h1><strong>Contrato de Pagamento Futuro</strong></h1><p>A sua fonte de financiamento predefinida será usada em pagamentos futuros com PayPal efetuados neste comerciante.</p><p>Para cancelar este contrato, inicie a sessão na sua conta PayPal, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar a sessão com PayPal</strong> e remova este comerciante da lista.</p><p>Aplica-se a secção de Pagamento Periódico do <a href='%s'>Contrato do Utilizador do PayPal</a>.</p><p>Para garantir que os pagamentos são efetuados corretamente com a sua conta PayPal, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p>");
-    a.put(bxn.an, "Erro interno");
-    a.put(bxn.ao, "<p>Ao clicar no botão em baixo, confirmo que concordo com os termos do <a href='%1$s'>Contrato do Utilizador do PayPal</a> e declaro que estou em conformidade com as leis e regulamentos japoneses, inclusive as sanções contra pagamentos à Coreia do Norte e ao Irão definidas na <a href='%2$s'>Lei do Câmbio Internacional e Comércio Externo (Foreign Exchange and Foreign Trade Act)</a>, para concluir a transação.</p>");
-    a.put(bxn.ap, "Iniciar sessão");
-    a.put(bxn.aq, "Iniciar sessão com PayPal");
-    a.put(bxn.ar, "Terminar sessão");
-    a.put(bxn.as, "Terminar sessão");
-    a.put(bxn.at, "OK");
-    a.put(bxn.au, "Palavra-passe");
-    a.put(bxn.av, "Pagar após a entrega");
-    a.put(bxn.aw, "Pagar com");
-    a.put(bxn.ax, "Pagar com cartão");
-    a.put(bxn.ay, "Saldo PayPal");
-    a.put(bxn.az, "PayPal Credit");
-    a.put(bxn.aA, "Telefone");
-    a.put(bxn.aB, "PIN");
-    a.put(bxn.aC, "Meio de pagamento preferido");
-    a.put(bxn.aD, "O PayPal protege a sua <a href='%s'>privacidade</a> e os seus dados financeiros.");
-    a.put(bxn.aE, "A processar");
-    a.put(bxn.aF, "Memorizar cartão");
-    a.put(bxn.aG, "Solicitar dinheiro");
-    a.put(bxn.aH, "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre nas opções <strong>Iniciar sessão com PayPal</strong> nas definições de <strong>Perfil</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do parceiro.</p>");
-    a.put(bxn.aI, "Poupança");
-    a.put(bxn.aJ, "Enviar dinheiro");
-    a.put(bxn.aK, "Ocorreu um erro ao comunicar com os servidores do PayPal. Tente novamente.");
-    a.put(bxn.aL, "Inicie novamente a sessão no PayPal.");
-    a.put(bxn.aM, "A sessão expirou");
-    a.put(bxn.aN, "Morada de envio");
-    a.put(bxn.aO, "Novo no PayPal? Criar conta");
-    a.put(bxn.aP, "Manter a sessão iniciada");
-    a.put(bxn.aQ, "Erro de sistema (%s). Tente novamente mais tarde.");
-    a.put(bxn.aR, "Tente novamente");
-    a.put(bxn.aS, "Não foi possível iniciar a sessão porque a autenticação de dois factores está ativada na sua conta.");
-    a.put(bxn.aT, "Código de segurança");
-    a.put(bxn.aU, "Envie uma mensagem de texto para o seu telefone. O código com 6 dígitos que receber será válido durante 5 minutos.");
-    a.put(bxn.aV, "A enviar mensagem");
-    a.put(bxn.aW, "Introduza o código com 6 dígitos");
-    a.put(bxn.aX, "O seu número de telemóvel");
-    a.put(bxn.aY, "Enviar mensagem");
-    a.put(bxn.aZ, "Enviar mensagem novamente");
-    a.put(bxn.ba, "Não foi possível iniciar a sessão porque a autenticação de dois factores está ativada na sua conta. Visite o site do PayPal para ativar a sua chave de segurança.");
-    a.put(bxn.bb, "Não são permitidos pagamentos com este dispositivo.");
-    a.put(bxn.bc, "Dispositivo não autorizado");
-    a.put(bxn.bd, "Não são permitidos pagamentos a este comerciante (ID de cliente inválida).");
-    a.put(bxn.be, "Comerciante inválido");
-    a.put(bxn.bf, "Houve um problema no processamento do seu pagamento. Tente novamente.");
-    a.put(bxn.bg, "Fonte não reconhecida");
-    a.put(bxn.bh, "Lamentamos");
-    a.put(bxn.bi, "O seu pedido");
-    a.put(bxn.bj, "Apagar cartão?");
-    a.put(bxn.bk, "Erro na autorização");
-    a.put(bxn.bl, "Falha na ligação");
-    a.put(bxn.bm, "Falha de início de sessão");
-    a.put(bxn.bn, "Iniciar sessão com palavra-passe");
-    a.put(bxn.bo, "Iniciar sessão com PIN");
-    a.put(bxn.bp, "Aguarde…");
-    a.put(bxn.bq, "O pagamento falhou");
-    a.put(bxn.br, "Ler");
-    a.put(bxn.bs, "Código de segurança incorreto. Tente novamente.");
-    a.put(bxn.bt, "Via");
-    a.put(bxn.bu, "Erro de sistema. Tente novamente mais tarde.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|AT", "Partilhar informações sobre as <a href='%1$s'>fontes de financiamento</a> associadas à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|BE", "Partilhar as informações sobre as <a href='%1$s'>fontes de financiamento</a> associadas à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|BG", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CH", "Partilhar informações sobre as <a href='%1$s'>fontes de financiamento</a> associadas à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CY", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CZ", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|DE", "Partilhar informações sobre as <a href='%1$s'>fontes de financiamento</a> associadas à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|DK", "Partilhar informações sobre os <a href='%1$s'>meios de pagamento</a> associados à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|EE", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|ES", "Partilhar informações com eles sobre as <a href='%1$s'>fontes de financiamento</a> associadas à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|FI", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|GB", "Partilhar as <a href='%1$s'>fontes de financiamento</a> associadas à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|GR", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|HU", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|IE", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|IT", "Partilhar as <a href='%1$s'>fontes de financiamento</a> associadas à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LI", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LT", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LU", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LV", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|MT", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|NL", "Partilhar as informações sobre as <a href='%1$s'>fontes de financiamento</a> associadas à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|NO", "Partilhar informações sobre os <a href='%1$s'>meios de pagamento</a> associados à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|PL", "Partilhar as informações sobre as <a href='%1$s'>fontes de financiamento</a> associadas à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|PT", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SE", "Partilhar informações sobre os <a href='%1$s'>meios de pagamento</a> associados à sua conta PayPal.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SI", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SK", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SM", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|VA", "Partilhar as <a href='%1$s'>fontes de financiamento</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|AU", "<p><a href='%1$s'>Autorizar débitos</a> para compras futuras feitas em %2$s pagas com PayPal. Está a dar ao PayPal instruções para pagar todos os montantes solicitados por %3$s.</p><p>Para mais informações, consulte o <a href='https://www.paypal.com/webapps/mpp/ua/recurringpymts-full'>Contrato de Pagamentos Periódicos e Faturação do PayPal</a>.</p>");
-    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|CN", "<p><a href='%1$s'>Autorizar débitos</a> para compras futuras feitas em %2$s pagas com PayPal. Está a dar ao PayPal instruções para pagar todos os montantes solicitados por %3$s.</p><p>Para mais informações, consulte o <a href='https://cms.paypal.com/c2/cgi-bin/?cmd=_render-content&content_ID=ua/UserAgreement_full'>Contrato de Pagamentos Periódicos e Faturação do PayPal</a>.</p>");
-    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|MY", "<a href='%1$s'>Autorizar débitos</a> para compras futuras realizadas com o PayPal. Está a dar instruções ao PayPal para pagar todos os montantes.");
-    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|NZ", "<a href='%1$s'>Autorizar débitos</a> para compras futuras realizadas com o PayPal. Está a dar instruções ao PayPal para pagar todos os montantes.");
-    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|SG", "<a href='%1$s'>Autorizar débitos</a> para compras futuras realizadas com o PayPal. Está a dar instruções ao PayPal para pagar todos os montantes.");
-    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|US", "Pré-aprovar pagamentos futuros realizados com a sua conta PayPal sem iniciar sempre a sessão no PayPal. <a href='%1$s'>Consulte os termos adicionais</a>, incluindo meios de pagamento e como cancelar pagamentos futuros.");
-    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|AT", "Permitir que %2$s <a href='%1$s'>solicite dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|BE", "Permitir que %2$s <a href='%1$s'>solicite dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|CH", "Permitir que %2$s <a href='%1$s'>solicite dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|DE", "Permitir que %2$s <a href='%1$s'>solicite dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|GB", "Permitir que %2$s <a href='%1$s'>solicite dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|NL", "Permitir que %2$s <a href='%1$s'>solicite dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|PL", "Permitir que %2$s <a href='%1$s'>solicite dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_SEND_MONEY|AT", "Permitir que %2$s <a href='%1$s'>envie dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_SEND_MONEY|BE", "Permitir que %2$s <a href='%1$s'>envie dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_SEND_MONEY|CH", "Permitir que %2$s <a href='%1$s'>envie dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_SEND_MONEY|DE", "Permitir que %2$s <a href='%1$s'>envie dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_SEND_MONEY|GB", "Permitir que %2$s <a href='%1$s'>envie dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_SEND_MONEY|NL", "Permitir que %2$s <a href='%1$s'>envie dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("CONSENT_AGREEMENT_SEND_MONEY|PL", "Permitir que %2$s <a href='%1$s'>envie dinheiro</a> em seu nome até que retire o seu consentimento.");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|AT", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|BE", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha as informações sobre quais as fontes de financiamento que estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|BG", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CH", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CY", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CZ", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|DE", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|EE", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|ES", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|FI", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|GR", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|HU", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|IE", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|IT", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LI", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LT", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LU", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LV", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|MT", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|NL", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha as informações sobre quais as fontes de financiamento que estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|PL", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha as informações sobre quais as fontes de financiamento que estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|PT", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SI", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SK", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SM", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|VA", "<h1><strong>Meios de pagamento</strong></h1><p>O PayPal apenas partilha quais das suas fontes de financiamento estão disponíveis para utilização.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|AU", "<h1><strong>Contrato de Pagamento Futuro</strong></h1><p>Para garantir que a sua conta PayPal pode ser debitada no futuro, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p><p>O seu meio de pagamento predefinido (saldo PayPal, conta bancária associada, cartão de débito ou de crédito, por esta ordem) será usado para o pagamento de compras com PayPal. Tenha em atenção que, se o meio de pagamento predefinido não tiver fundos suficientes para cobrir a compra, o seu banco ou fornecedor do cartão poderá cobrar uma tarifa.</p><p>Para cancelar este contrato, inicie a sessão na sua conta PayPal e entre em <strong>Perfil</strong>, depois clique em <strong>As minhas definições</strong> e em <strong>Alterar</strong>, ao lado de “Iniciar a sessão com PayPal”.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|BR", "<h1><strong>Contrato de Pagamento Futuro</strong></h1><p>Para garantir que a sua conta PayPal pode ser debitada no futuro, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p><p>O seu saldo PayPal ou o seu cartão de crédito ou de débito predefinido será usado para o pagamento de compras com PayPal.</p><p>Para cancelar este contrato, inicie a sessão na sua conta PayPal, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar a sessão com PayPal</strong> e remova este comerciante da lista.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|CN", "<h1><strong>Contrato de Pagamento Futuro</strong></h1><p>Para garantir que a sua conta PayPal pode ser debitada no futuro, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p><p>O seu meio de pagamento predefinido será usado para o pagamento de compras com PayPal.</p><p>Para cancelar este contrato, inicie a sessão na sua conta PayPal, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar sessão com PayPal</strong> e remova este comerciante da lista.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|GB", "<h1><strong>Contrato de Pagamento Futuro</strong></h1><p>A sua fonte de financiamento predefinida será usada em pagamentos futuros com PayPal efetuados neste comerciante.</p><p>Para cancelar este contrato, inicie sessão na sua conta PayPal, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar sessão com PayPal</strong> e remova este comerciante da lista.</p><p>Aplica-se a secção de Pagamento Periódico do <a href='%s'>Contrato do Utilizador do PayPal</a>.</p><p>Para garantir que os pagamentos são efetuados corretamente com a sua conta PayPal, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|HK", "<h1><strong>Autorização de Pagamento Futuro</strong></h1><p>Para garantir que a sua conta PayPal pode ser debitada no futuro, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p><p>O seu meio de pagamento predefinido será usado para o pagamento de compras com PayPal.</p><p>Para cancelar esta autorização, inicie sessão na sua conta PayPal, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar sessão com PayPal</strong> e remova este comerciante da lista.</p><p>Para mais informações, consulte a secção “Pagamentos pré-aprovados” do <a href='%s'>Contrato do Utilizador do PayPal</a>.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|JP", "<h1><strong>Autorização de Pagamento Futuro</strong></h1><p>Para garantir que a sua conta PayPal pode ser debitada no futuro, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p><p>O seu meio de pagamento predefinido será usado para o pagamento de compras com PayPal.</p><p>Para cancelar esta autorização, inicie sessão na sua conta PayPal, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar sessão com PayPal</strong> e remova este comerciante da lista.</p><p>Para mais informações, consulte a secção “Pagamentos pré-aprovados” do <a href='%s'>Contrato do Utilizador do PayPal</a>.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|MX", "<h1><strong>Contrato de Pagamento Futuro</strong></h1><p>Para garantir que a sua conta PayPal pode ser debitada no futuro, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p><p>O seu saldo PayPal ou o seu cartão de crédito ou de débito predefinido será usado para o pagamento de compras com PayPal.</p><p>Para cancelar este contrato, inicie a sessão na sua conta PayPal, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar a sessão com PayPal</strong> e remova este comerciante da lista.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|MY", "<h1><strong>Autorização de Pagamento Futuro</strong></h1><p>Para garantir que a sua conta PayPal pode ser debitada no futuro, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p><p>O seu meio de pagamento predefinido será usado para o pagamento de compras com PayPal.</p><p>Para cancelar esta autorização, inicie sessão na sua conta PayPal, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar sessão com PayPal</strong> e remova este comerciante da lista.</p><p>Para mais informações, consulte a secção “Pagamentos pré-aprovados” do <a href='%s'>Contrato do Utilizador do PayPal</a>.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|NZ", "<h1><strong>Autorização de Pagamento Futuro</strong></h1><p>Para garantir que a sua conta PayPal pode ser debitada no futuro, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p><p>O seu meio de pagamento predefinido será usado para o pagamento de compras com PayPal.</p><p>Para cancelar esta autorização, inicie sessão na sua conta PayPal, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar sessão com PayPal</strong> e remova este comerciante da lista.</p><p>Para mais informações, consulte a secção “Pagamentos pré-aprovados” do <a href='%s'>Contrato do Utilizador do PayPal</a>.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|SG", "<h1><strong>Autorização de Pagamento Futuro</strong></h1><p>Para garantir que a sua conta PayPal pode ser debitada no futuro, esta aplicação poderá simular uma pequena transação de teste, mas não será transferido qualquer dinheiro.</p><p>O seu meio de pagamento predefinido será usado para o pagamento de compras com PayPal.</p><p>Para cancelar esta autorização, inicie sessão na sua conta PayPal, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar sessão com PayPal</strong> e remova este comerciante da lista.</p><p>Para mais informações, consulte a secção “Pagamentos pré-aprovados” do <a href='%s'>Contrato do Utilizador do PayPal</a>.</p>");
-    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|US", "<h1><strong>Contrato de Pagamento Futuro</strong></h1><p>O PayPal irá usar em primeiro lugar o seu saldo PayPal para fazer o pagamento da sua compra. Se isso não cobrir o seu total, será usada a sua conta bancária, o cartão de débito, o cartão de crédito e/ou o eCheck, por esta ordem.</p><p>Para cancelar este contrato, visite www.paypal.com, entre em <strong>Perfil</strong> &gt; <strong>As minhas definições</strong> &gt; <strong>Iniciar a sessão com PayPal</strong> e remova este comerciante da lista.</p><p>Pode ser necessária a autorização de um pagamento de baixo valor para garantir que a sua conta PayPal pode ser debitada no futuro. A autorização será anulada e não será efetuado qualquer débito.</p>");
-    b.put("LOG_IN_TO_PAYPAL|AU", "Iniciar sessão com PayPal");
-    b.put("LOG_IN_TO_PAYPAL|GB", "Iniciar sessão com PayPal");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AD", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AL", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AT", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o parceiro.</p><p>Para retirar o seu consentimento, inicie a sessão na sua conta PayPal e clique no ícone em forma de roda dentada. Entre em <strong>Segurança</strong>, selecione <strong>Iniciar sessão com PayPal</strong> e remova este parceiro.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do parceiro.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AU", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre nas opções <strong>Iniciar sessão com PayPal</strong> nas definições de <strong>Perfil</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do parceiro.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BA", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BE", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão na sua conta PayPal, entre nas opções <strong>Iniciar sessão com PayPal</strong> nas suas definições de <strong>Perfil</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BG", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CH", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o parceiro.</p><p>Para retirar o seu consentimento, inicie a sessão na sua conta PayPal e clique no ícone em forma de roda dentada. Entre em <strong>Segurança</strong>, selecione <strong>Iniciar sessão com PayPal</strong> e remova este parceiro.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do parceiro.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CY", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CZ", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|DE", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o parceiro.</p><p>Para retirar o seu consentimento, inicie a sessão na sua conta PayPal e clique no ícone em forma de roda dentada. Entre em <strong>Segurança</strong>, selecione <strong>Iniciar sessão com PayPal</strong> e remova este parceiro.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do parceiro.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|DK", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão na sua conta PayPal, entre nas opções <strong>Iniciar sessão com PayPal</strong> nas definições de <strong>Perfil</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|EE", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|ES", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão na sua conta PayPal, clique no ícone em forma de roda dentada no canto superior direito, escolha <strong>Centro de Segurança</strong>, selecione <strong>Iniciar sessão com PayPal</strong> e remova o comerciante. Se ainda estiver a utilizar o site clássico, entre em <strong>O Meu Perfil</strong>, escolha <strong>As minhas definições</strong>, selecione <strong>Iniciar sessão com PayPal</strong> e remova o comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|FI", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|GB", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o parceiro.</p><p>Para retirar o consentimento, inicie sessão na sua conta PayPal e, nas definições de <strong>Perfil</strong> entre em <strong>Iniciar sessão com PayPal</strong> para remover este parceiro.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do parceiro.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|GR", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|HR", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|HU", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IE", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IS", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IT", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.it, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LI", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LT", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LU", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LV", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|MT", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|NL", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão na sua conta PayPal, entre nas opções <strong>Iniciar sessão com PayPal</strong> nas suas definições de <strong>Perfil</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|NO", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão na sua conta PayPal, entre nas opções <strong>Iniciar sessão com PayPal</strong> nas definições de <strong>Perfil</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|PL", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão na sua conta PayPal, entre nas opções <strong>Iniciar sessão com PayPal</strong> nas suas definições de <strong>Perfil</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|PT", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|RO", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|RU", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o parceiro.</p><p>Para retirar o consentimento, inicie sessão em paypal.ru, clique no ícone em forma de roda dentada no canto superior direito, escolha o separador <strong>Segurança</strong> e, na opção <strong>Iniciar sessão com PayPal</strong>, remova este parceiro.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do parceiro.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SE", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão na sua conta PayPal, entre nas opções <strong>Iniciar sessão com PayPal</strong> nas definições de <strong>Perfil</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SI", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SK", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SM", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|TR", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com.tr, clique no ícone em forma de roda dentada no canto superior direito, escolha o separador <strong>Segurança</strong> e, na opção <strong>Iniciar sessão com PayPal</strong>, remova este parceiro.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|UA", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|US", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre nas opções <strong>Iniciar sessão com PayPal</strong> nas definições de <strong>Perfil</strong> e remova este comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|VA", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|ZA", "<h1><strong>%s</strong></h1><p>Quaisquer detalhes relevantes da transação serão partilhados com o comerciante.</p><p>Para retirar o consentimento, inicie sessão em paypal.com, entre em <strong>Perfil</strong>, <strong>Segurança</strong>, localize a opção <strong>Iniciar sessão com PayPal</strong> e remova este comerciante.</p><p>O PayPal não é responsável por quaisquer ações ou erros da parte do comerciante.</p>");
-    c.put("AMOUNT_MISMATCH", "O total de artigos no carrinho de compras não coincide com o valor da venda.");
-    c.put("AUTHORIZATION_ALREADY_COMPLETED", "Esta autorização já foi concluída.");
-    c.put("AUTHORIZATION_CANNOT_BE_VOIDED", "O estado da autorização não permite a anulação.");
-    c.put("AUTHORIZATION_EXPIRED", "A autorização expirou.");
-    c.put("AUTHORIZATION_ID_DOES_NOT_EXIST", "A ID de autorização solicitada não existe.");
-    c.put("AUTHORIZATION_VOIDED", "A autorização foi anulada.");
-    c.put("CANNOT_REAUTH_CHILD_AUTHORIZATION", "Só é possível reautorizar a autorização original e não uma reautorização.");
-    c.put("CANNOT_REAUTH_INSIDE_HONOR_PERIOD", "A reautorização não é permitida dentro do período de honra.");
-    c.put("CAPTURE_AMOUNT_LIMIT_EXCEEDED", "O valor excede o limite permitido.");
-    c.put("CARD_TOKEN_PAYER_MISMATCH", "Não é possível aceder às informações guardadas do cartão.");
-    c.put("CREDIT_CARD_CVV_CHECK_FAILED", "As informações do cartão são inválidas. Corrija e envie novamente.");
-    c.put("CREDIT_CARD_REFUSED", "Cartão recusado.");
-    c.put("CURRENCY_MISMATCH", "A moeda de captura deve ser idêntica à moeda de autorização.");
-    c.put("CURRENCY_NOT_ALLOWED", "Esta moeda não é suportada atualmente pelo PayPal.");
-    c.put("DATA_RETRIEVAL", "Erro de sistema. Tente novamente mais tarde.");
-    c.put("DUPLICATE_REQUEST_ID", "Erro de sistema. Tente novamente mais tarde.");
-    c.put("EXPIRED_CREDIT_CARD", "O cartão já não é válido");
-    c.put("EXPIRED_CREDIT_CARD_TOKEN", "Os dados deste cartão já não se encontram arquivados.\nEnvie-os novamente.");
-    c.put("FEATURE_UNSUPPORTED_FOR_PAYEE", "A funcionalidade não é suportada para este fornecedor.");
-    c.put("FULL_REFUND_NOT_ALLOWED_AFTER_PARTIAL_REFUND", "Esta transação já foi parcialmente reembolsada.");
-    c.put("IMMEDIATE_PAY_NOT_SUPPORTED", "O pagamento imediato não é suportado para essa finalidade.");
-    c.put("INSTRUMENT_DECLINED", "O seu meio de pagamento selecionado não foi aceite. Escolha um meio diferente.");
-    c.put("INSUFFICIENT_FUNDS", "O comprador não consegue pagar - fundos insuficientes.");
-    c.put("INTERNAL_SERVICE_ERROR", "Erro de sistema. Tente novamente mais tarde.");
-    c.put("INVALID_ACCOUNT_NUMBER", "Esse número de conta não existe.");
-    c.put("INVALID_ARGUMENT", "Transação recusada devido a um argumento inválido");
-    c.put("INVALID_CITY_STATE_ZIP", "Combinação inválida de cidade/localidade/código postal.");
-    c.put("INVALID_FACILITATOR_CONFIGURATION", "Esta transação não pode ser processada devido a uma configuração de facilitador inválida.");
-    c.put("INVALID_PAYER_ID", "Erro de sistema (ID de pagante inválida). Tente novamente mais tarde.");
-    c.put("INVALID_RESOURCE_ID", "Erro de sistema. Tente novamente mais tarde.");
-    c.put("PAYEE_ACCOUNT_INVALID", "A conta do fornecedor não tem um e-mail confirmado.");
-    c.put("PAYEE_ACCOUNT_LOCKED_OR_CLOSED", "Este fornecedor não pode receber pagamentos de momento.");
-    c.put("PAYEE_ACCOUNT_NO_CONFIRMED_EMAIL", "A conta do fornecedor não tem um e-mail confirmado.");
-    c.put("PAYEE_ACCOUNT_RESTRICTED", "Este fornecedor não pode receber pagamentos de momento.");
-    c.put("PAYER_ACCOUNT_LOCKED_OR_CLOSED", "A sua conta está bloqueada ou foi encerrada.");
-    c.put("PAYER_ACCOUNT_RESTRICTED", "A sua conta encontra-se restrita.");
-    c.put("PAYER_CANNOT_PAY", "Não pode pagar esta transação com PayPal.");
-    c.put("PAYER_EMPTY_BILLING_ADDRESS", "A morada de faturação é obrigatória em transações com cartão de crédito não-PayPal.");
-    c.put("PAYER_ID_MISSING_FOR_CARD_TOKEN", "Não é possível aceder às informações guardadas do cartão.");
-    c.put("PAYMENT_APPROVAL_EXPIRED", "A aprovação do pagamento expirou.");
-    c.put("PAYMENT_EXPIRED", "O pagamento expirou.");
-    c.put("PAYMENT_NOT_APPROVED_FOR_EXECUTION", "O pagante não aprovou o pagamento.");
-    c.put("PAYMENT_REQUEST_ID_INVALID", "A ID do pedido PayPal é inválida. Tente novamente mais tarde.");
-    c.put("PAYMENT_STATE_INVALID", "Este pedido é inválido devido ao estado atual do pagamento.");
-    c.put("PERMISSION_DENIED", "A operação solicitada não é permitida.");
-    c.put("REFUND_EXCEEDED_TRANSACTION_AMOUNT", "O reembolso solicitado excede o valor da transação original.");
-    c.put("REFUND_TIME_LIMIT_EXCEEDED", "Esta transação é demasiado antiga para ser reembolsada.");
-    c.put("REQUIRED_SCOPE_MISSING", "Erro de sistema. Tente novamente mais tarde.");
-    c.put("TOO_MANY_REAUTHORIZATIONS", "Não são permitidas mais reautorizações para esta autorização.");
-    c.put("TRANSACTION_ALREADY_REFUNDED", "Esta transação já foi reembolsada.");
-    c.put("TRANSACTION_LIMIT_EXCEEDED", "O valor excede o limite permitido.");
-    c.put("TRANSACTION_REFUSED", "A transação foi recusada.");
-    c.put("TRANSACTION_REFUSED_BY_PAYPAL_RISK", "A transação foi recusada.");
-    c.put("TRANSACTION_REFUSED_PAYEE_PREFERENCE", "A preferência no perfil do comerciante está configurada para recusar automaticamente determinadas transações.");
-    c.put("UNKNOWN_ERROR", "Erro do sistema. Tente novamente mais tarde.");
-    c.put("UNSUPPORTED_PAYEE_COUNTRY", "O seu país não é suportado.");
-    c.put("VALIDATION_ERROR", "A informação sobre o pagamento é inválida. Corrija e envie novamente.");
-    c.put("ORDER_ALREADY_COMPLETED", "O seu pedido foi anulado, já não é válido ou está concluído.");
-    c.put("MAXIMUM_ALLOWED_AUTHORIZATION_REACHED_FOR_ORDER", "Foi atingido o número máximo de autorizações permitidas para o pedido.");
-    c.put("ORDER_VOIDED", "O pedido foi anulado.");
-    c.put("ORDER_CANNOT_BE_VOIDED", "O pedido encontra-se num estado que impede a anulação.");
-    c.put("INVALID_EXPERIENCE_PROFILE_ID", "Erro do sistema. Tente novamente mais tarde.");
-    c.put("UNAUTHORIZED_PAYMENT", "O comerciante não aceita pagamentos deste tipo.");
-    c.put("DCC_UNSUPPORTED_CURRENCY_CC_TYPE", "Moeda sem suporte para o tipo de cartão.");
-    c.put("DCC_CC_TYPE_NOT_SUPPORTED", "Tipo de cartão não suportado.");
-    c.put("ADDRESS_ADDITION_ERROR", "Ocorreu um erro ao adicionar a morada de envio à conta PayPal.");
-    c.put("DUPLICATE_TRANSACTION", "Transação duplicada.");
-    c.put("INVALID_SHIPPING_ADDRESS", "A morada de envio fornecida não é válida.");
-    c.put("PAYMENT_CREATION_ERROR", "Ocorreu um problema ao configurar este pagamento. Visite o site do PayPal para verificar a sua conta.");
-    c.put("PAYMENT_CREATION_ERROR_EXPIRED_PAYMENT_CARD", "Ocorreu um problema ao configurar este pagamento - o seu cartão perdeu a validade. Visite o site do PayPal para verificar a sua conta.");
-    c.put("PAYMENT_CREATION_ERROR_INSTANT_PAYMENT_REQUIRED", "Ocorreu um problema ao configurar este pagamento - necessário pagamento imediato, como um cartão de crédito. Visite o site do PayPal para verificar a sua conta.");
-    c.put("PAYMENT_CREATION_ERROR_NEED_CONFIRMED_CARD", "Ocorreu um problema ao configurar este pagamento - o cartão deve ser confirmado. Visite o site do PayPal para verificar a sua conta.");
-    c.put("PAYMENT_CREATION_ERROR_NEED_PHONE_NUMBER", "Ocorreu um problema ao configurar este pagamento - esta aplicação requer que a sua conta inclua um número de telefone. Visite o site do PayPal para verificar a sua conta.");
-    c.put("PAYMENT_CREATION_ERROR_NEED_VALID_FUNDING_INSTRUMENT", "Ocorreu um erro ao configurar este pagamento - a conta precisa de uma fonte de financiamento válida, como um banco ou um cartão de pagamento. Visite o site do PayPal para verificar a sua conta.");
-    c.put("PAYMENT_CREATION_ERROR_NEGATIVE_BALANCE", "Ocorreu um problema ao configurar este pagamento - o seu saldo está negativo. Visite o site do PayPal para verificar a sua conta.");
-    c.put("PAYMENT_CREATION_ERROR_SENDING_LIMIT_REACHED", "Ocorreu um problema ao configurar este pagamento - já atingiu o limite de envio. Visite o site do PayPal para verificar a sua conta.");
-    c.put("AUTH_RC_RISK_FAILURE", "Recusado devido a risco.");
-    c.put("AUTH_RC_OFAC_BLOCKED_IP", "Cliente não autorizado.");
-    c.put("AUTH_RC_IP_COMPLIANCE_FAILURE", "Cliente não autorizado.");
-    c.put("invalid_user", "Nome de utilizador ou palavra-passe incorrecto. Tente novamente.");
-    c.put("locked_user", "A sua conta PayPal foi bloqueada temporariamente. Tente de novo mais tarde ou entre em www.paypal.com para desbloquear imediatamente a sua conta PayPal.");
-    c.put("max_attempts_exceeded", "Demasiadas tentativas de início de sessão falhadas. Tente novamente mais tarde.");
-    c.put("invalid_request", "Ocorreu um erro.");
-    c.put("unauthorized_client", "Pedido não autorizado.");
-    c.put("access_denied", "Pedido não autorizado.");
-    c.put("unsupported_response_type", "Ocorreu um erro.");
-    c.put("invalid_scope", "Pedido não autorizado.");
-    c.put("server_error", "Erro de sistema. Tente novamente mais tarde.");
-    c.put("temporarily_unavailable", "Erro de sistema. Tente novamente mais tarde.");
-    c.put("stepup_required", "Neste momento não é possível concluir o seu início de sessão. Volte a tentar mais tarde ou entre em www.paypal.com caso tenha alguma questão sobre a sua conta PayPal relacionada com segurança.");
+    a = paramString;
+    b = paramList;
+    c = new ArrayList();
+    d = paramHandler;
+    e = paramBoolean;
+    f = null;
   }
   
-  public final String a()
+  /* Error */
+  public final void run()
   {
-    return "pt";
-  }
-  
-  public final String a(String paramString)
-  {
-    return (String)c.get(paramString);
+    // Byte code:
+    //   0: aconst_null
+    //   1: astore 4
+    //   3: aconst_null
+    //   4: astore_3
+    //   5: aload_0
+    //   6: getfield 31	bso:d	Landroid/os/Handler;
+    //   9: ifnonnull +4 -> 13
+    //   12: return
+    //   13: aload_0
+    //   14: getfield 31	bso:d	Landroid/os/Handler;
+    //   17: aload_0
+    //   18: getfield 31	bso:d	Landroid/os/Handler;
+    //   21: iconst_0
+    //   22: aload_0
+    //   23: getfield 22	bso:a	Ljava/lang/String;
+    //   26: invokestatic 45	android/os/Message:obtain	(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
+    //   29: invokevirtual 51	android/os/Handler:sendMessage	(Landroid/os/Message;)Z
+    //   32: pop
+    //   33: aload_0
+    //   34: getfield 33	bso:e	Z
+    //   37: ifne +24 -> 61
+    //   40: aload_0
+    //   41: getfield 29	bso:c	Ljava/util/List;
+    //   44: new 53	org/apache/http/message/BasicNameValuePair
+    //   47: dup
+    //   48: ldc 55
+    //   50: ldc 57
+    //   52: invokespecial 60	org/apache/http/message/BasicNameValuePair:<init>	(Ljava/lang/String;Ljava/lang/String;)V
+    //   55: invokeinterface 66 2 0
+    //   60: pop
+    //   61: aload_0
+    //   62: getfield 29	bso:c	Ljava/util/List;
+    //   65: new 53	org/apache/http/message/BasicNameValuePair
+    //   68: dup
+    //   69: ldc 68
+    //   71: ldc 70
+    //   73: invokespecial 60	org/apache/http/message/BasicNameValuePair:<init>	(Ljava/lang/String;Ljava/lang/String;)V
+    //   76: invokeinterface 66 2 0
+    //   81: pop
+    //   82: aload_0
+    //   83: getfield 29	bso:c	Ljava/util/List;
+    //   86: new 53	org/apache/http/message/BasicNameValuePair
+    //   89: dup
+    //   90: ldc 72
+    //   92: ldc 70
+    //   94: invokespecial 60	org/apache/http/message/BasicNameValuePair:<init>	(Ljava/lang/String;Ljava/lang/String;)V
+    //   97: invokeinterface 66 2 0
+    //   102: pop
+    //   103: aload_0
+    //   104: getfield 29	bso:c	Ljava/util/List;
+    //   107: new 53	org/apache/http/message/BasicNameValuePair
+    //   110: dup
+    //   111: ldc 74
+    //   113: ldc 76
+    //   115: invokespecial 60	org/apache/http/message/BasicNameValuePair:<init>	(Ljava/lang/String;Ljava/lang/String;)V
+    //   118: invokeinterface 66 2 0
+    //   123: pop
+    //   124: aload_0
+    //   125: getfield 33	bso:e	Z
+    //   128: ifeq +180 -> 308
+    //   131: new 78	org/apache/http/impl/client/DefaultHttpClient
+    //   134: dup
+    //   135: invokespecial 79	org/apache/http/impl/client/DefaultHttpClient:<init>	()V
+    //   138: astore_1
+    //   139: aload_1
+    //   140: invokeinterface 85 1 0
+    //   145: invokeinterface 91 1 0
+    //   150: new 93	org/apache/http/conn/scheme/Scheme
+    //   153: dup
+    //   154: ldc 95
+    //   156: new 97	bsu
+    //   159: dup
+    //   160: invokespecial 98	bsu:<init>	()V
+    //   163: sipush 443
+    //   166: invokespecial 101	org/apache/http/conn/scheme/Scheme:<init>	(Ljava/lang/String;Lorg/apache/http/conn/scheme/SocketFactory;I)V
+    //   169: invokevirtual 107	org/apache/http/conn/scheme/SchemeRegistry:register	(Lorg/apache/http/conn/scheme/Scheme;)Lorg/apache/http/conn/scheme/Scheme;
+    //   172: pop
+    //   173: aload_1
+    //   174: invokeinterface 111 1 0
+    //   179: sipush 10000
+    //   182: invokestatic 117	org/apache/http/params/HttpConnectionParams:setSoTimeout	(Lorg/apache/http/params/HttpParams;I)V
+    //   185: aload_1
+    //   186: invokeinterface 111 1 0
+    //   191: sipush 10000
+    //   194: invokestatic 120	org/apache/http/params/HttpConnectionParams:setConnectionTimeout	(Lorg/apache/http/params/HttpParams;I)V
+    //   197: new 122	org/apache/http/client/methods/HttpPost
+    //   200: dup
+    //   201: aload_0
+    //   202: getfield 22	bso:a	Ljava/lang/String;
+    //   205: invokespecial 125	org/apache/http/client/methods/HttpPost:<init>	(Ljava/lang/String;)V
+    //   208: astore_2
+    //   209: aload_0
+    //   210: getfield 29	bso:c	Ljava/util/List;
+    //   213: invokeinterface 129 1 0
+    //   218: astore 5
+    //   220: aload 5
+    //   222: invokeinterface 135 1 0
+    //   227: ifeq +278 -> 505
+    //   230: aload 5
+    //   232: invokeinterface 139 1 0
+    //   237: checkcast 141	org/apache/http/NameValuePair
+    //   240: astore 6
+    //   242: aload_2
+    //   243: aload 6
+    //   245: invokeinterface 145 1 0
+    //   250: aload 6
+    //   252: invokeinterface 148 1 0
+    //   257: invokevirtual 151	org/apache/http/client/methods/HttpPost:addHeader	(Ljava/lang/String;Ljava/lang/String;)V
+    //   260: goto -40 -> 220
+    //   263: astore_2
+    //   264: aload_0
+    //   265: getfield 31	bso:d	Landroid/os/Handler;
+    //   268: aload_0
+    //   269: getfield 31	bso:d	Landroid/os/Handler;
+    //   272: iconst_1
+    //   273: aload_2
+    //   274: invokestatic 45	android/os/Message:obtain	(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
+    //   277: invokevirtual 51	android/os/Handler:sendMessage	(Landroid/os/Message;)Z
+    //   280: pop
+    //   281: aload_3
+    //   282: invokestatic 156	bwy:a	(Ljava/io/Closeable;)V
+    //   285: aload_1
+    //   286: ifnull +14 -> 300
+    //   289: aload_1
+    //   290: invokeinterface 85 1 0
+    //   295: invokeinterface 159 1 0
+    //   300: invokestatic 164	bsq:a	()Lbsq;
+    //   303: aload_0
+    //   304: invokevirtual 167	bsq:b	(Lbsp;)V
+    //   307: return
+    //   308: new 103	org/apache/http/conn/scheme/SchemeRegistry
+    //   311: dup
+    //   312: invokespecial 168	org/apache/http/conn/scheme/SchemeRegistry:<init>	()V
+    //   315: astore_1
+    //   316: aload_1
+    //   317: new 93	org/apache/http/conn/scheme/Scheme
+    //   320: dup
+    //   321: ldc -86
+    //   323: invokestatic 176	org/apache/http/conn/scheme/PlainSocketFactory:getSocketFactory	()Lorg/apache/http/conn/scheme/PlainSocketFactory;
+    //   326: bipush 80
+    //   328: invokespecial 101	org/apache/http/conn/scheme/Scheme:<init>	(Ljava/lang/String;Lorg/apache/http/conn/scheme/SocketFactory;I)V
+    //   331: invokevirtual 107	org/apache/http/conn/scheme/SchemeRegistry:register	(Lorg/apache/http/conn/scheme/Scheme;)Lorg/apache/http/conn/scheme/Scheme;
+    //   334: pop
+    //   335: aload_0
+    //   336: getfield 35	bso:f	Lorg/apache/http/conn/ssl/SSLSocketFactory;
+    //   339: ifnonnull +108 -> 447
+    //   342: aload_1
+    //   343: new 93	org/apache/http/conn/scheme/Scheme
+    //   346: dup
+    //   347: ldc 95
+    //   349: new 178	bsl
+    //   352: dup
+    //   353: invokespecial 179	bsl:<init>	()V
+    //   356: sipush 443
+    //   359: invokespecial 101	org/apache/http/conn/scheme/Scheme:<init>	(Ljava/lang/String;Lorg/apache/http/conn/scheme/SocketFactory;I)V
+    //   362: invokevirtual 107	org/apache/http/conn/scheme/SchemeRegistry:register	(Lorg/apache/http/conn/scheme/Scheme;)Lorg/apache/http/conn/scheme/Scheme;
+    //   365: pop
+    //   366: new 181	org/apache/http/params/BasicHttpParams
+    //   369: dup
+    //   370: invokespecial 182	org/apache/http/params/BasicHttpParams:<init>	()V
+    //   373: astore_2
+    //   374: aload_2
+    //   375: ldc -72
+    //   377: bipush 30
+    //   379: invokestatic 190	java/lang/Integer:valueOf	(I)Ljava/lang/Integer;
+    //   382: invokeinterface 196 3 0
+    //   387: pop
+    //   388: aload_2
+    //   389: ldc -58
+    //   391: new 200	org/apache/http/conn/params/ConnPerRouteBean
+    //   394: dup
+    //   395: bipush 30
+    //   397: invokespecial 203	org/apache/http/conn/params/ConnPerRouteBean:<init>	(I)V
+    //   400: invokeinterface 196 3 0
+    //   405: pop
+    //   406: aload_2
+    //   407: ldc -51
+    //   409: iconst_0
+    //   410: invokestatic 210	java/lang/Boolean:valueOf	(Z)Ljava/lang/Boolean;
+    //   413: invokeinterface 196 3 0
+    //   418: pop
+    //   419: aload_2
+    //   420: getstatic 216	org/apache/http/HttpVersion:HTTP_1_1	Lorg/apache/http/HttpVersion;
+    //   423: invokestatic 222	org/apache/http/params/HttpProtocolParams:setVersion	(Lorg/apache/http/params/HttpParams;Lorg/apache/http/ProtocolVersion;)V
+    //   426: new 78	org/apache/http/impl/client/DefaultHttpClient
+    //   429: dup
+    //   430: new 224	org/apache/http/impl/conn/tsccm/ThreadSafeClientConnManager
+    //   433: dup
+    //   434: aload_2
+    //   435: aload_1
+    //   436: invokespecial 227	org/apache/http/impl/conn/tsccm/ThreadSafeClientConnManager:<init>	(Lorg/apache/http/params/HttpParams;Lorg/apache/http/conn/scheme/SchemeRegistry;)V
+    //   439: aload_2
+    //   440: invokespecial 230	org/apache/http/impl/client/DefaultHttpClient:<init>	(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
+    //   443: astore_1
+    //   444: goto -271 -> 173
+    //   447: aload_1
+    //   448: new 93	org/apache/http/conn/scheme/Scheme
+    //   451: dup
+    //   452: ldc 95
+    //   454: aload_0
+    //   455: getfield 35	bso:f	Lorg/apache/http/conn/ssl/SSLSocketFactory;
+    //   458: sipush 443
+    //   461: invokespecial 101	org/apache/http/conn/scheme/Scheme:<init>	(Ljava/lang/String;Lorg/apache/http/conn/scheme/SocketFactory;I)V
+    //   464: invokevirtual 107	org/apache/http/conn/scheme/SchemeRegistry:register	(Lorg/apache/http/conn/scheme/Scheme;)Lorg/apache/http/conn/scheme/Scheme;
+    //   467: pop
+    //   468: goto -102 -> 366
+    //   471: astore_2
+    //   472: aconst_null
+    //   473: astore_1
+    //   474: aload 4
+    //   476: astore_3
+    //   477: aload_3
+    //   478: invokestatic 156	bwy:a	(Ljava/io/Closeable;)V
+    //   481: aload_1
+    //   482: ifnull +14 -> 496
+    //   485: aload_1
+    //   486: invokeinterface 85 1 0
+    //   491: invokeinterface 159 1 0
+    //   496: invokestatic 164	bsq:a	()Lbsq;
+    //   499: aload_0
+    //   500: invokevirtual 167	bsq:b	(Lbsp;)V
+    //   503: aload_2
+    //   504: athrow
+    //   505: aload_2
+    //   506: new 232	org/apache/http/client/entity/UrlEncodedFormEntity
+    //   509: dup
+    //   510: aload_0
+    //   511: getfield 24	bso:b	Ljava/util/List;
+    //   514: ldc -22
+    //   516: invokespecial 237	org/apache/http/client/entity/UrlEncodedFormEntity:<init>	(Ljava/util/List;Ljava/lang/String;)V
+    //   519: invokevirtual 241	org/apache/http/client/methods/HttpPost:setEntity	(Lorg/apache/http/HttpEntity;)V
+    //   522: new 243	java/io/BufferedReader
+    //   525: dup
+    //   526: new 245	java/io/InputStreamReader
+    //   529: dup
+    //   530: aload_1
+    //   531: aload_2
+    //   532: invokeinterface 249 2 0
+    //   537: invokeinterface 255 1 0
+    //   542: invokeinterface 261 1 0
+    //   547: ldc -22
+    //   549: invokespecial 264	java/io/InputStreamReader:<init>	(Ljava/io/InputStream;Ljava/lang/String;)V
+    //   552: invokespecial 267	java/io/BufferedReader:<init>	(Ljava/io/Reader;)V
+    //   555: astore_2
+    //   556: new 269	java/lang/StringBuilder
+    //   559: dup
+    //   560: invokespecial 270	java/lang/StringBuilder:<init>	()V
+    //   563: astore_3
+    //   564: aload_2
+    //   565: invokevirtual 273	java/io/BufferedReader:readLine	()Ljava/lang/String;
+    //   568: astore 4
+    //   570: aload 4
+    //   572: ifnull +13 -> 585
+    //   575: aload_3
+    //   576: aload 4
+    //   578: invokevirtual 277	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   581: pop
+    //   582: goto -18 -> 564
+    //   585: aload_0
+    //   586: getfield 31	bso:d	Landroid/os/Handler;
+    //   589: aload_0
+    //   590: getfield 31	bso:d	Landroid/os/Handler;
+    //   593: iconst_2
+    //   594: aload_3
+    //   595: invokevirtual 280	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   598: invokestatic 45	android/os/Message:obtain	(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
+    //   601: invokevirtual 51	android/os/Handler:sendMessage	(Landroid/os/Message;)Z
+    //   604: pop
+    //   605: aload_2
+    //   606: invokestatic 156	bwy:a	(Ljava/io/Closeable;)V
+    //   609: aload_1
+    //   610: invokeinterface 85 1 0
+    //   615: invokeinterface 159 1 0
+    //   620: invokestatic 164	bsq:a	()Lbsq;
+    //   623: aload_0
+    //   624: invokevirtual 167	bsq:b	(Lbsp;)V
+    //   627: return
+    //   628: astore_2
+    //   629: aload 4
+    //   631: astore_3
+    //   632: goto -155 -> 477
+    //   635: astore_2
+    //   636: aload 4
+    //   638: astore_3
+    //   639: goto -162 -> 477
+    //   642: astore 4
+    //   644: aload_2
+    //   645: astore_3
+    //   646: aload 4
+    //   648: astore_2
+    //   649: goto -172 -> 477
+    //   652: astore_2
+    //   653: goto -176 -> 477
+    //   656: astore_2
+    //   657: goto -393 -> 264
+    //   660: astore_2
+    //   661: aconst_null
+    //   662: astore_1
+    //   663: goto -399 -> 264
+    //   666: astore 4
+    //   668: aload_2
+    //   669: astore_3
+    //   670: aload 4
+    //   672: astore_2
+    //   673: goto -409 -> 264
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	676	0	this	bso
+    //   138	525	1	localObject1	Object
+    //   208	35	2	localHttpPost	org.apache.http.client.methods.HttpPost
+    //   263	11	2	localException1	Exception
+    //   373	67	2	localBasicHttpParams	org.apache.http.params.BasicHttpParams
+    //   471	61	2	localHttpUriRequest	org.apache.http.client.methods.HttpUriRequest
+    //   555	51	2	localBufferedReader	java.io.BufferedReader
+    //   628	1	2	localObject2	Object
+    //   635	10	2	localObject3	Object
+    //   648	1	2	localObject4	Object
+    //   652	1	2	localObject5	Object
+    //   656	1	2	localException2	Exception
+    //   660	9	2	localException3	Exception
+    //   672	1	2	localException4	Exception
+    //   4	666	3	localObject6	Object
+    //   1	636	4	str	String
+    //   642	5	4	localObject7	Object
+    //   666	5	4	localException5	Exception
+    //   218	13	5	localIterator	java.util.Iterator
+    //   240	11	6	localNameValuePair	org.apache.http.NameValuePair
+    // Exception table:
+    //   from	to	target	type
+    //   173	220	263	java/lang/Exception
+    //   220	260	263	java/lang/Exception
+    //   505	556	263	java/lang/Exception
+    //   13	61	471	finally
+    //   61	139	471	finally
+    //   308	366	471	finally
+    //   366	444	471	finally
+    //   447	468	471	finally
+    //   139	173	628	finally
+    //   173	220	635	finally
+    //   220	260	635	finally
+    //   505	556	635	finally
+    //   556	564	642	finally
+    //   564	570	642	finally
+    //   575	582	642	finally
+    //   585	605	642	finally
+    //   264	281	652	finally
+    //   139	173	656	java/lang/Exception
+    //   13	61	660	java/lang/Exception
+    //   61	139	660	java/lang/Exception
+    //   308	366	660	java/lang/Exception
+    //   366	444	660	java/lang/Exception
+    //   447	468	660	java/lang/Exception
+    //   556	564	666	java/lang/Exception
+    //   564	570	666	java/lang/Exception
+    //   575	582	666	java/lang/Exception
+    //   585	605	666	java/lang/Exception
   }
 }
 

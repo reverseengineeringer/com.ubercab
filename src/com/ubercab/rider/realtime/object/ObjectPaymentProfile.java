@@ -5,11 +5,11 @@ import com.ubercab.shape.Shape;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
-import jtz;
+import mzh;
 
 @Shape
 abstract class ObjectPaymentProfile
-  implements jtz
+  implements mzh
 {
   public static final PaymentProfile GOOGLE_WALLET = ;
   

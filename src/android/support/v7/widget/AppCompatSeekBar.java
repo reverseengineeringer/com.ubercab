@@ -3,26 +3,24 @@ package android.support.v7.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
-import bp;
-import fi;
-import it;
+import gd;
+import jt;
+import ka;
 
 public class AppCompatSeekBar
   extends SeekBar
 {
-  private fi a;
-  private it b;
+  private ka a = new ka(this, b);
+  private jt b = jt.a();
   
   public AppCompatSeekBar(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, bp.seekBarStyle);
+    this(paramContext, paramAttributeSet, gd.seekBarStyle);
   }
   
   public AppCompatSeekBar(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    b = it.a(paramContext);
-    a = new fi(this, b);
     a.a(paramAttributeSet, paramInt);
   }
 }

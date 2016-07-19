@@ -1,26 +1,13 @@
-import android.content.Context;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient.Info;
+import java.util.HashSet;
 
 final class bvg
-  implements Runnable
+  extends HashSet
 {
-  bvg(Context paramContext, btj parambtj) {}
-  
-  public final void run()
+  bvg()
   {
-    try
-    {
-      AdvertisingIdClient.Info localInfo = AdvertisingIdClient.getAdvertisingIdInfo(a);
-      b.W = localInfo.getId();
-      return;
-    }
-    catch (Throwable localThrowable)
-    {
-      bvf.h();
-      localThrowable.getLocalizedMessage();
-      bvf.a();
-    }
+    add("he");
+    add("ar");
+    add("en_IL");
   }
 }
 

@@ -1,6 +1,25 @@
-public enum brw
+import java.io.InputStream;
+import java.util.zip.GZIPInputStream;
+import org.apache.http.HttpEntity;
+import org.apache.http.entity.HttpEntityWrapper;
+
+final class brw
+  extends HttpEntityWrapper
 {
-  private brw() {}
+  public brw(HttpEntity paramHttpEntity)
+  {
+    super(paramHttpEntity);
+  }
+  
+  public final InputStream getContent()
+  {
+    return new GZIPInputStream(wrappedEntity.getContent());
+  }
+  
+  public final long getContentLength()
+  {
+    return -1L;
+  }
 }
 
 /* Location:

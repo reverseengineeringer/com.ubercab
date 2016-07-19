@@ -1,136 +1,521 @@
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.PowerManager;
+import android.location.Location;
+import android.os.Binder;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.CircleOptions;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.maps.model.TileOverlayOptions;
 
-public final class aun
+public abstract class aun
+  extends Binder
+  implements aum
 {
-  private static IntentFilter a = new IntentFilter("android.intent.action.BATTERY_CHANGED");
-  private static long b;
-  private static float c = NaN.0F;
-  
-  @TargetApi(20)
-  public static int a(Context paramContext)
+  public static aum a(IBinder paramIBinder)
   {
-    int k = 1;
-    if ((paramContext == null) || (paramContext.getApplicationContext() == null)) {
-      return -1;
+    if (paramIBinder == null) {
+      return null;
     }
-    Intent localIntent = paramContext.getApplicationContext().registerReceiver(null, a);
-    if (localIntent == null)
-    {
-      i = 0;
-      if ((i & 0x7) == 0) {
-        break label72;
-      }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+    if ((localIInterface != null) && ((localIInterface instanceof aum))) {
+      return (aum)localIInterface;
     }
-    label72:
-    for (int i = 1;; i = 0)
-    {
-      paramContext = (PowerManager)paramContext.getSystemService("power");
-      if (paramContext != null) {
-        break label77;
-      }
-      return -1;
-      i = localIntent.getIntExtra("plugged", 0);
-      break;
-    }
-    label77:
-    boolean bool;
-    int j;
-    if (auu.g())
-    {
-      bool = paramContext.isInteractive();
-      if (!bool) {
-        break label117;
-      }
-      j = 1;
-      label96:
-      if (i == 0) {
-        break label122;
-      }
-    }
-    label117:
-    label122:
-    for (i = k;; i = 0)
-    {
-      return j << 1 | i;
-      bool = paramContext.isScreenOn();
-      break;
-      j = 0;
-      break label96;
-    }
+    return new auo(paramIBinder);
   }
   
-  /* Error */
-  public static float b(Context paramContext)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    // Byte code:
-    //   0: ldc 2
-    //   2: monitorenter
-    //   3: invokestatic 76	android/os/SystemClock:elapsedRealtime	()J
-    //   6: getstatic 78	aun:b	J
-    //   9: lsub
-    //   10: ldc2_w 79
-    //   13: lcmp
-    //   14: ifge +21 -> 35
-    //   17: getstatic 25	aun:c	F
-    //   20: ldc 23
-    //   22: fcmpl
-    //   23: ifeq +12 -> 35
-    //   26: getstatic 25	aun:c	F
-    //   29: fstore_1
-    //   30: ldc 2
-    //   32: monitorexit
-    //   33: fload_1
-    //   34: freturn
-    //   35: aload_0
-    //   36: invokevirtual 36	android/content/Context:getApplicationContext	()Landroid/content/Context;
-    //   39: aconst_null
-    //   40: getstatic 22	aun:a	Landroid/content/IntentFilter;
-    //   43: invokevirtual 40	android/content/Context:registerReceiver	(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-    //   46: astore_0
-    //   47: aload_0
-    //   48: ifnull +27 -> 75
-    //   51: aload_0
-    //   52: ldc 82
-    //   54: iconst_m1
-    //   55: invokevirtual 56	android/content/Intent:getIntExtra	(Ljava/lang/String;I)I
-    //   58: istore_2
-    //   59: aload_0
-    //   60: ldc 84
-    //   62: iconst_m1
-    //   63: invokevirtual 56	android/content/Intent:getIntExtra	(Ljava/lang/String;I)I
-    //   66: istore_3
-    //   67: iload_2
-    //   68: i2f
-    //   69: iload_3
-    //   70: i2f
-    //   71: fdiv
-    //   72: putstatic 25	aun:c	F
-    //   75: invokestatic 76	android/os/SystemClock:elapsedRealtime	()J
-    //   78: putstatic 78	aun:b	J
-    //   81: getstatic 25	aun:c	F
-    //   84: fstore_1
-    //   85: goto -55 -> 30
-    //   88: astore_0
-    //   89: ldc 2
-    //   91: monitorexit
-    //   92: aload_0
-    //   93: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	94	0	paramContext	Context
-    //   29	56	1	f	float
-    //   58	10	2	i	int
-    //   66	4	3	j	int
-    // Exception table:
-    //   from	to	target	type
-    //   3	30	88	finally
-    //   35	47	88	finally
-    //   51	75	88	finally
-    //   75	85	88	finally
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    boolean bool2 = false;
+    int m = 0;
+    boolean bool3 = false;
+    int n = 0;
+    boolean bool1 = false;
+    Object localObject6 = null;
+    Object localObject2 = null;
+    Object localObject3 = null;
+    Object localObject4 = null;
+    Object localObject7 = null;
+    Object localObject8 = null;
+    Object localObject5 = null;
+    Object localObject9 = null;
+    Object localObject1 = null;
+    float f;
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      paramParcel1 = a();
+      paramParcel2.writeNoException();
+      if (paramParcel1 != null)
+      {
+        paramParcel2.writeInt(1);
+        paramParcel1.writeToParcel(paramParcel2, 1);
+        return true;
+      }
+      paramParcel2.writeInt(0);
+      return true;
+    case 2: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      f = b();
+      paramParcel2.writeNoException();
+      paramParcel2.writeFloat(f);
+      return true;
+    case 3: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      f = c();
+      paramParcel2.writeNoException();
+      paramParcel2.writeFloat(f);
+      return true;
+    case 4: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(acq.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 5: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      b(acq.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 6: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(acq.a(paramParcel1.readStrongBinder()), avx.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 7: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(acq.a(paramParcel1.readStrongBinder()), paramParcel1.readInt(), avx.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 8: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      d();
+      paramParcel2.writeNoException();
+      return true;
+    case 9: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {
+        localObject2 = PolylineOptions.CREATOR;
+      }
+      for (paramParcel1 = bal.a(paramParcel1);; paramParcel1 = null)
+      {
+        localObject2 = a(paramParcel1);
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject1;
+        if (localObject2 != null) {
+          paramParcel1 = ((azc)localObject2).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
+    case 10: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {}
+      for (paramParcel1 = PolygonOptions.CREATOR.a(paramParcel1);; paramParcel1 = null)
+      {
+        localObject1 = a(paramParcel1);
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject6;
+        if (localObject1 != null) {
+          paramParcel1 = ((azu)localObject1).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
+    case 11: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = MarkerOptions.CREATOR;
+      }
+      for (paramParcel1 = bai.a(paramParcel1);; paramParcel1 = null)
+      {
+        localObject1 = a(paramParcel1);
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject2;
+        if (localObject1 != null) {
+          paramParcel1 = ((azr)localObject1).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
+    case 12: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = GroundOverlayOptions.CREATOR;
+      }
+      for (paramParcel1 = baf.a(paramParcel1);; paramParcel1 = null)
+      {
+        localObject1 = a(paramParcel1);
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject3;
+        if (localObject1 != null) {
+          paramParcel1 = ((azl)localObject1).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
+    case 13: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = TileOverlayOptions.CREATOR;
+      }
+      for (paramParcel1 = bar.a(paramParcel1);; paramParcel1 = null)
+      {
+        localObject1 = a(paramParcel1);
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject4;
+        if (localObject1 != null) {
+          paramParcel1 = ((azx)localObject1).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
+    case 14: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      e();
+      paramParcel2.writeNoException();
+      return true;
+    case 15: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      paramInt1 = f();
+      paramParcel2.writeNoException();
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 16: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      return true;
+    case 17: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      bool1 = g();
+      paramParcel2.writeNoException();
+      if (bool1) {}
+      for (paramInt1 = 1;; paramInt1 = 0)
+      {
+        paramParcel2.writeInt(paramInt1);
+        return true;
+      }
+    case 18: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      a(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 19: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      bool1 = h();
+      paramParcel2.writeNoException();
+      paramInt1 = i;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 20: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {}
+      for (bool1 = true;; bool1 = false)
+      {
+        bool1 = b(bool1);
+        paramParcel2.writeNoException();
+        paramInt1 = j;
+        if (bool1) {
+          paramInt1 = 1;
+        }
+        paramParcel2.writeInt(paramInt1);
+        return true;
+      }
+    case 21: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      bool1 = i();
+      paramParcel2.writeNoException();
+      paramInt1 = k;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 22: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      bool1 = bool2;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      c(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 23: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      paramParcel1 = j();
+      paramParcel2.writeNoException();
+      if (paramParcel1 != null)
+      {
+        paramParcel2.writeInt(1);
+        paramParcel1.writeToParcel(paramParcel2, 1);
+        return true;
+      }
+      paramParcel2.writeInt(0);
+      return true;
+    case 24: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(auq.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 25: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      localObject1 = k();
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject7;
+      if (localObject1 != null) {
+        paramParcel1 = ((avk)localObject1).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 26: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      localObject1 = l();
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject8;
+      if (localObject1 != null) {
+        paramParcel1 = ((auy)localObject1).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 27: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(awg.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 28: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(axb.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 29: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(axh.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 30: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(axn.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 31: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(axq.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 32: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(awp.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 33: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(awd.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 35: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {
+        localObject1 = CircleOptions.CREATOR;
+      }
+      for (paramParcel1 = bae.a(paramParcel1);; paramParcel1 = null)
+      {
+        localObject1 = a(paramParcel1);
+        paramParcel2.writeNoException();
+        paramParcel1 = (Parcel)localObject5;
+        if (localObject1 != null) {
+          paramParcel1 = ((azi)localObject1).asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      }
+    case 36: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(axw.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 37: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(axt.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 38: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(avt.a(paramParcel1.readStrongBinder()), acq.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 39: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(paramParcel1.readInt(), paramParcel1.readInt(), paramParcel1.readInt(), paramParcel1.readInt());
+      paramParcel2.writeNoException();
+      return true;
+    case 40: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      bool1 = m();
+      paramParcel2.writeNoException();
+      paramInt1 = m;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 41: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      bool1 = bool3;
+      if (paramParcel1.readInt() != 0) {
+        bool1 = true;
+      }
+      d(bool1);
+      paramParcel2.writeNoException();
+      return true;
+    case 42: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(axe.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 44: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      localObject1 = n();
+      paramParcel2.writeNoException();
+      paramParcel1 = (Parcel)localObject9;
+      if (localObject1 != null) {
+        paramParcel1 = ((azo)localObject1).asBinder();
+      }
+      paramParcel2.writeStrongBinder(paramParcel1);
+      return true;
+    case 45: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(awm.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 53: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(axk.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 54: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {}
+      for (paramParcel1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+      {
+        a(paramParcel1);
+        paramParcel2.writeNoException();
+        return true;
+      }
+    case 55: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      o();
+      paramParcel2.writeNoException();
+      return true;
+    case 56: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      p();
+      paramParcel2.writeNoException();
+      return true;
+    case 57: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      q();
+      paramParcel2.writeNoException();
+      return true;
+    case 58: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      r();
+      paramParcel2.writeNoException();
+      return true;
+    case 59: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      bool1 = s();
+      paramParcel2.writeNoException();
+      paramInt1 = n;
+      if (bool1) {
+        paramInt1 = 1;
+      }
+      paramParcel2.writeInt(paramInt1);
+      return true;
+    case 60: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {}
+      for (paramParcel1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+      {
+        b(paramParcel1);
+        paramParcel2.writeNoException();
+        if (paramParcel1 == null) {
+          break;
+        }
+        paramParcel2.writeInt(1);
+        paramParcel1.writeToParcel(paramParcel2, 1);
+        return true;
+      }
+      paramParcel2.writeInt(0);
+      return true;
+    case 61: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(paramParcel1.readString());
+      paramParcel2.writeNoException();
+      return true;
+    case 80: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(axz.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 81: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      if (paramParcel1.readInt() != 0) {}
+      for (paramParcel1 = (Bundle)Bundle.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+      {
+        c(paramParcel1);
+        paramParcel2.writeNoException();
+        return true;
+      }
+    case 82: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      t();
+      paramParcel2.writeNoException();
+      return true;
+    case 83: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(awj.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 84: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(awv.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 85: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(ayc.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    case 86: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+      a(aws.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.IGoogleMapDelegate");
+    a(ayf.a(paramParcel1.readStrongBinder()));
+    paramParcel2.writeNoException();
+    return true;
   }
 }
 

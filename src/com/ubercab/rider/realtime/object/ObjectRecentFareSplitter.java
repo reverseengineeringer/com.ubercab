@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jue;
+import mzm;
 
 @Shape
 abstract class ObjectRecentFareSplitter
-  implements jue
+  implements mzm
 {}
 
 /* Location:

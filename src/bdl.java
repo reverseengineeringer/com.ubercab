@@ -1,75 +1,65 @@
-import android.os.IBinder;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.plus.internal.model.people.PersonEntity.AgeRangeEntity;
+import java.util.HashSet;
+import java.util.Set;
 
-final class bdl
-  implements bdj
+public final class bdl
+  implements Parcelable.Creator<PersonEntity.AgeRangeEntity>
 {
-  private IBinder a;
-  
-  bdl(IBinder paramIBinder)
+  private static PersonEntity.AgeRangeEntity a(Parcel paramParcel)
   {
-    a = paramIBinder;
+    int k = 0;
+    int m = zd.b(paramParcel);
+    HashSet localHashSet = new HashSet();
+    int j = 0;
+    int i = 0;
+    while (paramParcel.dataPosition() < m)
+    {
+      int n = zd.a(paramParcel);
+      switch (zd.a(n))
+      {
+      default: 
+        zd.a(paramParcel, n);
+        break;
+      case 1: 
+        i = zd.e(paramParcel, n);
+        localHashSet.add(Integer.valueOf(1));
+        break;
+      case 2: 
+        j = zd.e(paramParcel, n);
+        localHashSet.add(Integer.valueOf(2));
+        break;
+      case 3: 
+        k = zd.e(paramParcel, n);
+        localHashSet.add(Integer.valueOf(3));
+      }
+    }
+    if (paramParcel.dataPosition() != m) {
+      throw new ze("Overread allowed size end=" + m, paramParcel);
+    }
+    return new PersonEntity.AgeRangeEntity(localHashSet, i, j, k);
   }
   
-  /* Error */
-  public final void a(bcu parambcu)
+  public static void a(PersonEntity.AgeRangeEntity paramAgeRangeEntity, Parcel paramParcel)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +42 -> 57
-    //   18: aload_1
-    //   19: invokeinterface 35 1 0
-    //   24: astore_1
-    //   25: aload_2
-    //   26: aload_1
-    //   27: invokevirtual 38	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
-    //   30: aload_0
-    //   31: getfield 15	bdl:a	Landroid/os/IBinder;
-    //   34: iconst_1
-    //   35: aload_2
-    //   36: aload_3
-    //   37: iconst_0
-    //   38: invokeinterface 44 5 0
-    //   43: pop
-    //   44: aload_3
-    //   45: invokevirtual 47	android/os/Parcel:readException	()V
-    //   48: aload_3
-    //   49: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   52: aload_2
-    //   53: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   56: return
-    //   57: aconst_null
-    //   58: astore_1
-    //   59: goto -34 -> 25
-    //   62: astore_1
-    //   63: aload_3
-    //   64: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   67: aload_2
-    //   68: invokevirtual 50	android/os/Parcel:recycle	()V
-    //   71: aload_1
-    //   72: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	73	0	this	bdl
-    //   0	73	1	parambcu	bcu
-    //   3	65	2	localParcel1	android.os.Parcel
-    //   7	57	3	localParcel2	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	62	finally
-    //   18	25	62	finally
-    //   25	48	62	finally
+    int i = zf.a(paramParcel);
+    Set localSet = a;
+    if (localSet.contains(Integer.valueOf(1))) {
+      zf.a(paramParcel, 1, b);
+    }
+    if (localSet.contains(Integer.valueOf(2))) {
+      zf.a(paramParcel, 2, c);
+    }
+    if (localSet.contains(Integer.valueOf(3))) {
+      zf.a(paramParcel, 3, d);
+    }
+    zf.a(paramParcel, i);
   }
   
-  public final IBinder asBinder()
+  private static PersonEntity.AgeRangeEntity[] a(int paramInt)
   {
-    return a;
+    return new PersonEntity.AgeRangeEntity[paramInt];
   }
 }
 

@@ -1,11 +1,11 @@
 package com.ubercab.reporting.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jqv;
+import mpe;
 
 @Shape
 public abstract class ObjectMapping
-  implements jqv
+  implements mpe
 {
   static ObjectMapping create()
   {

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:background="@color/ub__uber_white_20" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <android.support.v7.widget.Toolbar android:theme="@style/ThemeOverlay.AppCompat.ActionBar" android:id="@id/ub__life_home_toolbar" android:background="@color/ub__white" android:layout_width="fill_parent" android:layout_height="?actionBarSize" android:title="@string/ub__rewards_newlife" app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            <LinearLayout android:gravity="center|right" android:layout_gravity="right" android:orientation="horizontal" android:id="@id/ub__life_home_uip_link" android:paddingRight="@dimen/ui__spacing_unit_2x" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <ImageView android:layout_width="@dimen/ui__icon_small" android:layout_height="@dimen/ui__icon_small" android:src="@drawable/ub__life_uip_coin" android:scaleType="fitXY" android:adjustViewBounds="true" />
+                <com.ubercab.ui.TextView android:textColor="@color/ub__black" android:id="@id/ub__life_home_uip_points" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ui__spacing_unit_1x" android:text="" style="@style/Uber.TextAppearance.P" fontPath="@string/ub__font_book" />
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+        <FrameLayout android:id="@id/ub__life_uip_banner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ui__spacing_unit_2x" android:layout_marginBottom="@dimen/ui__spacing_unit_2x" />
+        <android.support.design.widget.TabLayout android:id="@id/ub__life_home_category_tab" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Uber.Life.Home.Category.TabLayout" />
+        <android.support.v4.view.ViewPager android:layout_gravity="fill_vertical" android:id="@id/ub__life_home_category_viewpager" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</FrameLayout>

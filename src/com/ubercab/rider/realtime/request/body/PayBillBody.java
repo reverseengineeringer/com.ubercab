@@ -10,7 +10,16 @@ public abstract class PayBillBody
     return new Shape_PayBillBody().setPaymentProfileUuid(paramString);
   }
   
+  public static PayBillBody create(String paramString, ExtraPaymentData paramExtraPaymentData)
+  {
+    return new Shape_PayBillBody().setExtraPaymentData(paramExtraPaymentData).setPaymentProfileUuid(paramString);
+  }
+  
+  public abstract ExtraPaymentData getExtraPaymentData();
+  
   public abstract String getPaymentProfileUuid();
+  
+  abstract PayBillBody setExtraPaymentData(ExtraPaymentData paramExtraPaymentData);
   
   abstract PayBillBody setPaymentProfileUuid(String paramString);
 }

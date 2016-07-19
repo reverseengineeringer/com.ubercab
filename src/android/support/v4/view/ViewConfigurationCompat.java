@@ -3,7 +3,7 @@ package android.support.v4.view;
 import android.os.Build.VERSION;
 import android.view.ViewConfiguration;
 
-public class ViewConfigurationCompat
+public final class ViewConfigurationCompat
 {
   static final ViewConfigurationCompat.ViewConfigurationVersionImpl IMPL = new ViewConfigurationCompat.BaseViewConfigurationVersionImpl();
   

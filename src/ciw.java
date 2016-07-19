@@ -1,47 +1,25 @@
-import android.os.Handler;
-import android.os.Process;
-import java.lang.ref.ReferenceQueue;
-
-final class ciw
-  extends Thread
+public enum ciw
 {
-  private final ReferenceQueue<?> a;
-  private final Handler b;
+  final int d;
   
-  ciw(ReferenceQueue<?> paramReferenceQueue, Handler paramHandler)
+  private ciw(int paramInt)
   {
-    a = paramReferenceQueue;
-    b = paramHandler;
-    setDaemon(true);
-    setName("Picasso-refQueue");
+    d = paramInt;
   }
   
-  public final void run()
+  public static boolean a(int paramInt)
   {
-    Process.setThreadPriority(10);
-    try
-    {
-      for (;;)
-      {
-        chr localchr = (chr)a.remove();
-        b.sendMessage(b.obtainMessage(3, a));
-      }
-      return;
-    }
-    catch (InterruptedException localInterruptedException)
-    {
-      return;
-    }
-    catch (Exception localException)
-    {
-      b.post(new Runnable()
-      {
-        public final void run()
-        {
-          throw new RuntimeException(localException);
-        }
-      });
-    }
+    return (ad & paramInt) == 0;
+  }
+  
+  public static boolean b(int paramInt)
+  {
+    return (bd & paramInt) == 0;
+  }
+  
+  public static boolean c(int paramInt)
+  {
+    return (cd & paramInt) != 0;
   }
 }
 

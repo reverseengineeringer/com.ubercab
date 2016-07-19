@@ -1,125 +1,51 @@
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.Build;
+import android.os.Build.VERSION;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public final class bbs
-  implements bdg
+  extends bcz
 {
-  private final ViewGroup a;
-  private final bco b;
-  private View c;
+  private long a;
+  private String b;
   
-  public bbs(ViewGroup paramViewGroup, bco parambco)
+  bbs(bcv parambcv)
   {
-    b = ((bco)abs.a(parambco));
-    a = ((ViewGroup)abs.a(paramViewGroup));
+    super(parambcv);
   }
   
-  public final void a()
+  protected final void a()
   {
-    try
-    {
-      b.b();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
+    Object localObject = Calendar.getInstance();
+    TimeUnit localTimeUnit = TimeUnit.MINUTES;
+    int i = ((Calendar)localObject).get(15);
+    a = localTimeUnit.convert(((Calendar)localObject).get(16) + i, TimeUnit.MILLISECONDS);
+    localObject = Locale.getDefault();
+    b = (((Locale)localObject).getLanguage().toLowerCase(Locale.ENGLISH) + "-" + ((Locale)localObject).getCountry().toLowerCase(Locale.ENGLISH));
   }
   
-  public final void a(Bundle paramBundle)
+  public final String b()
   {
-    try
-    {
-      b.a(paramBundle);
-      c = ((View)adg.a(b.f()));
-      a.removeAllViews();
-      a.addView(c);
-      return;
-    }
-    catch (RemoteException paramBundle)
-    {
-      throw new bgs(paramBundle);
-    }
+    E();
+    return Build.MODEL;
   }
   
-  public final void a(final bbv parambbv)
+  public final String c()
   {
-    try
-    {
-      b.a(new bfe()
-      {
-        public final void a(bcf paramAnonymousbcf)
-        {
-          bbv localbbv = parambbv;
-          new bbk(paramAnonymousbcf);
-          localbbv.a();
-        }
-      });
-      return;
-    }
-    catch (RemoteException parambbv)
-    {
-      throw new bgs(parambbv);
-    }
+    E();
+    return Build.VERSION.RELEASE;
   }
   
-  public final void b()
+  public final long v()
   {
-    try
-    {
-      b.c();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
+    E();
+    return a;
   }
   
-  public final void b(Bundle paramBundle)
+  public final String w()
   {
-    try
-    {
-      b.b(paramBundle);
-      return;
-    }
-    catch (RemoteException paramBundle)
-    {
-      throw new bgs(paramBundle);
-    }
-  }
-  
-  public final void c()
-  {
-    try
-    {
-      b.d();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
-  
-  public final void d()
-  {
-    try
-    {
-      b.e();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new bgs(localRemoteException);
-    }
-  }
-  
-  public final bco e()
-  {
+    E();
     return b;
   }
 }

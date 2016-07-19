@@ -1,12 +1,16 @@
 package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface Metadata
 {
+  public abstract String getDiscountFareDifferenceString();
+  
   public abstract double getDiscountPercentage();
+  
+  public abstract String getDiscountString();
   
   public abstract String getFareType();
   

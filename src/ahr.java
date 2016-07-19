@@ -1,18 +1,10 @@
-@apl
-public final class ahr
-  extends ahp
+import android.os.IBinder;
+import android.os.IInterface;
+
+public abstract interface ahr
+  extends IInterface
 {
-  private final mh a;
-  
-  public ahr(mh parammh)
-  {
-    a = parammh;
-  }
-  
-  public final void a(ahl paramahl)
-  {
-    new ahk(paramahl);
-  }
+  public abstract IBinder a(acp paramacp);
 }
 
 /* Location:

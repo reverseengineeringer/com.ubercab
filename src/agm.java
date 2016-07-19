@@ -1,46 +1,62 @@
-import android.util.Base64OutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import android.os.IBinder;
+import android.os.Parcel;
 
 final class agm
+  implements agk
 {
-  ByteArrayOutputStream a = new ByteArrayOutputStream(4096);
-  Base64OutputStream b = new Base64OutputStream(a, 10);
+  private IBinder a;
   
-  public final void a(byte[] paramArrayOfByte)
+  agm(IBinder paramIBinder)
   {
-    b.write(paramArrayOfByte);
+    a = paramIBinder;
   }
   
-  public final String toString()
+  public final agn a(String paramString)
   {
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
     try
     {
-      b.close();
+      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IAdapterCreator");
+      localParcel1.writeString(paramString);
+      a.transact(1, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      paramString = ago.a(localParcel2.readStrongBinder());
+      return paramString;
     }
-    catch (IOException localIOException1)
+    finally
     {
-      for (;;)
-      {
-        try
-        {
-          a.close();
-          String str = a.toString();
-          return str;
-        }
-        catch (IOException localIOException2)
-        {
-          aqt.b("HashManager: Unable to convert to Base64.", localIOException2);
-          return "";
-        }
-        finally
-        {
-          a = null;
-          b = null;
-        }
-        localIOException1 = localIOException1;
-        aqt.b("HashManager: Unable to convert to Base64.", localIOException1);
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final IBinder asBinder()
+  {
+    return a;
+  }
+  
+  public final boolean b(String paramString)
+  {
+    boolean bool = false;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IAdapterCreator");
+      localParcel1.writeString(paramString);
+      a.transact(2, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      if (i != 0) {
+        bool = true;
       }
+      return bool;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
   }
 }

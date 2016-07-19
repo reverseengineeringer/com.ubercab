@@ -14,11 +14,7 @@ public abstract class Models
     return new Shape_Models();
   }
   
-  public abstract ArrayList<Subtitle> getRejectionSubtitles();
-  
   public abstract ArrayList<Subtitle> getSubtitles();
-  
-  public abstract Models setRejectionSubtitles(ArrayList<Subtitle> paramArrayList);
   
   public abstract Models setSubtitles(ArrayList<Subtitle> paramArrayList);
 }

@@ -1,7 +1,6 @@
 public abstract interface cgo
-  extends cgl
 {
-  public abstract void a(String paramString1, String paramString2);
+  public abstract String a(String paramString1, String paramString2);
 }
 
 /* Location:

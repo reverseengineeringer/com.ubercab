@@ -82,6 +82,11 @@ public final class BitmapDescriptor
     return b;
   }
   
+  public final Bitmap getBitmap()
+  {
+    return a;
+  }
+  
   public final void recycle()
   {
     if ((a != null) && (!a.isRecycled()))

@@ -1,53 +1,18 @@
-import android.os.IInterface;
-import com.google.android.gms.maps.model.LatLng;
-import java.util.List;
-
-public abstract interface bhn
-  extends IInterface
+final class bhn
+  extends bhj
 {
-  public abstract void a();
+  static final int o = Integer.numberOfLeadingZeros(31);
+  static final bhn p = new bhn();
   
-  public abstract void a(float paramFloat);
+  bhn()
+  {
+    super("CharMatcher.whitespace()");
+  }
   
-  public abstract void a(int paramInt);
-  
-  public abstract void a(List<LatLng> paramList);
-  
-  public abstract void a(boolean paramBoolean);
-  
-  public abstract boolean a(bhn parambhn);
-  
-  public abstract String b();
-  
-  public abstract void b(float paramFloat);
-  
-  public abstract void b(int paramInt);
-  
-  public abstract void b(List paramList);
-  
-  public abstract void b(boolean paramBoolean);
-  
-  public abstract List<LatLng> c();
-  
-  public abstract void c(boolean paramBoolean);
-  
-  public abstract List d();
-  
-  public abstract float e();
-  
-  public abstract int f();
-  
-  public abstract int g();
-  
-  public abstract float h();
-  
-  public abstract boolean i();
-  
-  public abstract boolean j();
-  
-  public abstract int k();
-  
-  public abstract boolean l();
+  public final boolean b(char paramChar)
+  {
+    return " 　\r   　 \013　   　 \t     \f 　 　　 \n 　".charAt(1682554634 * paramChar >>> o) == paramChar;
+  }
 }
 
 /* Location:

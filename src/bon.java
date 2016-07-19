@@ -1,43 +1,8 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.IsReadyToPayRequest;
+import java.io.InputStream;
 
-public final class bon
-  implements Parcelable.Creator<IsReadyToPayRequest>
+public abstract interface bon
 {
-  private static IsReadyToPayRequest a(Parcel paramParcel)
-  {
-    int j = zm.b(paramParcel);
-    int i = 0;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
-      {
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-      }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new IsReadyToPayRequest(i);
-  }
-  
-  public static void a(IsReadyToPayRequest paramIsReadyToPayRequest, Parcel paramParcel)
-  {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramIsReadyToPayRequest.a());
-    zo.a(paramParcel, i);
-  }
-  
-  private static IsReadyToPayRequest[] a(int paramInt)
-  {
-    return new IsReadyToPayRequest[paramInt];
-  }
+  public abstract InputStream a(String paramString);
 }
 
 /* Location:

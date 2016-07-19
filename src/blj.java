@@ -1,91 +1,104 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.plus.internal.model.moments.ItemScopeEntity;
-import com.google.android.gms.plus.internal.model.moments.MomentEntity;
-import java.util.HashSet;
-import java.util.Set;
+import java.lang.reflect.Field;
+import java.security.AccessController;
+import java.security.PrivilegedActionException;
+import java.security.PrivilegedExceptionAction;
+import sun.misc.Unsafe;
 
-public final class blj
-  implements Parcelable.Creator<MomentEntity>
+final class blj
+  extends blb
 {
-  private static MomentEntity a(Parcel paramParcel)
+  static final Unsafe a;
+  static final long b;
+  static final long c;
+  static final long d;
+  static final long e;
+  static final long f;
+  
+  static
   {
-    String str1 = null;
-    int j = zm.b(paramParcel);
-    HashSet localHashSet = new HashSet();
-    int i = 0;
-    ItemScopeEntity localItemScopeEntity1 = null;
-    String str2 = null;
-    ItemScopeEntity localItemScopeEntity2 = null;
-    String str3 = null;
-    while (paramParcel.dataPosition() < j)
+    try
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      localUnsafe1 = Unsafe.getUnsafe();
+    }
+    catch (SecurityException localSecurityException)
+    {
+      for (;;)
       {
-      case 3: 
-      default: 
-        zm.a(paramParcel, k);
-        break;
-      case 1: 
-        i = zm.e(paramParcel, k);
-        localHashSet.add(Integer.valueOf(1));
-        break;
-      case 2: 
-        str3 = zm.n(paramParcel, k);
-        localHashSet.add(Integer.valueOf(2));
-        break;
-      case 4: 
-        localItemScopeEntity2 = (ItemScopeEntity)zm.a(paramParcel, k, ItemScopeEntity.CREATOR);
-        localHashSet.add(Integer.valueOf(4));
-        break;
-      case 5: 
-        str2 = zm.n(paramParcel, k);
-        localHashSet.add(Integer.valueOf(5));
-        break;
-      case 6: 
-        localItemScopeEntity1 = (ItemScopeEntity)zm.a(paramParcel, k, ItemScopeEntity.CREATOR);
-        localHashSet.add(Integer.valueOf(6));
-        break;
-      case 7: 
-        str1 = zm.n(paramParcel, k);
-        localHashSet.add(Integer.valueOf(7));
+        try
+        {
+          Unsafe localUnsafe1;
+          c = localUnsafe1.objectFieldOffset(bla.class.getDeclaredField("waiters"));
+          b = localUnsafe1.objectFieldOffset(bla.class.getDeclaredField("listeners"));
+          d = localUnsafe1.objectFieldOffset(bla.class.getDeclaredField("value"));
+          e = localUnsafe1.objectFieldOffset(blk.class.getDeclaredField("b"));
+          f = localUnsafe1.objectFieldOffset(blk.class.getDeclaredField("c"));
+          a = localUnsafe1;
+          return;
+        }
+        catch (Exception localException)
+        {
+          throw bii.a(localException);
+        }
+        localSecurityException = localSecurityException;
+        try
+        {
+          Unsafe localUnsafe2 = (Unsafe)AccessController.doPrivileged(new PrivilegedExceptionAction()
+          {
+            private static Unsafe a()
+            {
+              Field[] arrayOfField = Unsafe.class.getDeclaredFields();
+              int j = arrayOfField.length;
+              int i = 0;
+              while (i < j)
+              {
+                Object localObject = arrayOfField[i];
+                ((Field)localObject).setAccessible(true);
+                localObject = ((Field)localObject).get(null);
+                if (Unsafe.class.isInstance(localObject)) {
+                  return (Unsafe)Unsafe.class.cast(localObject);
+                }
+                i += 1;
+              }
+              throw new NoSuchFieldError("the Unsafe");
+            }
+          });
+        }
+        catch (PrivilegedActionException localPrivilegedActionException)
+        {
+          throw new RuntimeException("Could not initialize intrinsics", localPrivilegedActionException.getCause());
+        }
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
-    }
-    return new MomentEntity(localHashSet, i, str3, localItemScopeEntity2, str2, localItemScopeEntity1, str1);
   }
   
-  public static void a(MomentEntity paramMomentEntity, Parcel paramParcel, int paramInt)
+  private blj()
   {
-    int i = zo.a(paramParcel);
-    Set localSet = a;
-    if (localSet.contains(Integer.valueOf(1))) {
-      zo.a(paramParcel, 1, b);
-    }
-    if (localSet.contains(Integer.valueOf(2))) {
-      zo.a(paramParcel, 2, c, true);
-    }
-    if (localSet.contains(Integer.valueOf(4))) {
-      zo.a(paramParcel, 4, d, paramInt, true);
-    }
-    if (localSet.contains(Integer.valueOf(5))) {
-      zo.a(paramParcel, 5, e, true);
-    }
-    if (localSet.contains(Integer.valueOf(6))) {
-      zo.a(paramParcel, 6, f, paramInt, true);
-    }
-    if (localSet.contains(Integer.valueOf(7))) {
-      zo.a(paramParcel, 7, g, true);
-    }
-    zo.a(paramParcel, i);
+    super((byte)0);
   }
   
-  private static MomentEntity[] a(int paramInt)
+  final void a(blk paramblk1, blk paramblk2)
   {
-    return new MomentEntity[paramInt];
+    a.putObject(paramblk1, f, paramblk2);
+  }
+  
+  final void a(blk paramblk, Thread paramThread)
+  {
+    a.putObject(paramblk, e, paramThread);
+  }
+  
+  final boolean a(bla<?> parambla, ble paramble1, ble paramble2)
+  {
+    return a.compareAndSwapObject(parambla, b, paramble1, paramble2);
+  }
+  
+  final boolean a(bla<?> parambla, blk paramblk1, blk paramblk2)
+  {
+    return a.compareAndSwapObject(parambla, c, paramblk1, paramblk2);
+  }
+  
+  final boolean a(bla<?> parambla, Object paramObject1, Object paramObject2)
+  {
+    return a.compareAndSwapObject(parambla, d, paramObject1, paramObject2);
   }
 }
 

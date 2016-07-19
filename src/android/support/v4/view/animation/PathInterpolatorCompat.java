@@ -4,7 +4,7 @@ import android.graphics.Path;
 import android.os.Build.VERSION;
 import android.view.animation.Interpolator;
 
-public class PathInterpolatorCompat
+public final class PathInterpolatorCompat
 {
   public static Interpolator create(float paramFloat1, float paramFloat2)
   {

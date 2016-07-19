@@ -6,9 +6,9 @@ import com.ubercab.rider.realtime.model.Image;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class TripVehicle
   implements com.ubercab.rider.realtime.model.TripVehicle
 {

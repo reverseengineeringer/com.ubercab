@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
-import bz;
+import gn;
 
 public class ActionBar$LayoutParams
   extends ViewGroup.MarginLayoutParams
@@ -21,8 +21,8 @@ public class ActionBar$LayoutParams
   public ActionBar$LayoutParams(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, bz.ActionBarLayout);
-    a = paramContext.getInt(bz.ActionBarLayout_android_layout_gravity, 0);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, gn.ActionBarLayout);
+    a = paramContext.getInt(gn.ActionBarLayout_android_layout_gravity, 0);
     paramContext.recycle();
   }
   

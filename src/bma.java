@@ -1,54 +1,84 @@
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.IInterface;
-import com.google.android.gms.common.server.FavaDiagnosticsEntity;
-import com.google.android.gms.common.server.response.SafeParcelResponse;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public abstract interface bma
-  extends IInterface
+public final class bma
+  extends bmd
+  implements Iterable<bmd>
 {
-  public abstract aba a(blu paramblu, int paramInt1, int paramInt2, int paramInt3, String paramString);
+  private final List<bmd> a = new ArrayList();
   
-  public abstract String a();
+  public final Number a()
+  {
+    if (a.size() == 1) {
+      return ((bmd)a.get(0)).a();
+    }
+    throw new IllegalStateException();
+  }
   
-  public abstract void a(blu paramblu);
+  public final void a(bmd parambmd)
+  {
+    Object localObject = parambmd;
+    if (parambmd == null) {
+      localObject = bmf.a;
+    }
+    a.add(localObject);
+  }
   
-  public abstract void a(blu paramblu, int paramInt, String paramString1, Uri paramUri, String paramString2, String paramString3);
+  public final String b()
+  {
+    if (a.size() == 1) {
+      return ((bmd)a.get(0)).b();
+    }
+    throw new IllegalStateException();
+  }
   
-  public abstract void a(blu paramblu, Uri paramUri, Bundle paramBundle);
+  public final double c()
+  {
+    if (a.size() == 1) {
+      return ((bmd)a.get(0)).c();
+    }
+    throw new IllegalStateException();
+  }
   
-  public abstract void a(blu paramblu, SafeParcelResponse paramSafeParcelResponse);
+  public final long d()
+  {
+    if (a.size() == 1) {
+      return ((bmd)a.get(0)).d();
+    }
+    throw new IllegalStateException();
+  }
   
-  public abstract void a(blu paramblu, String paramString);
+  public final int e()
+  {
+    if (a.size() == 1) {
+      return ((bmd)a.get(0)).e();
+    }
+    throw new IllegalStateException();
+  }
   
-  public abstract void a(blu paramblu, String paramString1, String paramString2);
+  public final boolean equals(Object paramObject)
+  {
+    return (paramObject == this) || (((paramObject instanceof bma)) && (a.equals(a)));
+  }
   
-  public abstract void a(blu paramblu, List<String> paramList);
+  public final boolean f()
+  {
+    if (a.size() == 1) {
+      return ((bmd)a.get(0)).f();
+    }
+    throw new IllegalStateException();
+  }
   
-  public abstract void a(SafeParcelResponse paramSafeParcelResponse);
+  public final int hashCode()
+  {
+    return a.hashCode();
+  }
   
-  public abstract void a(String paramString);
-  
-  public abstract void a(String paramString, FavaDiagnosticsEntity paramFavaDiagnosticsEntity1, FavaDiagnosticsEntity paramFavaDiagnosticsEntity2);
-  
-  public abstract void b();
-  
-  public abstract void b(blu paramblu);
-  
-  public abstract void b(blu paramblu, String paramString);
-  
-  public abstract String c();
-  
-  public abstract void c(blu paramblu, String paramString);
-  
-  public abstract void d(blu paramblu, String paramString);
-  
-  public abstract boolean d();
-  
-  public abstract String e();
-  
-  public abstract void e(blu paramblu, String paramString);
+  public final Iterator<bmd> iterator()
+  {
+    return a.iterator();
+  }
 }
 
 /* Location:

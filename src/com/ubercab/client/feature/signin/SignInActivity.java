@@ -4,89 +4,105 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.android.location.UberLatLng;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.app.RiderApplication;
 import com.ubercab.client.core.location.RiderLocation;
 import com.ubercab.rider.realtime.request.param.Location;
 import com.ubercab.rider.realtime.response.LoginResponse;
-import dtw;
-import dtx;
-import dty;
-import dux;
-import eav;
-import ebj;
-import ehl;
-import ekx;
-import eld;
-import end;
-import fmz;
-import gvn;
-import gvo;
-import gvx;
-import gvy;
-import gwd;
-import gwq;
-import ife;
-import joi;
-import kld;
-import r;
+import dzm;
+import dzn;
+import eaj;
+import ehn;
+import eib;
+import esp;
+import eut;
+import evg;
+import evh;
+import ezm;
+import igt;
+import igu;
+import ihd;
+import ihe;
+import ihl;
+import ihy;
+import khv;
+import mmg;
+import odr;
+import oed;
+import oeh;
+import z;
 
 public class SignInActivity
-  extends RiderActivity<gvx>
-  implements gwd
+  extends RiderActivity<ihd>
+  implements evh, ihl
 {
-  public ckc g;
-  public ekx h;
-  public fmz i;
-  public ife j;
-  public joi<Location> k;
-  public dtw l;
-  public end m;
-  public eld n;
-  public dtx o;
-  public RiderApplication p;
-  public ehl q;
-  public dty r;
+  public ckt g;
+  public esp h;
+  public khv i;
+  public mmg<Location> j;
+  public eut k;
+  public dzm l;
+  public RiderApplication m;
+  public evg n;
+  public dzn o;
+  private oed p;
   
-  private void a(gvx paramgvx)
+  private void a(ihd paramihd)
   {
-    paramgvx.a(this);
+    paramihd.a(this);
   }
   
   private void a(boolean paramBoolean)
   {
-    if (j.a(dux.hn, true)) {
-      m.g();
-    }
+    x();
     setResult(-1, new Intent().putExtra("created_account", paramBoolean));
     finish();
   }
   
-  private gvx b(ebj paramebj)
+  private void a(boolean paramBoolean, String paramString1, String paramString2, String paramString3)
   {
-    return gvn.a().a(new eav(this)).a(paramebj).a(new gvy(this)).a();
+    if (i.a(eaj.aU))
+    {
+      n.a(paramString1, paramString2, paramString3);
+      p = n.a().a(oeh.a()).b(new SignInActivity.2(this, paramBoolean));
+      return;
+    }
+    if ((!TextUtils.isEmpty(paramString2)) && (!TextUtils.isEmpty(paramString1))) {
+      m.a(paramString1, paramString2, paramString3);
+    }
+    if ((l.c() != null) && (l.c().getUberLatLng() != null)) {
+      paramString1 = l.c().getUberLatLng();
+    }
+    for (paramString1 = Location.create(paramString1.a(), paramString1.b());; paramString1 = null)
+    {
+      p = h.a(null, paramString1, j).a(oeh.a()).c(new SignInActivity.3(this, paramBoolean));
+      return;
+    }
+  }
+  
+  private ihd b(eib parameib)
+  {
+    return igt.a().a(new ehn(this)).a(parameib).a(new ihe(this)).a();
   }
   
   private void f()
   {
-    if (i.d()) {
-      overridePendingTransition(2130968589, 2130968607);
-    }
+    overridePendingTransition(2130968602, 2130968624);
   }
   
   private void g()
   {
-    g.a(r.iK);
+    g.a(z.lV);
   }
   
   private void h()
   {
     if (a(SignInFragment.class) == null) {
-      a(2131625552, new SignInFragment(), false);
+      a(2131626213, new SignInFragment(), false);
     }
   }
   
@@ -95,25 +111,20 @@ public class SignInActivity
     if (paramLoginResponse == null) {
       return;
     }
-    String str1 = paramLoginResponse.getUuid();
-    String str2 = paramLoginResponse.getToken();
-    paramLoginResponse = paramLoginResponse.getUsername();
-    p.a(str1, str2, paramLoginResponse);
-    if ((o.c() != null) && (o.c().getUberLatLng() != null)) {
-      paramLoginResponse = o.c().getUberLatLng();
-    }
-    for (paramLoginResponse = Location.create(paramLoginResponse.a(), paramLoginResponse.b());; paramLoginResponse = null)
-    {
-      h.a(null, paramLoginResponse, k).c(new SignInActivity.2(this, paramBoolean));
-      return;
-    }
+    a(paramBoolean, paramLoginResponse.getUuid(), paramLoginResponse.getToken(), paramLoginResponse.getUsername());
+  }
+  
+  public final void a(String paramString1, String paramString2, String paramString3)
+  {
+    n.a(paramString1, paramString2, paramString3);
+    p = n.a().a(oeh.a()).b(new SignInActivity.1(this));
   }
   
   protected final void b(Bundle paramBundle)
   {
     super.b(paramBundle);
-    setContentView(2130903581);
-    r.a(false);
+    setContentView(2130903793);
+    o.a(false);
     h();
   }
   
@@ -122,6 +133,12 @@ public class SignInActivity
     g();
     super.onBackPressed();
     f();
+  }
+  
+  protected void onDestroy()
+  {
+    ezm.a(p);
+    super.onDestroy();
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -135,28 +152,18 @@ public class SignInActivity
     return bool;
   }
   
-  @cho
-  public void onSignInSuccessfulEvent(gwq paramgwq)
+  @chu
+  public void onSignInSuccessfulEvent(ihy paramihy)
   {
-    if ((!TextUtils.isEmpty(paramgwq.b())) && (!TextUtils.isEmpty(paramgwq.c()))) {
-      p.a(paramgwq.c(), paramgwq.b(), null);
-    }
-    if ((o.c() != null) && (o.c().getUberLatLng() != null)) {
-      localObject = o.c().getUberLatLng();
-    }
-    for (Object localObject = Location.create(((UberLatLng)localObject).a(), ((UberLatLng)localObject).b());; localObject = null)
-    {
-      h.a(null, (Location)localObject, k).c(new SignInActivity.1(this, paramgwq));
-      return;
-    }
+    a(paramihy.a(), paramihy.c(), paramihy.b(), null);
   }
   
-  public final ckr u()
+  public final cli v()
   {
     return RiderActivity.a;
   }
   
-  protected final boolean v()
+  protected final boolean w()
   {
     return true;
   }

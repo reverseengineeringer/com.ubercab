@@ -1,30 +1,4 @@
-import android.view.View;
-
-public final class aft
-  implements age
-{
-  private pe a;
-  
-  public aft(pe parampe)
-  {
-    a = parampe;
-  }
-  
-  public final View a()
-  {
-    return a.e();
-  }
-  
-  public final boolean b()
-  {
-    return a == null;
-  }
-  
-  public final age c()
-  {
-    return this;
-  }
-}
+public abstract interface aft {}
 
 /* Location:
  * Qualified Name:     aft

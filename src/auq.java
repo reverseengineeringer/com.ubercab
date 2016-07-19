@@ -1,63 +1,43 @@
-import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
 
-public final class auq
+public abstract class auq
+  extends Binder
+  implements aup
 {
-  private static long a(InputStream paramInputStream, OutputStream paramOutputStream)
+  public static aup a(IBinder paramIBinder)
   {
-    return b(paramInputStream, paramOutputStream);
-  }
-  
-  public static void a(Closeable paramCloseable)
-  {
-    if (paramCloseable != null) {}
-    try
-    {
-      paramCloseable.close();
-      return;
+    if (paramIBinder == null) {
+      return null;
     }
-    catch (IOException paramCloseable) {}
-  }
-  
-  public static byte[] a(InputStream paramInputStream)
-  {
-    return b(paramInputStream);
-  }
-  
-  private static long b(InputStream paramInputStream, OutputStream paramOutputStream)
-  {
-    byte[] arrayOfByte = new byte['Ѐ'];
-    long l = 0L;
-    try
-    {
-      for (;;)
-      {
-        int i = paramInputStream.read(arrayOfByte, 0, 1024);
-        if (i == -1) {
-          break;
-        }
-        l += i;
-        paramOutputStream.write(arrayOfByte, 0, i);
-      }
-      a(paramInputStream);
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.maps.internal.ILocationSourceDelegate");
+    if ((localIInterface != null) && ((localIInterface instanceof aup))) {
+      return (aup)localIInterface;
     }
-    finally
-    {
-      a(paramInputStream);
-      a(paramOutputStream);
-    }
-    a(paramOutputStream);
-    return l;
+    return new aur(paramIBinder);
   }
   
-  private static byte[] b(InputStream paramInputStream)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
   {
-    ByteArrayOutputStream localByteArrayOutputStream = new ByteArrayOutputStream();
-    a(paramInputStream, localByteArrayOutputStream);
-    return localByteArrayOutputStream.toByteArray();
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.maps.internal.ILocationSourceDelegate");
+      return true;
+    case 1: 
+      paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ILocationSourceDelegate");
+      a(awy.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.maps.internal.ILocationSourceDelegate");
+    a();
+    paramParcel2.writeNoException();
+    return true;
   }
 }
 

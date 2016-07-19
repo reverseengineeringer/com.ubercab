@@ -1,21 +1,21 @@
 package com.ubercab.client.core.model;
 
-import bqa;
+import bmu;
 import com.ubercab.android.location.UberLatLng;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public final class ReverseGeocode
   implements com.ubercab.rider.realtime.model.ReverseGeocode
 {
   private String id = "";
   private double latitude = 0.0D;
-  @bqa(a="long")
+  @bmu(a="long")
   private String longName = "";
   private double longitude = 0.0D;
   private String nickname = "";
-  @bqa(a="short")
+  @bmu(a="short")
   private String shortName = "";
   
   public final boolean equals(Object paramObject)

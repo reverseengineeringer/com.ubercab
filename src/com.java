@@ -1,11 +1,17 @@
-import android.app.Application;
-import android.content.Context;
+import com.ubercab.android.m4.pipeline.model.TraceSpanEvent;
+import com.ubercab.shape.Shape;
 
-public abstract interface com
+@Shape
+abstract class com
 {
-  public abstract con a(Application paramApplication);
+  abstract long a();
   
-  public abstract cqc a(Context paramContext, coo paramcoo);
+  abstract String b();
+  
+  final TraceSpanEvent c()
+  {
+    return TraceSpanEvent.create(b(), a());
+  }
 }
 
 /* Location:

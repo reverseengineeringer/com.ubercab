@@ -1,6 +1,20 @@
-public abstract interface col
+public final class col
 {
-  public abstract boolean a();
+  private cnd a;
+  
+  public final cok a()
+  {
+    if (a == null) {
+      throw new IllegalStateException("PluginManager: buffer cannot be null.");
+    }
+    return new cok(a, (byte)0);
+  }
+  
+  public final col a(cnd paramcnd)
+  {
+    a = paramcnd;
+    return this;
+  }
 }
 
 /* Location:

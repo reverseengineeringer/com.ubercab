@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jts;
+import mza;
 
 @Shape
 abstract class ObjectManagedBusinessProfileAttributes
-  implements jts
+  implements mza
 {}
 
 /* Location:

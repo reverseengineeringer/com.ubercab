@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jvc;
+import nam;
 
 @Shape
 abstract class ObjectTripVehicleType
-  implements jvc
+  implements nam
 {}
 
 /* Location:

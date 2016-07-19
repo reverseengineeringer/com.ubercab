@@ -23,6 +23,11 @@ public final class MediaControllerCompat
       throw new IllegalArgumentException("sessionToken must not be null");
     }
     mToken = paramToken;
+    if (Build.VERSION.SDK_INT >= 23)
+    {
+      mImpl = new MediaControllerCompat.MediaControllerImplApi23(paramContext, paramToken);
+      return;
+    }
     if (Build.VERSION.SDK_INT >= 21)
     {
       mImpl = new MediaControllerCompat.MediaControllerImplApi21(paramContext, paramToken);

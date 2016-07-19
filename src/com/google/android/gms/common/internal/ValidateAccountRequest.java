@@ -6,13 +6,13 @@ import android.os.Parcel;
 import android.os.Parcelable.Creator;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import zu;
+import zk;
 
 @Deprecated
 public class ValidateAccountRequest
   implements SafeParcelable
 {
-  public static final Parcelable.Creator<ValidateAccountRequest> CREATOR = new zu();
+  public static final Parcelable.Creator<ValidateAccountRequest> CREATOR = new zk();
   public final int a;
   public final IBinder b;
   private final int c;
@@ -57,7 +57,7 @@ public class ValidateAccountRequest
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    zu.a(this, paramParcel, paramInt);
+    zk.a(this, paramParcel, paramInt);
   }
 }
 

@@ -1,8 +1,18 @@
-abstract interface bji
+final class bji<K, V>
+  extends bjj<K, V>
 {
-  public abstract void a(avy paramavy);
+  private final transient bjh<K, V> c;
   
-  public abstract boolean a(long paramLong, avv paramavv);
+  bji(K paramK, V paramV, bjh<K, V> parambjh1, bjh<K, V> parambjh2)
+  {
+    super(paramK, paramV, parambjh1);
+    c = parambjh2;
+  }
+  
+  final bjh<K, V> b()
+  {
+    return c;
+  }
 }
 
 /* Location:

@@ -9,39 +9,41 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
-import ckr;
+import cli;
 import com.ubercab.core.support.v7.app.CoreActionBarActivity;
-import ctg;
-import ctm;
+import csy;
+import cte;
+import ctr;
 import ctx;
-import cud;
-import cue;
-import cuq;
-import cuz;
-import cva;
-import cvt;
-import cwe;
-import cwf;
+import cty;
+import cul;
+import cuu;
+import cuv;
+import cvm;
+import cvx;
+import cvy;
 import cyc;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-import kur;
+import kia;
+import opi;
 
-public abstract class PartnerFunnelActivity<T extends cva>
+public abstract class PartnerFunnelActivity<T extends cuv>
   extends CoreActionBarActivity
-  implements cud, cuz<T>
+  implements ctx, cuu<T>
 {
-  public static final ckr a = new PartnerFunnelActivity.1();
+  public static final cli a = new PartnerFunnelActivity.1();
   protected boolean b;
-  public ctm c;
-  public Collection<cuq> d;
-  private AlertDialog e;
-  private T f;
-  private cvt g;
-  private Set<ctx> h = new CopyOnWriteArraySet();
-  private cuz<T> i;
+  public Collection<cul> c;
+  public cte d;
+  public kia e;
+  private AlertDialog f;
+  private T g;
+  private cvm h;
+  private Set<ctr> i = new CopyOnWriteArraySet();
+  private cuu<T> j;
   
   /* Error */
   private void b(int paramInt, Fragment paramFragment)
@@ -50,7 +52,7 @@ public abstract class PartnerFunnelActivity<T extends cva>
     //   0: aload_0
     //   1: monitorenter
     //   2: aload_0
-    //   3: getfield 50	com/ubercab/android/partner/funnel/core/apps/PartnerFunnelActivity:b	Z
+    //   3: getfield 52	com/ubercab/android/partner/funnel/core/apps/PartnerFunnelActivity:b	Z
     //   6: istore_3
     //   7: iload_3
     //   8: ifne +6 -> 14
@@ -58,21 +60,21 @@ public abstract class PartnerFunnelActivity<T extends cva>
     //   12: monitorexit
     //   13: return
     //   14: aload_2
-    //   15: invokevirtual 56	java/lang/Object:getClass	()Ljava/lang/Class;
-    //   18: invokevirtual 62	java/lang/Class:getName	()Ljava/lang/String;
+    //   15: invokevirtual 58	java/lang/Object:getClass	()Ljava/lang/Class;
+    //   18: invokevirtual 64	java/lang/Class:getName	()Ljava/lang/String;
     //   21: astore 4
     //   23: aload_0
-    //   24: invokevirtual 66	com/ubercab/android/partner/funnel/core/apps/PartnerFunnelActivity:getSupportFragmentManager	()Landroid/support/v4/app/FragmentManager;
-    //   27: invokevirtual 72	android/support/v4/app/FragmentManager:beginTransaction	()Landroid/support/v4/app/FragmentTransaction;
+    //   24: invokevirtual 68	com/ubercab/android/partner/funnel/core/apps/PartnerFunnelActivity:getSupportFragmentManager	()Landroid/support/v4/app/FragmentManager;
+    //   27: invokevirtual 74	android/support/v4/app/FragmentManager:beginTransaction	()Landroid/support/v4/app/FragmentTransaction;
     //   30: astore 5
     //   32: aload 5
     //   34: iload_1
     //   35: aload_2
     //   36: aload 4
-    //   38: invokevirtual 78	android/support/v4/app/FragmentTransaction:replace	(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    //   38: invokevirtual 80	android/support/v4/app/FragmentTransaction:replace	(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
     //   41: pop
     //   42: aload 5
-    //   44: invokevirtual 82	android/support/v4/app/FragmentTransaction:commit	()I
+    //   44: invokevirtual 84	android/support/v4/app/FragmentTransaction:commit	()I
     //   47: pop
     //   48: goto -37 -> 11
     //   51: astore_2
@@ -117,15 +119,15 @@ public abstract class PartnerFunnelActivity<T extends cva>
   
   private boolean h()
   {
-    if (!h.isEmpty())
+    if (!i.isEmpty())
     {
-      Iterator localIterator = h.iterator();
+      Iterator localIterator = i.iterator();
       while (localIterator.hasNext()) {
-        if (!((ctx)localIterator.next()).a()) {
+        if (!((ctr)localIterator.next()).a()) {
           return false;
         }
       }
-      h.clear();
+      i.clear();
     }
     return true;
   }
@@ -146,10 +148,10 @@ public abstract class PartnerFunnelActivity<T extends cva>
   
   public final T a()
   {
-    return a(cwf.a());
+    return a(cvy.a());
   }
   
-  public abstract T a(cwe paramcwe);
+  public abstract T a(cvx paramcvx);
   
   public void a(int paramInt1, int paramInt2, Bundle paramBundle)
   {
@@ -158,7 +160,7 @@ public abstract class PartnerFunnelActivity<T extends cva>
         g();
       }
     }
-    cue localcue;
+    cty localcty;
     do
     {
       do
@@ -177,9 +179,9 @@ public abstract class PartnerFunnelActivity<T extends cva>
           return;
         }
       } while ((paramBundle == null) || (!paramBundle.containsKey("key_dialog_fragment_result_tag")));
-      localcue = (cue)getSupportFragmentManager().findFragmentByTag(paramBundle.getString("key_dialog_fragment_result_tag"));
-    } while (localcue == null);
-    localcue.a(paramInt1, paramInt2, paramBundle);
+      localcty = (cty)getSupportFragmentManager().findFragmentByTag(paramBundle.getString("key_dialog_fragment_result_tag"));
+    } while (localcty == null);
+    localcty.a(paramInt1, paramInt2, paramBundle);
   }
   
   public final void a(int paramInt, Fragment paramFragment)
@@ -196,9 +198,9 @@ public abstract class PartnerFunnelActivity<T extends cva>
     }
   }
   
-  public final void a(ctx paramctx)
+  public final void a(ctr paramctr)
   {
-    h.add(paramctx);
+    i.add(paramctr);
   }
   
   public abstract void a(T paramT);
@@ -206,63 +208,63 @@ public abstract class PartnerFunnelActivity<T extends cva>
   @Deprecated
   public final void a(String paramString)
   {
-    if ((e == null) || (!e.isShowing()))
+    if ((f == null) || (!f.isShowing()))
     {
-      e = cyc.a(this, paramString);
-      e.show();
+      f = cyc.a(this, paramString);
+      f.show();
     }
   }
   
   protected void attachBaseContext(Context paramContext)
   {
-    super.attachBaseContext(kur.a(paramContext));
+    super.attachBaseContext(opi.a(paramContext));
   }
   
   @Deprecated
   public final void c()
   {
-    if ((e != null) && (e.isShowing()))
+    if ((f != null) && (f.isShowing()))
     {
-      e.dismiss();
-      e = null;
+      f.dismiss();
+      f = null;
     }
   }
   
-  public final cvt d()
+  public final cvm d()
   {
-    return g;
+    return h;
   }
   
   public int e()
   {
-    return ctg.Theme_Uber_Partner_Funnel_White;
+    return csy.Theme_Uber_Partner_Funnel_White;
   }
   
   public void onBackPressed()
   {
-    if (h()) {
+    if ((h()) && (b)) {
       super.onBackPressed();
     }
   }
   
   public void onCreate(Bundle paramBundle)
   {
-    if (i != null)
+    if (j != null)
     {
-      f = i.a();
-      i.a(f);
+      g = j.a();
+      j.a(g);
     }
     for (;;)
     {
-      g = ((cvt)f);
+      h = ((cvm)g);
       setTheme(e());
       super.onCreate(paramBundle);
-      paramBundle = d.iterator();
+      paramBundle = c.iterator();
       while (paramBundle.hasNext()) {
-        ((cuq)paramBundle.next()).a();
+        ((cul)paramBundle.next()).a();
       }
-      f = a();
-      a(f);
+      g = a();
+      a(g);
     }
     b = true;
   }
@@ -270,16 +272,16 @@ public abstract class PartnerFunnelActivity<T extends cva>
   public void onDestroy()
   {
     super.onDestroy();
-    Iterator localIterator = d.iterator();
+    Iterator localIterator = c.iterator();
     while (localIterator.hasNext()) {
-      localIterator.next();
+      ((cul)localIterator.next()).c();
     }
   }
   
   public void onLowMemory()
   {
     super.onLowMemory();
-    Iterator localIterator = d.iterator();
+    Iterator localIterator = c.iterator();
     while (localIterator.hasNext()) {
       localIterator.next();
     }
@@ -303,18 +305,18 @@ public abstract class PartnerFunnelActivity<T extends cva>
   public void onPause()
   {
     super.onPause();
-    Iterator localIterator = d.iterator();
+    Iterator localIterator = c.iterator();
     while (localIterator.hasNext()) {
-      ((cuq)localIterator.next()).d();
+      ((cul)localIterator.next()).e();
     }
   }
   
   public void onResume()
   {
     super.onResume();
-    Iterator localIterator = d.iterator();
+    Iterator localIterator = c.iterator();
     while (localIterator.hasNext()) {
-      ((cuq)localIterator.next()).c();
+      ((cul)localIterator.next()).d();
     }
   }
   
@@ -322,9 +324,9 @@ public abstract class PartnerFunnelActivity<T extends cva>
   {
     super.onResumeFragments();
     b = true;
-    Iterator localIterator = d.iterator();
+    Iterator localIterator = c.iterator();
     while (localIterator.hasNext()) {
-      ((cuq)localIterator.next()).b();
+      ((cul)localIterator.next()).b();
     }
   }
   
@@ -332,7 +334,7 @@ public abstract class PartnerFunnelActivity<T extends cva>
   {
     super.onSaveInstanceState(paramBundle);
     b = false;
-    paramBundle = d.iterator();
+    paramBundle = c.iterator();
     while (paramBundle.hasNext()) {
       paramBundle.next();
     }
@@ -341,7 +343,7 @@ public abstract class PartnerFunnelActivity<T extends cva>
   public void onStart()
   {
     super.onStart();
-    Iterator localIterator = d.iterator();
+    Iterator localIterator = c.iterator();
     while (localIterator.hasNext()) {
       localIterator.next();
     }
@@ -350,9 +352,9 @@ public abstract class PartnerFunnelActivity<T extends cva>
   public void onStop()
   {
     super.onStop();
-    Iterator localIterator = d.iterator();
+    Iterator localIterator = c.iterator();
     while (localIterator.hasNext()) {
-      localIterator.next();
+      ((cul)localIterator.next()).f();
     }
   }
 }

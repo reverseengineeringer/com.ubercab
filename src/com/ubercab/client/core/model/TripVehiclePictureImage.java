@@ -5,9 +5,9 @@ import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.rider.realtime.model.Image;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public class TripVehiclePictureImage
   extends Image
   implements Parcelable
@@ -22,13 +22,6 @@ public class TripVehiclePictureImage
     width = Integer.valueOf(paramParcel.readInt());
     height = Integer.valueOf(paramParcel.readInt());
     url = paramParcel.readString();
-  }
-  
-  TripVehiclePictureImage(String paramString, int paramInt1, int paramInt2)
-  {
-    url = paramString;
-    width = Integer.valueOf(paramInt1);
-    height = Integer.valueOf(paramInt2);
   }
   
   public int describeContents()
@@ -141,9 +134,24 @@ public class TripVehiclePictureImage
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeInt(width.intValue());
-    paramParcel.writeInt(height.intValue());
-    paramParcel.writeString(url);
+    int i = 0;
+    if (width == null)
+    {
+      paramInt = 0;
+      paramParcel.writeInt(paramInt);
+      if (height != null) {
+        break label50;
+      }
+    }
+    label50:
+    for (paramInt = i;; paramInt = height.intValue())
+    {
+      paramParcel.writeInt(paramInt);
+      paramParcel.writeString(url);
+      return;
+      paramInt = width.intValue();
+      break;
+    }
   }
 }
 

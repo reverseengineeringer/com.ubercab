@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.collection.RecyclerView android:id="@id/ub__recyclerview_reward_details" android:background="@color/ub__white" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+    <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:id="@id/ub__reward_detail_buttons" android:background="@color/ub__white" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ub__button_padding_default">
+        <com.ubercab.ui.Button android:id="@id/ub__reward_detail_negative_button" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__button_padding_default" android:layout_marginTop="@dimen/ub__button_padding_default" android:layout_marginRight="@dimen/ub__button_padding_default" android:text="@string/ub__rewards_cancel" android:layout_weight="1.0" style="@style/Uber.Widget.Button.Accent" />
+        <com.ubercab.ui.Button android:id="@id/ub__reward_detail_positive_button" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ub__button_padding_default" android:layout_marginTop="@dimen/ub__button_padding_default" android:layout_marginRight="@dimen/ub__button_padding_default" android:text="@string/ub__rewards_ok" android:layout_weight="1.0" style="@style/Uber.Widget.Button.Secondary" />
+    </LinearLayout>
+</LinearLayout>

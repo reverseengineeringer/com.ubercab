@@ -7,7 +7,7 @@ final class RiderApplication$1
   
   public final void run()
   {
-    a.m();
+    a.q();
   }
 }
 

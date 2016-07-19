@@ -1,55 +1,20 @@
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import com.google.android.gms.measurement.AppMeasurementReceiver;
-import com.google.android.gms.measurement.AppMeasurementService;
-
-public final class biz
-  extends bks
+public abstract class biz<E>
 {
-  private boolean a;
-  private final AlarmManager b = (AlarmManager)m().getSystemService("alarm");
-  
-  protected biz(bko parambko)
+  static int a(int paramInt1, int paramInt2)
   {
-    super(parambko);
-  }
-  
-  private PendingIntent c()
-  {
-    Intent localIntent = new Intent(m(), AppMeasurementReceiver.class);
-    localIntent.setAction("com.google.android.gms.measurement.UPLOAD");
-    return PendingIntent.getBroadcast(m(), 0, localIntent, 0);
-  }
-  
-  protected final void a()
-  {
-    b.cancel(c());
-  }
-  
-  public final void a(long paramLong)
-  {
-    E();
-    if (paramLong > 0L) {}
-    for (boolean bool = true;; bool = false)
-    {
-      abs.b(bool);
-      abs.a(AppMeasurementReceiver.a(m()), "Receiver not registered/enabled");
-      abs.a(AppMeasurementService.a(m()), "Service not registered/enabled");
-      b();
-      long l = l().b();
-      a = true;
-      b.setInexactRepeating(2, l + paramLong, Math.max(bjf.Z(), paramLong), c());
-      return;
+    if (paramInt2 < 0) {
+      throw new AssertionError("cannot store more than MAX_VALUE elements");
     }
-  }
-  
-  public final void b()
-  {
-    E();
-    a = false;
-    b.cancel(c());
+    int i = (paramInt1 >> 1) + paramInt1 + 1;
+    paramInt1 = i;
+    if (i < paramInt2) {
+      paramInt1 = Integer.highestOneBit(paramInt2 - 1) << 1;
+    }
+    paramInt2 = paramInt1;
+    if (paramInt1 < 0) {
+      paramInt2 = Integer.MAX_VALUE;
+    }
+    return paramInt2;
   }
 }
 

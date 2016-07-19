@@ -1,14 +1,8 @@
 package com.baidu.lbsapi.auth;
 
-class m
-  implements f.a<String>
+public abstract interface m
 {
-  m(i parami, String paramString) {}
-  
-  public void a(String paramString)
-  {
-    i.a(b, paramString, a);
-  }
+  public abstract void a(int paramInt, String paramString);
 }
 
 /* Location:

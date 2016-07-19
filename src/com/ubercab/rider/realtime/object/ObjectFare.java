@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jta;
+import myi;
 
 @Shape
 abstract class ObjectFare
-  implements jta
+  implements myi
 {
   static ObjectFare create()
   {

@@ -1,44 +1,14 @@
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-
 final class blg
-  implements blh
+  implements Runnable
 {
-  private Context a;
+  final bll<? extends V> a;
   
-  private blg(Context paramContext)
+  public final void run()
   {
-    a = paramContext;
-  }
-  
-  public final Drawable a(int paramInt)
-  {
-    String str;
-    switch (paramInt)
-    {
-    default: 
-      str = "ic_plusone_standard_off_client";
+    if (bla.a(b) != this) {
+      return;
     }
-    for (;;)
-    {
-      paramInt = a.getResources().getIdentifier(str, "drawable", a.getPackageName());
-      return a.getResources().getDrawable(paramInt);
-      str = "ic_plusone_small_off_client";
-      continue;
-      str = "ic_plusone_medium_off_client";
-      continue;
-      str = "ic_plusone_tall_off_client";
-    }
-  }
-  
-  public final boolean a()
-  {
-    int i = a.getResources().getIdentifier("ic_plusone_small_off_client", "drawable", a.getPackageName());
-    int j = a.getResources().getIdentifier("ic_plusone_medium_off_client", "drawable", a.getPackageName());
-    int k = a.getResources().getIdentifier("ic_plusone_tall_off_client", "drawable", a.getPackageName());
-    int m = a.getResources().getIdentifier("ic_plusone_standard_off_client", "drawable", a.getPackageName());
-    return (i != 0) && (j != 0) && (k != 0) && (m != 0);
+    bla.a(b, a, this);
   }
 }
 

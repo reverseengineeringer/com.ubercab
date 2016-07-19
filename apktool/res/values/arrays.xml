@@ -106,20 +106,6 @@
         <item>sandbox</item>
         <item>mock</item>
     </string-array>
-    <string-array name="ub__employee_slider_style_entries">
-        <item>(default)</item>
-        <item>stacked</item>
-        <item>stacked_use_parent</item>
-        <item>stacked_use_group</item>
-        <item>(no stack)</item>
-    </string-array>
-    <string-array name="ub__employee_slider_style_values">
-        <item></item>
-        <item>stacked</item>
-        <item>stacked_use_parent</item>
-        <item>stacked_use_group</item>
-        <item>(none)</item>
-    </string-array>
     <string-array name="ub__employee_splash_override_values">
         <item>@string/ub__employee_splash_force_optimal</item>
         <item>@string/ub__employee_splash_force_degraded</item>
@@ -138,11 +124,13 @@
         <item>Morpheus</item>
         <item>Safe Mode</item>
         <item>REX Whitelist</item>
+        <item>Test Whitelist</item>
     </string-array>
     <string-array name="ub__tester_experiment_manager_type_values">
         <item></item>
         <item>safeMode</item>
         <item>rexWhitelist</item>
+        <item>testWhitelist</item>
     </string-array>
     <string-array name="ubc__country_iso2">
         <item>ac</item>

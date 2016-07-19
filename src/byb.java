@@ -1,62 +1,37 @@
-import android.content.Context;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.text.TextUtils.TruncateAt;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class byb
+  implements bxq
 {
-  public TableLayout a;
-  public TableLayout b;
-  public TextView c;
-  public TextView d;
-  private int e;
-  private boolean f = false;
+  private static Map a = new HashMap();
+  private static Map b = new HashMap();
   
-  public byb(Context paramContext, String paramString)
+  public byb()
   {
-    b = new TableLayout(paramContext);
-    b.setColumnShrinkable(0, false);
-    b.setColumnStretchable(0, false);
-    b.setColumnStretchable(1, false);
-    b.setColumnShrinkable(1, false);
-    TableRow localTableRow = new TableRow(paramContext);
-    b.addView(localTableRow);
-    d = new TextView(paramContext);
-    d.setTextColor(bwz.i);
-    d.setText("Item");
-    d.setSingleLine(true);
-    d.setGravity(83);
-    d.setTextSize(18.0F);
-    d.setTextColor(bwz.i);
-    d.setTypeface(bwz.q);
-    localTableRow.addView(d);
-    bxa.a(d, 16, 1.0F);
-    e = bxa.a("10dip", paramContext);
-    bxa.b(d, null, null, "10dip", null);
-    c = new TextView(paramContext);
-    c.setTextSize(18.0F);
-    c.setTypeface(bwz.r);
-    c.setText(paramString);
-    c.setSingleLine(true);
-    c.setGravity(85);
-    c.setTextColor(bwz.j);
-    localTableRow.addView(c);
-    bxa.a(c, 5, 1.0F);
-    a = b;
+    a.put(bxp.a, "Hætta við");
+    a.put(bxp.b, "American Express");
+    a.put(bxp.c, "Discover");
+    a.put(bxp.d, "JCB");
+    a.put(bxp.e, "MasterCard");
+    a.put(bxp.f, "Visa");
+    a.put(bxp.g, "Lokið");
+    a.put(bxp.h, "CVV");
+    a.put(bxp.i, "Póstnúmer");
+    a.put(bxp.j, "Rennur út");
+    a.put(bxp.k, "MM/ÁÁ");
+    a.put(bxp.l, "Haltu kortinu kyrru hér.\nÞað verður sjálvirkt skannað.");
+    a.put(bxp.m, "Lyklaborð…");
+    a.put(bxp.n, "Kortanúmar");
+    a.put(bxp.o, "Kortaupplýsingar");
+    a.put(bxp.p, "Þetta tæki getur ekki notað myndavélina til að lesa af númer af kortinu.");
+    a.put(bxp.q, "Ekki næst samband við myndavélina.");
+    a.put(bxp.r, "Upp kom villa við að opna myndavélina..");
   }
   
-  public final void a()
+  public final String a()
   {
-    Object localObject = c;
-    TextView localTextView = d;
-    float f1 = ((TextView)localObject).getPaint().measureText(((TextView)localObject).getText().toString());
-    int i = b.getWidth() - (int)f1 - e;
-    localObject = TextUtils.ellipsize(localTextView.getText(), localTextView.getPaint(), i, TextUtils.TruncateAt.END);
-    localTextView.setWidth(i);
-    localTextView.setText((CharSequence)localObject);
+    return "is";
   }
 }
 

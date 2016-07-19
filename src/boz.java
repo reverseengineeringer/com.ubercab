@@ -1,14 +1,6 @@
-import java.lang.reflect.Field;
-
-public final class boz
+public enum boz
 {
-  private final Field a;
-  
-  public boz(Field paramField)
-  {
-    bqd.a(paramField);
-    a = paramField;
-  }
+  private boz() {}
 }
 
 /* Location:

@@ -1,9 +1,30 @@
+import android.os.Bundle;
 import android.os.IInterface;
 
 public abstract interface aho
   extends IInterface
 {
-  public abstract void a(ahl paramahl);
+  public abstract void a(Bundle paramBundle);
+  
+  public abstract void b(Bundle paramBundle);
+  
+  public abstract void d();
+  
+  public abstract boolean e();
+  
+  public abstract void f();
+  
+  public abstract void g();
+  
+  public abstract void h();
+  
+  public abstract void i();
+  
+  public abstract void j();
+  
+  public abstract void k();
+  
+  public abstract void l();
 }
 
 /* Location:

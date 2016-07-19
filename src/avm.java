@@ -1,163 +1,489 @@
-public final class avm
-  extends axq
+import android.os.IBinder;
+import android.os.Parcel;
+
+final class avm
+  implements avk
 {
-  private static volatile avm[] d;
-  public Integer a;
-  public String b;
-  public avk c;
+  private IBinder a;
   
-  public avm()
+  avm(IBinder paramIBinder)
   {
-    e();
+    a = paramIBinder;
   }
   
-  private avm e()
+  /* Error */
+  public final void a(boolean paramBoolean)
   {
-    a = null;
-    b = null;
-    c = null;
-    S = -1;
-    return this;
+    // Byte code:
+    //   0: iconst_1
+    //   1: istore_2
+    //   2: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   5: astore_3
+    //   6: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
+    //   9: astore 4
+    //   11: aload_3
+    //   12: ldc 25
+    //   14: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+    //   17: iload_1
+    //   18: ifeq +38 -> 56
+    //   21: aload_3
+    //   22: iload_2
+    //   23: invokevirtual 33	android/os/Parcel:writeInt	(I)V
+    //   26: aload_0
+    //   27: getfield 15	avm:a	Landroid/os/IBinder;
+    //   30: iconst_1
+    //   31: aload_3
+    //   32: aload 4
+    //   34: iconst_0
+    //   35: invokeinterface 39 5 0
+    //   40: pop
+    //   41: aload 4
+    //   43: invokevirtual 42	android/os/Parcel:readException	()V
+    //   46: aload 4
+    //   48: invokevirtual 45	android/os/Parcel:recycle	()V
+    //   51: aload_3
+    //   52: invokevirtual 45	android/os/Parcel:recycle	()V
+    //   55: return
+    //   56: iconst_0
+    //   57: istore_2
+    //   58: goto -37 -> 21
+    //   61: astore 5
+    //   63: aload 4
+    //   65: invokevirtual 45	android/os/Parcel:recycle	()V
+    //   68: aload_3
+    //   69: invokevirtual 45	android/os/Parcel:recycle	()V
+    //   72: aload 5
+    //   74: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	75	0	this	avm
+    //   0	75	1	paramBoolean	boolean
+    //   1	57	2	i	int
+    //   5	64	3	localParcel1	Parcel
+    //   9	55	4	localParcel2	Parcel
+    //   61	12	5	localObject	Object
+    // Exception table:
+    //   from	to	target	type
+    //   11	17	61	finally
+    //   21	46	61	finally
   }
   
-  public static avm[] j_()
+  public final boolean a()
   {
-    if (d == null) {}
-    synchronized (axo.a)
+    boolean bool = false;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
     {
-      if (d == null) {
-        d = new avm[0];
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      a.transact(9, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      if (i != 0) {
+        bool = true;
       }
-      return d;
+      return bool;
     }
-  }
-  
-  protected final int a()
-  {
-    int j = super.a();
-    int i = j;
-    if (a != null) {
-      i = j + axi.b(1, a.intValue());
-    }
-    j = i;
-    if (b != null) {
-      j = i + axi.b(2, b);
-    }
-    i = j;
-    if (c != null) {
-      i = j + axi.c(3, c);
-    }
-    return i;
-  }
-  
-  public final void a(axi paramaxi)
-  {
-    if (a != null) {
-      paramaxi.a(1, a.intValue());
-    }
-    if (b != null) {
-      paramaxi.a(2, b);
-    }
-    if (c != null) {
-      paramaxi.a(3, c);
-    }
-    super.a(paramaxi);
-  }
-  
-  public final avm b(axh paramaxh)
-  {
-    for (;;)
+    finally
     {
-      int i = paramaxh.a();
-      switch (i)
-      {
-      default: 
-        if (axt.a(paramaxh, i)) {}
-        break;
-      case 0: 
-        return this;
-      case 8: 
-        a = Integer.valueOf(paramaxh.e());
-        break;
-      case 18: 
-        b = paramaxh.g();
-        break;
-      case 26: 
-        if (c == null) {
-          c = new avk();
-        }
-        paramaxh.a(c);
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final IBinder asBinder()
+  {
+    return a;
+  }
+  
+  public final void b(boolean paramBoolean)
+  {
+    int i = 0;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      if (paramBoolean) {
+        i = 1;
       }
+      localParcel1.writeInt(i);
+      a.transact(2, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
   }
   
-  public final boolean equals(Object paramObject)
+  public final boolean b()
   {
-    if (paramObject == this) {}
-    do
+    boolean bool = false;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
     {
-      do
-      {
-        return true;
-        if (!(paramObject instanceof avm)) {
-          return false;
-        }
-        paramObject = (avm)paramObject;
-        if (a == null)
-        {
-          if (a != null) {
-            return false;
-          }
-        }
-        else if (!a.equals(a)) {
-          return false;
-        }
-        if (b == null)
-        {
-          if (b != null) {
-            return false;
-          }
-        }
-        else if (!b.equals(b)) {
-          return false;
-        }
-        if (c != null) {
-          break;
-        }
-      } while (c == null);
-      return false;
-    } while (c.equals(c));
-    return false;
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      a.transact(10, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      if (i != 0) {
+        bool = true;
+      }
+      return bool;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
   }
   
-  public final int hashCode()
+  public final void c(boolean paramBoolean)
   {
-    int k = 0;
-    int m = getClass().getName().hashCode();
-    int i;
-    int j;
-    if (a == null)
+    int i = 0;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
     {
-      i = 0;
-      if (b != null) {
-        break label72;
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      if (paramBoolean) {
+        i = 1;
       }
-      j = 0;
-      label32:
-      if (c != null) {
-        break label83;
-      }
+      localParcel1.writeInt(i);
+      a.transact(3, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
     }
-    for (;;)
+    finally
     {
-      return (j + (i + (m + 527) * 31) * 31) * 31 + k;
-      i = a.hashCode();
-      break;
-      label72:
-      j = b.hashCode();
-      break label32;
-      label83:
-      k = c.hashCode();
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final boolean c()
+  {
+    boolean bool = false;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      a.transact(11, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      if (i != 0) {
+        bool = true;
+      }
+      return bool;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final void d(boolean paramBoolean)
+  {
+    int i = 0;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      if (paramBoolean) {
+        i = 1;
+      }
+      localParcel1.writeInt(i);
+      a.transact(4, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final boolean d()
+  {
+    boolean bool = false;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      a.transact(12, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      if (i != 0) {
+        bool = true;
+      }
+      return bool;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final void e(boolean paramBoolean)
+  {
+    int i = 0;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      if (paramBoolean) {
+        i = 1;
+      }
+      localParcel1.writeInt(i);
+      a.transact(5, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final boolean e()
+  {
+    boolean bool = false;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      a.transact(13, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      if (i != 0) {
+        bool = true;
+      }
+      return bool;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final void f(boolean paramBoolean)
+  {
+    int i = 0;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      if (paramBoolean) {
+        i = 1;
+      }
+      localParcel1.writeInt(i);
+      a.transact(6, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final boolean f()
+  {
+    boolean bool = false;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      a.transact(14, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      if (i != 0) {
+        bool = true;
+      }
+      return bool;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final void g(boolean paramBoolean)
+  {
+    int i = 0;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      if (paramBoolean) {
+        i = 1;
+      }
+      localParcel1.writeInt(i);
+      a.transact(7, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final boolean g()
+  {
+    boolean bool = false;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      a.transact(15, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      if (i != 0) {
+        bool = true;
+      }
+      return bool;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final void h(boolean paramBoolean)
+  {
+    int i = 0;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      if (paramBoolean) {
+        i = 1;
+      }
+      localParcel1.writeInt(i);
+      a.transact(8, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final boolean h()
+  {
+    boolean bool = false;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      a.transact(17, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      if (i != 0) {
+        bool = true;
+      }
+      return bool;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final void i(boolean paramBoolean)
+  {
+    int i = 0;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      if (paramBoolean) {
+        i = 1;
+      }
+      localParcel1.writeInt(i);
+      a.transact(16, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final boolean i()
+  {
+    boolean bool = false;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      a.transact(19, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      int i = localParcel2.readInt();
+      if (i != 0) {
+        bool = true;
+      }
+      return bool;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public final void j(boolean paramBoolean)
+  {
+    int i = 0;
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
+    {
+      localParcel1.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
+      if (paramBoolean) {
+        i = 1;
+      }
+      localParcel1.writeInt(i);
+      a.transact(18, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
+    }
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
     }
   }
 }

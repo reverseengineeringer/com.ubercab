@@ -1,78 +1,72 @@
-import android.os.IBinder;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.wallet.LineItem;
 
-final class bgm
-  implements bgk
+public final class bgm
+  implements Parcelable.Creator<LineItem>
 {
-  private IBinder a;
-  
-  bgm(IBinder paramIBinder)
+  private static LineItem a(Parcel paramParcel)
   {
-    a = paramIBinder;
+    int i = 0;
+    String str1 = null;
+    int k = zd.b(paramParcel);
+    String str2 = null;
+    String str3 = null;
+    String str4 = null;
+    String str5 = null;
+    int j = 0;
+    while (paramParcel.dataPosition() < k)
+    {
+      int m = zd.a(paramParcel);
+      switch (zd.a(m))
+      {
+      default: 
+        zd.a(paramParcel, m);
+        break;
+      case 1: 
+        j = zd.e(paramParcel, m);
+        break;
+      case 2: 
+        str5 = zd.n(paramParcel, m);
+        break;
+      case 3: 
+        str4 = zd.n(paramParcel, m);
+        break;
+      case 4: 
+        str3 = zd.n(paramParcel, m);
+        break;
+      case 5: 
+        str2 = zd.n(paramParcel, m);
+        break;
+      case 6: 
+        i = zd.e(paramParcel, m);
+        break;
+      case 7: 
+        str1 = zd.n(paramParcel, m);
+      }
+    }
+    if (paramParcel.dataPosition() != k) {
+      throw new ze("Overread allowed size end=" + k, paramParcel);
+    }
+    return new LineItem(j, str5, str4, str3, str2, i, str1);
   }
   
-  /* Error */
-  public final void a(com.google.android.gms.maps.model.StreetViewPanoramaOrientation paramStreetViewPanoramaOrientation)
+  public static void a(LineItem paramLineItem, Parcel paramParcel)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   7: astore_3
-    //   8: aload_2
-    //   9: ldc 25
-    //   11: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   14: aload_1
-    //   15: ifnull +41 -> 56
-    //   18: aload_2
-    //   19: iconst_1
-    //   20: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   23: aload_1
-    //   24: aload_2
-    //   25: iconst_0
-    //   26: invokevirtual 39	com/google/android/gms/maps/model/StreetViewPanoramaOrientation:writeToParcel	(Landroid/os/Parcel;I)V
-    //   29: aload_0
-    //   30: getfield 15	bgm:a	Landroid/os/IBinder;
-    //   33: iconst_1
-    //   34: aload_2
-    //   35: aload_3
-    //   36: iconst_0
-    //   37: invokeinterface 45 5 0
-    //   42: pop
-    //   43: aload_3
-    //   44: invokevirtual 48	android/os/Parcel:readException	()V
-    //   47: aload_3
-    //   48: invokevirtual 51	android/os/Parcel:recycle	()V
-    //   51: aload_2
-    //   52: invokevirtual 51	android/os/Parcel:recycle	()V
-    //   55: return
-    //   56: aload_2
-    //   57: iconst_0
-    //   58: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   61: goto -32 -> 29
-    //   64: astore_1
-    //   65: aload_3
-    //   66: invokevirtual 51	android/os/Parcel:recycle	()V
-    //   69: aload_2
-    //   70: invokevirtual 51	android/os/Parcel:recycle	()V
-    //   73: aload_1
-    //   74: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	75	0	this	bgm
-    //   0	75	1	paramStreetViewPanoramaOrientation	com.google.android.gms.maps.model.StreetViewPanoramaOrientation
-    //   3	67	2	localParcel1	android.os.Parcel
-    //   7	59	3	localParcel2	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   8	14	64	finally
-    //   18	29	64	finally
-    //   29	47	64	finally
-    //   56	61	64	finally
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramLineItem.b());
+    zf.a(paramParcel, 2, a, false);
+    zf.a(paramParcel, 3, b, false);
+    zf.a(paramParcel, 4, c, false);
+    zf.a(paramParcel, 5, d, false);
+    zf.a(paramParcel, 6, e);
+    zf.a(paramParcel, 7, f, false);
+    zf.a(paramParcel, i);
   }
   
-  public final IBinder asBinder()
+  private static LineItem[] a(int paramInt)
   {
-    return a;
+    return new LineItem[paramInt];
   }
 }
 

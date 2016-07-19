@@ -26,6 +26,7 @@ public abstract class ExploreByTouchHelper
   private static final String DEFAULT_CLASS_NAME = View.class.getName();
   public static final int HOST_ID = -1;
   public static final int INVALID_ID = Integer.MIN_VALUE;
+  private static final Rect INVALID_PARENT_BOUNDS = new Rect(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
   private int mFocusedVirtualViewId = Integer.MIN_VALUE;
   private int mHoveredVirtualViewId = Integer.MIN_VALUE;
   private final AccessibilityManager mManager;
@@ -103,12 +104,13 @@ public abstract class ExploreByTouchHelper
     AccessibilityNodeInfoCompat localAccessibilityNodeInfoCompat = AccessibilityNodeInfoCompat.obtain();
     localAccessibilityNodeInfoCompat.setEnabled(true);
     localAccessibilityNodeInfoCompat.setClassName(DEFAULT_CLASS_NAME);
+    localAccessibilityNodeInfoCompat.setBoundsInParent(INVALID_PARENT_BOUNDS);
     onPopulateNodeForVirtualView(paramInt, localAccessibilityNodeInfoCompat);
     if ((localAccessibilityNodeInfoCompat.getText() == null) && (localAccessibilityNodeInfoCompat.getContentDescription() == null)) {
       throw new RuntimeException("Callbacks must add text or a content description in populateNodeForVirtualViewId()");
     }
     localAccessibilityNodeInfoCompat.getBoundsInParent(mTempParentRect);
-    if (mTempParentRect.isEmpty()) {
+    if (mTempParentRect.equals(INVALID_PARENT_BOUNDS)) {
       throw new RuntimeException("Callbacks must set parent bounds in populateNodeForVirtualViewId()");
     }
     int i = localAccessibilityNodeInfoCompat.getActions();

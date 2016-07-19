@@ -9,297 +9,372 @@ import android.os.Looper;
 import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 import android.view.ViewConfiguration;
-import chh;
-import ckc;
-import ckm;
-import ckn;
-import ckv;
+import chn;
+import ckt;
+import cld;
+import cle;
+import cln;
 import com.ubercab.analytics.model.AnalyticsEvent;
 import com.ubercab.android.location.UberLocation;
 import com.ubercab.client.core.metrics.analytics.model.RiderEventsProperties;
+import com.ubercab.client.core.motion.MotionStashService;
 import com.ubercab.core.support.multidex.CoreMultiDexApplication;
+import com.ubercab.experiment.model.ExperimentUpdate;
 import com.ubercab.network.uspout.UspoutClient;
 import com.ubercab.network.uspout.model.Message;
+import com.ubercab.rider.realtime.model.Client;
 import com.ubercab.rider.realtime.object.PersistedObjectDataStore;
-import cwf;
-import cxt;
-import dpv;
-import drr;
-import dsb;
-import dse;
-import dsl;
-import dsm;
-import dsn;
-import dso;
-import dsz;
-import dtv;
-import dtw;
-import dtx;
-import dty;
-import dub;
-import duf;
-import duk;
-import dul;
-import dux;
-import dwa;
-import dwi;
-import dwr;
-import dws;
+import cvy;
+import cxr;
+import dut;
+import dww;
 import dxg;
-import dxh;
-import dxk;
-import dxl;
-import dxn;
-import dyd;
-import dye;
-import dys;
-import dyt;
-import dyz;
-import eap;
-import eaq;
-import ebj;
-import ebk;
-import egc;
-import egd;
-import egh;
-import egu;
-import egz;
-import ehb;
-import ehn;
-import eke;
-import ekf;
-import ekm;
-import emz;
-import end;
-import ent;
-import eod;
-import eoe;
-import eqs;
-import eqx;
-import erh;
-import ets;
-import etv;
-import fos;
-import fuy;
-import fvx;
-import gif;
-import gqf;
-import hba;
-import hzz;
-import iae;
-import iam;
-import idk;
-import idv;
-import idw;
-import iec;
-import ifa;
-import ife;
-import ihd;
-import ihe;
-import ijn;
-import ijv;
-import ijw;
-import ijz;
-import ikm;
-import ilj;
-import imm;
-import imn;
-import java.io.File;
+import dxj;
+import dxw;
+import dxz;
+import dya;
+import dyb;
+import dym;
+import dzk;
+import dzl;
+import dzm;
+import dzn;
+import dzq;
+import dzt;
+import dzy;
+import dzz;
+import eaj;
+import ebr;
+import ecb;
+import eck;
+import ecp;
+import edi;
+import edj;
+import edm;
+import edn;
+import edq;
+import eeh;
+import eei;
+import eex;
+import eey;
+import efe;
+import efv;
+import ehe;
+import ehj;
+import eib;
+import eic;
+import enx;
+import eny;
+import enz;
+import eoc;
+import eoj;
+import epo;
+import epq;
+import erw;
+import erx;
+import ese;
+import eup;
+import eut;
+import evs;
+import ewc;
+import ewd;
+import eyv;
+import ezc;
+import fbx;
+import fcc;
+import fcf;
+import ggk;
+import god;
+import gpy;
+import hjm;
+import hzo;
+import irf;
 import java.lang.reflect.Field;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
-import jet;
-import jeu;
-import jqa;
-import jqb;
-import jwc;
-import jwk;
-import kax;
-import kld;
-import kml;
-import kul;
-import kuo;
-import p;
-import wa;
+import kcj;
+import kco;
+import kcw;
+import kgc;
+import kgn;
+import kgo;
+import kgu;
+import kht;
+import khv;
+import khx;
+import kia;
+import kit;
+import kiu;
+import kkb;
+import kkc;
+import kof;
+import kog;
+import koj;
+import kom;
+import kqd;
+import ldh;
+import ldi;
+import mbh;
+import mbi;
+import mng;
+import moj;
+import mok;
+import mqe;
+import mqf;
+import mxp;
+import nbj;
+import nbk;
+import nct;
+import ndb;
+import nho;
+import odr;
+import odv;
+import ofa;
+import opc;
+import opf;
+import vq;
+import x;
 
 public class RiderApplication
   extends CoreMultiDexApplication
-  implements ckn, dsn<ebj>, dso<ebj>, idw, ihe, imn, jeu, jqa
+  implements cle, dya<eib>, dyb<eib>, kgo, kiu, kkc, ldi, mbi, moj, mqf, nbk
 {
-  private static final String[] ae = { "NDKLIBRARY" };
-  public dxl A;
-  public kax<fuy> B;
-  public dse C;
-  public RiderEventsProperties D;
-  public dsl E;
-  public gif F;
-  public eod G;
-  public ijv H;
-  public gqf I;
-  public dty J;
-  public drr K;
-  public dub L;
-  public kuo M;
-  public ifa N;
-  public duf O;
-  public UspoutClient P;
-  public dws Q;
-  public dtx R;
-  public hzz S;
-  public ContentResolver T;
-  public hba U;
-  public dwr V;
-  public kld<UberLocation> W;
-  public kld<ekm> X;
-  public egz Y;
-  public idk Z;
-  public ckc a;
-  public fvx aa;
-  public ehb ab;
-  public egu ac;
-  public eap ad;
-  private ebj af;
-  private ijw ag;
-  private boolean ah;
-  private dsn<ebj> ai;
-  public dxg b;
-  public chh c;
-  public dtv d;
-  public ikm e;
-  public dsm f;
-  public ExecutorService g;
-  public ife h;
-  public dsz i;
-  public wa j;
-  public kax<jwc> k;
-  public ckm l;
-  public dwi m;
-  public emz n;
-  public ijn o;
-  public fos p;
-  public ckv q;
-  public ilj r;
-  public iec s;
-  public ets t;
-  public kax<PersistedObjectDataStore> u;
-  public dtw v;
-  public eke w;
-  public egh x;
-  public end y;
-  public dsb z;
+  private static final String[] aj = { "NDKLIBRARY" };
+  public eoc A;
+  public eoj B;
+  public eut C;
+  public dxg D;
+  public edn E;
+  public kom F;
+  public nho<god> G;
+  public dxj H;
+  public RiderEventsProperties I;
+  public dxw J;
+  public hjm K;
+  public ewc L;
+  public List<kof> M;
+  public hzo N;
+  public dzn O;
+  public dww P;
+  public dzq Q;
+  public opf R;
+  public kht S;
+  public dzt T;
+  public UspoutClient U;
+  public ecp V;
+  public dzm W;
+  public kcj X;
+  public ContentResolver Y;
+  public irf Z;
+  public ckt a;
+  public eck aa;
+  public odr<UberLocation> ab;
+  public odr<ese> ac;
+  public epo ad;
+  public kgc ae;
+  public gpy af;
+  public epq ag;
+  public eny ah;
+  public mbh ai;
+  private eib ak;
+  private kog al;
+  private boolean am;
+  private dya<eib> an;
+  public edi b;
+  public fbx c;
+  public chn d;
+  public khv e;
+  public dzk f;
+  public eup g;
+  public mxp h;
+  public khx i;
+  public dxz j;
+  public ExecutorService k;
+  public kia l;
+  public dym m;
+  public vq n;
+  public nho<nct> o;
+  public cld p;
+  public ecb q;
+  public ggk r;
+  public cln s;
+  public kqd t;
+  public kgu u;
+  public fcc v;
+  public nho<PersistedObjectDataStore> w;
+  public dzl x;
+  public erw y;
+  public mng z;
+  
+  static
+  {
+    System.setProperty("rx.unsafe-disable", "true");
+  }
   
   private void A()
   {
-    String[] arrayOfString = ae;
-    int i2 = arrayOfString.length;
-    int i1 = 0;
-    while (i1 < i2)
-    {
-      eqx.a(this, arrayOfString[i1]);
-      i1 += 1;
+    if (l.b(eaj.mc)) {
+      K.g();
     }
   }
   
   private void B()
   {
-    erh.a(this, J);
+    ad.a();
   }
   
   private void C()
   {
-    if ((J.u()) && (etv.a(h))) {
-      t.a(this, false);
+    if (l.c(eaj.aq)) {
+      P.a(k, this, dxj.c());
     }
   }
   
   private void D()
   {
-    m.a();
+    ndb.a(this);
   }
   
   private void E()
   {
-    q.a(A);
+    String[] arrayOfString = aj;
+    int i2 = arrayOfString.length;
+    int i1 = 0;
+    while (i1 < i2)
+    {
+      ezc.a(this, arrayOfString[i1]);
+      i1 += 1;
+    }
   }
   
   private void F()
   {
-    p.a();
+    if ((O.J()) && (fcf.a(l))) {
+      v.a(this, false);
+    }
   }
   
   private void G()
   {
-    I.b();
+    q.a();
   }
   
   private void H()
   {
-    kul.a(M);
-    if (h.b(dux.O)) {
-      kul.a(Q);
-    }
-    if (h.b(dux.M)) {
-      kul.a(V);
-    }
+    s.a(E);
   }
   
   private void I()
   {
-    cwf.a(this, aa);
+    r.a();
   }
   
   private void J()
   {
-    if (h.b(dux.al)) {
-      x.a();
-    }
-  }
-  
-  private void K()
-  {
-    if (h.b(dux.et)) {
-      ac.a();
-    }
-  }
-  
-  private void L()
-  {
-    boolean bool = h.a(dux.cN, true);
-    s.a(bool);
-  }
-  
-  private void M()
-  {
-    if (h.b(dux.eg)) {
-      ((PersistedObjectDataStore)u.a()).initialize();
-    }
-  }
-  
-  private void N()
-  {
-    if (h.b(dux.dD)) {
-      ((ThreadPoolExecutor)g).setMaximumPoolSize(20);
-    }
-    duk localduk = G.d();
-    localduk.a((float)h.a(dux.hC, "schedulerSamplerKey", 2.0E-4D));
-    localduk.a(new dul()
+    h.d().c(new ofa()
     {
-      public final void a(String paramAnonymousString, long paramAnonymousLong1, long paramAnonymousLong2, long paramAnonymousLong3)
+      private void a(Client paramAnonymousClient)
       {
-        P.a(new Message[] { RiderApplication.a(paramAnonymousString, paramAnonymousLong1, paramAnonymousLong2, paramAnonymousLong3) });
+        if ((paramAnonymousClient.getIsAdmin()) && (l.c(eaj.li))) {}
+        for (int i = 1;; i = 0)
+        {
+          paramAnonymousClient = new Intent(RiderApplication.this, MotionStashService.class);
+          if (i == 0) {
+            break;
+          }
+          startService(paramAnonymousClient);
+          return;
+        }
+        stopService(paramAnonymousClient);
       }
     });
   }
   
+  private void K()
+  {
+    N.b();
+  }
+  
+  private void L()
+  {
+    opc.a(R);
+    if (l.c(eaj.W)) {
+      opc.a(V);
+    }
+    if (l.c(eaj.U)) {
+      opc.a(aa);
+    }
+  }
+  
+  private void M()
+  {
+    cvy.a(this, af);
+  }
+  
+  private void N()
+  {
+    i.a(eaj.aj).b(new odv()
+    {
+      private void a(ExperimentUpdate paramAnonymousExperimentUpdate)
+      {
+        eoc localeoc = A;
+        paramAnonymousExperimentUpdate.isTreated();
+        localeoc.a();
+      }
+      
+      public final void a(Throwable paramAnonymousThrowable) {}
+      
+      public final void r_() {}
+    });
+    if ((l.c(eaj.gX)) && ((l.c(eaj.gY)) || (l.c(eaj.gZ)))) {
+      B.b();
+    }
+  }
+  
   private void O()
   {
-    c.a(this);
+    if (l.c(eaj.gU)) {
+      ah.a();
+    }
   }
   
   private void P()
+  {
+    boolean bool = l.a(eaj.dW, true);
+    u.b(bool);
+  }
+  
+  private void Q()
+  {
+    if (l.c(eaj.gE)) {
+      ((PersistedObjectDataStore)w.a()).initialize();
+    }
+  }
+  
+  private void R()
+  {
+    if (l.c(eaj.fS)) {
+      ((ThreadPoolExecutor)k).setMaximumPoolSize(20);
+    }
+    dzy localdzy = L.d();
+    localdzy.a((float)l.a(eaj.ms, "schedulerSamplerKey", 2.0E-4D));
+    localdzy.a(new dzz()
+    {
+      public final void a(String paramAnonymousString, long paramAnonymousLong1, long paramAnonymousLong2, long paramAnonymousLong3)
+      {
+        U.a(new Message[] { RiderApplication.a(paramAnonymousString, paramAnonymousLong1, paramAnonymousLong2, paramAnonymousLong3) });
+      }
+    });
+  }
+  
+  private void S()
+  {
+    d.a(this);
+  }
+  
+  private void T()
   {
     try
     {
@@ -315,22 +390,29 @@ public class RiderApplication
     catch (Exception localException) {}
   }
   
-  private void Q()
+  private void U()
   {
-    if ((h.b(dux.dN)) && (h.b(dux.ak)))
+    if (l.c(eaj.ai))
     {
-      if (h.b(dux.eg)) {
-        ag.a("tag_bootstrap_cache", egd.values());
+      if (l.c(eaj.gE)) {
+        al.a("tag_bootstrap_cache", enz.values());
       }
-      if (h.b(dux.eb)) {
-        ag.a("tag_mat_migration", egd.values());
+      if (l.c(eaj.gy)) {
+        al.a("tag_mat_migration", enz.values());
       }
     }
   }
   
-  private void R()
+  private void V()
   {
-    registerActivityLifecycleCallbacks(i);
+    if (l.c(eaj.gr)) {
+      h.k();
+    }
+  }
+  
+  private void W()
+  {
+    registerActivityLifecycleCallbacks(m);
   }
   
   public static RiderApplication a(Context paramContext)
@@ -349,9 +431,9 @@ public class RiderApplication
     });
   }
   
-  private void a(ebj paramebj)
+  private void a(eib parameib)
   {
-    paramebj.a(this);
+    parameib.a(this);
   }
   
   private static Message b(String paramString, long paramLong1, long paramLong2, long paramLong3)
@@ -366,321 +448,324 @@ public class RiderApplication
   
   private void b(RiderActivity paramRiderActivity)
   {
-    if (!J.u()) {
+    if (!O.J()) {
       return;
     }
-    a.a(p.lS);
-    J.O();
-    n.a();
-    v.a();
-    I.a();
-    ((jwc)k.a()).a("com.ubercab.client.RIDER_ACCOUNT");
-    v();
-    if (h.a(dux.hj)) {
-      F.a();
+    a.a(x.pS);
+    O.ad();
+    g.a();
+    x.a();
+    N.a();
+    ((nct)o.a()).a("com.ubercab.client.RIDER_ACCOUNT");
+    z();
+    if (l.b(eaj.mc)) {
+      K.a();
     }
-    e.a();
-    paramRiderActivity.x();
+    paramRiderActivity.y();
   }
   
-  public static boolean i()
+  private eib t()
   {
-    if (!TextUtils.isEmpty(dse.d())) {
-      return true;
+    return eex.a().a(new edq()).a(new eei(this)).a(new ebr()).a(new efe(this)).a(new efv()).a(enx.a(this)).a(enx.a()).a(new cxr()).a(new ehe()).a(enx.a(this)).a(new ehj()).a(new eic(this)).a(new evs(this)).a(new ewd()).a();
+  }
+  
+  private void u()
+  {
+    I.setEnableUpdateDevice(l.c(eaj.eA));
+    if (e.a(eaj.am)) {
+      I.setDeviceManufacturer(true);
     }
-    Iterator localIterator = eke.b.iterator();
-    while (localIterator.hasNext()) {
-      if (((File)localIterator.next()).exists()) {
-        return true;
-      }
-    }
-    return false;
-  }
-  
-  private ebj p()
-  {
-    return dys.a().a(new dxn()).a(new dye(this)).a(new dwa()).a(new dyz(this)).a(egc.a(this)).a(egc.a()).a(new cxt()).a(new eaq()).a(egc.a(this)).a(new ebk(this)).a(new ent(this)).a(new eoe()).a();
-  }
-  
-  private void q()
-  {
-    o.a();
-  }
-  
-  private void r()
-  {
-    D.setEnableUpdateDevice(h.b(dux.dh));
-    if (h.b(dux.bR)) {
+    if (l.c(eaj.cI)) {
       a.c();
     }
-    if (L.e())
+    if (Q.e())
     {
       a.a(true);
       a.a(b);
     }
   }
   
-  private void s()
-  {
-    registerActivityLifecycleCallbacks(l);
-    l.a(this);
-  }
-  
-  private void t()
-  {
-    v();
-    dsm.a(O);
-  }
-  
-  private void u()
-  {
-    if (h.b(dux.dQ)) {
-      ab.a();
-    }
-  }
-  
   private void v()
   {
-    N.a(J.y());
+    if (l.c(eaj.eC))
+    {
+      M.add(F);
+      z.a();
+    }
   }
   
   private void w()
   {
-    if (h.a(dux.hj)) {
-      F.f();
-    }
+    registerActivityLifecycleCallbacks(p);
+    p.a(this);
   }
   
   private void x()
   {
-    Y.a();
-    ad.a(h.b(dux.dY));
+    z();
+    dxz.a(T);
   }
   
   private void y()
   {
-    if (h.b(dux.as)) {
-      K.a(g, this, dse.c());
+    if (l.c(eaj.gj)) {
+      ag.a();
     }
   }
   
   private void z()
   {
-    jwk.a(this);
+    S.a(O.N());
   }
   
   public final void a()
   {
-    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("lifecycle").setName(dxk.a);
+    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("lifecycle").setName(edm.a);
     a.a(localAnalyticsEvent);
-    U.b();
-    U.a("close");
+    Z.b();
+    Z.a("close");
+    if ((c.g()) && (!e.b(eaj.q))) {
+      c.c();
+    }
   }
   
   public final void a(Intent paramIntent)
   {
-    a.a(hzz.a());
-    Object localObject = new dxh(paramIntent);
-    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("lifecycle").setName(dxk.c).setReferrer(((dxh)localObject).a()).setValue(((dxh)localObject).b()).setUrl(paramIntent.getDataString());
-    localObject = eqs.a(this);
+    a.a(kcj.b());
+    Object localObject = new edj(paramIntent);
+    AnalyticsEvent localAnalyticsEvent = AnalyticsEvent.create("lifecycle").setName(edm.c).setReferrer(((edj)localObject).a()).setValue(((edj)localObject).b()).setUrl(paramIntent.getDataString());
+    localObject = eyv.a(this);
     paramIntent = (Intent)localObject;
     if (localObject == null) {
       paramIntent = "NO_INSTALLER";
     }
-    String str = w.g();
+    String str = y.c();
     localObject = str;
     if (str == null) {
       localObject = "NO_PRELOAD_DATA";
     }
-    if (w.a())
+    if (y.g())
     {
-      paramIntent = new iam().a("preload_data", localObject).a("install_referrer", paramIntent).a();
-      localAnalyticsEvent.setCustomValues(new iam().a("first_time_launch_android", paramIntent).a());
+      paramIntent = new kcw().a("preload_data", localObject).a("install_referrer", paramIntent).a();
+      localAnalyticsEvent.setCustomValues(new kcw().a("first_time_launch_android", paramIntent).a());
     }
     a.a(localAnalyticsEvent);
-    if (U.d()) {
-      U.a("open");
+    Z.a();
+    if (Z.d()) {
+      Z.a("open");
     }
     for (;;)
     {
-      U.a();
+      if ((c.g()) && (!e.b(eaj.q))) {
+        c.b();
+      }
       return;
-      U.c();
+      Z.c();
     }
   }
   
   public final void a(final RiderActivity paramRiderActivity)
   {
-    y.c();
-    if (!k()) {
-      paramRiderActivity.b(getString(2131166015), null);
+    C.c();
+    if (!n()) {
+      paramRiderActivity.b(getString(2131166127), null);
     }
-    if (!ah)
-    {
+    if (!am) {
       b(paramRiderActivity);
-      return;
     }
-    ah = false;
-    ((fuy)B.a()).b();
-    final Handler localHandler = new Handler(Looper.getMainLooper());
-    X.n().c(new kml()
+    do
     {
-      private void a(ekm paramAnonymousekm)
+      return;
+      am = false;
+      ((god)G.a()).b();
+      final Handler localHandler = new Handler(Looper.getMainLooper());
+      ac.u().c(new ofa()
       {
-        paramAnonymousekm.a(new RiderApplication.2.1(this));
-      }
-    });
+        private void a(ese paramAnonymousese)
+        {
+          paramAnonymousese.a(new RiderApplication.2.1(this));
+        }
+      });
+    } while (!l.a(eaj.dJ, true));
+    b(paramRiderActivity);
   }
   
   public final void a(String paramString1, String paramString2, String paramString3)
   {
-    iae.a(paramString1);
-    iae.a(paramString2);
+    kco.a(paramString1);
+    kco.a(paramString2);
     if (TextUtils.isEmpty(paramString2)) {
-      kul.a(dux.aS.name()).e("setCurrentUser_Empty_Token", new Object[0]);
+      opc.a(eaj.bf.name()).e("setCurrentUser_Empty_Token", new Object[0]);
     }
-    J.e(paramString1);
-    J.d(paramString2);
-    if (!h.b(dux.bb)) {
-      d.a(paramString3);
+    O.g(paramString1);
+    O.f(paramString2);
+    if (!l.c(eaj.bt)) {
+      f.a(paramString3);
     }
-    new ekf(this).a();
-    v();
+    new erx(this).a();
+    z();
     new Handler(Looper.getMainLooper()).post(new Runnable()
     {
       public final void run()
       {
-        m();
+        q();
       }
     });
   }
   
-  public final ebj b()
+  public final eib b()
   {
-    return af;
+    return ak;
   }
   
-  public final ihd e()
+  public final kit e()
   {
-    return af;
+    return ak;
   }
   
-  public final imm f()
+  public final kkb f()
   {
-    return af;
+    return ak;
   }
   
-  public final jqb g()
+  public final ldh g()
   {
-    return af;
+    return ak;
   }
   
-  public final jet h()
+  public final mok h()
   {
-    return af;
+    return ak;
   }
   
-  public final boolean j()
+  public final mbh i()
   {
-    return (!i()) || (w.d());
+    return ai;
   }
   
-  public final boolean k()
+  public final nbj j()
   {
-    return (getApplicationInfoflags & 0x100) != 0;
+    return ak;
+  }
+  
+  public final mqe k()
+  {
+    return ak;
   }
   
   public final boolean l()
   {
-    int i1 = j.a(this);
-    return (i1 != 1) && (i1 != 9);
-  }
-  
-  protected final void m()
-  {
-    if ((Looper.myLooper() == Looper.getMainLooper()) && (J.u()) && (!ah))
-    {
-      ah = true;
-      ((fuy)B.a()).a();
-      X.n().c(new kml()
-      {
-        private static void a(ekm paramAnonymousekm)
-        {
-          paramAnonymousekm.a();
-        }
-      });
+    if (!TextUtils.isEmpty(dxj.e())) {
+      return true;
     }
+    return y.d();
   }
   
-  public final idv n()
+  public final boolean m()
   {
-    return dyd.a(this);
+    return (!l()) || (y.e());
+  }
+  
+  public final boolean n()
+  {
+    return (getApplicationInfoflags & 0x100) != 0;
+  }
+  
+  public final boolean o()
+  {
+    return (Q != null) && (Q.m());
   }
   
   public void onCreate()
   {
     super.onCreate();
-    if ((!dpv.a(this)) && (!k())) {
+    if ((!dut.a(this)) && (!n())) {
       return;
     }
     long l1 = System.currentTimeMillis();
-    ag = ijw.a();
-    ag.a(ijz.a, egd.z);
-    ag.a(ijz.a, egd.b);
-    ag.a(ijz.a, egd.c);
-    if (ai == null) {}
-    for (af = p();; af = ((ebj)ai.c()))
+    al = kog.a();
+    al.a(koj.a, enz.z);
+    al.a(koj.a, enz.b);
+    al.a(koj.a, enz.c);
+    if (an == null) {}
+    for (ak = t();; ak = ((eib)an.c()))
     {
-      if (af != null) {
-        af.al().a(af.z());
+      a(ak);
+      U();
+      if (!l.c(eaj.ai)) {
+        al.a(enz.values());
       }
-      a(af);
+      al.b(enz.b);
+      V();
       Q();
-      if (!h.b(dux.ak)) {
-        ag.a(egd.values());
-      }
-      ag.b(egd.b);
-      M();
-      N();
-      H();
-      u();
-      L();
-      t();
-      D();
-      A();
-      r();
-      s();
-      z();
-      q();
-      F();
-      E();
-      m();
-      G();
-      w();
-      B();
-      P();
-      O();
-      C();
-      J();
-      K();
-      I();
       R();
+      L();
       y();
+      P();
       x();
-      z.a(l1);
-      if (!idk.a(this, "android.permission.ACCESS_FINE_LOCATION")) {
-        ag.a(egd.z);
+      G();
+      J();
+      E();
+      u();
+      v();
+      w();
+      D();
+      I();
+      H();
+      q();
+      K();
+      A();
+      T();
+      S();
+      F();
+      O();
+      N();
+      M();
+      W();
+      C();
+      B();
+      D.a(l1);
+      if (!kgc.a(this, "android.permission.ACCESS_FINE_LOCATION")) {
+        al.a(enz.z);
       }
-      if (TextUtils.isEmpty(J.t())) {
-        ag.a(egd.z);
+      if (TextUtils.isEmpty(O.I())) {
+        al.a(enz.z);
       }
-      ag.b(egd.c);
-      if (!h.b(dux.ak)) {
+      al.b(enz.c);
+      if (!l.c(eaj.ai)) {
         break;
       }
-      ag.a(ijz.a, egd.d);
+      al.a(koj.a, enz.d);
       return;
     }
+  }
+  
+  @Deprecated
+  public final boolean p()
+  {
+    int i1 = n.a(this);
+    return (i1 != 1) && (i1 != 9);
+  }
+  
+  protected final void q()
+  {
+    if ((Looper.myLooper() == Looper.getMainLooper()) && (O.J()) && (!am))
+    {
+      am = true;
+      ((god)G.a()).a();
+      ac.u().c(new ofa()
+      {
+        private static void a(ese paramAnonymousese)
+        {
+          paramAnonymousese.a();
+        }
+      });
+    }
+  }
+  
+  public final kgn r()
+  {
+    return eeh.a(this);
   }
 }
 

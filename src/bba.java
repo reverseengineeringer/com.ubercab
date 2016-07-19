@@ -1,121 +1,76 @@
-import android.os.IBinder;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Application.ActivityLifecycleCallbacks;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
 
+@TargetApi(14)
 final class bba
-  implements bay
+  implements Application.ActivityLifecycleCallbacks
 {
-  private IBinder a;
+  private bba(baz parambaz) {}
   
-  bba(IBinder paramIBinder)
+  private boolean a(String paramString)
   {
-    a = paramIBinder;
+    if (!TextUtils.isEmpty(paramString))
+    {
+      a.a("auto", "_ldl", paramString);
+      return true;
+    }
+    return false;
   }
   
-  /* Error */
-  public final void a(com.google.android.gms.location.LocationAvailability paramLocationAvailability)
+  public final void onActivityCreated(Activity paramActivity, Bundle paramBundle)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: aload_2
-    //   5: ldc 25
-    //   7: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   10: aload_1
-    //   11: ifnull +33 -> 44
-    //   14: aload_2
-    //   15: iconst_1
-    //   16: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   19: aload_1
-    //   20: aload_2
-    //   21: iconst_0
-    //   22: invokevirtual 39	com/google/android/gms/location/LocationAvailability:writeToParcel	(Landroid/os/Parcel;I)V
-    //   25: aload_0
-    //   26: getfield 15	bba:a	Landroid/os/IBinder;
-    //   29: iconst_2
-    //   30: aload_2
-    //   31: aconst_null
-    //   32: iconst_1
-    //   33: invokeinterface 45 5 0
-    //   38: pop
-    //   39: aload_2
-    //   40: invokevirtual 48	android/os/Parcel:recycle	()V
-    //   43: return
-    //   44: aload_2
-    //   45: iconst_0
-    //   46: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   49: goto -24 -> 25
-    //   52: astore_1
-    //   53: aload_2
-    //   54: invokevirtual 48	android/os/Parcel:recycle	()V
-    //   57: aload_1
-    //   58: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	59	0	this	bba
-    //   0	59	1	paramLocationAvailability	com.google.android.gms.location.LocationAvailability
-    //   3	51	2	localParcel	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   4	10	52	finally
-    //   14	25	52	finally
-    //   25	39	52	finally
-    //   44	49	52	finally
+    try
+    {
+      a.s().z().a("onActivityCreated");
+      paramActivity = paramActivity.getIntent();
+      if (paramActivity == null) {
+        return;
+      }
+      paramActivity = paramActivity.getData();
+      if ((paramActivity == null) || (!paramActivity.isHierarchical())) {
+        return;
+      }
+      paramActivity = paramActivity.getQueryParameter("referrer");
+      if (TextUtils.isEmpty(paramActivity)) {
+        return;
+      }
+      if (!paramActivity.contains("gclid"))
+      {
+        a.s().y().a("Activity created with data 'referrer' param without gclid");
+        return;
+      }
+    }
+    catch (Throwable paramActivity)
+    {
+      a.s().b().a("Throwable caught in onActivityCreated", paramActivity);
+      return;
+    }
+    a.s().y().a("Activity created with referrer", paramActivity);
+    a(paramActivity);
   }
   
-  /* Error */
-  public final void a(com.google.android.gms.location.LocationResult paramLocationResult)
+  public final void onActivityDestroyed(Activity paramActivity) {}
+  
+  public final void onActivityPaused(Activity paramActivity)
   {
-    // Byte code:
-    //   0: invokestatic 23	android/os/Parcel:obtain	()Landroid/os/Parcel;
-    //   3: astore_2
-    //   4: aload_2
-    //   5: ldc 25
-    //   7: invokevirtual 29	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
-    //   10: aload_1
-    //   11: ifnull +33 -> 44
-    //   14: aload_2
-    //   15: iconst_1
-    //   16: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   19: aload_1
-    //   20: aload_2
-    //   21: iconst_0
-    //   22: invokevirtual 52	com/google/android/gms/location/LocationResult:writeToParcel	(Landroid/os/Parcel;I)V
-    //   25: aload_0
-    //   26: getfield 15	bba:a	Landroid/os/IBinder;
-    //   29: iconst_1
-    //   30: aload_2
-    //   31: aconst_null
-    //   32: iconst_1
-    //   33: invokeinterface 45 5 0
-    //   38: pop
-    //   39: aload_2
-    //   40: invokevirtual 48	android/os/Parcel:recycle	()V
-    //   43: return
-    //   44: aload_2
-    //   45: iconst_0
-    //   46: invokevirtual 33	android/os/Parcel:writeInt	(I)V
-    //   49: goto -24 -> 25
-    //   52: astore_1
-    //   53: aload_2
-    //   54: invokevirtual 48	android/os/Parcel:recycle	()V
-    //   57: aload_1
-    //   58: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	59	0	this	bba
-    //   0	59	1	paramLocationResult	com.google.android.gms.location.LocationResult
-    //   3	51	2	localParcel	android.os.Parcel
-    // Exception table:
-    //   from	to	target	type
-    //   4	10	52	finally
-    //   14	25	52	finally
-    //   25	39	52	finally
-    //   44	49	52	finally
+    a.q().c();
   }
   
-  public final IBinder asBinder()
+  public final void onActivityResumed(Activity paramActivity)
   {
-    return a;
+    a.q().b();
   }
+  
+  public final void onActivitySaveInstanceState(Activity paramActivity, Bundle paramBundle) {}
+  
+  public final void onActivityStarted(Activity paramActivity) {}
+  
+  public final void onActivityStopped(Activity paramActivity) {}
 }
 
 /* Location:

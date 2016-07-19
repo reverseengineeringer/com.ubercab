@@ -1,38 +1,51 @@
-import java.util.HashMap;
-import java.util.Map;
+import android.content.Intent;
+import android.util.Log;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
 
-public final class cag
-  implements bzw
+public abstract class cag
 {
-  private static Map a = new HashMap();
-  private static Map b = new HashMap();
+  private Intent a;
+  private PayPalConfiguration b;
   
-  public cag()
+  cag(Intent paramIntent, PayPalConfiguration paramPayPalConfiguration)
   {
-    a.put(bzv.a, "ביטול");
-    a.put(bzv.b, "אמריקן אקספרס");
-    a.put(bzv.c, "Discover‏");
-    a.put(bzv.d, "JCB‏");
-    a.put(bzv.e, "מאסטרקארד");
-    a.put(bzv.f, "ויזה");
-    a.put(bzv.g, "בוצע");
-    a.put(bzv.h, "קוד אימות כרטיס");
-    a.put(bzv.i, "מיקוד");
-    a.put(bzv.j, "תאריך תפוגה");
-    a.put(bzv.k, "MM/YY‏");
-    a.put(bzv.l, "החזק את הכרטיס כאן.\nהסריקה תתבצע באופן אוטומטי.");
-    a.put(bzv.m, "מקלדת…");
-    a.put(bzv.n, "מספר כרטיס");
-    a.put(bzv.o, "פרטי כרטיס");
-    a.put(bzv.p, "המכשיר אינו מסוגל להשתמש במצלמה לקריאת מספרי כרטיס.");
-    a.put(bzv.q, "מצלמת המכשיר אינה זמינה.");
-    a.put(bzv.r, "המכשיר נתקל בשגיאה בלתי צפויה בזמן הפעלת המצלמה.");
+    a = paramIntent;
+    b = paramPayPalConfiguration;
+    if (!a.hasExtra("com.paypal.android.sdk.paypalConfiguration")) {
+      Log.w(a(), "Please add PayPalService.EXTRA_PAYPAL_CONFIGURATION to this activity for restart resiliency.");
+    }
   }
   
-  public final String a()
+  abstract String a();
+  
+  protected final void a(boolean paramBoolean, String paramString)
   {
-    return "he";
+    if (!paramBoolean) {
+      Log.e(a(), paramString + " is invalid.  Please see the docs.");
+    }
   }
+  
+  final Intent b()
+  {
+    return a;
+  }
+  
+  final PayPalConfiguration c()
+  {
+    return b;
+  }
+  
+  public final boolean d()
+  {
+    if (!b.o())
+    {
+      Log.e(a(), "Service extra invalid.");
+      return false;
+    }
+    return true;
+  }
+  
+  abstract boolean e();
 }
 
 /* Location:

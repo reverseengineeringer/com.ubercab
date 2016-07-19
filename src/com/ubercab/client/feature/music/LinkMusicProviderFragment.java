@@ -11,12 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import cho;
-import ckc;
-import ckr;
+import chu;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.client.core.model.TunesProvider;
 import com.ubercab.rider.realtime.model.City;
@@ -25,42 +24,42 @@ import com.ubercab.rider.realtime.model.Trip;
 import com.ubercab.rider.realtime.model.TripDriver;
 import com.ubercab.rider.realtime.model.TripDriverCapabilities;
 import com.ubercab.ui.Button;
-import dsh;
-import ebj;
-import efr;
-import eht;
-import ejs;
-import ejt;
-import emx;
-import eqg;
-import fqk;
-import fql;
-import frv;
-import frw;
+import dxm;
+import eib;
+import enk;
+import eqf;
+import ern;
+import ero;
+import eun;
+import eyh;
+import gil;
+import gim;
+import gjy;
+import gjz;
 import java.util.Map;
-import jse;
-import jsg;
-import kld;
-import klo;
-import kls;
-import p;
-import r;
+import mxk;
+import mxm;
+import odr;
+import oed;
+import oeh;
+import x;
+import z;
 
 public class LinkMusicProviderFragment
-  extends dsh<frw>
+  extends dxm<gjz>
   implements DialogInterface.OnDismissListener
 {
-  public ckc c;
-  public emx d;
-  public jsg e;
-  public eht f;
-  public jse g;
-  private klo h;
+  public ckt c;
+  public eun d;
+  public mxm e;
+  public eqf f;
+  public mxk g;
+  private oed h;
   private TunesProvider i;
-  @InjectView(2131624687)
-  Button mButtonLinkProvider;
-  @InjectView(2131624685)
-  ImageView mImageViewFeatureFocus;
+  @BindView
+  public Button mButtonLinkProvider;
+  @BindView
+  public ImageView mImageViewFeatureFocus;
   
   static LinkMusicProviderFragment a(TunesProvider paramTunesProvider)
   {
@@ -73,11 +72,11 @@ public class LinkMusicProviderFragment
   
   private void a()
   {
-    e();
-    String str1 = getString(2131166632);
-    String str2 = getString(2131165380);
-    String str3 = getString(2131166126);
-    eqg.a(d(), p.ex, 0, str1, str2, str3);
+    M_();
+    String str1 = getString(2131166886);
+    String str2 = getString(2131165436);
+    String str3 = getString(2131166260);
+    eyh.a(b(), x.gx, 0, str1, str2, str3);
   }
   
   private void a(Client paramClient)
@@ -118,24 +117,24 @@ public class LinkMusicProviderFragment
     }
   }
   
-  private void a(frw paramfrw)
+  private void a(gjz paramgjz)
   {
-    paramfrw.a(this);
+    paramgjz.a(this);
   }
   
-  private frw b(ebj paramebj)
+  private gjz b(eib parameib)
   {
-    return fqk.a().a(new efr(this)).a(paramebj).a();
+    return gil.a().a(new enk(this)).a(parameib).a();
   }
   
-  private void b()
+  private void f()
   {
     a();
   }
   
-  public final ckr f()
+  public final cli e()
   {
-    return dsh.a;
+    return dxm.a;
   }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -145,16 +144,16 @@ public class LinkMusicProviderFragment
     {
       paramIntent = paramIntent.getStringExtra("com.ubercab.AUTHORIZATION_CODE");
       if (i.getId() != null) {
-        h = g.d(i.getId(), paramIntent).a(kls.a()).b(new frv(this, (byte)0));
+        h = g.d(i.getId(), paramIntent).a(oeh.a()).b(new gjy(this, (byte)0));
       }
-      a(getString(2131165386), this);
+      a(getString(2131165442), this);
     }
   }
   
-  @OnClick({2131624687})
-  void onClickLinkProvider()
+  @OnClick
+  public void onClickLinkProvider()
   {
-    c.a(r.jV);
+    c.a(z.nk);
     startActivityForResult(MusicProviderAuthorizationActivity.a(getActivity(), i), 1);
   }
   
@@ -166,15 +165,9 @@ public class LinkMusicProviderFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903295, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903390, paramViewGroup, false);
+    a(paramLayoutInflater);
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public void onDismiss(DialogInterface paramDialogInterface) {}
@@ -183,29 +176,29 @@ public class LinkMusicProviderFragment
   {
     super.onPause();
     if (h != null) {
-      h.c();
+      h.af_();
     }
   }
   
-  @cho
-  public void onTunesHandshakeResponseEvent(ejs paramejs)
+  @chu
+  public void onTunesHandshakeResponseEvent(ern paramern)
   {
-    RiderActivity localRiderActivity = d();
+    RiderActivity localRiderActivity = b();
     if (localRiderActivity == null) {
       return;
     }
-    localRiderActivity.setResult(-1, new Intent().putExtra("com.ubercab.MUSIC_PROVIDER", (Parcelable)paramejs.g()));
+    localRiderActivity.setResult(-1, new Intent().putExtra("com.ubercab.MUSIC_PROVIDER", (Parcelable)paramern.g()));
     localRiderActivity.finish();
   }
   
-  @cho
-  public void onTunesProviderResponseEvent(ejt paramejt)
+  @chu
+  public void onTunesProviderResponseEvent(ero paramero)
   {
-    RiderActivity localRiderActivity = d();
+    RiderActivity localRiderActivity = b();
     if (localRiderActivity == null) {
       return;
     }
-    if ((!paramejt.i()) && (paramejt.n() == 403))
+    if ((!paramero.i()) && (paramero.n() == 403))
     {
       startActivity(new Intent(localRiderActivity, MusicProviderOfferActivity.class));
       localRiderActivity.setResult(-1);
@@ -214,20 +207,20 @@ public class LinkMusicProviderFragment
     {
       localRiderActivity.finish();
       return;
-      if (paramejt.i())
+      if (paramero.i())
       {
-        Object localObject = (TunesProvider)paramejt.g();
+        Object localObject = (TunesProvider)paramero.g();
         String str = ((TunesProvider)localObject).getEligibleTrial();
         if (!TextUtils.isEmpty(str))
         {
-          paramejt = e.b();
-          if (paramejt != null) {}
-          for (paramejt = paramejt.getCityName();; paramejt = null)
+          paramero = e.b();
+          if (paramero != null) {}
+          for (paramero = paramero.getCityName();; paramero = null)
           {
             localObject = ((TunesProvider)localObject).getId();
-            paramejt = MusicProviderOfferActivity.a(localRiderActivity.getApplication(), (String)localObject, str, paramejt);
+            paramero = MusicProviderOfferActivity.a(localRiderActivity.getApplication(), (String)localObject, str, paramero);
             localRiderActivity.setResult(-1);
-            startActivity(paramejt);
+            startActivity(paramero);
             break;
           }
         }
@@ -243,7 +236,7 @@ public class LinkMusicProviderFragment
   public void onViewCreated(View paramView, Bundle paramBundle)
   {
     super.onViewCreated(paramView, paramBundle);
-    mButtonLinkProvider.setText(getString(2131165381, new Object[] { i.getName() }));
+    mButtonLinkProvider.setText(getString(2131165437, new Object[] { i.getName() }));
   }
 }
 

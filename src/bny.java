@@ -1,72 +1,37 @@
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.wallet.wobs.LoyaltyPointsBalance;
+import java.lang.reflect.Type;
+import java.util.Map;
 
 public final class bny
-  implements Parcelable.Creator<LoyaltyPointsBalance>
+  implements bmr
 {
-  private static LoyaltyPointsBalance a(Parcel paramParcel)
+  private final bnc a;
+  private final boolean b;
+  
+  public bny(bnc parambnc, boolean paramBoolean)
   {
-    String str1 = null;
-    int j = 0;
-    int m = zm.b(paramParcel);
-    double d = 0.0D;
-    long l = 0L;
-    int i = -1;
-    String str2 = null;
-    int k = 0;
-    while (paramParcel.dataPosition() < m)
-    {
-      int n = zm.a(paramParcel);
-      switch (zm.a(n))
-      {
-      default: 
-        zm.a(paramParcel, n);
-        break;
-      case 1: 
-        k = zm.e(paramParcel, n);
-        break;
-      case 2: 
-        j = zm.e(paramParcel, n);
-        break;
-      case 3: 
-        str2 = zm.n(paramParcel, n);
-        break;
-      case 4: 
-        d = zm.l(paramParcel, n);
-        break;
-      case 5: 
-        str1 = zm.n(paramParcel, n);
-        break;
-      case 6: 
-        l = zm.g(paramParcel, n);
-        break;
-      case 7: 
-        i = zm.e(paramParcel, n);
-      }
-    }
-    if (paramParcel.dataPosition() != m) {
-      throw new zn("Overread allowed size end=" + m, paramParcel);
-    }
-    return new LoyaltyPointsBalance(k, j, str2, d, str1, l, i);
+    a = parambnc;
+    b = paramBoolean;
   }
   
-  public static void a(LoyaltyPointsBalance paramLoyaltyPointsBalance, Parcel paramParcel)
+  private static bmq<?> a(blw paramblw, Type paramType)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramLoyaltyPointsBalance.a());
-    zo.a(paramParcel, 2, a);
-    zo.a(paramParcel, 3, b, false);
-    zo.a(paramParcel, 4, c);
-    zo.a(paramParcel, 5, d, false);
-    zo.a(paramParcel, 6, e);
-    zo.a(paramParcel, 7, f);
-    zo.a(paramParcel, i);
+    if ((paramType == Boolean.TYPE) || (paramType == Boolean.class)) {
+      return boh.f;
+    }
+    return paramblw.a(boj.get(paramType));
   }
   
-  private static LoyaltyPointsBalance[] a(int paramInt)
+  public final <T> bmq<T> create(blw paramblw, boj<T> paramboj)
   {
-    return new LoyaltyPointsBalance[paramInt];
+    Object localObject = paramboj.getType();
+    if (!Map.class.isAssignableFrom(paramboj.getRawType())) {
+      return null;
+    }
+    localObject = bmy.b((Type)localObject, bmy.b((Type)localObject));
+    bmq localbmq1 = a(paramblw, localObject[0]);
+    bmq localbmq2 = paramblw.a(boj.get(localObject[1]));
+    paramboj = a.a(paramboj);
+    return new bnz(this, paramblw, localObject[0], localbmq1, localObject[1], localbmq2, paramboj);
   }
 }
 

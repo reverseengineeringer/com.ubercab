@@ -1,9 +1,9 @@
 package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface MobileMessageDisplayProperties
 {
   public abstract Long getExpandHeaderNPixelsWhenOpenedInDrawer();
@@ -23,6 +23,8 @@ public abstract interface MobileMessageDisplayProperties
   public abstract String getShowAtBottomOfRequestViewString();
   
   public abstract Boolean getShowForDynamicPickupsSummary();
+  
+  public abstract Boolean getShowForHOPVehicleViewSelection();
   
   public abstract Boolean getShowHeaderOnFullScreen();
   

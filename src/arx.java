@@ -1,30 +1,46 @@
-import android.os.StrictMode;
-import android.os.StrictMode.ThreadPolicy;
-import android.os.StrictMode.ThreadPolicy.Builder;
-import java.util.concurrent.Callable;
+import android.accounts.Account;
+import android.content.Context;
+import android.os.IBinder;
+import android.os.Looper;
+import com.google.android.gms.location.places.PlaceReport;
+import com.google.android.gms.location.places.internal.PlacesParams;
+import java.util.Locale;
 
-@apl
 public final class arx
+  extends zv<ark>
 {
-  public static <T> T a(Callable<T> paramCallable)
+  private final PlacesParams d;
+  private final Locale e = Locale.getDefault();
+  
+  public arx(Context paramContext, Looper paramLooper, zq paramzq, wl paramwl, wm paramwm, String paramString, arc paramarc)
   {
-    StrictMode.ThreadPolicy localThreadPolicy = StrictMode.getThreadPolicy();
-    try
-    {
-      StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder(localThreadPolicy).permitDiskReads().permitDiskWrites().build());
-      paramCallable = paramCallable.call();
-      return paramCallable;
+    super(paramContext, paramLooper, 67, paramzq, paramwl, paramwm);
+    paramContext = null;
+    if (paramzq.b() != null) {
+      paramContext = bname;
     }
-    catch (Throwable paramCallable)
-    {
-      aqt.b("Unexpected exception.", paramCallable);
-      tp.h().a(paramCallable, true);
-      return null;
-    }
-    finally
-    {
-      StrictMode.setThreadPolicy(localThreadPolicy);
-    }
+    d = new PlacesParams(paramString, e, paramContext, a, b);
+  }
+  
+  private static ark b(IBinder paramIBinder)
+  {
+    return arl.a(paramIBinder);
+  }
+  
+  public final void a(asz paramasz, PlaceReport paramPlaceReport)
+  {
+    abe.a(paramPlaceReport);
+    ((ark)o()).a(paramPlaceReport, d, paramasz);
+  }
+  
+  protected final String f()
+  {
+    return "com.google.android.gms.location.places.PlaceDetectionApi";
+  }
+  
+  protected final String g()
+  {
+    return "com.google.android.gms.location.places.internal.IGooglePlaceDetectionService";
   }
 }
 

@@ -11,9 +11,13 @@ public abstract class StatusBody
     return new Shape_StatusBody();
   }
   
+  public abstract Integer getSelectedVehicleViewId();
+  
   public abstract Location getTargetLocation();
   
   public abstract Location getTargetLocationSynced();
+  
+  public abstract StatusBody setSelectedVehicleViewId(Integer paramInteger);
   
   public abstract StatusBody setTargetLocation(Location paramLocation);
   

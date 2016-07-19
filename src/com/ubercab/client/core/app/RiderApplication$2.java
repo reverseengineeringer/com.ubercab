@@ -1,17 +1,17 @@
 package com.ubercab.client.core.app;
 
 import android.os.Handler;
-import ekm;
-import kml;
+import ese;
+import ofa;
 
 final class RiderApplication$2
-  implements kml<ekm>
+  implements ofa<ese>
 {
   RiderApplication$2(RiderApplication paramRiderApplication, Handler paramHandler, RiderActivity paramRiderActivity) {}
   
-  private void a(ekm paramekm)
+  private void a(ese paramese)
   {
-    paramekm.a(new RiderApplication.2.1(this));
+    paramese.a(new RiderApplication.2.1(this));
   }
 }
 

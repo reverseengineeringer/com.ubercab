@@ -9,10 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver.OnScrollChangedListener;
 import android.widget.PopupWindow;
-import bz;
-import iv;
+import gn;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
+import ni;
 
 public class AppCompatPopupWindow
   extends PopupWindow
@@ -33,11 +33,11 @@ public class AppCompatPopupWindow
   public AppCompatPopupWindow(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramContext = iv.a(paramContext, paramAttributeSet, bz.PopupWindow, paramInt);
-    if (paramContext.g(bz.PopupWindow_overlapAnchor)) {
-      a(paramContext.a(bz.PopupWindow_overlapAnchor, false));
+    paramContext = ni.a(paramContext, paramAttributeSet, gn.PopupWindow, paramInt);
+    if (paramContext.h(gn.PopupWindow_overlapAnchor)) {
+      a(paramContext.a(gn.PopupWindow_overlapAnchor, false));
     }
-    setBackgroundDrawable(paramContext.a(bz.PopupWindow_android_popupBackground));
+    setBackgroundDrawable(paramContext.a(gn.PopupWindow_android_popupBackground));
     paramContext.a();
     if (Build.VERSION.SDK_INT < 14) {
       a(this);

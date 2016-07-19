@@ -2,10 +2,10 @@ package com.ubercab.client.core.model.vehicleview;
 
 import com.ubercab.client.core.validator.RiderValidatorFactory;
 import com.ubercab.shape.Shape;
-import jdh;
+import lzo;
 
 @Shape
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public abstract class VehicleViewTripOptionChoice
 {
   public static VehicleViewTripOptionChoice create(String paramString, Object paramObject)

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="@dimen/ui__spacing_unit_1x" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.P" android:textColor="@color/ub__uber_black_100" android:id="@id/ub__bad_routes_title_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_1x" />
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.Byline" android:id="@id/ub__bad_routes_body_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_1x" />
+    <com.ubercab.ui.card.view.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_1x">
+        <LinearLayout android:orientation="vertical" android:id="@id/ub__bad_routes_reasons_viewgroup" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/ub__line_divider" android:showDividers="middle" />
+    </com.ubercab.ui.card.view.CardView>
+    <com.ubercab.ui.Button android:enabled="false" android:id="@id/ub__bad_routes_submit_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/ui__spacing_unit_1x" android:text="@string/ub__rds__submit" style="@style/Uber.Widget.Button.Primary" />
+</LinearLayout>

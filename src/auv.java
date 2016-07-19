@@ -1,55 +1,30 @@
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningAppProcessInfo;
-import android.content.Context;
-import android.os.Binder;
-import java.util.Iterator;
-import java.util.List;
+import android.os.Bundle;
+import android.os.IInterface;
 
-public final class auv
+public abstract interface auv
+  extends IInterface
 {
-  public static String a(int paramInt)
-  {
-    StackTraceElement[] arrayOfStackTraceElement = Thread.currentThread().getStackTrace();
-    StringBuffer localStringBuffer = new StringBuffer();
-    int i = 3;
-    while (i < paramInt + 3)
-    {
-      localStringBuffer.append(a(arrayOfStackTraceElement, i)).append(" ");
-      i += 1;
-    }
-    return localStringBuffer.toString();
-  }
+  public abstract aum a();
   
-  public static String a(Context paramContext)
-  {
-    return a(paramContext, Binder.getCallingPid());
-  }
+  public abstract void a(Bundle paramBundle);
   
-  public static String a(Context paramContext, int paramInt)
-  {
-    paramContext = ((ActivityManager)paramContext.getSystemService("activity")).getRunningAppProcesses();
-    if (paramContext != null)
-    {
-      paramContext = paramContext.iterator();
-      while (paramContext.hasNext())
-      {
-        ActivityManager.RunningAppProcessInfo localRunningAppProcessInfo = (ActivityManager.RunningAppProcessInfo)paramContext.next();
-        if (pid == paramInt) {
-          return processName;
-        }
-      }
-    }
-    return null;
-  }
+  public abstract void a(axj paramaxj);
   
-  private static String a(StackTraceElement[] paramArrayOfStackTraceElement, int paramInt)
-  {
-    if (paramInt + 4 >= paramArrayOfStackTraceElement.length) {
-      return "<bottom of call stack>";
-    }
-    paramArrayOfStackTraceElement = paramArrayOfStackTraceElement[(paramInt + 4)];
-    return paramArrayOfStackTraceElement.getClassName() + "." + paramArrayOfStackTraceElement.getMethodName() + ":" + paramArrayOfStackTraceElement.getLineNumber();
-  }
+  public abstract void b();
+  
+  public abstract void b(Bundle paramBundle);
+  
+  public abstract void c();
+  
+  public abstract void c(Bundle paramBundle);
+  
+  public abstract void d();
+  
+  public abstract void e();
+  
+  public abstract acp f();
+  
+  public abstract void g();
 }
 
 /* Location:

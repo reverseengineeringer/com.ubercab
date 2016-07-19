@@ -1,250 +1,164 @@
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.Signature;
-import android.text.TextUtils;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.measurement.internal.AppMetadata;
-import java.io.ByteArrayInputStream;
-import java.security.MessageDigest;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-import javax.security.auth.x500.X500Principal;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public final class bjv
-  extends bks
 {
-  private static final X500Principal a = new X500Principal("CN=Android Debug,O=Android,C=US");
-  private String b;
-  private String c;
-  private String d;
-  private String e;
-  private long f;
-  private String g;
-  
-  bjv(bko parambko)
+  static final bkq<Object> a = new bkq()
   {
-    super(parambko);
-  }
-  
-  private void a(Status paramStatus)
-  {
-    if (paramStatus == null)
+    public final boolean hasNext()
     {
-      s().b().a("GoogleService failed to initialize (no status)");
-      return;
+      return false;
     }
-    s().b().a("GoogleService failed to initialize, status", Integer.valueOf(paramStatus.f()), paramStatus.c());
-  }
-  
-  private String c()
-  {
-    E();
-    return b;
-  }
-  
-  private String v()
-  {
-    E();
-    return c;
-  }
-  
-  private String w()
-  {
-    E();
-    return d;
-  }
-  
-  private static long x()
-  {
-    return bjf.M();
-  }
-  
-  private long y()
-  {
-    E();
-    return f;
-  }
-  
-  private boolean z()
-  {
-    try
+    
+    public final boolean hasPrevious()
     {
-      Object localObject = m().getPackageManager().getPackageInfo(m().getPackageName(), 64);
-      if ((localObject != null) && (signatures != null) && (signatures.length > 0))
+      return false;
+    }
+    
+    public final Object next()
+    {
+      throw new NoSuchElementException();
+    }
+    
+    public final int nextIndex()
+    {
+      return 0;
+    }
+    
+    public final Object previous()
+    {
+      throw new NoSuchElementException();
+    }
+    
+    public final int previousIndex()
+    {
+      return -1;
+    }
+  };
+  private static final Iterator<Object> b = new Iterator()
+  {
+    public final boolean hasNext()
+    {
+      return false;
+    }
+    
+    public final Object next()
+    {
+      throw new NoSuchElementException();
+    }
+    
+    public final void remove() {}
+  };
+  
+  public static <T> bkp<T> a(T paramT)
+  {
+    new bkp()
+    {
+      boolean a;
+      
+      public final boolean hasNext()
       {
-        localObject = signatures[0];
-        boolean bool = ((X509Certificate)CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(((Signature)localObject).toByteArray()))).getSubjectX500Principal().equals(a);
-        return bool;
+        return !a;
       }
-    }
-    catch (CertificateException localCertificateException)
-    {
-      s().b().a("Error obtaining certificate", localCertificateException);
-      return true;
-    }
-    catch (PackageManager.NameNotFoundException localNameNotFoundException)
-    {
-      for (;;)
+      
+      public final T next()
       {
-        s().b().a("Package name not found", localNameNotFoundException);
-      }
-    }
-  }
-  
-  final AppMetadata a(String paramString)
-  {
-    String str1 = c();
-    String str2 = b();
-    String str3 = v();
-    String str4 = w();
-    long l1 = x();
-    long l2 = y();
-    boolean bool2 = t().w();
-    if (!tm) {}
-    for (boolean bool1 = true;; bool1 = false) {
-      return new AppMetadata(str1, str2, str3, str4, l1, l2, paramString, bool2, bool1);
-    }
-  }
-  
-  protected final void a()
-  {
-    String str2 = "Unknown";
-    String str1 = "Unknown";
-    PackageManager localPackageManager = m().getPackageManager();
-    String str3 = m().getPackageName();
-    Object localObject1 = localPackageManager.getInstallerPackageName(str3);
-    Object localObject3;
-    if (localObject1 == null) {
-      localObject3 = "manual_install";
-    }
-    Object localObject4;
-    for (;;)
-    {
-      localObject4 = str1;
-      try
-      {
-        PackageInfo localPackageInfo = localPackageManager.getPackageInfo(m().getPackageName(), 0);
-        localObject1 = str1;
-        localObject4 = str2;
-        if (localPackageInfo != null)
-        {
-          localObject4 = str1;
-          CharSequence localCharSequence = localPackageManager.getApplicationLabel(applicationInfo);
-          localObject1 = str1;
-          localObject4 = str1;
-          if (!TextUtils.isEmpty(localCharSequence))
-          {
-            localObject4 = str1;
-            localObject1 = localCharSequence.toString();
-          }
-          localObject4 = localObject1;
-          str1 = versionName;
-          localObject4 = str1;
+        if (a) {
+          throw new NoSuchElementException();
         }
+        a = true;
+        return bjv.this;
       }
-      catch (PackageManager.NameNotFoundException localNameNotFoundException1)
-      {
-        for (;;)
-        {
-          s().b().a("Error retrieving package info: appName", localObject4);
-          localObject2 = localObject4;
-          localObject4 = str2;
-          continue;
-          f = 0L;
-          try
-          {
-            if (z()) {
-              continue;
-            }
-            localObject3 = localPackageManager.getPackageInfo(m().getPackageName(), 64);
-            if ((signatures == null) || (signatures.length <= 0)) {
-              continue;
-            }
-            f = bjc.c(((MessageDigest)localObject2).digest(signatures[0].toByteArray()));
-          }
-          catch (PackageManager.NameNotFoundException localNameNotFoundException2)
-          {
-            s().b().a("Package name not found", localNameNotFoundException2);
-          }
-          continue;
-          localStatus = bkt.a(m());
-          continue;
-          int i = 0;
-          continue;
-          s().x().a("AppMeasurement disabled with google_app_measurement_enable=0");
-          continue;
-          boolean bool = false;
-        }
-      }
-      b = str3;
-      d = ((String)localObject3);
-      c = ((String)localObject4);
-      e = ((String)localObject1);
-      localObject1 = bjc.e("MD5");
-      if (localObject1 != null) {
+    };
+  }
+  
+  public static <T> bkp<T> a(T... paramVarArgs)
+  {
+    return a(paramVarArgs, 0, paramVarArgs.length, 0);
+  }
+  
+  private static <T> bkq<T> a()
+  {
+    return a;
+  }
+  
+  static <T> bkq<T> a(final T[] paramArrayOfT, final int paramInt1, int paramInt2, int paramInt3)
+  {
+    if (paramInt2 >= 0) {}
+    for (boolean bool = true;; bool = false)
+    {
+      bhx.a(bool);
+      bhx.a(paramInt1, paramInt1 + paramInt2, paramArrayOfT.length);
+      bhx.b(paramInt3, paramInt2);
+      if (paramInt2 != 0) {
         break;
       }
-      s().b().a("Could not get MD5 instance");
-      f = -1L;
-      if (!bjf.N()) {
-        break label438;
-      }
-      localObject1 = bkt.a(m(), "-");
-      if ((localObject1 == null) || (!((Status)localObject1).e())) {
-        break label449;
-      }
-      i = 1;
-      if (i == 0) {
-        a((Status)localObject1);
-      }
-      if (i == 0) {
-        break label470;
-      }
-      bool = bkt.b();
-      if (!bool) {
-        break label454;
-      }
-      s().z().a("AppMeasurement enabled");
-      g = "";
-      if (!bjf.N()) {}
-      try
-      {
-        localObject3 = bkt.a();
-        localObject1 = localObject3;
-        if (TextUtils.isEmpty((CharSequence)localObject3)) {
-          localObject1 = "";
-        }
-        g = ((String)localObject1);
-        if (bool) {
-          s().z().a("App package, google app id", b, g);
-        }
-        return;
-      }
-      catch (IllegalStateException localIllegalStateException)
-      {
-        Object localObject2;
-        Status localStatus;
-        s().b().a("getGoogleAppId or isMeasurementEnabled failed with exception", localIllegalStateException);
-      }
-      localObject3 = localObject1;
-      if ("com.android.vending".equals(localObject1)) {
-        localObject3 = "";
-      }
+      return a();
     }
-    label438:
-    label449:
-    label454:
-    label470:
-    return;
+    new bik(paramInt2, paramInt3)
+    {
+      protected final T a(int paramAnonymousInt)
+      {
+        return (T)paramArrayOfT[(paramInt1 + paramAnonymousInt)];
+      }
+    };
   }
   
-  final String b()
+  public static String a(Iterator<?> paramIterator)
   {
-    E();
-    return g;
+    return ']';
+  }
+  
+  public static <F, T> Iterator<T> a(Iterator<F> paramIterator, final bhp<? super F, ? extends T> parambhp)
+  {
+    bhx.a(parambhp);
+    new bko(paramIterator)
+    {
+      final T a(F paramAnonymousF)
+      {
+        return (T)parambhp.a(paramAnonymousF);
+      }
+    };
+  }
+  
+  private static <T> boolean a(Iterator<T> paramIterator, bhy<? super T> parambhy)
+  {
+    return b(paramIterator, parambhy) != -1;
+  }
+  
+  public static boolean a(Iterator<?> paramIterator, Object paramObject)
+  {
+    return a(paramIterator, bhz.a(paramObject));
+  }
+  
+  public static boolean a(Iterator<?> paramIterator1, Iterator<?> paramIterator2)
+  {
+    if (paramIterator1.hasNext()) {
+      if (paramIterator2.hasNext()) {}
+    }
+    while (paramIterator2.hasNext())
+    {
+      return false;
+      if (bhv.a(paramIterator1.next(), paramIterator2.next())) {
+        break;
+      }
+      return false;
+    }
+    return true;
+  }
+  
+  private static <T> int b(Iterator<T> paramIterator, bhy<? super T> parambhy)
+  {
+    bhx.a(parambhy, "predicate");
+    int i = 0;
+    while (paramIterator.hasNext())
+    {
+      if (parambhy.a(paramIterator.next())) {
+        return i;
+      }
+      i += 1;
+    }
+    return -1;
   }
 }
 

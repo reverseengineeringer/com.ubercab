@@ -1,4 +1,9 @@
-final class cbm {}
+public abstract interface cbm
+{
+  public abstract void a();
+  
+  public abstract void a(cbn paramcbn);
+}
 
 /* Location:
  * Qualified Name:     cbm

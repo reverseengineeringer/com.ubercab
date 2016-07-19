@@ -1,70 +1,76 @@
-import android.os.Binder;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import android.os.RemoteException;
 
-public abstract class ahm
-  extends Binder
-  implements ahl
+@aih
+public final class ahm
+  extends acu<ahr>
 {
-  public ahm()
+  private static final ahm a = new ahm();
+  
+  private ahm()
   {
-    attachInterface(this, "com.google.android.gms.ads.internal.customrenderedad.client.ICustomRenderedAd");
+    super("com.google.android.gms.ads.AdOverlayCreatorImpl");
   }
   
-  public static ahl a(IBinder paramIBinder)
+  public static aho a(Activity paramActivity)
   {
-    if (paramIBinder == null) {
+    try
+    {
+      aho localaho1;
+      if (!b(paramActivity))
+      {
+        aho localaho2 = a.c(paramActivity);
+        localaho1 = localaho2;
+        if (localaho2 != null) {}
+      }
+      else
+      {
+        uf.a("Using AdOverlay from the client jar.");
+        localaho1 = sc.b().b(paramActivity);
+      }
+      return localaho1;
+    }
+    catch (ahn paramActivity)
+    {
+      uf.d(paramActivity.getMessage());
+    }
+    return null;
+  }
+  
+  private static ahr b(IBinder paramIBinder)
+  {
+    return ahs.a(paramIBinder);
+  }
+  
+  private static boolean b(Activity paramActivity)
+  {
+    paramActivity = paramActivity.getIntent();
+    if (!paramActivity.hasExtra("com.google.android.gms.ads.internal.overlay.useClientJar")) {
+      throw new ahn("Ad overlay requires the useClientJar flag in intent extras.");
+    }
+    return paramActivity.getBooleanExtra("com.google.android.gms.ads.internal.overlay.useClientJar", false);
+  }
+  
+  private aho c(Activity paramActivity)
+  {
+    try
+    {
+      acp localacp = acs.a(paramActivity);
+      paramActivity = ahp.a(((ahr)a(paramActivity)).a(localacp));
+      return paramActivity;
+    }
+    catch (RemoteException paramActivity)
+    {
+      uf.c("Could not create remote AdOverlay.", paramActivity);
       return null;
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.customrenderedad.client.ICustomRenderedAd");
-    if ((localIInterface != null) && ((localIInterface instanceof ahl))) {
-      return (ahl)localIInterface;
-    }
-    return new ahn(paramIBinder);
-  }
-  
-  public IBinder asBinder()
-  {
-    return this;
-  }
-  
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
-  {
-    switch (paramInt1)
+    catch (acv paramActivity)
     {
-    default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.ads.internal.customrenderedad.client.ICustomRenderedAd");
-      return true;
-    case 1: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.customrenderedad.client.ICustomRenderedAd");
-      paramParcel1 = a();
-      paramParcel2.writeNoException();
-      paramParcel2.writeString(paramParcel1);
-      return true;
-    case 2: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.customrenderedad.client.ICustomRenderedAd");
-      paramParcel1 = b();
-      paramParcel2.writeNoException();
-      paramParcel2.writeString(paramParcel1);
-      return true;
-    case 3: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.customrenderedad.client.ICustomRenderedAd");
-      a(ade.a(paramParcel1.readStrongBinder()));
-      paramParcel2.writeNoException();
-      return true;
-    case 4: 
-      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.customrenderedad.client.ICustomRenderedAd");
-      c();
-      paramParcel2.writeNoException();
-      return true;
+      uf.c("Could not create remote AdOverlay.", paramActivity);
     }
-    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.customrenderedad.client.ICustomRenderedAd");
-    d();
-    paramParcel2.writeNoException();
-    return true;
+    return null;
   }
 }
 

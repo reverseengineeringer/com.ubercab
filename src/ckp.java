@@ -1,7 +1,4 @@
-public abstract interface ckp
-{
-  public abstract String name();
-}
+public final class ckp {}
 
 /* Location:
  * Qualified Name:     ckp

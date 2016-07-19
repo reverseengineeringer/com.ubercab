@@ -1,17 +1,8 @@
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.paypal.android.sdk.payments.PaymentConfirmActivity;
+import android.os.Parcelable.Creator;
 
 public final class cda
-  implements View.OnClickListener
-{
-  public cda(PaymentConfirmActivity paramPaymentConfirmActivity) {}
-  
-  public final void onClick(View paramView)
-  {
-    a.onBackPressed();
-  }
-}
+  implements Parcelable.Creator
+{}
 
 /* Location:
  * Qualified Name:     cda

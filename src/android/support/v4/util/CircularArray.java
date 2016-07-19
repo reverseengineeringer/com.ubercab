@@ -15,11 +15,14 @@ public final class CircularArray<E>
   public CircularArray(int paramInt)
   {
     if (paramInt <= 0) {
-      throw new IllegalArgumentException("capacity must be positive");
+      throw new IllegalArgumentException("capacity must be >= 1");
+    }
+    if (paramInt > 1073741824) {
+      throw new IllegalArgumentException("capacity must be <= 2^30");
     }
     int i = paramInt;
     if (Integer.bitCount(paramInt) != 1) {
-      i = 1 << Integer.highestOneBit(paramInt) + 1;
+      i = Integer.highestOneBit(paramInt - 1) << 1;
     }
     mCapacityBitmask = (i - 1);
     mElements = ((Object[])new Object[i]);

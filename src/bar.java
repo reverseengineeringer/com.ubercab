@@ -1,54 +1,63 @@
+import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.common.data.DataHolder;
-import com.google.android.gms.location.places.PlacePhotoMetadataResult;
+import com.google.android.gms.maps.model.TileOverlayOptions;
 
 public final class bar
-  implements Parcelable.Creator<PlacePhotoMetadataResult>
+  implements Parcelable.Creator<TileOverlayOptions>
 {
-  private static PlacePhotoMetadataResult a(Parcel paramParcel)
+  public static TileOverlayOptions a(Parcel paramParcel)
   {
-    int j = zm.b(paramParcel);
-    Status localStatus = null;
+    boolean bool2 = false;
+    int j = zd.b(paramParcel);
+    IBinder localIBinder = null;
+    float f = 0.0F;
+    boolean bool1 = true;
     int i = 0;
-    DataHolder localDataHolder = null;
     while (paramParcel.dataPosition() < j)
     {
-      int k = zm.a(paramParcel);
-      switch (zm.a(k))
+      int k = zd.a(paramParcel);
+      switch (zd.a(k))
       {
       default: 
-        zm.a(paramParcel, k);
+        zd.a(paramParcel, k);
         break;
       case 1: 
-        localStatus = (Status)zm.a(paramParcel, k, Status.CREATOR);
-        break;
-      case 1000: 
-        i = zm.e(paramParcel, k);
+        i = zd.e(paramParcel, k);
         break;
       case 2: 
-        localDataHolder = (DataHolder)zm.a(paramParcel, k, DataHolder.CREATOR);
+        localIBinder = zd.o(paramParcel, k);
+        break;
+      case 3: 
+        bool2 = zd.b(paramParcel, k);
+        break;
+      case 4: 
+        f = zd.j(paramParcel, k);
+        break;
+      case 5: 
+        bool1 = zd.b(paramParcel, k);
       }
     }
     if (paramParcel.dataPosition() != j) {
-      throw new zn("Overread allowed size end=" + j, paramParcel);
+      throw new ze("Overread allowed size end=" + j, paramParcel);
     }
-    return new PlacePhotoMetadataResult(i, localStatus, localDataHolder);
+    return new TileOverlayOptions(i, localIBinder, bool2, f, bool1);
   }
   
-  public static void a(PlacePhotoMetadataResult paramPlacePhotoMetadataResult, Parcel paramParcel, int paramInt)
+  public static void a(TileOverlayOptions paramTileOverlayOptions, Parcel paramParcel)
   {
-    int i = zo.a(paramParcel);
-    zo.a(paramParcel, 1, paramPlacePhotoMetadataResult.a(), paramInt, false);
-    zo.a(paramParcel, 1000, a);
-    zo.a(paramParcel, 2, b, paramInt, false);
-    zo.a(paramParcel, i);
+    int i = zf.a(paramParcel);
+    zf.a(paramParcel, 1, paramTileOverlayOptions.a());
+    zf.a(paramParcel, 2, paramTileOverlayOptions.b());
+    zf.a(paramParcel, 3, paramTileOverlayOptions.d());
+    zf.a(paramParcel, 4, paramTileOverlayOptions.c());
+    zf.a(paramParcel, 5, paramTileOverlayOptions.e());
+    zf.a(paramParcel, i);
   }
   
-  private static PlacePhotoMetadataResult[] a(int paramInt)
+  private static TileOverlayOptions[] a(int paramInt)
   {
-    return new PlacePhotoMetadataResult[paramInt];
+    return new TileOverlayOptions[paramInt];
   }
 }
 

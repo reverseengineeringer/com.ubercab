@@ -1,14 +1,14 @@
 package com.ubercab.rider.realtime.model;
 
 import com.ubercab.rider.realtime.validator.RealtimeValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RealtimeValidatorFactory.class)
+@lzo(a=RealtimeValidatorFactory.class)
 public abstract interface FareInfo
 {
-  public abstract FareDetail getFareDetail();
-  
   public abstract Metadata getMetadata();
+  
+  public abstract PricingExplainer getPricingExplainer();
   
   public abstract UpfrontFare getUpfrontFare();
   

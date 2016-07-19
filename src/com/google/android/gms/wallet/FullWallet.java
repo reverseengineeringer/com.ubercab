@@ -2,14 +2,14 @@ package com.google.android.gms.wallet;
 
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import boj;
+import bgh;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.identity.intents.model.UserAddress;
 
 public final class FullWallet
   implements SafeParcelable
 {
-  public static final Parcelable.Creator<FullWallet> CREATOR = new boj();
+  public static final Parcelable.Creator<FullWallet> CREATOR = new bgh();
   public String a;
   public String b;
   public ProxyCard c;
@@ -54,8 +54,13 @@ public final class FullWallet
     return c;
   }
   
+  public final String c()
+  {
+    return d;
+  }
+  
   @Deprecated
-  public final Address c()
+  public final Address d()
   {
     return e;
   }
@@ -65,9 +70,24 @@ public final class FullWallet
     return 0;
   }
   
+  public final UserAddress e()
+  {
+    return h;
+  }
+  
+  public final UserAddress f()
+  {
+    return i;
+  }
+  
+  public final PaymentMethodToken g()
+  {
+    return k;
+  }
+  
   public final void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    boj.a(this, paramParcel, paramInt);
+    bgh.a(this, paramParcel, paramInt);
   }
 }
 

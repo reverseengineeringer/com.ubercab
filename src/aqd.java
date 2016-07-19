@@ -1,25 +1,10 @@
-@apl
-public final class aqd
-  extends ry
+import android.os.IInterface;
+import com.google.android.gms.location.LocationSettingsResult;
+
+public abstract interface aqd
+  extends IInterface
 {
-  private final String a;
-  private final int b;
-  
-  public aqd(String paramString, int paramInt)
-  {
-    a = paramString;
-    b = paramInt;
-  }
-  
-  public final String a()
-  {
-    return a;
-  }
-  
-  public final int b()
-  {
-    return b;
-  }
+  public abstract void a(LocationSettingsResult paramLocationSettingsResult);
 }
 
 /* Location:

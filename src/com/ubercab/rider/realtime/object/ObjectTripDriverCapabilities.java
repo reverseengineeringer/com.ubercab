@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import juq;
+import mzz;
 
 @Shape
 abstract class ObjectTripDriverCapabilities
-  implements juq
+  implements mzz
 {}
 
 /* Location:

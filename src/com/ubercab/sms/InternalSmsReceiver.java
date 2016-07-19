@@ -3,7 +3,7 @@ package com.ubercab.sms;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import jvv;
+import nbd;
 
 public final class InternalSmsReceiver
   extends BroadcastReceiver
@@ -18,7 +18,7 @@ public final class InternalSmsReceiver
   
   public final void onReceive(Context paramContext, Intent paramIntent)
   {
-    new jvv(paramContext).a();
+    new nbd(paramContext).a();
     a(paramContext, paramIntent);
   }
 }

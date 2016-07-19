@@ -1,27 +1,13 @@
-import android.content.BroadcastReceiver;
-import android.content.IntentFilter;
+import java.util.ArrayList;
 
 final class cbh
+  extends ArrayList
 {
-  final IntentFilter a;
-  final BroadcastReceiver b;
-  boolean c;
-  
-  cbh(IntentFilter paramIntentFilter, BroadcastReceiver paramBroadcastReceiver)
+  cbh()
   {
-    a = paramIntentFilter;
-    b = paramBroadcastReceiver;
-  }
-  
-  public final String toString()
-  {
-    StringBuilder localStringBuilder = new StringBuilder(128);
-    localStringBuilder.append("Receiver{");
-    localStringBuilder.append(b);
-    localStringBuilder.append(" filter=");
-    localStringBuilder.append(a);
-    localStringBuilder.append("}");
-    return localStringBuilder.toString();
+    add("live");
+    add("sandbox");
+    add("mock");
   }
 }
 

@@ -1,17 +1,21 @@
-import com.paypal.android.sdk.g;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+import com.paypal.android.sdk.payments.PayPalService;
 
-public class cbi
+public final class cbi
+  extends BroadcastReceiver
 {
-  private static final String a = cbi.class.getSimpleName();
+  public cbi(PayPalService paramPayPalService) {}
   
-  public static String a()
+  public final void onReceive(Context paramContext, Intent paramIntent)
   {
-    String str1 = bxb.a().c().a();
-    if ((bze.c(str1)) || (str1.equalsIgnoreCase("US"))) {
-      return "https://www.paypal.com/webapps/accountrecovery/passwordrecovery";
+    if (paramIntent.getAction().equals("com.paypal.android.sdk.clearAllUserData"))
+    {
+      a.g();
+      Log.w("paypal.sdk", "active service user data cleared");
     }
-    String str2 = bxl.c(str1);
-    return String.format("https://www.paypal.com/%s/cgi-bin/webscr?cmd=_account-recovery&from=%s&locale.x=%s", new Object[] { str1.toLowerCase(), "PayPalMPL", str2 });
   }
 }
 

@@ -1,144 +1,25 @@
-import android.os.IBinder;
-import android.os.RemoteException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
 
-@apl
 public final class aij
-  extends mp
 {
-  private final aig a;
-  private final List<mk> b = new ArrayList();
-  private final ahv c;
+  public final int a;
+  public final byte[] b;
+  public final Map<String, String> c;
+  public final boolean d;
+  public final long e;
   
-  public aij(aig paramaig)
+  public aij(int paramInt, byte[] paramArrayOfByte, Map<String, String> paramMap, boolean paramBoolean, long paramLong)
   {
-    a = paramaig;
-    try
-    {
-      paramaig = a.b();
-      if (paramaig != null)
-      {
-        paramaig = paramaig.iterator();
-        while (paramaig.hasNext())
-        {
-          ahs localahs = a(paramaig.next());
-          if (localahs != null) {
-            b.add(new ahv(localahs));
-          }
-        }
-      }
-      try
-      {
-        paramaig = a.d();
-        if (paramaig == null) {
-          break label128;
-        }
-        paramaig = new ahv(paramaig);
-      }
-      catch (RemoteException paramaig)
-      {
-        for (;;)
-        {
-          sq.b("Failed to get icon.", paramaig);
-          paramaig = null;
-        }
-      }
-    }
-    catch (RemoteException paramaig)
-    {
-      sq.b("Failed to get image.", paramaig);
-    }
-    c = paramaig;
+    a = paramInt;
+    b = paramArrayOfByte;
+    c = paramMap;
+    d = paramBoolean;
+    e = paramLong;
   }
   
-  private static ahs a(Object paramObject)
+  public aij(byte[] paramArrayOfByte, Map<String, String> paramMap)
   {
-    if ((paramObject instanceof IBinder)) {
-      return aht.a((IBinder)paramObject);
-    }
-    return null;
-  }
-  
-  private add h()
-  {
-    try
-    {
-      add localadd = a.g();
-      return localadd;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.b("Failed to retrieve native ad engine.", localRemoteException);
-    }
-    return null;
-  }
-  
-  public final CharSequence b()
-  {
-    try
-    {
-      String str = a.a();
-      return str;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.b("Failed to get headline.", localRemoteException);
-    }
-    return null;
-  }
-  
-  public final List<mk> c()
-  {
-    return b;
-  }
-  
-  public final CharSequence d()
-  {
-    try
-    {
-      String str = a.c();
-      return str;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.b("Failed to get body.", localRemoteException);
-    }
-    return null;
-  }
-  
-  public final mk e()
-  {
-    return c;
-  }
-  
-  public final CharSequence f()
-  {
-    try
-    {
-      String str = a.e();
-      return str;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.b("Failed to get call to action.", localRemoteException);
-    }
-    return null;
-  }
-  
-  public final CharSequence g()
-  {
-    try
-    {
-      String str = a.f();
-      return str;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      sq.b("Failed to get attribution.", localRemoteException);
-    }
-    return null;
+    this(200, paramArrayOfByte, paramMap, false, 0L);
   }
 }
 

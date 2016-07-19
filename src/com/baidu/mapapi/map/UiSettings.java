@@ -1,6 +1,5 @@
 package com.baidu.mapapi.map;
 
-import android.graphics.Point;
 import com.baidu.platform.comapi.map.c;
 
 public final class UiSettings
@@ -14,27 +13,27 @@ public final class UiSettings
   
   public final boolean isCompassEnabled()
   {
-    return a.m();
+    return a.o();
   }
   
   public final boolean isOverlookingGesturesEnabled()
   {
-    return a.s();
+    return a.u();
   }
   
   public final boolean isRotateGesturesEnabled()
   {
-    return a.r();
+    return a.t();
   }
   
   public final boolean isScrollGesturesEnabled()
   {
-    return a.p();
+    return a.r();
   }
   
   public final boolean isZoomGesturesEnabled()
   {
-    return a.q();
+    return a.s();
   }
   
   public final void setAllGesturesEnabled(boolean paramBoolean)
@@ -47,32 +46,27 @@ public final class UiSettings
   
   public final void setCompassEnabled(boolean paramBoolean)
   {
-    a.g(paramBoolean);
-  }
-  
-  public final void setCompassPosition(Point paramPoint)
-  {
-    a.a(paramPoint);
+    a.h(paramBoolean);
   }
   
   public final void setOverlookingGesturesEnabled(boolean paramBoolean)
   {
-    a.m(paramBoolean);
+    a.n(paramBoolean);
   }
   
   public final void setRotateGesturesEnabled(boolean paramBoolean)
   {
-    a.l(paramBoolean);
+    a.m(paramBoolean);
   }
   
   public final void setScrollGesturesEnabled(boolean paramBoolean)
   {
-    a.j(paramBoolean);
+    a.k(paramBoolean);
   }
   
   public final void setZoomGesturesEnabled(boolean paramBoolean)
   {
-    a.k(paramBoolean);
+    a.l(paramBoolean);
   }
 }
 

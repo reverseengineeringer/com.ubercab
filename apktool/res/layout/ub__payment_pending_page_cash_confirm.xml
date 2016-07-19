@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ub__pending_payment_child_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/ub__line_divider" android:showDividers="middle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H2" android:textColor="@color/ub__uber_black_100" android:gravity="center" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/pending_payment" android:textAllCaps="true" fontPath="@string/ub__font_medium" />
+    <com.ubercab.ui.collection.RecyclerView android:id="@id/ub__pending_payment_recycler" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@drawable/ub__line_divider" android:showDividers="middle">
+        <com.ubercab.ui.Button android:id="@id/ub__pending_payment_button_cash_cancel" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_weight="1.0" style="@style/Uber.Widget.DialogButton" />
+        <com.ubercab.ui.Button android:id="@id/ub__pending_payment_button_cash_ok" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/pay_with_cash" android:layout_weight="1.0" style="@style/Uber.Widget.DialogButton.Positive" />
+    </LinearLayout>
+</LinearLayout>

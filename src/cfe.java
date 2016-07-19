@@ -1,74 +1,372 @@
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
-abstract class cfe
-  implements cfh
+public final class cfe
+  implements byp
 {
-  private ccn a;
+  private static final Map a = new HashMap();
+  private static final Map b = new HashMap();
+  private static final Map c = new HashMap();
   
-  protected cfe(ccn paramccn)
+  public cfe()
   {
-    a = paramccn;
+    a.put(bvh.a, "הסכם ושלם");
+    a.put(bvh.b, "ואחרים");
+    a.put(bvh.c, "אימות");
+    a.put(bvh.d, "חזרה");
+    a.put(bvh.e, "גיבוי");
+    a.put(bvh.f, "ביטול");
+    a.put(bvh.g, "אמריקן אקספרס");
+    a.put(bvh.h, "Carta Aura‏");
+    a.put(bvh.i, "Carte Aurore‏");
+    a.put(bvh.j, "Carta Prepagata PayPal‏");
+    a.put(bvh.k, "Carte Bancaire‏");
+    a.put(bvh.l, "Cofinoga‏");
+    a.put(bvh.m, "Delta‏");
+    a.put(bvh.n, "Discover‏");
+    a.put(bvh.o, "Electron‏");
+    a.put(bvh.p, "JCB‏");
+    a.put(bvh.q, "Maestro‏");
+    a.put(bvh.r, "מאסטרקארד");
+    a.put(bvh.s, "Postepay‏");
+    a.put(bvh.t, "‎4 étoiles‎‏");
+    a.put(bvh.u, "Tarjeta Aurora‏");
+    a.put(bvh.v, "ויזה");
+    a.put(bvh.w, "שנה שיטת תשלום");
+    a.put(bvh.x, "עו״ש");
+    a.put(bvh.y, "בודק מכשיר זה…");
+    a.put(bvh.z, "נקה פרטי כרטיס");
+    a.put(bvh.A, "אשר");
+    a.put(bvh.B, "האם אתה בטוח שאתה רוצה להסיר את פרטי הכרטיס שלך?");
+    a.put(bvh.C, "חייב כרטיס");
+    a.put(bvh.D, "האם אתה בטוח שאתה רוצה לצאת מ-PayPal‏?");
+    a.put(bvh.E, "שלם");
+    a.put(bvh.F, "מסכים");
+    a.put(bvh.G, "תאריך פתיחת החשבון");
+    a.put(bvh.H, "מצב חשבון");
+    a.put(bvh.I, "סוג חשבון");
+    a.put(bvh.J, "כתובת");
+    a.put(bvh.K, "טווח גילים");
+    a.put(bvh.L, "תאריך לידה");
+    a.put(bvh.M, "כתובת אימייל");
+    a.put(bvh.N, "שם מלא");
+    a.put(bvh.O, "מין");
+    a.put(bvh.P, "שפה");
+    a.put(bvh.Q, "אזור");
+    a.put(bvh.R, "טלפון");
+    a.put(bvh.S, "אזור זמן");
+    a.put(bvh.T, "שתף את הפרטים הבאים: ‎%s‏.");
+    a.put(bvh.U, "השתמש ב-Express Checkout‏.");
+    a.put(bvh.V, "%s מבקש כי:");
+    a.put(bvh.W, "שתף את <a href='%1$s'>שיטות התשלום</a> המקושרות לחשבון ה-PayPal שלך.");
+    a.put(bvh.X, "הפעל תצוגה של האפשרויות הכספיות שלך שתאפשר לך לבחור.");
+    a.put(bvh.Y, "<a href='%1$s'>אשר חיובים</a> עבור קניות עתידיות אצל ‎%2$s באמצעות PayPal‏. הורית ל-PayPal לשלם את כל הסכומים ש-‎%3$s מבקש.");
+    a.put(bvh.Z, "תאפשר לו להוסיף ולנהל את כרטיס המועדון שלו ב‘ארנק‘ שבחשבון ה-PayPal שלך.");
+    a.put(bvh.aa, "תסכים ל<a href='%2$s'>מדיניות הפרטיות</a> ו<a href='%3$s'>הסכם המשתמש</a> של %1$s‏.");
+    a.put(bvh.ab, "תאפשר לו <a href='%1$s'>לבקש תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    a.put(bvh.ac, "תאפשר לו <a href='%1$s'>לשלוח תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    a.put(bvh.ad, "הסכמה");
+    a.put(bvh.ae, "אימייל");
+    a.put(bvh.af, "פרטים מדומים");
+    a.put(bvh.ag, "‏Sandbox");
+    a.put(bvh.ah, "תאריך תפוגה");
+    a.put(bvh.ai, "<h1><strong>דרכי תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו משיטות התשלום שלך זמינות לשימוש.</p>");
+    a.put(bvh.aj, "שכחת את הסיסמה?");
+    a.put(bvh.ak, "מ-");
+    a.put(bvh.al, "כיצד תרצה לשלם עבור תשלומים עתידיים ל-%1$s‏?");
+    a.put(bvh.am, "<h1><strong>הסכם תשלום עתידי</strong></h1><p>ברירת המחדל לשיטת התשלום שלך תשמש עבור תשלומים עתידיים באמצעות PayPal אצל בעל עסק זה.</p><p>כדי לבטל הסכם זה, היכנס לחשבון ה-PayPal שלך, עבור אל <strong>פרופיל</strong> &gt; <strong>ההגדרות שלי</strong> &gt; <strong>היכנס עם PayPal</strong> והסר בעל עסק זה מהרשימה.</p><p>המקטע ‘הוראת קבע‘ של <a href='%s'>הסכם המשתמש של PayPal</a> יחול.</p><p>כדי לוודא שהתשלומים שלך יעבדו עם חשבון ה-PayPal שלך, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר כסף.</p>");
+    a.put(bvh.an, "שגיאה פנימית");
+    a.put(bvh.ao, "<p>על-ידי לחיצה על הלחצן למטה, אני מסכים בזאת לתנאי <a href='%1$s'>הסכם המשתמש של PayPal</a> ומצהיר שאני פועל בהתאם לחוקים ולתקנות ביפן, כולל סנקציות נגד תשלום לצפון קוריאה ואירן, בהתאם ל-<a href='%2$s'>Foreign Exchange and Foreign Trade Act</a>, להשלמת העסקה.</p>");
+    a.put(bvh.ap, "כניסה");
+    a.put(bvh.aq, "היכנס עם PayPal‏");
+    a.put(bvh.ar, "יציאה");
+    a.put(bvh.as, "יציאה");
+    a.put(bvh.at, "אישור");
+    a.put(bvh.au, "סיסמה");
+    a.put(bvh.av, "שלם לאחר המסירה");
+    a.put(bvh.aw, "שלם באמצעות");
+    a.put(bvh.ax, "שלם באמצעות כרטיס");
+    a.put(bvh.ay, "יתרת חשבון ה-PayPal");
+    a.put(bvh.az, "PayPal Credit");
+    a.put(bvh.aA, "טלפון");
+    a.put(bvh.aB, "קוד סודי");
+    a.put(bvh.aC, "שיטת תשלום מועדפת");
+    a.put(bvh.aD, "PayPal מגינה על ה<a href='%s'>פרטיות</a> והמידע הפיננסי שלך.");
+    a.put(bvh.aE, "עיבוד");
+    a.put(bvh.aF, "זכור כרטיס");
+    a.put(bvh.aG, "בקש תשלום");
+    a.put(bvh.aH, "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל אפשרויות <strong>היכנס עם PayPal</strong> תחת הגדרות ה<strong>פרופיל</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של השותף.</p>");
+    a.put(bvh.aI, "חיסכון");
+    a.put(bvh.aJ, "שלח תשלום");
+    a.put(bvh.aK, "הייתה בעיה ביצירת קשר עם השרתים של PayPal‏. נסה שוב.");
+    a.put(bvh.aL, "היכנס שוב ל-PayPal‏.");
+    a.put(bvh.aM, "פג תוקף ההפעלה");
+    a.put(bvh.aN, "כתובת למשלוח");
+    a.put(bvh.aO, "חדש ב-PayPal‏? הירשם");
+    a.put(bvh.aP, "הישאר מחובר");
+    a.put(bvh.aQ, "שגיאת מערכת (%s‏). נסה שוב מאוחר יותר.");
+    a.put(bvh.aR, "נסה שוב");
+    a.put(bvh.aS, "לא ניתן להיכנס לחשבון, משום שאימות בשני שלבים הופעל עבור החשבון שלך.");
+    a.put(bvh.aT, "קוד אבטחה");
+    a.put(bvh.aU, "שלח הודעת טקסט לטלפון שלך. הקוד בן שש הספרות שתקבל יישאר בתוקף למשך 5 דקות.");
+    a.put(bvh.aV, "שולח טקסט");
+    a.put(bvh.aW, "הזן את קוד האבטחה בן שש הספרות");
+    a.put(bvh.aX, "מספר הטלפון הנייד שלך");
+    a.put(bvh.aY, "שלח טקסט");
+    a.put(bvh.aZ, "שלח טקסט שוב");
+    a.put(bvh.ba, "לא ניתן להיכנס לחשבון, משום שאימות בשני שלבים הופעל עבור החשבון שלך. בקר באתר PayPal כדי להפעיל את מפתח האבטחה שלך.");
+    a.put(bvh.bb, "לא ניתן לשלם ממכשיר זה.");
+    a.put(bvh.bc, "מכשיר בלתי-מורשה");
+    a.put(bvh.bd, "לא ניתן לשלם לבעל עסק זה (מזהה לקוח בלתי-חוקי).");
+    a.put(bvh.be, "בעל עסק בלתי-חוקי");
+    a.put(bvh.bf, "אירעה בעיה בעיבוד התשלום שלך. נסה שוב.");
+    a.put(bvh.bg, "מקור בלתי מזוהה");
+    a.put(bvh.bh, "מצטערים");
+    a.put(bvh.bi, "ההזמנה שלך");
+    a.put(bvh.bj, "להסיר את הכרטיס?");
+    a.put(bvh.bk, "ההסכמה נכשלה");
+    a.put(bvh.bl, "החיבור נכשל");
+    a.put(bvh.bm, "הכניסה נכשלה");
+    a.put(bvh.bn, "היכנס באמצעות סיסמה");
+    a.put(bvh.bo, "היכנס באמצעות קוד סודי");
+    a.put(bvh.bp, "המתן רגע אחד…");
+    a.put(bvh.bq, "התשלום נכשל");
+    a.put(bvh.br, "סריקה");
+    a.put(bvh.bs, "קוד אבטחה שגוי. נסה שוב.");
+    a.put(bvh.bt, "באמצעות");
+    a.put(bvh.bu, "שגיאת מערכת. נסה שוב מאוחר יותר.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|AT", "שתף מידע על <a href='%1$s'>המקורות הכספיים</a> המקושרים לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|BE", "שתף את המידע על <a href='%1$s'>המקורות הכספיים</a> המקושרים לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|BG", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CH", "שתף מידע על <a href='%1$s'>המקורות הכספיים</a> המקושרים לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CY", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|CZ", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|DE", "שתף מידע על <a href='%1$s'>המקורות הכספיים</a> המקושרים לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|DK", "שתף מידע על <a href='%1$s'>שיטות התשלום</a> המקושרות לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|EE", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|ES", "שתף איתם מידע על <a href='%1$s'>המקורות הכספיים</a> המקושרים לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|FI", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|GB", "שתף את <a href='%1$s'>המקורות הכספיים</a> המקושרים לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|GR", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|HU", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|IE", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|IT", "שתף את <a href='%1$s'>המקורות הכספיים</a> המקושרים לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LI", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LT", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LU", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|LV", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|MT", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|NL", "שתף את המידע על <a href='%1$s'>המקורות הכספיים</a> המקושרים לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|NO", "שתף מידע על <a href='%1$s'>שיטות התשלום</a> המקושרות לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|PL", "שתף את המידע על <a href='%1$s'>המקורות הכספיים</a> המקושרים לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|PT", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SE", "שתף מידע על <a href='%1$s'>שיטות התשלום</a> המקושרות לחשבון ה-PayPal שלך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SI", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SK", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|SM", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FINANCIAL_INSTRUMENTS|VA", "שתף את <a href='%1$s'>המקורות הכספיים</a> מטעמך עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|AU", "<p><a href='%1$s'>אשר חיובים</a> עבור קניות עתידיות אצל ‎%2$s באמצעות PayPal‏. הורית ל-PayPal לשלם את כל הסכומים ש-‎%3$s מבקש.</p><p>לפרטים נוספים, עיין ב<a href='https://www.paypal.com/webapps/mpp/ua/recurringpymts-full'>הסכם הוראות הקבע והחיוב של PayPal‏</a>.</p>");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|CN", "<p><a href='%1$s'>אשר חיובים</a> עבור קניות עתידיות אצל ‎%2$s באמצעות PayPal‏. הורית ל-PayPal לשלם את כל הסכומים ש-‎%3$s מבקש.</p><p>לפרטים נוספים, עיין ב<a href='https://cms.paypal.com/c2/cgi-bin/?cmd=_render-content&content_ID=ua/UserAgreement_full'>הסכם הוראות הקבע והחיוב של PayPal‏</a>.</p>");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|MY", "<a href='%1$s'>אשר חיובים</a> עבור קניות עתידיות באמצעות PayPal‏. אתה מעניק ל-PayPal אישור לשלם את כל הסכומים.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|NZ", "<a href='%1$s'>אשר חיובים</a> עבור קניות עתידיות באמצעות PayPal‏. אתה מעניק ל-PayPal אישור לשלם את כל הסכומים.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|SG", "<a href='%1$s'>אשר חיובים</a> עבור קניות עתידיות באמצעות PayPal‏. אתה מעניק ל-PayPal אישור לשלם את כל הסכומים.");
+    b.put("CONSENT_AGREEMENT_FUTURE_PAYMENTS|US", "אשר מראש תשלומים עתידיים מחשבון ה-PayPal שלך בלי להיכנס אל PayPal בכל פעם. <a href='%1$s'>ראה תנאים נוספים</a>, כולל שיטות תשלום וכיצד לבטל תשלומים עתידיים.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|AT", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לבקש תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|BE", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לבקש תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|CH", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לבקש תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|DE", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לבקש תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|GB", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לבקש תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|NL", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לבקש תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_REQUEST_MONEY|PL", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לבקש תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|AT", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לשלוח תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|BE", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לשלוח תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|CH", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לשלוח תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|DE", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לשלוח תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|GB", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לשלוח תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|NL", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לשלוח תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("CONSENT_AGREEMENT_SEND_MONEY|PL", "תאפשר ל-‎%2$s‎ <a href='%1$s'>לשלוח תשלום</a> בשמך, עד שתבטל את הסכמתך.");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|AT", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|BE", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|BG", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CH", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CY", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|CZ", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|DE", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|EE", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|ES", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|FI", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|GR", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|HU", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|IE", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|IT", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LI", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LT", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LU", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|LV", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|MT", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|NL", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|PL", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|PT", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SI", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SK", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|SM", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FINANCIAL_INSTRUMENTS_LEGAL_DETAILS|VA", "<h1><strong>שיטות תשלום</strong></h1><p>המידע היחיד ש-PayPal משתפת הוא אילו מהמקורות הכספיים שלך זמינים לשימוש.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|AU", "<h1><strong>הסכם תשלומים עתידיים</strong></h1><p>כדי לוודא שניתן יהיה לחייב את חשבון ה-PayPal שלך בעתיד, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר כסף.</p><p>ברירת המחדל לשיטת התשלום שלך (יתרת חשבון ה-PayPal שלך, חשבון בנק מקושר או כרטיס אשראי, בסדר הזה) תשמש לתשלום עבור הקניות באמצעות PayPal‏. שים לב, אם בברירת המחדל לשיטת התשלום שלך לא יהיה מספיק כסף לכיסוי הקנייה, הבנק שבו מתנהל חשבונך או ספק הכרטיס שלך עשוי לחייב אותך בעמלה.</p><p>כדי לבטל הסכם זה, היכנס לחשבון ה-PayPal שלך ועבור אל <strong>פרופיל</strong>, לאחר מכן לחץ על <strong>ההגדרות שלי</strong> ועל <strong>שינוי</strong> לצד ’היכנס עם PayPal‏‘.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|BR", "<h1><strong>הסכם תשלום עתידי</strong></h1><p>כדי לוודא שניתן יהיה לחייב את חשבון ה-PayPal שלך בעתיד, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר כסף.</p><p>יתרת חשבון ה-PayPal שלך או כרטיס האשראי הראשי שלך ישמשו לתשלום עבור הקניות באמצעות PayPal‏.</p><p>כדי לבטל הסכם זה, היכנס לחשבון ה-PayPal שלך, עבור אל <strong>פרופיל</strong> &gt; <strong>ההגדרות שלי</strong> &gt; <strong>היכנס עם PayPal</strong> והסר בעל עסק זה מהרשימה.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|CN", "<h1><strong>הסכם תשלום עתידי</strong></h1><p>כדי לוודא שניתן יהיה לחייב את חשבון ה-PayPal שלך בעתיד, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר תשלום.</p><p>ברירת המחדל לשיטת התשלום שלך תשמש לתשלום עבור הקניות באמצעות PayPal‏.</p><p>כדי לבטל הסכם זה, היכנס לחשבון ה-PayPal שלך, עבור אל <strong>פרופיל</strong> &gt; <strong>הגדרות</strong> &gt; <strong>היכנס עם PayPal</strong> והסר בעל עסק זה מהרשימה.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|GB", "<h1><strong>הסכם תשלום עתידי</strong></h1><p>ברירת המחדל לשיטת התשלום שלך תשמש עבור תשלומים עתידיים באמצעות PayPal אצל בעל עסק זה.</p><p>כדי לבטל הסכם זה, היכנס לחשבון ה-PayPal שלך, עבור אל <strong>פרופיל</strong> &gt; <strong>ההגדרות שלי</strong> &gt; <strong>היכנס עם PayPal</strong> והסר בעל עסק זה מהרשימה.</p><p>המקטע ‘הוראת קבע‘ של <a href='%s'>הסכם המשתמש של PayPal</a> יחול.</p><p>כדי לוודא שהתשלומים שלך יעבדו עם חשבון ה-PayPal שלך, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר כסף.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|HK", "<h1><strong>אישור תשלום עתידי</strong></h1><p>כדי לוודא שניתן יהיה לחייב את חשבון ה-PayPal שלך בעתיד, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר תשלום.</p><p>ברירת המחדל לשיטת התשלום שלך תשמש לתשלום עבור הקניות באמצעות PayPal‏.</p><p>כדי לבטל אישור זה, היכנס לחשבון ה-PayPal שלך, עבור אל <strong>פרופיל</strong> &gt; <strong>הגדרות החשבון שלי</strong> &gt; <strong>היכנס עם PayPal</strong> והסר בעל עסק זה מהרשימה.</p><p>לפרטים נוספים, עיין במקטע ’תשלומים שאושרו מראש‘ ב<a href='%s'>הסכם המשתמש של PayPal‏</a>.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|JP", "<h1><strong>אישור תשלום עתידי</strong></h1><p>כדי לוודא שניתן יהיה לחייב את חשבון ה-PayPal שלך בעתיד, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר תשלום.</p><p>ברירת המחדל לשיטת התשלום שלך תשמש לתשלום עבור הקניות באמצעות PayPal‏.</p><p>כדי לבטל אישור זה, היכנס לחשבון ה-PayPal שלך, עבור אל <strong>פרופיל</strong> &gt; <strong>הגדרות החשבון שלי</strong> &gt; <strong>היכנס עם PayPal</strong> והסר בעל עסק זה מהרשימה.</p><p>לפרטים נוספים, עיין במקטע ’תשלומים שאושרו מראש‘ ב<a href='%s'>הסכם המשתמש של PayPal‏</a>.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|MX", "<h1><strong>הסכם תשלום עתידי</strong></h1><p>כדי לוודא שניתן יהיה לחייב את חשבון ה-PayPal שלך בעתיד, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר כסף.</p><p>יתרת חשבון ה-PayPal שלך או כרטיס האשראי הראשי שלך ישמשו לתשלום עבור הקניות באמצעות PayPal‏.</p><p>כדי לבטל הסכם זה, היכנס לחשבון ה-PayPal שלך, עבור אל <strong>פרופיל</strong> &gt; <strong>ההגדרות שלי</strong> &gt; <strong>היכנס עם PayPal</strong> והסר בעל עסק זה מהרשימה.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|MY", "<h1><strong>אישור תשלום עתידי</strong></h1><p>כדי לוודא שניתן יהיה לחייב את חשבון ה-PayPal שלך בעתיד, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר תשלום.</p><p>ברירת המחדל לשיטת התשלום שלך תשמש לתשלום עבור הקניות באמצעות PayPal‏.</p><p>כדי לבטל אישור זה, היכנס לחשבון ה-PayPal שלך, עבור אל <strong>פרופיל</strong> &gt; <strong>הגדרות החשבון שלי</strong> &gt; <strong>היכנס עם PayPal</strong> והסר בעל עסק זה מהרשימה.</p><p>לפרטים נוספים, עיין במקטע ’תשלומים שאושרו מראש‘ ב<a href='%s'>הסכם המשתמש של PayPal‏</a>.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|NZ", "<h1><strong>אישור תשלום עתידי</strong></h1><p>כדי לוודא שניתן יהיה לחייב את חשבון ה-PayPal שלך בעתיד, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר תשלום.</p><p>ברירת המחדל לשיטת התשלום שלך תשמש לתשלום עבור הקניות באמצעות PayPal‏.</p><p>כדי לבטל אישור זה, היכנס לחשבון ה-PayPal שלך, עבור אל <strong>פרופיל</strong> &gt; <strong>הגדרות החשבון שלי</strong> &gt; <strong>היכנס עם PayPal</strong> והסר בעל עסק זה מהרשימה.</p><p>לפרטים נוספים, עיין במקטע ’תשלומים שאושרו מראש‘ ב<a href='%s'>הסכם המשתמש של PayPal‏</a>.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|SG", "<h1><strong>אישור תשלום עתידי</strong></h1><p>כדי לוודא שניתן יהיה לחייב את חשבון ה-PayPal שלך בעתיד, יישום זה עשוי לבצע הדמיה של עסקה קטנה לצורך בדיקה, אך בפועל לא יועבר תשלום.</p><p>ברירת המחדל לשיטת התשלום שלך תשמש לתשלום עבור הקניות באמצעות PayPal‏.</p><p>כדי לבטל אישור זה, היכנס לחשבון ה-PayPal שלך, עבור אל <strong>פרופיל</strong> &gt; <strong>הגדרות החשבון שלי</strong> &gt; <strong>היכנס עם PayPal</strong> והסר בעל עסק זה מהרשימה.</p><p>לפרטים נוספים, עיין במקטע ’תשלומים שאושרו מראש‘ ב<a href='%s'>הסכם המשתמש של PayPal‏</a>.</p>");
+    b.put("FUTURE_PAYMENT_LEGAL_DETAILS|US", "<h1><strong>הסכם תשלום עתידי</strong></h1><p>PayPal תשתמש תחילה ביתרת חשבון ה-PayPal שלך כדי לשלם עבור הקנייה שלך. במקרה שהיתרה אינה מכסה את הסכום המלא, יעשה שימוש בחשבון הבנק, PayPal Credit, כרטיס האשראי ו/או המחאה אלקטרונית שלך, בסדר הזה.</p><p>כדי לבטל הסכם זה, עבור אל www.paypal.co.il <strong>פרופיל</strong> &gt; <strong>ההגדרות שלי</strong> &gt; <strong>היכנס עם PayPal</strong> ולאחר מכן הסר בעל עסק זה מהרשימה.</p><p>ייתכן שיידרש אישור תשלום קטן כדי לוודא שניתן יהיה לחייב את חשבון ה-PayPal שלך בעתיד. האישור יבוטל ואתה לא תחויב.</p>");
+    b.put("LOG_IN_TO_PAYPAL|AU", "היכנס עם PayPal");
+    b.put("LOG_IN_TO_PAYPAL|GB", "היכנס עם PayPal");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AD", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AL", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AT", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם השותף.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך ולחץ על סמל גלגל השיניים. עבור אל <strong>אבטחה</strong>, בחר <strong>היכנס עם PayPal</strong> והסר שותף זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של השותף.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|AU", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל אפשרויות <strong>היכנס עם PayPal</strong> תחת הגדרות ה<strong>פרופיל</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של השותף.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BA", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BE", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך, עבור אל אפשרויות <strong>היכנס עם PayPal</strong> תחת הגדרות ה<strong>פרופיל</strong> שלך והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|BG", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CH", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם השותף.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך ולחץ על סמל גלגל השיניים. עבור אל <strong>אבטחה</strong>, בחר <strong>היכנס עם PayPal</strong> והסר שותף זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של השותף.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CY", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|CZ", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|DE", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם השותף.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך ולחץ על סמל גלגל השיניים. עבור אל <strong>אבטחה</strong>, בחר <strong>היכנס עם PayPal</strong> והסר שותף זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של השותף.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|DK", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך, עבור אל אפשרויות <strong>היכנס עם PayPal</strong> תחת הגדרות ה<strong>פרופיל</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|EE", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|ES", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך, לחץ על סמל גלגל השיניים בפינה הימנית העליונה, בחר <strong>מרכז האבטחה</strong>, בחר <strong>היכנס עם PayPal</strong> והסר את בעל העסק. אם אתה עדיין משתמש באתר הקלאסי, עבור אל <strong>הפרופיל שלי</strong>, בחר <strong>הגדרות החשבון שלי</strong>, בחר <strong>היכנס עם PayPal</strong> והסר את בעל העסק.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|FI", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|GB", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם השותף.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך ותחת הגדרות ה<strong>פרופיל</strong>, עבור אל <strong>היכנס עם PayPal</strong> והסר שותף זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של השותף.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|GR", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|HR", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|HU", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IE", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IS", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|IT", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.it, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LI", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LT", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LU", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|LV", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|MT", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|NL", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך, עבור אל אפשרויות <strong>היכנס עם PayPal</strong> תחת הגדרות ה<strong>פרופיל</strong> שלך והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|NO", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך, עבור אל אפשרויות <strong>היכנס עם PayPal</strong> תחת הגדרות ה<strong>פרופיל</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|PL", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך, עבור אל אפשרויות <strong>היכנס עם PayPal</strong> תחת הגדרות ה<strong>פרופיל</strong> שלך והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|PT", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|RO", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|RU", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם השותף.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.ru, לחץ על סמל גלגל השיניים בפינה הימנית העליונה, בחר בלשונית <strong>אבטחה</strong> והסר שותף זה תחת האפשרות <strong>היכנס עם PayPal‏</strong>.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של השותף.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SE", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס לחשבון ה-PayPal שלך, עבור אל אפשרויות <strong>היכנס עם PayPal</strong> תחת הגדרות ה<strong>פרופיל</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SI", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SK", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|SM", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|TR", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com.tr, לחץ על סמל גלגל השיניים בפינה הימנית העליונה, בחר בלשונית <strong>אבטחה</strong> והסר שותף זה תחת האפשרות <strong>היכנס עם PayPal‏</strong>.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|UA", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|US", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל אפשרויות <strong>היכנס עם PayPal</strong> תחת הגדרות ה<strong>פרופיל</strong> והסר בעל עסק זה.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|VA", "<h1><strong>%s</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    b.put("REQUEST_OR_SEND_MONEY_LEGAL_DETAILS|ZA", "<h1><strong>‎%s‎‏</strong></h1><p>כל פרטי העסקה הרלוונטיים ישותפו עם בעל העסק.</p><p>כדי לבטל את הסכמתך, היכנס אל paypal.com, עבור אל <strong>פרופיל</strong>, <strong>אבטחה</strong>, מצא את האפשרות <strong>היכנס עם PayPal</strong> והסר בעל עסק זה.</p><p>PayPal אינה אחראית לפעולות או שגיאות כלשהן מצדו של בעל העסק.</p>");
+    c.put("AMOUNT_MISMATCH", "הסכום הכולל של הפריטים בעגלת הקניות אינו תואם את סכום המכירה.");
+    c.put("AUTHORIZATION_ALREADY_COMPLETED", "אישור זה כבר הושלם.");
+    c.put("AUTHORIZATION_CANNOT_BE_VOIDED", "לא ניתן לבטל את תוקף האישור.");
+    c.put("AUTHORIZATION_EXPIRED", "פג תוקף האישור.");
+    c.put("AUTHORIZATION_ID_DOES_NOT_EXIST", "מזהה האישור המבוקש לא קיים.");
+    c.put("AUTHORIZATION_VOIDED", "האישור בוטל.");
+    c.put("CANNOT_REAUTH_CHILD_AUTHORIZATION", "ניתן לאשר מחדש רק את האישור המקורי, לא אישור מחדש.");
+    c.put("CANNOT_REAUTH_INSIDE_HONOR_PERIOD", "לא ניתן לבצע אישור מחדש במסגרת תקופת הכיבוד.");
+    c.put("CAPTURE_AMOUNT_LIMIT_EXCEEDED", "הסכום חורג מהמגבלה המותרת.");
+    c.put("CARD_TOKEN_PAYER_MISMATCH", "לא ניתן לגשת לפרטי הכרטיס השמורים.");
+    c.put("CREDIT_CARD_CVV_CHECK_FAILED", "פרטי הכרטיס לא תקפים. תקן ושלח שוב.");
+    c.put("CREDIT_CARD_REFUSED", "הכרטיס נדחה.");
+    c.put("CURRENCY_MISMATCH", "על מטבע האיסוף להיות זהה למטבע האישור.");
+    c.put("CURRENCY_NOT_ALLOWED", "PayPal אינה תומכת במטבע זה כעת.");
+    c.put("DATA_RETRIEVAL", "שגיאת מערכת. נסה שוב מאוחר יותר.");
+    c.put("DUPLICATE_REQUEST_ID", "שגיאת מערכת. נסה שוב מאוחר יותר.");
+    c.put("EXPIRED_CREDIT_CARD", "פג תוקף הכרטיס");
+    c.put("EXPIRED_CREDIT_CARD_TOKEN", "הפרטים של כרטיס זה כבר אינם נמצאים ברשומות.\nשלח שוב.");
+    c.put("FEATURE_UNSUPPORTED_FOR_PAYEE", "התכונה אינה נתמכת עבור ספק זה.");
+    c.put("FULL_REFUND_NOT_ALLOWED_AFTER_PARTIAL_REFUND", "כבר בוצע החזר חלקי עבור עסקה זו.");
+    c.put("IMMEDIATE_PAY_NOT_SUPPORTED", "תשלום מיידי אינו נתמך עבור המטרה (Intent) המבוקשת.");
+    c.put("INSTRUMENT_DECLINED", "שיטת התשלום שבחרת לא התקבלה. בחר שיטה אחרת.");
+    c.put("INSUFFICIENT_FUNDS", "הקונה לא יכול לשלם - מחסור בכסף.");
+    c.put("INTERNAL_SERVICE_ERROR", "שגיאת מערכת. נסה שוב מאוחר יותר.");
+    c.put("INVALID_ACCOUNT_NUMBER", "מספר חשבון זה לא קיים.");
+    c.put("INVALID_ARGUMENT", "העסקה נדחתה עקב סיבות טכניות");
+    c.put("INVALID_CITY_STATE_ZIP", "שילוב לא חוקי של עיר/מדינה/מיקוד.");
+    c.put("INVALID_FACILITATOR_CONFIGURATION", "לא ניתן לעבד את העסקה עקב הגדרת גורם מתווך בלתי-תקפה.");
+    c.put("INVALID_PAYER_ID", "שגיאת מערכת (מזהה משלם לא חוקי). נסה שוב מאוחר יותר.");
+    c.put("INVALID_RESOURCE_ID", "שגיאת מערכת. נסה שוב מאוחר יותר.");
+    c.put("PAYEE_ACCOUNT_INVALID", "לחשבון הספק אין כתובת אימייל מאושרת.");
+    c.put("PAYEE_ACCOUNT_LOCKED_OR_CLOSED", "ספק זה אינו יכול לקבל תשלומים כעת.");
+    c.put("PAYEE_ACCOUNT_NO_CONFIRMED_EMAIL", "לחשבון הספק אין כתובת אימייל מאושרת.");
+    c.put("PAYEE_ACCOUNT_RESTRICTED", "ספק זה אינו יכול לקבל תשלומים כעת.");
+    c.put("PAYER_ACCOUNT_LOCKED_OR_CLOSED", "החשבון שלך נעול או סגור.");
+    c.put("PAYER_ACCOUNT_RESTRICTED", "החשבון שלך מוגבל.");
+    c.put("PAYER_CANNOT_PAY", "אינך יכול לשלם עבור עסקה זו באמצעות PayPal‏.");
+    c.put("PAYER_EMPTY_BILLING_ADDRESS", "נדרשת כתובת לחיוב עבור עסקאות בכרטיס אשראי שאינן משולמות באמצעות PayPal‏.");
+    c.put("PAYER_ID_MISSING_FOR_CARD_TOKEN", "לא ניתן לגשת לפרטי הכרטיס השמורים.");
+    c.put("PAYMENT_APPROVAL_EXPIRED", "פג התוקף של אישור התשלום.");
+    c.put("PAYMENT_EXPIRED", "פג תוקף התשלום.");
+    c.put("PAYMENT_NOT_APPROVED_FOR_EXECUTION", "המשלם לא אישר את התשלום.");
+    c.put("PAYMENT_REQUEST_ID_INVALID", "מזהה העסקה של PayPal לא חוקי. נסה שוב מאוחר יותר.");
+    c.put("PAYMENT_STATE_INVALID", "בקשה זו אינה חוקית עקב מצבו הנוכחי של התשלום.");
+    c.put("PERMISSION_DENIED", "אין הרשאה לפעולה המבוקשת.");
+    c.put("REFUND_EXCEEDED_TRANSACTION_AMOUNT", "ההחזר המבוקש חורג מסכום העסקה המקורית.");
+    c.put("REFUND_TIME_LIMIT_EXCEEDED", "עסקה זו ישנה מכדי שניתן יהיה לבצע החזר.");
+    c.put("REQUIRED_SCOPE_MISSING", "שגיאת מערכת. נסה שוב מאוחר יותר.");
+    c.put("TOO_MANY_REAUTHORIZATIONS", "לא ניתן לבצע אישורים מחדש נוספים לאישור זה.");
+    c.put("TRANSACTION_ALREADY_REFUNDED", "כבר בוצע החזר עבור עסקה זו.");
+    c.put("TRANSACTION_LIMIT_EXCEEDED", "הסכום חורג מהמגבלה המותרת.");
+    c.put("TRANSACTION_REFUSED", "העסקה נדחתה.");
+    c.put("TRANSACTION_REFUSED_BY_PAYPAL_RISK", "העסקה נדחתה.");
+    c.put("TRANSACTION_REFUSED_PAYEE_PREFERENCE", "הגדרת פרופיל בעל העסק מוגדרת לדחייה אוטומטית של עסקאות מסויימות.");
+    c.put("UNKNOWN_ERROR", "שגיאת מערכת. נסה שוב מאוחר יותר.");
+    c.put("UNSUPPORTED_PAYEE_COUNTRY", "הארץ אינה נתמכת.");
+    c.put("VALIDATION_ERROR", "פרטי התשלום אינם חוקיים. תקן ושלח שוב.");
+    c.put("ORDER_ALREADY_COMPLETED", "ההזמנה כבר בוטלה, הושלמה או שתוקפה פג.");
+    c.put("MAXIMUM_ALLOWED_AUTHORIZATION_REACHED_FOR_ORDER", "ההזמנה הגיעה למספר המרבי המותר של אישורים.");
+    c.put("ORDER_VOIDED", "ההזמנה בוטלה.");
+    c.put("ORDER_CANNOT_BE_VOIDED", "מצב ההזמנה מונע את ביטולה.");
+    c.put("INVALID_EXPERIENCE_PROFILE_ID", "שגיאת מערכת. נסה שוב מאוחר יותר.");
+    c.put("UNAUTHORIZED_PAYMENT", "בעל העסק אינו מקבל תשלום מסוג זה.");
+    c.put("DCC_UNSUPPORTED_CURRENCY_CC_TYPE", "המטבע לא נתמך עבור סוג הכרטיס.");
+    c.put("DCC_CC_TYPE_NOT_SUPPORTED", "סוג הכרטיס לא נתמך.");
+    c.put("ADDRESS_ADDITION_ERROR", "אירעה שגיאה בעת הוספת כתובת למשלוח לחשבון ה-PayPal‏.");
+    c.put("DUPLICATE_TRANSACTION", "עסקה כפולה.");
+    c.put("INVALID_SHIPPING_ADDRESS", "הכתובת למשלוח שהוזנה אינה חוקית.");
+    c.put("PAYMENT_CREATION_ERROR", "אירעה בעיה בהגדרת תשלום זה. בקר באתר PayPal כדי לבדוק את החשבון שלך.");
+    c.put("PAYMENT_CREATION_ERROR_EXPIRED_PAYMENT_CARD", "אירעה בעיה בהגדרת תשלום זה - פג תוקף הכרטיס שלך. בקר באתר PayPal כדי לבדוק את החשבון שלך.");
+    c.put("PAYMENT_CREATION_ERROR_INSTANT_PAYMENT_REQUIRED", "אירעה בעיה בהגדרת תשלום זה - נדרש אמצעי תשלום מיידי, כגון כרטיס אשראי. בקר באתר PayPal כדי לבדוק את החשבון שלך.");
+    c.put("PAYMENT_CREATION_ERROR_NEED_CONFIRMED_CARD", "אירעה בעיה בהגדרת תשלום זה - יש לאשר את הכרטיס. בקר באתר PayPal כדי לבדוק את החשבון שלך.");
+    c.put("PAYMENT_CREATION_ERROR_NEED_PHONE_NUMBER", "אירעה בעיה בהגדרת תשלום זה - אפליקציה זו מחייבת שהחשבון שלך יכיל מספר טלפון. בקר באתר PayPal כדי לבדוק את החשבון שלך.");
+    c.put("PAYMENT_CREATION_ERROR_NEED_VALID_FUNDING_INSTRUMENT", "אירעה בעיה בהגדרת תשלום זה - החשבון צריך להכיל מקור כספי חוקי, כגון חשבון בנק או כרטיס תשלום. בקר באתר PayPal כדי לבדוק את החשבון שלך.");
+    c.put("PAYMENT_CREATION_ERROR_NEGATIVE_BALANCE", "אירעה בעיה בהגדרת תשלום זה - היתרה שלך שלילית. בקר באתר PayPal כדי לבדוק את החשבון שלך.");
+    c.put("PAYMENT_CREATION_ERROR_SENDING_LIMIT_REACHED", "אירעה בעיה בהגדרת תשלום זה - הגעת למגבלת השליחה שלך. בקר באתר PayPal כדי לבדוק את החשבון שלך.");
+    c.put("AUTH_RC_RISK_FAILURE", "נדחה עקב סיכון.");
+    c.put("AUTH_RC_OFAC_BLOCKED_IP", "לקוח לא אושר.");
+    c.put("AUTH_RC_IP_COMPLIANCE_FAILURE", "לקוח לא אושר.");
+    c.put("invalid_user", "שם משתמש/סיסמה שגויים. נסה שוב.");
+    c.put("locked_user", "חשבון ה-PayPal שלך ננעל באופן זמני. נסה שוב מאוחר יותר, או עבור אל www.paypal.co.il כדי לבטל את נעילת חשבון ה-PayPal שלך באופן מיידי.");
+    c.put("max_attempts_exceeded", "חרגת ממספר ניסיונות הכניסה המרבי. נסה שוב מאוחר יותר.");
+    c.put("invalid_request", "אירעה שגיאה.");
+    c.put("unauthorized_client", "הבקשה לא אושרה.");
+    c.put("access_denied", "הבקשה לא אושרה.");
+    c.put("unsupported_response_type", "אירעה שגיאה.");
+    c.put("invalid_scope", "הבקשה לא אושרה.");
+    c.put("server_error", "שגיאת מערכת. נסה שוב מאוחר יותר.");
+    c.put("temporarily_unavailable", "שגיאת מערכת. נסה שוב מאוחר יותר.");
+    c.put("stepup_required", "לא ניתן להשלים את כניסתך לחשבון בשלב זה. נסה שוב מאוחר יותר, או עבור אל www.paypal.co.il כדי לפתור בעיות אבטחה אפשריות עם חשבון ה-PayPal שלך.");
   }
   
-  private String a(bxk parambxk, boolean paramBoolean)
+  public final String a()
   {
-    String str = bxi.b + ":" + b() + ":" + parambxk.a();
-    parambxk = str;
-    if (paramBoolean) {
-      parambxk = str + "|error";
-    }
-    return parambxk;
+    return "he";
   }
   
-  protected final ccn a()
+  public final String a(String paramString)
   {
-    return a;
+    return (String)c.get(paramString);
   }
-  
-  public final void a(bxk parambxk, boolean paramBoolean, String paramString1, String paramString2, String paramString3)
-  {
-    bxb.a();
-    String str2 = Locale.getDefault().toString();
-    HashMap localHashMap = new HashMap();
-    boolean bool;
-    String str1;
-    if (!bze.a(paramString1))
-    {
-      bool = true;
-      localHashMap.put("gn", a(parambxk, bool));
-      localHashMap.put("v31", a(parambxk, bool));
-      str1 = a(parambxk, bool) + ":" + parambxk.a(a.d(), paramBoolean);
-      if (!bool) {
-        break label254;
-      }
-      str1 = str1 + "|error";
-    }
-    label254:
-    for (;;)
-    {
-      localHashMap.put("c25", str1);
-      localHashMap.put("v25", "D=c25");
-      localHashMap.put("c37", bxi.a + "::");
-      localHashMap.put("c50", str2);
-      localHashMap.put("c35", "out");
-      a(localHashMap, parambxk, paramString2, paramString3);
-      if (paramString1 != null) {
-        localHashMap.put("c29", paramString1);
-      }
-      a("2.9.10", localHashMap);
-      return;
-      bool = false;
-      break;
-    }
-  }
-  
-  abstract void a(String paramString, Map paramMap);
-  
-  protected void a(Map paramMap, bxk parambxk, String paramString1, String paramString2) {}
-  
-  protected abstract String b();
 }
 
 /* Location:

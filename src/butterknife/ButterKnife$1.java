@@ -1,11 +1,15 @@
 package butterknife;
 
+import oc;
+import od;
+
 final class ButterKnife$1
-  implements ButterKnife.Injector<Object>
+  implements od<Object>
 {
-  public final void inject(ButterKnife.Finder paramFinder, Object paramObject1, Object paramObject2) {}
-  
-  public final void reset(Object paramObject) {}
+  public final Unbinder a(oc paramoc, Object paramObject1, Object paramObject2)
+  {
+    return Unbinder.a;
+  }
 }
 
 /* Location:

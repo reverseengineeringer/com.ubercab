@@ -14,9 +14,17 @@ public abstract class ApplyClientPromotionsBody
   
   public abstract boolean getConfirmed();
   
+  public abstract String getMcc();
+  
+  public abstract String getMnc();
+  
   abstract ApplyClientPromotionsBody setCode(String paramString);
   
   abstract ApplyClientPromotionsBody setConfirmed(boolean paramBoolean);
+  
+  public abstract ApplyClientPromotionsBody setMcc(String paramString);
+  
+  public abstract ApplyClientPromotionsBody setMnc(String paramString);
 }
 
 /* Location:

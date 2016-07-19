@@ -1,11 +1,11 @@
 package com.ubercab.rider.realtime.object;
 
 import com.ubercab.shape.Shape;
-import jst;
+import mxz;
 
 @Shape
 abstract class ObjectCodingChallengeWinCriteria
-  implements jst
+  implements mxz
 {}
 
 /* Location:

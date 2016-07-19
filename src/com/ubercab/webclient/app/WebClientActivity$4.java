@@ -3,13 +3,13 @@ package com.ubercab.webclient.app;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.webkit.JavascriptInterface;
-import dpz;
+import dux;
 import java.util.Map;
-import kas;
+import nhj;
 import org.json.JSONObject;
 
 final class WebClientActivity$4
-  extends kas
+  extends nhj
 {
   WebClientActivity$4(WebClientActivity paramWebClientActivity, String paramString1, String paramString2, Map paramMap)
   {
@@ -22,11 +22,11 @@ final class WebClientActivity$4
     JSONObject localJSONObject = new JSONObject();
     localJSONObject.put("app", "client");
     localJSONObject.put("device", "android");
-    localJSONObject.put("version", "3.94.3");
+    localJSONObject.put("version", "3.111.2");
     localJSONObject.put("language", a);
     localJSONObject.put("deviceModel", Build.MODEL);
     localJSONObject.put("deviceOS", Build.VERSION.RELEASE);
-    localJSONObject.put("deviceId", dpz.a(b));
+    localJSONObject.put("deviceId", dux.a(b));
     if (!c.isEmpty()) {
       localJSONObject.put("deviceIds", new JSONObject(c));
     }

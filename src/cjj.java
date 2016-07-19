@@ -1,43 +1,25 @@
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapFactory.Options;
-import android.net.Uri;
+import java.util.concurrent.FutureTask;
 
 final class cjj
-  extends cjh
+  extends FutureTask<chz>
+  implements Comparable<cjj>
 {
-  private final Context a;
+  private final chz a;
   
-  cjj(Context paramContext)
+  public cjj(chz paramchz)
   {
-    a = paramContext;
+    super(paramchz, null);
+    a = paramchz;
   }
   
-  private static Bitmap a(Resources paramResources, int paramInt, cje paramcje)
+  private int a(cjj paramcjj)
   {
-    BitmapFactory.Options localOptions = d(paramcje);
-    if (a(localOptions))
-    {
-      BitmapFactory.decodeResource(paramResources, paramInt, localOptions);
-      a(h, i, localOptions, paramcje);
+    int i = a.n();
+    int j = a.n();
+    if (i == j) {
+      return a.a - a.a;
     }
-    return BitmapFactory.decodeResource(paramResources, paramInt, localOptions);
-  }
-  
-  public final boolean a(cje paramcje)
-  {
-    if (e != 0) {
-      return true;
-    }
-    return "android.resource".equals(d.getScheme());
-  }
-  
-  public final cji b(cje paramcje)
-  {
-    Resources localResources = cjs.a(a, paramcje);
-    return new cji(a(localResources, cjs.a(localResources, paramcje), paramcje), ciy.b);
+    return j - 1 - (i - 1);
   }
 }
 

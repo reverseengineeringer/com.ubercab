@@ -1,39 +1,100 @@
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import java.io.IOException;
+import java.lang.reflect.Array;
 
-public abstract class aod
-  extends Binder
-  implements aoc
+public final class aod<M extends aoc<M>, T>
 {
-  public static aoc a(IBinder paramIBinder)
+  protected final int a;
+  protected final Class<T> b;
+  public final int c;
+  protected final boolean d;
+  
+  private int b(Object paramObject)
   {
-    if (paramIBinder == null) {
-      return null;
+    int j = 0;
+    int m = Array.getLength(paramObject);
+    int i = 0;
+    while (i < m)
+    {
+      int k = j;
+      if (Array.get(paramObject, i) != null) {
+        k = j + c(Array.get(paramObject, i));
+      }
+      i += 1;
+      j = k;
     }
-    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManagerCreator");
-    if ((localIInterface != null) && ((localIInterface instanceof aoc))) {
-      return (aoc)localIInterface;
-    }
-    return new aoe(paramIBinder);
+    return j;
   }
   
-  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+  private void b(Object paramObject, aoa paramaoa)
   {
-    switch (paramInt1)
+    for (;;)
+    {
+      try
+      {
+        paramaoa.d(c);
+        switch (a)
+        {
+        case 10: 
+          throw new IllegalArgumentException("Unknown type " + a);
+        }
+      }
+      catch (IOException paramObject)
+      {
+        throw new IllegalStateException((Throwable)paramObject);
+      }
+      paramObject = (aoi)paramObject;
+      int i = aol.b(c);
+      paramaoa.a((aoi)paramObject);
+      paramaoa.c(i, 4);
+      return;
+      paramaoa.b((aoi)paramObject);
+      return;
+    }
+  }
+  
+  private int c(Object paramObject)
+  {
+    int i = aol.b(c);
+    switch (a)
     {
     default: 
-      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
-    case 1598968902: 
-      paramParcel2.writeString("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManagerCreator");
-      return true;
+      throw new IllegalArgumentException("Unknown type " + a);
+    case 10: 
+      return aoa.b(i, (aoi)paramObject);
     }
-    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManagerCreator");
-    paramParcel1 = a(ade.a(paramParcel1.readStrongBinder()));
-    paramParcel2.writeNoException();
-    paramParcel2.writeStrongBinder(paramParcel1);
-    return true;
+    return aoa.c(i, (aoi)paramObject);
+  }
+  
+  private void c(Object paramObject, aoa paramaoa)
+  {
+    int j = Array.getLength(paramObject);
+    int i = 0;
+    while (i < j)
+    {
+      Object localObject = Array.get(paramObject, i);
+      if (localObject != null) {
+        b(localObject, paramaoa);
+      }
+      i += 1;
+    }
+  }
+  
+  final int a(Object paramObject)
+  {
+    if (d) {
+      return b(paramObject);
+    }
+    return c(paramObject);
+  }
+  
+  final void a(Object paramObject, aoa paramaoa)
+  {
+    if (d)
+    {
+      c(paramObject, paramaoa);
+      return;
+    }
+    b(paramObject, paramaoa);
   }
 }
 

@@ -10,48 +10,47 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
-import ckc;
-import ckr;
+import ckt;
+import cli;
 import com.ubercab.client.core.app.RiderActivity;
 import com.ubercab.ui.Button;
-import dsf;
-import dux;
-import ebj;
-import efm;
-import eyl;
-import eys;
-import eyt;
-import ife;
-import p;
-import r;
+import dxk;
+import eaj;
+import eib;
+import enf;
+import flo;
+import flx;
+import fly;
+import kia;
+import x;
+import z;
 
 public class CommuteDisclaimerDialogFragment
-  extends dsf<eyl>
+  extends dxk<flo>
 {
-  public ckc a;
-  public ife b;
-  @InjectView(2131624182)
-  Button mButtonContinue;
-  @InjectView(2131624180)
-  Button mButtonLearnMore;
-  @InjectView(2131624181)
-  Button mButtonNotNow;
-  @InjectView(2131624176)
-  ImageView mImageViewDisclaimer;
-  @InjectView(2131624179)
-  com.ubercab.ui.TextView mTextViewContent;
-  @InjectView(2131624177)
-  com.ubercab.ui.TextView mTextViewNewTerm;
-  @InjectView(2131624178)
-  com.ubercab.ui.TextView mTextViewTitle;
+  public ckt a;
+  public kia b;
+  @BindView
+  public Button mButtonContinue;
+  @BindView
+  public Button mButtonLearnMore;
+  @BindView
+  public Button mButtonNotNow;
+  @BindView
+  public ImageView mImageViewDisclaimer;
+  @BindView
+  public com.ubercab.ui.TextView mTextViewContent;
+  @BindView
+  public com.ubercab.ui.TextView mTextViewNewTerm;
+  @BindView
+  public com.ubercab.ui.TextView mTextViewTitle;
   
   public static CommuteDisclaimerDialogFragment a(CommuteDisclaimerParams paramCommuteDisclaimerParams, boolean paramBoolean)
   {
     CommuteDisclaimerDialogFragment localCommuteDisclaimerDialogFragment = new CommuteDisclaimerDialogFragment();
-    Bundle localBundle = b(2020);
+    Bundle localBundle = b(1008);
     if (paramCommuteDisclaimerParams != null) {
       localBundle.putParcelable("strings_key", paramCommuteDisclaimerParams);
     }
@@ -82,14 +81,14 @@ public class CommuteDisclaimerDialogFragment
     a(mTextViewNewTerm, paramCommuteDisclaimerParams.k());
   }
   
-  private void a(eyl parameyl)
+  private void a(flo paramflo)
   {
-    parameyl.a(this);
+    paramflo.a(this);
   }
   
-  private eyl b(ebj paramebj)
+  private flo b(eib parameib)
   {
-    return eys.a().a(new efm(this)).a(paramebj).a();
+    return flx.a().a(new enf(this)).a(parameib).a();
   }
   
   private static String b(CommuteDisclaimerParams paramCommuteDisclaimerParams)
@@ -148,7 +147,7 @@ public class CommuteDisclaimerDialogFragment
       return;
     }
     localObject = (CommuteDisclaimerParams)((Bundle)localObject).getParcelable("strings_key");
-    if (b.b(dux.cE)) {
+    if (b.c(eaj.dC)) {
       a((CommuteDisclaimerParams)localObject);
     }
     c((CommuteDisclaimerParams)localObject);
@@ -175,7 +174,7 @@ public class CommuteDisclaimerDialogFragment
   private void f()
   {
     ImageView localImageView = mImageViewDisclaimer;
-    if (b.b(dux.gN)) {}
+    if (b.c(eaj.ld)) {}
     for (int i = 0;; i = 8)
     {
       localImageView.setVisibility(i);
@@ -186,12 +185,12 @@ public class CommuteDisclaimerDialogFragment
   @Deprecated
   private String g()
   {
-    return b.a(dux.cH, "disclaimer_learn_more_url");
+    return b.a(eaj.dF, "disclaimer_learn_more_url");
   }
   
-  public final ckr a()
+  public final cli a()
   {
-    return p.aN;
+    return x.bm;
   }
   
   public final void a(RiderActivity paramRiderActivity)
@@ -205,49 +204,43 @@ public class CommuteDisclaimerDialogFragment
     dismiss();
   }
   
-  @OnClick({2131624182})
+  @OnClick
   public void onClickContinue()
   {
-    a.a(r.V);
+    a.a(z.an);
     c(-1);
   }
   
-  @OnClick({2131624180})
+  @OnClick
   public void onClickLearnMore()
   {
-    a.a(r.W);
+    a.a(z.ao);
     if ((mButtonLearnMore.getTag() != null) && (!TextUtils.isEmpty(mButtonLearnMore.getTag().toString()))) {
       startActivity(new Intent("android.intent.action.VIEW", Uri.parse(mButtonLearnMore.getTag().toString())));
     }
   }
   
-  @OnClick({2131624181})
+  @OnClick
   public void onClickNotNow()
   {
-    a.a(r.X);
+    a.a(z.ap);
     c(0);
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setStyle(0, 2131362005);
+    setStyle(0, 2131362027);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903115, paramViewGroup, false);
-    ButterKnife.inject(this, paramLayoutInflater);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903176, paramViewGroup, false);
+    a(paramLayoutInflater);
     f();
     d();
     e();
     return paramLayoutInflater;
-  }
-  
-  public void onDestroyView()
-  {
-    super.onDestroyView();
-    ButterKnife.reset(this);
   }
   
   public void onStart()

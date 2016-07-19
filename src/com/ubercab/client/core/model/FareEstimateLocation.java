@@ -3,9 +3,9 @@ package com.ubercab.client.core.model;
 import com.ubercab.android.location.UberLatLng;
 import com.ubercab.client.core.location.RiderLocation;
 import com.ubercab.client.core.validator.RiderValidatorFactory;
-import jdh;
+import lzo;
 
-@jdh(a=RiderValidatorFactory.class)
+@lzo(a=RiderValidatorFactory.class)
 public final class FareEstimateLocation
 {
   private Double latitude;

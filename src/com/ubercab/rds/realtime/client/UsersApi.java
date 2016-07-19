@@ -5,7 +5,7 @@ import com.ubercab.rds.realtime.request.body.ForgotPasswordBody;
 import com.ubercab.rds.realtime.request.body.UpdatePasswordBody;
 import com.ubercab.rds.realtime.response.FapiaoTripsResponse;
 import com.ubercab.rds.realtime.response.FapiaoUserDefaultResponse;
-import kld;
+import odr;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
@@ -15,19 +15,19 @@ import retrofit.http.Query;
 public abstract interface UsersApi
 {
   @GET("/rt/users/fapiao/trips")
-  public abstract kld<FapiaoTripsResponse> getFapiaoTrips(@Query("tripType") String paramString, @Query("offset") int paramInt);
+  public abstract odr<FapiaoTripsResponse> getFapiaoTrips(@Query("tripType") String paramString, @Query("offset") int paramInt);
   
   @GET("/rt/users/fapiao/user-defaults")
-  public abstract kld<FapiaoUserDefaultResponse> getFapiaoUserDefault();
+  public abstract odr<FapiaoUserDefaultResponse> getFapiaoUserDefault();
   
   @POST("/rt/users/fapiao/request")
-  public abstract kld<Void> postFapiaoRequest(@Body FapiaoRequestBody paramFapiaoRequestBody);
+  public abstract odr<Void> postFapiaoRequest(@Body FapiaoRequestBody paramFapiaoRequestBody);
   
-  @PUT("/rt/users/v2/forgot-password")
-  public abstract kld<Void> putForgotPassword(@Body ForgotPasswordBody paramForgotPasswordBody);
+  @PUT("/rt/users/v3/forgot-password")
+  public abstract odr<Void> putForgotPasswordV3(@Body ForgotPasswordBody paramForgotPasswordBody);
   
   @PUT("/rt/users/update-password")
-  public abstract kld<Void> putUpdatePassword(@Body UpdatePasswordBody paramUpdatePasswordBody);
+  public abstract odr<Void> putUpdatePassword(@Body UpdatePasswordBody paramUpdatePasswordBody);
 }
 
 /* Location:

@@ -1,485 +1,423 @@
-import android.app.KeyguardManager;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.os.PowerManager;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-import android.view.ViewTreeObserver.OnScrollChangedListener;
-import android.view.WindowManager;
-import com.google.android.gms.ads.internal.client.AdSizeParcel;
 import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-@apl
-public abstract class afr
-  implements ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnScrollChangedListener
+@aih
+public final class afr
 {
-  protected final Object a = new Object();
-  protected final afx b;
-  BroadcastReceiver c;
-  private final WeakReference<aqj> d;
-  private WeakReference<ViewTreeObserver> e;
-  private final age f;
-  private final Context g;
-  private final WindowManager h;
-  private final PowerManager i;
-  private final KeyguardManager j;
-  private afz k;
-  private boolean l;
-  private boolean m = false;
-  private boolean n = false;
-  private boolean o;
-  private boolean p;
-  private boolean q;
-  private final HashSet<afw> r = new HashSet();
-  private aru s;
-  private final aji t = new aji()
+  public static final afs a = new afs()
   {
-    public final void a(asq paramAnonymousasq, Map<String, String> paramAnonymousMap)
-    {
-      if (!a(paramAnonymousMap)) {
-        return;
-      }
-      d();
-    }
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap) {}
   };
-  private final aji u = new aji()
+  public static final afs b = new afs()
   {
-    public final void a(asq paramAnonymousasq, Map<String, String> paramAnonymousMap)
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap)
     {
-      if (!a(paramAnonymousMap)) {
+      paramAnonymousMap = (String)paramAnonymousMap.get("urls");
+      if (TextUtils.isEmpty(paramAnonymousMap))
+      {
+        ain.d("URLs missing in canOpenURLs GMSG.");
         return;
       }
-      aqt.a("Received request to untrack: " + b.d());
-      b();
-    }
-  };
-  private final aji v = new aji()
-  {
-    public final void a(asq paramAnonymousasq, Map<String, String> paramAnonymousMap)
-    {
-      if (!a(paramAnonymousMap)) {}
-      while (!paramAnonymousMap.containsKey("isVisible")) {
-        return;
-      }
-      if (("1".equals(paramAnonymousMap.get("isVisible"))) || ("true".equals(paramAnonymousMap.get("isVisible")))) {}
-      for (boolean bool = true;; bool = false)
+      String[] arrayOfString = paramAnonymousMap.split(",");
+      HashMap localHashMap = new HashMap();
+      PackageManager localPackageManager = paramAnonymousajm.getContext().getPackageManager();
+      int j = arrayOfString.length;
+      int i = 0;
+      if (i < j)
       {
-        a(Boolean.valueOf(bool).booleanValue());
-        return;
-      }
-    }
-  };
-  
-  public afr(Context paramContext, AdSizeParcel paramAdSizeParcel, aqj paramaqj, VersionInfoParcel paramVersionInfoParcel, age paramage)
-  {
-    d = new WeakReference(paramaqj);
-    f = paramage;
-    e = new WeakReference(null);
-    o = true;
-    q = false;
-    s = new aru(200L);
-    b = new afx(UUID.randomUUID().toString(), paramVersionInfoParcel, b, j, paramaqj.a(), i);
-    h = ((WindowManager)paramContext.getSystemService("window"));
-    i = ((PowerManager)paramContext.getApplicationContext().getSystemService("power"));
-    j = ((KeyguardManager)paramContext.getSystemService("keyguard"));
-    g = paramContext;
-  }
-  
-  private static int a(int paramInt, DisplayMetrics paramDisplayMetrics)
-  {
-    float f1 = density;
-    return (int)(paramInt / f1);
-  }
-  
-  private void j()
-  {
-    synchronized (a)
-    {
-      BroadcastReceiver localBroadcastReceiver = c;
-      if (localBroadcastReceiver == null) {}
-    }
-    try
-    {
-      g.unregisterReceiver(c);
-      c = null;
-      return;
-    }
-    catch (IllegalStateException localIllegalStateException)
-    {
-      for (;;)
-      {
-        aqt.b("Failed trying to unregister the receiver", localIllegalStateException);
-      }
-      localObject2 = finally;
-      throw ((Throwable)localObject2);
-    }
-    catch (Exception localException)
-    {
-      for (;;)
-      {
-        tp.h().a(localException, true);
-      }
-    }
-  }
-  
-  private void k()
-  {
-    if (k != null) {
-      k.a(this);
-    }
-  }
-  
-  private void l()
-  {
-    Object localObject = f.c().a();
-    if (localObject == null) {}
-    ViewTreeObserver localViewTreeObserver;
-    do
-    {
-      return;
-      localViewTreeObserver = (ViewTreeObserver)e.get();
-      localObject = ((View)localObject).getViewTreeObserver();
-    } while (localObject == localViewTreeObserver);
-    m();
-    if ((!l) || ((localViewTreeObserver != null) && (localViewTreeObserver.isAlive())))
-    {
-      l = true;
-      ((ViewTreeObserver)localObject).addOnScrollChangedListener(this);
-      ((ViewTreeObserver)localObject).addOnGlobalLayoutListener(this);
-    }
-    e = new WeakReference(localObject);
-  }
-  
-  private void m()
-  {
-    ViewTreeObserver localViewTreeObserver = (ViewTreeObserver)e.get();
-    if ((localViewTreeObserver == null) || (!localViewTreeObserver.isAlive())) {
-      return;
-    }
-    localViewTreeObserver.removeOnScrollChangedListener(this);
-    localViewTreeObserver.removeGlobalOnLayoutListener(this);
-  }
-  
-  private JSONObject n()
-  {
-    JSONObject localJSONObject = new JSONObject();
-    localJSONObject.put("afmaVersion", b.b()).put("activeViewJSON", b.c()).put("timestamp", tp.i().b()).put("adFormat", b.a()).put("hashCode", b.d()).put("isMraid", b.e()).put("isStopped", n).put("isPaused", m).put("isScreenOn", p()).put("isNative", b.f());
-    return localJSONObject;
-  }
-  
-  private JSONObject o()
-  {
-    return n().put("isAttachedToWindow", false).put("isScreenOn", p()).put("isVisible", false);
-  }
-  
-  private boolean p()
-  {
-    return i.isScreenOn();
-  }
-  
-  private JSONObject q()
-  {
-    JSONObject localJSONObject = n();
-    localJSONObject.put("doneReasonCode", "u");
-    return localJSONObject;
-  }
-  
-  protected final JSONObject a(View paramView)
-  {
-    if (paramView == null) {
-      return o();
-    }
-    boolean bool1 = tp.g().a(paramView);
-    Object localObject2 = new int[2];
-    Object localObject1 = new int[2];
-    try
-    {
-      paramView.getLocationOnScreen((int[])localObject2);
-      paramView.getLocationInWindow((int[])localObject1);
-      localObject1 = paramView.getContext().getResources().getDisplayMetrics();
-      Rect localRect1 = new Rect();
-      left = localObject2[0];
-      top = localObject2[1];
-      right = (left + paramView.getWidth());
-      bottom = (top + paramView.getHeight());
-      Rect localRect2 = new Rect();
-      right = h.getDefaultDisplay().getWidth();
-      bottom = h.getDefaultDisplay().getHeight();
-      Rect localRect3 = new Rect();
-      boolean bool2 = paramView.getGlobalVisibleRect(localRect3, null);
-      Rect localRect4 = new Rect();
-      boolean bool3 = paramView.getLocalVisibleRect(localRect4);
-      Rect localRect5 = new Rect();
-      paramView.getHitRect(localRect5);
-      localObject2 = n();
-      localObject1 = ((JSONObject)localObject2).put("windowVisibility", paramView.getWindowVisibility()).put("isAttachedToWindow", bool1).put("viewBox", new JSONObject().put("top", a(top, (DisplayMetrics)localObject1)).put("bottom", a(bottom, (DisplayMetrics)localObject1)).put("left", a(left, (DisplayMetrics)localObject1)).put("right", a(right, (DisplayMetrics)localObject1))).put("adBox", new JSONObject().put("top", a(top, (DisplayMetrics)localObject1)).put("bottom", a(bottom, (DisplayMetrics)localObject1)).put("left", a(left, (DisplayMetrics)localObject1)).put("right", a(right, (DisplayMetrics)localObject1))).put("globalVisibleBox", new JSONObject().put("top", a(top, (DisplayMetrics)localObject1)).put("bottom", a(bottom, (DisplayMetrics)localObject1)).put("left", a(left, (DisplayMetrics)localObject1)).put("right", a(right, (DisplayMetrics)localObject1))).put("globalVisibleBoxVisible", bool2).put("localVisibleBox", new JSONObject().put("top", a(top, (DisplayMetrics)localObject1)).put("bottom", a(bottom, (DisplayMetrics)localObject1)).put("left", a(left, (DisplayMetrics)localObject1)).put("right", a(right, (DisplayMetrics)localObject1))).put("localVisibleBoxVisible", bool3).put("hitBox", new JSONObject().put("top", a(top, (DisplayMetrics)localObject1)).put("bottom", a(bottom, (DisplayMetrics)localObject1)).put("left", a(left, (DisplayMetrics)localObject1)).put("right", a(right, (DisplayMetrics)localObject1))).put("screenDensity", density);
-      tp.e();
-      ((JSONObject)localObject1).put("isVisible", aqz.a(paramView, i, j));
-      return (JSONObject)localObject2;
-    }
-    catch (Exception localException)
-    {
-      for (;;)
-      {
-        aqt.b("Failure getting view location.", localException);
-      }
-    }
-  }
-  
-  protected final void a()
-  {
-    synchronized (a)
-    {
-      if (c != null) {
-        return;
-      }
-      IntentFilter localIntentFilter = new IntentFilter();
-      localIntentFilter.addAction("android.intent.action.SCREEN_ON");
-      localIntentFilter.addAction("android.intent.action.SCREEN_OFF");
-      c = new BroadcastReceiver()
-      {
-        public final void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent)
+        String str1 = arrayOfString[i];
+        paramAnonymousMap = str1.split(";", 2);
+        String str2 = paramAnonymousMap[0].trim();
+        if (paramAnonymousMap.length > 1)
         {
-          b(false);
-        }
-      };
-      g.registerReceiver(c, localIntentFilter);
-      return;
-    }
-  }
-  
-  public final void a(afw paramafw)
-  {
-    r.add(paramafw);
-  }
-  
-  public final void a(afz paramafz)
-  {
-    synchronized (a)
-    {
-      k = paramafz;
-      return;
-    }
-  }
-  
-  protected final void a(ald paramald)
-  {
-    paramald.a("/updateActiveView", t);
-    paramald.a("/untrackActiveViewUnit", u);
-    paramald.a("/visibilityChanged", v);
-  }
-  
-  protected final void a(JSONObject paramJSONObject)
-  {
-    try
-    {
-      JSONArray localJSONArray = new JSONArray();
-      JSONObject localJSONObject = new JSONObject();
-      localJSONArray.put(paramJSONObject);
-      localJSONObject.put("units", localJSONArray);
-      b(localJSONObject);
-      return;
-    }
-    catch (Throwable paramJSONObject)
-    {
-      aqt.b("Skipping active view message.", paramJSONObject);
-    }
-  }
-  
-  protected final void a(boolean paramBoolean)
-  {
-    Iterator localIterator = r.iterator();
-    while (localIterator.hasNext()) {
-      ((afw)localIterator.next()).a(this, paramBoolean);
-    }
-  }
-  
-  protected final boolean a(Map<String, String> paramMap)
-  {
-    if (paramMap == null) {
-      return false;
-    }
-    paramMap = (String)paramMap.get("hashCode");
-    return (!TextUtils.isEmpty(paramMap)) && (paramMap.equals(b.d()));
-  }
-  
-  protected void b()
-  {
-    synchronized (a)
-    {
-      m();
-      j();
-      o = false;
-      k();
-      return;
-    }
-  }
-  
-  protected final void b(ald paramald)
-  {
-    paramald.b("/visibilityChanged", v);
-    paramald.b("/untrackActiveViewUnit", u);
-    paramald.b("/updateActiveView", t);
-  }
-  
-  protected abstract void b(JSONObject paramJSONObject);
-  
-  protected final void b(boolean paramBoolean)
-  {
-    boolean bool;
-    for (;;)
-    {
-      synchronized (a)
-      {
-        if ((!f()) || (!o)) {
-          return;
-        }
-        View localView1 = f.a();
-        if (localView1 != null)
-        {
-          tp.e();
-          if ((aqz.a(localView1, i, j)) && (localView1.getGlobalVisibleRect(new Rect(), null)))
-          {
-            bool = true;
-            if ((!paramBoolean) || (s.a()) || (bool != q)) {
-              break;
-            }
-            return;
+          paramAnonymousMap = paramAnonymousMap[1].trim();
+          label102:
+          if (localPackageManager.resolveActivity(new Intent(paramAnonymousMap, Uri.parse(str2)), 65536) == null) {
+            break label154;
           }
         }
+        label154:
+        for (boolean bool = true;; bool = false)
+        {
+          localHashMap.put(str1, Boolean.valueOf(bool));
+          i += 1;
+          break;
+          paramAnonymousMap = "android.intent.action.VIEW";
+          break label102;
+        }
       }
-      bool = false;
+      paramAnonymousajm.a("openableURLs", localHashMap);
     }
-    q = bool;
-    if (f.b())
+  };
+  public static final afs c = new afs()
+  {
+    /* Error */
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap)
     {
-      c();
-      return;
+      // Byte code:
+      //   0: aload_1
+      //   1: invokeinterface 23 1 0
+      //   6: invokevirtual 29	android/content/Context:getPackageManager	()Landroid/content/pm/PackageManager;
+      //   9: astore 5
+      //   11: aload_2
+      //   12: ldc 31
+      //   14: invokeinterface 37 2 0
+      //   19: checkcast 39	java/lang/String
+      //   22: astore_2
+      //   23: new 41	org/json/JSONObject
+      //   26: dup
+      //   27: aload_2
+      //   28: invokespecial 44	org/json/JSONObject:<init>	(Ljava/lang/String;)V
+      //   31: astore_2
+      //   32: aload_2
+      //   33: ldc 46
+      //   35: invokevirtual 50	org/json/JSONObject:getJSONArray	(Ljava/lang/String;)Lorg/json/JSONArray;
+      //   38: astore_2
+      //   39: new 41	org/json/JSONObject
+      //   42: dup
+      //   43: invokespecial 51	org/json/JSONObject:<init>	()V
+      //   46: astore 6
+      //   48: iconst_0
+      //   49: istore_3
+      //   50: iload_3
+      //   51: aload_2
+      //   52: invokevirtual 57	org/json/JSONArray:length	()I
+      //   55: if_icmpge +298 -> 353
+      //   58: aload_2
+      //   59: iload_3
+      //   60: invokevirtual 61	org/json/JSONArray:getJSONObject	(I)Lorg/json/JSONObject;
+      //   63: astore 13
+      //   65: aload 13
+      //   67: ldc 63
+      //   69: invokevirtual 67	org/json/JSONObject:optString	(Ljava/lang/String;)Ljava/lang/String;
+      //   72: astore 7
+      //   74: aload 13
+      //   76: ldc 69
+      //   78: invokevirtual 67	org/json/JSONObject:optString	(Ljava/lang/String;)Ljava/lang/String;
+      //   81: astore 8
+      //   83: aload 13
+      //   85: ldc 71
+      //   87: invokevirtual 67	org/json/JSONObject:optString	(Ljava/lang/String;)Ljava/lang/String;
+      //   90: astore 9
+      //   92: aload 13
+      //   94: ldc 73
+      //   96: invokevirtual 67	org/json/JSONObject:optString	(Ljava/lang/String;)Ljava/lang/String;
+      //   99: astore 10
+      //   101: aload 13
+      //   103: ldc 75
+      //   105: invokevirtual 67	org/json/JSONObject:optString	(Ljava/lang/String;)Ljava/lang/String;
+      //   108: astore 11
+      //   110: aload 13
+      //   112: ldc 77
+      //   114: invokevirtual 67	org/json/JSONObject:optString	(Ljava/lang/String;)Ljava/lang/String;
+      //   117: astore 12
+      //   119: aload 13
+      //   121: ldc 79
+      //   123: invokevirtual 67	org/json/JSONObject:optString	(Ljava/lang/String;)Ljava/lang/String;
+      //   126: pop
+      //   127: aload 13
+      //   129: ldc 81
+      //   131: invokevirtual 67	org/json/JSONObject:optString	(Ljava/lang/String;)Ljava/lang/String;
+      //   134: pop
+      //   135: new 83	android/content/Intent
+      //   138: dup
+      //   139: invokespecial 84	android/content/Intent:<init>	()V
+      //   142: astore 13
+      //   144: aload 8
+      //   146: invokestatic 90	android/text/TextUtils:isEmpty	(Ljava/lang/CharSequence;)Z
+      //   149: ifne +14 -> 163
+      //   152: aload 13
+      //   154: aload 8
+      //   156: invokestatic 96	android/net/Uri:parse	(Ljava/lang/String;)Landroid/net/Uri;
+      //   159: invokevirtual 100	android/content/Intent:setData	(Landroid/net/Uri;)Landroid/content/Intent;
+      //   162: pop
+      //   163: aload 9
+      //   165: invokestatic 90	android/text/TextUtils:isEmpty	(Ljava/lang/CharSequence;)Z
+      //   168: ifne +11 -> 179
+      //   171: aload 13
+      //   173: aload 9
+      //   175: invokevirtual 104	android/content/Intent:setAction	(Ljava/lang/String;)Landroid/content/Intent;
+      //   178: pop
+      //   179: aload 10
+      //   181: invokestatic 90	android/text/TextUtils:isEmpty	(Ljava/lang/CharSequence;)Z
+      //   184: ifne +11 -> 195
+      //   187: aload 13
+      //   189: aload 10
+      //   191: invokevirtual 107	android/content/Intent:setType	(Ljava/lang/String;)Landroid/content/Intent;
+      //   194: pop
+      //   195: aload 11
+      //   197: invokestatic 90	android/text/TextUtils:isEmpty	(Ljava/lang/CharSequence;)Z
+      //   200: ifne +11 -> 211
+      //   203: aload 13
+      //   205: aload 11
+      //   207: invokevirtual 110	android/content/Intent:setPackage	(Ljava/lang/String;)Landroid/content/Intent;
+      //   210: pop
+      //   211: aload 12
+      //   213: invokestatic 90	android/text/TextUtils:isEmpty	(Ljava/lang/CharSequence;)Z
+      //   216: ifne +41 -> 257
+      //   219: aload 12
+      //   221: ldc 112
+      //   223: iconst_2
+      //   224: invokevirtual 116	java/lang/String:split	(Ljava/lang/String;I)[Ljava/lang/String;
+      //   227: astore 8
+      //   229: aload 8
+      //   231: arraylength
+      //   232: iconst_2
+      //   233: if_icmpne +24 -> 257
+      //   236: aload 13
+      //   238: new 118	android/content/ComponentName
+      //   241: dup
+      //   242: aload 8
+      //   244: iconst_0
+      //   245: aaload
+      //   246: aload 8
+      //   248: iconst_1
+      //   249: aaload
+      //   250: invokespecial 121	android/content/ComponentName:<init>	(Ljava/lang/String;Ljava/lang/String;)V
+      //   253: invokevirtual 125	android/content/Intent:setComponent	(Landroid/content/ComponentName;)Landroid/content/Intent;
+      //   256: pop
+      //   257: aload 5
+      //   259: aload 13
+      //   261: ldc 126
+      //   263: invokevirtual 132	android/content/pm/PackageManager:resolveActivity	(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
+      //   266: ifnull +69 -> 335
+      //   269: iconst_1
+      //   270: istore 4
+      //   272: aload 6
+      //   274: aload 7
+      //   276: iload 4
+      //   278: invokevirtual 136	org/json/JSONObject:put	(Ljava/lang/String;Z)Lorg/json/JSONObject;
+      //   281: pop
+      //   282: iload_3
+      //   283: iconst_1
+      //   284: iadd
+      //   285: istore_3
+      //   286: goto -236 -> 50
+      //   289: astore_2
+      //   290: aload_1
+      //   291: ldc -118
+      //   293: new 41	org/json/JSONObject
+      //   296: dup
+      //   297: invokespecial 51	org/json/JSONObject:<init>	()V
+      //   300: invokeinterface 141 3 0
+      //   305: return
+      //   306: astore_2
+      //   307: aload_1
+      //   308: ldc -118
+      //   310: new 41	org/json/JSONObject
+      //   313: dup
+      //   314: invokespecial 51	org/json/JSONObject:<init>	()V
+      //   317: invokeinterface 141 3 0
+      //   322: return
+      //   323: astore 7
+      //   325: ldc -113
+      //   327: aload 7
+      //   329: invokestatic 149	ain:b	(Ljava/lang/String;Ljava/lang/Throwable;)V
+      //   332: goto -50 -> 282
+      //   335: iconst_0
+      //   336: istore 4
+      //   338: goto -66 -> 272
+      //   341: astore 7
+      //   343: ldc -105
+      //   345: aload 7
+      //   347: invokestatic 149	ain:b	(Ljava/lang/String;Ljava/lang/Throwable;)V
+      //   350: goto -68 -> 282
+      //   353: aload_1
+      //   354: ldc -118
+      //   356: aload 6
+      //   358: invokeinterface 141 3 0
+      //   363: return
+      // Local variable table:
+      //   start	length	slot	name	signature
+      //   0	364	0	this	7
+      //   0	364	1	paramAnonymousajm	ajm
+      //   0	364	2	paramAnonymousMap	Map<String, String>
+      //   49	237	3	i	int
+      //   270	67	4	bool	boolean
+      //   9	249	5	localPackageManager	PackageManager
+      //   46	311	6	localJSONObject	JSONObject
+      //   72	203	7	str1	String
+      //   323	5	7	localJSONException1	org.json.JSONException
+      //   341	5	7	localJSONException2	org.json.JSONException
+      //   81	166	8	localObject1	Object
+      //   90	84	9	str2	String
+      //   99	91	10	str3	String
+      //   108	98	11	str4	String
+      //   117	103	12	str5	String
+      //   63	197	13	localObject2	Object
+      // Exception table:
+      //   from	to	target	type
+      //   23	32	289	org/json/JSONException
+      //   32	39	306	org/json/JSONException
+      //   58	65	323	org/json/JSONException
+      //   272	282	341	org/json/JSONException
     }
-    for (;;)
+  };
+  public static final afs d = new afs()
+  {
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap)
     {
-      try
+      str = (String)paramAnonymousMap.get("u");
+      if (str == null)
       {
-        a(a(localView2));
-        l();
-        k();
+        ain.d("URL missing from click GMSG.");
         return;
       }
-      catch (JSONException localJSONException)
+      paramAnonymousMap = Uri.parse(str);
+      try
       {
-        continue;
+        Object localObject = paramAnonymousajm.m();
+        if ((localObject == null) || (!((adw)localObject).a(paramAnonymousMap))) {
+          break label118;
+        }
+        paramAnonymousajm.getContext();
+        localObject = ((adw)localObject).b(paramAnonymousMap);
+        paramAnonymousMap = (Map<String, String>)localObject;
       }
-      catch (RuntimeException localRuntimeException)
+      catch (adx localadx)
       {
-        continue;
+        for (;;)
+        {
+          ain.d("Unable to append parameter to URL: " + str);
+        }
       }
-      aqt.a("Active view update failed.", localView2);
+      paramAnonymousMap = paramAnonymousMap.toString();
+      new aje(paramAnonymousajm.getContext(), nb, paramAnonymousMap).b();
     }
-  }
-  
-  public void c()
+  };
+  public static final afs e = new afs()
   {
-    synchronized (a)
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap)
     {
-      if (o) {
-        p = true;
-      }
-    }
-    try
-    {
-      a(q());
-      aqt.a("Untracking ad unit: " + b.d());
-      return;
-    }
-    catch (JSONException localJSONException)
-    {
-      for (;;)
+      paramAnonymousMap = paramAnonymousajm.h();
+      if (paramAnonymousMap != null)
       {
-        aqt.b("JSON failure while processing active view data.", localJSONException);
+        paramAnonymousMap.a();
+        return;
       }
-      localObject2 = finally;
-      throw ((Throwable)localObject2);
-    }
-    catch (RuntimeException localRuntimeException)
-    {
-      for (;;)
+      paramAnonymousajm = paramAnonymousajm.i();
+      if (paramAnonymousajm != null)
       {
-        aqt.b("Failure while processing active view data.", localRuntimeException);
+        paramAnonymousajm.a();
+        return;
+      }
+      ain.d("A GMSG tried to close something that wasn't an overlay.");
+    }
+  };
+  public static final afs f = new afs()
+  {
+    private static void a(ajm paramAnonymousajm)
+    {
+      ain.c("Received support message, responding.");
+      boolean bool2 = false;
+      Object localObject = paramAnonymousajm.g();
+      boolean bool1 = bool2;
+      if (localObject != null)
+      {
+        localObject = c;
+        bool1 = bool2;
+        if (localObject != null) {
+          bool1 = ((sz)localObject).b();
+        }
+      }
+      localObject = new JSONObject();
+      try
+      {
+        ((JSONObject)localObject).put("event", "checkSupport");
+        ((JSONObject)localObject).put("supports", bool1);
+        paramAnonymousajm.a("appStreaming", (JSONObject)localObject);
+        return;
+      }
+      catch (Throwable paramAnonymousajm) {}
+    }
+    
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap)
+    {
+      if ("checkSupport".equals(paramAnonymousMap.get("action"))) {
+        a(paramAnonymousajm);
+      }
+      while (paramAnonymousajm.h() == null) {
+        return;
+      }
+      sn.o();
+    }
+  };
+  public static final afs g = new afs()
+  {
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap)
+    {
+      paramAnonymousajm.b("1".equals(paramAnonymousMap.get("custom_close")));
+    }
+  };
+  public static final afs h = new afs()
+  {
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap)
+    {
+      paramAnonymousMap = (String)paramAnonymousMap.get("u");
+      if (paramAnonymousMap == null)
+      {
+        ain.d("URL missing from httpTrack GMSG.");
+        return;
+      }
+      new aje(paramAnonymousajm.getContext(), nb, paramAnonymousMap).b();
+    }
+  };
+  public static final afs i = new afs()
+  {
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap)
+    {
+      ain.c("Received log message: " + (String)paramAnonymousMap.get("string"));
+    }
+  };
+  public static final afs j = new afs()
+  {
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap)
+    {
+      String str1 = (String)paramAnonymousMap.get("tx");
+      String str2 = (String)paramAnonymousMap.get("ty");
+      paramAnonymousMap = (String)paramAnonymousMap.get("td");
+      try
+      {
+        Integer.parseInt(str1);
+        Integer.parseInt(str2);
+        Integer.parseInt(paramAnonymousMap);
+        paramAnonymousajm = paramAnonymousajm.m();
+        if (paramAnonymousajm != null) {
+          paramAnonymousajm.a();
+        }
+        return;
+      }
+      catch (NumberFormatException paramAnonymousajm)
+      {
+        ain.d("Could not parse touch parameters from gmsg.");
       }
     }
-  }
-  
-  protected final void d()
+  };
+  public static final afs k = new afs()
   {
-    b(false);
-  }
-  
-  public final boolean e()
-  {
-    synchronized (a)
+    public final void a(ajm paramAnonymousajm, Map<String, String> paramAnonymousMap)
     {
-      boolean bool = o;
-      return bool;
+      if (!((Boolean)aex.at.c()).booleanValue()) {
+        return;
+      }
+      if (!Boolean.parseBoolean((String)paramAnonymousMap.get("disabled"))) {}
+      for (boolean bool = true;; bool = false)
+      {
+        paramAnonymousajm.c(bool);
+        return;
+      }
     }
-  }
-  
-  protected abstract boolean f();
-  
-  public final void g()
-  {
-    synchronized (a)
-    {
-      n = true;
-      b(false);
-      return;
-    }
-  }
-  
-  public final void h()
-  {
-    synchronized (a)
-    {
-      m = true;
-      b(false);
-      return;
-    }
-  }
-  
-  public final void i()
-  {
-    synchronized (a)
-    {
-      m = false;
-      b(false);
-      return;
-    }
-  }
-  
-  public void onGlobalLayout()
-  {
-    b(false);
-  }
-  
-  public void onScrollChanged()
-  {
-    b(true);
-  }
+  };
+  public static final afs l = new afz();
+  public static final afs m = new agd();
+  public static final afs n = new afq();
 }
 
 /* Location:

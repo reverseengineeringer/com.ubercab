@@ -13,6 +13,11 @@ abstract class BaseFragmentActivityDonut
 {
   abstract View dispatchFragmentsOnCreateView(View paramView, String paramString, Context paramContext, AttributeSet paramAttributeSet);
   
+  void onBackPressedNotHandled()
+  {
+    finish();
+  }
+  
   public void onCreate(Bundle paramBundle)
   {
     if ((Build.VERSION.SDK_INT < 11) && (getLayoutInflater().getFactory() == null)) {

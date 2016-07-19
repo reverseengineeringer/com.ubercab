@@ -1,22 +1,9 @@
-import java.util.concurrent.ThreadFactory;
-
-final class chf
-  implements ThreadFactory
+public abstract interface chf
+  extends chb
 {
-  private final String a;
+  public abstract void a(String paramString);
   
-  public chf(String paramString)
-  {
-    a = paramString;
-  }
-  
-  public final Thread newThread(Runnable paramRunnable)
-  {
-    paramRunnable = new Thread(paramRunnable);
-    paramRunnable.setDaemon(true);
-    paramRunnable.setName("pusher-java-client " + a);
-    return paramRunnable;
-  }
+  public abstract void d();
 }
 
 /* Location:

@@ -1,8 +1,22 @@
+import android.os.Looper;
+
 public abstract interface chv
 {
-  public abstract void a();
+  public static final chv a = new chv()
+  {
+    public final void a(chn paramAnonymouschn) {}
+  };
+  public static final chv b = new chv()
+  {
+    public final void a(chn paramAnonymouschn)
+    {
+      if (Looper.myLooper() != Looper.getMainLooper()) {
+        throw new IllegalStateException("Event bus " + paramAnonymouschn + " accessed from non-main thread " + Looper.myLooper());
+      }
+    }
+  };
   
-  public abstract void b();
+  public abstract void a(chn paramchn);
 }
 
 /* Location:

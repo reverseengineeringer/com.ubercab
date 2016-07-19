@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="@color/ub__uber_blue_100" android:padding="@dimen/ui__spacing_unit_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H3" android:textColor="@color/ub__white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/reservation_scheduler_time_picker_dialog_subtitle" />
+        <com.ubercab.ui.TextView android:textAppearance="@style/Uber.TextAppearance.H1.White.Solid" android:textSize="@dimen/ub__reservation_time_pickup_dialog_title_size" android:id="@id/ub__reservation_pickup_time_picker_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+    </LinearLayout>
+    <TimePicker android:layout_gravity="center" android:id="@id/ub__reservation_pickup_time_picker" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

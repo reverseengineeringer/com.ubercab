@@ -1,14 +1,32 @@
-import com.paypal.android.sdk.bI;
+import com.paypal.android.sdk.bN;
+import com.paypal.android.sdk.payments.PayPalService;
+import java.util.Map;
 
-public final class cej
+final class cej
+  extends ceh
 {
-  public String a;
-  public bI b;
-  
-  public cej(String paramString, bI parambI)
+  public cej(PayPalService paramPayPalService)
   {
-    a = paramString;
-    b = parambI;
+    super(new cbq(paramPayPalService));
+  }
+  
+  protected final void a(String paramString, Map paramMap)
+  {
+    if (!aaa.c())
+    {
+      aaa = new bN();
+      paramMap.put("v49", paramString);
+      paramMap.put("v51", a().c().d().d());
+      paramMap.put("v52", bvc.a + " " + bvc.d);
+      paramMap.put("v53", bvc.e);
+    }
+    paramString = new brh(aaa.b(), paramMap, bvc.c, bvc.b, true);
+    a().a(paramString);
+  }
+  
+  protected final String b()
+  {
+    return "mpl";
   }
 }
 

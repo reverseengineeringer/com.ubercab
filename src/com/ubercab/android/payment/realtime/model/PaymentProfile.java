@@ -47,6 +47,8 @@ public abstract class PaymentProfile
     return localSimpleDateFormat.format(new Date(getCardExpirationEpoch()));
   }
   
+  public abstract boolean getIsCommuterBenefitsCard();
+  
   public abstract RewardInfo getRewardInfo();
   
   public abstract String getStatus();
@@ -70,6 +72,8 @@ public abstract class PaymentProfile
   abstract PaymentProfile setCardNumber(String paramString);
   
   abstract PaymentProfile setCardType(String paramString);
+  
+  abstract PaymentProfile setIsCommuterBenefitsCard(boolean paramBoolean);
   
   abstract PaymentProfile setRewardInfo(RewardInfo paramRewardInfo);
   

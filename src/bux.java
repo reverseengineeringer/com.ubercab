@@ -1,6 +1,23 @@
-final class bux
+public enum bux
 {
-  private static final buw a = new buw((byte)0);
+  private brq n;
+  private String o;
+  
+  private bux(brq parambrq, String paramString1)
+  {
+    n = parambrq;
+    o = paramString1;
+  }
+  
+  final brq a()
+  {
+    return n;
+  }
+  
+  final String b()
+  {
+    return o;
+  }
 }
 
 /* Location:
